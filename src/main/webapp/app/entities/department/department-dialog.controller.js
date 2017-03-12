@@ -5,9 +5,9 @@
         .module('investhryApp')
         .controller('DepartmentDialogController', DepartmentDialogController);
 
-    DepartmentDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Department'];
+    DepartmentDialogController.$inject = ['$timeout', '$scope', '$state','entity', 'Department'];
 
-    function DepartmentDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Department) {
+    function DepartmentDialogController ($timeout, $scope, $state, entity, Department) {
         var vm = this;
 
         vm.department = entity;
@@ -19,8 +19,8 @@
         });
 
         function clear () {
-            $uibModalInstance.dismiss('cancel');
-        }
+    		$state.go('department', {}, { reload: 'department' });
+		}
 
         function save () {
             vm.isSaving = true;
@@ -32,8 +32,8 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('investhryApp:departmentUpdate', result);
-            $uibModalInstance.close(result);
+            $scope.$emit('investharyanaApp:departmentUpdate', result);
+            $state.go('department', {}, { reload: 'department' });
             vm.isSaving = false;
         }
 

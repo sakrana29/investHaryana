@@ -40,8 +40,7 @@
         <div class="form-group">
             <label class="control-label" data-translate="investhryApp.departmentService.departmentID" for="field_departmentID">Department ID</label>
             <input type="text" class="form-control" name="departmentID" id="field_departmentID"
-                    ng-model="vm.departmentService.departmentID"
-                    required/>
+                    ng-model="vm.departmentService.departmentID" readonly required/>
             <div ng-show="editForm.departmentID.$invalid">
                 <p class="help-block"
                     ng-show="editForm.departmentID.$error.required" data-translate="entity.validation.required">
