@@ -1,0 +1,23 @@
+{
+    "investhryApp": {
+        "serviceFormField" : {
+            "home": {
+                "title": "ServiceFormFields",
+                "createLabel": "नया Service Form Field बनाएँ",
+                "createOrEditLabel": "Service Form Field बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Service Form Field [identifier: {{ param }}] तैयार है",
+            "updated": "एक Service Form Field [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Service Form Field [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Service Form Field [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Service Form Field"
+            },
+            "fieldName": "Field Name",
+            "fieldType": "Field Type",
+            "serviceID": "Service ID"
+        }
+    }
+}

@@ -1,0 +1,60 @@
+<div>
+    <h2 data-translate="investhryApp.serviceFormField.home.title">Service Form Fields</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="service-form-field.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="investhryApp.serviceFormField.home.createLabel">
+                        Create new Service Form Field
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="investhryApp.serviceFormField.fieldName">Field Name</span></th>
+                    <th><span data-translate="investhryApp.serviceFormField.fieldType">Field Type</span></th>
+                    <th><span data-translate="investhryApp.serviceFormField.serviceID">Service ID</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="serviceFormField in vm.serviceFormFields track by serviceFormField.id">
+                    <td><a ui-sref="service-form-field-detail({id:serviceFormField.id})">{{serviceFormField.id}}</a></td>
+                    <td>{{serviceFormField.fieldName}}</td>
+                    <td>{{serviceFormField.fieldType}}</td>
+                    <td>{{serviceFormField.serviceID}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="service-form-field-detail({id:serviceFormField.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="service-form-field.edit({id:serviceFormField.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="service-form-field.delete({id:serviceFormField.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

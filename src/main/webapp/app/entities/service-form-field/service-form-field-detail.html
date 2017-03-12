@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span data-translate="investhryApp.serviceFormField.detail.title">Service Form Field</span> {{vm.serviceFormField.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="investhryApp.serviceFormField.fieldName">Field Name</span></dt>
+        <dd>
+            <span>{{vm.serviceFormField.fieldName}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.serviceFormField.fieldType">Field Type</span></dt>
+        <dd>
+            <span>{{vm.serviceFormField.fieldType}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.serviceFormField.serviceID">Service ID</span></dt>
+        <dd>
+            <span>{{vm.serviceFormField.serviceID}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="service-form-field-detail.edit({id:vm.serviceFormField.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

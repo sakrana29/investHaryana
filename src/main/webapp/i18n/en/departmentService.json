@@ -1,0 +1,23 @@
+{
+    "investhryApp": {
+        "departmentService" : {
+            "home": {
+                "title": "Department Services",
+                "createLabel": "Create a new Department Service",
+                "createOrEditLabel": "Create or edit a Department Service"
+            },
+            "created": "A new Department Service is created with identifier {{ param }}",
+            "updated": "A Department Service is updated with identifier {{ param }}",
+            "deleted": "A Department Service is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Department Service {{ id }}?"
+            },
+            "detail": {
+                "title": "Department Service"
+            },
+            "serviceName": "Service Name",
+            "serviceDescription": "Service Description",
+            "departmentID": "Department ID"
+        }
+    }
+}

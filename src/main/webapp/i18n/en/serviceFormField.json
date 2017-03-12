@@ -1,0 +1,23 @@
+{
+    "investhryApp": {
+        "serviceFormField" : {
+            "home": {
+                "title": "Service Form Fields",
+                "createLabel": "Create a new Service Form Field",
+                "createOrEditLabel": "Create or edit a Service Form Field"
+            },
+            "created": "A new Service Form Field is created with identifier {{ param }}",
+            "updated": "A Service Form Field is updated with identifier {{ param }}",
+            "deleted": "A Service Form Field is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Service Form Field {{ id }}?"
+            },
+            "detail": {
+                "title": "Service Form Field"
+            },
+            "fieldName": "Field Name",
+            "fieldType": "Field Type",
+            "serviceID": "Service ID"
+        }
+    }
+}
