@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "landusezoneclassification" : {
+            "home": {
+                "title": "Landusezoneclassifications",
+                "createLabel": "नया Landusezoneclassification बनाएँ",
+                "createOrEditLabel": "Landusezoneclassification बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Landusezoneclassification [identifier: {{ param }}] तैयार है",
+            "updated": "एक Landusezoneclassification [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Landusezoneclassification [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Landusezoneclassification [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Landusezoneclassification"
+            },
+            "landzoneclassificationtype": "Landzoneclassificationtype"
+        }
+    }
+}

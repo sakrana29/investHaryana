@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "modeofdisposalfor_discharge" : {
+            "home": {
+                "title": "Modeofdisposalfor Discharges",
+                "createLabel": "Create a new Modeofdisposalfor Discharge",
+                "createOrEditLabel": "Create or edit a Modeofdisposalfor Discharge"
+            },
+            "created": "A new Modeofdisposalfor Discharge is created with identifier {{ param }}",
+            "updated": "A Modeofdisposalfor Discharge is updated with identifier {{ param }}",
+            "deleted": "A Modeofdisposalfor Discharge is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Modeofdisposalfor Discharge {{ id }}?"
+            },
+            "detail": {
+                "title": "Modeofdisposalfor Discharge"
+            },
+            "disposal_for_discharge": "Disposal For Discharge"
+        }
+    }
+}

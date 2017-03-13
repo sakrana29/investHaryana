@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "manufacturingunits" : {
+            "home": {
+                "title": "Manufacturingunits",
+                "createLabel": "Create a new Manufacturingunits",
+                "createOrEditLabel": "Create or edit a Manufacturingunits"
+            },
+            "created": "A new Manufacturingunits is created with identifier {{ param }}",
+            "updated": "A Manufacturingunits is updated with identifier {{ param }}",
+            "deleted": "A Manufacturingunits is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Manufacturingunits {{ id }}?"
+            },
+            "detail": {
+                "title": "Manufacturingunits"
+            },
+            "unittypes": "Unittypes"
+        }
+    }
+}

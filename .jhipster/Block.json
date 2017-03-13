@@ -1,0 +1,19 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "districtid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "blockname",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170313082007",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "block",
+    "pagination": "no"
+}

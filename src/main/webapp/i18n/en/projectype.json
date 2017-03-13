@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "projectype" : {
+            "home": {
+                "title": "Projectypes",
+                "createLabel": "Create a new Projectype",
+                "createOrEditLabel": "Create or edit a Projectype"
+            },
+            "created": "A new Projectype is created with identifier {{ param }}",
+            "updated": "A Projectype is updated with identifier {{ param }}",
+            "deleted": "A Projectype is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Projectype {{ id }}?"
+            },
+            "detail": {
+                "title": "Projectype"
+            },
+            "projectypes": "Projectypes"
+        }
+    }
+}

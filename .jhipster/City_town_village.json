@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "disctrictid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "blockid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "city_town_village_name",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170313082147",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "city_town_village",
+    "pagination": "no"
+}

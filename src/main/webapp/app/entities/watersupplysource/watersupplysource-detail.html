@@ -1,0 +1,23 @@
+
+<div>
+    <h2><span data-translate="investhryApp.watersupplysource.detail.title">Watersupplysource</span> {{vm.watersupplysource.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="investhryApp.watersupplysource.watersupplysourcetype">Watersupplysourcetype</span></dt>
+        <dd>
+            <span>{{vm.watersupplysource.watersupplysourcetype}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="watersupplysource-detail.edit({id:vm.watersupplysource.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

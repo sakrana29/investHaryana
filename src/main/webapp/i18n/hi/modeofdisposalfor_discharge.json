@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "modeofdisposalfor_discharge" : {
+            "home": {
+                "title": "Modeofdisposalfor_discharges",
+                "createLabel": "नया Modeofdisposalfor Discharge बनाएँ",
+                "createOrEditLabel": "Modeofdisposalfor Discharge बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Modeofdisposalfor Discharge [identifier: {{ param }}] तैयार है",
+            "updated": "एक Modeofdisposalfor Discharge [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Modeofdisposalfor Discharge [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Modeofdisposalfor Discharge [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Modeofdisposalfor Discharge"
+            },
+            "disposal_for_discharge": "Disposal For Discharge"
+        }
+    }
+}

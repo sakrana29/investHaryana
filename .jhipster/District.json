@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "countryid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "stateid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "districtname",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170313081807",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "district",
+    "pagination": "no"
+}

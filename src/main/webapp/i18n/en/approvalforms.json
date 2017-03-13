@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "approvalforms" : {
+            "home": {
+                "title": "Approvalforms",
+                "createLabel": "Create a new Approvalforms",
+                "createOrEditLabel": "Create or edit a Approvalforms"
+            },
+            "created": "A new Approvalforms is created with identifier {{ param }}",
+            "updated": "A Approvalforms is updated with identifier {{ param }}",
+            "deleted": "A Approvalforms is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Approvalforms {{ id }}?"
+            },
+            "detail": {
+                "title": "Approvalforms"
+            },
+            "existingapprovalforms": "Existingapprovalforms"
+        }
+    }
+}

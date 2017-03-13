@@ -1,0 +1,15 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "landzoneclassificationtype",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170313082507",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "landusezoneclassification",
+    "pagination": "no"
+}
