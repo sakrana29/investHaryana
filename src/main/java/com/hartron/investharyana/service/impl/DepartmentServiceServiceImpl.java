@@ -89,7 +89,7 @@ public class DepartmentServiceServiceImpl implements DepartmentServiceService{
     @Override
     public List<DepartmentServiceDTO> findServiceByDepartmentId(String departmentId) {
         log.debug("Request to get DepartmentService by DepartmentId : {}", departmentId);
-        List<DepartmentServiceDTO> result = departmentServiceRepository.findOneByDepartmentId(UUID.fromString(departmentId)).stream()
+        List<DepartmentServiceDTO> result = departmentServiceRepository.findServicesByDepartmentId(UUID.fromString(departmentId)).stream()
             .map(departmentServiceMapper::departmentServiceToDepartmentServiceDTO)
             .collect(Collectors.toCollection(LinkedList::new));
 

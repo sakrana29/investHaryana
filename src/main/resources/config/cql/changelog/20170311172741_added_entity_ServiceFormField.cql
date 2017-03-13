@@ -6,3 +6,10 @@ CREATE TABLE IF NOT EXISTS serviceFormField (
     serviceID uuid,
     PRIMARY KEY(id)
 );
+
+CREATE TABLE IF NOT EXISTS serviceFormField_by_service (
+serviceID uuid,
+id uuid,
+PRIMARY KEY(serviceID, id)
+);
+

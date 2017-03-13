@@ -47,7 +47,7 @@ public class DepartmentServiceRepository {
                 "WHERE departmentID = :departmentID");
     }
 
-    public List<DepartmentService> findOneByDepartmentId(UUID departmentID) {
+    public List<DepartmentService> findServicesByDepartmentId(UUID departmentID) {
         BoundStatement stmt = findServicesByDepartmentIdStmt.bind();
         stmt.setUUID("departmentID", departmentID);
         return findServiceFromIndex(stmt);

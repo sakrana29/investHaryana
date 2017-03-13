@@ -18,7 +18,7 @@ public interface ServiceFormFieldService {
 
     /**
      *  Get all the serviceFormFields.
-     *  
+     *
      *  @return the list of entities
      */
     List<ServiceFormFieldDTO> findAll();
@@ -37,4 +37,6 @@ public interface ServiceFormFieldService {
      *  @param id the id of the entity
      */
     void delete(String id);
+
+    List<ServiceFormFieldDTO> findServiceFormFieldsByServiceId(String serviceid);
 }
