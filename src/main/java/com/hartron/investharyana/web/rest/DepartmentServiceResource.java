@@ -29,7 +29,7 @@ public class DepartmentServiceResource {
     private final Logger log = LoggerFactory.getLogger(DepartmentServiceResource.class);
 
     private static final String ENTITY_NAME = "departmentService";
-        
+
     private final DepartmentServiceService departmentServiceService;
 
     public DepartmentServiceResource(DepartmentServiceService departmentServiceService) {
@@ -104,6 +104,13 @@ public class DepartmentServiceResource {
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(departmentServiceDTO));
     }
 
+    @GetMapping("/department-services/department/{deptid}")
+    @Timed
+    public List<DepartmentServiceDTO> getServicesByDepartmentid(@PathVariable String deptid) {
+        log.debug("REST request to get DepartmentService by Departmentid : {}", deptid);
+        return departmentServiceService.findServiceByDepartmentId(deptid);
+    }
+
     /**
      * DELETE  /department-services/:id : delete the "id" departmentService.
      *
@@ -117,5 +124,4 @@ public class DepartmentServiceResource {
         departmentServiceService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
-
 }

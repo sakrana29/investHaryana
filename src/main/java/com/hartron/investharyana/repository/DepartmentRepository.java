@@ -25,11 +25,17 @@ public class DepartmentRepository {
 
     private PreparedStatement truncateStmt;
 
+    private PreparedStatement deleteByDepartmentStmt;
+
     public DepartmentRepository(Session session) {
         this.session = session;
         this.mapper = new MappingManager(session).mapper(Department.class);
         this.findAllStmt = session.prepare("SELECT * FROM department");
         this.truncateStmt = session.prepare("TRUNCATE department");
+
+        deleteByDepartmentStmt = session.prepare(
+            "DELETE FROM departmentService_by_department " +
+                "WHERE departmentID = :departmentID");
     }
 
     public List<Department> findAll() {
@@ -59,7 +65,9 @@ public class DepartmentRepository {
         return department;
     }
 
-    public void delete(UUID id) {
+    public void delete(UUID id)
+    {
+        BatchStatement batch = new BatchStatement();
         mapper.delete(id);
     }
 
