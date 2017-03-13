@@ -88,61 +88,55 @@
                 });
             }]
         })
-        .state('service-form-field.new', {
+		.state('service-form-field.new', {
             parent: 'service-form-field',
-            url: '/new',
+            url: '/new/{id}',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_USER'],
+                pageTitle: 'Create or Edit Service Form Field'
+
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/entities/service-form-field/service-form-field-dialog.html',
-                    controller: 'ServiceFormFieldDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: function () {
-                            return {
-                                fieldName: null,
-                                fieldType: null,
-                                serviceID: null,
-                                id: null
-                            };
-                        }
-                    }
-                }).result.then(function() {
-                    $state.go('service-form-field', null, { reload: 'service-form-field' });
-                }, function() {
-                    $state.go('service-form-field');
-                });
-            }]
+            views: {
+				'content@': {
+					templateUrl: 'app/entities/service-form-field/service-form-field-dialog.html',
+					controller: 'ServiceFormFieldDialogController',
+					controllerAs: 'vm',
+
+				}
+			},
+			resolve: {
+				entity: function ($stateParams, $state) {
+				   return {
+						fieldName: null,
+						fieldType: null,
+						serviceID: $stateParams.id,
+						id: null
+					};
+				}
+			}
+
         })
         .state('service-form-field.edit', {
-            parent: 'service-form-field',
-            url: '/{id}/edit',
-            data: {
-                authorities: ['ROLE_USER']
-            },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/entities/service-form-field/service-form-field-dialog.html',
-                    controller: 'ServiceFormFieldDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: ['ServiceFormField', function(ServiceFormField) {
-                            return ServiceFormField.get({id : $stateParams.id}).$promise;
-                        }]
-                    }
-                }).result.then(function() {
-                    $state.go('service-form-field', null, { reload: 'service-form-field' });
-                }, function() {
-                    $state.go('^');
-                });
-            }]
-        })
+				parent: 'service-form-field',
+				url: '/edit/{id}',
+				data: {
+					authorities: ['ROLE_USER'],
+					pageTitle: 'Create or Edit Service Form Field'
+				},
+				views: {
+					'content@': {
+						templateUrl: 'app/entities/service-form-field/service-form-field-dialog.html',
+						controller: 'ServiceFormFieldDialogController',
+						controllerAs: 'vm',
+
+					}
+				},
+				resolve: {
+					entity: function ($stateParams, $state, ServiceFormField) {
+						 return ServiceFormField.get({id : $stateParams.id}).$promise;
+					}
+				}
+			})        
         .state('service-form-field.delete', {
             parent: 'service-form-field',
             url: '/{id}/delete',

@@ -29,8 +29,56 @@
                     return $translate.refresh();
                 }]
             }
+        }) .state('user-management.new', {
+            parent: 'user-management',
+            url: '/new',
+            data: {
+                authorities: ['ROLE_USER'],
+                pageTitle: 'Create or Edit User'
+
+            },
+            views: {
+                    'content@': {
+                        templateUrl: 'app/admin/user-management/user-management-dialog.html',
+						controller: 'UserManagementDialogController',
+						controllerAs: 'vm',
+
+                    }
+                },
+                resolve: {
+                    entity: function ($stateParams, $state) {
+                        return {
+							id: null, login: null, firstName: null, lastName: null, email: null,
+							activated: true, langKey: null, createdBy: null, createdDate: null,
+							lastModifiedBy: null, lastModifiedDate: null, resetDate: null,
+							resetKey: null, authorities: null
+						};
+                    }
+                }
+
         })
-        .state('user-management.new', {
+		.state('user-management.edit', {
+            parent: 'user-management',
+            url: '/{login}/edit',
+            data: {
+                authorities: ['ROLE_USER'],
+                pageTitle: 'Create or Edit Departments'
+            },
+            views: {
+                'content@': {
+                  	templateUrl: 'app/admin/user-management/user-management-dialog.html',
+					controller: 'UserManagementDialogController',
+					controllerAs: 'vm',
+
+                }
+            },
+            resolve: {
+              entity: function($stateParams, $state,User) {
+                            return User.get({login : $stateParams.login});
+                  }
+            }
+        })
+      /*  .state('user-management.new', {
             url: '/new',
             data: {
                 authorities: ['ROLE_ADMIN']
@@ -58,7 +106,7 @@
                     $state.go('user-management');
                 });
             }]
-        })
+        }) *
         .state('user-management.edit', {
             url: '/{login}/edit',
             data: {
@@ -82,7 +130,7 @@
                     $state.go('^');
                 });
             }]
-        })
+        })*/
         .state('user-management-detail', {
             parent: 'user-management',
             url: '/user/{login}',

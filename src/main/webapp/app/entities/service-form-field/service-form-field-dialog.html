@@ -40,8 +40,7 @@
         <div class="form-group">
             <label class="control-label" data-translate="investhryApp.serviceFormField.serviceID" for="field_serviceID">Service ID</label>
             <input type="text" class="form-control" name="serviceID" id="field_serviceID"
-                    ng-model="vm.serviceFormField.serviceID"
-                    required/>
+                    ng-model="vm.serviceFormField.serviceID" readonly  required/>
             <div ng-show="editForm.serviceID.$invalid">
                 <p class="help-block"
                     ng-show="editForm.serviceID.$error.required" data-translate="entity.validation.required">

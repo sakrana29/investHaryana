@@ -5,9 +5,9 @@
         .module('investhryApp')
         .controller('UserManagementDialogController',UserManagementDialogController);
 
-    UserManagementDialogController.$inject = ['$stateParams', '$uibModalInstance', 'entity', 'User', 'JhiLanguageService'];
+    UserManagementDialogController.$inject = ['$state', 'entity', 'User', 'JhiLanguageService'];
 
-    function UserManagementDialogController ($stateParams, $uibModalInstance, entity, User, JhiLanguageService) {
+    function UserManagementDialogController ($state, entity, User, JhiLanguageService) {
         var vm = this;
 
         vm.authorities = ['ROLE_USER', 'ROLE_ADMIN'];
@@ -22,12 +22,12 @@
         });
 
         function clear () {
-            $uibModalInstance.dismiss('cancel');
+          	$state.go('user-management', null, { reload: true });
         }
 
         function onSaveSuccess (result) {
-            vm.isSaving = false;
-            $uibModalInstance.close(result);
+           	vm.isSaving = false;
+        	$state.go('user-management', null, { reload: true });
         }
 
         function onSaveError () {
