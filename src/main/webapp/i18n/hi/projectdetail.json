@@ -1,0 +1,34 @@
+{
+    "investhryApp": {
+        "projectdetail" : {
+            "home": {
+                "title": "Projectdetails",
+                "createLabel": "नया Projectdetail बनाएँ",
+                "createOrEditLabel": "Projectdetail बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Projectdetail [identifier: {{ param }}] तैयार है",
+            "updated": "एक Projectdetail [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Projectdetail [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Projectdetail [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Projectdetail"
+            },
+            "investorid": "Investorid",
+            "sector": "Sector",
+            "projectpurpose": "Projectpurpose",
+            "size_of_industry": "Size Of Industry",
+            "projectype": "Projectype",
+            "niccode": "Niccode",
+            "category_of_project": "Category Of Project",
+            "collaboration_with_foreign_country": "Collaboration With Foreign Country",
+            "detail_project_report": "Detail Project Report",
+            "existing_regulatory_approval": "Existing Regulatory Approval",
+            "approval_application_form": "Approval Application Form",
+            "approval_document": "Approval Document",
+            "edc_sif_clu_fee_paid_document": "Edc Sif Clu Fee Paid Document",
+            "edc_sif_clu_fee_paid_applicable": "Edc Sif Clu Fee Paid Applicable"
+        }
+    }
+}

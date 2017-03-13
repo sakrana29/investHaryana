@@ -1,0 +1,91 @@
+<div>
+    <h2 data-translate="investhryApp.projectdetail.home.title">Projectdetails</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="projectdetail.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="investhryApp.projectdetail.home.createLabel">
+                        Create new Projectdetail
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.investorid">Investorid</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.sector">Sector</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.projectpurpose">Projectpurpose</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.size_of_industry">Size Of Industry</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.projectype">Projectype</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.niccode">Niccode</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.category_of_project">Category Of Project</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.collaboration_with_foreign_country">Collaboration With Foreign Country</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.detail_project_report">Detail Project Report</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.existing_regulatory_approval">Existing Regulatory Approval</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.approval_application_form">Approval Application Form</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.approval_document">Approval Document</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.edc_sif_clu_fee_paid_document">Edc Sif Clu Fee Paid Document</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.edc_sif_clu_fee_paid_applicable">Edc Sif Clu Fee Paid Applicable</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="projectdetail in vm.projectdetails track by projectdetail.id">
+                    <td><a ui-sref="projectdetail-detail({id:projectdetail.id})">{{projectdetail.id}}</a></td>
+                    <td>{{projectdetail.investorid}}</td>
+                    <td>{{projectdetail.sector}}</td>
+                    <td>{{projectdetail.projectpurpose}}</td>
+                    <td>{{projectdetail.size_of_industry}}</td>
+                    <td>{{projectdetail.projectype}}</td>
+                    <td>{{projectdetail.niccode}}</td>
+                    <td>{{projectdetail.category_of_project}}</td>
+                    <td>{{projectdetail.collaboration_with_foreign_country}}</td>
+                    <td>
+                        <a ng-if="projectdetail.detail_project_report" ng-click="vm.openFile(projectdetail.detail_project_reportContentType, projectdetail.detail_project_report)" data-translate="entity.action.open">open</a>
+                        <span ng-if="projectdetail.detail_project_report">{{projectdetail.detail_project_reportContentType}}, {{vm.byteSize(projectdetail.detail_project_report)}}</span>
+                    </td>
+                    <td>{{projectdetail.existing_regulatory_approval}}</td>
+                    <td>{{projectdetail.approval_application_form}}</td>
+                    <td>
+                        <a ng-if="projectdetail.approval_document" ng-click="vm.openFile(projectdetail.approval_documentContentType, projectdetail.approval_document)" data-translate="entity.action.open">open</a>
+                        <span ng-if="projectdetail.approval_document">{{projectdetail.approval_documentContentType}}, {{vm.byteSize(projectdetail.approval_document)}}</span>
+                    </td>
+                    <td>
+                        <a ng-if="projectdetail.edc_sif_clu_fee_paid_document" ng-click="vm.openFile(projectdetail.edc_sif_clu_fee_paid_documentContentType, projectdetail.edc_sif_clu_fee_paid_document)" data-translate="entity.action.open">open</a>
+                        <span ng-if="projectdetail.edc_sif_clu_fee_paid_document">{{projectdetail.edc_sif_clu_fee_paid_documentContentType}}, {{vm.byteSize(projectdetail.edc_sif_clu_fee_paid_document)}}</span>
+                    </td>
+                    <td>{{projectdetail.edc_sif_clu_fee_paid_applicable}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="projectdetail-detail({id:projectdetail.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="projectdetail.edit({id:projectdetail.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="projectdetail.delete({id:projectdetail.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

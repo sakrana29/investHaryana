@@ -1,0 +1,209 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "projectid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "siteaddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "district",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "block",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "city_town_village",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "tehsil_subtehsil",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "multyvillageinvolved",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "villageinvolved",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "falls_in_aravalli",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "islandprocured",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "allotedbyhsiidc",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "estate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cluster",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phase",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sector",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "plotno",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hadbastno",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "khasra_document",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "liesunder_mc",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "distance_from_mc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "islocated_in_urban",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "revenu_shajra_document",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "jamabandi",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "nonencumbrance_certificate",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "totalproposedprojectarea",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "proposedbuilt_up_area",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "certifiedownership",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "ownership_document",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "leaseapplicable",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "lease_document",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "landagreementapplicable",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "landagreement_document",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "sitelayoutplan",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "locationplan",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "linearstripplan",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "connectingroad",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "intersectiondistance",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "railwaydistance",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "confirmitylanduse",
+            "fieldType": "Boolean",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "landzoneuse_type",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "sitesituated_document",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "buildingexisted",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "existing_building_applicable",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "buildingplan_document",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "site_situated_in_controlled_area",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "controlledarea_document",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "changelogDate": "20170313114208",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "projectsitedetail",
+    "pagination": "no"
+}

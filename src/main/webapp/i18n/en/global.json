@@ -36,6 +36,8 @@
                 "investor": "Investor",
                 "businessentity": "Businessentity",
                 "companydetail": "Companydetail",
+                "projectdetail": "Projectdetail",
+                "projectsitedetail": "Projectsitedetail",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

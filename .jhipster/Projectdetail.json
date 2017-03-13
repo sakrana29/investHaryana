@@ -1,0 +1,70 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "investorid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "sector",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "projectpurpose",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "size_of_industry",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "projectype",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "niccode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "category_of_project",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "collaboration_with_foreign_country",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "detail_project_report",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "existing_regulatory_approval",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "approval_application_form",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "approval_document",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "edc_sif_clu_fee_paid_document",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "edc_sif_clu_fee_paid_applicable",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20170313112040",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "projectdetail",
+    "pagination": "no"
+}

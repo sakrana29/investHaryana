@@ -1,0 +1,66 @@
+{
+    "investhryApp": {
+        "projectsitedetail" : {
+            "home": {
+                "title": "Projectsitedetails",
+                "createLabel": "Create a new Projectsitedetail",
+                "createOrEditLabel": "Create or edit a Projectsitedetail"
+            },
+            "created": "A new Projectsitedetail is created with identifier {{ param }}",
+            "updated": "A Projectsitedetail is updated with identifier {{ param }}",
+            "deleted": "A Projectsitedetail is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Projectsitedetail {{ id }}?"
+            },
+            "detail": {
+                "title": "Projectsitedetail"
+            },
+            "projectid": "Projectid",
+            "siteaddress": "Siteaddress",
+            "district": "District",
+            "block": "Block",
+            "city_town_village": "City Town Village",
+            "tehsil_subtehsil": "Tehsil Subtehsil",
+            "multyvillageinvolved": "Multyvillageinvolved",
+            "villageinvolved": "Villageinvolved",
+            "falls_in_aravalli": "Falls In Aravalli",
+            "islandprocured": "Islandprocured",
+            "allotedbyhsiidc": "Allotedbyhsiidc",
+            "estate": "Estate",
+            "cluster": "Cluster",
+            "phase": "Phase",
+            "sector": "Sector",
+            "plotno": "Plotno",
+            "hadbastno": "Hadbastno",
+            "khasra_document": "Khasra Document",
+            "liesunder_mc": "Liesunder Mc",
+            "distance_from_mc": "Distance From Mc",
+            "islocated_in_urban": "Islocated In Urban",
+            "revenu_shajra_document": "Revenu Shajra Document",
+            "jamabandi": "Jamabandi",
+            "nonencumbrance_certificate": "Nonencumbrance Certificate",
+            "totalproposedprojectarea": "Totalproposedprojectarea",
+            "proposedbuilt_up_area": "Proposedbuilt Up Area",
+            "certifiedownership": "Certifiedownership",
+            "ownership_document": "Ownership Document",
+            "leaseapplicable": "Leaseapplicable",
+            "lease_document": "Lease Document",
+            "landagreementapplicable": "Landagreementapplicable",
+            "landagreement_document": "Landagreement Document",
+            "sitelayoutplan": "Sitelayoutplan",
+            "locationplan": "Locationplan",
+            "linearstripplan": "Linearstripplan",
+            "connectingroad": "Connectingroad",
+            "intersectiondistance": "Intersectiondistance",
+            "railwaydistance": "Railwaydistance",
+            "confirmitylanduse": "Confirmitylanduse",
+            "landzoneuse_type": "Landzoneuse Type",
+            "sitesituated_document": "Sitesituated Document",
+            "buildingexisted": "Buildingexisted",
+            "existing_building_applicable": "Existing Building Applicable",
+            "buildingplan_document": "Buildingplan Document",
+            "site_situated_in_controlled_area": "Site Situated In Controlled Area",
+            "controlledarea_document": "Controlledarea Document"
+        }
+    }
+}

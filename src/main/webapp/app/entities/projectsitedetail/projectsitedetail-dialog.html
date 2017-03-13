@@ -1,0 +1,510 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProjectsitedetailLabel" data-translate="investhryApp.projectsitedetail.home.createOrEditLabel">Create or edit a Projectsitedetail</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.projectsitedetail.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.projectsitedetail.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.projectid" for="field_projectid">Projectid</label>
+            <input type="text" class="form-control" name="projectid" id="field_projectid"
+                    ng-model="vm.projectsitedetail.projectid"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.siteaddress" for="field_siteaddress">Siteaddress</label>
+            <input type="text" class="form-control" name="siteaddress" id="field_siteaddress"
+                    ng-model="vm.projectsitedetail.siteaddress"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.district" for="field_district">District</label>
+            <input type="text" class="form-control" name="district" id="field_district"
+                    ng-model="vm.projectsitedetail.district"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.block" for="field_block">Block</label>
+            <input type="text" class="form-control" name="block" id="field_block"
+                    ng-model="vm.projectsitedetail.block"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.city_town_village" for="field_city_town_village">City Town Village</label>
+            <input type="text" class="form-control" name="city_town_village" id="field_city_town_village"
+                    ng-model="vm.projectsitedetail.city_town_village"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.tehsil_subtehsil" for="field_tehsil_subtehsil">Tehsil Subtehsil</label>
+            <input type="text" class="form-control" name="tehsil_subtehsil" id="field_tehsil_subtehsil"
+                    ng-model="vm.projectsitedetail.tehsil_subtehsil"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.multyvillageinvolved" for="field_multyvillageinvolved">Multyvillageinvolved</label>
+            <input type="checkbox" class="form-control" name="multyvillageinvolved" id="field_multyvillageinvolved"
+                    ng-model="vm.projectsitedetail.multyvillageinvolved"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.villageinvolved" for="field_villageinvolved">Villageinvolved</label>
+            <input type="text" class="form-control" name="villageinvolved" id="field_villageinvolved"
+                    ng-model="vm.projectsitedetail.villageinvolved"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.falls_in_aravalli" for="field_falls_in_aravalli">Falls In Aravalli</label>
+            <input type="checkbox" class="form-control" name="falls_in_aravalli" id="field_falls_in_aravalli"
+                    ng-model="vm.projectsitedetail.falls_in_aravalli"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.islandprocured" for="field_islandprocured">Islandprocured</label>
+            <input type="checkbox" class="form-control" name="islandprocured" id="field_islandprocured"
+                    ng-model="vm.projectsitedetail.islandprocured"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.allotedbyhsiidc" for="field_allotedbyhsiidc">Allotedbyhsiidc</label>
+            <input type="checkbox" class="form-control" name="allotedbyhsiidc" id="field_allotedbyhsiidc"
+                    ng-model="vm.projectsitedetail.allotedbyhsiidc"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.estate" for="field_estate">Estate</label>
+            <input type="text" class="form-control" name="estate" id="field_estate"
+                    ng-model="vm.projectsitedetail.estate"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.cluster" for="field_cluster">Cluster</label>
+            <input type="text" class="form-control" name="cluster" id="field_cluster"
+                    ng-model="vm.projectsitedetail.cluster"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.phase" for="field_phase">Phase</label>
+            <input type="text" class="form-control" name="phase" id="field_phase"
+                    ng-model="vm.projectsitedetail.phase"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.sector" for="field_sector">Sector</label>
+            <input type="text" class="form-control" name="sector" id="field_sector"
+                    ng-model="vm.projectsitedetail.sector"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.plotno" for="field_plotno">Plotno</label>
+            <input type="text" class="form-control" name="plotno" id="field_plotno"
+                    ng-model="vm.projectsitedetail.plotno"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.hadbastno" for="field_hadbastno">Hadbastno</label>
+            <input type="text" class="form-control" name="hadbastno" id="field_hadbastno"
+                    ng-model="vm.projectsitedetail.hadbastno"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setKhasra_document($file, vm.projectsitedetail)">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.khasra_document" for="field_khasra_document">Khasra Document</label>
+            <div>
+                <div ng-if="vm.projectsitedetail.khasra_document" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.projectsitedetail.khasra_documentContentType, vm.projectsitedetail.khasra_document)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.projectsitedetail.khasra_documentContentType}}, {{vm.byteSize(vm.projectsitedetail.khasra_document)}}</span>
+                    <button type="button" ng-click="vm.projectsitedetail.khasra_document=null;vm.projectsitedetail.khasra_documentContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setKhasra_document($file, vm.projectsitedetail)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="khasra_document" id="field_khasra_document"
+                    ng-model="vm.projectsitedetail.khasra_document"
+                    />
+            <input type="hidden" class="form-control" name="khasra_documentContentType" id="field_khasra_documentContentType"
+                    ng-model="vm.projectsitedetail.khasra_documentContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.liesunder_mc" for="field_liesunder_mc">Liesunder Mc</label>
+            <input type="checkbox" class="form-control" name="liesunder_mc" id="field_liesunder_mc"
+                    ng-model="vm.projectsitedetail.liesunder_mc"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.distance_from_mc" for="field_distance_from_mc">Distance From Mc</label>
+            <input type="number" class="form-control" name="distance_from_mc" id="field_distance_from_mc"
+                    ng-model="vm.projectsitedetail.distance_from_mc"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.islocated_in_urban" for="field_islocated_in_urban">Islocated In Urban</label>
+            <input type="checkbox" class="form-control" name="islocated_in_urban" id="field_islocated_in_urban"
+                    ng-model="vm.projectsitedetail.islocated_in_urban"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setRevenu_shajra_document($file, vm.projectsitedetail)">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.revenu_shajra_document" for="field_revenu_shajra_document">Revenu Shajra Document</label>
+            <div>
+                <div ng-if="vm.projectsitedetail.revenu_shajra_document" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.projectsitedetail.revenu_shajra_documentContentType, vm.projectsitedetail.revenu_shajra_document)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.projectsitedetail.revenu_shajra_documentContentType}}, {{vm.byteSize(vm.projectsitedetail.revenu_shajra_document)}}</span>
+                    <button type="button" ng-click="vm.projectsitedetail.revenu_shajra_document=null;vm.projectsitedetail.revenu_shajra_documentContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setRevenu_shajra_document($file, vm.projectsitedetail)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="revenu_shajra_document" id="field_revenu_shajra_document"
+                    ng-model="vm.projectsitedetail.revenu_shajra_document"
+                    />
+            <input type="hidden" class="form-control" name="revenu_shajra_documentContentType" id="field_revenu_shajra_documentContentType"
+                    ng-model="vm.projectsitedetail.revenu_shajra_documentContentType" />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setJamabandi($file, vm.projectsitedetail)">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.jamabandi" for="field_jamabandi">Jamabandi</label>
+            <div>
+                <div ng-if="vm.projectsitedetail.jamabandi" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.projectsitedetail.jamabandiContentType, vm.projectsitedetail.jamabandi)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.projectsitedetail.jamabandiContentType}}, {{vm.byteSize(vm.projectsitedetail.jamabandi)}}</span>
+                    <button type="button" ng-click="vm.projectsitedetail.jamabandi=null;vm.projectsitedetail.jamabandiContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setJamabandi($file, vm.projectsitedetail)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="jamabandi" id="field_jamabandi"
+                    ng-model="vm.projectsitedetail.jamabandi"
+                    />
+            <input type="hidden" class="form-control" name="jamabandiContentType" id="field_jamabandiContentType"
+                    ng-model="vm.projectsitedetail.jamabandiContentType" />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setNonencumbrance_certificate($file, vm.projectsitedetail)">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.nonencumbrance_certificate" for="field_nonencumbrance_certificate">Nonencumbrance Certificate</label>
+            <div>
+                <div ng-if="vm.projectsitedetail.nonencumbrance_certificate" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.projectsitedetail.nonencumbrance_certificateContentType, vm.projectsitedetail.nonencumbrance_certificate)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.projectsitedetail.nonencumbrance_certificateContentType}}, {{vm.byteSize(vm.projectsitedetail.nonencumbrance_certificate)}}</span>
+                    <button type="button" ng-click="vm.projectsitedetail.nonencumbrance_certificate=null;vm.projectsitedetail.nonencumbrance_certificateContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setNonencumbrance_certificate($file, vm.projectsitedetail)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="nonencumbrance_certificate" id="field_nonencumbrance_certificate"
+                    ng-model="vm.projectsitedetail.nonencumbrance_certificate"
+                    />
+            <input type="hidden" class="form-control" name="nonencumbrance_certificateContentType" id="field_nonencumbrance_certificateContentType"
+                    ng-model="vm.projectsitedetail.nonencumbrance_certificateContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.totalproposedprojectarea" for="field_totalproposedprojectarea">Totalproposedprojectarea</label>
+            <input type="number" class="form-control" name="totalproposedprojectarea" id="field_totalproposedprojectarea"
+                    ng-model="vm.projectsitedetail.totalproposedprojectarea"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.proposedbuilt_up_area" for="field_proposedbuilt_up_area">Proposedbuilt Up Area</label>
+            <input type="number" class="form-control" name="proposedbuilt_up_area" id="field_proposedbuilt_up_area"
+                    ng-model="vm.projectsitedetail.proposedbuilt_up_area"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.certifiedownership" for="field_certifiedownership">Certifiedownership</label>
+            <input type="checkbox" class="form-control" name="certifiedownership" id="field_certifiedownership"
+                    ng-model="vm.projectsitedetail.certifiedownership"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setOwnership_document($file, vm.projectsitedetail)">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.ownership_document" for="field_ownership_document">Ownership Document</label>
+            <div>
+                <div ng-if="vm.projectsitedetail.ownership_document" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.projectsitedetail.ownership_documentContentType, vm.projectsitedetail.ownership_document)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.projectsitedetail.ownership_documentContentType}}, {{vm.byteSize(vm.projectsitedetail.ownership_document)}}</span>
+                    <button type="button" ng-click="vm.projectsitedetail.ownership_document=null;vm.projectsitedetail.ownership_documentContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setOwnership_document($file, vm.projectsitedetail)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="ownership_document" id="field_ownership_document"
+                    ng-model="vm.projectsitedetail.ownership_document"
+                    />
+            <input type="hidden" class="form-control" name="ownership_documentContentType" id="field_ownership_documentContentType"
+                    ng-model="vm.projectsitedetail.ownership_documentContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.leaseapplicable" for="field_leaseapplicable">Leaseapplicable</label>
+            <input type="checkbox" class="form-control" name="leaseapplicable" id="field_leaseapplicable"
+                    ng-model="vm.projectsitedetail.leaseapplicable"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setLease_document($file, vm.projectsitedetail)">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.lease_document" for="field_lease_document">Lease Document</label>
+            <div>
+                <div ng-if="vm.projectsitedetail.lease_document" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.projectsitedetail.lease_documentContentType, vm.projectsitedetail.lease_document)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.projectsitedetail.lease_documentContentType}}, {{vm.byteSize(vm.projectsitedetail.lease_document)}}</span>
+                    <button type="button" ng-click="vm.projectsitedetail.lease_document=null;vm.projectsitedetail.lease_documentContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setLease_document($file, vm.projectsitedetail)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="lease_document" id="field_lease_document"
+                    ng-model="vm.projectsitedetail.lease_document"
+                    />
+            <input type="hidden" class="form-control" name="lease_documentContentType" id="field_lease_documentContentType"
+                    ng-model="vm.projectsitedetail.lease_documentContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.landagreementapplicable" for="field_landagreementapplicable">Landagreementapplicable</label>
+            <input type="checkbox" class="form-control" name="landagreementapplicable" id="field_landagreementapplicable"
+                    ng-model="vm.projectsitedetail.landagreementapplicable"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setLandagreement_document($file, vm.projectsitedetail)">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.landagreement_document" for="field_landagreement_document">Landagreement Document</label>
+            <div>
+                <div ng-if="vm.projectsitedetail.landagreement_document" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.projectsitedetail.landagreement_documentContentType, vm.projectsitedetail.landagreement_document)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.projectsitedetail.landagreement_documentContentType}}, {{vm.byteSize(vm.projectsitedetail.landagreement_document)}}</span>
+                    <button type="button" ng-click="vm.projectsitedetail.landagreement_document=null;vm.projectsitedetail.landagreement_documentContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setLandagreement_document($file, vm.projectsitedetail)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="landagreement_document" id="field_landagreement_document"
+                    ng-model="vm.projectsitedetail.landagreement_document"
+                    />
+            <input type="hidden" class="form-control" name="landagreement_documentContentType" id="field_landagreement_documentContentType"
+                    ng-model="vm.projectsitedetail.landagreement_documentContentType" />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setSitelayoutplan($file, vm.projectsitedetail)">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.sitelayoutplan" for="field_sitelayoutplan">Sitelayoutplan</label>
+            <div>
+                <div ng-if="vm.projectsitedetail.sitelayoutplan" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.projectsitedetail.sitelayoutplanContentType, vm.projectsitedetail.sitelayoutplan)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.projectsitedetail.sitelayoutplanContentType}}, {{vm.byteSize(vm.projectsitedetail.sitelayoutplan)}}</span>
+                    <button type="button" ng-click="vm.projectsitedetail.sitelayoutplan=null;vm.projectsitedetail.sitelayoutplanContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setSitelayoutplan($file, vm.projectsitedetail)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="sitelayoutplan" id="field_sitelayoutplan"
+                    ng-model="vm.projectsitedetail.sitelayoutplan"
+                    />
+            <input type="hidden" class="form-control" name="sitelayoutplanContentType" id="field_sitelayoutplanContentType"
+                    ng-model="vm.projectsitedetail.sitelayoutplanContentType" />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setLocationplan($file, vm.projectsitedetail)">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.locationplan" for="field_locationplan">Locationplan</label>
+            <div>
+                <div ng-if="vm.projectsitedetail.locationplan" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.projectsitedetail.locationplanContentType, vm.projectsitedetail.locationplan)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.projectsitedetail.locationplanContentType}}, {{vm.byteSize(vm.projectsitedetail.locationplan)}}</span>
+                    <button type="button" ng-click="vm.projectsitedetail.locationplan=null;vm.projectsitedetail.locationplanContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setLocationplan($file, vm.projectsitedetail)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="locationplan" id="field_locationplan"
+                    ng-model="vm.projectsitedetail.locationplan"
+                    />
+            <input type="hidden" class="form-control" name="locationplanContentType" id="field_locationplanContentType"
+                    ng-model="vm.projectsitedetail.locationplanContentType" />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setLinearstripplan($file, vm.projectsitedetail)">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.linearstripplan" for="field_linearstripplan">Linearstripplan</label>
+            <div>
+                <div ng-if="vm.projectsitedetail.linearstripplan" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.projectsitedetail.linearstripplanContentType, vm.projectsitedetail.linearstripplan)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.projectsitedetail.linearstripplanContentType}}, {{vm.byteSize(vm.projectsitedetail.linearstripplan)}}</span>
+                    <button type="button" ng-click="vm.projectsitedetail.linearstripplan=null;vm.projectsitedetail.linearstripplanContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setLinearstripplan($file, vm.projectsitedetail)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="linearstripplan" id="field_linearstripplan"
+                    ng-model="vm.projectsitedetail.linearstripplan"
+                    />
+            <input type="hidden" class="form-control" name="linearstripplanContentType" id="field_linearstripplanContentType"
+                    ng-model="vm.projectsitedetail.linearstripplanContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.connectingroad" for="field_connectingroad">Connectingroad</label>
+            <input type="text" class="form-control" name="connectingroad" id="field_connectingroad"
+                    ng-model="vm.projectsitedetail.connectingroad"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.intersectiondistance" for="field_intersectiondistance">Intersectiondistance</label>
+            <input type="checkbox" class="form-control" name="intersectiondistance" id="field_intersectiondistance"
+                    ng-model="vm.projectsitedetail.intersectiondistance"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.railwaydistance" for="field_railwaydistance">Railwaydistance</label>
+            <input type="checkbox" class="form-control" name="railwaydistance" id="field_railwaydistance"
+                    ng-model="vm.projectsitedetail.railwaydistance"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.confirmitylanduse" for="field_confirmitylanduse">Confirmitylanduse</label>
+            <input type="checkbox" class="form-control" name="confirmitylanduse" id="field_confirmitylanduse"
+                    ng-model="vm.projectsitedetail.confirmitylanduse"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.landzoneuse_type" for="field_landzoneuse_type">Landzoneuse Type</label>
+            <input type="text" class="form-control" name="landzoneuse_type" id="field_landzoneuse_type"
+                    ng-model="vm.projectsitedetail.landzoneuse_type"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setSitesituated_document($file, vm.projectsitedetail)">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.sitesituated_document" for="field_sitesituated_document">Sitesituated Document</label>
+            <div>
+                <div ng-if="vm.projectsitedetail.sitesituated_document" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.projectsitedetail.sitesituated_documentContentType, vm.projectsitedetail.sitesituated_document)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.projectsitedetail.sitesituated_documentContentType}}, {{vm.byteSize(vm.projectsitedetail.sitesituated_document)}}</span>
+                    <button type="button" ng-click="vm.projectsitedetail.sitesituated_document=null;vm.projectsitedetail.sitesituated_documentContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setSitesituated_document($file, vm.projectsitedetail)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="sitesituated_document" id="field_sitesituated_document"
+                    ng-model="vm.projectsitedetail.sitesituated_document"
+                    />
+            <input type="hidden" class="form-control" name="sitesituated_documentContentType" id="field_sitesituated_documentContentType"
+                    ng-model="vm.projectsitedetail.sitesituated_documentContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.buildingexisted" for="field_buildingexisted">Buildingexisted</label>
+            <input type="text" class="form-control" name="buildingexisted" id="field_buildingexisted"
+                    ng-model="vm.projectsitedetail.buildingexisted"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.existing_building_applicable" for="field_existing_building_applicable">Existing Building Applicable</label>
+            <input type="checkbox" class="form-control" name="existing_building_applicable" id="field_existing_building_applicable"
+                    ng-model="vm.projectsitedetail.existing_building_applicable"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setBuildingplan_document($file, vm.projectsitedetail)">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.buildingplan_document" for="field_buildingplan_document">Buildingplan Document</label>
+            <div>
+                <div ng-if="vm.projectsitedetail.buildingplan_document" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.projectsitedetail.buildingplan_documentContentType, vm.projectsitedetail.buildingplan_document)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.projectsitedetail.buildingplan_documentContentType}}, {{vm.byteSize(vm.projectsitedetail.buildingplan_document)}}</span>
+                    <button type="button" ng-click="vm.projectsitedetail.buildingplan_document=null;vm.projectsitedetail.buildingplan_documentContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setBuildingplan_document($file, vm.projectsitedetail)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="buildingplan_document" id="field_buildingplan_document"
+                    ng-model="vm.projectsitedetail.buildingplan_document"
+                    />
+            <input type="hidden" class="form-control" name="buildingplan_documentContentType" id="field_buildingplan_documentContentType"
+                    ng-model="vm.projectsitedetail.buildingplan_documentContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.site_situated_in_controlled_area" for="field_site_situated_in_controlled_area">Site Situated In Controlled Area</label>
+            <input type="checkbox" class="form-control" name="site_situated_in_controlled_area" id="field_site_situated_in_controlled_area"
+                    ng-model="vm.projectsitedetail.site_situated_in_controlled_area"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setControlledarea_document($file, vm.projectsitedetail)">
+            <label class="control-label" data-translate="investhryApp.projectsitedetail.controlledarea_document" for="field_controlledarea_document">Controlledarea Document</label>
+            <div>
+                <div ng-if="vm.projectsitedetail.controlledarea_document" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.projectsitedetail.controlledarea_documentContentType, vm.projectsitedetail.controlledarea_document)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.projectsitedetail.controlledarea_documentContentType}}, {{vm.byteSize(vm.projectsitedetail.controlledarea_document)}}</span>
+                    <button type="button" ng-click="vm.projectsitedetail.controlledarea_document=null;vm.projectsitedetail.controlledarea_documentContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setControlledarea_document($file, vm.projectsitedetail)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="controlledarea_document" id="field_controlledarea_document"
+                    ng-model="vm.projectsitedetail.controlledarea_document"
+                    />
+            <input type="hidden" class="form-control" name="controlledarea_documentContentType" id="field_controlledarea_documentContentType"
+                    ng-model="vm.projectsitedetail.controlledarea_documentContentType" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
