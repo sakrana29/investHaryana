@@ -1,0 +1,40 @@
+{
+    "investhryApp": {
+        "electricrequirement" : {
+            "home": {
+                "title": "Electricrequirements",
+                "createLabel": "Create a new Electricrequirement",
+                "createOrEditLabel": "Create or edit a Electricrequirement"
+            },
+            "created": "A new Electricrequirement is created with identifier {{ param }}",
+            "updated": "A Electricrequirement is updated with identifier {{ param }}",
+            "deleted": "A Electricrequirement is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Electricrequirement {{ id }}?"
+            },
+            "detail": {
+                "title": "Electricrequirement"
+            },
+            "projectid": "Projectid",
+            "temporaryconnection": "Temporaryconnection",
+            "temporaryrequired": "Temporaryrequired",
+            "tem_load_existing": "Tem Load Existing",
+            "tem_account_number": "Tem Account Number",
+            "temp_existing_load_demand_kw": "Temp Existing Load Demand Kw",
+            "temp_existing_load_demand_kva": "Temp Existing Load Demand Kva",
+            "temp_new_load_demand_kw": "Temp New Load Demand Kw",
+            "temp_new_load_demand_kva": "Temp New Load Demand Kva",
+            "temp_load_demand_date": "Temp Load Demand Date",
+            "regular_connection_doc": "Regular Connection Doc",
+            "regular_load_required": "Regular Load Required",
+            "regular_existing_connection": "Regular Existing Connection",
+            "customertype": "Customertype",
+            "regular_account_number": "Regular Account Number",
+            "regular_existing_load_ifany_kw": "Regular Existing Load Ifany Kw",
+            "regular_existing_load_ifany_kva": "Regular Existing Load Ifany Kva",
+            "regular_new_load_demand_kw": "Regular New Load Demand Kw",
+            "regular_new_load_demand_kva": "Regular New Load Demand Kva",
+            "regular_load_demand_date": "Regular Load Demand Date"
+        }
+    }
+}

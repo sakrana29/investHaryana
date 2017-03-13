@@ -1,0 +1,25 @@
+{
+    "investhryApp": {
+        "term_declaration_accept" : {
+            "home": {
+                "title": "Term_declaration_accepts",
+                "createLabel": "नया Term Declaration Accept बनाएँ",
+                "createOrEditLabel": "Term Declaration Accept बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Term Declaration Accept [identifier: {{ param }}] तैयार है",
+            "updated": "एक Term Declaration Accept [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Term Declaration Accept [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Term Declaration Accept [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Term Declaration Accept"
+            },
+            "projectid": "Projectid",
+            "acceptance": "Acceptance",
+            "applicationdate": "Applicationdate",
+            "place": "Place",
+            "signature": "Signature"
+        }
+    }
+}

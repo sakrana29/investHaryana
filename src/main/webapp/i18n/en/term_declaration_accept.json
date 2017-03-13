@@ -1,0 +1,25 @@
+{
+    "investhryApp": {
+        "term_declaration_accept" : {
+            "home": {
+                "title": "Term Declaration Accepts",
+                "createLabel": "Create a new Term Declaration Accept",
+                "createOrEditLabel": "Create or edit a Term Declaration Accept"
+            },
+            "created": "A new Term Declaration Accept is created with identifier {{ param }}",
+            "updated": "A Term Declaration Accept is updated with identifier {{ param }}",
+            "deleted": "A Term Declaration Accept is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Term Declaration Accept {{ id }}?"
+            },
+            "detail": {
+                "title": "Term Declaration Accept"
+            },
+            "projectid": "Projectid",
+            "acceptance": "Acceptance",
+            "applicationdate": "Applicationdate",
+            "place": "Place",
+            "signature": "Signature"
+        }
+    }
+}

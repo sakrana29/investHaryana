@@ -47,6 +47,8 @@
                 "emissiondetail": "Emissiondetail",
                 "wastewaterdetail": "Wastewaterdetail",
                 "environmentImpactdetail": "Environment Impactdetail",
+                "electricrequirement": "Electricrequirement",
+                "termDeclarationAccept": "Term Declaration Accept",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

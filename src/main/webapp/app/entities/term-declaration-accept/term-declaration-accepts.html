@@ -1,0 +1,67 @@
+<div>
+    <h2 data-translate="investhryApp.term_declaration_accept.home.title">Term Declaration Accepts</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="term-declaration-accept.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="investhryApp.term_declaration_accept.home.createLabel">
+                        Create new Term Declaration Accept
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="investhryApp.term_declaration_accept.projectid">Projectid</span></th>
+                    <th><span data-translate="investhryApp.term_declaration_accept.acceptance">Acceptance</span></th>
+                    <th><span data-translate="investhryApp.term_declaration_accept.applicationdate">Applicationdate</span></th>
+                    <th><span data-translate="investhryApp.term_declaration_accept.place">Place</span></th>
+                    <th><span data-translate="investhryApp.term_declaration_accept.signature">Signature</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="term_declaration_accept in vm.term_declaration_accepts track by term_declaration_accept.id">
+                    <td><a ui-sref="term-declaration-accept-detail({id:term_declaration_accept.id})">{{term_declaration_accept.id}}</a></td>
+                    <td>{{term_declaration_accept.projectid}}</td>
+                    <td>{{term_declaration_accept.acceptance}}</td>
+                    <td>{{term_declaration_accept.applicationdate | date:'medium'}}</td>
+                    <td>{{term_declaration_accept.place}}</td>
+                    <td>
+                        <a ng-if="term_declaration_accept.signature" ng-click="vm.openFile(term_declaration_accept.signatureContentType, term_declaration_accept.signature)" data-translate="entity.action.open">open</a>
+                        <span ng-if="term_declaration_accept.signature">{{term_declaration_accept.signatureContentType}}, {{vm.byteSize(term_declaration_accept.signature)}}</span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="term-declaration-accept-detail({id:term_declaration_accept.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="term-declaration-accept.edit({id:term_declaration_accept.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="term-declaration-accept.delete({id:term_declaration_accept.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

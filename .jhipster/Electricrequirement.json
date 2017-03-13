@@ -1,0 +1,93 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "projectid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "temporaryconnection",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "temporaryrequired",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "tem_load_existing",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "tem_account_number",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "temp_existing_load_demand_kw",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "temp_existing_load_demand_kva",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "temp_new_load_demand_kw",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "temp_new_load_demand_kva",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "temp_load_demand_date",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "regular_connection_doc",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "regular_load_required",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "regular_existing_connection",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "customertype",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "regular_account_number",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "regular_existing_load_ifany_kw",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "regular_existing_load_ifany_kva",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "regular_new_load_demand_kw",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "regular_new_load_demand_kva",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "regular_load_demand_date",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20170313125439",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "electricrequirement",
+    "pagination": "no"
+}

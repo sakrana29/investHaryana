@@ -1,0 +1,105 @@
+
+<div>
+    <h2><span data-translate="investhryApp.electricrequirement.detail.title">Electricrequirement</span> {{vm.electricrequirement.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="investhryApp.electricrequirement.projectid">Projectid</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.projectid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.temporaryconnection">Temporaryconnection</span></dt>
+        <dd>
+            <div ng-if="vm.electricrequirement.temporaryconnection">
+                <a ng-click="vm.openFile(vm.electricrequirement.temporaryconnectionContentType, vm.electricrequirement.temporaryconnection)" data-translate="entity.action.open">open</a>
+                {{vm.electricrequirement.temporaryconnectionContentType}}, {{vm.byteSize(vm.electricrequirement.temporaryconnection)}}
+            </div>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.temporaryrequired">Temporaryrequired</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.temporaryrequired}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.tem_load_existing">Tem Load Existing</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.tem_load_existing}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.tem_account_number">Tem Account Number</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.tem_account_number}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.temp_existing_load_demand_kw">Temp Existing Load Demand Kw</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.temp_existing_load_demand_kw}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.temp_existing_load_demand_kva">Temp Existing Load Demand Kva</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.temp_existing_load_demand_kva}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.temp_new_load_demand_kw">Temp New Load Demand Kw</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.temp_new_load_demand_kw}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.temp_new_load_demand_kva">Temp New Load Demand Kva</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.temp_new_load_demand_kva}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.temp_load_demand_date">Temp Load Demand Date</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.temp_load_demand_date | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.regular_connection_doc">Regular Connection Doc</span></dt>
+        <dd>
+            <div ng-if="vm.electricrequirement.regular_connection_doc">
+                <a ng-click="vm.openFile(vm.electricrequirement.regular_connection_docContentType, vm.electricrequirement.regular_connection_doc)" data-translate="entity.action.open">open</a>
+                {{vm.electricrequirement.regular_connection_docContentType}}, {{vm.byteSize(vm.electricrequirement.regular_connection_doc)}}
+            </div>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.regular_load_required">Regular Load Required</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.regular_load_required}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.regular_existing_connection">Regular Existing Connection</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.regular_existing_connection}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.customertype">Customertype</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.customertype}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.regular_account_number">Regular Account Number</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.regular_account_number}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.regular_existing_load_ifany_kw">Regular Existing Load Ifany Kw</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.regular_existing_load_ifany_kw}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.regular_existing_load_ifany_kva">Regular Existing Load Ifany Kva</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.regular_existing_load_ifany_kva}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.regular_new_load_demand_kw">Regular New Load Demand Kw</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.regular_new_load_demand_kw}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.regular_new_load_demand_kva">Regular New Load Demand Kva</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.regular_new_load_demand_kva}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.regular_load_demand_date">Regular Load Demand Date</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.regular_load_demand_date | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="electricrequirement-detail.edit({id:vm.electricrequirement.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
