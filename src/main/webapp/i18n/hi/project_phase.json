@@ -1,0 +1,25 @@
+{
+    "investhryApp": {
+        "project_phase" : {
+            "home": {
+                "title": "Project_phases",
+                "createLabel": "नया Project Phase बनाएँ",
+                "createOrEditLabel": "Project Phase बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Project Phase [identifier: {{ param }}] तैयार है",
+            "updated": "एक Project Phase [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Project Phase [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Project Phase [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Project Phase"
+            },
+            "projectid": "Projectid",
+            "phase": "Phase",
+            "productcategory": "Productcategory",
+            "fci": "Fci",
+            "implementationdate": "Implementationdate"
+        }
+    }
+}

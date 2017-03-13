@@ -1,0 +1,42 @@
+
+<div>
+    <h2><span data-translate="investhryApp.manufacturingdetail.detail.title">Manufacturingdetail</span> {{vm.manufacturingdetail.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="investhryApp.manufacturingdetail.projectid">Projectid</span></dt>
+        <dd>
+            <span>{{vm.manufacturingdetail.projectid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.manufacturingdetail.projectrawmaterialid">Projectrawmaterialid</span></dt>
+        <dd>
+            <span>{{vm.manufacturingdetail.projectrawmaterialid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.manufacturingdetail.productid">Productid</span></dt>
+        <dd>
+            <span>{{vm.manufacturingdetail.productid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.manufacturingdetail.processid">Processid</span></dt>
+        <dd>
+            <span>{{vm.manufacturingdetail.processid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.manufacturingdetail.manufacturing_flow_document">Manufacturing Flow Document</span></dt>
+        <dd>
+            <div ng-if="vm.manufacturingdetail.manufacturing_flow_document">
+                <a ng-click="vm.openFile(vm.manufacturingdetail.manufacturing_flow_documentContentType, vm.manufacturingdetail.manufacturing_flow_document)" data-translate="entity.action.open">open</a>
+                {{vm.manufacturingdetail.manufacturing_flow_documentContentType}}, {{vm.byteSize(vm.manufacturingdetail.manufacturing_flow_document)}}
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="manufacturingdetail-detail.edit({id:vm.manufacturingdetail.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

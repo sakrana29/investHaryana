@@ -1,0 +1,80 @@
+<div>
+    <h2 data-translate="investhryApp.project_finance_investment.home.title">Project Finance Investments</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="project-finance-investment.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="investhryApp.project_finance_investment.home.createLabel">
+                        Create new Project Finance Investment
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="investhryApp.project_finance_investment.projectid">Projectid</span></th>
+                    <th><span data-translate="investhryApp.project_finance_investment.land_cost">Land Cost</span></th>
+                    <th><span data-translate="investhryApp.project_finance_investment.building_cost">Building Cost</span></th>
+                    <th><span data-translate="investhryApp.project_finance_investment.machinery_cost">Machinery Cost</span></th>
+                    <th><span data-translate="investhryApp.project_finance_investment.misc_assests">Misc Assests</span></th>
+                    <th><span data-translate="investhryApp.project_finance_investment.total_project_cost">Total Project Cost</span></th>
+                    <th><span data-translate="investhryApp.project_finance_investment.isfdi">Isfdi</span></th>
+                    <th><span data-translate="investhryApp.project_finance_investment.fdivalue">Fdivalue</span></th>
+                    <th><span data-translate="investhryApp.project_finance_investment.fdi_country">Fdi Country</span></th>
+                    <th><span data-translate="investhryApp.project_finance_investment.foreign_funding_source">Foreign Funding Source</span></th>
+                    <th><span data-translate="investhryApp.project_finance_investment.project_construction_start_date">Project Construction Start Date</span></th>
+                    <th><span data-translate="investhryApp.project_finance_investment.commercial_activity_start_date">Commercial Activity Start Date</span></th>
+                    <th><span data-translate="investhryApp.project_finance_investment.proposedproject_scheduleid">Proposedproject Scheduleid</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="project_finance_investment in vm.project_finance_investments track by project_finance_investment.id">
+                    <td><a ui-sref="project-finance-investment-detail({id:project_finance_investment.id})">{{project_finance_investment.id}}</a></td>
+                    <td>{{project_finance_investment.projectid}}</td>
+                    <td>{{project_finance_investment.land_cost}}</td>
+                    <td>{{project_finance_investment.building_cost}}</td>
+                    <td>{{project_finance_investment.machinery_cost}}</td>
+                    <td>{{project_finance_investment.misc_assests}}</td>
+                    <td>{{project_finance_investment.total_project_cost}}</td>
+                    <td>{{project_finance_investment.isfdi}}</td>
+                    <td>{{project_finance_investment.fdivalue}}</td>
+                    <td>{{project_finance_investment.fdi_country}}</td>
+                    <td>{{project_finance_investment.foreign_funding_source}}</td>
+                    <td>{{project_finance_investment.project_construction_start_date | date:'medium'}}</td>
+                    <td>{{project_finance_investment.commercial_activity_start_date | date:'medium'}}</td>
+                    <td>{{project_finance_investment.proposedproject_scheduleid}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="project-finance-investment-detail({id:project_finance_investment.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="project-finance-investment.edit({id:project_finance_investment.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="project-finance-investment.delete({id:project_finance_investment.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

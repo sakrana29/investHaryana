@@ -1,0 +1,71 @@
+
+<div>
+    <h2><span data-translate="investhryApp.project_finance_investment.detail.title">Project Finance Investment</span> {{vm.project_finance_investment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="investhryApp.project_finance_investment.projectid">Projectid</span></dt>
+        <dd>
+            <span>{{vm.project_finance_investment.projectid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.project_finance_investment.land_cost">Land Cost</span></dt>
+        <dd>
+            <span>{{vm.project_finance_investment.land_cost}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.project_finance_investment.building_cost">Building Cost</span></dt>
+        <dd>
+            <span>{{vm.project_finance_investment.building_cost}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.project_finance_investment.machinery_cost">Machinery Cost</span></dt>
+        <dd>
+            <span>{{vm.project_finance_investment.machinery_cost}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.project_finance_investment.misc_assests">Misc Assests</span></dt>
+        <dd>
+            <span>{{vm.project_finance_investment.misc_assests}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.project_finance_investment.total_project_cost">Total Project Cost</span></dt>
+        <dd>
+            <span>{{vm.project_finance_investment.total_project_cost}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.project_finance_investment.isfdi">Isfdi</span></dt>
+        <dd>
+            <span>{{vm.project_finance_investment.isfdi}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.project_finance_investment.fdivalue">Fdivalue</span></dt>
+        <dd>
+            <span>{{vm.project_finance_investment.fdivalue}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.project_finance_investment.fdi_country">Fdi Country</span></dt>
+        <dd>
+            <span>{{vm.project_finance_investment.fdi_country}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.project_finance_investment.foreign_funding_source">Foreign Funding Source</span></dt>
+        <dd>
+            <span>{{vm.project_finance_investment.foreign_funding_source}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.project_finance_investment.project_construction_start_date">Project Construction Start Date</span></dt>
+        <dd>
+            <span>{{vm.project_finance_investment.project_construction_start_date | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.project_finance_investment.commercial_activity_start_date">Commercial Activity Start Date</span></dt>
+        <dd>
+            <span>{{vm.project_finance_investment.commercial_activity_start_date | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.project_finance_investment.proposedproject_scheduleid">Proposedproject Scheduleid</span></dt>
+        <dd>
+            <span>{{vm.project_finance_investment.proposedproject_scheduleid}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="project-finance-investment-detail.edit({id:vm.project_finance_investment.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,33 @@
+{
+    "investhryApp": {
+        "project_finance_investment" : {
+            "home": {
+                "title": "Project_finance_investments",
+                "createLabel": "नया Project Finance Investment बनाएँ",
+                "createOrEditLabel": "Project Finance Investment बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Project Finance Investment [identifier: {{ param }}] तैयार है",
+            "updated": "एक Project Finance Investment [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Project Finance Investment [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Project Finance Investment [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Project Finance Investment"
+            },
+            "projectid": "Projectid",
+            "land_cost": "Land Cost",
+            "building_cost": "Building Cost",
+            "machinery_cost": "Machinery Cost",
+            "misc_assests": "Misc Assests",
+            "total_project_cost": "Total Project Cost",
+            "isfdi": "Isfdi",
+            "fdivalue": "Fdivalue",
+            "fdi_country": "Fdi Country",
+            "foreign_funding_source": "Foreign Funding Source",
+            "project_construction_start_date": "Project Construction Start Date",
+            "commercial_activity_start_date": "Commercial Activity Start Date",
+            "proposedproject_scheduleid": "Proposedproject Scheduleid"
+        }
+    }
+}

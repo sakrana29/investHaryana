@@ -1,0 +1,33 @@
+{
+    "investhryApp": {
+        "project_finance_investment" : {
+            "home": {
+                "title": "Project Finance Investments",
+                "createLabel": "Create a new Project Finance Investment",
+                "createOrEditLabel": "Create or edit a Project Finance Investment"
+            },
+            "created": "A new Project Finance Investment is created with identifier {{ param }}",
+            "updated": "A Project Finance Investment is updated with identifier {{ param }}",
+            "deleted": "A Project Finance Investment is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Project Finance Investment {{ id }}?"
+            },
+            "detail": {
+                "title": "Project Finance Investment"
+            },
+            "projectid": "Projectid",
+            "land_cost": "Land Cost",
+            "building_cost": "Building Cost",
+            "machinery_cost": "Machinery Cost",
+            "misc_assests": "Misc Assests",
+            "total_project_cost": "Total Project Cost",
+            "isfdi": "Isfdi",
+            "fdivalue": "Fdivalue",
+            "fdi_country": "Fdi Country",
+            "foreign_funding_source": "Foreign Funding Source",
+            "project_construction_start_date": "Project Construction Start Date",
+            "commercial_activity_start_date": "Commercial Activity Start Date",
+            "proposedproject_scheduleid": "Proposedproject Scheduleid"
+        }
+    }
+}

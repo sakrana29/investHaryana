@@ -1,0 +1,25 @@
+{
+    "investhryApp": {
+        "manufacturingdetail" : {
+            "home": {
+                "title": "Manufacturingdetails",
+                "createLabel": "Create a new Manufacturingdetail",
+                "createOrEditLabel": "Create or edit a Manufacturingdetail"
+            },
+            "created": "A new Manufacturingdetail is created with identifier {{ param }}",
+            "updated": "A Manufacturingdetail is updated with identifier {{ param }}",
+            "deleted": "A Manufacturingdetail is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Manufacturingdetail {{ id }}?"
+            },
+            "detail": {
+                "title": "Manufacturingdetail"
+            },
+            "projectid": "Projectid",
+            "projectrawmaterialid": "Projectrawmaterialid",
+            "productid": "Productid",
+            "processid": "Processid",
+            "manufacturing_flow_document": "Manufacturing Flow Document"
+        }
+    }
+}

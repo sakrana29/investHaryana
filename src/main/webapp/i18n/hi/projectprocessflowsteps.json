@@ -1,0 +1,22 @@
+{
+    "investhryApp": {
+        "projectprocessflowsteps" : {
+            "home": {
+                "title": "Projectprocessflowsteps",
+                "createLabel": "नया Projectprocessflowsteps बनाएँ",
+                "createOrEditLabel": "Projectprocessflowsteps बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Projectprocessflowsteps [identifier: {{ param }}] तैयार है",
+            "updated": "एक Projectprocessflowsteps [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Projectprocessflowsteps [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Projectprocessflowsteps [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Projectprocessflowsteps"
+            },
+            "projectid": "Projectid",
+            "steps": "Steps"
+        }
+    }
+}

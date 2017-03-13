@@ -1,0 +1,24 @@
+{
+    "investhryApp": {
+        "projectproduct" : {
+            "home": {
+                "title": "Projectproducts",
+                "createLabel": "नया Projectproduct बनाएँ",
+                "createOrEditLabel": "Projectproduct बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Projectproduct [identifier: {{ param }}] तैयार है",
+            "updated": "एक Projectproduct [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Projectproduct [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Projectproduct [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Projectproduct"
+            },
+            "projectid": "Projectid",
+            "mainproduct": "Mainproduct",
+            "quantity": "Quantity",
+            "units": "Units"
+        }
+    }
+}

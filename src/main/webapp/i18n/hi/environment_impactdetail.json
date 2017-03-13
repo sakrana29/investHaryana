@@ -1,0 +1,35 @@
+{
+    "investhryApp": {
+        "environment_impactdetail" : {
+            "home": {
+                "title": "Environment_impactdetails",
+                "createLabel": "नया Environment Impactdetail बनाएँ",
+                "createOrEditLabel": "Environment Impactdetail बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Environment Impactdetail [identifier: {{ param }}] तैयार है",
+            "updated": "एक Environment Impactdetail [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Environment Impactdetail [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Environment Impactdetail [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Environment Impactdetail"
+            },
+            "projectid": "Projectid",
+            "source_of_water_supply": "Source Of Water Supply",
+            "water_process": "Water Process",
+            "water_cooling": "Water Cooling",
+            "water_domestic": "Water Domestic",
+            "water_other": "Water Other",
+            "waste_water_process": "Waste Water Process",
+            "waste_water_cooling": "Waste Water Cooling",
+            "waste_water_domesting": "Waste Water Domesting",
+            "waste_water_other": "Waste Water Other",
+            "waste_water_treatment": "Waste Water Treatment",
+            "document_attached": "Document Attached",
+            "mode_of_disposal_for_discharge": "Mode Of Disposal For Discharge",
+            "emissionid": "Emissionid",
+            "wastewaterdetailid": "Wastewaterdetailid"
+        }
+    }
+}

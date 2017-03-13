@@ -1,0 +1,24 @@
+{
+    "investhryApp": {
+        "projectproduct" : {
+            "home": {
+                "title": "Projectproducts",
+                "createLabel": "Create a new Projectproduct",
+                "createOrEditLabel": "Create or edit a Projectproduct"
+            },
+            "created": "A new Projectproduct is created with identifier {{ param }}",
+            "updated": "A Projectproduct is updated with identifier {{ param }}",
+            "deleted": "A Projectproduct is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Projectproduct {{ id }}?"
+            },
+            "detail": {
+                "title": "Projectproduct"
+            },
+            "projectid": "Projectid",
+            "mainproduct": "Mainproduct",
+            "quantity": "Quantity",
+            "units": "Units"
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "projectid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "projectrawmaterialid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "productid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "processid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "manufacturing_flow_document",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "changelogDate": "20170313121150",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "manufacturingdetail",
+    "pagination": "no"
+}

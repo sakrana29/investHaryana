@@ -1,0 +1,58 @@
+<div>
+    <h2 data-translate="investhryApp.projectprocessflowsteps.home.title">Projectprocessflowsteps</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="projectprocessflowsteps.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="investhryApp.projectprocessflowsteps.home.createLabel">
+                        Create new Projectprocessflowsteps
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="investhryApp.projectprocessflowsteps.projectid">Projectid</span></th>
+                    <th><span data-translate="investhryApp.projectprocessflowsteps.steps">Steps</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="projectprocessflowsteps in vm.projectprocessflowsteps track by projectprocessflowsteps.id">
+                    <td><a ui-sref="projectprocessflowsteps-detail({id:projectprocessflowsteps.id})">{{projectprocessflowsteps.id}}</a></td>
+                    <td>{{projectprocessflowsteps.projectid}}</td>
+                    <td>{{projectprocessflowsteps.steps}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="projectprocessflowsteps-detail({id:projectprocessflowsteps.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="projectprocessflowsteps.edit({id:projectprocessflowsteps.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="projectprocessflowsteps.delete({id:projectprocessflowsteps.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

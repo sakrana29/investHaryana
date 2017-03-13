@@ -1,0 +1,132 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myEnvironment_impactdetailLabel" data-translate="investhryApp.environment_impactdetail.home.createOrEditLabel">Create or edit a Environment Impactdetail</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.environment_impactdetail.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.environment_impactdetail.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.environment_impactdetail.projectid" for="field_projectid">Projectid</label>
+            <input type="text" class="form-control" name="projectid" id="field_projectid"
+                    ng-model="vm.environment_impactdetail.projectid"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.environment_impactdetail.source_of_water_supply" for="field_source_of_water_supply">Source Of Water Supply</label>
+            <input type="text" class="form-control" name="source_of_water_supply" id="field_source_of_water_supply"
+                    ng-model="vm.environment_impactdetail.source_of_water_supply"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.environment_impactdetail.water_process" for="field_water_process">Water Process</label>
+            <input type="number" class="form-control" name="water_process" id="field_water_process"
+                    ng-model="vm.environment_impactdetail.water_process"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.environment_impactdetail.water_cooling" for="field_water_cooling">Water Cooling</label>
+            <input type="number" class="form-control" name="water_cooling" id="field_water_cooling"
+                    ng-model="vm.environment_impactdetail.water_cooling"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.environment_impactdetail.water_domestic" for="field_water_domestic">Water Domestic</label>
+            <input type="number" class="form-control" name="water_domestic" id="field_water_domestic"
+                    ng-model="vm.environment_impactdetail.water_domestic"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.environment_impactdetail.water_other" for="field_water_other">Water Other</label>
+            <input type="number" class="form-control" name="water_other" id="field_water_other"
+                    ng-model="vm.environment_impactdetail.water_other"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.environment_impactdetail.waste_water_process" for="field_waste_water_process">Waste Water Process</label>
+            <input type="number" class="form-control" name="waste_water_process" id="field_waste_water_process"
+                    ng-model="vm.environment_impactdetail.waste_water_process"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.environment_impactdetail.waste_water_cooling" for="field_waste_water_cooling">Waste Water Cooling</label>
+            <input type="number" class="form-control" name="waste_water_cooling" id="field_waste_water_cooling"
+                    ng-model="vm.environment_impactdetail.waste_water_cooling"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.environment_impactdetail.waste_water_domesting" for="field_waste_water_domesting">Waste Water Domesting</label>
+            <input type="number" class="form-control" name="waste_water_domesting" id="field_waste_water_domesting"
+                    ng-model="vm.environment_impactdetail.waste_water_domesting"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.environment_impactdetail.waste_water_other" for="field_waste_water_other">Waste Water Other</label>
+            <input type="number" class="form-control" name="waste_water_other" id="field_waste_water_other"
+                    ng-model="vm.environment_impactdetail.waste_water_other"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.environment_impactdetail.waste_water_treatment" for="field_waste_water_treatment">Waste Water Treatment</label>
+            <input type="text" class="form-control" name="waste_water_treatment" id="field_waste_water_treatment"
+                    ng-model="vm.environment_impactdetail.waste_water_treatment"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setDocument_attached($file, vm.environment_impactdetail)">
+            <label class="control-label" data-translate="investhryApp.environment_impactdetail.document_attached" for="field_document_attached">Document Attached</label>
+            <div>
+                <div ng-if="vm.environment_impactdetail.document_attached" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.environment_impactdetail.document_attachedContentType, vm.environment_impactdetail.document_attached)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.environment_impactdetail.document_attachedContentType}}, {{vm.byteSize(vm.environment_impactdetail.document_attached)}}</span>
+                    <button type="button" ng-click="vm.environment_impactdetail.document_attached=null;vm.environment_impactdetail.document_attachedContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setDocument_attached($file, vm.environment_impactdetail)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="document_attached" id="field_document_attached"
+                    ng-model="vm.environment_impactdetail.document_attached"
+                    />
+            <input type="hidden" class="form-control" name="document_attachedContentType" id="field_document_attachedContentType"
+                    ng-model="vm.environment_impactdetail.document_attachedContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.environment_impactdetail.mode_of_disposal_for_discharge" for="field_mode_of_disposal_for_discharge">Mode Of Disposal For Discharge</label>
+            <input type="text" class="form-control" name="mode_of_disposal_for_discharge" id="field_mode_of_disposal_for_discharge"
+                    ng-model="vm.environment_impactdetail.mode_of_disposal_for_discharge"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.environment_impactdetail.emissionid" for="field_emissionid">Emissionid</label>
+            <input type="text" class="form-control" name="emissionid" id="field_emissionid"
+                    ng-model="vm.environment_impactdetail.emissionid"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.environment_impactdetail.wastewaterdetailid" for="field_wastewaterdetailid">Wastewaterdetailid</label>
+            <input type="text" class="form-control" name="wastewaterdetailid" id="field_wastewaterdetailid"
+                    ng-model="vm.environment_impactdetail.wastewaterdetailid"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

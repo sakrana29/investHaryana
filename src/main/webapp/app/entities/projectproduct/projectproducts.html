@@ -1,0 +1,62 @@
+<div>
+    <h2 data-translate="investhryApp.projectproduct.home.title">Projectproducts</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="projectproduct.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="investhryApp.projectproduct.home.createLabel">
+                        Create new Projectproduct
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="investhryApp.projectproduct.projectid">Projectid</span></th>
+                    <th><span data-translate="investhryApp.projectproduct.mainproduct">Mainproduct</span></th>
+                    <th><span data-translate="investhryApp.projectproduct.quantity">Quantity</span></th>
+                    <th><span data-translate="investhryApp.projectproduct.units">Units</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="projectproduct in vm.projectproducts track by projectproduct.id">
+                    <td><a ui-sref="projectproduct-detail({id:projectproduct.id})">{{projectproduct.id}}</a></td>
+                    <td>{{projectproduct.projectid}}</td>
+                    <td>{{projectproduct.mainproduct}}</td>
+                    <td>{{projectproduct.quantity}}</td>
+                    <td>{{projectproduct.units}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="projectproduct-detail({id:projectproduct.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="projectproduct.edit({id:projectproduct.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="projectproduct.delete({id:projectproduct.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

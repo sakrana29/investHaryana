@@ -38,6 +38,15 @@
                 "companydetail": "Companydetail",
                 "projectdetail": "Projectdetail",
                 "projectsitedetail": "Projectsitedetail",
+                "projectFinanceInvestment": "Project Finance Investment",
+                "projectPhase": "Project Phase",
+                "projectrawmaterial": "Projectrawmaterial",
+                "projectproduct": "Projectproduct",
+                "projectprocessflowsteps": "Projectprocessflowsteps",
+                "manufacturingdetail": "Manufacturingdetail",
+                "emissiondetail": "Emissiondetail",
+                "wastewaterdetail": "Wastewaterdetail",
+                "environmentImpactdetail": "Environment Impactdetail",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

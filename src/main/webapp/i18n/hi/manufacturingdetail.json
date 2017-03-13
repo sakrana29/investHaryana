@@ -1,0 +1,25 @@
+{
+    "investhryApp": {
+        "manufacturingdetail" : {
+            "home": {
+                "title": "Manufacturingdetails",
+                "createLabel": "नया Manufacturingdetail बनाएँ",
+                "createOrEditLabel": "Manufacturingdetail बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Manufacturingdetail [identifier: {{ param }}] तैयार है",
+            "updated": "एक Manufacturingdetail [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Manufacturingdetail [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Manufacturingdetail [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Manufacturingdetail"
+            },
+            "projectid": "Projectid",
+            "projectrawmaterialid": "Projectrawmaterialid",
+            "productid": "Productid",
+            "processid": "Processid",
+            "manufacturing_flow_document": "Manufacturing Flow Document"
+        }
+    }
+}

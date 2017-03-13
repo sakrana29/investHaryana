@@ -1,0 +1,67 @@
+<div>
+    <h2 data-translate="investhryApp.manufacturingdetail.home.title">Manufacturingdetails</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="manufacturingdetail.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="investhryApp.manufacturingdetail.home.createLabel">
+                        Create new Manufacturingdetail
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="investhryApp.manufacturingdetail.projectid">Projectid</span></th>
+                    <th><span data-translate="investhryApp.manufacturingdetail.projectrawmaterialid">Projectrawmaterialid</span></th>
+                    <th><span data-translate="investhryApp.manufacturingdetail.productid">Productid</span></th>
+                    <th><span data-translate="investhryApp.manufacturingdetail.processid">Processid</span></th>
+                    <th><span data-translate="investhryApp.manufacturingdetail.manufacturing_flow_document">Manufacturing Flow Document</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="manufacturingdetail in vm.manufacturingdetails track by manufacturingdetail.id">
+                    <td><a ui-sref="manufacturingdetail-detail({id:manufacturingdetail.id})">{{manufacturingdetail.id}}</a></td>
+                    <td>{{manufacturingdetail.projectid}}</td>
+                    <td>{{manufacturingdetail.projectrawmaterialid}}</td>
+                    <td>{{manufacturingdetail.productid}}</td>
+                    <td>{{manufacturingdetail.processid}}</td>
+                    <td>
+                        <a ng-if="manufacturingdetail.manufacturing_flow_document" ng-click="vm.openFile(manufacturingdetail.manufacturing_flow_documentContentType, manufacturingdetail.manufacturing_flow_document)" data-translate="entity.action.open">open</a>
+                        <span ng-if="manufacturingdetail.manufacturing_flow_document">{{manufacturingdetail.manufacturing_flow_documentContentType}}, {{vm.byteSize(manufacturingdetail.manufacturing_flow_document)}}</span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="manufacturingdetail-detail({id:manufacturingdetail.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="manufacturingdetail.edit({id:manufacturingdetail.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="manufacturingdetail.delete({id:manufacturingdetail.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

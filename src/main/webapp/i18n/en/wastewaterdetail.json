@@ -1,0 +1,26 @@
+{
+    "investhryApp": {
+        "wastewaterdetail" : {
+            "home": {
+                "title": "Wastewaterdetails",
+                "createLabel": "Create a new Wastewaterdetail",
+                "createOrEditLabel": "Create or edit a Wastewaterdetail"
+            },
+            "created": "A new Wastewaterdetail is created with identifier {{ param }}",
+            "updated": "A Wastewaterdetail is updated with identifier {{ param }}",
+            "deleted": "A Wastewaterdetail is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Wastewaterdetail {{ id }}?"
+            },
+            "detail": {
+                "title": "Wastewaterdetail"
+            },
+            "projectid": "Projectid",
+            "source_of_generation": "Source Of Generation",
+            "naturetype": "Naturetype",
+            "quantity": "Quantity",
+            "mode_of_disposal": "Mode Of Disposal",
+            "description": "Description"
+        }
+    }
+}

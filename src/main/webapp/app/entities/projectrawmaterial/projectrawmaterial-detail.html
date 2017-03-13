@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="investhryApp.projectrawmaterial.detail.title">Projectrawmaterial</span> {{vm.projectrawmaterial.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="investhryApp.projectrawmaterial.projectid">Projectid</span></dt>
+        <dd>
+            <span>{{vm.projectrawmaterial.projectid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectrawmaterial.rawmaterial">Rawmaterial</span></dt>
+        <dd>
+            <span>{{vm.projectrawmaterial.rawmaterial}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectrawmaterial.quantity">Quantity</span></dt>
+        <dd>
+            <span>{{vm.projectrawmaterial.quantity}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectrawmaterial.units">Units</span></dt>
+        <dd>
+            <span>{{vm.projectrawmaterial.units}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="projectrawmaterial-detail.edit({id:vm.projectrawmaterial.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

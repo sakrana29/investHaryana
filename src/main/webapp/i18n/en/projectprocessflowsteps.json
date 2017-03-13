@@ -1,0 +1,22 @@
+{
+    "investhryApp": {
+        "projectprocessflowsteps" : {
+            "home": {
+                "title": "Projectprocessflowsteps",
+                "createLabel": "Create a new Projectprocessflowsteps",
+                "createOrEditLabel": "Create or edit a Projectprocessflowsteps"
+            },
+            "created": "A new Projectprocessflowsteps is created with identifier {{ param }}",
+            "updated": "A Projectprocessflowsteps is updated with identifier {{ param }}",
+            "deleted": "A Projectprocessflowsteps is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Projectprocessflowsteps {{ id }}?"
+            },
+            "detail": {
+                "title": "Projectprocessflowsteps"
+            },
+            "projectid": "Projectid",
+            "steps": "Steps"
+        }
+    }
+}
