@@ -1,0 +1,23 @@
+
+<div>
+    <h2><span data-translate="investhryApp.waste_water_naturetype.detail.title">Waste Water Naturetype</span> {{vm.waste_water_naturetype.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="investhryApp.waste_water_naturetype.naturetype">Naturetype</span></dt>
+        <dd>
+            <span>{{vm.waste_water_naturetype.naturetype}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="waste-water-naturetype-detail.edit({id:vm.waste_water_naturetype.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

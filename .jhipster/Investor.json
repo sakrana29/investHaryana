@@ -1,0 +1,77 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "mouapplicable",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "mousignyear",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "moudocument",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "mouidnumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "photo",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "firstname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "middlename",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "countryid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "stateid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "cityid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "address1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emailprimary",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emailsecondary",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170313084828",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "investor",
+    "pagination": "no"
+}

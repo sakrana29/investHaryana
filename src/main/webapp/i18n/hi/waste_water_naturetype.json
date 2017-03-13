@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "waste_water_naturetype" : {
+            "home": {
+                "title": "Waste_water_naturetypes",
+                "createLabel": "नया Waste Water Naturetype बनाएँ",
+                "createOrEditLabel": "Waste Water Naturetype बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Waste Water Naturetype [identifier: {{ param }}] तैयार है",
+            "updated": "एक Waste Water Naturetype [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Waste Water Naturetype [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Waste Water Naturetype [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Waste Water Naturetype"
+            },
+            "naturetype": "Naturetype"
+        }
+    }
+}

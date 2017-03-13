@@ -1,0 +1,94 @@
+<div>
+    <h2 data-translate="investhryApp.investor.home.title">Investors</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="investor.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="investhryApp.investor.home.createLabel">
+                        Create new Investor
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="investhryApp.investor.mouapplicable">Mouapplicable</span></th>
+                    <th><span data-translate="investhryApp.investor.mousignyear">Mousignyear</span></th>
+                    <th><span data-translate="investhryApp.investor.moudocument">Moudocument</span></th>
+                    <th><span data-translate="investhryApp.investor.mouidnumber">Mouidnumber</span></th>
+                    <th><span data-translate="investhryApp.investor.photo">Photo</span></th>
+                    <th><span data-translate="investhryApp.investor.firstname">Firstname</span></th>
+                    <th><span data-translate="investhryApp.investor.middlename">Middlename</span></th>
+                    <th><span data-translate="investhryApp.investor.lastname">Lastname</span></th>
+                    <th><span data-translate="investhryApp.investor.countryid">Countryid</span></th>
+                    <th><span data-translate="investhryApp.investor.stateid">Stateid</span></th>
+                    <th><span data-translate="investhryApp.investor.cityid">Cityid</span></th>
+                    <th><span data-translate="investhryApp.investor.address1">Address 1</span></th>
+                    <th><span data-translate="investhryApp.investor.address2">Address 2</span></th>
+                    <th><span data-translate="investhryApp.investor.address3">Address 3</span></th>
+                    <th><span data-translate="investhryApp.investor.emailprimary">Emailprimary</span></th>
+                    <th><span data-translate="investhryApp.investor.emailsecondary">Emailsecondary</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="investor in vm.investors track by investor.id">
+                    <td><a ui-sref="investor-detail({id:investor.id})">{{investor.id}}</a></td>
+                    <td>{{investor.mouapplicable}}</td>
+                    <td>{{investor.mousignyear}}</td>
+                    <td>
+                        <a ng-if="investor.moudocument" ng-click="vm.openFile(investor.moudocumentContentType, investor.moudocument)" data-translate="entity.action.open">open</a>
+                        <span ng-if="investor.moudocument">{{investor.moudocumentContentType}}, {{vm.byteSize(investor.moudocument)}}</span>
+                    </td>
+                    <td>{{investor.mouidnumber}}</td>
+                    <td>
+                        <a ng-if="investor.photo" ng-click="vm.openFile(investor.photoContentType, investor.photo)">
+                            <img data-ng-src="{{'data:' + investor.photoContentType + ';base64,' + investor.photo}}" style="max-height: 30px;" alt="investor image"/>
+                        </a>
+                        <span ng-if="investor.photo">{{investor.photoContentType}}, {{vm.byteSize(investor.photo)}}</span>
+                    </td>
+                    <td>{{investor.firstname}}</td>
+                    <td>{{investor.middlename}}</td>
+                    <td>{{investor.lastname}}</td>
+                    <td>{{investor.countryid}}</td>
+                    <td>{{investor.stateid}}</td>
+                    <td>{{investor.cityid}}</td>
+                    <td>{{investor.address1}}</td>
+                    <td>{{investor.address2}}</td>
+                    <td>{{investor.address3}}</td>
+                    <td>{{investor.emailprimary}}</td>
+                    <td>{{investor.emailsecondary}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="investor-detail({id:investor.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="investor.edit({id:investor.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="investor.delete({id:investor.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

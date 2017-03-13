@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "regular_electrict_load_type" : {
+            "home": {
+                "title": "Regular Electrict Load Types",
+                "createLabel": "Create a new Regular Electrict Load Type",
+                "createOrEditLabel": "Create or edit a Regular Electrict Load Type"
+            },
+            "created": "A new Regular Electrict Load Type is created with identifier {{ param }}",
+            "updated": "A Regular Electrict Load Type is updated with identifier {{ param }}",
+            "deleted": "A Regular Electrict Load Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Regular Electrict Load Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Regular Electrict Load Type"
+            },
+            "typeofload": "Typeofload"
+        }
+    }
+}

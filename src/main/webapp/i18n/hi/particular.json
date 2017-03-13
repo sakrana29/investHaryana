@@ -1,0 +1,22 @@
+{
+    "investhryApp": {
+        "particular" : {
+            "home": {
+                "title": "Particulars",
+                "createLabel": "नया Particular बनाएँ",
+                "createOrEditLabel": "Particular बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Particular [identifier: {{ param }}] तैयार है",
+            "updated": "एक Particular [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Particular [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Particular [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Particular"
+            },
+            "particulars": "Particulars",
+            "description": "Description"
+        }
+    }
+}

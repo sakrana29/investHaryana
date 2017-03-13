@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "waste_water_naturetype" : {
+            "home": {
+                "title": "Waste Water Naturetypes",
+                "createLabel": "Create a new Waste Water Naturetype",
+                "createOrEditLabel": "Create or edit a Waste Water Naturetype"
+            },
+            "created": "A new Waste Water Naturetype is created with identifier {{ param }}",
+            "updated": "A Waste Water Naturetype is updated with identifier {{ param }}",
+            "deleted": "A Waste Water Naturetype is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Waste Water Naturetype {{ id }}?"
+            },
+            "detail": {
+                "title": "Waste Water Naturetype"
+            },
+            "naturetype": "Naturetype"
+        }
+    }
+}

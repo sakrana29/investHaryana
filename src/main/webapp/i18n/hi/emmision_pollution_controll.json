@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "emmision_pollution_controll" : {
+            "home": {
+                "title": "Emmision_pollution_controlls",
+                "createLabel": "नया Emmision Pollution Controll बनाएँ",
+                "createOrEditLabel": "Emmision Pollution Controll बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Emmision Pollution Controll [identifier: {{ param }}] तैयार है",
+            "updated": "एक Emmision Pollution Controll [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Emmision Pollution Controll [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Emmision Pollution Controll [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Emmision Pollution Controll"
+            },
+            "airpollutioncontroldevice": "Airpollutioncontroldevice"
+        }
+    }
+}

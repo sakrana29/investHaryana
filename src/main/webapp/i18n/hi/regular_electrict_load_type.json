@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "regular_electrict_load_type" : {
+            "home": {
+                "title": "Regular_electrict_load_types",
+                "createLabel": "नया Regular Electrict Load Type बनाएँ",
+                "createOrEditLabel": "Regular Electrict Load Type बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Regular Electrict Load Type [identifier: {{ param }}] तैयार है",
+            "updated": "एक Regular Electrict Load Type [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Regular Electrict Load Type [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Regular Electrict Load Type [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Regular Electrict Load Type"
+            },
+            "typeofload": "Typeofload"
+        }
+    }
+}

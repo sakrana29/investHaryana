@@ -1,0 +1,90 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "investorid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "promoter_md_director",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "designation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "businessentity",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "businessentitytype",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "director_promoter_md_ceo_number",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "director_md_ceo_list",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "pan_number",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pancard",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "aadhar_number",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "aadharcard",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "nri",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "tin_vat_number",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tin_vat_document",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "cst_number",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cst_document",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "moa_partnershipdeed",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "registration_document",
+            "fieldType": "ByteBuffer",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "changelogDate": "20170313085504",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "companydetail",
+    "pagination": "no"
+}

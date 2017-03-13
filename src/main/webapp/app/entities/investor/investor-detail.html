@@ -1,0 +1,91 @@
+
+<div>
+    <h2><span data-translate="investhryApp.investor.detail.title">Investor</span> {{vm.investor.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="investhryApp.investor.mouapplicable">Mouapplicable</span></dt>
+        <dd>
+            <span>{{vm.investor.mouapplicable}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.investor.mousignyear">Mousignyear</span></dt>
+        <dd>
+            <span>{{vm.investor.mousignyear}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.investor.moudocument">Moudocument</span></dt>
+        <dd>
+            <div ng-if="vm.investor.moudocument">
+                <a ng-click="vm.openFile(vm.investor.moudocumentContentType, vm.investor.moudocument)" data-translate="entity.action.open">open</a>
+                {{vm.investor.moudocumentContentType}}, {{vm.byteSize(vm.investor.moudocument)}}
+            </div>
+        </dd>
+        <dt><span data-translate="investhryApp.investor.mouidnumber">Mouidnumber</span></dt>
+        <dd>
+            <span>{{vm.investor.mouidnumber}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.investor.photo">Photo</span></dt>
+        <dd>
+            <div ng-if="vm.investor.photo">
+                <a ng-click="vm.openFile(vm.investor.photoContentType, vm.investor.photo)">
+                    <img data-ng-src="{{'data:' + vm.investor.photoContentType + ';base64,' + vm.investor.photo}}" style="max-width: 100%;" alt="investor image"/>
+                </a>
+                {{vm.investor.photoContentType}}, {{vm.byteSize(vm.investor.photo)}}
+            </div>
+        </dd>
+        <dt><span data-translate="investhryApp.investor.firstname">Firstname</span></dt>
+        <dd>
+            <span>{{vm.investor.firstname}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.investor.middlename">Middlename</span></dt>
+        <dd>
+            <span>{{vm.investor.middlename}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.investor.lastname">Lastname</span></dt>
+        <dd>
+            <span>{{vm.investor.lastname}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.investor.countryid">Countryid</span></dt>
+        <dd>
+            <span>{{vm.investor.countryid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.investor.stateid">Stateid</span></dt>
+        <dd>
+            <span>{{vm.investor.stateid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.investor.cityid">Cityid</span></dt>
+        <dd>
+            <span>{{vm.investor.cityid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.investor.address1">Address 1</span></dt>
+        <dd>
+            <span>{{vm.investor.address1}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.investor.address2">Address 2</span></dt>
+        <dd>
+            <span>{{vm.investor.address2}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.investor.address3">Address 3</span></dt>
+        <dd>
+            <span>{{vm.investor.address3}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.investor.emailprimary">Emailprimary</span></dt>
+        <dd>
+            <span>{{vm.investor.emailprimary}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.investor.emailsecondary">Emailsecondary</span></dt>
+        <dd>
+            <span>{{vm.investor.emailsecondary}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="investor-detail.edit({id:vm.investor.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

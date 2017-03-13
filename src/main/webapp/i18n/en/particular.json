@@ -1,0 +1,22 @@
+{
+    "investhryApp": {
+        "particular" : {
+            "home": {
+                "title": "Particulars",
+                "createLabel": "Create a new Particular",
+                "createOrEditLabel": "Create or edit a Particular"
+            },
+            "created": "A new Particular is created with identifier {{ param }}",
+            "updated": "A Particular is updated with identifier {{ param }}",
+            "deleted": "A Particular is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Particular {{ id }}?"
+            },
+            "detail": {
+                "title": "Particular"
+            },
+            "particulars": "Particulars",
+            "description": "Description"
+        }
+    }
+}

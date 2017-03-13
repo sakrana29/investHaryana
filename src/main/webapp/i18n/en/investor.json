@@ -1,0 +1,36 @@
+{
+    "investhryApp": {
+        "investor" : {
+            "home": {
+                "title": "Investors",
+                "createLabel": "Create a new Investor",
+                "createOrEditLabel": "Create or edit a Investor"
+            },
+            "created": "A new Investor is created with identifier {{ param }}",
+            "updated": "A Investor is updated with identifier {{ param }}",
+            "deleted": "A Investor is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Investor {{ id }}?"
+            },
+            "detail": {
+                "title": "Investor"
+            },
+            "mouapplicable": "Mouapplicable",
+            "mousignyear": "Mousignyear",
+            "moudocument": "Moudocument",
+            "mouidnumber": "Mouidnumber",
+            "photo": "Photo",
+            "firstname": "Firstname",
+            "middlename": "Middlename",
+            "lastname": "Lastname",
+            "countryid": "Countryid",
+            "stateid": "Stateid",
+            "cityid": "Cityid",
+            "address1": "Address 1",
+            "address2": "Address 2",
+            "address3": "Address 3",
+            "emailprimary": "Emailprimary",
+            "emailsecondary": "Emailsecondary"
+        }
+    }
+}

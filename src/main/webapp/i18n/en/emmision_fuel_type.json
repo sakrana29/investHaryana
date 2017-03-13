@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "emmision_fuel_type" : {
+            "home": {
+                "title": "Emmision Fuel Types",
+                "createLabel": "Create a new Emmision Fuel Type",
+                "createOrEditLabel": "Create or edit a Emmision Fuel Type"
+            },
+            "created": "A new Emmision Fuel Type is created with identifier {{ param }}",
+            "updated": "A Emmision Fuel Type is updated with identifier {{ param }}",
+            "deleted": "A Emmision Fuel Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Emmision Fuel Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Emmision Fuel Type"
+            },
+            "typeoffuel": "Typeoffuel"
+        }
+    }
+}

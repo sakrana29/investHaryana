@@ -1,0 +1,15 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "typeofload",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170313084454",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "regular_electrict_load_type",
+    "pagination": "no"
+}

@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "emmision_pollution_controll" : {
+            "home": {
+                "title": "Emmision Pollution Controlls",
+                "createLabel": "Create a new Emmision Pollution Controll",
+                "createOrEditLabel": "Create or edit a Emmision Pollution Controll"
+            },
+            "created": "A new Emmision Pollution Controll is created with identifier {{ param }}",
+            "updated": "A Emmision Pollution Controll is updated with identifier {{ param }}",
+            "deleted": "A Emmision Pollution Controll is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Emmision Pollution Controll {{ id }}?"
+            },
+            "detail": {
+                "title": "Emmision Pollution Controll"
+            },
+            "airpollutioncontroldevice": "Airpollutioncontroldevice"
+        }
+    }
+}

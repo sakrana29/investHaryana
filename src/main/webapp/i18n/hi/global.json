@@ -27,6 +27,15 @@
                 "manufacturingunits": "Manufacturingunits",
                 "watersupplysource": "Watersupplysource",
                 "modeofdisposalforDischarge": "Modeofdisposalfor Discharge",
+                "particular": "Particular",
+                "emmisionFuelType": "Emmision Fuel Type",
+                "emmisionPollutionControll": "Emmision Pollution Controll",
+                "wasteWaterNaturetype": "Waste Water Naturetype",
+                "wasteWaterDisposalMode": "Waste Water Disposal Mode",
+                "regularElectrictLoadType": "Regular Electrict Load Type",
+                "investor": "Investor",
+                "businessentity": "Businessentity",
+                "companydetail": "Companydetail",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
