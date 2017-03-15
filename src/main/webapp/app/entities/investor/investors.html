@@ -1,3 +1,207 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<div ng-cloak>
+    <div class="bs-example">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">1. What is HTML?</a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+
+                        <form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                        ng-click="vm.clear()">&times;</button>
+                                <h4 class="modal-title" id="myInvestorLabel" data-translate="investhryApp.investor.home.createOrEditLabel">Create or edit a Investor</h4>
+                            </div>
+                            <div class="modal-body">
+                                <jhi-alert-error></jhi-alert-error>
+                                <div class="form-group" ng-show="vm.investor.id">
+                                    <label for="id" data-translate="global.field.id">ID</label>
+                                    <input type="text" class="form-control" id="id" name="id"
+                                           ng-model="vm.investor.id" readonly />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" data-translate="investhryApp.investor.mouapplicable" for="field_mouapplicable">Mouapplicable</label>
+                                    <input type="checkbox" class="form-control" name="mouapplicable" id="field_mouapplicable"
+                                           ng-model="vm.investor.mouapplicable"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" data-translate="investhryApp.investor.mousignyear" for="field_mousignyear">Mousignyear</label>
+                                    <input type="number" class="form-control" name="mousignyear" id="field_mousignyear"
+                                           ng-model="vm.investor.mousignyear"
+                                    />
+                                </div>
+                                <div class="form-group" ngf-drop ngf-change="vm.setMoudocument($file, vm.investor)">
+                                    <label class="control-label" data-translate="investhryApp.investor.moudocument" for="field_moudocument">Moudocument</label>
+                                    <div>
+                                        <div ng-if="vm.investor.moudocument" class="help-block clearfix">
+                                            <a class="pull-left" ng-click="vm.openFile(vm.investor.moudocumentContentType, vm.investor.moudocument)" data-translate="entity.action.open">open</a><br>
+                                            <span class="pull-left">{{vm.investor.moudocumentContentType}}, {{vm.byteSize(vm.investor.moudocument)}}</span>
+                                            <button type="button" ng-click="vm.investor.moudocument=null;vm.investor.moudocumentContentType=null;"
+                                                    class="btn btn-default btn-xs pull-right">
+                                                <span class="glyphicon glyphicon-remove"></span>
+                                            </button>
+                                        </div>
+                                        <button type="button" ngf-select class="btn btn-default btn-block"
+                                                ngf-change="vm.setMoudocument($file, vm.investor)" data-translate="entity.action.addblob">
+                                            Add blob
+                                        </button>
+                                    </div>
+                                    <input type="hidden" class="form-control" name="moudocument" id="field_moudocument"
+                                           ng-model="vm.investor.moudocument"
+                                    />
+                                    <input type="hidden" class="form-control" name="moudocumentContentType" id="field_moudocumentContentType"
+                                           ng-model="vm.investor.moudocumentContentType" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" data-translate="investhryApp.investor.mouidnumber" for="field_mouidnumber">Mouidnumber</label>
+                                    <input type="text" class="form-control" name="mouidnumber" id="field_mouidnumber"
+                                           ng-model="vm.investor.mouidnumber"
+                                    />
+                                </div>
+                                <div class="form-group" ngf-drop ngf-change="vm.setPhoto($file, vm.investor)" ngf-pattern="'image/*'">
+                                    <label class="control-label" data-translate="investhryApp.investor.photo" for="field_photo">Photo</label>
+                                    <div>
+                                        <img data-ng-src="{{'data:' + vm.investor.photoContentType + ';base64,' + vm.investor.photo}}" style="max-height: 100px;" ng-if="vm.investor.photo" alt="investor image"/>
+                                        <div ng-if="vm.investor.photo" class="help-block clearfix">
+                                            <span class="pull-left">{{vm.investor.photoContentType}}, {{vm.byteSize(vm.investor.photo)}}</span>
+                                            <button type="button" ng-click="vm.investor.photo=null;vm.investor.photoContentType=null;"
+                                                    class="btn btn-default btn-xs pull-right">
+                                                <span class="glyphicon glyphicon-remove"></span>
+                                            </button>
+                                        </div>
+                                        <button type="button" ngf-select class="btn btn-default btn-block"
+                                                ngf-change="vm.setPhoto($file, vm.investor)" accept="image/*" data-translate="entity.action.addimage">
+                                            Add image
+                                        </button>
+                                    </div>
+                                    <input type="hidden" class="form-control" name="photo" id="field_photo"
+                                           ng-model="vm.investor.photo"
+                                    />
+                                    <input type="hidden" class="form-control" name="photoContentType" id="field_photoContentType"
+                                           ng-model="vm.investor.photoContentType" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" data-translate="investhryApp.investor.firstname" for="field_firstname">Firstname</label>
+                                    <input type="text" class="form-control" name="firstname" id="field_firstname"
+                                           ng-model="vm.investor.firstname"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" data-translate="investhryApp.investor.middlename" for="field_middlename">Middlename</label>
+                                    <input type="text" class="form-control" name="middlename" id="field_middlename"
+                                           ng-model="vm.investor.middlename"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" data-translate="investhryApp.investor.lastname" for="field_lastname">Lastname</label>
+                                    <input type="text" class="form-control" name="lastname" id="field_lastname"
+                                           ng-model="vm.investor.lastname"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" data-translate="investhryApp.investor.countryid" for="field_countryid">Countryid</label>
+                                    <input type="text" class="form-control" name="countryid" id="field_countryid"
+                                           ng-model="vm.investor.countryid"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" data-translate="investhryApp.investor.stateid" for="field_stateid">Stateid</label>
+                                    <input type="text" class="form-control" name="stateid" id="field_stateid"
+                                           ng-model="vm.investor.stateid"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" data-translate="investhryApp.investor.cityid" for="field_cityid">Cityid</label>
+                                    <input type="text" class="form-control" name="cityid" id="field_cityid"
+                                           ng-model="vm.investor.cityid"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" data-translate="investhryApp.investor.address1" for="field_address1">Address 1</label>
+                                    <input type="text" class="form-control" name="address1" id="field_address1"
+                                           ng-model="vm.investor.address1"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" data-translate="investhryApp.investor.address2" for="field_address2">Address 2</label>
+                                    <input type="text" class="form-control" name="address2" id="field_address2"
+                                           ng-model="vm.investor.address2"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" data-translate="investhryApp.investor.address3" for="field_address3">Address 3</label>
+                                    <input type="text" class="form-control" name="address3" id="field_address3"
+                                           ng-model="vm.investor.address3"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" data-translate="investhryApp.investor.emailprimary" for="field_emailprimary">Emailprimary</label>
+                                    <input type="text" class="form-control" name="emailprimary" id="field_emailprimary"
+                                           ng-model="vm.investor.emailprimary"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" data-translate="investhryApp.investor.emailsecondary" for="field_emailsecondary">Emailsecondary</label>
+                                    <input type="text" class="form-control" name="emailsecondary" id="field_emailsecondary"
+                                           ng-model="vm.investor.emailsecondary"
+                                    />
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+                                    <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+                                </button>
+                                <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">2. What is Bootstrap?</a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Bootstrap is a powerful front-end framework for faster and easier web development. It is a collection of CSS and HTML conventions. <a href="http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/" target="_blank">Learn more.</a></p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">3. What is CSS?</a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>CSS stands for Cascading Style Sheet. CSS allows you to specify various style properties for a given HTML element such as colors, backgrounds, fonts etc. <a href="http://www.tutorialrepublic.com/css-tutorial/" target="_blank">Learn more.</a></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div>
     <h2 data-translate="investhryApp.investor.home.title">Investors</h2>
     <jhi-alert></jhi-alert>

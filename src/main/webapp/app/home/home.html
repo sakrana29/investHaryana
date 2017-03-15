@@ -1,41 +1,802 @@
-<div ng-cloak>
-    <div class="row">
-        <div class="col-md-4">
-            <span class="hipster img-responsive img-rounded"></span>
-        </div>
-        <div class="col-md-8">
-            <h1 data-translate="home.title">Welcome, Java Hipster!</h1>
-            <p class="lead" data-translate="home.subtitle">This is your homepage</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-            <div ng-switch="vm.isAuthenticated()">
-                <div class="alert alert-success" ng-switch-when="true" data-translate="home.logged.message" translate-values="{username: '{{vm.account.login}}'}">
-                    You are logged in as user "{{vm.account.login}}".
-                </div>
+<div class="bs-example">
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Investor</a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <form class="form-horizontal" data-dpmaxz-eid="7">
+                        <fieldset>
+                            <legend>Investor</legend>
+                            <div class="form-group">
+                                <label for="inputmou" class="col-lg-2 control-label">Mou Applicable</label>
+                                <div class="col-lg-10">
+                                    <label>
+                                        <input type="checkbox" id="inputmou" data-dpmaxz-eid="10"> Applicable/Not Applicable
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputmousignyear" class="col-lg-2 control-label">MOU Signing Year</label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" id="inputmousignyear" placeholder="Mou signing year" data-dpmaxz-eid="4">
+                                </div>
+                            </div>
 
-                <div class="alert alert-warning" ng-switch-when="false" data-translate="global.messages.info.authenticated" translate-compile>
-                    If you want to <a class="alert-link" href="" ng-click="vm.login()">sign in</a>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").
-                </div>
+                            <div class="form-group">
+                                <label for="inputmouattachment" class="col-lg-2 control-label"></label>
+                                <div class="col-lg-10">
+                                    <button type="submit" id="inputmouattachment" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                                </div>
+                            </div>
 
-                <div class="alert alert-warning" ng-switch-when="false" data-translate="global.messages.info.register" translate-compile>
-                    You don't have an account yet? <a class="alert-link" ui-sref="register">Register a new account</a>
+                            <div class="form-group">
+                                <label for="mouid" class="col-lg-2 control-label">MOU ID</label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" id="mouid" placeholder="Mou ID" data-dpmaxz-eid="20">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Investorphoto" class="col-lg-2 control-label"></label>
+                                <div class="col-lg-10">
+                                    <button type="submit" id="Investorphoto" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="firstname" class="col-lg-2 control-label">First Name</label>
+                                <div class="col-lg-2">
+                                    <input type="text" class="form-control" id="firstname" placeholder="First Name" data-dpmaxz-eid="20">
+                                </div>
+
+                                <label for="middlename" class="col-lg-2 control-label">First Name</label>
+                                <div class="col-lg-2">
+                                    <input type="text" class="form-control" id="middlename" placeholder="Middle Name" data-dpmaxz-eid="20">
+                                </div>
+
+                                <label for="lastname" class="col-lg-2 control-label">First Name</label>
+                                <div class="col-lg-2">
+                                    <input type="text" class="form-control" id="lastname" placeholder="Last Name" data-dpmaxz-eid="20">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="country" class="col-lg-2 control-label">Country</label>
+                                <div class="col-lg-10">
+                                    <select type="text" class="form-control" id="country"  data-dpmaxz-eid="20">
+                                        <option>India</option>
+                                        <option>Nepal</option>
+                                        <option>Sri Lanka</option>
+                                        <option>USA</option>
+                                        <option>France</option>
+                                        <option>England</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="state" class="col-lg-2 control-label">State</label>
+                                <div class="col-lg-10">
+                                    <select type="text" class="form-control" id="state" data-dpmaxz-eid="20">
+                                        <option>Haryana</option>
+                                        <option>Himachal</option>
+                                        <option>Punjab</option>
+                                        <option>Rajshtan</option>
+                                        <option>U.P.</option>
+                                        <option>Delhi</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="city" class="col-lg-2 control-label">City</label>
+                                <div class="col-lg-10">
+                                    <select type="text" class="form-control" id="city" data-dpmaxz-eid="20">
+                                        <option>Jind</option>
+                                        <option>Hisar</option>
+                                        <option>Ambala</option>
+                                        <option>Rohtak</option>
+                                        <option>Panchkula</option>
+                                        <option>Y. Nagar</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address1" class="col-lg-2 control-label">Address 1</label>
+                                <div class="col-lg-2">
+                                    <textarea class="form-control" rows="3" id="address1"></textarea>
+                                </div>
+
+                                <label for="address2" class="col-lg-2 control-label">Address 2</label>
+                                <div class="col-lg-2">
+                                    <textarea class="form-control" rows="3" id="address2"></textarea>
+                                </div>
+
+                                <label for="address3" class="col-lg-2 control-label">Address 3</label>
+                                <div class="col-lg-2">
+                                    <textarea class="form-control" rows="3" id="address3"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email1" class="col-lg-2 control-label">Email Primary</label>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" id="email1" placeholder="email@email" data-dpmaxz-eid="20">
+                                </div>
+
+                                <label for="email2" class="col-lg-2 control-label">Email Secondary</label>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" id="email2" placeholder="email@email" data-dpmaxz-eid="20">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-10 col-lg-offset-2">
+                                    <button type="reset" class="btn btn-default">Cancel</button>
+                                    <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12">SAVE</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+
                 </div>
             </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Company Detail</a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <form class="form-horizontal" data-dpmaxz-eid="7">
+                        <fieldset>
+                            <legend>Company Detail</legend>
+                            <div class="form-group">
+                                <label for="mddirector" class="col-lg-2 control-label">Promoter Md Director</label>
+                                <div class="col-lg-10">
+                                    <label>
+                                        <input type="text" class="form-control" id="mddirector" placeholder="Promoter Director MD CEO" data-dpmaxz-eid="4">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="designation" class="col-lg-2 control-label">Designation</label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" id="designation" placeholder="designation" data-dpmaxz-eid="4">
+                                </div>
+                            </div>
 
-            <p data-translate="home.question">
-                If you have any question on JHipster:
-            </p>
+                            <div class="form-group">
+                                <label for="businessentity" class="col-lg-2 control-label">Business Entity (M/s)</label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" id="businessentity" placeholder="Business Entity (M/s)" data-dpmaxz-eid="20">
+                                </div>
+                            </div>
 
-            <ul>
-                <li><a href="http://jhipster.github.io/" target="_blank" data-translate="home.link.homepage">JHipster homepage</a></li>
-                <li><a href="http://stackoverflow.com/tags/jhipster/info" target="_blank" data-translate="home.link.stackoverflow">JHipster on Stack Overflow</a></li>
-                <li><a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" data-translate="home.link.bugtracker">JHipster bug tracker</a></li>
-                <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" data-translate="home.link.chat">JHipster public chat room</a></li>
-                <li><a href="https://twitter.com/java_hipster" target="_blank"  data-translate="home.link.follow">follow @java_hipster on Twitter</a></li>
-            </ul>
+                            <div class="form-group">
+                                <label for="businesstype" class="col-lg-2 control-label">Business Entity Type</label>
+                                <div class="col-lg-10">
+                                    <select type="text" class="form-control" id="businesstype"  data-dpmaxz-eid="20">
+                                        <option>Sole Proprieter</option>
+                                        <option>Partnership</option>
+                                        <option>Private Limited</option>
+                                        <option>Public Limited</option>
+                                        <option>Cooperative</option>
+                                        <option>Company</option>
+                                    </select>
+                                </div>
+                            </div>
 
-            <p>
-             <span data-translate="home.like">If you like JHipster, don't forget to give us a star on </span>&nbsp;<a href="https://github.com/jhipster/generator-jhipster" target="_blank" data-translate="home.github">Github</a>!
-            </p>
+
+                            <div class="form-group">
+                                <label for="promotor" class="col-lg-2 control-label">Number of Directors/Promoters /MDs/CEO</label>
+                                <div class="col-lg-4">
+                                    <input type="number" class="form-control" id="promotor" placeholder="Number of Directors/Promoters/MDs/CEO" data-dpmaxz-eid="20">
+                                </div>
+
+                                <div class="col-lg-2">
+                                    <button type="submit" id="noofdirector" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="PanNumber" class="col-lg-2 control-label">Pan Number</label>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" id="PanNumber" placeholder="PAN Number" data-dpmaxz-eid="20">
+                                </div>
+
+                                <div class="col-lg-2">
+                                    <button type="submit" id="panattached" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="aadharnumber" class="col-lg-2 control-label">Aadhar Number</label>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" id="aadharnumber" placeholder="Aadhar Number" data-dpmaxz-eid="20">
+                                </div>
+
+                                <div class="col-lg-2">
+                                    <button type="submit" id="aadharcard" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="isnri" class="col-lg-2 control-label">NRI</label>
+                                <div class="col-lg-10">
+                                    <label>
+                                        <input type="checkbox" id="isnri" data-dpmaxz-eid="10"> Applicable/Not Applicable
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tinvatnumber" class="col-lg-2 control-label">Tin Vat Number</label>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" id="tinvatnumber" placeholder="Tin Vat Number" data-dpmaxz-eid="20">
+                                </div>
+
+                                <div class="col-lg-2">
+                                    <button type="submit" id="tinvat" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="cstnumber" class="col-lg-2 control-label">Cst Number</label>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" id="cstnumber" placeholder="Cst Number" data-dpmaxz-eid="20">
+                                </div>
+
+                                <div class="col-lg-2">
+                                    <button type="submit" id="cstattach" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="MoaPartnershipdeed" class="col-lg-2 control-label">Moa Partnershipdeed</label>
+
+                                <div class="col-lg-2">
+                                    <button type="submit" id="MoaPartnershipdeed" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="RegistrationDocument" class="col-lg-2 control-label">Registration Document</label>
+
+                                <div class="col-lg-2">
+                                    <button type="submit" id="RegistrationDocument" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-lg-6" col-lg-offset-2">
+                                <button type="reset" class="btn btn-default">Cancel</button>
+                                <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12">SAVE</button>
+                            </div>
+                </div>
+                </fieldset>
+                </form>
+            </div>
         </div>
     </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Project Detail</a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+                <form class="form-horizontal" data-dpmaxz-eid="7">
+                    <fieldset>
+                        <legend>Project Detail</legend>
+                        <div class="form-group">
+                            <label for="Sector" class="col-lg-2 control-label">Sector</label>
+                            <div class="col-lg-3">
+                                <select type="text" class="form-control" id="Sector"  data-dpmaxz-eid="20">
+                                    <option>Auto, Auto Components and Light Engineering</option>
+                                    <option>Agro-based, Food Processing and Allied Industry</option>
+                                    <option>Textiles/ Apparel/ Knitting/ Embroidery/ Technical textiles</option>
+                                    <option>Footwear and Accessories</option>
+                                    <option>Electronics & IT/ITES</option>
+                                    <option>Defence and Aerospace Manufacturing</option>
+                                    <option>Renewable Energy & Solar Parks</option>
+                                    <option>Pharmaceutical Industry</option>
+                                    <option>Chemical Industry</option>
+                                    <option>Other Industries</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="purpose" class="col-lg-2 control-label">Project Purpose</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="purpose" placeholder="Project Purpose" data-dpmaxz-eid="4">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="industrysize" class="col-lg-2 control-label">Size of Industry</label>
+                            <div class="col-lg-10">
+                                <select type="text" class="form-control" id="industrysize"  data-dpmaxz-eid="20">
+                                    <option>Large - more than 10 crores</option>
+                                    <option>Medium - more than 5 crores and less than 10 crores</option>
+                                    <option>Small - more than 25 lakhs and less  than or upto 5 crores</option>
+                                    <option>Micro - upto 25 lakhs</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="projecttype" class="col-lg-2 control-label">Project Type </label>
+                            <div class="col-lg-10">
+                                <select type="text" class="form-control" id="projecttype"  data-dpmaxz-eid="20">
+                                    <option>New Project (New Site)</option>
+                                    <option>New Project (Existing Site)</option>
+                                    <option>Expansion Project</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="NICCode" class="col-lg-2 control-label">NIC Code</label>
+                            <div class="col-lg-4">
+                                <input type="number" class="form-control" id="NICCode" placeholder="NIC Code" data-dpmaxz-eid="20">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="projectcategory" class="col-lg-2 control-label">Category Of Project</label>
+                            <div class="col-lg-10">
+                                <select type="text" class="form-control" id="projectcategory" data-dpmaxz-eid="20">
+                                    <option>Export Oriented</option>
+                                    <option>Highly Technical</option>
+                                    <option>Involving Technical Collaboration with Foreign Investor</option>
+                                    <option>Involving Financial Collaboration with Foreign Investor</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="collaboration" class="col-lg-2 control-label">Cllaboration with Foreign Investor</label>
+                            <div class="col-lg-4">
+                                <select type="text" class="form-control" id="collaboration" data-dpmaxz-eid="20">
+                                    <option>USA</option>
+                                    <option>Nepal</option>
+                                    <option>Sri Lanka</option>
+                                    <option>England</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="collaborationattach" class="col-lg-2 control-label">Detailed Project Report</label>
+                            <div class="col-lg-2">
+                                <button type="submit" id="collaborationattach" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="existingapproval" class="col-lg-2 control-label">Existing Regulatory Approval</label>
+                            <div class="col-lg-4">
+                                <label>
+                                    <input type="checkbox" id="existingapproval" data-dpmaxz-eid="10"> Applicable/Not Applicable
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="applicationform" class="col-lg-2 control-label">Application Form</label>
+                            <div class="col-lg-4">
+                                <select type="text" class="form-control" id="applicationform" data-dpmaxz-eid="20">
+                                    <option>Allotment of plots</option>
+                                    <option>Application for Licence to Establish Kiln</option>
+                                    <option>Application for New Fire Fighting Scheme</option>
+                                    <option>Application for Tree Felling</option>
+                                    <option>Application form for fertilizer manufacture certificate</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2">
+                                <button type="submit" id="applicationformattch" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="edcfee" class="col-lg-2 control-label">EDC/SIF/CLU/Other Fee</label>
+                            <div class="col-lg-6">
+                                <label>
+                                    <input type="checkbox" id="edcfee" data-dpmaxz-eid="10"> Applicable/Not Applicable
+                                </label>
+
+                                <button type="submit" id="edcfeeattch" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-lg-6" col-lg-offset-2">
+                            <button type="reset" class="btn btn-default">Cancel</button>
+                            <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12">SAVE</button>
+                        </div>
+            </div>
+            </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Project Site Detail -->
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#projectsitedetail2">Project Site Detail </a>
+        </h4>
+    </div>
+    <div id="projectsitedetail2" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <form class="form-horizontal" data-dpmaxz-eid="7">
+                <fieldset>
+                    <div class="form-group">
+                        <label for="siteaddress" class="col-lg-2 control-label">Site Address</label>
+                        <div class="col-lg-10">
+                            <textarea class="form-control" rows="3" id="siteaddress"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="District" class="col-lg-2 control-label">District</label>
+                        <div class="col-lg-10">
+                            <select type="text" class="form-control" id="District" data-dpmaxz-eid="20">
+                                <option>Hisar</option>
+                                <option>Jind</option>
+                                <option>Ambala</option>
+                                <option>Panchkula</option>
+                                <option>Y. Nagar</option>
+                                <option>Kurukshetra</option>
+                                <option>Karnal</option>
+                                <option>Kaithal</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Block" class="col-lg-2 control-label">Block</label>
+                        <div class="col-lg-10">
+                            <select type="text" class="form-control" id="Block" data-dpmaxz-eid="20">
+                                <option>Hansi</option>
+                                <option>Barwala</option>
+                                <option>Uklana</option>
+                                <option>Adhampur</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cityvillage" class="col-lg-2 control-label">City Town Village</label>
+                        <div class="col-lg-10">
+                            <select type="text" class="form-control" id="cityvillage" data-dpmaxz-eid="20">
+                                <option>Juglan</option>
+                                <option>Bahablpur</option>
+                                <option>Zora</option>
+                                <option>Pabda</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="multyvillageinvolved" class="col-lg-2 control-label">Multy Village Involved</label>
+                        <div class="col-lg-10">
+                            <label>
+                                <input type="checkbox" id="multyvillageinvolved" data-dpmaxz-eid="10"> Applicable/Not Applicable
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Villageinvolved" class="col-lg-2 control-label">Village Involved</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="Villageinvolved" placeholder="Village Involve" data-dpmaxz-eid="20">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inaravali" class="col-lg-7 control-label">If site falls in Gurgaon or Mewat district, whether land falls under Aravalli Notification Act</label>
+                        <div class="col-lg-2">
+                            <label>
+                                <input type="checkbox" id="inaravali" data-dpmaxz-eid="10"> Yes/No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="landprocured" class="col-lg-2 control-label">Is Land Procured</label>
+                        <div class="col-lg-10">
+                            <label>
+                                <input type="checkbox" id="landprocured" data-dpmaxz-eid="10"> Yes/No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Allotedbyhsiidc" class="col-lg-2 control-label">Is Land Allocated By HSIID</label>
+                        <div class="col-lg-10">
+                            <label>
+                                <input type="checkbox" id="Allotedbyhsiidc" data-dpmaxz-eid="10"> Yes/No
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Estate" class="col-lg-2 control-label">Estate</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="Estate" placeholder="Estate" data-dpmaxz-eid="20">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Cluster" class="col-lg-2 control-label">Cluster</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="Cluster" placeholder="Cluster" data-dpmaxz-eid="20">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Phase" class="col-lg-2 control-label">Phase</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="Phase" placeholder="Phase" data-dpmaxz-eid="20">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Sector" class="col-lg-2 control-label">Sector</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="Sector" placeholder="Sector" data-dpmaxz-eid="20">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Plotno" class="col-lg-2 control-label">Plot no</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="Plotno" placeholder="Plotno" data-dpmaxz-eid="20">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Hadbastno" class="col-lg-2 control-label">Hadbast no</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="Hadbastno" placeholder="Sector" data-dpmaxz-eid="20">
+                        </div>
+                        <label for="khasraocument" class="col-lg-2 control-label">Khasra Document</label>
+                        <div class="col-lg-4">
+                            <button type="submit" id="khasraocument" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="llesundermc" class="col-lg-2 control-label">Lies Under Mc</label>
+                        <div class="col-lg-6">
+                            <label>
+                                <input type="checkbox" id="llesundermc" data-dpmaxz-eid="10"> Applicable/Not Applicable
+                            </label>
+                        </div>
+                        <label for="mcdistance" class="col-lg-2 control-label">Distance From Mc</label>
+                        <div class="col-lg-2">
+                            <input type="number" class="form-control" id="mcdistance" placeholder="Plotno" data-dpmaxz-eid="20">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sitelocated" class="col-lg-2 control-label">Site is located in Urban Area</label>
+                        <div class="col-lg-2">
+                            <label>
+                                <input type="checkbox" id="sitelocated" data-dpmaxz-eid="10"> Yes / No
+                            </label>
+                        </div>
+                        <label for="shajradocument" class="col-lg-4 control-label">Revenu Shajra Document</label>
+                        <div class="col-lg-3">
+                            <button type="submit" id="shajradocument" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Jamabandi" class="col-lg-2 control-label">Jamabandi</label>
+                        <div class="col-lg-3">
+                            <button type="submit" id="Jamabandi" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                        </div>
+                        <label for="Nonencumbrancecertificate" class="col-lg-3 control-label">Nonencumbrance Certificate</label>
+                        <div class="col-lg-3">
+                            <button type="submit" id="Nonencumbrancecertificate" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Totalproposedprojectarea" class="col-lg-2 control-label">Total Proposed Project Area</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="Totalproposedprojectarea" placeholder="Plotno" data-dpmaxz-eid="20">
+                        </div>
+
+                        <label for="proposebuilduparea" class="col-lg-2 control-label">Proposed Built Up Area</label>
+                        <div class="col-lg-4">
+                            <input type="number" class="form-control" id="proposebuilduparea" placeholder="Plotno" data-dpmaxz-eid="20">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="Certifiedownership" class="col-lg-2 control-label">Certified Ownership</label>
+                        <div class="col-lg-4">
+                            <label>
+                                <input type="checkbox" id="Certifiedownership" data-dpmaxz-eid="10">Applicable / Not Applicable
+                            </label>
+                        </div>
+                        <label for="ownershpdocument" class="col-lg-2 control-label">Ownership Document</label>
+                        <div class="col-lg-4">
+                            <button type="submit" id="ownershpdocument" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Leaseapplicable" class="col-lg-2 control-label">Lease Applicable</label>
+                        <div class="col-lg-4">
+                            <label>
+                                <input type="checkbox" id="Leaseapplicable" data-dpmaxz-eid="10">Applicable / Not Applicable
+                            </label>
+                        </div>
+                        <label for="leasedocument" class="col-lg-2 control-label">Lease Document</label>
+                        <div class="col-lg-4">
+                            <button type="submit" id="leasedocument" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="Landagreementapplicable" class="col-lg-2 control-label">Land Agreement Applicable</label>
+                        <div class="col-lg-4">
+                            <label>
+                                <input type="checkbox" id="Landagreementapplicable" data-dpmaxz-eid="10">Applicable / Not Applicable
+                            </label>
+                        </div>
+                        <label for="agreementdocument" class="col-lg-2 control-label">Agreement Document</label>
+                        <div class="col-lg-4">
+                            <button type="submit" id="agreementdocument" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Sitelayoutplan" class="col-lg-2 control-label">Site Layout Plan Document</label>
+                        <div class="col-lg-4">
+                            <button type="submit" id="Sitelayoutplan" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                        </div>
+
+                        <label for="Locationplan" class="col-lg-2 control-label">Location Plan Document</label>
+                        <div class="col-lg-4">
+                            <button type="submit" id="Locationplan" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Linearstripplan" class="col-lg-2 control-label">Linears Trip Plan</label>
+                        <div class="col-lg-4">
+                            <button type="submit" id="Linearstripplan" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                        </div>
+
+                        <label for="Connectingroad" class="col-lg-2 control-label">Connecting Road</label>
+                        <div class="col-lg-4">
+                            <select type="text" class="form-control" id="Connectingroad" data-dpmaxz-eid="20">
+                                <option>National Highway</option>
+                                <option>State Highway</option>
+                                <option>Schedule Road</option>
+                                <option>Other State Road</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Intersectiondistance" class="col-lg-2 control-label">Intersection Distance</label>
+                        <div class="col-lg-4">
+                            <label>
+                                <input type="checkbox" id="Intersectiondistance" data-dpmaxz-eid="10">Applicable / Not Applicable
+                            </label>
+                        </div>
+                        <label for="Railwaydistance" class="col-lg-2 control-label">Railway Distance</label>
+                        <div class="col-lg-4">
+                            <label>
+                                <input type="checkbox" id="Railwaydistance" data-dpmaxz-eid="10">Applicable / Not Applicable
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Confirmitylanduse" class="col-lg-2 control-label">Confirmity of land use</label>
+                        <div class="col-lg-4">
+                            <label>
+                                <input type="checkbox" id="Confirmitylanduse" data-dpmaxz-eid="10">Applicable / Not Applicable
+                            </label>
+                        </div>
+                        <label for="Landzoneusetype" class="col-lg-2 control-label">Land Zone Use Type</label>
+                        <div class="col-lg-4">
+                            <select type="text" class="form-control" id="Landzoneusetype" data-dpmaxz-eid="20">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="SitesituatedDocument" class="col-lg-2 control-label">Sitesituated Document</label>
+                        <div class="col-lg-4">
+                            <button type="submit" id="SitesituatedDocument" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                        </div>
+
+                        <label for="buildingexisting" class="col-lg-2 control-label">Building existed</label>
+                        <div class="col-lg-4">
+                            <select type="text" class="form-control" id="buildingexisting" data-dpmaxz-eid="20">
+                                <option>Before</option>
+                                <option>After</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="existingbuildingapplicable" class="col-lg-2 control-label">xisting Building Applicable</label>
+                        <div class="col-lg-4">
+                            <label>
+                                <input type="checkbox" id="existingbuildingapplicable" data-dpmaxz-eid="10">Applicable / Not Applicable
+                            </label>
+                        </div>
+
+                        <label for="buildingplandocument" class="col-lg-2 control-label">Buildingplan Document</label>
+                        <div class="col-lg-4">
+                            <button type="submit" id="buildingplandocument" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="situatedincontrolledarea" class="col-lg-2 control-label">Site Situated In Controlled Area</label>
+                        <div class="col-lg-4">
+                            <label>
+                                <input type="checkbox" id="situatedincontrolledarea" data-dpmaxz-eid="10">Applicable / Not Applicable
+                            </label>
+                        </div>
+
+                        <label for="ontrolleddocument" class="col-lg-2 control-label">Controlled Area Document</label>
+                        <div class="col-lg-4">
+                            <button type="submit" id="ontrolleddocument" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <button type="reset" class="btn btn-default">Cancel</button>
+                            <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12">SAVE</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+</div>
 </div>
