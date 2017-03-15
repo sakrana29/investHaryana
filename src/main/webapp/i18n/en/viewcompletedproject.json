@@ -1,0 +1,17 @@
+{
+    "investhryApp": {
+        "viewcompletedproject" : {
+            "home": {
+                "title": "viewcompletedproject",
+                "createLabel": "Create a new viewcompletedproject",
+                "createOrEditLabel": "Create or edit a viewcompletedproject"
+            },
+            "created": "A new Projectdetail is created with identifier {{ param }}",
+            "updated": "A Projectdetail is updated with identifier {{ param }}",
+            "deleted": "A Projectdetail is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Projectdetail {{ id }}?"
+            }
+        }
+    }
+}

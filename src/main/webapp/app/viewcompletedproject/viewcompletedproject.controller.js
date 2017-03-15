@@ -3,11 +3,11 @@
 
     angular
         .module('investhryApp')
-        .controller('HomeController', HomeController);
+        .controller('viewcompletedprojectController', addprojectController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
+    addprojectController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
 
-    function HomeController ($scope, Principal, LoginService, $state) {
+    function addprojectController ($scope, Principal, LoginService, $state) {
         var vm = this;
 
         vm.account = null;
