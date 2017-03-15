@@ -10,13 +10,13 @@
     function UserManagementController(Principal, User, ParseLinks, AlertService, JhiLanguageService) {
         var vm = this;
 
-        vm.authorities = ['ROLE_USER', 'ROLE_ADMIN'];
+        vm.authorities = ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_RM', 'ROLE_DESK_OFFICER', 'ROLE_NODAL_OFFICER', 'ROLE_ACCOUNT_OFFICER'];
         vm.currentAccount = null;
         vm.languages = null;
         vm.loadAll = loadAll;
         vm.setActive = setActive;
         vm.users = [];
-        
+
 
         vm.loadAll();
         JhiLanguageService.getAll().then(function (languages) {
@@ -39,7 +39,7 @@
         }
 
         function onSuccess(data, headers) {
-            
+
             vm.users = data;
         }
 

@@ -31,10 +31,16 @@ spring:
             compression: LZ4
             keyspaceName: investhry
     mail:
-        host: localhost
-        port: 25
-        username:
-        password:
+        host: smtp.gmail.com
+        port: 587
+        username: sanjurana29@gmail.com
+        password: 12Jan2014@ani
+        tls: true
+        properties.mail.smtp:
+                    auth: true
+                    starttls.enable: true
+                    ssl.trust: smtp.gmail.com
+
     messages:
         cache-seconds: 1
     thymeleaf:
