@@ -1,10 +1,15 @@
 <div ng-cloak>
-    <ul class="nav nav-tabs">
-        <li class="active"><a href="#/viewprojectdetail" data-toggle="tab" aria-expanded="false">All Project</a></li>
-        <li class=""><a href="#/viewpendingproject" data-toggle="tab" aria-expanded="true">Pending</a></li>
-        <li class=""><a href="#/viewcompletedproject" data-toggle="tab" aria-expanded="true">Completed</a></li>
-
-    </ul>
+    <div class="btn-group ">
+        <button type="submit"
+                ui-sref="viewprojectdetail({status:0})"
+                class="btn btn-info ">All Project</button>
+        <button type="submit"
+                ui-sref="viewprojectdetail({status:1})"
+                class="btn btn-primary ">Pending</button>
+        <button type="submit"
+                ui-sref="viewprojectdetail({status:2})"
+                class="btn btn-danger ">Completed        </button>
+    </div>
     <div class="row" >
     <table class="table table-striped table-hover ">
         <thead>
@@ -39,7 +44,9 @@
                 03-02-2017
             </td>
             <td class="action verticalalign">
-                <button type="submit" id="btnAllDetails" name="Command" class="btn btn-primary pull-right action" value="AllDetails~80439~0~New">Details</button><br>
+                <button type="submit"
+                        ui-sref="projectdetailjist({id:entity.id})"
+                        class="btn btn-info ">Details</button>
             </td>
         </tr>
         </tbody>

@@ -10,7 +10,7 @@
     function stateConfig($stateProvider) {
         $stateProvider.state('viewprojectdetail', {
             parent: 'app',
-            url: '/viewprojectdetail',
+            url: '/viewprojectdetail/{status}',
             data: {
                 authorities: []
             },
@@ -30,3 +30,4 @@
         });
     }
 })();
+
