@@ -21,6 +21,12 @@
                     controllerAs: 'vm'
                 }
             },
+              resolve: {
+                  translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
+                      $translatePartialLoader.addPart('completeprojectdetail');
+                      return $translate.refresh();
+                  }]
+              }
         });
     }
 })();

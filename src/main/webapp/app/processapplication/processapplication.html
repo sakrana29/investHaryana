@@ -1,0 +1,111 @@
+<div ng-cloak>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Application Process Section</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped table-hover ">
+                <tbody>
+                <tr>
+                    <th>Application For</th>
+                    <td></td>
+                    <th>Sector</th>
+                    <td></td>
+                </tr><tr>
+                    <th>PIN</th>
+                    <td></td>
+                    <th>ApplicationDate</th>
+                    <td></td>
+                </tr><tr>
+                    <th>Business Entity</th>
+                    <td></td>
+                    <th>Site Detail</th>
+                    <td></td>
+                </tr><tr>
+                    <th>Project Cost</th>
+                    <td></td>
+                    <th>MOU (Year)
+                    </th>
+                    <td></td>
+                </tr><tr>
+                    <th>Relationship Manager
+                    </th>
+                    <td></td>
+                    <th>Contact Info
+                    </th>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Take Action</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+            <div class="form-group">
+                <label class="col-lg-2 control-label"></label>
+                <div class="col-lg-10">
+                    <button type="submit" onclick="$('.actionevent').text('FORWARD');$('.other').css('display','block');$('.forward').css('display','block');"
+                            ui-sref="" class="btn btn-info ">Forward to Department(s)</button>
+                    <button type="submit"  onclick="$('.actionevent').text('OBJECTION');$('.other').css('display','block');$('.forward').css('display','none');"  ui-sref="" class="btn btn-primary ">Objection Raised</button>
+                    <button type="submit"  onclick="$('.actionevent').text('DEACTIVATION');$('.other').css('display','block');$('.forward').css('display','none');"  ui-sref="" class="btn btn-danger ">Project Deactivation request        </button></div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-12">&nbsp;</div>
+                <div class="col-lg-12">&nbsp;</div>
+                <div class="col-lg-12">&nbsp;</div>
+            </div>
+            <div class="form-group other" style="display:none">
+                <label for="textArea" class="col-lg-1 control-label"></label>
+                <label for="textArea" class="col-lg-1 control-label">Remarks</label>
+                <div class="col-lg-7">
+                    <textarea class="form-control" rows="3" id="textArea"></textarea>
+                </div>
+            </div><div class="form-group">
+                <div class="col-lg-12">&nbsp;</div>
+                <div class="col-lg-12">&nbsp;</div>
+                <div class="col-lg-12">&nbsp;</div>
+            </div>
+            <div class="form-group forward" style="display:none">
+                <label for="textArea" class="col-lg-1 control-label"></label>
+                <div class="col-lg-10">
+                       <table class="table table-striped table-hover ">
+                           <thead>
+                           <tr>
+                               <th scope="col"><input type="checkbox"></th>
+                               <th scope="col">  Department</th>
+                               <th scope="col">    Service   </th>
+                           </tr>
+                           </thead>
+                           <tbody>
+                           <tr>
+                               <td ><input  type="checkbox"> </td>
+                               <td>HARTRON</td>
+                               <td>DEVELOPMENT</td>
+                           </tr>
+                           <tr>
+                               <td ><input  type="checkbox"> </td>
+                               <td>HAREDA</td>
+                               <td>SOLAR</td>
+                           </tr>
+                           </tbody>
+                       </table>
+                </div>
+                <label for="textArea" class="col-lg-1 control-label"></label>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-5 control-label"></label>
+                <div class="col-lg-2">
+                    <button type="submit"   ui-sref="" class="btn btn-success actionevent">TAKE ACTION</button>
+                   </div>
+                <label class="col-lg-5 control-label"></label>
+
+            </div>
+    </div>
+
+
+</div>
