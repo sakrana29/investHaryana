@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class Tehsil_subtehsilServiceImpl implements Tehsil_subtehsilService{
 
     private final Logger log = LoggerFactory.getLogger(Tehsil_subtehsilServiceImpl.class);
-    
+
     private final Tehsil_subtehsilRepository tehsil_subtehsilRepository;
 
     private final Tehsil_subtehsilMapper tehsil_subtehsilMapper;
@@ -48,7 +48,7 @@ public class Tehsil_subtehsilServiceImpl implements Tehsil_subtehsilService{
 
     /**
      *  Get all the tehsil_subtehsils.
-     *  
+     *
      *  @return the list of entities
      */
     @Override
@@ -84,5 +84,15 @@ public class Tehsil_subtehsilServiceImpl implements Tehsil_subtehsilService{
     public void delete(String id) {
         log.debug("Request to delete Tehsil_subtehsil : {}", id);
         tehsil_subtehsilRepository.delete(UUID.fromString(id));
+    }
+
+    @Override
+    public List<Tehsil_subtehsilDTO> findTehsilByDistrict(String districtid) {
+        log.debug("Request to get all Tehsil_subtehsils by District");
+        List<Tehsil_subtehsilDTO> result = tehsil_subtehsilRepository.findTehsilByDistrictId(UUID.fromString(districtid)).stream()
+            .map(tehsil_subtehsilMapper::tehsil_subtehsilToTehsil_subtehsilDTO)
+            .collect(Collectors.toCollection(LinkedList::new));
+
+        return result;
     }
 }

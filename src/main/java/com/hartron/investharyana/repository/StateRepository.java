@@ -39,7 +39,7 @@ public class StateRepository {
             "INSERT INTO state_by_country (countryid, id) " +
                 "VALUES (:countryid, :id)");
 
-        findByCountryStmt = session.prepare(
+        this.findByCountryStmt = session.prepare(
             "SELECT id " +
                 "FROM state_by_country " +
                 "WHERE countryid = :countryid");

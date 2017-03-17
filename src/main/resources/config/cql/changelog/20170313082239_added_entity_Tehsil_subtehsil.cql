@@ -5,3 +5,9 @@ CREATE TABLE IF NOT EXISTS tehsil_subtehsil (
     tehsil_subtehsilname text,
     PRIMARY KEY(id)
 );
+
+CREATE TABLE IF NOT EXISTS tehsil_by_district (
+districtid uuid,
+id uuid,
+PRIMARY KEY(districtid,id)
+);

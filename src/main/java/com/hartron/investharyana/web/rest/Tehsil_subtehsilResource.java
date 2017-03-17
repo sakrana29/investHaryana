@@ -29,7 +29,7 @@ public class Tehsil_subtehsilResource {
     private final Logger log = LoggerFactory.getLogger(Tehsil_subtehsilResource.class);
 
     private static final String ENTITY_NAME = "tehsil_subtehsil";
-        
+
     private final Tehsil_subtehsilService tehsil_subtehsilService;
 
     public Tehsil_subtehsilResource(Tehsil_subtehsilService tehsil_subtehsilService) {
@@ -90,6 +90,12 @@ public class Tehsil_subtehsilResource {
         return tehsil_subtehsilService.findAll();
     }
 
+    @GetMapping("/tehsil-subtehsils/district/{districtid}")
+    @Timed
+    public List<Tehsil_subtehsilDTO> getAllTehsil_subtehsilsByDistrict(@PathVariable String districtid) {
+        log.debug("REST request to get all Tehsil_subtehsils by district");
+        return tehsil_subtehsilService.findTehsilByDistrict(districtid);
+    }
     /**
      * GET  /tehsil-subtehsils/:id : get the "id" tehsil_subtehsil.
      *

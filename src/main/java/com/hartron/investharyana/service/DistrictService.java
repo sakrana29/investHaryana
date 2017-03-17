@@ -18,7 +18,7 @@ public interface DistrictService {
 
     /**
      *  Get all the districts.
-     *  
+     *
      *  @return the list of entities
      */
     List<DistrictDTO> findAll();
@@ -37,4 +37,6 @@ public interface DistrictService {
      *  @param id the id of the entity
      */
     void delete(String id);
+
+    List<DistrictDTO> findDistrictByState(String id);
 }

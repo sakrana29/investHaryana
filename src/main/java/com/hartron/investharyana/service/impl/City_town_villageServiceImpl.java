@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class City_town_villageServiceImpl implements City_town_villageService{
 
     private final Logger log = LoggerFactory.getLogger(City_town_villageServiceImpl.class);
-    
+
     private final City_town_villageRepository city_town_villageRepository;
 
     private final City_town_villageMapper city_town_villageMapper;
@@ -48,7 +48,7 @@ public class City_town_villageServiceImpl implements City_town_villageService{
 
     /**
      *  Get all the city_town_villages.
-     *  
+     *
      *  @return the list of entities
      */
     @Override
@@ -84,5 +84,15 @@ public class City_town_villageServiceImpl implements City_town_villageService{
     public void delete(String id) {
         log.debug("Request to delete City_town_village : {}", id);
         city_town_villageRepository.delete(UUID.fromString(id));
+    }
+
+    @Override
+    public List<City_town_villageDTO> findVillageByBlock(String blockid) {
+        log.debug("Request to get all City_town_villages by Block");
+        List<City_town_villageDTO> result = city_town_villageRepository.findVillageByBlockId(UUID.fromString(blockid)).stream()
+            .map(city_town_villageMapper::city_town_villageToCity_town_villageDTO)
+            .collect(Collectors.toCollection(LinkedList::new));
+
+        return result;
     }
 }
