@@ -29,19 +29,19 @@
         function register () {
             $state.go('register');
         }
-        $scope.IsVisible = false;
-        $scope.ShowPassport = function (value) {
+        vm.IsVisible = false;
+        vm.ShowPassport = function (value) {
             //If DIV is visible it will be hidden and vice versa.
-            $scope.IsVisible = value == "Y";
+            vm.IsVisible = value == "Y";
         }
         $http.get("/api/countries").then(function(response) {
-           return $scope.countries = response.data;
+           vm.countries = response.data;
        });
        $http.get("/api/states").then(function(response) {
-           return $scope.states = response.data;
+           vm.states = response.data;
        });
        $http.get("/api/districts").then(function(response) {
-           return $scope.districts = response.data;
+           vm.districts = response.data;
        });
     }
 })();

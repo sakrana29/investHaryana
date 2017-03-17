@@ -1,5 +1,5 @@
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
-<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <div class="bs-example">
         <div class="panel-group" id="accordion">
@@ -17,11 +17,11 @@
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label">Mou Applicable</label>
                                     <div class="col-lg-10">
-                                        <label><input type="radio" name="radio" ng-click="ShowPassport('Y')"> Applicable </label>
-                                        <label><input type="radio" name="radio" ng-click="ShowPassport('N')" checked> Not Applicable</label>
+                                        <label><input type="radio" name="radio" ng-click="vm.ShowPassport('Y')"> Applicable </label>
+                                        <label><input type="radio" name="radio" ng-click="vm.ShowPassport('N')" checked> Not Applicable</label>
                                     </div>
                                 </div>
-                                <div class="form-group " ng-show="IsVisible">
+                                <div class="form-group " ng-show="vm.IsVisible">
                                     <label for="mouid" class="col-lg-2 control-label">MOU detail</label>
                                     <div class="col-lg-3">
                                         <input type="text" class="form-control" id="mouid" placeholder="Mou ID" data-dpmaxz-eid="20">
@@ -52,31 +52,31 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="country" class="col-lg-2 control-label">Country</label>
+                                    <label class="col-lg-2 control-label">Country</label>
                                     <div class="col-lg-3">
                                         <select  class="form-control"   >
                                             <option value="">Select Country</option>
-                                            <option ng-repeat = "country in countries" value="{{country.id }}">{{country.countryname}}</option>
+                                            <option ng-repeat = "country in vm.countries" value="{{country.id }}">{{country.countryname}}</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="state" class="col-lg-2 control-label">State</label>
+                                    <label  class="col-lg-2 control-label">State</label>
                                     <div class="col-lg-3">
                                         <select  class="form-control"  >
                                             <option value="">Select State</option>
-                                            <option ng-repeat = "state in states" value="{{state.id }}">{{state.statename}}</option>
+                                            <option ng-repeat = "state in vm.states" value="{{state.id }}">{{state.statename}}</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="city" class="col-lg-2 control-label">City/District</label>
+                                    <label  class="col-lg-2 control-label">City/District</label>
                                     <div class="col-lg-3">
                                         <select  class="form-control"   >
                                             <option value="">Select District</option>
-                                            <option ng-repeat = "district in districts" value="{{district.id }}">{{district.districtname}}</option>
+                                            <option ng-repeat = "district in vm.districts" value="{{district.id }}">{{district.districtname}}</option>
                                         </select>
                                     </div>
                                 </div>

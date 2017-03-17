@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -25,11 +26,23 @@ public class StateRepository {
 
     private PreparedStatement truncateStmt;
 
+    private PreparedStatement insertByCountryStmt;
+
+    private PreparedStatement findByCountryStmt;
+
     public StateRepository(Session session) {
         this.session = session;
         this.mapper = new MappingManager(session).mapper(State.class);
         this.findAllStmt = session.prepare("SELECT * FROM state");
         this.truncateStmt = session.prepare("TRUNCATE state");
+        this.insertByCountryStmt = session.prepare(
+            "INSERT INTO state_by_country (countryid, id) " +
+                "VALUES (:countryid, :id)");
+
+        findByCountryStmt = session.prepare(
+            "SELECT id " +
+                "FROM state_by_country " +
+                "WHERE countryid = :countryid");
     }
 
     public List<State> findAll() {
@@ -51,11 +64,40 @@ public class StateRepository {
         return mapper.get(id);
     }
 
+    public List<State> findStateByCountryId(UUID countryid) {
+        BoundStatement stmt = findByCountryStmt.bind();
+        stmt.setUUID("countryid", countryid);
+        return findStateFromIndex(stmt);
+    }
+
+    private List<State> findStateFromIndex(BoundStatement stmt) {
+        ResultSet rs = session.execute(stmt);
+        List<State> StateList=new ArrayList<>();
+
+        while(!(rs.isExhausted())){
+            State state=new State();
+            state=(Optional.ofNullable(rs.one().getUUID("id"))
+                .map(id -> Optional.ofNullable(mapper.get(id)))
+                .get()).get();
+            StateList.add(state);
+        }
+        return StateList;
+
+    }
+
     public State save(State state) {
+
         if (state.getId() == null) {
             state.setId(UUID.randomUUID());
         }
         mapper.save(state);
+
+        BatchStatement batch = new BatchStatement();
+        batch.add(insertByCountryStmt.bind()
+            .setUUID("countryid", state.getCountryid())
+            .setUUID("id", state.getId()));
+        session.execute(batch);
+
         return state;
     }
 
