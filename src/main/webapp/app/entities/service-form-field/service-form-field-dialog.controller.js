@@ -19,7 +19,7 @@
         });
 
         function clear () {
-           $state.go('department-service', {}, { reload: 'department-service' });
+           $state.go('service-form-field', {}, { reload: 'service-form-field' });
         }
 
         function save () {
@@ -33,7 +33,7 @@
 
         function onSaveSuccess (result) {
             $scope.$emit('investhryApp:serviceFormFieldUpdate', result);
-            $state.go('department-service', {}, { reload: 'department-service' });
+            $state.go('service-form-field', {}, { reload: 'service-form-field' });
             vm.isSaving = false;
         }
 

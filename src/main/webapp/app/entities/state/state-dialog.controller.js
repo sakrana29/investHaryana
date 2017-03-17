@@ -5,9 +5,9 @@
         .module('investhryApp')
         .controller('StateDialogController', StateDialogController);
 
-    StateDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'State'];
+    StateDialogController.$inject = ['$timeout', '$scope', '$state', 'entity', 'State'];
 
-    function StateDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, State) {
+    function StateDialogController ($timeout, $scope, $state, entity, State) {
         var vm = this;
 
         vm.state = entity;
@@ -19,7 +19,7 @@
         });
 
         function clear () {
-            $uibModalInstance.dismiss('cancel');
+             $state.go('state', null, { reload: 'state' });
         }
 
         function save () {
@@ -33,7 +33,7 @@
 
         function onSaveSuccess (result) {
             $scope.$emit('investhryApp:stateUpdate', result);
-            $uibModalInstance.close(result);
+            $state.go('state', null, { reload: 'state' });
             vm.isSaving = false;
         }
 

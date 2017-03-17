@@ -1,14 +1,17 @@
 <div>
-    <h2 data-translate="investhryApp.departmentService.home.title">Department Services</h2>
+    <h2 >Department Services</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
-         <div class="col-xs-4 no-padding-left">
-			<button type="submit" ui-sref="department" class="btn btn-info">
-       		 <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
-    		</button>
-	 	 </div>
-		</div>
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="department-service.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  >
+                        Create new Department Service
+                    </span>
+                </button>
+            </div>
+        </div>
     </div>
     <br/>
     <div class="table-responsive">
@@ -48,14 +51,7 @@
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
                             </button>
-							 <button class="btn btn-primary" ui-sref="service-form-field.new({id:departmentService.id})" >
-                                <span class="glyphicon glyphicon-plus"></span>
-                                <span >Add Service form</span>
-                            </button>
-                            <button class="btn btn-info" ui-sref="service-form-field({id:departmentService.id})" >
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span >View Services from</span>
-                            </button>
+
                         </div>
                     </td>
                 </tr>

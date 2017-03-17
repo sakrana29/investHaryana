@@ -13,6 +13,30 @@
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.departmentService.id" readonly />
         </div>
+        <!--<div class="form-group">-->
+            <!--<label class="control-label" data-translate="investhryApp.departmentService.departmentID" for="field_departmentID">Department ID</label>-->
+            <!--<input type="text" class="form-control" name="departmentID" id="field_departmentID"-->
+                   <!--ng-model="vm.departmentService.departmentID" readonly required/>-->
+            <!--<div ng-show="editForm.departmentID.$invalid">-->
+                <!--<p class="help-block"-->
+                   <!--ng-show="editForm.departmentID.$error.required" data-translate="entity.validation.required">-->
+                    <!--This field is required.-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="form-group">
+            <label class="control-label" for="field_departmentID">Department</label>
+            <select ng-model="vm.departmentService.departmentID" class="form-control" required name="departmentID" id="field_departmentID" ng-controller = "depserviceController">
+                <option value="">Select Department</option>
+                <option ng-repeat = "student in students" value="{{student.id }}">{{student.departmentname}}</option>
+            </select>
+            <div ng-show="editForm.departmentID.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.departmentID.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
         <div class="form-group">
             <label class="control-label" data-translate="investhryApp.departmentService.serviceName" for="field_serviceName">Service Name</label>
             <input type="text" class="form-control" name="serviceName" id="field_serviceName"
@@ -37,17 +61,7 @@
                 </p>
             </div>
         </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.departmentService.departmentID" for="field_departmentID">Department ID</label>
-            <input type="text" class="form-control" name="departmentID" id="field_departmentID"
-                    ng-model="vm.departmentService.departmentID" readonly required/>
-            <div ng-show="editForm.departmentID.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.departmentID.$error.required" data-translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
+
 
     </div>
     <div class="modal-footer">

@@ -93,53 +93,42 @@
             url: '/new',
             data: {
                 authorities: ['ROLE_USER']
-            },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/entities/country/country-dialog.html',
-                    controller: 'CountryDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: function () {
-                            return {
-                                countryname: null,
-                                id: null
-                            };
-                        }
-                    }
-                }).result.then(function() {
-                    $state.go('country', null, { reload: 'country' });
-                }, function() {
-                    $state.go('country');
-                });
-            }]
+            },views: {
+                  'content@': {
+                      templateUrl: 'app/entities/country/country-dialog.html',
+                      controller: 'CountryDialogController',
+                      controllerAs: 'vm',
+
+                  }
+              },
+              resolve: {
+                  entity: function ($stateParams, $state) {
+                        return {
+                          countryname: null,
+                          id: null
+                      };
+                  }
+              }
         })
         .state('country.edit', {
             parent: 'country',
             url: '/{id}/edit',
             data: {
                 authorities: ['ROLE_USER']
-            },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
+            },views: {
+                'content@': {
                     templateUrl: 'app/entities/country/country-dialog.html',
                     controller: 'CountryDialogController',
                     controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: ['Country', function(Country) {
-                            return Country.get({id : $stateParams.id}).$promise;
-                        }]
-                    }
-                }).result.then(function() {
-                    $state.go('country', null, { reload: 'country' });
-                }, function() {
-                    $state.go('^');
-                });
-            }]
+
+                }
+            },
+            resolve: {
+                entity: function ($stateParams, $state,Country) {
+                      return Country.get({id : $stateParams.id}).$promise;
+                }
+            }
+
         })
         .state('country.delete', {
             parent: 'country',

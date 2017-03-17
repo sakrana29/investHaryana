@@ -19,7 +19,7 @@
         });
 
         function clear () {
-            $state.go('department', {}, { reload: 'department' });
+            $state.go('department-service', {}, { reload: 'department-service' });
         }
 
         function save () {

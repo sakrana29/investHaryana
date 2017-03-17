@@ -5,9 +5,9 @@
         .module('investhryApp')
         .controller('CountryDialogController', CountryDialogController);
 
-    CountryDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Country'];
+    CountryDialogController.$inject = ['$timeout', '$scope', '$state', 'entity', 'Country'];
 
-    function CountryDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Country) {
+    function CountryDialogController ($timeout, $scope, $state,  entity, Country) {
         var vm = this;
 
         vm.country = entity;
@@ -19,7 +19,7 @@
         });
 
         function clear () {
-            $uibModalInstance.dismiss('cancel');
+            $state.go('country', null, { reload: 'country' });
         }
 
         function save () {
@@ -33,7 +33,7 @@
 
         function onSaveSuccess (result) {
             $scope.$emit('investhryApp:countryUpdate', result);
-            $uibModalInstance.close(result);
+            $state.go('country', null, { reload: 'country' });
             vm.isSaving = false;
         }
 
