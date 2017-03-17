@@ -8,13 +8,6 @@
         <dd>
             <span>{{vm.electricrequirement.projectid}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.electricrequirement.temporaryconnection">Temporaryconnection</span></dt>
-        <dd>
-            <div ng-if="vm.electricrequirement.temporaryconnection">
-                <a ng-click="vm.openFile(vm.electricrequirement.temporaryconnectionContentType, vm.electricrequirement.temporaryconnection)" data-translate="entity.action.open">open</a>
-                {{vm.electricrequirement.temporaryconnectionContentType}}, {{vm.byteSize(vm.electricrequirement.temporaryconnection)}}
-            </div>
-        </dd>
         <dt><span data-translate="investhryApp.electricrequirement.temporaryrequired">Temporaryrequired</span></dt>
         <dd>
             <span>{{vm.electricrequirement.temporaryrequired}}</span>
@@ -46,13 +39,6 @@
         <dt><span data-translate="investhryApp.electricrequirement.temp_load_demand_date">Temp Load Demand Date</span></dt>
         <dd>
             <span>{{vm.electricrequirement.temp_load_demand_date | date:'medium'}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.electricrequirement.regular_connection_doc">Regular Connection Doc</span></dt>
-        <dd>
-            <div ng-if="vm.electricrequirement.regular_connection_doc">
-                <a ng-click="vm.openFile(vm.electricrequirement.regular_connection_docContentType, vm.electricrequirement.regular_connection_doc)" data-translate="entity.action.open">open</a>
-                {{vm.electricrequirement.regular_connection_docContentType}}, {{vm.byteSize(vm.electricrequirement.regular_connection_doc)}}
-            </div>
         </dd>
         <dt><span data-translate="investhryApp.electricrequirement.regular_load_required">Regular Load Required</span></dt>
         <dd>
@@ -89,6 +75,14 @@
         <dt><span data-translate="investhryApp.electricrequirement.regular_load_demand_date">Regular Load Demand Date</span></dt>
         <dd>
             <span>{{vm.electricrequirement.regular_load_demand_date | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.temporaryconnection">Temporaryconnection</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.temporaryconnection}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.regular_connection_doc">Regular Connection Doc</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.regular_connection_doc}}</span>
         </dd>
     </dl>
 

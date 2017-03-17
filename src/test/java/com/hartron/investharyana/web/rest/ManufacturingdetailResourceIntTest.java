@@ -22,9 +22,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.util.Base64Utils;
 
-import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.UUID;
 
@@ -54,10 +52,8 @@ public class ManufacturingdetailResourceIntTest extends AbstractCassandraTest {
     private static final UUID DEFAULT_PROCESSID = UUID.randomUUID();
     private static final UUID UPDATED_PROCESSID = UUID.randomUUID();
 
-    private static final ByteBuffer DEFAULT_MANUFACTURING_FLOW_DOCUMENT = ByteBuffer.wrap(TestUtil.createByteArray(1, "0"));
-    private static final ByteBuffer UPDATED_MANUFACTURING_FLOW_DOCUMENT = ByteBuffer.wrap(TestUtil.createByteArray(2, "1"));
-    private static final String DEFAULT_MANUFACTURING_FLOW_DOCUMENT_CONTENT_TYPE = "image/jpg";
-    private static final String UPDATED_MANUFACTURING_FLOW_DOCUMENT_CONTENT_TYPE = "image/png";
+    private static final String DEFAULT_MANUFACTURING_FLOW_DOCUMENT = "AAAAAAAAAA";
+    private static final String UPDATED_MANUFACTURING_FLOW_DOCUMENT = "BBBBBBBBBB";
 
     @Autowired
     private ManufacturingdetailRepository manufacturingdetailRepository;
@@ -103,8 +99,7 @@ public class ManufacturingdetailResourceIntTest extends AbstractCassandraTest {
                 .projectrawmaterialid(DEFAULT_PROJECTRAWMATERIALID)
                 .productid(DEFAULT_PRODUCTID)
                 .processid(DEFAULT_PROCESSID)
-                .manufacturing_flow_document(DEFAULT_MANUFACTURING_FLOW_DOCUMENT)
-                .manufacturing_flow_documentContentType(DEFAULT_MANUFACTURING_FLOW_DOCUMENT_CONTENT_TYPE);
+                .manufacturing_flow_document(DEFAULT_MANUFACTURING_FLOW_DOCUMENT);
         return manufacturingdetail;
     }
 
@@ -135,7 +130,6 @@ public class ManufacturingdetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testManufacturingdetail.getProductid()).isEqualTo(DEFAULT_PRODUCTID);
         assertThat(testManufacturingdetail.getProcessid()).isEqualTo(DEFAULT_PROCESSID);
         assertThat(testManufacturingdetail.getManufacturing_flow_document()).isEqualTo(DEFAULT_MANUFACTURING_FLOW_DOCUMENT);
-        assertThat(testManufacturingdetail.getManufacturing_flow_documentContentType()).isEqualTo(DEFAULT_MANUFACTURING_FLOW_DOCUMENT_CONTENT_TYPE);
     }
 
     @Test
@@ -172,8 +166,7 @@ public class ManufacturingdetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].projectrawmaterialid").value(hasItem(DEFAULT_PROJECTRAWMATERIALID.toString())))
             .andExpect(jsonPath("$.[*].productid").value(hasItem(DEFAULT_PRODUCTID.toString())))
             .andExpect(jsonPath("$.[*].processid").value(hasItem(DEFAULT_PROCESSID.toString())))
-            .andExpect(jsonPath("$.[*].manufacturing_flow_documentContentType").value(hasItem(DEFAULT_MANUFACTURING_FLOW_DOCUMENT_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].manufacturing_flow_document").value(hasItem(Base64Utils.encodeToString(DEFAULT_MANUFACTURING_FLOW_DOCUMENT.array()))));
+            .andExpect(jsonPath("$.[*].manufacturing_flow_document").value(hasItem(DEFAULT_MANUFACTURING_FLOW_DOCUMENT.toString())));
     }
 
     @Test
@@ -190,8 +183,7 @@ public class ManufacturingdetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.projectrawmaterialid").value(DEFAULT_PROJECTRAWMATERIALID.toString()))
             .andExpect(jsonPath("$.productid").value(DEFAULT_PRODUCTID.toString()))
             .andExpect(jsonPath("$.processid").value(DEFAULT_PROCESSID.toString()))
-            .andExpect(jsonPath("$.manufacturing_flow_documentContentType").value(DEFAULT_MANUFACTURING_FLOW_DOCUMENT_CONTENT_TYPE))
-            .andExpect(jsonPath("$.manufacturing_flow_document").value(Base64Utils.encodeToString(DEFAULT_MANUFACTURING_FLOW_DOCUMENT.array())));
+            .andExpect(jsonPath("$.manufacturing_flow_document").value(DEFAULT_MANUFACTURING_FLOW_DOCUMENT.toString()));
     }
 
     @Test
@@ -214,8 +206,7 @@ public class ManufacturingdetailResourceIntTest extends AbstractCassandraTest {
                 .projectrawmaterialid(UPDATED_PROJECTRAWMATERIALID)
                 .productid(UPDATED_PRODUCTID)
                 .processid(UPDATED_PROCESSID)
-                .manufacturing_flow_document(UPDATED_MANUFACTURING_FLOW_DOCUMENT)
-                .manufacturing_flow_documentContentType(UPDATED_MANUFACTURING_FLOW_DOCUMENT_CONTENT_TYPE);
+                .manufacturing_flow_document(UPDATED_MANUFACTURING_FLOW_DOCUMENT);
         ManufacturingdetailDTO manufacturingdetailDTO = manufacturingdetailMapper.manufacturingdetailToManufacturingdetailDTO(updatedManufacturingdetail);
 
         restManufacturingdetailMockMvc.perform(put("/api/manufacturingdetails")
@@ -232,7 +223,6 @@ public class ManufacturingdetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testManufacturingdetail.getProductid()).isEqualTo(UPDATED_PRODUCTID);
         assertThat(testManufacturingdetail.getProcessid()).isEqualTo(UPDATED_PROCESSID);
         assertThat(testManufacturingdetail.getManufacturing_flow_document()).isEqualTo(UPDATED_MANUFACTURING_FLOW_DOCUMENT);
-        assertThat(testManufacturingdetail.getManufacturing_flow_documentContentType()).isEqualTo(UPDATED_MANUFACTURING_FLOW_DOCUMENT_CONTENT_TYPE);
     }
 
     @Test

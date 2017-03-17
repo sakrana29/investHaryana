@@ -2,7 +2,6 @@ package com.hartron.investharyana.service.dto;
 
 
 import java.io.Serializable;
-import java.nio.ByteBuffer;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -25,36 +24,29 @@ public class CompanydetailDTO implements Serializable {
 
     private Integer director_promoter_md_ceo_number;
 
-    private ByteBuffer director_md_ceo_list;
-    private String director_md_ceo_listContentType;
-
     private String pan_number;
 
-    private ByteBuffer pancard;
-    private String pancardContentType;
-
     private String aadhar_number;
-
-    private ByteBuffer aadharcard;
-    private String aadharcardContentType;
 
     private Boolean nri;
 
     private String tin_vat_number;
 
-    private ByteBuffer tin_vat_document;
-    private String tin_vat_documentContentType;
-
     private String cst_number;
 
-    private ByteBuffer cst_document;
-    private String cst_documentContentType;
+    private String director_md_ceo_list;
 
-    private ByteBuffer moa_partnershipdeed;
-    private String moa_partnershipdeedContentType;
+    private String pancard;
 
-    private ByteBuffer registration_document;
-    private String registration_documentContentType;
+    private String aadharcard;
+
+    private String tin_vat_document;
+
+    private String cst_document;
+
+    private String moa_partnershipdeed;
+
+    private String registration_document;
 
     public UUID getId() {
         return id;
@@ -105,21 +97,6 @@ public class CompanydetailDTO implements Serializable {
     public void setDirector_promoter_md_ceo_number(Integer director_promoter_md_ceo_number) {
         this.director_promoter_md_ceo_number = director_promoter_md_ceo_number;
     }
-    public ByteBuffer getDirector_md_ceo_list() {
-        return director_md_ceo_list;
-    }
-
-    public void setDirector_md_ceo_list(ByteBuffer director_md_ceo_list) {
-        this.director_md_ceo_list = director_md_ceo_list;
-    }
-
-    public String getDirector_md_ceo_listContentType() {
-        return director_md_ceo_listContentType;
-    }
-
-    public void setDirector_md_ceo_listContentType(String director_md_ceo_listContentType) {
-        this.director_md_ceo_listContentType = director_md_ceo_listContentType;
-    }
     public String getPan_number() {
         return pan_number;
     }
@@ -127,42 +104,12 @@ public class CompanydetailDTO implements Serializable {
     public void setPan_number(String pan_number) {
         this.pan_number = pan_number;
     }
-    public ByteBuffer getPancard() {
-        return pancard;
-    }
-
-    public void setPancard(ByteBuffer pancard) {
-        this.pancard = pancard;
-    }
-
-    public String getPancardContentType() {
-        return pancardContentType;
-    }
-
-    public void setPancardContentType(String pancardContentType) {
-        this.pancardContentType = pancardContentType;
-    }
     public String getAadhar_number() {
         return aadhar_number;
     }
 
     public void setAadhar_number(String aadhar_number) {
         this.aadhar_number = aadhar_number;
-    }
-    public ByteBuffer getAadharcard() {
-        return aadharcard;
-    }
-
-    public void setAadharcard(ByteBuffer aadharcard) {
-        this.aadharcard = aadharcard;
-    }
-
-    public String getAadharcardContentType() {
-        return aadharcardContentType;
-    }
-
-    public void setAadharcardContentType(String aadharcardContentType) {
-        this.aadharcardContentType = aadharcardContentType;
     }
     public Boolean getNri() {
         return nri;
@@ -178,21 +125,6 @@ public class CompanydetailDTO implements Serializable {
     public void setTin_vat_number(String tin_vat_number) {
         this.tin_vat_number = tin_vat_number;
     }
-    public ByteBuffer getTin_vat_document() {
-        return tin_vat_document;
-    }
-
-    public void setTin_vat_document(ByteBuffer tin_vat_document) {
-        this.tin_vat_document = tin_vat_document;
-    }
-
-    public String getTin_vat_documentContentType() {
-        return tin_vat_documentContentType;
-    }
-
-    public void setTin_vat_documentContentType(String tin_vat_documentContentType) {
-        this.tin_vat_documentContentType = tin_vat_documentContentType;
-    }
     public String getCst_number() {
         return cst_number;
     }
@@ -200,50 +132,54 @@ public class CompanydetailDTO implements Serializable {
     public void setCst_number(String cst_number) {
         this.cst_number = cst_number;
     }
-    public ByteBuffer getCst_document() {
+    public String getDirector_md_ceo_list() {
+        return director_md_ceo_list;
+    }
+
+    public void setDirector_md_ceo_list(String director_md_ceo_list) {
+        this.director_md_ceo_list = director_md_ceo_list;
+    }
+    public String getPancard() {
+        return pancard;
+    }
+
+    public void setPancard(String pancard) {
+        this.pancard = pancard;
+    }
+    public String getAadharcard() {
+        return aadharcard;
+    }
+
+    public void setAadharcard(String aadharcard) {
+        this.aadharcard = aadharcard;
+    }
+    public String getTin_vat_document() {
+        return tin_vat_document;
+    }
+
+    public void setTin_vat_document(String tin_vat_document) {
+        this.tin_vat_document = tin_vat_document;
+    }
+    public String getCst_document() {
         return cst_document;
     }
 
-    public void setCst_document(ByteBuffer cst_document) {
+    public void setCst_document(String cst_document) {
         this.cst_document = cst_document;
     }
-
-    public String getCst_documentContentType() {
-        return cst_documentContentType;
-    }
-
-    public void setCst_documentContentType(String cst_documentContentType) {
-        this.cst_documentContentType = cst_documentContentType;
-    }
-    public ByteBuffer getMoa_partnershipdeed() {
+    public String getMoa_partnershipdeed() {
         return moa_partnershipdeed;
     }
 
-    public void setMoa_partnershipdeed(ByteBuffer moa_partnershipdeed) {
+    public void setMoa_partnershipdeed(String moa_partnershipdeed) {
         this.moa_partnershipdeed = moa_partnershipdeed;
     }
-
-    public String getMoa_partnershipdeedContentType() {
-        return moa_partnershipdeedContentType;
-    }
-
-    public void setMoa_partnershipdeedContentType(String moa_partnershipdeedContentType) {
-        this.moa_partnershipdeedContentType = moa_partnershipdeedContentType;
-    }
-    public ByteBuffer getRegistration_document() {
+    public String getRegistration_document() {
         return registration_document;
     }
 
-    public void setRegistration_document(ByteBuffer registration_document) {
+    public void setRegistration_document(String registration_document) {
         this.registration_document = registration_document;
-    }
-
-    public String getRegistration_documentContentType() {
-        return registration_documentContentType;
-    }
-
-    public void setRegistration_documentContentType(String registration_documentContentType) {
-        this.registration_documentContentType = registration_documentContentType;
     }
 
     @Override
@@ -277,15 +213,15 @@ public class CompanydetailDTO implements Serializable {
             ", businessentity='" + businessentity + "'" +
             ", businessentitytype='" + businessentitytype + "'" +
             ", director_promoter_md_ceo_number='" + director_promoter_md_ceo_number + "'" +
-            ", director_md_ceo_list='" + director_md_ceo_list + "'" +
             ", pan_number='" + pan_number + "'" +
-            ", pancard='" + pancard + "'" +
             ", aadhar_number='" + aadhar_number + "'" +
-            ", aadharcard='" + aadharcard + "'" +
             ", nri='" + nri + "'" +
             ", tin_vat_number='" + tin_vat_number + "'" +
-            ", tin_vat_document='" + tin_vat_document + "'" +
             ", cst_number='" + cst_number + "'" +
+            ", director_md_ceo_list='" + director_md_ceo_list + "'" +
+            ", pancard='" + pancard + "'" +
+            ", aadharcard='" + aadharcard + "'" +
+            ", tin_vat_document='" + tin_vat_document + "'" +
             ", cst_document='" + cst_document + "'" +
             ", moa_partnershipdeed='" + moa_partnershipdeed + "'" +
             ", registration_document='" + registration_document + "'" +

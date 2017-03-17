@@ -12,10 +12,9 @@ CREATE TABLE IF NOT EXISTS environment_impactdetail (
     waste_water_domesting int,
     waste_water_other int,
     waste_water_treatment text,
-    document_attached blob,
-    document_attached_content_type text,
     mode_of_disposal_for_discharge uuid,
     emissionid uuid,
     wastewaterdetailid uuid,
+    document_attached text,
     PRIMARY KEY(id)
 );

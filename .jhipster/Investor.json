@@ -11,18 +11,8 @@
             "fieldType": "Integer"
         },
         {
-            "fieldName": "moudocument",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
-        },
-        {
             "fieldName": "mouidnumber",
             "fieldType": "String"
-        },
-        {
-            "fieldName": "photo",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "image"
         },
         {
             "fieldName": "firstname",
@@ -66,6 +56,14 @@
         },
         {
             "fieldName": "emailsecondary",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "moudocument",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "investorpicpath",
             "fieldType": "String"
         }
     ],

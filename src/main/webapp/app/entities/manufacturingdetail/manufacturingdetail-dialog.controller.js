@@ -5,15 +5,13 @@
         .module('investhryApp')
         .controller('ManufacturingdetailDialogController', ManufacturingdetailDialogController);
 
-    ManufacturingdetailDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'DataUtils', 'entity', 'Manufacturingdetail'];
+    ManufacturingdetailDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Manufacturingdetail'];
 
-    function ManufacturingdetailDialogController ($timeout, $scope, $stateParams, $uibModalInstance, DataUtils, entity, Manufacturingdetail) {
+    function ManufacturingdetailDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Manufacturingdetail) {
         var vm = this;
 
         vm.manufacturingdetail = entity;
         vm.clear = clear;
-        vm.byteSize = DataUtils.byteSize;
-        vm.openFile = DataUtils.openFile;
         vm.save = save;
 
         $timeout(function (){
@@ -43,17 +41,6 @@
             vm.isSaving = false;
         }
 
-
-        vm.setManufacturing_flow_document = function ($file, manufacturingdetail) {
-            if ($file) {
-                DataUtils.toBase64($file, function(base64Data) {
-                    $scope.$apply(function() {
-                        manufacturingdetail.manufacturing_flow_document = base64Data;
-                        manufacturingdetail.manufacturing_flow_documentContentType = $file.type;
-                    });
-                });
-            }
-        };
 
     }
 })();

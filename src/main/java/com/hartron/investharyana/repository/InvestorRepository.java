@@ -41,13 +41,7 @@ public class InvestorRepository {
                 investor.setId(row.getUUID("id"));
                 investor.setMouapplicable(row.getBool("mouapplicable"));
                 investor.setMousignyear(row.getInt("mousignyear"));
-                investor.setMoudocument(row.getBytes("moudocument"));
-                investor.setMoudocumentContentType(row.getString("moudocument_content_type"));
-
                 investor.setMouidnumber(row.getString("mouidnumber"));
-                investor.setPhoto(row.getBytes("photo"));
-                investor.setPhotoContentType(row.getString("photo_content_type"));
-
                 investor.setFirstname(row.getString("firstname"));
                 investor.setMiddlename(row.getString("middlename"));
                 investor.setLastname(row.getString("lastname"));
@@ -59,6 +53,8 @@ public class InvestorRepository {
                 investor.setAddress3(row.getString("address3"));
                 investor.setEmailprimary(row.getString("emailprimary"));
                 investor.setEmailsecondary(row.getString("emailsecondary"));
+                investor.setMoudocument(row.getString("moudocument"));
+                investor.setInvestorpicpath(row.getString("investorpicpath"));
                 return investor;
             }
         ).forEach(investorsList::add);

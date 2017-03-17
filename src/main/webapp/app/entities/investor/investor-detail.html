@@ -12,25 +12,9 @@
         <dd>
             <span>{{vm.investor.mousignyear}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.investor.moudocument">Moudocument</span></dt>
-        <dd>
-            <div ng-if="vm.investor.moudocument">
-                <a ng-click="vm.openFile(vm.investor.moudocumentContentType, vm.investor.moudocument)" data-translate="entity.action.open">open</a>
-                {{vm.investor.moudocumentContentType}}, {{vm.byteSize(vm.investor.moudocument)}}
-            </div>
-        </dd>
         <dt><span data-translate="investhryApp.investor.mouidnumber">Mouidnumber</span></dt>
         <dd>
             <span>{{vm.investor.mouidnumber}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.investor.photo">Photo</span></dt>
-        <dd>
-            <div ng-if="vm.investor.photo">
-                <a ng-click="vm.openFile(vm.investor.photoContentType, vm.investor.photo)">
-                    <img data-ng-src="{{'data:' + vm.investor.photoContentType + ';base64,' + vm.investor.photo}}" style="max-width: 100%;" alt="investor image"/>
-                </a>
-                {{vm.investor.photoContentType}}, {{vm.byteSize(vm.investor.photo)}}
-            </div>
         </dd>
         <dt><span data-translate="investhryApp.investor.firstname">Firstname</span></dt>
         <dd>
@@ -75,6 +59,14 @@
         <dt><span data-translate="investhryApp.investor.emailsecondary">Emailsecondary</span></dt>
         <dd>
             <span>{{vm.investor.emailsecondary}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.investor.moudocument">Moudocument</span></dt>
+        <dd>
+            <span>{{vm.investor.moudocument}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.investor.investorpicpath">Investorpicpath</span></dt>
+        <dd>
+            <span>{{vm.investor.investorpicpath}}</span>
         </dd>
     </dl>
 

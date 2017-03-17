@@ -20,8 +20,7 @@
         },
         {
             "fieldName": "manufacturing_flow_document",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313121150",

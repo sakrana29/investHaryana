@@ -47,18 +47,12 @@ public class ProjectdetailRepository {
                 projectdetail.setNiccode(row.getString("niccode"));
                 projectdetail.setCategory_of_project(row.getUUID("category_of_project"));
                 projectdetail.setCollaboration_with_foreign_country(row.getUUID("collaboration_with_foreign_country"));
-                projectdetail.setDetail_project_report(row.getBytes("detail_project_report"));
-                projectdetail.setDetail_project_reportContentType(row.getString("detail_project_report_content_type"));
-
                 projectdetail.setExisting_regulatory_approval(row.getBool("existing_regulatory_approval"));
                 projectdetail.setApproval_application_form(row.getUUID("approval_application_form"));
-                projectdetail.setApproval_document(row.getBytes("approval_document"));
-                projectdetail.setApproval_documentContentType(row.getString("approval_document_content_type"));
-
-                projectdetail.setEdc_sif_clu_fee_paid_document(row.getBytes("edc_sif_clu_fee_paid_document"));
-                projectdetail.setEdc_sif_clu_fee_paid_documentContentType(row.getString("edc_sif_clu_fee_paid_document_content_type"));
-
                 projectdetail.setEdc_sif_clu_fee_paid_applicable(row.getBool("edc_sif_clu_fee_paid_applicable"));
+                projectdetail.setDetail_project_report(row.getString("detail_project_report"));
+                projectdetail.setApproval_document(row.getString("approval_document"));
+                projectdetail.setEdc_sif_clu_fee_paid_document(row.getString("edc_sif_clu_fee_paid_document"));
                 return projectdetail;
             }
         ).forEach(projectdetailsList::add);

@@ -5,15 +5,13 @@
         .module('investhryApp')
         .controller('Environment_impactdetailController', Environment_impactdetailController);
 
-    Environment_impactdetailController.$inject = ['DataUtils', 'Environment_impactdetail'];
+    Environment_impactdetailController.$inject = ['Environment_impactdetail'];
 
-    function Environment_impactdetailController(DataUtils, Environment_impactdetail) {
+    function Environment_impactdetailController(Environment_impactdetail) {
 
         var vm = this;
 
         vm.environment_impactdetails = [];
-        vm.openFile = DataUtils.openFile;
-        vm.byteSize = DataUtils.byteSize;
 
         loadAll();
 

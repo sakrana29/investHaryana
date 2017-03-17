@@ -68,7 +68,7 @@ class ManufacturingdetailGatlingTest extends Simulation {
             .exec(http("Create new manufacturingdetail")
             .post("/api/manufacturingdetails")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "projectid":null, "projectrawmaterialid":null, "productid":null, "processid":null, "manufacturing_flow_document":null}""")).asJSON
+            .body(StringBody("""{"id":null, "projectid":null, "projectrawmaterialid":null, "productid":null, "processid":null, "manufacturing_flow_document":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_manufacturingdetail_url"))).exitHereIfFailed
             .pause(10)

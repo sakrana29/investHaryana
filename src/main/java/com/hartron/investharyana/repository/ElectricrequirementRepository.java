@@ -41,9 +41,6 @@ public class ElectricrequirementRepository {
                 Electricrequirement electricrequirement = new Electricrequirement();
                 electricrequirement.setId(row.getUUID("id"));
                 electricrequirement.setProjectid(row.getUUID("projectid"));
-                electricrequirement.setTemporaryconnection(row.getBytes("temporaryconnection"));
-                electricrequirement.setTemporaryconnectionContentType(row.getString("temporaryconnection_content_type"));
-
                 electricrequirement.setTemporaryrequired(row.getBool("temporaryrequired"));
                 electricrequirement.setTem_load_existing(row.getBool("tem_load_existing"));
                 electricrequirement.setTem_account_number(row.getString("tem_account_number"));
@@ -52,9 +49,6 @@ public class ElectricrequirementRepository {
                 electricrequirement.setTemp_new_load_demand_kw(row.getDecimal("temp_new_load_demand_kw"));
                 electricrequirement.setTemp_new_load_demand_kva(row.getDecimal("temp_new_load_demand_kva"));
                 electricrequirement.setTemp_load_demand_date(row.get("temp_load_demand_date", ZonedDateTime.class));
-                electricrequirement.setRegular_connection_doc(row.getBytes("regular_connection_doc"));
-                electricrequirement.setRegular_connection_docContentType(row.getString("regular_connection_doc_content_type"));
-
                 electricrequirement.setRegular_load_required(row.getBool("regular_load_required"));
                 electricrequirement.setRegular_existing_connection(row.getBool("regular_existing_connection"));
                 electricrequirement.setCustomertype(row.getUUID("customertype"));
@@ -64,6 +58,8 @@ public class ElectricrequirementRepository {
                 electricrequirement.setRegular_new_load_demand_kw(row.getDecimal("regular_new_load_demand_kw"));
                 electricrequirement.setRegular_new_load_demand_kva(row.getDecimal("regular_new_load_demand_kva"));
                 electricrequirement.setRegular_load_demand_date(row.get("regular_load_demand_date", ZonedDateTime.class));
+                electricrequirement.setTemporaryconnection(row.getString("temporaryconnection"));
+                electricrequirement.setRegular_connection_doc(row.getString("regular_connection_doc"));
                 return electricrequirement;
             }
         ).forEach(electricrequirementsList::add);

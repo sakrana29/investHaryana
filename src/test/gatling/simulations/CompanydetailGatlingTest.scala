@@ -68,7 +68,7 @@ class CompanydetailGatlingTest extends Simulation {
             .exec(http("Create new companydetail")
             .post("/api/companydetails")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "investorid":null, "promoter_md_director":"SAMPLE_TEXT", "designation":"SAMPLE_TEXT", "businessentity":"SAMPLE_TEXT", "businessentitytype":null, "director_promoter_md_ceo_number":"0", "director_md_ceo_list":null, "pan_number":"SAMPLE_TEXT", "pancard":null, "aadhar_number":"SAMPLE_TEXT", "aadharcard":null, "nri":null, "tin_vat_number":"SAMPLE_TEXT", "tin_vat_document":null, "cst_number":"SAMPLE_TEXT", "cst_document":null, "moa_partnershipdeed":null, "registration_document":null}""")).asJSON
+            .body(StringBody("""{"id":null, "investorid":null, "promoter_md_director":"SAMPLE_TEXT", "designation":"SAMPLE_TEXT", "businessentity":"SAMPLE_TEXT", "businessentitytype":null, "director_promoter_md_ceo_number":"0", "pan_number":"SAMPLE_TEXT", "aadhar_number":"SAMPLE_TEXT", "nri":null, "tin_vat_number":"SAMPLE_TEXT", "cst_number":"SAMPLE_TEXT", "director_md_ceo_list":"SAMPLE_TEXT", "pancard":"SAMPLE_TEXT", "aadharcard":"SAMPLE_TEXT", "tin_vat_document":"SAMPLE_TEXT", "cst_document":"SAMPLE_TEXT", "moa_partnershipdeed":"SAMPLE_TEXT", "registration_document":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_companydetail_url"))).exitHereIfFailed
             .pause(10)

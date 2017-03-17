@@ -36,13 +36,6 @@
         <dd>
             <span>{{vm.projectdetail.collaboration_with_foreign_country}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.projectdetail.detail_project_report">Detail Project Report</span></dt>
-        <dd>
-            <div ng-if="vm.projectdetail.detail_project_report">
-                <a ng-click="vm.openFile(vm.projectdetail.detail_project_reportContentType, vm.projectdetail.detail_project_report)" data-translate="entity.action.open">open</a>
-                {{vm.projectdetail.detail_project_reportContentType}}, {{vm.byteSize(vm.projectdetail.detail_project_report)}}
-            </div>
-        </dd>
         <dt><span data-translate="investhryApp.projectdetail.existing_regulatory_approval">Existing Regulatory Approval</span></dt>
         <dd>
             <span>{{vm.projectdetail.existing_regulatory_approval}}</span>
@@ -51,23 +44,21 @@
         <dd>
             <span>{{vm.projectdetail.approval_application_form}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.projectdetail.approval_document">Approval Document</span></dt>
-        <dd>
-            <div ng-if="vm.projectdetail.approval_document">
-                <a ng-click="vm.openFile(vm.projectdetail.approval_documentContentType, vm.projectdetail.approval_document)" data-translate="entity.action.open">open</a>
-                {{vm.projectdetail.approval_documentContentType}}, {{vm.byteSize(vm.projectdetail.approval_document)}}
-            </div>
-        </dd>
-        <dt><span data-translate="investhryApp.projectdetail.edc_sif_clu_fee_paid_document">Edc Sif Clu Fee Paid Document</span></dt>
-        <dd>
-            <div ng-if="vm.projectdetail.edc_sif_clu_fee_paid_document">
-                <a ng-click="vm.openFile(vm.projectdetail.edc_sif_clu_fee_paid_documentContentType, vm.projectdetail.edc_sif_clu_fee_paid_document)" data-translate="entity.action.open">open</a>
-                {{vm.projectdetail.edc_sif_clu_fee_paid_documentContentType}}, {{vm.byteSize(vm.projectdetail.edc_sif_clu_fee_paid_document)}}
-            </div>
-        </dd>
         <dt><span data-translate="investhryApp.projectdetail.edc_sif_clu_fee_paid_applicable">Edc Sif Clu Fee Paid Applicable</span></dt>
         <dd>
             <span>{{vm.projectdetail.edc_sif_clu_fee_paid_applicable}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectdetail.detail_project_report">Detail Project Report</span></dt>
+        <dd>
+            <span>{{vm.projectdetail.detail_project_report}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectdetail.approval_document">Approval Document</span></dt>
+        <dd>
+            <span>{{vm.projectdetail.approval_document}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectdetail.edc_sif_clu_fee_paid_document">Edc Sif Clu Fee Paid Document</span></dt>
+        <dd>
+            <span>{{vm.projectdetail.edc_sif_clu_fee_paid_document}}</span>
         </dd>
     </dl>
 

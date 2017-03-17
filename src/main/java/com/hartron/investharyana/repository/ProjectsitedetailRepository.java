@@ -56,61 +56,34 @@ public class ProjectsitedetailRepository {
                 projectsitedetail.setSector(row.getString("sector"));
                 projectsitedetail.setPlotno(row.getString("plotno"));
                 projectsitedetail.setHadbastno(row.getString("hadbastno"));
-                projectsitedetail.setKhasra_document(row.getBytes("khasra_document"));
-                projectsitedetail.setKhasra_documentContentType(row.getString("khasra_document_content_type"));
-
                 projectsitedetail.setLiesunder_mc(row.getBool("liesunder_mc"));
                 projectsitedetail.setDistance_from_mc(row.getInt("distance_from_mc"));
                 projectsitedetail.setIslocated_in_urban(row.getBool("islocated_in_urban"));
-                projectsitedetail.setRevenu_shajra_document(row.getBytes("revenu_shajra_document"));
-                projectsitedetail.setRevenu_shajra_documentContentType(row.getString("revenu_shajra_document_content_type"));
-
-                projectsitedetail.setJamabandi(row.getBytes("jamabandi"));
-                projectsitedetail.setJamabandiContentType(row.getString("jamabandi_content_type"));
-
-                projectsitedetail.setNonencumbrance_certificate(row.getBytes("nonencumbrance_certificate"));
-                projectsitedetail.setNonencumbrance_certificateContentType(row.getString("nonencumbrance_certificate_content_type"));
-
                 projectsitedetail.setTotalproposedprojectarea(row.getDecimal("totalproposedprojectarea"));
                 projectsitedetail.setProposedbuilt_up_area(row.getDecimal("proposedbuilt_up_area"));
                 projectsitedetail.setCertifiedownership(row.getBool("certifiedownership"));
-                projectsitedetail.setOwnership_document(row.getBytes("ownership_document"));
-                projectsitedetail.setOwnership_documentContentType(row.getString("ownership_document_content_type"));
-
                 projectsitedetail.setLeaseapplicable(row.getBool("leaseapplicable"));
-                projectsitedetail.setLease_document(row.getBytes("lease_document"));
-                projectsitedetail.setLease_documentContentType(row.getString("lease_document_content_type"));
-
                 projectsitedetail.setLandagreementapplicable(row.getBool("landagreementapplicable"));
-                projectsitedetail.setLandagreement_document(row.getBytes("landagreement_document"));
-                projectsitedetail.setLandagreement_documentContentType(row.getString("landagreement_document_content_type"));
-
-                projectsitedetail.setSitelayoutplan(row.getBytes("sitelayoutplan"));
-                projectsitedetail.setSitelayoutplanContentType(row.getString("sitelayoutplan_content_type"));
-
-                projectsitedetail.setLocationplan(row.getBytes("locationplan"));
-                projectsitedetail.setLocationplanContentType(row.getString("locationplan_content_type"));
-
-                projectsitedetail.setLinearstripplan(row.getBytes("linearstripplan"));
-                projectsitedetail.setLinearstripplanContentType(row.getString("linearstripplan_content_type"));
-
                 projectsitedetail.setConnectingroad(row.getUUID("connectingroad"));
                 projectsitedetail.setIntersectiondistance(row.getBool("intersectiondistance"));
                 projectsitedetail.setRailwaydistance(row.getBool("railwaydistance"));
                 projectsitedetail.setConfirmitylanduse(row.getBool("confirmitylanduse"));
                 projectsitedetail.setLandzoneuse_type(row.getUUID("landzoneuse_type"));
-                projectsitedetail.setSitesituated_document(row.getBytes("sitesituated_document"));
-                projectsitedetail.setSitesituated_documentContentType(row.getString("sitesituated_document_content_type"));
-
                 projectsitedetail.setBuildingexisted(row.getUUID("buildingexisted"));
                 projectsitedetail.setExisting_building_applicable(row.getBool("existing_building_applicable"));
-                projectsitedetail.setBuildingplan_document(row.getBytes("buildingplan_document"));
-                projectsitedetail.setBuildingplan_documentContentType(row.getString("buildingplan_document_content_type"));
-
                 projectsitedetail.setSite_situated_in_controlled_area(row.getBool("site_situated_in_controlled_area"));
-                projectsitedetail.setControlledarea_document(row.getBytes("controlledarea_document"));
-                projectsitedetail.setControlledarea_documentContentType(row.getString("controlledarea_document_content_type"));
-
+                projectsitedetail.setKhasra_document(row.getString("khasra_document"));
+                projectsitedetail.setRevenu_shajra_document(row.getString("revenu_shajra_document"));
+                projectsitedetail.setJamabandi(row.getString("jamabandi"));
+                projectsitedetail.setNonencumbrance_certificate(row.getString("nonencumbrance_certificate"));
+                projectsitedetail.setOwnership_document(row.getString("ownership_document"));
+                projectsitedetail.setLease_document(row.getString("lease_document"));
+                projectsitedetail.setLandagreement_document(row.getString("landagreement_document"));
+                projectsitedetail.setSitelayoutplan(row.getString("sitelayoutplan"));
+                projectsitedetail.setLocationplan(row.getString("locationplan"));
+                projectsitedetail.setLinearstripplan(row.getString("linearstripplan"));
+                projectsitedetail.setSitesituated_document(row.getString("sitesituated_document"));
+                projectsitedetail.setControlledarea_document(row.getString("controlledarea_document"));
                 return projectsitedetail;
             }
         ).forEach(projectsitedetailsList::add);

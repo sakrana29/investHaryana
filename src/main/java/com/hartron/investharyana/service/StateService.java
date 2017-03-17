@@ -18,7 +18,7 @@ public interface StateService {
 
     /**
      *  Get all the states.
-     *
+     *  
      *  @return the list of entities
      */
     List<StateDTO> findAll();
@@ -37,7 +37,4 @@ public interface StateService {
      *  @param id the id of the entity
      */
     void delete(String id);
-
-
-    List<StateDTO> findStateByCountry(String countryid);
 }

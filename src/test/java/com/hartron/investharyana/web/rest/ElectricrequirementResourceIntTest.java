@@ -22,14 +22,12 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.util.Base64Utils;
 
 import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.time.ZoneOffset;
 import java.time.ZoneId;
 import java.math.BigDecimal;
-import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.UUID;
 
@@ -50,11 +48,6 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
 
     private static final UUID DEFAULT_PROJECTID = UUID.randomUUID();
     private static final UUID UPDATED_PROJECTID = UUID.randomUUID();
-
-    private static final ByteBuffer DEFAULT_TEMPORARYCONNECTION = ByteBuffer.wrap(TestUtil.createByteArray(1, "0"));
-    private static final ByteBuffer UPDATED_TEMPORARYCONNECTION = ByteBuffer.wrap(TestUtil.createByteArray(2, "1"));
-    private static final String DEFAULT_TEMPORARYCONNECTION_CONTENT_TYPE = "image/jpg";
-    private static final String UPDATED_TEMPORARYCONNECTION_CONTENT_TYPE = "image/png";
 
     private static final Boolean DEFAULT_TEMPORARYREQUIRED = false;
     private static final Boolean UPDATED_TEMPORARYREQUIRED = true;
@@ -79,11 +72,6 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
 
     private static final ZonedDateTime DEFAULT_TEMP_LOAD_DEMAND_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_TEMP_LOAD_DEMAND_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
-
-    private static final ByteBuffer DEFAULT_REGULAR_CONNECTION_DOC = ByteBuffer.wrap(TestUtil.createByteArray(1, "0"));
-    private static final ByteBuffer UPDATED_REGULAR_CONNECTION_DOC = ByteBuffer.wrap(TestUtil.createByteArray(2, "1"));
-    private static final String DEFAULT_REGULAR_CONNECTION_DOC_CONTENT_TYPE = "image/jpg";
-    private static final String UPDATED_REGULAR_CONNECTION_DOC_CONTENT_TYPE = "image/png";
 
     private static final Boolean DEFAULT_REGULAR_LOAD_REQUIRED = false;
     private static final Boolean UPDATED_REGULAR_LOAD_REQUIRED = true;
@@ -111,6 +99,12 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
 
     private static final ZonedDateTime DEFAULT_REGULAR_LOAD_DEMAND_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_REGULAR_LOAD_DEMAND_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+
+    private static final String DEFAULT_TEMPORARYCONNECTION = "AAAAAAAAAA";
+    private static final String UPDATED_TEMPORARYCONNECTION = "BBBBBBBBBB";
+
+    private static final String DEFAULT_REGULAR_CONNECTION_DOC = "AAAAAAAAAA";
+    private static final String UPDATED_REGULAR_CONNECTION_DOC = "BBBBBBBBBB";
 
     @Autowired
     private ElectricrequirementRepository electricrequirementRepository;
@@ -153,8 +147,6 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
     public static Electricrequirement createEntity() {
         Electricrequirement electricrequirement = new Electricrequirement()
                 .projectid(DEFAULT_PROJECTID)
-                .temporaryconnection(DEFAULT_TEMPORARYCONNECTION)
-                .temporaryconnectionContentType(DEFAULT_TEMPORARYCONNECTION_CONTENT_TYPE)
                 .temporaryrequired(DEFAULT_TEMPORARYREQUIRED)
                 .tem_load_existing(DEFAULT_TEM_LOAD_EXISTING)
                 .tem_account_number(DEFAULT_TEM_ACCOUNT_NUMBER)
@@ -163,8 +155,6 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
                 .temp_new_load_demand_kw(DEFAULT_TEMP_NEW_LOAD_DEMAND_KW)
                 .temp_new_load_demand_kva(DEFAULT_TEMP_NEW_LOAD_DEMAND_KVA)
                 .temp_load_demand_date(DEFAULT_TEMP_LOAD_DEMAND_DATE)
-                .regular_connection_doc(DEFAULT_REGULAR_CONNECTION_DOC)
-                .regular_connection_docContentType(DEFAULT_REGULAR_CONNECTION_DOC_CONTENT_TYPE)
                 .regular_load_required(DEFAULT_REGULAR_LOAD_REQUIRED)
                 .regular_existing_connection(DEFAULT_REGULAR_EXISTING_CONNECTION)
                 .customertype(DEFAULT_CUSTOMERTYPE)
@@ -173,7 +163,9 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
                 .regular_existing_load_ifany_kva(DEFAULT_REGULAR_EXISTING_LOAD_IFANY_KVA)
                 .regular_new_load_demand_kw(DEFAULT_REGULAR_NEW_LOAD_DEMAND_KW)
                 .regular_new_load_demand_kva(DEFAULT_REGULAR_NEW_LOAD_DEMAND_KVA)
-                .regular_load_demand_date(DEFAULT_REGULAR_LOAD_DEMAND_DATE);
+                .regular_load_demand_date(DEFAULT_REGULAR_LOAD_DEMAND_DATE)
+                .temporaryconnection(DEFAULT_TEMPORARYCONNECTION)
+                .regular_connection_doc(DEFAULT_REGULAR_CONNECTION_DOC);
         return electricrequirement;
     }
 
@@ -200,8 +192,6 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
         assertThat(electricrequirementList).hasSize(databaseSizeBeforeCreate + 1);
         Electricrequirement testElectricrequirement = electricrequirementList.get(electricrequirementList.size() - 1);
         assertThat(testElectricrequirement.getProjectid()).isEqualTo(DEFAULT_PROJECTID);
-        assertThat(testElectricrequirement.getTemporaryconnection()).isEqualTo(DEFAULT_TEMPORARYCONNECTION);
-        assertThat(testElectricrequirement.getTemporaryconnectionContentType()).isEqualTo(DEFAULT_TEMPORARYCONNECTION_CONTENT_TYPE);
         assertThat(testElectricrequirement.isTemporaryrequired()).isEqualTo(DEFAULT_TEMPORARYREQUIRED);
         assertThat(testElectricrequirement.isTem_load_existing()).isEqualTo(DEFAULT_TEM_LOAD_EXISTING);
         assertThat(testElectricrequirement.getTem_account_number()).isEqualTo(DEFAULT_TEM_ACCOUNT_NUMBER);
@@ -210,8 +200,6 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
         assertThat(testElectricrequirement.getTemp_new_load_demand_kw()).isEqualTo(DEFAULT_TEMP_NEW_LOAD_DEMAND_KW);
         assertThat(testElectricrequirement.getTemp_new_load_demand_kva()).isEqualTo(DEFAULT_TEMP_NEW_LOAD_DEMAND_KVA);
         assertThat(testElectricrequirement.getTemp_load_demand_date()).isEqualTo(DEFAULT_TEMP_LOAD_DEMAND_DATE);
-        assertThat(testElectricrequirement.getRegular_connection_doc()).isEqualTo(DEFAULT_REGULAR_CONNECTION_DOC);
-        assertThat(testElectricrequirement.getRegular_connection_docContentType()).isEqualTo(DEFAULT_REGULAR_CONNECTION_DOC_CONTENT_TYPE);
         assertThat(testElectricrequirement.isRegular_load_required()).isEqualTo(DEFAULT_REGULAR_LOAD_REQUIRED);
         assertThat(testElectricrequirement.isRegular_existing_connection()).isEqualTo(DEFAULT_REGULAR_EXISTING_CONNECTION);
         assertThat(testElectricrequirement.getCustomertype()).isEqualTo(DEFAULT_CUSTOMERTYPE);
@@ -221,6 +209,8 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
         assertThat(testElectricrequirement.getRegular_new_load_demand_kw()).isEqualTo(DEFAULT_REGULAR_NEW_LOAD_DEMAND_KW);
         assertThat(testElectricrequirement.getRegular_new_load_demand_kva()).isEqualTo(DEFAULT_REGULAR_NEW_LOAD_DEMAND_KVA);
         assertThat(testElectricrequirement.getRegular_load_demand_date()).isEqualTo(DEFAULT_REGULAR_LOAD_DEMAND_DATE);
+        assertThat(testElectricrequirement.getTemporaryconnection()).isEqualTo(DEFAULT_TEMPORARYCONNECTION);
+        assertThat(testElectricrequirement.getRegular_connection_doc()).isEqualTo(DEFAULT_REGULAR_CONNECTION_DOC);
     }
 
     @Test
@@ -254,8 +244,6 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(electricrequirement.getId().toString())))
             .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())))
-            .andExpect(jsonPath("$.[*].temporaryconnectionContentType").value(hasItem(DEFAULT_TEMPORARYCONNECTION_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].temporaryconnection").value(hasItem(Base64Utils.encodeToString(DEFAULT_TEMPORARYCONNECTION.array()))))
             .andExpect(jsonPath("$.[*].temporaryrequired").value(hasItem(DEFAULT_TEMPORARYREQUIRED.booleanValue())))
             .andExpect(jsonPath("$.[*].tem_load_existing").value(hasItem(DEFAULT_TEM_LOAD_EXISTING.booleanValue())))
             .andExpect(jsonPath("$.[*].tem_account_number").value(hasItem(DEFAULT_TEM_ACCOUNT_NUMBER.toString())))
@@ -264,8 +252,6 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].temp_new_load_demand_kw").value(hasItem(DEFAULT_TEMP_NEW_LOAD_DEMAND_KW.intValue())))
             .andExpect(jsonPath("$.[*].temp_new_load_demand_kva").value(hasItem(DEFAULT_TEMP_NEW_LOAD_DEMAND_KVA.intValue())))
             .andExpect(jsonPath("$.[*].temp_load_demand_date").value(hasItem(sameInstant(DEFAULT_TEMP_LOAD_DEMAND_DATE))))
-            .andExpect(jsonPath("$.[*].regular_connection_docContentType").value(hasItem(DEFAULT_REGULAR_CONNECTION_DOC_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].regular_connection_doc").value(hasItem(Base64Utils.encodeToString(DEFAULT_REGULAR_CONNECTION_DOC.array()))))
             .andExpect(jsonPath("$.[*].regular_load_required").value(hasItem(DEFAULT_REGULAR_LOAD_REQUIRED.booleanValue())))
             .andExpect(jsonPath("$.[*].regular_existing_connection").value(hasItem(DEFAULT_REGULAR_EXISTING_CONNECTION.booleanValue())))
             .andExpect(jsonPath("$.[*].customertype").value(hasItem(DEFAULT_CUSTOMERTYPE.toString())))
@@ -274,7 +260,9 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].regular_existing_load_ifany_kva").value(hasItem(DEFAULT_REGULAR_EXISTING_LOAD_IFANY_KVA.intValue())))
             .andExpect(jsonPath("$.[*].regular_new_load_demand_kw").value(hasItem(DEFAULT_REGULAR_NEW_LOAD_DEMAND_KW.intValue())))
             .andExpect(jsonPath("$.[*].regular_new_load_demand_kva").value(hasItem(DEFAULT_REGULAR_NEW_LOAD_DEMAND_KVA.intValue())))
-            .andExpect(jsonPath("$.[*].regular_load_demand_date").value(hasItem(sameInstant(DEFAULT_REGULAR_LOAD_DEMAND_DATE))));
+            .andExpect(jsonPath("$.[*].regular_load_demand_date").value(hasItem(sameInstant(DEFAULT_REGULAR_LOAD_DEMAND_DATE))))
+            .andExpect(jsonPath("$.[*].temporaryconnection").value(hasItem(DEFAULT_TEMPORARYCONNECTION.toString())))
+            .andExpect(jsonPath("$.[*].regular_connection_doc").value(hasItem(DEFAULT_REGULAR_CONNECTION_DOC.toString())));
     }
 
     @Test
@@ -288,8 +276,6 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(electricrequirement.getId().toString()))
             .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()))
-            .andExpect(jsonPath("$.temporaryconnectionContentType").value(DEFAULT_TEMPORARYCONNECTION_CONTENT_TYPE))
-            .andExpect(jsonPath("$.temporaryconnection").value(Base64Utils.encodeToString(DEFAULT_TEMPORARYCONNECTION.array())))
             .andExpect(jsonPath("$.temporaryrequired").value(DEFAULT_TEMPORARYREQUIRED.booleanValue()))
             .andExpect(jsonPath("$.tem_load_existing").value(DEFAULT_TEM_LOAD_EXISTING.booleanValue()))
             .andExpect(jsonPath("$.tem_account_number").value(DEFAULT_TEM_ACCOUNT_NUMBER.toString()))
@@ -298,8 +284,6 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.temp_new_load_demand_kw").value(DEFAULT_TEMP_NEW_LOAD_DEMAND_KW.intValue()))
             .andExpect(jsonPath("$.temp_new_load_demand_kva").value(DEFAULT_TEMP_NEW_LOAD_DEMAND_KVA.intValue()))
             .andExpect(jsonPath("$.temp_load_demand_date").value(sameInstant(DEFAULT_TEMP_LOAD_DEMAND_DATE)))
-            .andExpect(jsonPath("$.regular_connection_docContentType").value(DEFAULT_REGULAR_CONNECTION_DOC_CONTENT_TYPE))
-            .andExpect(jsonPath("$.regular_connection_doc").value(Base64Utils.encodeToString(DEFAULT_REGULAR_CONNECTION_DOC.array())))
             .andExpect(jsonPath("$.regular_load_required").value(DEFAULT_REGULAR_LOAD_REQUIRED.booleanValue()))
             .andExpect(jsonPath("$.regular_existing_connection").value(DEFAULT_REGULAR_EXISTING_CONNECTION.booleanValue()))
             .andExpect(jsonPath("$.customertype").value(DEFAULT_CUSTOMERTYPE.toString()))
@@ -308,7 +292,9 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.regular_existing_load_ifany_kva").value(DEFAULT_REGULAR_EXISTING_LOAD_IFANY_KVA.intValue()))
             .andExpect(jsonPath("$.regular_new_load_demand_kw").value(DEFAULT_REGULAR_NEW_LOAD_DEMAND_KW.intValue()))
             .andExpect(jsonPath("$.regular_new_load_demand_kva").value(DEFAULT_REGULAR_NEW_LOAD_DEMAND_KVA.intValue()))
-            .andExpect(jsonPath("$.regular_load_demand_date").value(sameInstant(DEFAULT_REGULAR_LOAD_DEMAND_DATE)));
+            .andExpect(jsonPath("$.regular_load_demand_date").value(sameInstant(DEFAULT_REGULAR_LOAD_DEMAND_DATE)))
+            .andExpect(jsonPath("$.temporaryconnection").value(DEFAULT_TEMPORARYCONNECTION.toString()))
+            .andExpect(jsonPath("$.regular_connection_doc").value(DEFAULT_REGULAR_CONNECTION_DOC.toString()));
     }
 
     @Test
@@ -328,8 +314,6 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
         Electricrequirement updatedElectricrequirement = electricrequirementRepository.findOne(electricrequirement.getId());
         updatedElectricrequirement
                 .projectid(UPDATED_PROJECTID)
-                .temporaryconnection(UPDATED_TEMPORARYCONNECTION)
-                .temporaryconnectionContentType(UPDATED_TEMPORARYCONNECTION_CONTENT_TYPE)
                 .temporaryrequired(UPDATED_TEMPORARYREQUIRED)
                 .tem_load_existing(UPDATED_TEM_LOAD_EXISTING)
                 .tem_account_number(UPDATED_TEM_ACCOUNT_NUMBER)
@@ -338,8 +322,6 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
                 .temp_new_load_demand_kw(UPDATED_TEMP_NEW_LOAD_DEMAND_KW)
                 .temp_new_load_demand_kva(UPDATED_TEMP_NEW_LOAD_DEMAND_KVA)
                 .temp_load_demand_date(UPDATED_TEMP_LOAD_DEMAND_DATE)
-                .regular_connection_doc(UPDATED_REGULAR_CONNECTION_DOC)
-                .regular_connection_docContentType(UPDATED_REGULAR_CONNECTION_DOC_CONTENT_TYPE)
                 .regular_load_required(UPDATED_REGULAR_LOAD_REQUIRED)
                 .regular_existing_connection(UPDATED_REGULAR_EXISTING_CONNECTION)
                 .customertype(UPDATED_CUSTOMERTYPE)
@@ -348,7 +330,9 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
                 .regular_existing_load_ifany_kva(UPDATED_REGULAR_EXISTING_LOAD_IFANY_KVA)
                 .regular_new_load_demand_kw(UPDATED_REGULAR_NEW_LOAD_DEMAND_KW)
                 .regular_new_load_demand_kva(UPDATED_REGULAR_NEW_LOAD_DEMAND_KVA)
-                .regular_load_demand_date(UPDATED_REGULAR_LOAD_DEMAND_DATE);
+                .regular_load_demand_date(UPDATED_REGULAR_LOAD_DEMAND_DATE)
+                .temporaryconnection(UPDATED_TEMPORARYCONNECTION)
+                .regular_connection_doc(UPDATED_REGULAR_CONNECTION_DOC);
         ElectricrequirementDTO electricrequirementDTO = electricrequirementMapper.electricrequirementToElectricrequirementDTO(updatedElectricrequirement);
 
         restElectricrequirementMockMvc.perform(put("/api/electricrequirements")
@@ -361,8 +345,6 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
         assertThat(electricrequirementList).hasSize(databaseSizeBeforeUpdate);
         Electricrequirement testElectricrequirement = electricrequirementList.get(electricrequirementList.size() - 1);
         assertThat(testElectricrequirement.getProjectid()).isEqualTo(UPDATED_PROJECTID);
-        assertThat(testElectricrequirement.getTemporaryconnection()).isEqualTo(UPDATED_TEMPORARYCONNECTION);
-        assertThat(testElectricrequirement.getTemporaryconnectionContentType()).isEqualTo(UPDATED_TEMPORARYCONNECTION_CONTENT_TYPE);
         assertThat(testElectricrequirement.isTemporaryrequired()).isEqualTo(UPDATED_TEMPORARYREQUIRED);
         assertThat(testElectricrequirement.isTem_load_existing()).isEqualTo(UPDATED_TEM_LOAD_EXISTING);
         assertThat(testElectricrequirement.getTem_account_number()).isEqualTo(UPDATED_TEM_ACCOUNT_NUMBER);
@@ -371,8 +353,6 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
         assertThat(testElectricrequirement.getTemp_new_load_demand_kw()).isEqualTo(UPDATED_TEMP_NEW_LOAD_DEMAND_KW);
         assertThat(testElectricrequirement.getTemp_new_load_demand_kva()).isEqualTo(UPDATED_TEMP_NEW_LOAD_DEMAND_KVA);
         assertThat(testElectricrequirement.getTemp_load_demand_date()).isEqualTo(UPDATED_TEMP_LOAD_DEMAND_DATE);
-        assertThat(testElectricrequirement.getRegular_connection_doc()).isEqualTo(UPDATED_REGULAR_CONNECTION_DOC);
-        assertThat(testElectricrequirement.getRegular_connection_docContentType()).isEqualTo(UPDATED_REGULAR_CONNECTION_DOC_CONTENT_TYPE);
         assertThat(testElectricrequirement.isRegular_load_required()).isEqualTo(UPDATED_REGULAR_LOAD_REQUIRED);
         assertThat(testElectricrequirement.isRegular_existing_connection()).isEqualTo(UPDATED_REGULAR_EXISTING_CONNECTION);
         assertThat(testElectricrequirement.getCustomertype()).isEqualTo(UPDATED_CUSTOMERTYPE);
@@ -382,6 +362,8 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
         assertThat(testElectricrequirement.getRegular_new_load_demand_kw()).isEqualTo(UPDATED_REGULAR_NEW_LOAD_DEMAND_KW);
         assertThat(testElectricrequirement.getRegular_new_load_demand_kva()).isEqualTo(UPDATED_REGULAR_NEW_LOAD_DEMAND_KVA);
         assertThat(testElectricrequirement.getRegular_load_demand_date()).isEqualTo(UPDATED_REGULAR_LOAD_DEMAND_DATE);
+        assertThat(testElectricrequirement.getTemporaryconnection()).isEqualTo(UPDATED_TEMPORARYCONNECTION);
+        assertThat(testElectricrequirement.getRegular_connection_doc()).isEqualTo(UPDATED_REGULAR_CONNECTION_DOC);
     }
 
     @Test

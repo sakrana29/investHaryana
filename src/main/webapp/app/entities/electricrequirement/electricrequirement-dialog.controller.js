@@ -5,17 +5,15 @@
         .module('investhryApp')
         .controller('ElectricrequirementDialogController', ElectricrequirementDialogController);
 
-    ElectricrequirementDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'DataUtils', 'entity', 'Electricrequirement'];
+    ElectricrequirementDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Electricrequirement'];
 
-    function ElectricrequirementDialogController ($timeout, $scope, $stateParams, $uibModalInstance, DataUtils, entity, Electricrequirement) {
+    function ElectricrequirementDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Electricrequirement) {
         var vm = this;
 
         vm.electricrequirement = entity;
         vm.clear = clear;
         vm.datePickerOpenStatus = {};
         vm.openCalendar = openCalendar;
-        vm.byteSize = DataUtils.byteSize;
-        vm.openFile = DataUtils.openFile;
         vm.save = save;
 
         $timeout(function (){
@@ -45,29 +43,7 @@
             vm.isSaving = false;
         }
 
-
-        vm.setTemporaryconnection = function ($file, electricrequirement) {
-            if ($file) {
-                DataUtils.toBase64($file, function(base64Data) {
-                    $scope.$apply(function() {
-                        electricrequirement.temporaryconnection = base64Data;
-                        electricrequirement.temporaryconnectionContentType = $file.type;
-                    });
-                });
-            }
-        };
         vm.datePickerOpenStatus.temp_load_demand_date = false;
-
-        vm.setRegular_connection_doc = function ($file, electricrequirement) {
-            if ($file) {
-                DataUtils.toBase64($file, function(base64Data) {
-                    $scope.$apply(function() {
-                        electricrequirement.regular_connection_doc = base64Data;
-                        electricrequirement.regular_connection_docContentType = $file.type;
-                    });
-                });
-            }
-        };
         vm.datePickerOpenStatus.regular_load_demand_date = false;
 
         function openCalendar (date) {

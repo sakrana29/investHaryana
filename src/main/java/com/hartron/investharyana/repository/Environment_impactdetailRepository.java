@@ -50,12 +50,10 @@ public class Environment_impactdetailRepository {
                 environment_impactdetail.setWaste_water_domesting(row.getInt("waste_water_domesting"));
                 environment_impactdetail.setWaste_water_other(row.getInt("waste_water_other"));
                 environment_impactdetail.setWaste_water_treatment(row.getString("waste_water_treatment"));
-                environment_impactdetail.setDocument_attached(row.getBytes("document_attached"));
-                environment_impactdetail.setDocument_attachedContentType(row.getString("document_attached_content_type"));
-
                 environment_impactdetail.setMode_of_disposal_for_discharge(row.getUUID("mode_of_disposal_for_discharge"));
                 environment_impactdetail.setEmissionid(row.getUUID("emissionid"));
                 environment_impactdetail.setWastewaterdetailid(row.getUUID("wastewaterdetailid"));
+                environment_impactdetail.setDocument_attached(row.getString("document_attached"));
                 return environment_impactdetail;
             }
         ).forEach(environment_impactdetailsList::add);

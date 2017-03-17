@@ -3,7 +3,6 @@ package com.hartron.investharyana.domain;
 import com.datastax.driver.mapping.annotations.*;
 
 import java.io.Serializable;
-import java.nio.ByteBuffer;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -35,26 +34,17 @@ public class Projectdetail implements Serializable {
 
     private UUID collaboration_with_foreign_country;
 
-    private ByteBuffer detail_project_report;
-
-    @Column(name = "detail_project_report_content_type")
-    private String detail_project_reportContentType;
-
     private Boolean existing_regulatory_approval;
 
     private UUID approval_application_form;
 
-    private ByteBuffer approval_document;
-
-    @Column(name = "approval_document_content_type")
-    private String approval_documentContentType;
-
-    private ByteBuffer edc_sif_clu_fee_paid_document;
-
-    @Column(name = "edc_sif_clu_fee_paid_document_content_type")
-    private String edc_sif_clu_fee_paid_documentContentType;
-
     private Boolean edc_sif_clu_fee_paid_applicable;
+
+    private String detail_project_report;
+
+    private String approval_document;
+
+    private String edc_sif_clu_fee_paid_document;
 
     public UUID getId() {
         return id;
@@ -168,32 +158,6 @@ public class Projectdetail implements Serializable {
         this.collaboration_with_foreign_country = collaboration_with_foreign_country;
     }
 
-    public ByteBuffer getDetail_project_report() {
-        return detail_project_report;
-    }
-
-    public Projectdetail detail_project_report(ByteBuffer detail_project_report) {
-        this.detail_project_report = detail_project_report;
-        return this;
-    }
-
-    public void setDetail_project_report(ByteBuffer detail_project_report) {
-        this.detail_project_report = detail_project_report;
-    }
-
-    public String getDetail_project_reportContentType() {
-        return detail_project_reportContentType;
-    }
-
-    public Projectdetail detail_project_reportContentType(String detail_project_reportContentType) {
-        this.detail_project_reportContentType = detail_project_reportContentType;
-        return this;
-    }
-
-    public void setDetail_project_reportContentType(String detail_project_reportContentType) {
-        this.detail_project_reportContentType = detail_project_reportContentType;
-    }
-
     public Boolean isExisting_regulatory_approval() {
         return existing_regulatory_approval;
     }
@@ -220,58 +184,6 @@ public class Projectdetail implements Serializable {
         this.approval_application_form = approval_application_form;
     }
 
-    public ByteBuffer getApproval_document() {
-        return approval_document;
-    }
-
-    public Projectdetail approval_document(ByteBuffer approval_document) {
-        this.approval_document = approval_document;
-        return this;
-    }
-
-    public void setApproval_document(ByteBuffer approval_document) {
-        this.approval_document = approval_document;
-    }
-
-    public String getApproval_documentContentType() {
-        return approval_documentContentType;
-    }
-
-    public Projectdetail approval_documentContentType(String approval_documentContentType) {
-        this.approval_documentContentType = approval_documentContentType;
-        return this;
-    }
-
-    public void setApproval_documentContentType(String approval_documentContentType) {
-        this.approval_documentContentType = approval_documentContentType;
-    }
-
-    public ByteBuffer getEdc_sif_clu_fee_paid_document() {
-        return edc_sif_clu_fee_paid_document;
-    }
-
-    public Projectdetail edc_sif_clu_fee_paid_document(ByteBuffer edc_sif_clu_fee_paid_document) {
-        this.edc_sif_clu_fee_paid_document = edc_sif_clu_fee_paid_document;
-        return this;
-    }
-
-    public void setEdc_sif_clu_fee_paid_document(ByteBuffer edc_sif_clu_fee_paid_document) {
-        this.edc_sif_clu_fee_paid_document = edc_sif_clu_fee_paid_document;
-    }
-
-    public String getEdc_sif_clu_fee_paid_documentContentType() {
-        return edc_sif_clu_fee_paid_documentContentType;
-    }
-
-    public Projectdetail edc_sif_clu_fee_paid_documentContentType(String edc_sif_clu_fee_paid_documentContentType) {
-        this.edc_sif_clu_fee_paid_documentContentType = edc_sif_clu_fee_paid_documentContentType;
-        return this;
-    }
-
-    public void setEdc_sif_clu_fee_paid_documentContentType(String edc_sif_clu_fee_paid_documentContentType) {
-        this.edc_sif_clu_fee_paid_documentContentType = edc_sif_clu_fee_paid_documentContentType;
-    }
-
     public Boolean isEdc_sif_clu_fee_paid_applicable() {
         return edc_sif_clu_fee_paid_applicable;
     }
@@ -283,6 +195,45 @@ public class Projectdetail implements Serializable {
 
     public void setEdc_sif_clu_fee_paid_applicable(Boolean edc_sif_clu_fee_paid_applicable) {
         this.edc_sif_clu_fee_paid_applicable = edc_sif_clu_fee_paid_applicable;
+    }
+
+    public String getDetail_project_report() {
+        return detail_project_report;
+    }
+
+    public Projectdetail detail_project_report(String detail_project_report) {
+        this.detail_project_report = detail_project_report;
+        return this;
+    }
+
+    public void setDetail_project_report(String detail_project_report) {
+        this.detail_project_report = detail_project_report;
+    }
+
+    public String getApproval_document() {
+        return approval_document;
+    }
+
+    public Projectdetail approval_document(String approval_document) {
+        this.approval_document = approval_document;
+        return this;
+    }
+
+    public void setApproval_document(String approval_document) {
+        this.approval_document = approval_document;
+    }
+
+    public String getEdc_sif_clu_fee_paid_document() {
+        return edc_sif_clu_fee_paid_document;
+    }
+
+    public Projectdetail edc_sif_clu_fee_paid_document(String edc_sif_clu_fee_paid_document) {
+        this.edc_sif_clu_fee_paid_document = edc_sif_clu_fee_paid_document;
+        return this;
+    }
+
+    public void setEdc_sif_clu_fee_paid_document(String edc_sif_clu_fee_paid_document) {
+        this.edc_sif_clu_fee_paid_document = edc_sif_clu_fee_paid_document;
     }
 
     @Override
@@ -317,15 +268,12 @@ public class Projectdetail implements Serializable {
             ", niccode='" + niccode + "'" +
             ", category_of_project='" + category_of_project + "'" +
             ", collaboration_with_foreign_country='" + collaboration_with_foreign_country + "'" +
-            ", detail_project_report='" + detail_project_report + "'" +
-            ", detail_project_reportContentType='" + detail_project_reportContentType + "'" +
             ", existing_regulatory_approval='" + existing_regulatory_approval + "'" +
             ", approval_application_form='" + approval_application_form + "'" +
-            ", approval_document='" + approval_document + "'" +
-            ", approval_documentContentType='" + approval_documentContentType + "'" +
-            ", edc_sif_clu_fee_paid_document='" + edc_sif_clu_fee_paid_document + "'" +
-            ", edc_sif_clu_fee_paid_documentContentType='" + edc_sif_clu_fee_paid_documentContentType + "'" +
             ", edc_sif_clu_fee_paid_applicable='" + edc_sif_clu_fee_paid_applicable + "'" +
+            ", detail_project_report='" + detail_project_report + "'" +
+            ", approval_document='" + approval_document + "'" +
+            ", edc_sif_clu_fee_paid_document='" + edc_sif_clu_fee_paid_document + "'" +
             '}';
     }
 }

@@ -5,15 +5,13 @@
         .module('investhryApp')
         .controller('InvestorController', InvestorController);
 
-    InvestorController.$inject = ['DataUtils', 'Investor'];
+    InvestorController.$inject = ['Investor'];
 
-    function InvestorController(DataUtils, Investor) {
+    function InvestorController(Investor) {
 
         var vm = this;
 
         vm.investors = [];
-        vm.openFile = DataUtils.openFile;
-        vm.byteSize = DataUtils.byteSize;
 
         loadAll();
 

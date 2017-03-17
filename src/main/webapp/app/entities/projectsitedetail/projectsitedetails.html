@@ -36,34 +36,33 @@
                     <th><span data-translate="investhryApp.projectsitedetail.sector">Sector</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.plotno">Plotno</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.hadbastno">Hadbastno</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.khasra_document">Khasra Document</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.liesunder_mc">Liesunder Mc</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.distance_from_mc">Distance From Mc</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.islocated_in_urban">Islocated In Urban</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.revenu_shajra_document">Revenu Shajra Document</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.jamabandi">Jamabandi</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.nonencumbrance_certificate">Nonencumbrance Certificate</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.totalproposedprojectarea">Totalproposedprojectarea</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.proposedbuilt_up_area">Proposedbuilt Up Area</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.certifiedownership">Certifiedownership</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.ownership_document">Ownership Document</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.leaseapplicable">Leaseapplicable</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.lease_document">Lease Document</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.landagreementapplicable">Landagreementapplicable</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.landagreement_document">Landagreement Document</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.sitelayoutplan">Sitelayoutplan</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.locationplan">Locationplan</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.linearstripplan">Linearstripplan</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.connectingroad">Connectingroad</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.intersectiondistance">Intersectiondistance</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.railwaydistance">Railwaydistance</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.confirmitylanduse">Confirmitylanduse</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.landzoneuse_type">Landzoneuse Type</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.sitesituated_document">Sitesituated Document</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.buildingexisted">Buildingexisted</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.existing_building_applicable">Existing Building Applicable</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.buildingplan_document">Buildingplan Document</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.site_situated_in_controlled_area">Site Situated In Controlled Area</span></th>
+                    <th><span data-translate="investhryApp.projectsitedetail.khasra_document">Khasra Document</span></th>
+                    <th><span data-translate="investhryApp.projectsitedetail.revenu_shajra_document">Revenu Shajra Document</span></th>
+                    <th><span data-translate="investhryApp.projectsitedetail.jamabandi">Jamabandi</span></th>
+                    <th><span data-translate="investhryApp.projectsitedetail.nonencumbrance_certificate">Nonencumbrance Certificate</span></th>
+                    <th><span data-translate="investhryApp.projectsitedetail.ownership_document">Ownership Document</span></th>
+                    <th><span data-translate="investhryApp.projectsitedetail.lease_document">Lease Document</span></th>
+                    <th><span data-translate="investhryApp.projectsitedetail.landagreement_document">Landagreement Document</span></th>
+                    <th><span data-translate="investhryApp.projectsitedetail.sitelayoutplan">Sitelayoutplan</span></th>
+                    <th><span data-translate="investhryApp.projectsitedetail.locationplan">Locationplan</span></th>
+                    <th><span data-translate="investhryApp.projectsitedetail.linearstripplan">Linearstripplan</span></th>
+                    <th><span data-translate="investhryApp.projectsitedetail.sitesituated_document">Sitesituated Document</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.controlledarea_document">Controlledarea Document</span></th>
                     <th></th>
                 </tr>
@@ -88,74 +87,34 @@
                     <td>{{projectsitedetail.sector}}</td>
                     <td>{{projectsitedetail.plotno}}</td>
                     <td>{{projectsitedetail.hadbastno}}</td>
-                    <td>
-                        <a ng-if="projectsitedetail.khasra_document" ng-click="vm.openFile(projectsitedetail.khasra_documentContentType, projectsitedetail.khasra_document)" data-translate="entity.action.open">open</a>
-                        <span ng-if="projectsitedetail.khasra_document">{{projectsitedetail.khasra_documentContentType}}, {{vm.byteSize(projectsitedetail.khasra_document)}}</span>
-                    </td>
                     <td>{{projectsitedetail.liesunder_mc}}</td>
                     <td>{{projectsitedetail.distance_from_mc}}</td>
                     <td>{{projectsitedetail.islocated_in_urban}}</td>
-                    <td>
-                        <a ng-if="projectsitedetail.revenu_shajra_document" ng-click="vm.openFile(projectsitedetail.revenu_shajra_documentContentType, projectsitedetail.revenu_shajra_document)" data-translate="entity.action.open">open</a>
-                        <span ng-if="projectsitedetail.revenu_shajra_document">{{projectsitedetail.revenu_shajra_documentContentType}}, {{vm.byteSize(projectsitedetail.revenu_shajra_document)}}</span>
-                    </td>
-                    <td>
-                        <a ng-if="projectsitedetail.jamabandi" ng-click="vm.openFile(projectsitedetail.jamabandiContentType, projectsitedetail.jamabandi)" data-translate="entity.action.open">open</a>
-                        <span ng-if="projectsitedetail.jamabandi">{{projectsitedetail.jamabandiContentType}}, {{vm.byteSize(projectsitedetail.jamabandi)}}</span>
-                    </td>
-                    <td>
-                        <a ng-if="projectsitedetail.nonencumbrance_certificate" ng-click="vm.openFile(projectsitedetail.nonencumbrance_certificateContentType, projectsitedetail.nonencumbrance_certificate)" data-translate="entity.action.open">open</a>
-                        <span ng-if="projectsitedetail.nonencumbrance_certificate">{{projectsitedetail.nonencumbrance_certificateContentType}}, {{vm.byteSize(projectsitedetail.nonencumbrance_certificate)}}</span>
-                    </td>
                     <td>{{projectsitedetail.totalproposedprojectarea}}</td>
                     <td>{{projectsitedetail.proposedbuilt_up_area}}</td>
                     <td>{{projectsitedetail.certifiedownership}}</td>
-                    <td>
-                        <a ng-if="projectsitedetail.ownership_document" ng-click="vm.openFile(projectsitedetail.ownership_documentContentType, projectsitedetail.ownership_document)" data-translate="entity.action.open">open</a>
-                        <span ng-if="projectsitedetail.ownership_document">{{projectsitedetail.ownership_documentContentType}}, {{vm.byteSize(projectsitedetail.ownership_document)}}</span>
-                    </td>
                     <td>{{projectsitedetail.leaseapplicable}}</td>
-                    <td>
-                        <a ng-if="projectsitedetail.lease_document" ng-click="vm.openFile(projectsitedetail.lease_documentContentType, projectsitedetail.lease_document)" data-translate="entity.action.open">open</a>
-                        <span ng-if="projectsitedetail.lease_document">{{projectsitedetail.lease_documentContentType}}, {{vm.byteSize(projectsitedetail.lease_document)}}</span>
-                    </td>
                     <td>{{projectsitedetail.landagreementapplicable}}</td>
-                    <td>
-                        <a ng-if="projectsitedetail.landagreement_document" ng-click="vm.openFile(projectsitedetail.landagreement_documentContentType, projectsitedetail.landagreement_document)" data-translate="entity.action.open">open</a>
-                        <span ng-if="projectsitedetail.landagreement_document">{{projectsitedetail.landagreement_documentContentType}}, {{vm.byteSize(projectsitedetail.landagreement_document)}}</span>
-                    </td>
-                    <td>
-                        <a ng-if="projectsitedetail.sitelayoutplan" ng-click="vm.openFile(projectsitedetail.sitelayoutplanContentType, projectsitedetail.sitelayoutplan)" data-translate="entity.action.open">open</a>
-                        <span ng-if="projectsitedetail.sitelayoutplan">{{projectsitedetail.sitelayoutplanContentType}}, {{vm.byteSize(projectsitedetail.sitelayoutplan)}}</span>
-                    </td>
-                    <td>
-                        <a ng-if="projectsitedetail.locationplan" ng-click="vm.openFile(projectsitedetail.locationplanContentType, projectsitedetail.locationplan)" data-translate="entity.action.open">open</a>
-                        <span ng-if="projectsitedetail.locationplan">{{projectsitedetail.locationplanContentType}}, {{vm.byteSize(projectsitedetail.locationplan)}}</span>
-                    </td>
-                    <td>
-                        <a ng-if="projectsitedetail.linearstripplan" ng-click="vm.openFile(projectsitedetail.linearstripplanContentType, projectsitedetail.linearstripplan)" data-translate="entity.action.open">open</a>
-                        <span ng-if="projectsitedetail.linearstripplan">{{projectsitedetail.linearstripplanContentType}}, {{vm.byteSize(projectsitedetail.linearstripplan)}}</span>
-                    </td>
                     <td>{{projectsitedetail.connectingroad}}</td>
                     <td>{{projectsitedetail.intersectiondistance}}</td>
                     <td>{{projectsitedetail.railwaydistance}}</td>
                     <td>{{projectsitedetail.confirmitylanduse}}</td>
                     <td>{{projectsitedetail.landzoneuse_type}}</td>
-                    <td>
-                        <a ng-if="projectsitedetail.sitesituated_document" ng-click="vm.openFile(projectsitedetail.sitesituated_documentContentType, projectsitedetail.sitesituated_document)" data-translate="entity.action.open">open</a>
-                        <span ng-if="projectsitedetail.sitesituated_document">{{projectsitedetail.sitesituated_documentContentType}}, {{vm.byteSize(projectsitedetail.sitesituated_document)}}</span>
-                    </td>
                     <td>{{projectsitedetail.buildingexisted}}</td>
                     <td>{{projectsitedetail.existing_building_applicable}}</td>
-                    <td>
-                        <a ng-if="projectsitedetail.buildingplan_document" ng-click="vm.openFile(projectsitedetail.buildingplan_documentContentType, projectsitedetail.buildingplan_document)" data-translate="entity.action.open">open</a>
-                        <span ng-if="projectsitedetail.buildingplan_document">{{projectsitedetail.buildingplan_documentContentType}}, {{vm.byteSize(projectsitedetail.buildingplan_document)}}</span>
-                    </td>
                     <td>{{projectsitedetail.site_situated_in_controlled_area}}</td>
-                    <td>
-                        <a ng-if="projectsitedetail.controlledarea_document" ng-click="vm.openFile(projectsitedetail.controlledarea_documentContentType, projectsitedetail.controlledarea_document)" data-translate="entity.action.open">open</a>
-                        <span ng-if="projectsitedetail.controlledarea_document">{{projectsitedetail.controlledarea_documentContentType}}, {{vm.byteSize(projectsitedetail.controlledarea_document)}}</span>
-                    </td>
+                    <td>{{projectsitedetail.khasra_document}}</td>
+                    <td>{{projectsitedetail.revenu_shajra_document}}</td>
+                    <td>{{projectsitedetail.jamabandi}}</td>
+                    <td>{{projectsitedetail.nonencumbrance_certificate}}</td>
+                    <td>{{projectsitedetail.ownership_document}}</td>
+                    <td>{{projectsitedetail.lease_document}}</td>
+                    <td>{{projectsitedetail.landagreement_document}}</td>
+                    <td>{{projectsitedetail.sitelayoutplan}}</td>
+                    <td>{{projectsitedetail.locationplan}}</td>
+                    <td>{{projectsitedetail.linearstripplan}}</td>
+                    <td>{{projectsitedetail.sitesituated_document}}</td>
+                    <td>{{projectsitedetail.controlledarea_document}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

@@ -2,7 +2,6 @@ package com.hartron.investharyana.service.dto;
 
 
 import java.io.Serializable;
-import java.nio.ByteBuffer;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -17,13 +16,7 @@ public class InvestorDTO implements Serializable {
 
     private Integer mousignyear;
 
-    private ByteBuffer moudocument;
-    private String moudocumentContentType;
-
     private String mouidnumber;
-
-    private ByteBuffer photo;
-    private String photoContentType;
 
     private String firstname;
 
@@ -47,6 +40,10 @@ public class InvestorDTO implements Serializable {
 
     private String emailsecondary;
 
+    private String moudocument;
+
+    private String investorpicpath;
+
     public UUID getId() {
         return id;
     }
@@ -68,42 +65,12 @@ public class InvestorDTO implements Serializable {
     public void setMousignyear(Integer mousignyear) {
         this.mousignyear = mousignyear;
     }
-    public ByteBuffer getMoudocument() {
-        return moudocument;
-    }
-
-    public void setMoudocument(ByteBuffer moudocument) {
-        this.moudocument = moudocument;
-    }
-
-    public String getMoudocumentContentType() {
-        return moudocumentContentType;
-    }
-
-    public void setMoudocumentContentType(String moudocumentContentType) {
-        this.moudocumentContentType = moudocumentContentType;
-    }
     public String getMouidnumber() {
         return mouidnumber;
     }
 
     public void setMouidnumber(String mouidnumber) {
         this.mouidnumber = mouidnumber;
-    }
-    public ByteBuffer getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(ByteBuffer photo) {
-        this.photo = photo;
-    }
-
-    public String getPhotoContentType() {
-        return photoContentType;
-    }
-
-    public void setPhotoContentType(String photoContentType) {
-        this.photoContentType = photoContentType;
     }
     public String getFirstname() {
         return firstname;
@@ -182,6 +149,20 @@ public class InvestorDTO implements Serializable {
     public void setEmailsecondary(String emailsecondary) {
         this.emailsecondary = emailsecondary;
     }
+    public String getMoudocument() {
+        return moudocument;
+    }
+
+    public void setMoudocument(String moudocument) {
+        this.moudocument = moudocument;
+    }
+    public String getInvestorpicpath() {
+        return investorpicpath;
+    }
+
+    public void setInvestorpicpath(String investorpicpath) {
+        this.investorpicpath = investorpicpath;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -210,9 +191,7 @@ public class InvestorDTO implements Serializable {
             "id=" + id +
             ", mouapplicable='" + mouapplicable + "'" +
             ", mousignyear='" + mousignyear + "'" +
-            ", moudocument='" + moudocument + "'" +
             ", mouidnumber='" + mouidnumber + "'" +
-            ", photo='" + photo + "'" +
             ", firstname='" + firstname + "'" +
             ", middlename='" + middlename + "'" +
             ", lastname='" + lastname + "'" +
@@ -224,6 +203,8 @@ public class InvestorDTO implements Serializable {
             ", address3='" + address3 + "'" +
             ", emailprimary='" + emailprimary + "'" +
             ", emailsecondary='" + emailsecondary + "'" +
+            ", moudocument='" + moudocument + "'" +
+            ", investorpicpath='" + investorpicpath + "'" +
             '}';
     }
 }

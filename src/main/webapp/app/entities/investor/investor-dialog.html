@@ -25,55 +25,11 @@
                     ng-model="vm.investor.mousignyear"
                     />
         </div>
-        <div class="form-group" ngf-drop ngf-change="vm.setMoudocument($file, vm.investor)">
-            <label class="control-label" data-translate="investhryApp.investor.moudocument" for="field_moudocument">Moudocument</label>
-            <div>
-                <div ng-if="vm.investor.moudocument" class="help-block clearfix">
-                    <a class="pull-left" ng-click="vm.openFile(vm.investor.moudocumentContentType, vm.investor.moudocument)" data-translate="entity.action.open">open</a><br>
-                    <span class="pull-left">{{vm.investor.moudocumentContentType}}, {{vm.byteSize(vm.investor.moudocument)}}</span>
-                    <button type="button" ng-click="vm.investor.moudocument=null;vm.investor.moudocumentContentType=null;"
-                            class="btn btn-default btn-xs pull-right">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </div>
-                <button type="button" ngf-select class="btn btn-default btn-block"
-                        ngf-change="vm.setMoudocument($file, vm.investor)" data-translate="entity.action.addblob">
-                    Add blob
-                </button>
-            </div>
-            <input type="hidden" class="form-control" name="moudocument" id="field_moudocument"
-                    ng-model="vm.investor.moudocument"
-                    />
-            <input type="hidden" class="form-control" name="moudocumentContentType" id="field_moudocumentContentType"
-                    ng-model="vm.investor.moudocumentContentType" />
-        </div>
         <div class="form-group">
             <label class="control-label" data-translate="investhryApp.investor.mouidnumber" for="field_mouidnumber">Mouidnumber</label>
             <input type="text" class="form-control" name="mouidnumber" id="field_mouidnumber"
                     ng-model="vm.investor.mouidnumber"
                     />
-        </div>
-        <div class="form-group" ngf-drop ngf-change="vm.setPhoto($file, vm.investor)" ngf-pattern="'image/*'">
-            <label class="control-label" data-translate="investhryApp.investor.photo" for="field_photo">Photo</label>
-            <div>
-                <img data-ng-src="{{'data:' + vm.investor.photoContentType + ';base64,' + vm.investor.photo}}" style="max-height: 100px;" ng-if="vm.investor.photo" alt="investor image"/>
-                <div ng-if="vm.investor.photo" class="help-block clearfix">
-                    <span class="pull-left">{{vm.investor.photoContentType}}, {{vm.byteSize(vm.investor.photo)}}</span>
-                    <button type="button" ng-click="vm.investor.photo=null;vm.investor.photoContentType=null;"
-                            class="btn btn-default btn-xs pull-right">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </div>
-                <button type="button" ngf-select class="btn btn-default btn-block"
-                        ngf-change="vm.setPhoto($file, vm.investor)" accept="image/*" data-translate="entity.action.addimage">
-                    Add image
-                </button>
-            </div>
-            <input type="hidden" class="form-control" name="photo" id="field_photo"
-                    ng-model="vm.investor.photo"
-                    />
-            <input type="hidden" class="form-control" name="photoContentType" id="field_photoContentType"
-                    ng-model="vm.investor.photoContentType" />
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="investhryApp.investor.firstname" for="field_firstname">Firstname</label>
@@ -139,6 +95,18 @@
             <label class="control-label" data-translate="investhryApp.investor.emailsecondary" for="field_emailsecondary">Emailsecondary</label>
             <input type="text" class="form-control" name="emailsecondary" id="field_emailsecondary"
                     ng-model="vm.investor.emailsecondary"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.investor.moudocument" for="field_moudocument">Moudocument</label>
+            <input type="text" class="form-control" name="moudocument" id="field_moudocument"
+                    ng-model="vm.investor.moudocument"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.investor.investorpicpath" for="field_investorpicpath">Investorpicpath</label>
+            <input type="text" class="form-control" name="investorpicpath" id="field_investorpicpath"
+                    ng-model="vm.investor.investorpicpath"
                     />
         </div>
 

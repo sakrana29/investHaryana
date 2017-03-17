@@ -7,11 +7,6 @@
             "fieldType": "UUID"
         },
         {
-            "fieldName": "temporaryconnection",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
-        },
-        {
             "fieldName": "temporaryrequired",
             "fieldType": "Boolean"
         },
@@ -42,11 +37,6 @@
         {
             "fieldName": "temp_load_demand_date",
             "fieldType": "ZonedDateTime"
-        },
-        {
-            "fieldName": "regular_connection_doc",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
         },
         {
             "fieldName": "regular_load_required",
@@ -83,6 +73,14 @@
         {
             "fieldName": "regular_load_demand_date",
             "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "temporaryconnection",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "regular_connection_doc",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313125439",

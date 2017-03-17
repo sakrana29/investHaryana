@@ -105,8 +105,6 @@
                         entity: function () {
                             return {
                                 projectid: null,
-                                temporaryconnection: null,
-                                temporaryconnectionContentType: null,
                                 temporaryrequired: null,
                                 tem_load_existing: null,
                                 tem_account_number: null,
@@ -115,8 +113,6 @@
                                 temp_new_load_demand_kw: null,
                                 temp_new_load_demand_kva: null,
                                 temp_load_demand_date: null,
-                                regular_connection_doc: null,
-                                regular_connection_docContentType: null,
                                 regular_load_required: null,
                                 regular_existing_connection: null,
                                 customertype: null,
@@ -126,6 +122,8 @@
                                 regular_new_load_demand_kw: null,
                                 regular_new_load_demand_kva: null,
                                 regular_load_demand_date: null,
+                                temporaryconnection: null,
+                                regular_connection_doc: null,
                                 id: null
                             };
                         }

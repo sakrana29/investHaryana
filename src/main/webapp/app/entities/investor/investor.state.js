@@ -106,11 +106,7 @@
                             return {
                                 mouapplicable: null,
                                 mousignyear: null,
-                                moudocument: null,
-                                moudocumentContentType: null,
                                 mouidnumber: null,
-                                photo: null,
-                                photoContentType: null,
                                 firstname: null,
                                 middlename: null,
                                 lastname: null,
@@ -122,6 +118,8 @@
                                 address3: null,
                                 emailprimary: null,
                                 emailsecondary: null,
+                                moudocument: null,
+                                investorpicpath: null,
                                 id: null
                             };
                         }

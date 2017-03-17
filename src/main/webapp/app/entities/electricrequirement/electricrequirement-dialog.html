@@ -19,28 +19,6 @@
                     ng-model="vm.electricrequirement.projectid"
                     />
         </div>
-        <div class="form-group" ngf-drop ngf-change="vm.setTemporaryconnection($file, vm.electricrequirement)">
-            <label class="control-label" data-translate="investhryApp.electricrequirement.temporaryconnection" for="field_temporaryconnection">Temporaryconnection</label>
-            <div>
-                <div ng-if="vm.electricrequirement.temporaryconnection" class="help-block clearfix">
-                    <a class="pull-left" ng-click="vm.openFile(vm.electricrequirement.temporaryconnectionContentType, vm.electricrequirement.temporaryconnection)" data-translate="entity.action.open">open</a><br>
-                    <span class="pull-left">{{vm.electricrequirement.temporaryconnectionContentType}}, {{vm.byteSize(vm.electricrequirement.temporaryconnection)}}</span>
-                    <button type="button" ng-click="vm.electricrequirement.temporaryconnection=null;vm.electricrequirement.temporaryconnectionContentType=null;"
-                            class="btn btn-default btn-xs pull-right">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </div>
-                <button type="button" ngf-select class="btn btn-default btn-block"
-                        ngf-change="vm.setTemporaryconnection($file, vm.electricrequirement)" data-translate="entity.action.addblob">
-                    Add blob
-                </button>
-            </div>
-            <input type="hidden" class="form-control" name="temporaryconnection" id="field_temporaryconnection"
-                    ng-model="vm.electricrequirement.temporaryconnection"
-                    />
-            <input type="hidden" class="form-control" name="temporaryconnectionContentType" id="field_temporaryconnectionContentType"
-                    ng-model="vm.electricrequirement.temporaryconnectionContentType" />
-        </div>
         <div class="form-group">
             <label class="control-label" data-translate="investhryApp.electricrequirement.temporaryrequired" for="field_temporaryrequired">Temporaryrequired</label>
             <input type="checkbox" class="form-control" name="temporaryrequired" id="field_temporaryrequired"
@@ -92,28 +70,6 @@
                         <button type="button" class="btn btn-default" ng-click="vm.openCalendar('temp_load_demand_date')"><i class="glyphicon glyphicon-calendar"></i></button>
                     </span>
                 </div>
-        </div>
-        <div class="form-group" ngf-drop ngf-change="vm.setRegular_connection_doc($file, vm.electricrequirement)">
-            <label class="control-label" data-translate="investhryApp.electricrequirement.regular_connection_doc" for="field_regular_connection_doc">Regular Connection Doc</label>
-            <div>
-                <div ng-if="vm.electricrequirement.regular_connection_doc" class="help-block clearfix">
-                    <a class="pull-left" ng-click="vm.openFile(vm.electricrequirement.regular_connection_docContentType, vm.electricrequirement.regular_connection_doc)" data-translate="entity.action.open">open</a><br>
-                    <span class="pull-left">{{vm.electricrequirement.regular_connection_docContentType}}, {{vm.byteSize(vm.electricrequirement.regular_connection_doc)}}</span>
-                    <button type="button" ng-click="vm.electricrequirement.regular_connection_doc=null;vm.electricrequirement.regular_connection_docContentType=null;"
-                            class="btn btn-default btn-xs pull-right">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </div>
-                <button type="button" ngf-select class="btn btn-default btn-block"
-                        ngf-change="vm.setRegular_connection_doc($file, vm.electricrequirement)" data-translate="entity.action.addblob">
-                    Add blob
-                </button>
-            </div>
-            <input type="hidden" class="form-control" name="regular_connection_doc" id="field_regular_connection_doc"
-                    ng-model="vm.electricrequirement.regular_connection_doc"
-                    />
-            <input type="hidden" class="form-control" name="regular_connection_docContentType" id="field_regular_connection_docContentType"
-                    ng-model="vm.electricrequirement.regular_connection_docContentType" />
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="investhryApp.electricrequirement.regular_load_required" for="field_regular_load_required">Regular Load Required</label>
@@ -172,6 +128,18 @@
                         <button type="button" class="btn btn-default" ng-click="vm.openCalendar('regular_load_demand_date')"><i class="glyphicon glyphicon-calendar"></i></button>
                     </span>
                 </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.electricrequirement.temporaryconnection" for="field_temporaryconnection">Temporaryconnection</label>
+            <input type="text" class="form-control" name="temporaryconnection" id="field_temporaryconnection"
+                    ng-model="vm.electricrequirement.temporaryconnection"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.electricrequirement.regular_connection_doc" for="field_regular_connection_doc">Regular Connection Doc</label>
+            <input type="text" class="form-control" name="regular_connection_doc" id="field_regular_connection_doc"
+                    ng-model="vm.electricrequirement.regular_connection_doc"
+                    />
         </div>
 
     </div>
