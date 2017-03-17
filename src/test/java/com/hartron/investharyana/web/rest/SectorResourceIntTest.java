@@ -133,6 +133,24 @@ public class SectorResourceIntTest extends AbstractCassandraTest {
     }
 
     @Test
+    public void checkSectortypeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = sectorRepository.findAll().size();
+        // set the field null
+        sector.setSectortype(null);
+
+        // Create the Sector, which fails.
+        SectorDTO sectorDTO = sectorMapper.sectorToSectorDTO(sector);
+
+        restSectorMockMvc.perform(post("/api/sectors")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(sectorDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Sector> sectorList = sectorRepository.findAll();
+        assertThat(sectorList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllSectors() throws Exception {
         // Initialize the database
         sectorRepository.save(sector);

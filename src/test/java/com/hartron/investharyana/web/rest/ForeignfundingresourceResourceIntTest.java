@@ -133,6 +133,24 @@ public class ForeignfundingresourceResourceIntTest extends AbstractCassandraTest
     }
 
     @Test
+    public void checkForeignfundingtypesIsRequired() throws Exception {
+        int databaseSizeBeforeTest = foreignfundingresourceRepository.findAll().size();
+        // set the field null
+        foreignfundingresource.setForeignfundingtypes(null);
+
+        // Create the Foreignfundingresource, which fails.
+        ForeignfundingresourceDTO foreignfundingresourceDTO = foreignfundingresourceMapper.foreignfundingresourceToForeignfundingresourceDTO(foreignfundingresource);
+
+        restForeignfundingresourceMockMvc.perform(post("/api/foreignfundingresources")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(foreignfundingresourceDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Foreignfundingresource> foreignfundingresourceList = foreignfundingresourceRepository.findAll();
+        assertThat(foreignfundingresourceList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllForeignfundingresources() throws Exception {
         // Initialize the database
         foreignfundingresourceRepository.save(foreignfundingresource);

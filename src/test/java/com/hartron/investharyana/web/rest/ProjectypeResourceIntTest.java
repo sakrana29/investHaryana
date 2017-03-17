@@ -133,6 +133,24 @@ public class ProjectypeResourceIntTest extends AbstractCassandraTest {
     }
 
     @Test
+    public void checkProjectypesIsRequired() throws Exception {
+        int databaseSizeBeforeTest = projectypeRepository.findAll().size();
+        // set the field null
+        projectype.setProjectypes(null);
+
+        // Create the Projectype, which fails.
+        ProjectypeDTO projectypeDTO = projectypeMapper.projectypeToProjectypeDTO(projectype);
+
+        restProjectypeMockMvc.perform(post("/api/projectypes")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(projectypeDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Projectype> projectypeList = projectypeRepository.findAll();
+        assertThat(projectypeList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllProjectypes() throws Exception {
         // Initialize the database
         projectypeRepository.save(projectype);

@@ -2,6 +2,7 @@ package com.hartron.investharyana.domain;
 
 import com.datastax.driver.mapping.annotations.*;
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -18,6 +19,7 @@ public class Waste_water_disposal_mode implements Serializable {
     @PartitionKey
     private UUID id;
 
+    @NotNull
     private String mode_of_disposal;
 
     public UUID getId() {

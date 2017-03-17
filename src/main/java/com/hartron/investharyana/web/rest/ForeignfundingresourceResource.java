@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
@@ -44,7 +45,7 @@ public class ForeignfundingresourceResource {
      */
     @PostMapping("/foreignfundingresources")
     @Timed
-    public ResponseEntity<ForeignfundingresourceDTO> createForeignfundingresource(@RequestBody ForeignfundingresourceDTO foreignfundingresourceDTO) throws URISyntaxException {
+    public ResponseEntity<ForeignfundingresourceDTO> createForeignfundingresource(@Valid @RequestBody ForeignfundingresourceDTO foreignfundingresourceDTO) throws URISyntaxException {
         log.debug("REST request to save Foreignfundingresource : {}", foreignfundingresourceDTO);
         if (foreignfundingresourceDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new foreignfundingresource cannot already have an ID")).body(null);
@@ -66,7 +67,7 @@ public class ForeignfundingresourceResource {
      */
     @PutMapping("/foreignfundingresources")
     @Timed
-    public ResponseEntity<ForeignfundingresourceDTO> updateForeignfundingresource(@RequestBody ForeignfundingresourceDTO foreignfundingresourceDTO) throws URISyntaxException {
+    public ResponseEntity<ForeignfundingresourceDTO> updateForeignfundingresource(@Valid @RequestBody ForeignfundingresourceDTO foreignfundingresourceDTO) throws URISyntaxException {
         log.debug("REST request to update Foreignfundingresource : {}", foreignfundingresourceDTO);
         if (foreignfundingresourceDTO.getId() == null) {
             return createForeignfundingresource(foreignfundingresourceDTO);

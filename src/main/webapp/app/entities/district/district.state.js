@@ -93,6 +93,7 @@
             url: '/new',
             data: {
                 authorities: ['ROLE_USER']
+<<<<<<< HEAD
             },views: {
                   'content@': {
                       templateUrl: 'app/entities/district/districts.html',
@@ -110,6 +111,31 @@
                      };
                   }
               }
+=======
+            },
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/entities/district/district-dialog.html',
+                    controller: 'DistrictDialogController',
+                    controllerAs: 'vm',
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: function () {
+                            return {
+                                stateid: null,
+                                districtname: null,
+                                id: null
+                            };
+                        }
+                    }
+                }).result.then(function() {
+                    $state.go('district', null, { reload: 'district' });
+                }, function() {
+                    $state.go('district');
+                });
+            }]
+>>>>>>> a97f1a7d5e80ccff59b1cec26b6cf42486093b79
         })
         .state('district.edit', {
             parent: 'district',

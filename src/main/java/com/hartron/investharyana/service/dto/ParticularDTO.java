@@ -1,6 +1,7 @@
 package com.hartron.investharyana.service.dto;
 
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -12,9 +13,8 @@ public class ParticularDTO implements Serializable {
 
     private UUID id;
 
+    @NotNull
     private String particulars;
-
-    private String description;
 
     public UUID getId() {
         return id;
@@ -29,13 +29,6 @@ public class ParticularDTO implements Serializable {
 
     public void setParticulars(String particulars) {
         this.particulars = particulars;
-    }
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     @Override
@@ -64,7 +57,6 @@ public class ParticularDTO implements Serializable {
         return "ParticularDTO{" +
             "id=" + id +
             ", particulars='" + particulars + "'" +
-            ", description='" + description + "'" +
             '}';
     }
 }

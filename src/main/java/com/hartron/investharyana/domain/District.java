@@ -2,6 +2,7 @@ package com.hartron.investharyana.domain;
 
 import com.datastax.driver.mapping.annotations.*;
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -18,10 +19,10 @@ public class District implements Serializable {
     @PartitionKey
     private UUID id;
 
-    private UUID countryid;
-
+    @NotNull
     private UUID stateid;
 
+    @NotNull
     private String districtname;
 
     public UUID getId() {
@@ -30,19 +31,6 @@ public class District implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public UUID getCountryid() {
-        return countryid;
-    }
-
-    public District countryid(UUID countryid) {
-        this.countryid = countryid;
-        return this;
-    }
-
-    public void setCountryid(UUID countryid) {
-        this.countryid = countryid;
     }
 
     public UUID getStateid() {
@@ -95,7 +83,6 @@ public class District implements Serializable {
     public String toString() {
         return "District{" +
             "id=" + id +
-            ", countryid='" + countryid + "'" +
             ", stateid='" + stateid + "'" +
             ", districtname='" + districtname + "'" +
             '}';

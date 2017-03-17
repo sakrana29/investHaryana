@@ -4,7 +4,10 @@
     "fields": [
         {
             "fieldName": "mode_of_disposal",
-            "fieldType": "String"
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
         }
     ],
     "changelogDate": "20170313084403",

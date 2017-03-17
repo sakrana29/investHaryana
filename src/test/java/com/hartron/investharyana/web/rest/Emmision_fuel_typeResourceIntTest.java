@@ -133,6 +133,24 @@ public class Emmision_fuel_typeResourceIntTest extends AbstractCassandraTest {
     }
 
     @Test
+    public void checkTypeoffuelIsRequired() throws Exception {
+        int databaseSizeBeforeTest = emmision_fuel_typeRepository.findAll().size();
+        // set the field null
+        emmision_fuel_type.setTypeoffuel(null);
+
+        // Create the Emmision_fuel_type, which fails.
+        Emmision_fuel_typeDTO emmision_fuel_typeDTO = emmision_fuel_typeMapper.emmision_fuel_typeToEmmision_fuel_typeDTO(emmision_fuel_type);
+
+        restEmmision_fuel_typeMockMvc.perform(post("/api/emmision-fuel-types")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(emmision_fuel_typeDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Emmision_fuel_type> emmision_fuel_typeList = emmision_fuel_typeRepository.findAll();
+        assertThat(emmision_fuel_typeList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllEmmision_fuel_types() throws Exception {
         // Initialize the database
         emmision_fuel_typeRepository.save(emmision_fuel_type);

@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
@@ -44,7 +45,7 @@ public class IndustrysizeResource {
      */
     @PostMapping("/industrysizes")
     @Timed
-    public ResponseEntity<IndustrysizeDTO> createIndustrysize(@RequestBody IndustrysizeDTO industrysizeDTO) throws URISyntaxException {
+    public ResponseEntity<IndustrysizeDTO> createIndustrysize(@Valid @RequestBody IndustrysizeDTO industrysizeDTO) throws URISyntaxException {
         log.debug("REST request to save Industrysize : {}", industrysizeDTO);
         if (industrysizeDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new industrysize cannot already have an ID")).body(null);
@@ -66,7 +67,7 @@ public class IndustrysizeResource {
      */
     @PutMapping("/industrysizes")
     @Timed
-    public ResponseEntity<IndustrysizeDTO> updateIndustrysize(@RequestBody IndustrysizeDTO industrysizeDTO) throws URISyntaxException {
+    public ResponseEntity<IndustrysizeDTO> updateIndustrysize(@Valid @RequestBody IndustrysizeDTO industrysizeDTO) throws URISyntaxException {
         log.debug("REST request to update Industrysize : {}", industrysizeDTO);
         if (industrysizeDTO.getId() == null) {
             return createIndustrysize(industrysizeDTO);

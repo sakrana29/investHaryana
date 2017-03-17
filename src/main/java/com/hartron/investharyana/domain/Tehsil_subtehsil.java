@@ -2,6 +2,7 @@ package com.hartron.investharyana.domain;
 
 import com.datastax.driver.mapping.annotations.*;
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -18,8 +19,10 @@ public class Tehsil_subtehsil implements Serializable {
     @PartitionKey
     private UUID id;
 
+    @NotNull
     private UUID districtid;
 
+    @NotNull
     private String tehsil_subtehsilname;
 
     public UUID getId() {

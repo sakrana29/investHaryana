@@ -133,6 +133,24 @@ public class Regular_electrict_load_typeResourceIntTest extends AbstractCassandr
     }
 
     @Test
+    public void checkTypeofloadIsRequired() throws Exception {
+        int databaseSizeBeforeTest = regular_electrict_load_typeRepository.findAll().size();
+        // set the field null
+        regular_electrict_load_type.setTypeofload(null);
+
+        // Create the Regular_electrict_load_type, which fails.
+        Regular_electrict_load_typeDTO regular_electrict_load_typeDTO = regular_electrict_load_typeMapper.regular_electrict_load_typeToRegular_electrict_load_typeDTO(regular_electrict_load_type);
+
+        restRegular_electrict_load_typeMockMvc.perform(post("/api/regular-electrict-load-types")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(regular_electrict_load_typeDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Regular_electrict_load_type> regular_electrict_load_typeList = regular_electrict_load_typeRepository.findAll();
+        assertThat(regular_electrict_load_typeList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllRegular_electrict_load_types() throws Exception {
         // Initialize the database
         regular_electrict_load_typeRepository.save(regular_electrict_load_type);

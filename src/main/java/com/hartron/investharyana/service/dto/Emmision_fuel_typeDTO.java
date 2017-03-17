@@ -1,6 +1,7 @@
 package com.hartron.investharyana.service.dto;
 
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -12,6 +13,7 @@ public class Emmision_fuel_typeDTO implements Serializable {
 
     private UUID id;
 
+    @NotNull
     private String typeoffuel;
 
     public UUID getId() {

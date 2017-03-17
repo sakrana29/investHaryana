@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
@@ -44,7 +45,7 @@ public class Waste_water_disposal_modeResource {
      */
     @PostMapping("/waste-water-disposal-modes")
     @Timed
-    public ResponseEntity<Waste_water_disposal_modeDTO> createWaste_water_disposal_mode(@RequestBody Waste_water_disposal_modeDTO waste_water_disposal_modeDTO) throws URISyntaxException {
+    public ResponseEntity<Waste_water_disposal_modeDTO> createWaste_water_disposal_mode(@Valid @RequestBody Waste_water_disposal_modeDTO waste_water_disposal_modeDTO) throws URISyntaxException {
         log.debug("REST request to save Waste_water_disposal_mode : {}", waste_water_disposal_modeDTO);
         if (waste_water_disposal_modeDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new waste_water_disposal_mode cannot already have an ID")).body(null);
@@ -66,7 +67,7 @@ public class Waste_water_disposal_modeResource {
      */
     @PutMapping("/waste-water-disposal-modes")
     @Timed
-    public ResponseEntity<Waste_water_disposal_modeDTO> updateWaste_water_disposal_mode(@RequestBody Waste_water_disposal_modeDTO waste_water_disposal_modeDTO) throws URISyntaxException {
+    public ResponseEntity<Waste_water_disposal_modeDTO> updateWaste_water_disposal_mode(@Valid @RequestBody Waste_water_disposal_modeDTO waste_water_disposal_modeDTO) throws URISyntaxException {
         log.debug("REST request to update Waste_water_disposal_mode : {}", waste_water_disposal_modeDTO);
         if (waste_water_disposal_modeDTO.getId() == null) {
             return createWaste_water_disposal_mode(waste_water_disposal_modeDTO);

@@ -133,6 +133,24 @@ public class ConnectingroadResourceIntTest extends AbstractCassandraTest {
     }
 
     @Test
+    public void checkConnectingraodtypeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = connectingroadRepository.findAll().size();
+        // set the field null
+        connectingroad.setConnectingraodtype(null);
+
+        // Create the Connectingroad, which fails.
+        ConnectingroadDTO connectingroadDTO = connectingroadMapper.connectingroadToConnectingroadDTO(connectingroad);
+
+        restConnectingroadMockMvc.perform(post("/api/connectingroads")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(connectingroadDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Connectingroad> connectingroadList = connectingroadRepository.findAll();
+        assertThat(connectingroadList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllConnectingroads() throws Exception {
         // Initialize the database
         connectingroadRepository.save(connectingroad);

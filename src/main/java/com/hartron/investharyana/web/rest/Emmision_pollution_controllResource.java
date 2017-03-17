@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
@@ -44,7 +45,7 @@ public class Emmision_pollution_controllResource {
      */
     @PostMapping("/emmision-pollution-controlls")
     @Timed
-    public ResponseEntity<Emmision_pollution_controllDTO> createEmmision_pollution_controll(@RequestBody Emmision_pollution_controllDTO emmision_pollution_controllDTO) throws URISyntaxException {
+    public ResponseEntity<Emmision_pollution_controllDTO> createEmmision_pollution_controll(@Valid @RequestBody Emmision_pollution_controllDTO emmision_pollution_controllDTO) throws URISyntaxException {
         log.debug("REST request to save Emmision_pollution_controll : {}", emmision_pollution_controllDTO);
         if (emmision_pollution_controllDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new emmision_pollution_controll cannot already have an ID")).body(null);
@@ -66,7 +67,7 @@ public class Emmision_pollution_controllResource {
      */
     @PutMapping("/emmision-pollution-controlls")
     @Timed
-    public ResponseEntity<Emmision_pollution_controllDTO> updateEmmision_pollution_controll(@RequestBody Emmision_pollution_controllDTO emmision_pollution_controllDTO) throws URISyntaxException {
+    public ResponseEntity<Emmision_pollution_controllDTO> updateEmmision_pollution_controll(@Valid @RequestBody Emmision_pollution_controllDTO emmision_pollution_controllDTO) throws URISyntaxException {
         log.debug("REST request to update Emmision_pollution_controll : {}", emmision_pollution_controllDTO);
         if (emmision_pollution_controllDTO.getId() == null) {
             return createEmmision_pollution_controll(emmision_pollution_controllDTO);

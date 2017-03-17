@@ -40,7 +40,6 @@ public class ParticularRepository {
                 Particular particular = new Particular();
                 particular.setId(row.getUUID("id"));
                 particular.setParticulars(row.getString("particulars"));
-                particular.setDescription(row.getString("description"));
                 return particular;
             }
         ).forEach(particularsList::add);

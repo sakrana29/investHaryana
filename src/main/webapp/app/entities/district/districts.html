@@ -19,7 +19,6 @@
             <thead>
                 <tr>
                     <th><span data-translate="global.field.id">ID</span></th>
-                    <th><span data-translate="investhryApp.district.countryid">Countryid</span></th>
                     <th><span data-translate="investhryApp.district.stateid">Stateid</span></th>
                     <th><span data-translate="investhryApp.district.districtname">Districtname</span></th>
                     <th></th>
@@ -28,7 +27,6 @@
             <tbody>
                 <tr ng-repeat="district in vm.districts track by district.id">
                     <td><a ui-sref="district-detail({id:district.id})">{{district.id}}</a></td>
-                    <td>{{district.countryid}}</td>
                     <td>{{district.stateid}}</td>
                     <td>{{district.districtname}}</td>
                     <td class="text-right">

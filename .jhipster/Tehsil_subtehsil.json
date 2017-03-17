@@ -4,11 +4,17 @@
     "fields": [
         {
             "fieldName": "districtid",
-            "fieldType": "UUID"
+            "fieldType": "UUID",
+            "fieldValidateRules": [
+                "required"
+            ]
         },
         {
             "fieldName": "tehsil_subtehsilname",
-            "fieldType": "String"
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
         }
     ],
     "changelogDate": "20170313082239",

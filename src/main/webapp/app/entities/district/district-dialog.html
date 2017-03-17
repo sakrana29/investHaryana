@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -14,6 +14,7 @@
                     ng-model="vm.district.id" readonly />
         </div>
         <div class="form-group">
+<<<<<<< HEAD
             <label class="control-label" for="field_countryid">Country</label>
             <select ng-model="vm.district.countryid" class="form-control" required name="countryid" id="field_countryid" ng-controller = "countrystateController">
                 <option value="">Select Country</option>
@@ -21,16 +22,30 @@
             </select>
         </div>
         <div class="form-group">
+=======
+>>>>>>> a97f1a7d5e80ccff59b1cec26b6cf42486093b79
             <label class="control-label" data-translate="investhryApp.district.stateid" for="field_stateid">Stateid</label>
             <input type="text" class="form-control" name="stateid" id="field_stateid"
                     ng-model="vm.district.stateid"
-                    />
+                    required/>
+            <div ng-show="editForm.stateid.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.stateid.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="investhryApp.district.districtname" for="field_districtname">Districtname</label>
             <input type="text" class="form-control" name="districtname" id="field_districtname"
                     ng-model="vm.district.districtname"
-                    />
+                    required/>
+            <div ng-show="editForm.districtname.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.districtname.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
         </div>
 
     </div>

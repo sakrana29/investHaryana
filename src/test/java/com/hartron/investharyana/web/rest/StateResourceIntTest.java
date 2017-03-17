@@ -138,6 +138,42 @@ public class StateResourceIntTest extends AbstractCassandraTest {
     }
 
     @Test
+    public void checkCountryidIsRequired() throws Exception {
+        int databaseSizeBeforeTest = stateRepository.findAll().size();
+        // set the field null
+        state.setCountryid(null);
+
+        // Create the State, which fails.
+        StateDTO stateDTO = stateMapper.stateToStateDTO(state);
+
+        restStateMockMvc.perform(post("/api/states")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(stateDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<State> stateList = stateRepository.findAll();
+        assertThat(stateList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    public void checkStatenameIsRequired() throws Exception {
+        int databaseSizeBeforeTest = stateRepository.findAll().size();
+        // set the field null
+        state.setStatename(null);
+
+        // Create the State, which fails.
+        StateDTO stateDTO = stateMapper.stateToStateDTO(state);
+
+        restStateMockMvc.perform(post("/api/states")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(stateDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<State> stateList = stateRepository.findAll();
+        assertThat(stateList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllStates() throws Exception {
         // Initialize the database
         stateRepository.save(state);

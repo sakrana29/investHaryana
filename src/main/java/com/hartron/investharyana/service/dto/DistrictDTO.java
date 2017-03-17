@@ -1,6 +1,7 @@
 package com.hartron.investharyana.service.dto;
 
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -12,10 +13,10 @@ public class DistrictDTO implements Serializable {
 
     private UUID id;
 
-    private UUID countryid;
-
+    @NotNull
     private UUID stateid;
 
+    @NotNull
     private String districtname;
 
     public UUID getId() {
@@ -24,13 +25,6 @@ public class DistrictDTO implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-    public UUID getCountryid() {
-        return countryid;
-    }
-
-    public void setCountryid(UUID countryid) {
-        this.countryid = countryid;
     }
     public UUID getStateid() {
         return stateid;
@@ -72,7 +66,6 @@ public class DistrictDTO implements Serializable {
     public String toString() {
         return "DistrictDTO{" +
             "id=" + id +
-            ", countryid='" + countryid + "'" +
             ", stateid='" + stateid + "'" +
             ", districtname='" + districtname + "'" +
             '}';

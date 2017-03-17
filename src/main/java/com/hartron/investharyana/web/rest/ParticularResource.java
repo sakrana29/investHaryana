@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
@@ -44,7 +45,7 @@ public class ParticularResource {
      */
     @PostMapping("/particulars")
     @Timed
-    public ResponseEntity<ParticularDTO> createParticular(@RequestBody ParticularDTO particularDTO) throws URISyntaxException {
+    public ResponseEntity<ParticularDTO> createParticular(@Valid @RequestBody ParticularDTO particularDTO) throws URISyntaxException {
         log.debug("REST request to save Particular : {}", particularDTO);
         if (particularDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new particular cannot already have an ID")).body(null);
@@ -66,7 +67,7 @@ public class ParticularResource {
      */
     @PutMapping("/particulars")
     @Timed
-    public ResponseEntity<ParticularDTO> updateParticular(@RequestBody ParticularDTO particularDTO) throws URISyntaxException {
+    public ResponseEntity<ParticularDTO> updateParticular(@Valid @RequestBody ParticularDTO particularDTO) throws URISyntaxException {
         log.debug("REST request to update Particular : {}", particularDTO);
         if (particularDTO.getId() == null) {
             return createParticular(particularDTO);

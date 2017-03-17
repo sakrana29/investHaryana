@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
@@ -44,7 +45,7 @@ public class Emmision_fuel_typeResource {
      */
     @PostMapping("/emmision-fuel-types")
     @Timed
-    public ResponseEntity<Emmision_fuel_typeDTO> createEmmision_fuel_type(@RequestBody Emmision_fuel_typeDTO emmision_fuel_typeDTO) throws URISyntaxException {
+    public ResponseEntity<Emmision_fuel_typeDTO> createEmmision_fuel_type(@Valid @RequestBody Emmision_fuel_typeDTO emmision_fuel_typeDTO) throws URISyntaxException {
         log.debug("REST request to save Emmision_fuel_type : {}", emmision_fuel_typeDTO);
         if (emmision_fuel_typeDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new emmision_fuel_type cannot already have an ID")).body(null);
@@ -66,7 +67,7 @@ public class Emmision_fuel_typeResource {
      */
     @PutMapping("/emmision-fuel-types")
     @Timed
-    public ResponseEntity<Emmision_fuel_typeDTO> updateEmmision_fuel_type(@RequestBody Emmision_fuel_typeDTO emmision_fuel_typeDTO) throws URISyntaxException {
+    public ResponseEntity<Emmision_fuel_typeDTO> updateEmmision_fuel_type(@Valid @RequestBody Emmision_fuel_typeDTO emmision_fuel_typeDTO) throws URISyntaxException {
         log.debug("REST request to update Emmision_fuel_type : {}", emmision_fuel_typeDTO);
         if (emmision_fuel_typeDTO.getId() == null) {
             return createEmmision_fuel_type(emmision_fuel_typeDTO);

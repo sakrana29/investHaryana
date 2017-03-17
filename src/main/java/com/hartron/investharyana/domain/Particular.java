@@ -2,6 +2,7 @@ package com.hartron.investharyana.domain;
 
 import com.datastax.driver.mapping.annotations.*;
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -18,9 +19,8 @@ public class Particular implements Serializable {
     @PartitionKey
     private UUID id;
 
+    @NotNull
     private String particulars;
-
-    private String description;
 
     public UUID getId() {
         return id;
@@ -41,19 +41,6 @@ public class Particular implements Serializable {
 
     public void setParticulars(String particulars) {
         this.particulars = particulars;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Particular description(String description) {
-        this.description = description;
-        return this;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     @Override
@@ -81,7 +68,6 @@ public class Particular implements Serializable {
         return "Particular{" +
             "id=" + id +
             ", particulars='" + particulars + "'" +
-            ", description='" + description + "'" +
             '}';
     }
 }

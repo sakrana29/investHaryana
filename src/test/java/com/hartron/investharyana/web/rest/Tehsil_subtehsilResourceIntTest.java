@@ -138,6 +138,42 @@ public class Tehsil_subtehsilResourceIntTest extends AbstractCassandraTest {
     }
 
     @Test
+    public void checkDistrictidIsRequired() throws Exception {
+        int databaseSizeBeforeTest = tehsil_subtehsilRepository.findAll().size();
+        // set the field null
+        tehsil_subtehsil.setDistrictid(null);
+
+        // Create the Tehsil_subtehsil, which fails.
+        Tehsil_subtehsilDTO tehsil_subtehsilDTO = tehsil_subtehsilMapper.tehsil_subtehsilToTehsil_subtehsilDTO(tehsil_subtehsil);
+
+        restTehsil_subtehsilMockMvc.perform(post("/api/tehsil-subtehsils")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(tehsil_subtehsilDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Tehsil_subtehsil> tehsil_subtehsilList = tehsil_subtehsilRepository.findAll();
+        assertThat(tehsil_subtehsilList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    public void checkTehsil_subtehsilnameIsRequired() throws Exception {
+        int databaseSizeBeforeTest = tehsil_subtehsilRepository.findAll().size();
+        // set the field null
+        tehsil_subtehsil.setTehsil_subtehsilname(null);
+
+        // Create the Tehsil_subtehsil, which fails.
+        Tehsil_subtehsilDTO tehsil_subtehsilDTO = tehsil_subtehsilMapper.tehsil_subtehsilToTehsil_subtehsilDTO(tehsil_subtehsil);
+
+        restTehsil_subtehsilMockMvc.perform(post("/api/tehsil-subtehsils")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(tehsil_subtehsilDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Tehsil_subtehsil> tehsil_subtehsilList = tehsil_subtehsilRepository.findAll();
+        assertThat(tehsil_subtehsilList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllTehsil_subtehsils() throws Exception {
         // Initialize the database
         tehsil_subtehsilRepository.save(tehsil_subtehsil);

@@ -133,6 +133,24 @@ public class Waste_water_naturetypeResourceIntTest extends AbstractCassandraTest
     }
 
     @Test
+    public void checkNaturetypeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = waste_water_naturetypeRepository.findAll().size();
+        // set the field null
+        waste_water_naturetype.setNaturetype(null);
+
+        // Create the Waste_water_naturetype, which fails.
+        Waste_water_naturetypeDTO waste_water_naturetypeDTO = waste_water_naturetypeMapper.waste_water_naturetypeToWaste_water_naturetypeDTO(waste_water_naturetype);
+
+        restWaste_water_naturetypeMockMvc.perform(post("/api/waste-water-naturetypes")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(waste_water_naturetypeDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Waste_water_naturetype> waste_water_naturetypeList = waste_water_naturetypeRepository.findAll();
+        assertThat(waste_water_naturetypeList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllWaste_water_naturetypes() throws Exception {
         // Initialize the database
         waste_water_naturetypeRepository.save(waste_water_naturetype);

@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
@@ -44,7 +45,7 @@ public class SectorResource {
      */
     @PostMapping("/sectors")
     @Timed
-    public ResponseEntity<SectorDTO> createSector(@RequestBody SectorDTO sectorDTO) throws URISyntaxException {
+    public ResponseEntity<SectorDTO> createSector(@Valid @RequestBody SectorDTO sectorDTO) throws URISyntaxException {
         log.debug("REST request to save Sector : {}", sectorDTO);
         if (sectorDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new sector cannot already have an ID")).body(null);
@@ -66,7 +67,7 @@ public class SectorResource {
      */
     @PutMapping("/sectors")
     @Timed
-    public ResponseEntity<SectorDTO> updateSector(@RequestBody SectorDTO sectorDTO) throws URISyntaxException {
+    public ResponseEntity<SectorDTO> updateSector(@Valid @RequestBody SectorDTO sectorDTO) throws URISyntaxException {
         log.debug("REST request to update Sector : {}", sectorDTO);
         if (sectorDTO.getId() == null) {
             return createSector(sectorDTO);

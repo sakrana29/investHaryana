@@ -1,6 +1,7 @@
 package com.hartron.investharyana.service.dto;
 
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -12,8 +13,10 @@ public class BlockDTO implements Serializable {
 
     private UUID id;
 
+    @NotNull
     private UUID districtid;
 
+    @NotNull
     private String blockname;
 
     public UUID getId() {

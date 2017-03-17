@@ -43,9 +43,6 @@ public class ParticularResourceIntTest extends AbstractCassandraTest {
     private static final String DEFAULT_PARTICULARS = "AAAAAAAAAA";
     private static final String UPDATED_PARTICULARS = "BBBBBBBBBB";
 
-    private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
-    private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
-
     @Autowired
     private ParticularRepository particularRepository;
 
@@ -86,8 +83,7 @@ public class ParticularResourceIntTest extends AbstractCassandraTest {
      */
     public static Particular createEntity() {
         Particular particular = new Particular()
-                .particulars(DEFAULT_PARTICULARS)
-                .description(DEFAULT_DESCRIPTION);
+                .particulars(DEFAULT_PARTICULARS);
         return particular;
     }
 
@@ -114,7 +110,6 @@ public class ParticularResourceIntTest extends AbstractCassandraTest {
         assertThat(particularList).hasSize(databaseSizeBeforeCreate + 1);
         Particular testParticular = particularList.get(particularList.size() - 1);
         assertThat(testParticular.getParticulars()).isEqualTo(DEFAULT_PARTICULARS);
-        assertThat(testParticular.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
     }
 
     @Test
@@ -138,6 +133,24 @@ public class ParticularResourceIntTest extends AbstractCassandraTest {
     }
 
     @Test
+    public void checkParticularsIsRequired() throws Exception {
+        int databaseSizeBeforeTest = particularRepository.findAll().size();
+        // set the field null
+        particular.setParticulars(null);
+
+        // Create the Particular, which fails.
+        ParticularDTO particularDTO = particularMapper.particularToParticularDTO(particular);
+
+        restParticularMockMvc.perform(post("/api/particulars")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(particularDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Particular> particularList = particularRepository.findAll();
+        assertThat(particularList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllParticulars() throws Exception {
         // Initialize the database
         particularRepository.save(particular);
@@ -147,8 +160,7 @@ public class ParticularResourceIntTest extends AbstractCassandraTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(particular.getId().toString())))
-            .andExpect(jsonPath("$.[*].particulars").value(hasItem(DEFAULT_PARTICULARS.toString())))
-            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())));
+            .andExpect(jsonPath("$.[*].particulars").value(hasItem(DEFAULT_PARTICULARS.toString())));
     }
 
     @Test
@@ -161,8 +173,7 @@ public class ParticularResourceIntTest extends AbstractCassandraTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(particular.getId().toString()))
-            .andExpect(jsonPath("$.particulars").value(DEFAULT_PARTICULARS.toString()))
-            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()));
+            .andExpect(jsonPath("$.particulars").value(DEFAULT_PARTICULARS.toString()));
     }
 
     @Test
@@ -181,8 +192,7 @@ public class ParticularResourceIntTest extends AbstractCassandraTest {
         // Update the particular
         Particular updatedParticular = particularRepository.findOne(particular.getId());
         updatedParticular
-                .particulars(UPDATED_PARTICULARS)
-                .description(UPDATED_DESCRIPTION);
+                .particulars(UPDATED_PARTICULARS);
         ParticularDTO particularDTO = particularMapper.particularToParticularDTO(updatedParticular);
 
         restParticularMockMvc.perform(put("/api/particulars")
@@ -195,7 +205,6 @@ public class ParticularResourceIntTest extends AbstractCassandraTest {
         assertThat(particularList).hasSize(databaseSizeBeforeUpdate);
         Particular testParticular = particularList.get(particularList.size() - 1);
         assertThat(testParticular.getParticulars()).isEqualTo(UPDATED_PARTICULARS);
-        assertThat(testParticular.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
     }
 
     @Test

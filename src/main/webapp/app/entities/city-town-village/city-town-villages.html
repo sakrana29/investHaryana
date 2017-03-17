@@ -19,7 +19,6 @@
             <thead>
                 <tr>
                     <th><span data-translate="global.field.id">ID</span></th>
-                    <th><span data-translate="investhryApp.city_town_village.disctrictid">Disctrictid</span></th>
                     <th><span data-translate="investhryApp.city_town_village.blockid">Blockid</span></th>
                     <th><span data-translate="investhryApp.city_town_village.city_town_village_name">City Town Village Name</span></th>
                     <th></th>
@@ -28,7 +27,6 @@
             <tbody>
                 <tr ng-repeat="city_town_village in vm.city_town_villages track by city_town_village.id">
                     <td><a ui-sref="city-town-village-detail({id:city_town_village.id})">{{city_town_village.id}}</a></td>
-                    <td>{{city_town_village.disctrictid}}</td>
                     <td>{{city_town_village.blockid}}</td>
                     <td>{{city_town_village.city_town_village_name}}</td>
                     <td class="text-right">

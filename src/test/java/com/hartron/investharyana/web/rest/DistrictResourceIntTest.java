@@ -40,9 +40,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = InvesthryApp.class)
 public class DistrictResourceIntTest extends AbstractCassandraTest {
 
-    private static final UUID DEFAULT_COUNTRYID = UUID.randomUUID();
-    private static final UUID UPDATED_COUNTRYID = UUID.randomUUID();
-
     private static final UUID DEFAULT_STATEID = UUID.randomUUID();
     private static final UUID UPDATED_STATEID = UUID.randomUUID();
 
@@ -89,7 +86,6 @@ public class DistrictResourceIntTest extends AbstractCassandraTest {
      */
     public static District createEntity() {
         District district = new District()
-                .countryid(DEFAULT_COUNTRYID)
                 .stateid(DEFAULT_STATEID)
                 .districtname(DEFAULT_DISTRICTNAME);
         return district;
@@ -117,7 +113,6 @@ public class DistrictResourceIntTest extends AbstractCassandraTest {
         List<District> districtList = districtRepository.findAll();
         assertThat(districtList).hasSize(databaseSizeBeforeCreate + 1);
         District testDistrict = districtList.get(districtList.size() - 1);
-        assertThat(testDistrict.getCountryid()).isEqualTo(DEFAULT_COUNTRYID);
         assertThat(testDistrict.getStateid()).isEqualTo(DEFAULT_STATEID);
         assertThat(testDistrict.getDistrictname()).isEqualTo(DEFAULT_DISTRICTNAME);
     }
@@ -143,6 +138,42 @@ public class DistrictResourceIntTest extends AbstractCassandraTest {
     }
 
     @Test
+    public void checkStateidIsRequired() throws Exception {
+        int databaseSizeBeforeTest = districtRepository.findAll().size();
+        // set the field null
+        district.setStateid(null);
+
+        // Create the District, which fails.
+        DistrictDTO districtDTO = districtMapper.districtToDistrictDTO(district);
+
+        restDistrictMockMvc.perform(post("/api/districts")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(districtDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<District> districtList = districtRepository.findAll();
+        assertThat(districtList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    public void checkDistrictnameIsRequired() throws Exception {
+        int databaseSizeBeforeTest = districtRepository.findAll().size();
+        // set the field null
+        district.setDistrictname(null);
+
+        // Create the District, which fails.
+        DistrictDTO districtDTO = districtMapper.districtToDistrictDTO(district);
+
+        restDistrictMockMvc.perform(post("/api/districts")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(districtDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<District> districtList = districtRepository.findAll();
+        assertThat(districtList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllDistricts() throws Exception {
         // Initialize the database
         districtRepository.save(district);
@@ -152,7 +183,6 @@ public class DistrictResourceIntTest extends AbstractCassandraTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(district.getId().toString())))
-            .andExpect(jsonPath("$.[*].countryid").value(hasItem(DEFAULT_COUNTRYID.toString())))
             .andExpect(jsonPath("$.[*].stateid").value(hasItem(DEFAULT_STATEID.toString())))
             .andExpect(jsonPath("$.[*].districtname").value(hasItem(DEFAULT_DISTRICTNAME.toString())));
     }
@@ -167,7 +197,6 @@ public class DistrictResourceIntTest extends AbstractCassandraTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(district.getId().toString()))
-            .andExpect(jsonPath("$.countryid").value(DEFAULT_COUNTRYID.toString()))
             .andExpect(jsonPath("$.stateid").value(DEFAULT_STATEID.toString()))
             .andExpect(jsonPath("$.districtname").value(DEFAULT_DISTRICTNAME.toString()));
     }
@@ -188,7 +217,6 @@ public class DistrictResourceIntTest extends AbstractCassandraTest {
         // Update the district
         District updatedDistrict = districtRepository.findOne(district.getId());
         updatedDistrict
-                .countryid(UPDATED_COUNTRYID)
                 .stateid(UPDATED_STATEID)
                 .districtname(UPDATED_DISTRICTNAME);
         DistrictDTO districtDTO = districtMapper.districtToDistrictDTO(updatedDistrict);
@@ -202,7 +230,6 @@ public class DistrictResourceIntTest extends AbstractCassandraTest {
         List<District> districtList = districtRepository.findAll();
         assertThat(districtList).hasSize(databaseSizeBeforeUpdate);
         District testDistrict = districtList.get(districtList.size() - 1);
-        assertThat(testDistrict.getCountryid()).isEqualTo(UPDATED_COUNTRYID);
         assertThat(testDistrict.getStateid()).isEqualTo(UPDATED_STATEID);
         assertThat(testDistrict.getDistrictname()).isEqualTo(UPDATED_DISTRICTNAME);
     }

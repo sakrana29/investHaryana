@@ -94,21 +94,28 @@
             data: {
                 authorities: ['ROLE_USER']
             },
-            views: {
-                'content@': {
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
                     templateUrl: 'app/entities/state/state-dialog.html',
                     controller: 'StateDialogController',
                     controllerAs: 'vm',
-                }
-            },resolve: {
-                  entity: function ($state,$stateParams) {
-                      return {
-                          countryid: null,
-                          statename: null,
-                          id: null
-                      };
-                  }
-              }
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: function () {
+                            return {
+                                countryid: null,
+                                statename: null,
+                                id: null
+                            };
+                        }
+                    }
+                }).result.then(function() {
+                    $state.go('state', null, { reload: 'state' });
+                }, function() {
+                    $state.go('state');
+                });
+            }]
         })
         .state('state.edit', {
             parent: 'state',
@@ -116,18 +123,24 @@
             data: {
                 authorities: ['ROLE_USER']
             },
-            views: {
-                'content@': {
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
                     templateUrl: 'app/entities/state/state-dialog.html',
                     controller: 'StateDialogController',
                     controllerAs: 'vm',
-                }
-            },resolve: {
-                  entity: function ($state,$stateParams,State) {
-                      return State.get({id : $stateParams.id}).$promise;
-                  }
-              }
-
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: ['State', function(State) {
+                            return State.get({id : $stateParams.id}).$promise;
+                        }]
+                    }
+                }).result.then(function() {
+                    $state.go('state', null, { reload: 'state' });
+                }, function() {
+                    $state.go('^');
+                });
+            }]
         })
         .state('state.delete', {
             parent: 'state',

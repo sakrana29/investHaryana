@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -17,7 +17,13 @@
             <label class="control-label" data-translate="investhryApp.businessentity.businessentitytype" for="field_businessentitytype">Businessentitytype</label>
             <input type="text" class="form-control" name="businessentitytype" id="field_businessentitytype"
                     ng-model="vm.businessentity.businessentitytype"
-                    />
+                    required/>
+            <div ng-show="editForm.businessentitytype.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.businessentitytype.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
         </div>
 
     </div>

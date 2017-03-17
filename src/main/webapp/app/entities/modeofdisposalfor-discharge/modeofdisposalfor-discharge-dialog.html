@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -17,7 +17,13 @@
             <label class="control-label" data-translate="investhryApp.modeofdisposalfor_discharge.disposal_for_discharge" for="field_disposal_for_discharge">Disposal For Discharge</label>
             <input type="text" class="form-control" name="disposal_for_discharge" id="field_disposal_for_discharge"
                     ng-model="vm.modeofdisposalfor_discharge.disposal_for_discharge"
-                    />
+                    required/>
+            <div ng-show="editForm.disposal_for_discharge.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.disposal_for_discharge.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
         </div>
 
     </div>

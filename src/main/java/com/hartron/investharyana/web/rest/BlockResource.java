@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
@@ -44,7 +45,7 @@ public class BlockResource {
      */
     @PostMapping("/blocks")
     @Timed
-    public ResponseEntity<BlockDTO> createBlock(@RequestBody BlockDTO blockDTO) throws URISyntaxException {
+    public ResponseEntity<BlockDTO> createBlock(@Valid @RequestBody BlockDTO blockDTO) throws URISyntaxException {
         log.debug("REST request to save Block : {}", blockDTO);
         if (blockDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new block cannot already have an ID")).body(null);
@@ -66,7 +67,7 @@ public class BlockResource {
      */
     @PutMapping("/blocks")
     @Timed
-    public ResponseEntity<BlockDTO> updateBlock(@RequestBody BlockDTO blockDTO) throws URISyntaxException {
+    public ResponseEntity<BlockDTO> updateBlock(@Valid @RequestBody BlockDTO blockDTO) throws URISyntaxException {
         log.debug("REST request to update Block : {}", blockDTO);
         if (blockDTO.getId() == null) {
             return createBlock(blockDTO);

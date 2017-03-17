@@ -138,6 +138,42 @@ public class BlockResourceIntTest extends AbstractCassandraTest {
     }
 
     @Test
+    public void checkDistrictidIsRequired() throws Exception {
+        int databaseSizeBeforeTest = blockRepository.findAll().size();
+        // set the field null
+        block.setDistrictid(null);
+
+        // Create the Block, which fails.
+        BlockDTO blockDTO = blockMapper.blockToBlockDTO(block);
+
+        restBlockMockMvc.perform(post("/api/blocks")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(blockDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Block> blockList = blockRepository.findAll();
+        assertThat(blockList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    public void checkBlocknameIsRequired() throws Exception {
+        int databaseSizeBeforeTest = blockRepository.findAll().size();
+        // set the field null
+        block.setBlockname(null);
+
+        // Create the Block, which fails.
+        BlockDTO blockDTO = blockMapper.blockToBlockDTO(block);
+
+        restBlockMockMvc.perform(post("/api/blocks")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(blockDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Block> blockList = blockRepository.findAll();
+        assertThat(blockList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllBlocks() throws Exception {
         // Initialize the database
         blockRepository.save(block);

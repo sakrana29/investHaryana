@@ -20,7 +20,6 @@
                 <tr>
                     <th><span data-translate="global.field.id">ID</span></th>
                     <th><span data-translate="investhryApp.particular.particulars">Particulars</span></th>
-                    <th><span data-translate="investhryApp.particular.description">Description</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -28,7 +27,6 @@
                 <tr ng-repeat="particular in vm.particulars track by particular.id">
                     <td><a ui-sref="particular-detail({id:particular.id})">{{particular.id}}</a></td>
                     <td>{{particular.particulars}}</td>
-                    <td>{{particular.description}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

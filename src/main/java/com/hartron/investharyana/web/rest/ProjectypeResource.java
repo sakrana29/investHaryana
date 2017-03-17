@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
@@ -44,7 +45,7 @@ public class ProjectypeResource {
      */
     @PostMapping("/projectypes")
     @Timed
-    public ResponseEntity<ProjectypeDTO> createProjectype(@RequestBody ProjectypeDTO projectypeDTO) throws URISyntaxException {
+    public ResponseEntity<ProjectypeDTO> createProjectype(@Valid @RequestBody ProjectypeDTO projectypeDTO) throws URISyntaxException {
         log.debug("REST request to save Projectype : {}", projectypeDTO);
         if (projectypeDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new projectype cannot already have an ID")).body(null);
@@ -66,7 +67,7 @@ public class ProjectypeResource {
      */
     @PutMapping("/projectypes")
     @Timed
-    public ResponseEntity<ProjectypeDTO> updateProjectype(@RequestBody ProjectypeDTO projectypeDTO) throws URISyntaxException {
+    public ResponseEntity<ProjectypeDTO> updateProjectype(@Valid @RequestBody ProjectypeDTO projectypeDTO) throws URISyntaxException {
         log.debug("REST request to update Projectype : {}", projectypeDTO);
         if (projectypeDTO.getId() == null) {
             return createProjectype(projectypeDTO);
