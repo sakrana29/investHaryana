@@ -133,6 +133,24 @@ public class IndustrysizeResourceIntTest extends AbstractCassandraTest {
     }
 
     @Test
+    public void checkSizeofindustryIsRequired() throws Exception {
+        int databaseSizeBeforeTest = industrysizeRepository.findAll().size();
+        // set the field null
+        industrysize.setSizeofindustry(null);
+
+        // Create the Industrysize, which fails.
+        IndustrysizeDTO industrysizeDTO = industrysizeMapper.industrysizeToIndustrysizeDTO(industrysize);
+
+        restIndustrysizeMockMvc.perform(post("/api/industrysizes")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(industrysizeDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Industrysize> industrysizeList = industrysizeRepository.findAll();
+        assertThat(industrysizeList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllIndustrysizes() throws Exception {
         // Initialize the database
         industrysizeRepository.save(industrysize);

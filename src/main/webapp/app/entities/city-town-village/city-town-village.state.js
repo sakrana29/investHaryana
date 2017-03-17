@@ -104,7 +104,6 @@
                     resolve: {
                         entity: function () {
                             return {
-                                disctrictid: null,
                                 blockid: null,
                                 city_town_village_name: null,
                                 id: null

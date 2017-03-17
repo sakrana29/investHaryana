@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
@@ -44,7 +45,7 @@ public class WatersupplysourceResource {
      */
     @PostMapping("/watersupplysources")
     @Timed
-    public ResponseEntity<WatersupplysourceDTO> createWatersupplysource(@RequestBody WatersupplysourceDTO watersupplysourceDTO) throws URISyntaxException {
+    public ResponseEntity<WatersupplysourceDTO> createWatersupplysource(@Valid @RequestBody WatersupplysourceDTO watersupplysourceDTO) throws URISyntaxException {
         log.debug("REST request to save Watersupplysource : {}", watersupplysourceDTO);
         if (watersupplysourceDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new watersupplysource cannot already have an ID")).body(null);
@@ -66,7 +67,7 @@ public class WatersupplysourceResource {
      */
     @PutMapping("/watersupplysources")
     @Timed
-    public ResponseEntity<WatersupplysourceDTO> updateWatersupplysource(@RequestBody WatersupplysourceDTO watersupplysourceDTO) throws URISyntaxException {
+    public ResponseEntity<WatersupplysourceDTO> updateWatersupplysource(@Valid @RequestBody WatersupplysourceDTO watersupplysourceDTO) throws URISyntaxException {
         log.debug("REST request to update Watersupplysource : {}", watersupplysourceDTO);
         if (watersupplysourceDTO.getId() == null) {
             return createWatersupplysource(watersupplysourceDTO);

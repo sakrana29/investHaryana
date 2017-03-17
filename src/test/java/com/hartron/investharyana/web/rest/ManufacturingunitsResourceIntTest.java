@@ -133,6 +133,24 @@ public class ManufacturingunitsResourceIntTest extends AbstractCassandraTest {
     }
 
     @Test
+    public void checkUnittypesIsRequired() throws Exception {
+        int databaseSizeBeforeTest = manufacturingunitsRepository.findAll().size();
+        // set the field null
+        manufacturingunits.setUnittypes(null);
+
+        // Create the Manufacturingunits, which fails.
+        ManufacturingunitsDTO manufacturingunitsDTO = manufacturingunitsMapper.manufacturingunitsToManufacturingunitsDTO(manufacturingunits);
+
+        restManufacturingunitsMockMvc.perform(post("/api/manufacturingunits")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(manufacturingunitsDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Manufacturingunits> manufacturingunitsList = manufacturingunitsRepository.findAll();
+        assertThat(manufacturingunitsList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllManufacturingunits() throws Exception {
         // Initialize the database
         manufacturingunitsRepository.save(manufacturingunits);

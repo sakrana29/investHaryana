@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
@@ -44,7 +45,7 @@ public class LandusezoneclassificationResource {
      */
     @PostMapping("/landusezoneclassifications")
     @Timed
-    public ResponseEntity<LandusezoneclassificationDTO> createLandusezoneclassification(@RequestBody LandusezoneclassificationDTO landusezoneclassificationDTO) throws URISyntaxException {
+    public ResponseEntity<LandusezoneclassificationDTO> createLandusezoneclassification(@Valid @RequestBody LandusezoneclassificationDTO landusezoneclassificationDTO) throws URISyntaxException {
         log.debug("REST request to save Landusezoneclassification : {}", landusezoneclassificationDTO);
         if (landusezoneclassificationDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new landusezoneclassification cannot already have an ID")).body(null);
@@ -66,7 +67,7 @@ public class LandusezoneclassificationResource {
      */
     @PutMapping("/landusezoneclassifications")
     @Timed
-    public ResponseEntity<LandusezoneclassificationDTO> updateLandusezoneclassification(@RequestBody LandusezoneclassificationDTO landusezoneclassificationDTO) throws URISyntaxException {
+    public ResponseEntity<LandusezoneclassificationDTO> updateLandusezoneclassification(@Valid @RequestBody LandusezoneclassificationDTO landusezoneclassificationDTO) throws URISyntaxException {
         log.debug("REST request to update Landusezoneclassification : {}", landusezoneclassificationDTO);
         if (landusezoneclassificationDTO.getId() == null) {
             return createLandusezoneclassification(landusezoneclassificationDTO);

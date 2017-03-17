@@ -39,7 +39,6 @@ public class City_town_villageRepository {
             row -> {
                 City_town_village city_town_village = new City_town_village();
                 city_town_village.setId(row.getUUID("id"));
-                city_town_village.setDisctrictid(row.getUUID("disctrictid"));
                 city_town_village.setBlockid(row.getUUID("blockid"));
                 city_town_village.setCity_town_village_name(row.getString("city_town_village_name"));
                 return city_town_village;

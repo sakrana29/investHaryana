@@ -133,6 +133,24 @@ public class CountryResourceIntTest extends AbstractCassandraTest {
     }
 
     @Test
+    public void checkCountrynameIsRequired() throws Exception {
+        int databaseSizeBeforeTest = countryRepository.findAll().size();
+        // set the field null
+        country.setCountryname(null);
+
+        // Create the Country, which fails.
+        CountryDTO countryDTO = countryMapper.countryToCountryDTO(country);
+
+        restCountryMockMvc.perform(post("/api/countries")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(countryDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Country> countryList = countryRepository.findAll();
+        assertThat(countryList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllCountries() throws Exception {
         // Initialize the database
         countryRepository.save(country);

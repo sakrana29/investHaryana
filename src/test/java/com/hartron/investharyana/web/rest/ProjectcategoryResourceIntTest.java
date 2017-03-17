@@ -133,6 +133,24 @@ public class ProjectcategoryResourceIntTest extends AbstractCassandraTest {
     }
 
     @Test
+    public void checkCategorytypeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = projectcategoryRepository.findAll().size();
+        // set the field null
+        projectcategory.setCategorytype(null);
+
+        // Create the Projectcategory, which fails.
+        ProjectcategoryDTO projectcategoryDTO = projectcategoryMapper.projectcategoryToProjectcategoryDTO(projectcategory);
+
+        restProjectcategoryMockMvc.perform(post("/api/projectcategories")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(projectcategoryDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Projectcategory> projectcategoryList = projectcategoryRepository.findAll();
+        assertThat(projectcategoryList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllProjectcategories() throws Exception {
         // Initialize the database
         projectcategoryRepository.save(projectcategory);

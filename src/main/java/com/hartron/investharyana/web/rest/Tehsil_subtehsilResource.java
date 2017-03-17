@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
@@ -44,7 +45,7 @@ public class Tehsil_subtehsilResource {
      */
     @PostMapping("/tehsil-subtehsils")
     @Timed
-    public ResponseEntity<Tehsil_subtehsilDTO> createTehsil_subtehsil(@RequestBody Tehsil_subtehsilDTO tehsil_subtehsilDTO) throws URISyntaxException {
+    public ResponseEntity<Tehsil_subtehsilDTO> createTehsil_subtehsil(@Valid @RequestBody Tehsil_subtehsilDTO tehsil_subtehsilDTO) throws URISyntaxException {
         log.debug("REST request to save Tehsil_subtehsil : {}", tehsil_subtehsilDTO);
         if (tehsil_subtehsilDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new tehsil_subtehsil cannot already have an ID")).body(null);
@@ -66,7 +67,7 @@ public class Tehsil_subtehsilResource {
      */
     @PutMapping("/tehsil-subtehsils")
     @Timed
-    public ResponseEntity<Tehsil_subtehsilDTO> updateTehsil_subtehsil(@RequestBody Tehsil_subtehsilDTO tehsil_subtehsilDTO) throws URISyntaxException {
+    public ResponseEntity<Tehsil_subtehsilDTO> updateTehsil_subtehsil(@Valid @RequestBody Tehsil_subtehsilDTO tehsil_subtehsilDTO) throws URISyntaxException {
         log.debug("REST request to update Tehsil_subtehsil : {}", tehsil_subtehsilDTO);
         if (tehsil_subtehsilDTO.getId() == null) {
             return createTehsil_subtehsil(tehsil_subtehsilDTO);

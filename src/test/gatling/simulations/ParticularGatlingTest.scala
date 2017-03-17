@@ -68,7 +68,7 @@ class ParticularGatlingTest extends Simulation {
             .exec(http("Create new particular")
             .post("/api/particulars")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "particulars":"SAMPLE_TEXT", "description":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "particulars":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_particular_url"))).exitHereIfFailed
             .pause(10)

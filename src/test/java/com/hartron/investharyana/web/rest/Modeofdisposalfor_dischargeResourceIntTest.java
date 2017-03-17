@@ -133,6 +133,24 @@ public class Modeofdisposalfor_dischargeResourceIntTest extends AbstractCassandr
     }
 
     @Test
+    public void checkDisposal_for_dischargeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = modeofdisposalfor_dischargeRepository.findAll().size();
+        // set the field null
+        modeofdisposalfor_discharge.setDisposal_for_discharge(null);
+
+        // Create the Modeofdisposalfor_discharge, which fails.
+        Modeofdisposalfor_dischargeDTO modeofdisposalfor_dischargeDTO = modeofdisposalfor_dischargeMapper.modeofdisposalfor_dischargeToModeofdisposalfor_dischargeDTO(modeofdisposalfor_discharge);
+
+        restModeofdisposalfor_dischargeMockMvc.perform(post("/api/modeofdisposalfor-discharges")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(modeofdisposalfor_dischargeDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Modeofdisposalfor_discharge> modeofdisposalfor_dischargeList = modeofdisposalfor_dischargeRepository.findAll();
+        assertThat(modeofdisposalfor_dischargeList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllModeofdisposalfor_discharges() throws Exception {
         // Initialize the database
         modeofdisposalfor_dischargeRepository.save(modeofdisposalfor_discharge);

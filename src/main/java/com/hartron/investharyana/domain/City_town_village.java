@@ -2,6 +2,7 @@ package com.hartron.investharyana.domain;
 
 import com.datastax.driver.mapping.annotations.*;
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -18,10 +19,10 @@ public class City_town_village implements Serializable {
     @PartitionKey
     private UUID id;
 
-    private UUID disctrictid;
-
+    @NotNull
     private UUID blockid;
 
+    @NotNull
     private String city_town_village_name;
 
     public UUID getId() {
@@ -30,19 +31,6 @@ public class City_town_village implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public UUID getDisctrictid() {
-        return disctrictid;
-    }
-
-    public City_town_village disctrictid(UUID disctrictid) {
-        this.disctrictid = disctrictid;
-        return this;
-    }
-
-    public void setDisctrictid(UUID disctrictid) {
-        this.disctrictid = disctrictid;
     }
 
     public UUID getBlockid() {
@@ -95,7 +83,6 @@ public class City_town_village implements Serializable {
     public String toString() {
         return "City_town_village{" +
             "id=" + id +
-            ", disctrictid='" + disctrictid + "'" +
             ", blockid='" + blockid + "'" +
             ", city_town_village_name='" + city_town_village_name + "'" +
             '}';

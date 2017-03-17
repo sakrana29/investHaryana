@@ -4,7 +4,10 @@
     "fields": [
         {
             "fieldName": "countryname",
-            "fieldType": "String"
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
         }
     ],
     "changelogDate": "20170313081656",

@@ -15,7 +15,6 @@
             "detail": {
                 "title": "District"
             },
-            "countryid": "Countryid",
             "stateid": "Stateid",
             "districtname": "Districtname"
         }

@@ -133,6 +133,24 @@ public class ApprovalformsResourceIntTest extends AbstractCassandraTest {
     }
 
     @Test
+    public void checkExistingapprovalformsIsRequired() throws Exception {
+        int databaseSizeBeforeTest = approvalformsRepository.findAll().size();
+        // set the field null
+        approvalforms.setExistingapprovalforms(null);
+
+        // Create the Approvalforms, which fails.
+        ApprovalformsDTO approvalformsDTO = approvalformsMapper.approvalformsToApprovalformsDTO(approvalforms);
+
+        restApprovalformsMockMvc.perform(post("/api/approvalforms")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(approvalformsDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Approvalforms> approvalformsList = approvalformsRepository.findAll();
+        assertThat(approvalformsList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllApprovalforms() throws Exception {
         // Initialize the database
         approvalformsRepository.save(approvalforms);

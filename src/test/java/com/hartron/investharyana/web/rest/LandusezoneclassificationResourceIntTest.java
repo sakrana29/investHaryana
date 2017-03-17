@@ -133,6 +133,24 @@ public class LandusezoneclassificationResourceIntTest extends AbstractCassandraT
     }
 
     @Test
+    public void checkLandzoneclassificationtypeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = landusezoneclassificationRepository.findAll().size();
+        // set the field null
+        landusezoneclassification.setLandzoneclassificationtype(null);
+
+        // Create the Landusezoneclassification, which fails.
+        LandusezoneclassificationDTO landusezoneclassificationDTO = landusezoneclassificationMapper.landusezoneclassificationToLandusezoneclassificationDTO(landusezoneclassification);
+
+        restLandusezoneclassificationMockMvc.perform(post("/api/landusezoneclassifications")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(landusezoneclassificationDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Landusezoneclassification> landusezoneclassificationList = landusezoneclassificationRepository.findAll();
+        assertThat(landusezoneclassificationList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllLandusezoneclassifications() throws Exception {
         // Initialize the database
         landusezoneclassificationRepository.save(landusezoneclassification);

@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
@@ -44,7 +45,7 @@ public class ConnectingroadResource {
      */
     @PostMapping("/connectingroads")
     @Timed
-    public ResponseEntity<ConnectingroadDTO> createConnectingroad(@RequestBody ConnectingroadDTO connectingroadDTO) throws URISyntaxException {
+    public ResponseEntity<ConnectingroadDTO> createConnectingroad(@Valid @RequestBody ConnectingroadDTO connectingroadDTO) throws URISyntaxException {
         log.debug("REST request to save Connectingroad : {}", connectingroadDTO);
         if (connectingroadDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new connectingroad cannot already have an ID")).body(null);
@@ -66,7 +67,7 @@ public class ConnectingroadResource {
      */
     @PutMapping("/connectingroads")
     @Timed
-    public ResponseEntity<ConnectingroadDTO> updateConnectingroad(@RequestBody ConnectingroadDTO connectingroadDTO) throws URISyntaxException {
+    public ResponseEntity<ConnectingroadDTO> updateConnectingroad(@Valid @RequestBody ConnectingroadDTO connectingroadDTO) throws URISyntaxException {
         log.debug("REST request to update Connectingroad : {}", connectingroadDTO);
         if (connectingroadDTO.getId() == null) {
             return createConnectingroad(connectingroadDTO);

@@ -104,7 +104,6 @@
                     resolve: {
                         entity: function () {
                             return {
-                                countryid: null,
                                 stateid: null,
                                 districtname: null,
                                 id: null

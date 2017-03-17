@@ -133,6 +133,24 @@ public class Emmision_pollution_controllResourceIntTest extends AbstractCassandr
     }
 
     @Test
+    public void checkAirpollutioncontroldeviceIsRequired() throws Exception {
+        int databaseSizeBeforeTest = emmision_pollution_controllRepository.findAll().size();
+        // set the field null
+        emmision_pollution_controll.setAirpollutioncontroldevice(null);
+
+        // Create the Emmision_pollution_controll, which fails.
+        Emmision_pollution_controllDTO emmision_pollution_controllDTO = emmision_pollution_controllMapper.emmision_pollution_controllToEmmision_pollution_controllDTO(emmision_pollution_controll);
+
+        restEmmision_pollution_controllMockMvc.perform(post("/api/emmision-pollution-controlls")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(emmision_pollution_controllDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Emmision_pollution_controll> emmision_pollution_controllList = emmision_pollution_controllRepository.findAll();
+        assertThat(emmision_pollution_controllList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllEmmision_pollution_controlls() throws Exception {
         // Initialize the database
         emmision_pollution_controllRepository.save(emmision_pollution_controll);

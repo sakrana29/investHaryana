@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
@@ -44,7 +45,7 @@ public class ManufacturingunitsResource {
      */
     @PostMapping("/manufacturingunits")
     @Timed
-    public ResponseEntity<ManufacturingunitsDTO> createManufacturingunits(@RequestBody ManufacturingunitsDTO manufacturingunitsDTO) throws URISyntaxException {
+    public ResponseEntity<ManufacturingunitsDTO> createManufacturingunits(@Valid @RequestBody ManufacturingunitsDTO manufacturingunitsDTO) throws URISyntaxException {
         log.debug("REST request to save Manufacturingunits : {}", manufacturingunitsDTO);
         if (manufacturingunitsDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new manufacturingunits cannot already have an ID")).body(null);
@@ -66,7 +67,7 @@ public class ManufacturingunitsResource {
      */
     @PutMapping("/manufacturingunits")
     @Timed
-    public ResponseEntity<ManufacturingunitsDTO> updateManufacturingunits(@RequestBody ManufacturingunitsDTO manufacturingunitsDTO) throws URISyntaxException {
+    public ResponseEntity<ManufacturingunitsDTO> updateManufacturingunits(@Valid @RequestBody ManufacturingunitsDTO manufacturingunitsDTO) throws URISyntaxException {
         log.debug("REST request to update Manufacturingunits : {}", manufacturingunitsDTO);
         if (manufacturingunitsDTO.getId() == null) {
             return createManufacturingunits(manufacturingunitsDTO);

@@ -1,6 +1,7 @@
 package com.hartron.investharyana.service.dto;
 
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -12,10 +13,10 @@ public class City_town_villageDTO implements Serializable {
 
     private UUID id;
 
-    private UUID disctrictid;
-
+    @NotNull
     private UUID blockid;
 
+    @NotNull
     private String city_town_village_name;
 
     public UUID getId() {
@@ -24,13 +25,6 @@ public class City_town_villageDTO implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-    public UUID getDisctrictid() {
-        return disctrictid;
-    }
-
-    public void setDisctrictid(UUID disctrictid) {
-        this.disctrictid = disctrictid;
     }
     public UUID getBlockid() {
         return blockid;
@@ -72,7 +66,6 @@ public class City_town_villageDTO implements Serializable {
     public String toString() {
         return "City_town_villageDTO{" +
             "id=" + id +
-            ", disctrictid='" + disctrictid + "'" +
             ", blockid='" + blockid + "'" +
             ", city_town_village_name='" + city_town_village_name + "'" +
             '}';

@@ -133,6 +133,24 @@ public class WatersupplysourceResourceIntTest extends AbstractCassandraTest {
     }
 
     @Test
+    public void checkWatersupplysourcetypeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = watersupplysourceRepository.findAll().size();
+        // set the field null
+        watersupplysource.setWatersupplysourcetype(null);
+
+        // Create the Watersupplysource, which fails.
+        WatersupplysourceDTO watersupplysourceDTO = watersupplysourceMapper.watersupplysourceToWatersupplysourceDTO(watersupplysource);
+
+        restWatersupplysourceMockMvc.perform(post("/api/watersupplysources")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(watersupplysourceDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Watersupplysource> watersupplysourceList = watersupplysourceRepository.findAll();
+        assertThat(watersupplysourceList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllWatersupplysources() throws Exception {
         // Initialize the database
         watersupplysourceRepository.save(watersupplysource);

@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -14,22 +14,28 @@
                     ng-model="vm.city_town_village.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.city_town_village.disctrictid" for="field_disctrictid">Disctrictid</label>
-            <input type="text" class="form-control" name="disctrictid" id="field_disctrictid"
-                    ng-model="vm.city_town_village.disctrictid"
-                    />
-        </div>
-        <div class="form-group">
             <label class="control-label" data-translate="investhryApp.city_town_village.blockid" for="field_blockid">Blockid</label>
             <input type="text" class="form-control" name="blockid" id="field_blockid"
                     ng-model="vm.city_town_village.blockid"
-                    />
+                    required/>
+            <div ng-show="editForm.blockid.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.blockid.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="investhryApp.city_town_village.city_town_village_name" for="field_city_town_village_name">City Town Village Name</label>
             <input type="text" class="form-control" name="city_town_village_name" id="field_city_town_village_name"
                     ng-model="vm.city_town_village.city_town_village_name"
-                    />
+                    required/>
+            <div ng-show="editForm.city_town_village_name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.city_town_village_name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
         </div>
 
     </div>

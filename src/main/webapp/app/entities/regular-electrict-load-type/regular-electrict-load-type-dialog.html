@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -17,7 +17,13 @@
             <label class="control-label" data-translate="investhryApp.regular_electrict_load_type.typeofload" for="field_typeofload">Typeofload</label>
             <input type="text" class="form-control" name="typeofload" id="field_typeofload"
                     ng-model="vm.regular_electrict_load_type.typeofload"
-                    />
+                    required/>
+            <div ng-show="editForm.typeofload.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.typeofload.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
         </div>
 
     </div>

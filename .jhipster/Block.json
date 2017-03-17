@@ -4,11 +4,17 @@
     "fields": [
         {
             "fieldName": "districtid",
-            "fieldType": "UUID"
+            "fieldType": "UUID",
+            "fieldValidateRules": [
+                "required"
+            ]
         },
         {
             "fieldName": "blockname",
-            "fieldType": "String"
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
         }
     ],
     "changelogDate": "20170313082007",

@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
@@ -44,7 +45,7 @@ public class Modeofdisposalfor_dischargeResource {
      */
     @PostMapping("/modeofdisposalfor-discharges")
     @Timed
-    public ResponseEntity<Modeofdisposalfor_dischargeDTO> createModeofdisposalfor_discharge(@RequestBody Modeofdisposalfor_dischargeDTO modeofdisposalfor_dischargeDTO) throws URISyntaxException {
+    public ResponseEntity<Modeofdisposalfor_dischargeDTO> createModeofdisposalfor_discharge(@Valid @RequestBody Modeofdisposalfor_dischargeDTO modeofdisposalfor_dischargeDTO) throws URISyntaxException {
         log.debug("REST request to save Modeofdisposalfor_discharge : {}", modeofdisposalfor_dischargeDTO);
         if (modeofdisposalfor_dischargeDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new modeofdisposalfor_discharge cannot already have an ID")).body(null);
@@ -66,7 +67,7 @@ public class Modeofdisposalfor_dischargeResource {
      */
     @PutMapping("/modeofdisposalfor-discharges")
     @Timed
-    public ResponseEntity<Modeofdisposalfor_dischargeDTO> updateModeofdisposalfor_discharge(@RequestBody Modeofdisposalfor_dischargeDTO modeofdisposalfor_dischargeDTO) throws URISyntaxException {
+    public ResponseEntity<Modeofdisposalfor_dischargeDTO> updateModeofdisposalfor_discharge(@Valid @RequestBody Modeofdisposalfor_dischargeDTO modeofdisposalfor_dischargeDTO) throws URISyntaxException {
         log.debug("REST request to update Modeofdisposalfor_discharge : {}", modeofdisposalfor_dischargeDTO);
         if (modeofdisposalfor_dischargeDTO.getId() == null) {
             return createModeofdisposalfor_discharge(modeofdisposalfor_dischargeDTO);

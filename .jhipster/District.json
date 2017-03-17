@@ -3,16 +3,18 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "countryid",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "stateid",
-            "fieldType": "UUID"
+            "fieldType": "UUID",
+            "fieldValidateRules": [
+                "required"
+            ]
         },
         {
             "fieldName": "districtname",
-            "fieldType": "String"
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
         }
     ],
     "changelogDate": "20170313081807",

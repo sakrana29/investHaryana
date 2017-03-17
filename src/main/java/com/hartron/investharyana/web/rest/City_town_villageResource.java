@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
@@ -44,7 +45,7 @@ public class City_town_villageResource {
      */
     @PostMapping("/city-town-villages")
     @Timed
-    public ResponseEntity<City_town_villageDTO> createCity_town_village(@RequestBody City_town_villageDTO city_town_villageDTO) throws URISyntaxException {
+    public ResponseEntity<City_town_villageDTO> createCity_town_village(@Valid @RequestBody City_town_villageDTO city_town_villageDTO) throws URISyntaxException {
         log.debug("REST request to save City_town_village : {}", city_town_villageDTO);
         if (city_town_villageDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new city_town_village cannot already have an ID")).body(null);
@@ -66,7 +67,7 @@ public class City_town_villageResource {
      */
     @PutMapping("/city-town-villages")
     @Timed
-    public ResponseEntity<City_town_villageDTO> updateCity_town_village(@RequestBody City_town_villageDTO city_town_villageDTO) throws URISyntaxException {
+    public ResponseEntity<City_town_villageDTO> updateCity_town_village(@Valid @RequestBody City_town_villageDTO city_town_villageDTO) throws URISyntaxException {
         log.debug("REST request to update City_town_village : {}", city_town_villageDTO);
         if (city_town_villageDTO.getId() == null) {
             return createCity_town_village(city_town_villageDTO);

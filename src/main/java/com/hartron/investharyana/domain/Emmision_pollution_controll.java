@@ -2,6 +2,7 @@ package com.hartron.investharyana.domain;
 
 import com.datastax.driver.mapping.annotations.*;
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -18,6 +19,7 @@ public class Emmision_pollution_controll implements Serializable {
     @PartitionKey
     private UUID id;
 
+    @NotNull
     private String airpollutioncontroldevice;
 
     public UUID getId() {

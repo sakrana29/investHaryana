@@ -105,7 +105,6 @@
                         entity: function () {
                             return {
                                 particulars: null,
-                                description: null,
                                 id: null
                             };
                         }

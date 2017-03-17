@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -17,7 +17,13 @@
             <label class="control-label" data-translate="investhryApp.waste_water_naturetype.naturetype" for="field_naturetype">Naturetype</label>
             <input type="text" class="form-control" name="naturetype" id="field_naturetype"
                     ng-model="vm.waste_water_naturetype.naturetype"
-                    />
+                    required/>
+            <div ng-show="editForm.naturetype.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.naturetype.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
         </div>
 
     </div>

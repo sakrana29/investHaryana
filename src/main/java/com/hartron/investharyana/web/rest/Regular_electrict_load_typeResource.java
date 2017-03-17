@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.LinkedList;
@@ -44,7 +45,7 @@ public class Regular_electrict_load_typeResource {
      */
     @PostMapping("/regular-electrict-load-types")
     @Timed
-    public ResponseEntity<Regular_electrict_load_typeDTO> createRegular_electrict_load_type(@RequestBody Regular_electrict_load_typeDTO regular_electrict_load_typeDTO) throws URISyntaxException {
+    public ResponseEntity<Regular_electrict_load_typeDTO> createRegular_electrict_load_type(@Valid @RequestBody Regular_electrict_load_typeDTO regular_electrict_load_typeDTO) throws URISyntaxException {
         log.debug("REST request to save Regular_electrict_load_type : {}", regular_electrict_load_typeDTO);
         if (regular_electrict_load_typeDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new regular_electrict_load_type cannot already have an ID")).body(null);
@@ -66,7 +67,7 @@ public class Regular_electrict_load_typeResource {
      */
     @PutMapping("/regular-electrict-load-types")
     @Timed
-    public ResponseEntity<Regular_electrict_load_typeDTO> updateRegular_electrict_load_type(@RequestBody Regular_electrict_load_typeDTO regular_electrict_load_typeDTO) throws URISyntaxException {
+    public ResponseEntity<Regular_electrict_load_typeDTO> updateRegular_electrict_load_type(@Valid @RequestBody Regular_electrict_load_typeDTO regular_electrict_load_typeDTO) throws URISyntaxException {
         log.debug("REST request to update Regular_electrict_load_type : {}", regular_electrict_load_typeDTO);
         if (regular_electrict_load_typeDTO.getId() == null) {
             return createRegular_electrict_load_type(regular_electrict_load_typeDTO);

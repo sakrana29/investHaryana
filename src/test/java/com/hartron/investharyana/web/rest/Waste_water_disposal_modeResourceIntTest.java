@@ -133,6 +133,24 @@ public class Waste_water_disposal_modeResourceIntTest extends AbstractCassandraT
     }
 
     @Test
+    public void checkMode_of_disposalIsRequired() throws Exception {
+        int databaseSizeBeforeTest = waste_water_disposal_modeRepository.findAll().size();
+        // set the field null
+        waste_water_disposal_mode.setMode_of_disposal(null);
+
+        // Create the Waste_water_disposal_mode, which fails.
+        Waste_water_disposal_modeDTO waste_water_disposal_modeDTO = waste_water_disposal_modeMapper.waste_water_disposal_modeToWaste_water_disposal_modeDTO(waste_water_disposal_mode);
+
+        restWaste_water_disposal_modeMockMvc.perform(post("/api/waste-water-disposal-modes")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(waste_water_disposal_modeDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Waste_water_disposal_mode> waste_water_disposal_modeList = waste_water_disposal_modeRepository.findAll();
+        assertThat(waste_water_disposal_modeList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllWaste_water_disposal_modes() throws Exception {
         // Initialize the database
         waste_water_disposal_modeRepository.save(waste_water_disposal_mode);

@@ -39,7 +39,6 @@ public class DistrictRepository {
             row -> {
                 District district = new District();
                 district.setId(row.getUUID("id"));
-                district.setCountryid(row.getUUID("countryid"));
                 district.setStateid(row.getUUID("stateid"));
                 district.setDistrictname(row.getString("districtname"));
                 return district;
