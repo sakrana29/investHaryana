@@ -5,9 +5,9 @@
         .module('investhryApp')
         .controller('DistrictDialogController', DistrictDialogController);
 
-    DistrictDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'District'];
+    DistrictDialogController.$inject = ['$timeout', '$scope', '$state', 'entity', 'District'];
 
-    function DistrictDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, District) {
+    function DistrictDialogController ($timeout, $scope, $state, entity, District) {
         var vm = this;
 
         vm.district = entity;
@@ -19,7 +19,7 @@
         });
 
         function clear () {
-            $uibModalInstance.dismiss('cancel');
+                    $state.go('district', null, { reload: 'district' });
         }
 
         function save () {
@@ -33,7 +33,7 @@
 
         function onSaveSuccess (result) {
             $scope.$emit('investhryApp:districtUpdate', result);
-            $uibModalInstance.close(result);
+                    $state.go('district', null, { reload: 'district' });
             vm.isSaving = false;
         }
 

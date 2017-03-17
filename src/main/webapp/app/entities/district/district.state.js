@@ -93,55 +93,43 @@
             url: '/new',
             data: {
                 authorities: ['ROLE_USER']
-            },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/entities/district/district-dialog.html',
-                    controller: 'DistrictDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: function () {
-                            return {
-                                countryid: null,
-                                stateid: null,
-                                districtname: null,
-                                id: null
-                            };
-                        }
-                    }
-                }).result.then(function() {
-                    $state.go('district', null, { reload: 'district' });
-                }, function() {
-                    $state.go('district');
-                });
-            }]
+            },views: {
+                  'content@': {
+                      templateUrl: 'app/entities/district/districts.html',
+                      controller: 'DistrictController',
+                      controllerAs: 'vm'
+                  }
+              },
+              resolve: {
+                  entity: function ($state,$stateParams) {
+                     return {
+                         countryid: null,
+                         stateid: null,
+                         districtname: null,
+                         id: null
+                     };
+                  }
+              }
         })
         .state('district.edit', {
             parent: 'district',
             url: '/{id}/edit',
             data: {
                 authorities: ['ROLE_USER']
+            },views: {
+                'content@': {
+                    templateUrl: 'app/entities/district/districts.html',
+                    controller: 'DistrictController',
+                    controllerAs: 'vm'
+                }
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/entities/district/district-dialog.html',
-                    controller: 'DistrictDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: ['District', function(District) {
-                            return District.get({id : $stateParams.id}).$promise;
-                        }]
-                    }
-                }).result.then(function() {
-                    $state.go('district', null, { reload: 'district' });
-                }, function() {
-                    $state.go('^');
-                });
-            }]
+            resolve: {
+                entity: function ($state,$stateParams,District) {
+                     return District.get({id : $stateParams.id}).$promise;
+
+                }
+            }
+
         })
         .state('district.delete', {
             parent: 'district',

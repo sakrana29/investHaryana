@@ -1,5 +1,5 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
 
     <div class="bs-example">
         <div class="panel-group" id="accordion">
@@ -11,131 +11,96 @@
                 </div>
                 <div id="invt" class="panel-collapse collapse in invt">
                     <div class="panel-body">
-                        <form class="form-horizontal" data-dpmaxz-eid="7">
+                        <form class="form-horizontal" >
                             <fieldset>
                                 <legend>Investor</legend>
                                 <div class="form-group">
-                                    <label for="inputmou" class="col-lg-2 control-label">Mou Applicable</label>
+                                    <label class="col-lg-2 control-label">Mou Applicable</label>
                                     <div class="col-lg-10">
-                                        <label>
-                                            <input type="checkbox" id="inputmou" data-dpmaxz-eid="10"> Applicable/Not Applicable
-                                        </label>
+                                        <label><input type="radio" name="radio" ng-click="ShowPassport('Y')"> Applicable </label>
+                                        <label><input type="radio" name="radio" ng-click="ShowPassport('N')" checked> Not Applicable</label>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="inputmousignyear" class="col-lg-2 control-label">MOU Signing Year</label>
-                                    <div class="col-lg-10">
-                                        <input type="text" class="form-control" id="inputmousignyear" placeholder="Mou signing year" data-dpmaxz-eid="4">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="inputmouattachment" class="col-lg-2 control-label"></label>
-                                    <div class="col-lg-10">
-                                        <button type="submit" id="inputmouattachment" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="mouid" class="col-lg-2 control-label">MOU ID</label>
-                                    <div class="col-lg-10">
+                                <div class="form-group " ng-show="IsVisible">
+                                    <label for="mouid" class="col-lg-2 control-label">MOU detail</label>
+                                    <div class="col-lg-3">
                                         <input type="text" class="form-control" id="mouid" placeholder="Mou ID" data-dpmaxz-eid="20">
                                     </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="Investorphoto" class="col-lg-2 control-label"></label>
-                                    <div class="col-lg-10">
-                                        <button type="submit" id="Investorphoto" class="btn btn-info" data-dpmaxz-eid="12">Attachment</button>
+                                    <div class="col-lg-3">
+                                        <input type="text" class="form-control" id="inputmousignyear" placeholder="Mou signing year" data-dpmaxz-eid="4">
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <input type="file" class="form-control" value="Upload MOU" >
                                     </div>
                                 </div>
 
-
                                 <div class="form-group">
-                                    <label for="firstname" class="col-lg-2 control-label">First Name</label>
-                                    <div class="col-lg-2">
+                                    <label class="col-lg-2 control-label">Investor Photo</label>
+                                    <div class="col-lg-3">
+                                        <input type="file" class="form-control" value="Upload Profile Photo" ></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="firstname" class="col-lg-2 control-label">Investor Name</label>
+                                    <div class="col-lg-3">
                                         <input type="text" class="form-control" id="firstname" placeholder="First Name" data-dpmaxz-eid="20">
                                     </div>
-
-                                    <label for="middlename" class="col-lg-2 control-label">First Name</label>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <input type="text" class="form-control" id="middlename" placeholder="Middle Name" data-dpmaxz-eid="20">
                                     </div>
-
-                                    <label for="lastname" class="col-lg-2 control-label">First Name</label>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <input type="text" class="form-control" id="lastname" placeholder="Last Name" data-dpmaxz-eid="20">
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label for="country" class="col-lg-2 control-label">Country</label>
-                                    <div class="col-lg-10">
-                                        <select type="text" class="form-control" id="country"  data-dpmaxz-eid="20">
-                                            <option>India</option>
-                                            <option>Nepal</option>
-                                            <option>Sri Lanka</option>
-                                            <option>USA</option>
-                                            <option>France</option>
-                                            <option>England</option>
+                                    <div class="col-lg-3">
+                                        <select  class="form-control"   >
+                                            <option value="">Select Country</option>
+                                            <option ng-repeat = "country in countries" value="{{country.id }}">{{country.countryname}}</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="state" class="col-lg-2 control-label">State</label>
-                                    <div class="col-lg-10">
-                                        <select type="text" class="form-control" id="state" data-dpmaxz-eid="20">
-                                            <option>Haryana</option>
-                                            <option>Himachal</option>
-                                            <option>Punjab</option>
-                                            <option>Rajshtan</option>
-                                            <option>U.P.</option>
-                                            <option>Delhi</option>
+                                    <div class="col-lg-3">
+                                        <select  class="form-control"  >
+                                            <option value="">Select State</option>
+                                            <option ng-repeat = "state in states" value="{{state.id }}">{{state.statename}}</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="city" class="col-lg-2 control-label">City</label>
-                                    <div class="col-lg-10">
-                                        <select type="text" class="form-control" id="city" data-dpmaxz-eid="20">
-                                            <option>Jind</option>
-                                            <option>Hisar</option>
-                                            <option>Ambala</option>
-                                            <option>Rohtak</option>
-                                            <option>Panchkula</option>
-                                            <option>Y. Nagar</option>
+                                    <label for="city" class="col-lg-2 control-label">City/District</label>
+                                    <div class="col-lg-3">
+                                        <select  class="form-control"   >
+                                            <option value="">Select District</option>
+                                            <option ng-repeat = "district in districts" value="{{district.id }}">{{district.districtname}}</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="address1" class="col-lg-2 control-label">Address 1</label>
-                                    <div class="col-lg-2">
-                                        <textarea class="form-control" rows="3" id="address1"></textarea>
+                                    <label for="address1" class="col-lg-2 control-label">Address</label>
+                                    <div class="col-lg-3">
+                                        <textarea class="form-control" rows="3" id="address1" Placeholder="Address 1"></textarea>
                                     </div>
-
-                                    <label for="address2" class="col-lg-2 control-label">Address 2</label>
-                                    <div class="col-lg-2">
-                                        <textarea class="form-control" rows="3" id="address2"></textarea>
+                                    <div class="col-lg-3">
+                                        <textarea class="form-control" rows="3" id="address2" Placeholder="Address 2"></textarea>
                                     </div>
-
-                                    <label for="address3" class="col-lg-2 control-label">Address 3</label>
-                                    <div class="col-lg-2">
-                                        <textarea class="form-control" rows="3" id="address3"></textarea>
+                                    <div class="col-lg-3">
+                                        <textarea class="form-control" rows="3" id="address3" Placeholder="Address 3"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="email1" class="col-lg-2 control-label">Email Primary</label>
-                                    <div class="col-lg-4">
-                                        <input type="text" class="form-control" id="email1" placeholder="email@email" data-dpmaxz-eid="20">
+                                    <label for="email1" class="col-lg-2 control-label">Email </label>
+                                    <div class="col-lg-3">
+                                        <input type="text" class="form-control" id="email1" placeholder="Primary Email" >
                                     </div>
-
-                                    <label for="email2" class="col-lg-2 control-label">Email Secondary</label>
-                                    <div class="col-lg-4">
-                                        <input type="text" class="form-control" id="email2" placeholder="email@email" data-dpmaxz-eid="20">
+                                    <div class="col-lg-3">
+                                        <input type="text" class="form-control" id="email2" placeholder="Secondary Email">
                                     </div>
                                 </div>
                                 <div class="form-group">
