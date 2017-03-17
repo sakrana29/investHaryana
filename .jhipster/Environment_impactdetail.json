@@ -47,11 +47,6 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "document_attached",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
-        },
-        {
             "fieldName": "mode_of_disposal_for_discharge",
             "fieldType": "UUID"
         },
@@ -62,6 +57,10 @@
         {
             "fieldName": "wastewaterdetailid",
             "fieldType": "UUID"
+        },
+        {
+            "fieldName": "document_attached",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313123226",

@@ -5,15 +5,13 @@
         .module('investhryApp')
         .controller('Environment_impactdetailDialogController', Environment_impactdetailDialogController);
 
-    Environment_impactdetailDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'DataUtils', 'entity', 'Environment_impactdetail'];
+    Environment_impactdetailDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Environment_impactdetail'];
 
-    function Environment_impactdetailDialogController ($timeout, $scope, $stateParams, $uibModalInstance, DataUtils, entity, Environment_impactdetail) {
+    function Environment_impactdetailDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Environment_impactdetail) {
         var vm = this;
 
         vm.environment_impactdetail = entity;
         vm.clear = clear;
-        vm.byteSize = DataUtils.byteSize;
-        vm.openFile = DataUtils.openFile;
         vm.save = save;
 
         $timeout(function (){
@@ -43,17 +41,6 @@
             vm.isSaving = false;
         }
 
-
-        vm.setDocument_attached = function ($file, environment_impactdetail) {
-            if ($file) {
-                DataUtils.toBase64($file, function(base64Data) {
-                    $scope.$apply(function() {
-                        environment_impactdetail.document_attached = base64Data;
-                        environment_impactdetail.document_attachedContentType = $file.type;
-                    });
-                });
-            }
-        };
 
     }
 })();

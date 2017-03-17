@@ -22,10 +22,7 @@
         </dd>
         <dt><span data-translate="investhryApp.manufacturingdetail.manufacturing_flow_document">Manufacturing Flow Document</span></dt>
         <dd>
-            <div ng-if="vm.manufacturingdetail.manufacturing_flow_document">
-                <a ng-click="vm.openFile(vm.manufacturingdetail.manufacturing_flow_documentContentType, vm.manufacturingdetail.manufacturing_flow_document)" data-translate="entity.action.open">open</a>
-                {{vm.manufacturingdetail.manufacturing_flow_documentContentType}}, {{vm.byteSize(vm.manufacturingdetail.manufacturing_flow_document)}}
-            </div>
+            <span>{{vm.manufacturingdetail.manufacturing_flow_document}}</span>
         </dd>
     </dl>
 

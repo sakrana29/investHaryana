@@ -109,7 +109,6 @@
                                 productid: null,
                                 processid: null,
                                 manufacturing_flow_document: null,
-                                manufacturing_flow_documentContentType: null,
                                 id: null
                             };
                         }

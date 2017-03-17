@@ -5,15 +5,13 @@
         .module('investhryApp')
         .controller('InvestorDialogController', InvestorDialogController);
 
-    InvestorDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'DataUtils', 'entity', 'Investor'];
+    InvestorDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Investor'];
 
-    function InvestorDialogController ($timeout, $scope, $stateParams, $uibModalInstance, DataUtils, entity, Investor) {
+    function InvestorDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Investor) {
         var vm = this;
 
         vm.investor = entity;
         vm.clear = clear;
-        vm.byteSize = DataUtils.byteSize;
-        vm.openFile = DataUtils.openFile;
         vm.save = save;
 
         $timeout(function (){
@@ -43,31 +41,6 @@
             vm.isSaving = false;
         }
 
-
-        vm.setMoudocument = function ($file, investor) {
-            if ($file) {
-                DataUtils.toBase64($file, function(base64Data) {
-                    $scope.$apply(function() {
-                        investor.moudocument = base64Data;
-                        investor.moudocumentContentType = $file.type;
-                    });
-                });
-            }
-        };
-
-        vm.setPhoto = function ($file, investor) {
-            if ($file && $file.$error === 'pattern') {
-                return;
-            }
-            if ($file) {
-                DataUtils.toBase64($file, function(base64Data) {
-                    $scope.$apply(function() {
-                        investor.photo = base64Data;
-                        investor.photoContentType = $file.type;
-                    });
-                });
-            }
-        };
 
     }
 })();

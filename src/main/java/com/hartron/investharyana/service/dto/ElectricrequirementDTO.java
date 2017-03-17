@@ -4,7 +4,6 @@ package com.hartron.investharyana.service.dto;
 import java.time.ZonedDateTime;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.nio.ByteBuffer;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -16,9 +15,6 @@ public class ElectricrequirementDTO implements Serializable {
     private UUID id;
 
     private UUID projectid;
-
-    private ByteBuffer temporaryconnection;
-    private String temporaryconnectionContentType;
 
     private Boolean temporaryrequired;
 
@@ -35,9 +31,6 @@ public class ElectricrequirementDTO implements Serializable {
     private BigDecimal temp_new_load_demand_kva;
 
     private ZonedDateTime temp_load_demand_date;
-
-    private ByteBuffer regular_connection_doc;
-    private String regular_connection_docContentType;
 
     private Boolean regular_load_required;
 
@@ -57,6 +50,10 @@ public class ElectricrequirementDTO implements Serializable {
 
     private ZonedDateTime regular_load_demand_date;
 
+    private String temporaryconnection;
+
+    private String regular_connection_doc;
+
     public UUID getId() {
         return id;
     }
@@ -70,21 +67,6 @@ public class ElectricrequirementDTO implements Serializable {
 
     public void setProjectid(UUID projectid) {
         this.projectid = projectid;
-    }
-    public ByteBuffer getTemporaryconnection() {
-        return temporaryconnection;
-    }
-
-    public void setTemporaryconnection(ByteBuffer temporaryconnection) {
-        this.temporaryconnection = temporaryconnection;
-    }
-
-    public String getTemporaryconnectionContentType() {
-        return temporaryconnectionContentType;
-    }
-
-    public void setTemporaryconnectionContentType(String temporaryconnectionContentType) {
-        this.temporaryconnectionContentType = temporaryconnectionContentType;
     }
     public Boolean getTemporaryrequired() {
         return temporaryrequired;
@@ -141,21 +123,6 @@ public class ElectricrequirementDTO implements Serializable {
 
     public void setTemp_load_demand_date(ZonedDateTime temp_load_demand_date) {
         this.temp_load_demand_date = temp_load_demand_date;
-    }
-    public ByteBuffer getRegular_connection_doc() {
-        return regular_connection_doc;
-    }
-
-    public void setRegular_connection_doc(ByteBuffer regular_connection_doc) {
-        this.regular_connection_doc = regular_connection_doc;
-    }
-
-    public String getRegular_connection_docContentType() {
-        return regular_connection_docContentType;
-    }
-
-    public void setRegular_connection_docContentType(String regular_connection_docContentType) {
-        this.regular_connection_docContentType = regular_connection_docContentType;
     }
     public Boolean getRegular_load_required() {
         return regular_load_required;
@@ -220,6 +187,20 @@ public class ElectricrequirementDTO implements Serializable {
     public void setRegular_load_demand_date(ZonedDateTime regular_load_demand_date) {
         this.regular_load_demand_date = regular_load_demand_date;
     }
+    public String getTemporaryconnection() {
+        return temporaryconnection;
+    }
+
+    public void setTemporaryconnection(String temporaryconnection) {
+        this.temporaryconnection = temporaryconnection;
+    }
+    public String getRegular_connection_doc() {
+        return regular_connection_doc;
+    }
+
+    public void setRegular_connection_doc(String regular_connection_doc) {
+        this.regular_connection_doc = regular_connection_doc;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -247,7 +228,6 @@ public class ElectricrequirementDTO implements Serializable {
         return "ElectricrequirementDTO{" +
             "id=" + id +
             ", projectid='" + projectid + "'" +
-            ", temporaryconnection='" + temporaryconnection + "'" +
             ", temporaryrequired='" + temporaryrequired + "'" +
             ", tem_load_existing='" + tem_load_existing + "'" +
             ", tem_account_number='" + tem_account_number + "'" +
@@ -256,7 +236,6 @@ public class ElectricrequirementDTO implements Serializable {
             ", temp_new_load_demand_kw='" + temp_new_load_demand_kw + "'" +
             ", temp_new_load_demand_kva='" + temp_new_load_demand_kva + "'" +
             ", temp_load_demand_date='" + temp_load_demand_date + "'" +
-            ", regular_connection_doc='" + regular_connection_doc + "'" +
             ", regular_load_required='" + regular_load_required + "'" +
             ", regular_existing_connection='" + regular_existing_connection + "'" +
             ", customertype='" + customertype + "'" +
@@ -266,6 +245,8 @@ public class ElectricrequirementDTO implements Serializable {
             ", regular_new_load_demand_kw='" + regular_new_load_demand_kw + "'" +
             ", regular_new_load_demand_kva='" + regular_new_load_demand_kva + "'" +
             ", regular_load_demand_date='" + regular_load_demand_date + "'" +
+            ", temporaryconnection='" + temporaryconnection + "'" +
+            ", regular_connection_doc='" + regular_connection_doc + "'" +
             '}';
     }
 }

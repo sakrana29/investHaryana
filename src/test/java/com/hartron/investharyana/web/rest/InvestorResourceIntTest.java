@@ -22,9 +22,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.util.Base64Utils;
 
-import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.UUID;
 
@@ -48,18 +46,8 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
     private static final Integer DEFAULT_MOUSIGNYEAR = 1;
     private static final Integer UPDATED_MOUSIGNYEAR = 2;
 
-    private static final ByteBuffer DEFAULT_MOUDOCUMENT = ByteBuffer.wrap(TestUtil.createByteArray(1, "0"));
-    private static final ByteBuffer UPDATED_MOUDOCUMENT = ByteBuffer.wrap(TestUtil.createByteArray(2, "1"));
-    private static final String DEFAULT_MOUDOCUMENT_CONTENT_TYPE = "image/jpg";
-    private static final String UPDATED_MOUDOCUMENT_CONTENT_TYPE = "image/png";
-
     private static final String DEFAULT_MOUIDNUMBER = "AAAAAAAAAA";
     private static final String UPDATED_MOUIDNUMBER = "BBBBBBBBBB";
-
-    private static final ByteBuffer DEFAULT_PHOTO = ByteBuffer.wrap(TestUtil.createByteArray(1, "0"));
-    private static final ByteBuffer UPDATED_PHOTO = ByteBuffer.wrap(TestUtil.createByteArray(2, "1"));
-    private static final String DEFAULT_PHOTO_CONTENT_TYPE = "image/jpg";
-    private static final String UPDATED_PHOTO_CONTENT_TYPE = "image/png";
 
     private static final String DEFAULT_FIRSTNAME = "AAAAAAAAAA";
     private static final String UPDATED_FIRSTNAME = "BBBBBBBBBB";
@@ -93,6 +81,12 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
 
     private static final String DEFAULT_EMAILSECONDARY = "AAAAAAAAAA";
     private static final String UPDATED_EMAILSECONDARY = "BBBBBBBBBB";
+
+    private static final String DEFAULT_MOUDOCUMENT = "AAAAAAAAAA";
+    private static final String UPDATED_MOUDOCUMENT = "BBBBBBBBBB";
+
+    private static final String DEFAULT_INVESTORPICPATH = "AAAAAAAAAA";
+    private static final String UPDATED_INVESTORPICPATH = "BBBBBBBBBB";
 
     @Autowired
     private InvestorRepository investorRepository;
@@ -136,11 +130,7 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
         Investor investor = new Investor()
                 .mouapplicable(DEFAULT_MOUAPPLICABLE)
                 .mousignyear(DEFAULT_MOUSIGNYEAR)
-                .moudocument(DEFAULT_MOUDOCUMENT)
-                .moudocumentContentType(DEFAULT_MOUDOCUMENT_CONTENT_TYPE)
                 .mouidnumber(DEFAULT_MOUIDNUMBER)
-                .photo(DEFAULT_PHOTO)
-                .photoContentType(DEFAULT_PHOTO_CONTENT_TYPE)
                 .firstname(DEFAULT_FIRSTNAME)
                 .middlename(DEFAULT_MIDDLENAME)
                 .lastname(DEFAULT_LASTNAME)
@@ -151,7 +141,9 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
                 .address2(DEFAULT_ADDRESS_2)
                 .address3(DEFAULT_ADDRESS_3)
                 .emailprimary(DEFAULT_EMAILPRIMARY)
-                .emailsecondary(DEFAULT_EMAILSECONDARY);
+                .emailsecondary(DEFAULT_EMAILSECONDARY)
+                .moudocument(DEFAULT_MOUDOCUMENT)
+                .investorpicpath(DEFAULT_INVESTORPICPATH);
         return investor;
     }
 
@@ -179,11 +171,7 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
         Investor testInvestor = investorList.get(investorList.size() - 1);
         assertThat(testInvestor.isMouapplicable()).isEqualTo(DEFAULT_MOUAPPLICABLE);
         assertThat(testInvestor.getMousignyear()).isEqualTo(DEFAULT_MOUSIGNYEAR);
-        assertThat(testInvestor.getMoudocument()).isEqualTo(DEFAULT_MOUDOCUMENT);
-        assertThat(testInvestor.getMoudocumentContentType()).isEqualTo(DEFAULT_MOUDOCUMENT_CONTENT_TYPE);
         assertThat(testInvestor.getMouidnumber()).isEqualTo(DEFAULT_MOUIDNUMBER);
-        assertThat(testInvestor.getPhoto()).isEqualTo(DEFAULT_PHOTO);
-        assertThat(testInvestor.getPhotoContentType()).isEqualTo(DEFAULT_PHOTO_CONTENT_TYPE);
         assertThat(testInvestor.getFirstname()).isEqualTo(DEFAULT_FIRSTNAME);
         assertThat(testInvestor.getMiddlename()).isEqualTo(DEFAULT_MIDDLENAME);
         assertThat(testInvestor.getLastname()).isEqualTo(DEFAULT_LASTNAME);
@@ -195,6 +183,8 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
         assertThat(testInvestor.getAddress3()).isEqualTo(DEFAULT_ADDRESS_3);
         assertThat(testInvestor.getEmailprimary()).isEqualTo(DEFAULT_EMAILPRIMARY);
         assertThat(testInvestor.getEmailsecondary()).isEqualTo(DEFAULT_EMAILSECONDARY);
+        assertThat(testInvestor.getMoudocument()).isEqualTo(DEFAULT_MOUDOCUMENT);
+        assertThat(testInvestor.getInvestorpicpath()).isEqualTo(DEFAULT_INVESTORPICPATH);
     }
 
     @Test
@@ -229,11 +219,7 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(investor.getId().toString())))
             .andExpect(jsonPath("$.[*].mouapplicable").value(hasItem(DEFAULT_MOUAPPLICABLE.booleanValue())))
             .andExpect(jsonPath("$.[*].mousignyear").value(hasItem(DEFAULT_MOUSIGNYEAR)))
-            .andExpect(jsonPath("$.[*].moudocumentContentType").value(hasItem(DEFAULT_MOUDOCUMENT_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].moudocument").value(hasItem(Base64Utils.encodeToString(DEFAULT_MOUDOCUMENT.array()))))
             .andExpect(jsonPath("$.[*].mouidnumber").value(hasItem(DEFAULT_MOUIDNUMBER.toString())))
-            .andExpect(jsonPath("$.[*].photoContentType").value(hasItem(DEFAULT_PHOTO_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].photo").value(hasItem(Base64Utils.encodeToString(DEFAULT_PHOTO.array()))))
             .andExpect(jsonPath("$.[*].firstname").value(hasItem(DEFAULT_FIRSTNAME.toString())))
             .andExpect(jsonPath("$.[*].middlename").value(hasItem(DEFAULT_MIDDLENAME.toString())))
             .andExpect(jsonPath("$.[*].lastname").value(hasItem(DEFAULT_LASTNAME.toString())))
@@ -244,7 +230,9 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].address2").value(hasItem(DEFAULT_ADDRESS_2.toString())))
             .andExpect(jsonPath("$.[*].address3").value(hasItem(DEFAULT_ADDRESS_3.toString())))
             .andExpect(jsonPath("$.[*].emailprimary").value(hasItem(DEFAULT_EMAILPRIMARY.toString())))
-            .andExpect(jsonPath("$.[*].emailsecondary").value(hasItem(DEFAULT_EMAILSECONDARY.toString())));
+            .andExpect(jsonPath("$.[*].emailsecondary").value(hasItem(DEFAULT_EMAILSECONDARY.toString())))
+            .andExpect(jsonPath("$.[*].moudocument").value(hasItem(DEFAULT_MOUDOCUMENT.toString())))
+            .andExpect(jsonPath("$.[*].investorpicpath").value(hasItem(DEFAULT_INVESTORPICPATH.toString())));
     }
 
     @Test
@@ -259,11 +247,7 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.id").value(investor.getId().toString()))
             .andExpect(jsonPath("$.mouapplicable").value(DEFAULT_MOUAPPLICABLE.booleanValue()))
             .andExpect(jsonPath("$.mousignyear").value(DEFAULT_MOUSIGNYEAR))
-            .andExpect(jsonPath("$.moudocumentContentType").value(DEFAULT_MOUDOCUMENT_CONTENT_TYPE))
-            .andExpect(jsonPath("$.moudocument").value(Base64Utils.encodeToString(DEFAULT_MOUDOCUMENT.array())))
             .andExpect(jsonPath("$.mouidnumber").value(DEFAULT_MOUIDNUMBER.toString()))
-            .andExpect(jsonPath("$.photoContentType").value(DEFAULT_PHOTO_CONTENT_TYPE))
-            .andExpect(jsonPath("$.photo").value(Base64Utils.encodeToString(DEFAULT_PHOTO.array())))
             .andExpect(jsonPath("$.firstname").value(DEFAULT_FIRSTNAME.toString()))
             .andExpect(jsonPath("$.middlename").value(DEFAULT_MIDDLENAME.toString()))
             .andExpect(jsonPath("$.lastname").value(DEFAULT_LASTNAME.toString()))
@@ -274,7 +258,9 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.address2").value(DEFAULT_ADDRESS_2.toString()))
             .andExpect(jsonPath("$.address3").value(DEFAULT_ADDRESS_3.toString()))
             .andExpect(jsonPath("$.emailprimary").value(DEFAULT_EMAILPRIMARY.toString()))
-            .andExpect(jsonPath("$.emailsecondary").value(DEFAULT_EMAILSECONDARY.toString()));
+            .andExpect(jsonPath("$.emailsecondary").value(DEFAULT_EMAILSECONDARY.toString()))
+            .andExpect(jsonPath("$.moudocument").value(DEFAULT_MOUDOCUMENT.toString()))
+            .andExpect(jsonPath("$.investorpicpath").value(DEFAULT_INVESTORPICPATH.toString()));
     }
 
     @Test
@@ -295,11 +281,7 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
         updatedInvestor
                 .mouapplicable(UPDATED_MOUAPPLICABLE)
                 .mousignyear(UPDATED_MOUSIGNYEAR)
-                .moudocument(UPDATED_MOUDOCUMENT)
-                .moudocumentContentType(UPDATED_MOUDOCUMENT_CONTENT_TYPE)
                 .mouidnumber(UPDATED_MOUIDNUMBER)
-                .photo(UPDATED_PHOTO)
-                .photoContentType(UPDATED_PHOTO_CONTENT_TYPE)
                 .firstname(UPDATED_FIRSTNAME)
                 .middlename(UPDATED_MIDDLENAME)
                 .lastname(UPDATED_LASTNAME)
@@ -310,7 +292,9 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
                 .address2(UPDATED_ADDRESS_2)
                 .address3(UPDATED_ADDRESS_3)
                 .emailprimary(UPDATED_EMAILPRIMARY)
-                .emailsecondary(UPDATED_EMAILSECONDARY);
+                .emailsecondary(UPDATED_EMAILSECONDARY)
+                .moudocument(UPDATED_MOUDOCUMENT)
+                .investorpicpath(UPDATED_INVESTORPICPATH);
         InvestorDTO investorDTO = investorMapper.investorToInvestorDTO(updatedInvestor);
 
         restInvestorMockMvc.perform(put("/api/investors")
@@ -324,11 +308,7 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
         Investor testInvestor = investorList.get(investorList.size() - 1);
         assertThat(testInvestor.isMouapplicable()).isEqualTo(UPDATED_MOUAPPLICABLE);
         assertThat(testInvestor.getMousignyear()).isEqualTo(UPDATED_MOUSIGNYEAR);
-        assertThat(testInvestor.getMoudocument()).isEqualTo(UPDATED_MOUDOCUMENT);
-        assertThat(testInvestor.getMoudocumentContentType()).isEqualTo(UPDATED_MOUDOCUMENT_CONTENT_TYPE);
         assertThat(testInvestor.getMouidnumber()).isEqualTo(UPDATED_MOUIDNUMBER);
-        assertThat(testInvestor.getPhoto()).isEqualTo(UPDATED_PHOTO);
-        assertThat(testInvestor.getPhotoContentType()).isEqualTo(UPDATED_PHOTO_CONTENT_TYPE);
         assertThat(testInvestor.getFirstname()).isEqualTo(UPDATED_FIRSTNAME);
         assertThat(testInvestor.getMiddlename()).isEqualTo(UPDATED_MIDDLENAME);
         assertThat(testInvestor.getLastname()).isEqualTo(UPDATED_LASTNAME);
@@ -340,6 +320,8 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
         assertThat(testInvestor.getAddress3()).isEqualTo(UPDATED_ADDRESS_3);
         assertThat(testInvestor.getEmailprimary()).isEqualTo(UPDATED_EMAILPRIMARY);
         assertThat(testInvestor.getEmailsecondary()).isEqualTo(UPDATED_EMAILSECONDARY);
+        assertThat(testInvestor.getMoudocument()).isEqualTo(UPDATED_MOUDOCUMENT);
+        assertThat(testInvestor.getInvestorpicpath()).isEqualTo(UPDATED_INVESTORPICPATH);
     }
 
     @Test

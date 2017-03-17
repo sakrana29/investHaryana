@@ -17,9 +17,7 @@
             },
             "mouapplicable": "Mouapplicable",
             "mousignyear": "Mousignyear",
-            "moudocument": "Moudocument",
             "mouidnumber": "Mouidnumber",
-            "photo": "Photo",
             "firstname": "Firstname",
             "middlename": "Middlename",
             "lastname": "Lastname",
@@ -30,7 +28,9 @@
             "address2": "Address 2",
             "address3": "Address 3",
             "emailprimary": "Emailprimary",
-            "emailsecondary": "Emailsecondary"
+            "emailsecondary": "Emailsecondary",
+            "moudocument": "Moudocument",
+            "investorpicpath": "Investorpicpath"
         }
     }
 }

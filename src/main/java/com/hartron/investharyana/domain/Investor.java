@@ -3,7 +3,6 @@ package com.hartron.investharyana.domain;
 import com.datastax.driver.mapping.annotations.*;
 
 import java.io.Serializable;
-import java.nio.ByteBuffer;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -23,17 +22,7 @@ public class Investor implements Serializable {
 
     private Integer mousignyear;
 
-    private ByteBuffer moudocument;
-
-    @Column(name = "moudocument_content_type")
-    private String moudocumentContentType;
-
     private String mouidnumber;
-
-    private ByteBuffer photo;
-
-    @Column(name = "photo_content_type")
-    private String photoContentType;
 
     private String firstname;
 
@@ -56,6 +45,10 @@ public class Investor implements Serializable {
     private String emailprimary;
 
     private String emailsecondary;
+
+    private String moudocument;
+
+    private String investorpicpath;
 
     public UUID getId() {
         return id;
@@ -91,32 +84,6 @@ public class Investor implements Serializable {
         this.mousignyear = mousignyear;
     }
 
-    public ByteBuffer getMoudocument() {
-        return moudocument;
-    }
-
-    public Investor moudocument(ByteBuffer moudocument) {
-        this.moudocument = moudocument;
-        return this;
-    }
-
-    public void setMoudocument(ByteBuffer moudocument) {
-        this.moudocument = moudocument;
-    }
-
-    public String getMoudocumentContentType() {
-        return moudocumentContentType;
-    }
-
-    public Investor moudocumentContentType(String moudocumentContentType) {
-        this.moudocumentContentType = moudocumentContentType;
-        return this;
-    }
-
-    public void setMoudocumentContentType(String moudocumentContentType) {
-        this.moudocumentContentType = moudocumentContentType;
-    }
-
     public String getMouidnumber() {
         return mouidnumber;
     }
@@ -128,32 +95,6 @@ public class Investor implements Serializable {
 
     public void setMouidnumber(String mouidnumber) {
         this.mouidnumber = mouidnumber;
-    }
-
-    public ByteBuffer getPhoto() {
-        return photo;
-    }
-
-    public Investor photo(ByteBuffer photo) {
-        this.photo = photo;
-        return this;
-    }
-
-    public void setPhoto(ByteBuffer photo) {
-        this.photo = photo;
-    }
-
-    public String getPhotoContentType() {
-        return photoContentType;
-    }
-
-    public Investor photoContentType(String photoContentType) {
-        this.photoContentType = photoContentType;
-        return this;
-    }
-
-    public void setPhotoContentType(String photoContentType) {
-        this.photoContentType = photoContentType;
     }
 
     public String getFirstname() {
@@ -299,6 +240,32 @@ public class Investor implements Serializable {
         this.emailsecondary = emailsecondary;
     }
 
+    public String getMoudocument() {
+        return moudocument;
+    }
+
+    public Investor moudocument(String moudocument) {
+        this.moudocument = moudocument;
+        return this;
+    }
+
+    public void setMoudocument(String moudocument) {
+        this.moudocument = moudocument;
+    }
+
+    public String getInvestorpicpath() {
+        return investorpicpath;
+    }
+
+    public Investor investorpicpath(String investorpicpath) {
+        this.investorpicpath = investorpicpath;
+        return this;
+    }
+
+    public void setInvestorpicpath(String investorpicpath) {
+        this.investorpicpath = investorpicpath;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -325,11 +292,7 @@ public class Investor implements Serializable {
             "id=" + id +
             ", mouapplicable='" + mouapplicable + "'" +
             ", mousignyear='" + mousignyear + "'" +
-            ", moudocument='" + moudocument + "'" +
-            ", moudocumentContentType='" + moudocumentContentType + "'" +
             ", mouidnumber='" + mouidnumber + "'" +
-            ", photo='" + photo + "'" +
-            ", photoContentType='" + photoContentType + "'" +
             ", firstname='" + firstname + "'" +
             ", middlename='" + middlename + "'" +
             ", lastname='" + lastname + "'" +
@@ -341,6 +304,8 @@ public class Investor implements Serializable {
             ", address3='" + address3 + "'" +
             ", emailprimary='" + emailprimary + "'" +
             ", emailsecondary='" + emailsecondary + "'" +
+            ", moudocument='" + moudocument + "'" +
+            ", investorpicpath='" + investorpicpath + "'" +
             '}';
     }
 }

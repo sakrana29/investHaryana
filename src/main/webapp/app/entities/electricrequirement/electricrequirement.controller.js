@@ -5,15 +5,13 @@
         .module('investhryApp')
         .controller('ElectricrequirementController', ElectricrequirementController);
 
-    ElectricrequirementController.$inject = ['DataUtils', 'Electricrequirement'];
+    ElectricrequirementController.$inject = ['Electricrequirement'];
 
-    function ElectricrequirementController(DataUtils, Electricrequirement) {
+    function ElectricrequirementController(Electricrequirement) {
 
         var vm = this;
 
         vm.electricrequirements = [];
-        vm.openFile = DataUtils.openFile;
-        vm.byteSize = DataUtils.byteSize;
 
         loadAll();
 

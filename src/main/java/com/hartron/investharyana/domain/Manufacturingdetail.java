@@ -3,7 +3,6 @@ package com.hartron.investharyana.domain;
 import com.datastax.driver.mapping.annotations.*;
 
 import java.io.Serializable;
-import java.nio.ByteBuffer;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -27,10 +26,7 @@ public class Manufacturingdetail implements Serializable {
 
     private UUID processid;
 
-    private ByteBuffer manufacturing_flow_document;
-
-    @Column(name = "manufacturing_flow_document_content_type")
-    private String manufacturing_flow_documentContentType;
+    private String manufacturing_flow_document;
 
     public UUID getId() {
         return id;
@@ -92,30 +88,17 @@ public class Manufacturingdetail implements Serializable {
         this.processid = processid;
     }
 
-    public ByteBuffer getManufacturing_flow_document() {
+    public String getManufacturing_flow_document() {
         return manufacturing_flow_document;
     }
 
-    public Manufacturingdetail manufacturing_flow_document(ByteBuffer manufacturing_flow_document) {
+    public Manufacturingdetail manufacturing_flow_document(String manufacturing_flow_document) {
         this.manufacturing_flow_document = manufacturing_flow_document;
         return this;
     }
 
-    public void setManufacturing_flow_document(ByteBuffer manufacturing_flow_document) {
+    public void setManufacturing_flow_document(String manufacturing_flow_document) {
         this.manufacturing_flow_document = manufacturing_flow_document;
-    }
-
-    public String getManufacturing_flow_documentContentType() {
-        return manufacturing_flow_documentContentType;
-    }
-
-    public Manufacturingdetail manufacturing_flow_documentContentType(String manufacturing_flow_documentContentType) {
-        this.manufacturing_flow_documentContentType = manufacturing_flow_documentContentType;
-        return this;
-    }
-
-    public void setManufacturing_flow_documentContentType(String manufacturing_flow_documentContentType) {
-        this.manufacturing_flow_documentContentType = manufacturing_flow_documentContentType;
     }
 
     @Override
@@ -147,7 +130,6 @@ public class Manufacturingdetail implements Serializable {
             ", productid='" + productid + "'" +
             ", processid='" + processid + "'" +
             ", manufacturing_flow_document='" + manufacturing_flow_document + "'" +
-            ", manufacturing_flow_documentContentType='" + manufacturing_flow_documentContentType + "'" +
             '}';
     }
 }

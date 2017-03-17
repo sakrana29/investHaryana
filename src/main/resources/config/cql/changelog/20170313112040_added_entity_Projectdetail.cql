@@ -9,14 +9,11 @@ CREATE TABLE IF NOT EXISTS projectdetail (
     niccode text,
     category_of_project uuid,
     collaboration_with_foreign_country uuid,
-    detail_project_report blob,
-    detail_project_report_content_type text,
     existing_regulatory_approval boolean,
     approval_application_form uuid,
-    approval_document blob,
-    approval_document_content_type text,
-    edc_sif_clu_fee_paid_document blob,
-    edc_sif_clu_fee_paid_document_content_type text,
     edc_sif_clu_fee_paid_applicable boolean,
+    detail_project_report text,
+    approval_document text,
+    edc_sif_clu_fee_paid_document text,
     PRIMARY KEY(id)
 );

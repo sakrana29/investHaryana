@@ -23,12 +23,12 @@
             "niccode": "Niccode",
             "category_of_project": "Category Of Project",
             "collaboration_with_foreign_country": "Collaboration With Foreign Country",
-            "detail_project_report": "Detail Project Report",
             "existing_regulatory_approval": "Existing Regulatory Approval",
             "approval_application_form": "Approval Application Form",
+            "edc_sif_clu_fee_paid_applicable": "Edc Sif Clu Fee Paid Applicable",
+            "detail_project_report": "Detail Project Report",
             "approval_document": "Approval Document",
-            "edc_sif_clu_fee_paid_document": "Edc Sif Clu Fee Paid Document",
-            "edc_sif_clu_fee_paid_applicable": "Edc Sif Clu Fee Paid Applicable"
+            "edc_sif_clu_fee_paid_document": "Edc Sif Clu Fee Paid Document"
         }
     }
 }

@@ -27,12 +27,12 @@
                     <th><span data-translate="investhryApp.projectdetail.niccode">Niccode</span></th>
                     <th><span data-translate="investhryApp.projectdetail.category_of_project">Category Of Project</span></th>
                     <th><span data-translate="investhryApp.projectdetail.collaboration_with_foreign_country">Collaboration With Foreign Country</span></th>
-                    <th><span data-translate="investhryApp.projectdetail.detail_project_report">Detail Project Report</span></th>
                     <th><span data-translate="investhryApp.projectdetail.existing_regulatory_approval">Existing Regulatory Approval</span></th>
                     <th><span data-translate="investhryApp.projectdetail.approval_application_form">Approval Application Form</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.edc_sif_clu_fee_paid_applicable">Edc Sif Clu Fee Paid Applicable</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.detail_project_report">Detail Project Report</span></th>
                     <th><span data-translate="investhryApp.projectdetail.approval_document">Approval Document</span></th>
                     <th><span data-translate="investhryApp.projectdetail.edc_sif_clu_fee_paid_document">Edc Sif Clu Fee Paid Document</span></th>
-                    <th><span data-translate="investhryApp.projectdetail.edc_sif_clu_fee_paid_applicable">Edc Sif Clu Fee Paid Applicable</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -47,21 +47,12 @@
                     <td>{{projectdetail.niccode}}</td>
                     <td>{{projectdetail.category_of_project}}</td>
                     <td>{{projectdetail.collaboration_with_foreign_country}}</td>
-                    <td>
-                        <a ng-if="projectdetail.detail_project_report" ng-click="vm.openFile(projectdetail.detail_project_reportContentType, projectdetail.detail_project_report)" data-translate="entity.action.open">open</a>
-                        <span ng-if="projectdetail.detail_project_report">{{projectdetail.detail_project_reportContentType}}, {{vm.byteSize(projectdetail.detail_project_report)}}</span>
-                    </td>
                     <td>{{projectdetail.existing_regulatory_approval}}</td>
                     <td>{{projectdetail.approval_application_form}}</td>
-                    <td>
-                        <a ng-if="projectdetail.approval_document" ng-click="vm.openFile(projectdetail.approval_documentContentType, projectdetail.approval_document)" data-translate="entity.action.open">open</a>
-                        <span ng-if="projectdetail.approval_document">{{projectdetail.approval_documentContentType}}, {{vm.byteSize(projectdetail.approval_document)}}</span>
-                    </td>
-                    <td>
-                        <a ng-if="projectdetail.edc_sif_clu_fee_paid_document" ng-click="vm.openFile(projectdetail.edc_sif_clu_fee_paid_documentContentType, projectdetail.edc_sif_clu_fee_paid_document)" data-translate="entity.action.open">open</a>
-                        <span ng-if="projectdetail.edc_sif_clu_fee_paid_document">{{projectdetail.edc_sif_clu_fee_paid_documentContentType}}, {{vm.byteSize(projectdetail.edc_sif_clu_fee_paid_document)}}</span>
-                    </td>
                     <td>{{projectdetail.edc_sif_clu_fee_paid_applicable}}</td>
+                    <td>{{projectdetail.detail_project_report}}</td>
+                    <td>{{projectdetail.approval_document}}</td>
+                    <td>{{projectdetail.edc_sif_clu_fee_paid_document}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

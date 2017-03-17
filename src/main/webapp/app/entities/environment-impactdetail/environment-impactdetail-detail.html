@@ -48,13 +48,6 @@
         <dd>
             <span>{{vm.environment_impactdetail.waste_water_treatment}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.environment_impactdetail.document_attached">Document Attached</span></dt>
-        <dd>
-            <div ng-if="vm.environment_impactdetail.document_attached">
-                <a ng-click="vm.openFile(vm.environment_impactdetail.document_attachedContentType, vm.environment_impactdetail.document_attached)" data-translate="entity.action.open">open</a>
-                {{vm.environment_impactdetail.document_attachedContentType}}, {{vm.byteSize(vm.environment_impactdetail.document_attached)}}
-            </div>
-        </dd>
         <dt><span data-translate="investhryApp.environment_impactdetail.mode_of_disposal_for_discharge">Mode Of Disposal For Discharge</span></dt>
         <dd>
             <span>{{vm.environment_impactdetail.mode_of_disposal_for_discharge}}</span>
@@ -66,6 +59,10 @@
         <dt><span data-translate="investhryApp.environment_impactdetail.wastewaterdetailid">Wastewaterdetailid</span></dt>
         <dd>
             <span>{{vm.environment_impactdetail.wastewaterdetailid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.environment_impactdetail.document_attached">Document Attached</span></dt>
+        <dd>
+            <span>{{vm.environment_impactdetail.document_attached}}</span>
         </dd>
     </dl>
 

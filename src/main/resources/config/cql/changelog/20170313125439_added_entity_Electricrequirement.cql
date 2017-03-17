@@ -2,8 +2,6 @@
 CREATE TABLE IF NOT EXISTS electricrequirement (
     id uuid,
     projectid uuid,
-    temporaryconnection blob,
-    temporaryconnection_content_type text,
     temporaryrequired boolean,
     tem_load_existing boolean,
     tem_account_number text,
@@ -12,8 +10,6 @@ CREATE TABLE IF NOT EXISTS electricrequirement (
     temp_new_load_demand_kw decimal,
     temp_new_load_demand_kva decimal,
     temp_load_demand_date timestamp,
-    regular_connection_doc blob,
-    regular_connection_doc_content_type text,
     regular_load_required boolean,
     regular_existing_connection boolean,
     customertype uuid,
@@ -23,5 +19,7 @@ CREATE TABLE IF NOT EXISTS electricrequirement (
     regular_new_load_demand_kw decimal,
     regular_new_load_demand_kva decimal,
     regular_load_demand_date timestamp,
+    temporaryconnection text,
+    regular_connection_doc text,
     PRIMARY KEY(id)
 );

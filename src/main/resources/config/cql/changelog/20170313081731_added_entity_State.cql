@@ -5,10 +5,3 @@ CREATE TABLE IF NOT EXISTS state (
     statename text,
     PRIMARY KEY(id)
 );
-
-
-CREATE TABLE IF NOT EXISTS state_by_country (
-    countryid uuid,
-    id uuid,
-    PRIMARY KEY(countryid,id)
-);

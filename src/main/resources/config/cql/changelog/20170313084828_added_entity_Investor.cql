@@ -3,11 +3,7 @@ CREATE TABLE IF NOT EXISTS investor (
     id uuid,
     mouapplicable boolean,
     mousignyear int,
-    moudocument blob,
-    moudocument_content_type text,
     mouidnumber text,
-    photo blob,
-    photo_content_type text,
     firstname text,
     middlename text,
     lastname text,
@@ -19,5 +15,7 @@ CREATE TABLE IF NOT EXISTS investor (
     address3 text,
     emailprimary text,
     emailsecondary text,
+    moudocument text,
+    investorpicpath text,
     PRIMARY KEY(id)
 );

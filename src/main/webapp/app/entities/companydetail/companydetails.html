@@ -25,15 +25,15 @@
                     <th><span data-translate="investhryApp.companydetail.businessentity">Businessentity</span></th>
                     <th><span data-translate="investhryApp.companydetail.businessentitytype">Businessentitytype</span></th>
                     <th><span data-translate="investhryApp.companydetail.director_promoter_md_ceo_number">Director Promoter Md Ceo Number</span></th>
-                    <th><span data-translate="investhryApp.companydetail.director_md_ceo_list">Director Md Ceo List</span></th>
                     <th><span data-translate="investhryApp.companydetail.pan_number">Pan Number</span></th>
-                    <th><span data-translate="investhryApp.companydetail.pancard">Pancard</span></th>
                     <th><span data-translate="investhryApp.companydetail.aadhar_number">Aadhar Number</span></th>
-                    <th><span data-translate="investhryApp.companydetail.aadharcard">Aadharcard</span></th>
                     <th><span data-translate="investhryApp.companydetail.nri">Nri</span></th>
                     <th><span data-translate="investhryApp.companydetail.tin_vat_number">Tin Vat Number</span></th>
-                    <th><span data-translate="investhryApp.companydetail.tin_vat_document">Tin Vat Document</span></th>
                     <th><span data-translate="investhryApp.companydetail.cst_number">Cst Number</span></th>
+                    <th><span data-translate="investhryApp.companydetail.director_md_ceo_list">Director Md Ceo List</span></th>
+                    <th><span data-translate="investhryApp.companydetail.pancard">Pancard</span></th>
+                    <th><span data-translate="investhryApp.companydetail.aadharcard">Aadharcard</span></th>
+                    <th><span data-translate="investhryApp.companydetail.tin_vat_document">Tin Vat Document</span></th>
                     <th><span data-translate="investhryApp.companydetail.cst_document">Cst Document</span></th>
                     <th><span data-translate="investhryApp.companydetail.moa_partnershipdeed">Moa Partnershipdeed</span></th>
                     <th><span data-translate="investhryApp.companydetail.registration_document">Registration Document</span></th>
@@ -49,39 +49,18 @@
                     <td>{{companydetail.businessentity}}</td>
                     <td>{{companydetail.businessentitytype}}</td>
                     <td>{{companydetail.director_promoter_md_ceo_number}}</td>
-                    <td>
-                        <a ng-if="companydetail.director_md_ceo_list" ng-click="vm.openFile(companydetail.director_md_ceo_listContentType, companydetail.director_md_ceo_list)" data-translate="entity.action.open">open</a>
-                        <span ng-if="companydetail.director_md_ceo_list">{{companydetail.director_md_ceo_listContentType}}, {{vm.byteSize(companydetail.director_md_ceo_list)}}</span>
-                    </td>
                     <td>{{companydetail.pan_number}}</td>
-                    <td>
-                        <a ng-if="companydetail.pancard" ng-click="vm.openFile(companydetail.pancardContentType, companydetail.pancard)" data-translate="entity.action.open">open</a>
-                        <span ng-if="companydetail.pancard">{{companydetail.pancardContentType}}, {{vm.byteSize(companydetail.pancard)}}</span>
-                    </td>
                     <td>{{companydetail.aadhar_number}}</td>
-                    <td>
-                        <a ng-if="companydetail.aadharcard" ng-click="vm.openFile(companydetail.aadharcardContentType, companydetail.aadharcard)" data-translate="entity.action.open">open</a>
-                        <span ng-if="companydetail.aadharcard">{{companydetail.aadharcardContentType}}, {{vm.byteSize(companydetail.aadharcard)}}</span>
-                    </td>
                     <td>{{companydetail.nri}}</td>
                     <td>{{companydetail.tin_vat_number}}</td>
-                    <td>
-                        <a ng-if="companydetail.tin_vat_document" ng-click="vm.openFile(companydetail.tin_vat_documentContentType, companydetail.tin_vat_document)" data-translate="entity.action.open">open</a>
-                        <span ng-if="companydetail.tin_vat_document">{{companydetail.tin_vat_documentContentType}}, {{vm.byteSize(companydetail.tin_vat_document)}}</span>
-                    </td>
                     <td>{{companydetail.cst_number}}</td>
-                    <td>
-                        <a ng-if="companydetail.cst_document" ng-click="vm.openFile(companydetail.cst_documentContentType, companydetail.cst_document)" data-translate="entity.action.open">open</a>
-                        <span ng-if="companydetail.cst_document">{{companydetail.cst_documentContentType}}, {{vm.byteSize(companydetail.cst_document)}}</span>
-                    </td>
-                    <td>
-                        <a ng-if="companydetail.moa_partnershipdeed" ng-click="vm.openFile(companydetail.moa_partnershipdeedContentType, companydetail.moa_partnershipdeed)" data-translate="entity.action.open">open</a>
-                        <span ng-if="companydetail.moa_partnershipdeed">{{companydetail.moa_partnershipdeedContentType}}, {{vm.byteSize(companydetail.moa_partnershipdeed)}}</span>
-                    </td>
-                    <td>
-                        <a ng-if="companydetail.registration_document" ng-click="vm.openFile(companydetail.registration_documentContentType, companydetail.registration_document)" data-translate="entity.action.open">open</a>
-                        <span ng-if="companydetail.registration_document">{{companydetail.registration_documentContentType}}, {{vm.byteSize(companydetail.registration_document)}}</span>
-                    </td>
+                    <td>{{companydetail.director_md_ceo_list}}</td>
+                    <td>{{companydetail.pancard}}</td>
+                    <td>{{companydetail.aadharcard}}</td>
+                    <td>{{companydetail.tin_vat_document}}</td>
+                    <td>{{companydetail.cst_document}}</td>
+                    <td>{{companydetail.moa_partnershipdeed}}</td>
+                    <td>{{companydetail.registration_document}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

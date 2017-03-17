@@ -71,11 +71,6 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "khasra_document",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
-        },
-        {
             "fieldName": "liesunder_mc",
             "fieldType": "Boolean"
         },
@@ -86,21 +81,6 @@
         {
             "fieldName": "islocated_in_urban",
             "fieldType": "Boolean"
-        },
-        {
-            "fieldName": "revenu_shajra_document",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
-        },
-        {
-            "fieldName": "jamabandi",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
-        },
-        {
-            "fieldName": "nonencumbrance_certificate",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
         },
         {
             "fieldName": "totalproposedprojectarea",
@@ -115,42 +95,12 @@
             "fieldType": "Boolean"
         },
         {
-            "fieldName": "ownership_document",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
-        },
-        {
             "fieldName": "leaseapplicable",
             "fieldType": "Boolean"
         },
         {
-            "fieldName": "lease_document",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
-        },
-        {
             "fieldName": "landagreementapplicable",
             "fieldType": "Boolean"
-        },
-        {
-            "fieldName": "landagreement_document",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
-        },
-        {
-            "fieldName": "sitelayoutplan",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
-        },
-        {
-            "fieldName": "locationplan",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
-        },
-        {
-            "fieldName": "linearstripplan",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
         },
         {
             "fieldName": "connectingroad",
@@ -174,11 +124,6 @@
             "fieldType": "UUID"
         },
         {
-            "fieldName": "sitesituated_document",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
-        },
-        {
             "fieldName": "buildingexisted",
             "fieldType": "UUID"
         },
@@ -187,18 +132,56 @@
             "fieldType": "Boolean"
         },
         {
-            "fieldName": "buildingplan_document",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
-        },
-        {
             "fieldName": "site_situated_in_controlled_area",
             "fieldType": "Boolean"
         },
         {
+            "fieldName": "khasra_document",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "revenu_shajra_document",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "jamabandi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nonencumbrance_certificate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ownership_document",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lease_document",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "landagreement_document",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sitelayoutplan",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "locationplan",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "linearstripplan",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sitesituated_document",
+            "fieldType": "String"
+        },
+        {
             "fieldName": "controlledarea_document",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313114208",

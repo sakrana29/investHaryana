@@ -79,28 +79,6 @@
                     ng-model="vm.environment_impactdetail.waste_water_treatment"
                     />
         </div>
-        <div class="form-group" ngf-drop ngf-change="vm.setDocument_attached($file, vm.environment_impactdetail)">
-            <label class="control-label" data-translate="investhryApp.environment_impactdetail.document_attached" for="field_document_attached">Document Attached</label>
-            <div>
-                <div ng-if="vm.environment_impactdetail.document_attached" class="help-block clearfix">
-                    <a class="pull-left" ng-click="vm.openFile(vm.environment_impactdetail.document_attachedContentType, vm.environment_impactdetail.document_attached)" data-translate="entity.action.open">open</a><br>
-                    <span class="pull-left">{{vm.environment_impactdetail.document_attachedContentType}}, {{vm.byteSize(vm.environment_impactdetail.document_attached)}}</span>
-                    <button type="button" ng-click="vm.environment_impactdetail.document_attached=null;vm.environment_impactdetail.document_attachedContentType=null;"
-                            class="btn btn-default btn-xs pull-right">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </div>
-                <button type="button" ngf-select class="btn btn-default btn-block"
-                        ngf-change="vm.setDocument_attached($file, vm.environment_impactdetail)" data-translate="entity.action.addblob">
-                    Add blob
-                </button>
-            </div>
-            <input type="hidden" class="form-control" name="document_attached" id="field_document_attached"
-                    ng-model="vm.environment_impactdetail.document_attached"
-                    />
-            <input type="hidden" class="form-control" name="document_attachedContentType" id="field_document_attachedContentType"
-                    ng-model="vm.environment_impactdetail.document_attachedContentType" />
-        </div>
         <div class="form-group">
             <label class="control-label" data-translate="investhryApp.environment_impactdetail.mode_of_disposal_for_discharge" for="field_mode_of_disposal_for_discharge">Mode Of Disposal For Discharge</label>
             <input type="text" class="form-control" name="mode_of_disposal_for_discharge" id="field_mode_of_disposal_for_discharge"
@@ -117,6 +95,12 @@
             <label class="control-label" data-translate="investhryApp.environment_impactdetail.wastewaterdetailid" for="field_wastewaterdetailid">Wastewaterdetailid</label>
             <input type="text" class="form-control" name="wastewaterdetailid" id="field_wastewaterdetailid"
                     ng-model="vm.environment_impactdetail.wastewaterdetailid"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.environment_impactdetail.document_attached" for="field_document_attached">Document Attached</label>
+            <input type="text" class="form-control" name="document_attached" id="field_document_attached"
+                    ng-model="vm.environment_impactdetail.document_attached"
                     />
         </div>
 

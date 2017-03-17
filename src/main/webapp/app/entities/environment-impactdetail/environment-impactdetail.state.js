@@ -115,11 +115,10 @@
                                 waste_water_domesting: null,
                                 waste_water_other: null,
                                 waste_water_treatment: null,
-                                document_attached: null,
-                                document_attachedContentType: null,
                                 mode_of_disposal_for_discharge: null,
                                 emissionid: null,
                                 wastewaterdetailid: null,
+                                document_attached: null,
                                 id: null
                             };
                         }

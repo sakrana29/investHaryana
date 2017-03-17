@@ -2,7 +2,6 @@ package com.hartron.investharyana.service.dto;
 
 
 import java.io.Serializable;
-import java.nio.ByteBuffer;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -21,8 +20,7 @@ public class ManufacturingdetailDTO implements Serializable {
 
     private UUID processid;
 
-    private ByteBuffer manufacturing_flow_document;
-    private String manufacturing_flow_documentContentType;
+    private String manufacturing_flow_document;
 
     public UUID getId() {
         return id;
@@ -59,20 +57,12 @@ public class ManufacturingdetailDTO implements Serializable {
     public void setProcessid(UUID processid) {
         this.processid = processid;
     }
-    public ByteBuffer getManufacturing_flow_document() {
+    public String getManufacturing_flow_document() {
         return manufacturing_flow_document;
     }
 
-    public void setManufacturing_flow_document(ByteBuffer manufacturing_flow_document) {
+    public void setManufacturing_flow_document(String manufacturing_flow_document) {
         this.manufacturing_flow_document = manufacturing_flow_document;
-    }
-
-    public String getManufacturing_flow_documentContentType() {
-        return manufacturing_flow_documentContentType;
-    }
-
-    public void setManufacturing_flow_documentContentType(String manufacturing_flow_documentContentType) {
-        this.manufacturing_flow_documentContentType = manufacturing_flow_documentContentType;
     }
 
     @Override

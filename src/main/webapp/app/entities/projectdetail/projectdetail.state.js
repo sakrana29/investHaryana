@@ -112,15 +112,12 @@
                                 niccode: null,
                                 category_of_project: null,
                                 collaboration_with_foreign_country: null,
-                                detail_project_report: null,
-                                detail_project_reportContentType: null,
                                 existing_regulatory_approval: null,
                                 approval_application_form: null,
-                                approval_document: null,
-                                approval_documentContentType: null,
-                                edc_sif_clu_fee_paid_document: null,
-                                edc_sif_clu_fee_paid_documentContentType: null,
                                 edc_sif_clu_fee_paid_applicable: null,
+                                detail_project_report: null,
+                                approval_document: null,
+                                edc_sif_clu_fee_paid_document: null,
                                 id: null
                             };
                         }

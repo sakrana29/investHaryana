@@ -68,7 +68,7 @@ class Environment_impactdetailGatlingTest extends Simulation {
             .exec(http("Create new environment_impactdetail")
             .post("/api/environment-impactdetails")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "projectid":null, "source_of_water_supply":null, "water_process":"0", "water_cooling":"0", "water_domestic":"0", "water_other":"0", "waste_water_process":"0", "waste_water_cooling":"0", "waste_water_domesting":"0", "waste_water_other":"0", "waste_water_treatment":"SAMPLE_TEXT", "document_attached":null, "mode_of_disposal_for_discharge":null, "emissionid":null, "wastewaterdetailid":null}""")).asJSON
+            .body(StringBody("""{"id":null, "projectid":null, "source_of_water_supply":null, "water_process":"0", "water_cooling":"0", "water_domestic":"0", "water_other":"0", "waste_water_process":"0", "waste_water_cooling":"0", "waste_water_domesting":"0", "waste_water_other":"0", "waste_water_treatment":"SAMPLE_TEXT", "mode_of_disposal_for_discharge":null, "emissionid":null, "wastewaterdetailid":null, "document_attached":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_environment_impactdetail_url"))).exitHereIfFailed
             .pause(10)

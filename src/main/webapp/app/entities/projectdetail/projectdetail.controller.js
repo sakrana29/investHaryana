@@ -5,15 +5,13 @@
         .module('investhryApp')
         .controller('ProjectdetailController', ProjectdetailController);
 
-    ProjectdetailController.$inject = ['DataUtils', 'Projectdetail'];
+    ProjectdetailController.$inject = ['Projectdetail'];
 
-    function ProjectdetailController(DataUtils, Projectdetail) {
+    function ProjectdetailController(Projectdetail) {
 
         var vm = this;
 
         vm.projectdetails = [];
-        vm.openFile = DataUtils.openFile;
-        vm.byteSize = DataUtils.byteSize;
 
         loadAll();
 

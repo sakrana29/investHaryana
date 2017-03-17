@@ -30,10 +30,10 @@
                     <th><span data-translate="investhryApp.environment_impactdetail.waste_water_domesting">Waste Water Domesting</span></th>
                     <th><span data-translate="investhryApp.environment_impactdetail.waste_water_other">Waste Water Other</span></th>
                     <th><span data-translate="investhryApp.environment_impactdetail.waste_water_treatment">Waste Water Treatment</span></th>
-                    <th><span data-translate="investhryApp.environment_impactdetail.document_attached">Document Attached</span></th>
                     <th><span data-translate="investhryApp.environment_impactdetail.mode_of_disposal_for_discharge">Mode Of Disposal For Discharge</span></th>
                     <th><span data-translate="investhryApp.environment_impactdetail.emissionid">Emissionid</span></th>
                     <th><span data-translate="investhryApp.environment_impactdetail.wastewaterdetailid">Wastewaterdetailid</span></th>
+                    <th><span data-translate="investhryApp.environment_impactdetail.document_attached">Document Attached</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -51,13 +51,10 @@
                     <td>{{environment_impactdetail.waste_water_domesting}}</td>
                     <td>{{environment_impactdetail.waste_water_other}}</td>
                     <td>{{environment_impactdetail.waste_water_treatment}}</td>
-                    <td>
-                        <a ng-if="environment_impactdetail.document_attached" ng-click="vm.openFile(environment_impactdetail.document_attachedContentType, environment_impactdetail.document_attached)" data-translate="entity.action.open">open</a>
-                        <span ng-if="environment_impactdetail.document_attached">{{environment_impactdetail.document_attachedContentType}}, {{vm.byteSize(environment_impactdetail.document_attached)}}</span>
-                    </td>
                     <td>{{environment_impactdetail.mode_of_disposal_for_discharge}}</td>
                     <td>{{environment_impactdetail.emissionid}}</td>
                     <td>{{environment_impactdetail.wastewaterdetailid}}</td>
+                    <td>{{environment_impactdetail.document_attached}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

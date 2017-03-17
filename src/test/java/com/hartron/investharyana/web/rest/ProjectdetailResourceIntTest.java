@@ -22,9 +22,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.util.Base64Utils;
 
-import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.UUID;
 
@@ -66,29 +64,23 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
     private static final UUID DEFAULT_COLLABORATION_WITH_FOREIGN_COUNTRY = UUID.randomUUID();
     private static final UUID UPDATED_COLLABORATION_WITH_FOREIGN_COUNTRY = UUID.randomUUID();
 
-    private static final ByteBuffer DEFAULT_DETAIL_PROJECT_REPORT = ByteBuffer.wrap(TestUtil.createByteArray(1, "0"));
-    private static final ByteBuffer UPDATED_DETAIL_PROJECT_REPORT = ByteBuffer.wrap(TestUtil.createByteArray(2, "1"));
-    private static final String DEFAULT_DETAIL_PROJECT_REPORT_CONTENT_TYPE = "image/jpg";
-    private static final String UPDATED_DETAIL_PROJECT_REPORT_CONTENT_TYPE = "image/png";
-
     private static final Boolean DEFAULT_EXISTING_REGULATORY_APPROVAL = false;
     private static final Boolean UPDATED_EXISTING_REGULATORY_APPROVAL = true;
 
     private static final UUID DEFAULT_APPROVAL_APPLICATION_FORM = UUID.randomUUID();
     private static final UUID UPDATED_APPROVAL_APPLICATION_FORM = UUID.randomUUID();
 
-    private static final ByteBuffer DEFAULT_APPROVAL_DOCUMENT = ByteBuffer.wrap(TestUtil.createByteArray(1, "0"));
-    private static final ByteBuffer UPDATED_APPROVAL_DOCUMENT = ByteBuffer.wrap(TestUtil.createByteArray(2, "1"));
-    private static final String DEFAULT_APPROVAL_DOCUMENT_CONTENT_TYPE = "image/jpg";
-    private static final String UPDATED_APPROVAL_DOCUMENT_CONTENT_TYPE = "image/png";
-
-    private static final ByteBuffer DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT = ByteBuffer.wrap(TestUtil.createByteArray(1, "0"));
-    private static final ByteBuffer UPDATED_EDC_SIF_CLU_FEE_PAID_DOCUMENT = ByteBuffer.wrap(TestUtil.createByteArray(2, "1"));
-    private static final String DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT_CONTENT_TYPE = "image/jpg";
-    private static final String UPDATED_EDC_SIF_CLU_FEE_PAID_DOCUMENT_CONTENT_TYPE = "image/png";
-
     private static final Boolean DEFAULT_EDC_SIF_CLU_FEE_PAID_APPLICABLE = false;
     private static final Boolean UPDATED_EDC_SIF_CLU_FEE_PAID_APPLICABLE = true;
+
+    private static final String DEFAULT_DETAIL_PROJECT_REPORT = "AAAAAAAAAA";
+    private static final String UPDATED_DETAIL_PROJECT_REPORT = "BBBBBBBBBB";
+
+    private static final String DEFAULT_APPROVAL_DOCUMENT = "AAAAAAAAAA";
+    private static final String UPDATED_APPROVAL_DOCUMENT = "BBBBBBBBBB";
+
+    private static final String DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT = "AAAAAAAAAA";
+    private static final String UPDATED_EDC_SIF_CLU_FEE_PAID_DOCUMENT = "BBBBBBBBBB";
 
     @Autowired
     private ProjectdetailRepository projectdetailRepository;
@@ -138,15 +130,12 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
                 .niccode(DEFAULT_NICCODE)
                 .category_of_project(DEFAULT_CATEGORY_OF_PROJECT)
                 .collaboration_with_foreign_country(DEFAULT_COLLABORATION_WITH_FOREIGN_COUNTRY)
-                .detail_project_report(DEFAULT_DETAIL_PROJECT_REPORT)
-                .detail_project_reportContentType(DEFAULT_DETAIL_PROJECT_REPORT_CONTENT_TYPE)
                 .existing_regulatory_approval(DEFAULT_EXISTING_REGULATORY_APPROVAL)
                 .approval_application_form(DEFAULT_APPROVAL_APPLICATION_FORM)
+                .edc_sif_clu_fee_paid_applicable(DEFAULT_EDC_SIF_CLU_FEE_PAID_APPLICABLE)
+                .detail_project_report(DEFAULT_DETAIL_PROJECT_REPORT)
                 .approval_document(DEFAULT_APPROVAL_DOCUMENT)
-                .approval_documentContentType(DEFAULT_APPROVAL_DOCUMENT_CONTENT_TYPE)
-                .edc_sif_clu_fee_paid_document(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT)
-                .edc_sif_clu_fee_paid_documentContentType(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT_CONTENT_TYPE)
-                .edc_sif_clu_fee_paid_applicable(DEFAULT_EDC_SIF_CLU_FEE_PAID_APPLICABLE);
+                .edc_sif_clu_fee_paid_document(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT);
         return projectdetail;
     }
 
@@ -180,15 +169,12 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectdetail.getNiccode()).isEqualTo(DEFAULT_NICCODE);
         assertThat(testProjectdetail.getCategory_of_project()).isEqualTo(DEFAULT_CATEGORY_OF_PROJECT);
         assertThat(testProjectdetail.getCollaboration_with_foreign_country()).isEqualTo(DEFAULT_COLLABORATION_WITH_FOREIGN_COUNTRY);
-        assertThat(testProjectdetail.getDetail_project_report()).isEqualTo(DEFAULT_DETAIL_PROJECT_REPORT);
-        assertThat(testProjectdetail.getDetail_project_reportContentType()).isEqualTo(DEFAULT_DETAIL_PROJECT_REPORT_CONTENT_TYPE);
         assertThat(testProjectdetail.isExisting_regulatory_approval()).isEqualTo(DEFAULT_EXISTING_REGULATORY_APPROVAL);
         assertThat(testProjectdetail.getApproval_application_form()).isEqualTo(DEFAULT_APPROVAL_APPLICATION_FORM);
-        assertThat(testProjectdetail.getApproval_document()).isEqualTo(DEFAULT_APPROVAL_DOCUMENT);
-        assertThat(testProjectdetail.getApproval_documentContentType()).isEqualTo(DEFAULT_APPROVAL_DOCUMENT_CONTENT_TYPE);
-        assertThat(testProjectdetail.getEdc_sif_clu_fee_paid_document()).isEqualTo(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT);
-        assertThat(testProjectdetail.getEdc_sif_clu_fee_paid_documentContentType()).isEqualTo(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT_CONTENT_TYPE);
         assertThat(testProjectdetail.isEdc_sif_clu_fee_paid_applicable()).isEqualTo(DEFAULT_EDC_SIF_CLU_FEE_PAID_APPLICABLE);
+        assertThat(testProjectdetail.getDetail_project_report()).isEqualTo(DEFAULT_DETAIL_PROJECT_REPORT);
+        assertThat(testProjectdetail.getApproval_document()).isEqualTo(DEFAULT_APPROVAL_DOCUMENT);
+        assertThat(testProjectdetail.getEdc_sif_clu_fee_paid_document()).isEqualTo(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT);
     }
 
     @Test
@@ -229,15 +215,12 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].niccode").value(hasItem(DEFAULT_NICCODE.toString())))
             .andExpect(jsonPath("$.[*].category_of_project").value(hasItem(DEFAULT_CATEGORY_OF_PROJECT.toString())))
             .andExpect(jsonPath("$.[*].collaboration_with_foreign_country").value(hasItem(DEFAULT_COLLABORATION_WITH_FOREIGN_COUNTRY.toString())))
-            .andExpect(jsonPath("$.[*].detail_project_reportContentType").value(hasItem(DEFAULT_DETAIL_PROJECT_REPORT_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].detail_project_report").value(hasItem(Base64Utils.encodeToString(DEFAULT_DETAIL_PROJECT_REPORT.array()))))
             .andExpect(jsonPath("$.[*].existing_regulatory_approval").value(hasItem(DEFAULT_EXISTING_REGULATORY_APPROVAL.booleanValue())))
             .andExpect(jsonPath("$.[*].approval_application_form").value(hasItem(DEFAULT_APPROVAL_APPLICATION_FORM.toString())))
-            .andExpect(jsonPath("$.[*].approval_documentContentType").value(hasItem(DEFAULT_APPROVAL_DOCUMENT_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].approval_document").value(hasItem(Base64Utils.encodeToString(DEFAULT_APPROVAL_DOCUMENT.array()))))
-            .andExpect(jsonPath("$.[*].edc_sif_clu_fee_paid_documentContentType").value(hasItem(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].edc_sif_clu_fee_paid_document").value(hasItem(Base64Utils.encodeToString(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT.array()))))
-            .andExpect(jsonPath("$.[*].edc_sif_clu_fee_paid_applicable").value(hasItem(DEFAULT_EDC_SIF_CLU_FEE_PAID_APPLICABLE.booleanValue())));
+            .andExpect(jsonPath("$.[*].edc_sif_clu_fee_paid_applicable").value(hasItem(DEFAULT_EDC_SIF_CLU_FEE_PAID_APPLICABLE.booleanValue())))
+            .andExpect(jsonPath("$.[*].detail_project_report").value(hasItem(DEFAULT_DETAIL_PROJECT_REPORT.toString())))
+            .andExpect(jsonPath("$.[*].approval_document").value(hasItem(DEFAULT_APPROVAL_DOCUMENT.toString())))
+            .andExpect(jsonPath("$.[*].edc_sif_clu_fee_paid_document").value(hasItem(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT.toString())));
     }
 
     @Test
@@ -258,15 +241,12 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.niccode").value(DEFAULT_NICCODE.toString()))
             .andExpect(jsonPath("$.category_of_project").value(DEFAULT_CATEGORY_OF_PROJECT.toString()))
             .andExpect(jsonPath("$.collaboration_with_foreign_country").value(DEFAULT_COLLABORATION_WITH_FOREIGN_COUNTRY.toString()))
-            .andExpect(jsonPath("$.detail_project_reportContentType").value(DEFAULT_DETAIL_PROJECT_REPORT_CONTENT_TYPE))
-            .andExpect(jsonPath("$.detail_project_report").value(Base64Utils.encodeToString(DEFAULT_DETAIL_PROJECT_REPORT.array())))
             .andExpect(jsonPath("$.existing_regulatory_approval").value(DEFAULT_EXISTING_REGULATORY_APPROVAL.booleanValue()))
             .andExpect(jsonPath("$.approval_application_form").value(DEFAULT_APPROVAL_APPLICATION_FORM.toString()))
-            .andExpect(jsonPath("$.approval_documentContentType").value(DEFAULT_APPROVAL_DOCUMENT_CONTENT_TYPE))
-            .andExpect(jsonPath("$.approval_document").value(Base64Utils.encodeToString(DEFAULT_APPROVAL_DOCUMENT.array())))
-            .andExpect(jsonPath("$.edc_sif_clu_fee_paid_documentContentType").value(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT_CONTENT_TYPE))
-            .andExpect(jsonPath("$.edc_sif_clu_fee_paid_document").value(Base64Utils.encodeToString(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT.array())))
-            .andExpect(jsonPath("$.edc_sif_clu_fee_paid_applicable").value(DEFAULT_EDC_SIF_CLU_FEE_PAID_APPLICABLE.booleanValue()));
+            .andExpect(jsonPath("$.edc_sif_clu_fee_paid_applicable").value(DEFAULT_EDC_SIF_CLU_FEE_PAID_APPLICABLE.booleanValue()))
+            .andExpect(jsonPath("$.detail_project_report").value(DEFAULT_DETAIL_PROJECT_REPORT.toString()))
+            .andExpect(jsonPath("$.approval_document").value(DEFAULT_APPROVAL_DOCUMENT.toString()))
+            .andExpect(jsonPath("$.edc_sif_clu_fee_paid_document").value(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT.toString()));
     }
 
     @Test
@@ -293,15 +273,12 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
                 .niccode(UPDATED_NICCODE)
                 .category_of_project(UPDATED_CATEGORY_OF_PROJECT)
                 .collaboration_with_foreign_country(UPDATED_COLLABORATION_WITH_FOREIGN_COUNTRY)
-                .detail_project_report(UPDATED_DETAIL_PROJECT_REPORT)
-                .detail_project_reportContentType(UPDATED_DETAIL_PROJECT_REPORT_CONTENT_TYPE)
                 .existing_regulatory_approval(UPDATED_EXISTING_REGULATORY_APPROVAL)
                 .approval_application_form(UPDATED_APPROVAL_APPLICATION_FORM)
+                .edc_sif_clu_fee_paid_applicable(UPDATED_EDC_SIF_CLU_FEE_PAID_APPLICABLE)
+                .detail_project_report(UPDATED_DETAIL_PROJECT_REPORT)
                 .approval_document(UPDATED_APPROVAL_DOCUMENT)
-                .approval_documentContentType(UPDATED_APPROVAL_DOCUMENT_CONTENT_TYPE)
-                .edc_sif_clu_fee_paid_document(UPDATED_EDC_SIF_CLU_FEE_PAID_DOCUMENT)
-                .edc_sif_clu_fee_paid_documentContentType(UPDATED_EDC_SIF_CLU_FEE_PAID_DOCUMENT_CONTENT_TYPE)
-                .edc_sif_clu_fee_paid_applicable(UPDATED_EDC_SIF_CLU_FEE_PAID_APPLICABLE);
+                .edc_sif_clu_fee_paid_document(UPDATED_EDC_SIF_CLU_FEE_PAID_DOCUMENT);
         ProjectdetailDTO projectdetailDTO = projectdetailMapper.projectdetailToProjectdetailDTO(updatedProjectdetail);
 
         restProjectdetailMockMvc.perform(put("/api/projectdetails")
@@ -321,15 +298,12 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectdetail.getNiccode()).isEqualTo(UPDATED_NICCODE);
         assertThat(testProjectdetail.getCategory_of_project()).isEqualTo(UPDATED_CATEGORY_OF_PROJECT);
         assertThat(testProjectdetail.getCollaboration_with_foreign_country()).isEqualTo(UPDATED_COLLABORATION_WITH_FOREIGN_COUNTRY);
-        assertThat(testProjectdetail.getDetail_project_report()).isEqualTo(UPDATED_DETAIL_PROJECT_REPORT);
-        assertThat(testProjectdetail.getDetail_project_reportContentType()).isEqualTo(UPDATED_DETAIL_PROJECT_REPORT_CONTENT_TYPE);
         assertThat(testProjectdetail.isExisting_regulatory_approval()).isEqualTo(UPDATED_EXISTING_REGULATORY_APPROVAL);
         assertThat(testProjectdetail.getApproval_application_form()).isEqualTo(UPDATED_APPROVAL_APPLICATION_FORM);
-        assertThat(testProjectdetail.getApproval_document()).isEqualTo(UPDATED_APPROVAL_DOCUMENT);
-        assertThat(testProjectdetail.getApproval_documentContentType()).isEqualTo(UPDATED_APPROVAL_DOCUMENT_CONTENT_TYPE);
-        assertThat(testProjectdetail.getEdc_sif_clu_fee_paid_document()).isEqualTo(UPDATED_EDC_SIF_CLU_FEE_PAID_DOCUMENT);
-        assertThat(testProjectdetail.getEdc_sif_clu_fee_paid_documentContentType()).isEqualTo(UPDATED_EDC_SIF_CLU_FEE_PAID_DOCUMENT_CONTENT_TYPE);
         assertThat(testProjectdetail.isEdc_sif_clu_fee_paid_applicable()).isEqualTo(UPDATED_EDC_SIF_CLU_FEE_PAID_APPLICABLE);
+        assertThat(testProjectdetail.getDetail_project_report()).isEqualTo(UPDATED_DETAIL_PROJECT_REPORT);
+        assertThat(testProjectdetail.getApproval_document()).isEqualTo(UPDATED_APPROVAL_DOCUMENT);
+        assertThat(testProjectdetail.getEdc_sif_clu_fee_paid_document()).isEqualTo(UPDATED_EDC_SIF_CLU_FEE_PAID_DOCUMENT);
     }
 
     @Test

@@ -5,15 +5,13 @@
         .module('investhryApp')
         .controller('ManufacturingdetailController', ManufacturingdetailController);
 
-    ManufacturingdetailController.$inject = ['DataUtils', 'Manufacturingdetail'];
+    ManufacturingdetailController.$inject = ['Manufacturingdetail'];
 
-    function ManufacturingdetailController(DataUtils, Manufacturingdetail) {
+    function ManufacturingdetailController(Manufacturingdetail) {
 
         var vm = this;
 
         vm.manufacturingdetails = [];
-        vm.openFile = DataUtils.openFile;
-        vm.byteSize = DataUtils.byteSize;
 
         loadAll();
 

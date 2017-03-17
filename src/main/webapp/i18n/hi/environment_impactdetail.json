@@ -26,10 +26,10 @@
             "waste_water_domesting": "Waste Water Domesting",
             "waste_water_other": "Waste Water Other",
             "waste_water_treatment": "Waste Water Treatment",
-            "document_attached": "Document Attached",
             "mode_of_disposal_for_discharge": "Mode Of Disposal For Discharge",
             "emissionid": "Emissionid",
-            "wastewaterdetailid": "Wastewaterdetailid"
+            "wastewaterdetailid": "Wastewaterdetailid",
+            "document_attached": "Document Attached"
         }
     }
 }

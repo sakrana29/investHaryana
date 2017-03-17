@@ -34,10 +34,7 @@
                     <td>{{manufacturingdetail.projectrawmaterialid}}</td>
                     <td>{{manufacturingdetail.productid}}</td>
                     <td>{{manufacturingdetail.processid}}</td>
-                    <td>
-                        <a ng-if="manufacturingdetail.manufacturing_flow_document" ng-click="vm.openFile(manufacturingdetail.manufacturing_flow_documentContentType, manufacturingdetail.manufacturing_flow_document)" data-translate="entity.action.open">open</a>
-                        <span ng-if="manufacturingdetail.manufacturing_flow_document">{{manufacturingdetail.manufacturing_flow_documentContentType}}, {{vm.byteSize(manufacturingdetail.manufacturing_flow_document)}}</span>
-                    </td>
+                    <td>{{manufacturingdetail.manufacturing_flow_document}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

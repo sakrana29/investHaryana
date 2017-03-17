@@ -5,15 +5,13 @@
         .module('investhryApp')
         .controller('CompanydetailController', CompanydetailController);
 
-    CompanydetailController.$inject = ['DataUtils', 'Companydetail'];
+    CompanydetailController.$inject = ['Companydetail'];
 
-    function CompanydetailController(DataUtils, Companydetail) {
+    function CompanydetailController(Companydetail) {
 
         var vm = this;
 
         vm.companydetails = [];
-        vm.openFile = DataUtils.openFile;
-        vm.byteSize = DataUtils.byteSize;
 
         loadAll();
 

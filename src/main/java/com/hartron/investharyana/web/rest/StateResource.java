@@ -29,7 +29,7 @@ public class StateResource {
     private final Logger log = LoggerFactory.getLogger(StateResource.class);
 
     private static final String ENTITY_NAME = "state";
-
+        
     private final StateService stateService;
 
     public StateResource(StateService stateService) {
@@ -103,14 +103,6 @@ public class StateResource {
         StateDTO stateDTO = stateService.findOne(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(stateDTO));
     }
-
-    @GetMapping("/states/country/{countryid}")
-    @Timed
-    public List<StateDTO> getStateByCountry(@PathVariable String countryid) {
-        log.debug("REST request to get State by Country: {}", countryid);
-        return stateService.findStateByCountry(countryid);
-    }
-
 
     /**
      * DELETE  /states/:id : delete the "id" state.

@@ -2,7 +2,6 @@ package com.hartron.investharyana.service.dto;
 
 
 import java.io.Serializable;
-import java.nio.ByteBuffer;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -35,14 +34,13 @@ public class Environment_impactdetailDTO implements Serializable {
 
     private String waste_water_treatment;
 
-    private ByteBuffer document_attached;
-    private String document_attachedContentType;
-
     private UUID mode_of_disposal_for_discharge;
 
     private UUID emissionid;
 
     private UUID wastewaterdetailid;
+
+    private String document_attached;
 
     public UUID getId() {
         return id;
@@ -128,21 +126,6 @@ public class Environment_impactdetailDTO implements Serializable {
     public void setWaste_water_treatment(String waste_water_treatment) {
         this.waste_water_treatment = waste_water_treatment;
     }
-    public ByteBuffer getDocument_attached() {
-        return document_attached;
-    }
-
-    public void setDocument_attached(ByteBuffer document_attached) {
-        this.document_attached = document_attached;
-    }
-
-    public String getDocument_attachedContentType() {
-        return document_attachedContentType;
-    }
-
-    public void setDocument_attachedContentType(String document_attachedContentType) {
-        this.document_attachedContentType = document_attachedContentType;
-    }
     public UUID getMode_of_disposal_for_discharge() {
         return mode_of_disposal_for_discharge;
     }
@@ -163,6 +146,13 @@ public class Environment_impactdetailDTO implements Serializable {
 
     public void setWastewaterdetailid(UUID wastewaterdetailid) {
         this.wastewaterdetailid = wastewaterdetailid;
+    }
+    public String getDocument_attached() {
+        return document_attached;
+    }
+
+    public void setDocument_attached(String document_attached) {
+        this.document_attached = document_attached;
     }
 
     @Override
@@ -201,10 +191,10 @@ public class Environment_impactdetailDTO implements Serializable {
             ", waste_water_domesting='" + waste_water_domesting + "'" +
             ", waste_water_other='" + waste_water_other + "'" +
             ", waste_water_treatment='" + waste_water_treatment + "'" +
-            ", document_attached='" + document_attached + "'" +
             ", mode_of_disposal_for_discharge='" + mode_of_disposal_for_discharge + "'" +
             ", emissionid='" + emissionid + "'" +
             ", wastewaterdetailid='" + wastewaterdetailid + "'" +
+            ", document_attached='" + document_attached + "'" +
             '}';
     }
 }

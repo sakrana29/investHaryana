@@ -5,7 +5,6 @@ CREATE TABLE IF NOT EXISTS manufacturingdetail (
     projectrawmaterialid uuid,
     productid uuid,
     processid uuid,
-    manufacturing_flow_document blob,
-    manufacturing_flow_document_content_type text,
+    manufacturing_flow_document text,
     PRIMARY KEY(id)
 );

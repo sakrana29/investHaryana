@@ -43,9 +43,7 @@ public class ManufacturingdetailRepository {
                 manufacturingdetail.setProjectrawmaterialid(row.getUUID("projectrawmaterialid"));
                 manufacturingdetail.setProductid(row.getUUID("productid"));
                 manufacturingdetail.setProcessid(row.getUUID("processid"));
-                manufacturingdetail.setManufacturing_flow_document(row.getBytes("manufacturing_flow_document"));
-                manufacturingdetail.setManufacturing_flow_documentContentType(row.getString("manufacturing_flow_document_content_type"));
-
+                manufacturingdetail.setManufacturing_flow_document(row.getString("manufacturing_flow_document"));
                 return manufacturingdetail;
             }
         ).forEach(manufacturingdetailsList::add);

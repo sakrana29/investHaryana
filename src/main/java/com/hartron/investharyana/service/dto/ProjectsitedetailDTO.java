@@ -3,7 +3,6 @@ package com.hartron.investharyana.service.dto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.nio.ByteBuffer;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -48,23 +47,11 @@ public class ProjectsitedetailDTO implements Serializable {
 
     private String hadbastno;
 
-    private ByteBuffer khasra_document;
-    private String khasra_documentContentType;
-
     private Boolean liesunder_mc;
 
     private Integer distance_from_mc;
 
     private Boolean islocated_in_urban;
-
-    private ByteBuffer revenu_shajra_document;
-    private String revenu_shajra_documentContentType;
-
-    private ByteBuffer jamabandi;
-    private String jamabandiContentType;
-
-    private ByteBuffer nonencumbrance_certificate;
-    private String nonencumbrance_certificateContentType;
 
     private BigDecimal totalproposedprojectarea;
 
@@ -72,27 +59,9 @@ public class ProjectsitedetailDTO implements Serializable {
 
     private Boolean certifiedownership;
 
-    private ByteBuffer ownership_document;
-    private String ownership_documentContentType;
-
     private Boolean leaseapplicable;
 
-    private ByteBuffer lease_document;
-    private String lease_documentContentType;
-
     private Boolean landagreementapplicable;
-
-    private ByteBuffer landagreement_document;
-    private String landagreement_documentContentType;
-
-    private ByteBuffer sitelayoutplan;
-    private String sitelayoutplanContentType;
-
-    private ByteBuffer locationplan;
-    private String locationplanContentType;
-
-    private ByteBuffer linearstripplan;
-    private String linearstripplanContentType;
 
     private UUID connectingroad;
 
@@ -104,20 +73,35 @@ public class ProjectsitedetailDTO implements Serializable {
 
     private UUID landzoneuse_type;
 
-    private ByteBuffer sitesituated_document;
-    private String sitesituated_documentContentType;
-
     private UUID buildingexisted;
 
     private Boolean existing_building_applicable;
 
-    private ByteBuffer buildingplan_document;
-    private String buildingplan_documentContentType;
-
     private Boolean site_situated_in_controlled_area;
 
-    private ByteBuffer controlledarea_document;
-    private String controlledarea_documentContentType;
+    private String khasra_document;
+
+    private String revenu_shajra_document;
+
+    private String jamabandi;
+
+    private String nonencumbrance_certificate;
+
+    private String ownership_document;
+
+    private String lease_document;
+
+    private String landagreement_document;
+
+    private String sitelayoutplan;
+
+    private String locationplan;
+
+    private String linearstripplan;
+
+    private String sitesituated_document;
+
+    private String controlledarea_document;
 
     public UUID getId() {
         return id;
@@ -245,21 +229,6 @@ public class ProjectsitedetailDTO implements Serializable {
     public void setHadbastno(String hadbastno) {
         this.hadbastno = hadbastno;
     }
-    public ByteBuffer getKhasra_document() {
-        return khasra_document;
-    }
-
-    public void setKhasra_document(ByteBuffer khasra_document) {
-        this.khasra_document = khasra_document;
-    }
-
-    public String getKhasra_documentContentType() {
-        return khasra_documentContentType;
-    }
-
-    public void setKhasra_documentContentType(String khasra_documentContentType) {
-        this.khasra_documentContentType = khasra_documentContentType;
-    }
     public Boolean getLiesunder_mc() {
         return liesunder_mc;
     }
@@ -280,51 +249,6 @@ public class ProjectsitedetailDTO implements Serializable {
 
     public void setIslocated_in_urban(Boolean islocated_in_urban) {
         this.islocated_in_urban = islocated_in_urban;
-    }
-    public ByteBuffer getRevenu_shajra_document() {
-        return revenu_shajra_document;
-    }
-
-    public void setRevenu_shajra_document(ByteBuffer revenu_shajra_document) {
-        this.revenu_shajra_document = revenu_shajra_document;
-    }
-
-    public String getRevenu_shajra_documentContentType() {
-        return revenu_shajra_documentContentType;
-    }
-
-    public void setRevenu_shajra_documentContentType(String revenu_shajra_documentContentType) {
-        this.revenu_shajra_documentContentType = revenu_shajra_documentContentType;
-    }
-    public ByteBuffer getJamabandi() {
-        return jamabandi;
-    }
-
-    public void setJamabandi(ByteBuffer jamabandi) {
-        this.jamabandi = jamabandi;
-    }
-
-    public String getJamabandiContentType() {
-        return jamabandiContentType;
-    }
-
-    public void setJamabandiContentType(String jamabandiContentType) {
-        this.jamabandiContentType = jamabandiContentType;
-    }
-    public ByteBuffer getNonencumbrance_certificate() {
-        return nonencumbrance_certificate;
-    }
-
-    public void setNonencumbrance_certificate(ByteBuffer nonencumbrance_certificate) {
-        this.nonencumbrance_certificate = nonencumbrance_certificate;
-    }
-
-    public String getNonencumbrance_certificateContentType() {
-        return nonencumbrance_certificateContentType;
-    }
-
-    public void setNonencumbrance_certificateContentType(String nonencumbrance_certificateContentType) {
-        this.nonencumbrance_certificateContentType = nonencumbrance_certificateContentType;
     }
     public BigDecimal getTotalproposedprojectarea() {
         return totalproposedprojectarea;
@@ -347,21 +271,6 @@ public class ProjectsitedetailDTO implements Serializable {
     public void setCertifiedownership(Boolean certifiedownership) {
         this.certifiedownership = certifiedownership;
     }
-    public ByteBuffer getOwnership_document() {
-        return ownership_document;
-    }
-
-    public void setOwnership_document(ByteBuffer ownership_document) {
-        this.ownership_document = ownership_document;
-    }
-
-    public String getOwnership_documentContentType() {
-        return ownership_documentContentType;
-    }
-
-    public void setOwnership_documentContentType(String ownership_documentContentType) {
-        this.ownership_documentContentType = ownership_documentContentType;
-    }
     public Boolean getLeaseapplicable() {
         return leaseapplicable;
     }
@@ -369,87 +278,12 @@ public class ProjectsitedetailDTO implements Serializable {
     public void setLeaseapplicable(Boolean leaseapplicable) {
         this.leaseapplicable = leaseapplicable;
     }
-    public ByteBuffer getLease_document() {
-        return lease_document;
-    }
-
-    public void setLease_document(ByteBuffer lease_document) {
-        this.lease_document = lease_document;
-    }
-
-    public String getLease_documentContentType() {
-        return lease_documentContentType;
-    }
-
-    public void setLease_documentContentType(String lease_documentContentType) {
-        this.lease_documentContentType = lease_documentContentType;
-    }
     public Boolean getLandagreementapplicable() {
         return landagreementapplicable;
     }
 
     public void setLandagreementapplicable(Boolean landagreementapplicable) {
         this.landagreementapplicable = landagreementapplicable;
-    }
-    public ByteBuffer getLandagreement_document() {
-        return landagreement_document;
-    }
-
-    public void setLandagreement_document(ByteBuffer landagreement_document) {
-        this.landagreement_document = landagreement_document;
-    }
-
-    public String getLandagreement_documentContentType() {
-        return landagreement_documentContentType;
-    }
-
-    public void setLandagreement_documentContentType(String landagreement_documentContentType) {
-        this.landagreement_documentContentType = landagreement_documentContentType;
-    }
-    public ByteBuffer getSitelayoutplan() {
-        return sitelayoutplan;
-    }
-
-    public void setSitelayoutplan(ByteBuffer sitelayoutplan) {
-        this.sitelayoutplan = sitelayoutplan;
-    }
-
-    public String getSitelayoutplanContentType() {
-        return sitelayoutplanContentType;
-    }
-
-    public void setSitelayoutplanContentType(String sitelayoutplanContentType) {
-        this.sitelayoutplanContentType = sitelayoutplanContentType;
-    }
-    public ByteBuffer getLocationplan() {
-        return locationplan;
-    }
-
-    public void setLocationplan(ByteBuffer locationplan) {
-        this.locationplan = locationplan;
-    }
-
-    public String getLocationplanContentType() {
-        return locationplanContentType;
-    }
-
-    public void setLocationplanContentType(String locationplanContentType) {
-        this.locationplanContentType = locationplanContentType;
-    }
-    public ByteBuffer getLinearstripplan() {
-        return linearstripplan;
-    }
-
-    public void setLinearstripplan(ByteBuffer linearstripplan) {
-        this.linearstripplan = linearstripplan;
-    }
-
-    public String getLinearstripplanContentType() {
-        return linearstripplanContentType;
-    }
-
-    public void setLinearstripplanContentType(String linearstripplanContentType) {
-        this.linearstripplanContentType = linearstripplanContentType;
     }
     public UUID getConnectingroad() {
         return connectingroad;
@@ -486,21 +320,6 @@ public class ProjectsitedetailDTO implements Serializable {
     public void setLandzoneuse_type(UUID landzoneuse_type) {
         this.landzoneuse_type = landzoneuse_type;
     }
-    public ByteBuffer getSitesituated_document() {
-        return sitesituated_document;
-    }
-
-    public void setSitesituated_document(ByteBuffer sitesituated_document) {
-        this.sitesituated_document = sitesituated_document;
-    }
-
-    public String getSitesituated_documentContentType() {
-        return sitesituated_documentContentType;
-    }
-
-    public void setSitesituated_documentContentType(String sitesituated_documentContentType) {
-        this.sitesituated_documentContentType = sitesituated_documentContentType;
-    }
     public UUID getBuildingexisted() {
         return buildingexisted;
     }
@@ -515,21 +334,6 @@ public class ProjectsitedetailDTO implements Serializable {
     public void setExisting_building_applicable(Boolean existing_building_applicable) {
         this.existing_building_applicable = existing_building_applicable;
     }
-    public ByteBuffer getBuildingplan_document() {
-        return buildingplan_document;
-    }
-
-    public void setBuildingplan_document(ByteBuffer buildingplan_document) {
-        this.buildingplan_document = buildingplan_document;
-    }
-
-    public String getBuildingplan_documentContentType() {
-        return buildingplan_documentContentType;
-    }
-
-    public void setBuildingplan_documentContentType(String buildingplan_documentContentType) {
-        this.buildingplan_documentContentType = buildingplan_documentContentType;
-    }
     public Boolean getSite_situated_in_controlled_area() {
         return site_situated_in_controlled_area;
     }
@@ -537,20 +341,89 @@ public class ProjectsitedetailDTO implements Serializable {
     public void setSite_situated_in_controlled_area(Boolean site_situated_in_controlled_area) {
         this.site_situated_in_controlled_area = site_situated_in_controlled_area;
     }
-    public ByteBuffer getControlledarea_document() {
+    public String getKhasra_document() {
+        return khasra_document;
+    }
+
+    public void setKhasra_document(String khasra_document) {
+        this.khasra_document = khasra_document;
+    }
+    public String getRevenu_shajra_document() {
+        return revenu_shajra_document;
+    }
+
+    public void setRevenu_shajra_document(String revenu_shajra_document) {
+        this.revenu_shajra_document = revenu_shajra_document;
+    }
+    public String getJamabandi() {
+        return jamabandi;
+    }
+
+    public void setJamabandi(String jamabandi) {
+        this.jamabandi = jamabandi;
+    }
+    public String getNonencumbrance_certificate() {
+        return nonencumbrance_certificate;
+    }
+
+    public void setNonencumbrance_certificate(String nonencumbrance_certificate) {
+        this.nonencumbrance_certificate = nonencumbrance_certificate;
+    }
+    public String getOwnership_document() {
+        return ownership_document;
+    }
+
+    public void setOwnership_document(String ownership_document) {
+        this.ownership_document = ownership_document;
+    }
+    public String getLease_document() {
+        return lease_document;
+    }
+
+    public void setLease_document(String lease_document) {
+        this.lease_document = lease_document;
+    }
+    public String getLandagreement_document() {
+        return landagreement_document;
+    }
+
+    public void setLandagreement_document(String landagreement_document) {
+        this.landagreement_document = landagreement_document;
+    }
+    public String getSitelayoutplan() {
+        return sitelayoutplan;
+    }
+
+    public void setSitelayoutplan(String sitelayoutplan) {
+        this.sitelayoutplan = sitelayoutplan;
+    }
+    public String getLocationplan() {
+        return locationplan;
+    }
+
+    public void setLocationplan(String locationplan) {
+        this.locationplan = locationplan;
+    }
+    public String getLinearstripplan() {
+        return linearstripplan;
+    }
+
+    public void setLinearstripplan(String linearstripplan) {
+        this.linearstripplan = linearstripplan;
+    }
+    public String getSitesituated_document() {
+        return sitesituated_document;
+    }
+
+    public void setSitesituated_document(String sitesituated_document) {
+        this.sitesituated_document = sitesituated_document;
+    }
+    public String getControlledarea_document() {
         return controlledarea_document;
     }
 
-    public void setControlledarea_document(ByteBuffer controlledarea_document) {
+    public void setControlledarea_document(String controlledarea_document) {
         this.controlledarea_document = controlledarea_document;
-    }
-
-    public String getControlledarea_documentContentType() {
-        return controlledarea_documentContentType;
-    }
-
-    public void setControlledarea_documentContentType(String controlledarea_documentContentType) {
-        this.controlledarea_documentContentType = controlledarea_documentContentType;
     }
 
     @Override
@@ -595,34 +468,33 @@ public class ProjectsitedetailDTO implements Serializable {
             ", sector='" + sector + "'" +
             ", plotno='" + plotno + "'" +
             ", hadbastno='" + hadbastno + "'" +
-            ", khasra_document='" + khasra_document + "'" +
             ", liesunder_mc='" + liesunder_mc + "'" +
             ", distance_from_mc='" + distance_from_mc + "'" +
             ", islocated_in_urban='" + islocated_in_urban + "'" +
-            ", revenu_shajra_document='" + revenu_shajra_document + "'" +
-            ", jamabandi='" + jamabandi + "'" +
-            ", nonencumbrance_certificate='" + nonencumbrance_certificate + "'" +
             ", totalproposedprojectarea='" + totalproposedprojectarea + "'" +
             ", proposedbuilt_up_area='" + proposedbuilt_up_area + "'" +
             ", certifiedownership='" + certifiedownership + "'" +
-            ", ownership_document='" + ownership_document + "'" +
             ", leaseapplicable='" + leaseapplicable + "'" +
-            ", lease_document='" + lease_document + "'" +
             ", landagreementapplicable='" + landagreementapplicable + "'" +
-            ", landagreement_document='" + landagreement_document + "'" +
-            ", sitelayoutplan='" + sitelayoutplan + "'" +
-            ", locationplan='" + locationplan + "'" +
-            ", linearstripplan='" + linearstripplan + "'" +
             ", connectingroad='" + connectingroad + "'" +
             ", intersectiondistance='" + intersectiondistance + "'" +
             ", railwaydistance='" + railwaydistance + "'" +
             ", confirmitylanduse='" + confirmitylanduse + "'" +
             ", landzoneuse_type='" + landzoneuse_type + "'" +
-            ", sitesituated_document='" + sitesituated_document + "'" +
             ", buildingexisted='" + buildingexisted + "'" +
             ", existing_building_applicable='" + existing_building_applicable + "'" +
-            ", buildingplan_document='" + buildingplan_document + "'" +
             ", site_situated_in_controlled_area='" + site_situated_in_controlled_area + "'" +
+            ", khasra_document='" + khasra_document + "'" +
+            ", revenu_shajra_document='" + revenu_shajra_document + "'" +
+            ", jamabandi='" + jamabandi + "'" +
+            ", nonencumbrance_certificate='" + nonencumbrance_certificate + "'" +
+            ", ownership_document='" + ownership_document + "'" +
+            ", lease_document='" + lease_document + "'" +
+            ", landagreement_document='" + landagreement_document + "'" +
+            ", sitelayoutplan='" + sitelayoutplan + "'" +
+            ", locationplan='" + locationplan + "'" +
+            ", linearstripplan='" + linearstripplan + "'" +
+            ", sitesituated_document='" + sitesituated_document + "'" +
             ", controlledarea_document='" + controlledarea_document + "'" +
             '}';
     }

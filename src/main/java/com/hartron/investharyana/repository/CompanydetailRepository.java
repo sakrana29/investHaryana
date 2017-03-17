@@ -45,32 +45,18 @@ public class CompanydetailRepository {
                 companydetail.setBusinessentity(row.getString("businessentity"));
                 companydetail.setBusinessentitytype(row.getUUID("businessentitytype"));
                 companydetail.setDirector_promoter_md_ceo_number(row.getInt("director_promoter_md_ceo_number"));
-                companydetail.setDirector_md_ceo_list(row.getBytes("director_md_ceo_list"));
-                companydetail.setDirector_md_ceo_listContentType(row.getString("director_md_ceo_list_content_type"));
-
                 companydetail.setPan_number(row.getString("pan_number"));
-                companydetail.setPancard(row.getBytes("pancard"));
-                companydetail.setPancardContentType(row.getString("pancard_content_type"));
-
                 companydetail.setAadhar_number(row.getString("aadhar_number"));
-                companydetail.setAadharcard(row.getBytes("aadharcard"));
-                companydetail.setAadharcardContentType(row.getString("aadharcard_content_type"));
-
                 companydetail.setNri(row.getBool("nri"));
                 companydetail.setTin_vat_number(row.getString("tin_vat_number"));
-                companydetail.setTin_vat_document(row.getBytes("tin_vat_document"));
-                companydetail.setTin_vat_documentContentType(row.getString("tin_vat_document_content_type"));
-
                 companydetail.setCst_number(row.getString("cst_number"));
-                companydetail.setCst_document(row.getBytes("cst_document"));
-                companydetail.setCst_documentContentType(row.getString("cst_document_content_type"));
-
-                companydetail.setMoa_partnershipdeed(row.getBytes("moa_partnershipdeed"));
-                companydetail.setMoa_partnershipdeedContentType(row.getString("moa_partnershipdeed_content_type"));
-
-                companydetail.setRegistration_document(row.getBytes("registration_document"));
-                companydetail.setRegistration_documentContentType(row.getString("registration_document_content_type"));
-
+                companydetail.setDirector_md_ceo_list(row.getString("director_md_ceo_list"));
+                companydetail.setPancard(row.getString("pancard"));
+                companydetail.setAadharcard(row.getString("aadharcard"));
+                companydetail.setTin_vat_document(row.getString("tin_vat_document"));
+                companydetail.setCst_document(row.getString("cst_document"));
+                companydetail.setMoa_partnershipdeed(row.getString("moa_partnershipdeed"));
+                companydetail.setRegistration_document(row.getString("registration_document"));
                 return companydetail;
             }
         ).forEach(companydetailsList::add);

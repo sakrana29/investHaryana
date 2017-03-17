@@ -27,27 +27,12 @@
             "fieldType": "Integer"
         },
         {
-            "fieldName": "director_md_ceo_list",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
-        },
-        {
             "fieldName": "pan_number",
             "fieldType": "String"
         },
         {
-            "fieldName": "pancard",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
-        },
-        {
             "fieldName": "aadhar_number",
             "fieldType": "String"
-        },
-        {
-            "fieldName": "aadharcard",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
         },
         {
             "fieldName": "nri",
@@ -58,28 +43,36 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "tin_vat_document",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
-        },
-        {
             "fieldName": "cst_number",
             "fieldType": "String"
         },
         {
+            "fieldName": "director_md_ceo_list",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pancard",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "aadharcard",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tin_vat_document",
+            "fieldType": "String"
+        },
+        {
             "fieldName": "cst_document",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
+            "fieldType": "String"
         },
         {
             "fieldName": "moa_partnershipdeed",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
+            "fieldType": "String"
         },
         {
             "fieldName": "registration_document",
-            "fieldType": "ByteBuffer",
-            "fieldTypeBlobContent": "any"
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313085504",
