@@ -29,15 +29,12 @@
                                     <div class="col-lg-3">
                                         <input type="text" class="form-control" id="inputmousignyear" placeholder="Mou signing year" data-dpmaxz-eid="4">
                                     </div>
-                                    <div class="col-lg-3">
-                                        <input type="file" class="form-control" value="Upload MOU" >
-                                    </div>
+                                    <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ></div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label">Investor Photo</label>
-                                    <div class="col-lg-3">
-                                        <input type="file" class="form-control" value="Upload Profile Photo" ></div>
+                                    <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"  ></div>
                                 </div>
                                 <div class="form-group">
                                     <label for="firstname" class="col-lg-2 control-label">Investor Name</label>
@@ -54,9 +51,14 @@
                                 <div class="form-group">
                                     <label class="col-lg-2 control-label">Country</label>
                                     <div class="col-lg-3">
-                                        <select  class="form-control"   >
+                                        <!--<select class="form-control"  ng-options="country as country.countryname for country in vm.countries"-->
+                                                <!--ng-model="abc" ng-change="vm.statechange(abc)">-->
+                                            <!--<option value="">Select Country</option>-->
+
+                                        <!--</select>-->
+                                        <select  class="form-control"    >
                                             <option value="">Select Country</option>
-                                            <option ng-repeat = "country in vm.countries" value="{{country.id }}">{{country.countryname}}</option>
+                                            <option  ng-repeat = "country in vm.countries"  value="{{country.id }}">{{country.countryname}}</option>
                                         </select>
                                     </div>
                                 </div>

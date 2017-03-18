@@ -9,6 +9,7 @@
 
     function addprojectController ($scope, Principal, LoginService, $state, $http) {
         var vm = this;
+        //vm.statechange=statechange;
 
         vm.account = null;
         vm.isAuthenticated = null;
@@ -43,5 +44,12 @@
        $http.get("/api/districts").then(function(response) {
            vm.districts = response.data;
        });
+//       function statechange(cntid){
+//       alert(vm.cntid.id);
+//             $http.get("/api/state/country/"+cntid).then(function(response) {
+//                  vm.states = response.data;
+//             });
+//       }
+
     }
 })();
