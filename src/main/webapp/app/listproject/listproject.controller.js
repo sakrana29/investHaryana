@@ -5,29 +5,12 @@
         .module('investhryApp')
         .controller('listprojectController', listprojectController);
 
-    listprojectController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
+    listprojectController.$inject = ['$http', '$state'];
 
-    function listprojectController ($scope, Principal, LoginService, $state) {
+    function listprojectController($http, $state) {
         var vm = this;
-
-        vm.account = null;
-        vm.isAuthenticated = null;
-        vm.login = LoginService.open;
-        vm.register = register;
-        $scope.$on('authenticationSuccess', function() {
-            getAccount();
-        });
-
-        getAccount();
-
-        function getAccount() {
-            Principal.identity().then(function(account) {
-                vm.account = account;
-                vm.isAuthenticated = Principal.isAuthenticated;
-            });
-        }
-        function register () {
-            $state.go('register');
-        }
+        $http.get("/api/projectdetails/ByUserLogin/").then(function(response) {
+           vm.prdetail = response.data;
+       });
     }
 })();

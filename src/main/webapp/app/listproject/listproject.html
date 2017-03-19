@@ -9,44 +9,35 @@
             <thead>
             <tr class="headerGrid">
                 <th>Project Identification No.(PIN)</th>
-                <th>Project</th>
-                <th>Application Date</th>
-                <th>Updated On</th>
-                <th>Application Request/Sector</th>
-                <th>Business Entity</th>
-                <th>Total Project Cost</th>
-                <th>District</th>
+                <th>Project Type</th>
+                <th>sector</th>
+                <th>Project Purpose</th>
+                <th>Size of Industry</th>
+                <th>Niccode</th>
+                <th>Detail Project Report</th>
+                <th>Project Category </th>
+               <th>Approval Document</th>
+                <th>Approval Application Form</th>
                 <th>Action</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr ng-repeat="prdt in vm.prdetail track by prdt.id">
                 <td ></td>
-                <td >test project  </td>
-                <td >Not Mentioned</td>
-                <td >15-03-2017 12:25:22  </td>
-                <td >Regulatory Approvals &amp; Services/<br>Electronics &amp; IT/ITES  </td>
-                <td >TEST PVT LTD </td>
-                <td > 2.60 </td>
-                <td >Panchkula</td>
+                <td >{{prdt.projectype}}</td>
+                <td >{{prdt.sector}}</td>
+                <td >{{prdt.projectpurpose}}</td>
+                <td >{{prdt.size_of_industry}}</td>
+                <td >{{prdt.niccode}}</td>
+                <td >{{prdt.detail_project_report}}</td>
+                <td >{{prdt.category_of_project}}</td>
+                <td >{{prdt.category_of_project}}</td>
+                <td >{{prdt.approval_document}}</td>
+                <td >{{prdt.approval_application_form}}</td>
                 <td class="action verticalalign">
                     <button type="submit"
                             class="btn btn-info ">Details</button>
                     </td>
-            </tr>
-            <tr>
-                <td ></td>
-                <td >test project  </td>
-                <td >Not Mentioned</td>
-                <td >15-03-2017 12:25:22  </td>
-                <td >Regulatory Approvals &amp; Services/<br>Electronics &amp; IT/ITES  </td>
-                <td >TEST PVT LTD </td>
-                <td > 2.60 </td>
-                <td >Panchkula</td>
-                <td class="action verticalalign">
-                    <button type="submit"
-                            class="btn btn-info ">Details</button>
-                   </td>
             </tr>
             </tbody>
         </table>
