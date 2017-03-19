@@ -1,5 +1,7 @@
 package com.hartron.investharyana.repository;
 
+import com.google.common.util.concurrent.ListenableFuture;
+import com.hartron.investharyana.domain.Investor;
 import com.hartron.investharyana.domain.Projectdetail;
 
 import com.datastax.driver.core.*;
@@ -8,10 +10,7 @@ import com.datastax.driver.mapping.MappingManager;
 import com.hartron.investharyana.security.SecurityUtils;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Cassandra repository for the Projectdetail entity.
@@ -98,6 +97,30 @@ public class ProjectdetailRepository {
         return projectList;
 
     }
+
+    public List<Projectdetail> findProjectbyUserLogin() {
+        List<Projectdetail> projectList=new ArrayList<>();
+        List<Projectdetail> projectListForOne=new ArrayList<>();
+        List<Investor> investorList=new ArrayList<>();
+
+        InvestorRepository repo=new InvestorRepository(session);
+        investorList=repo.findInvestorbyUserLogin();
+
+        for(int i=0;i<investorList.size()-1;i++)
+        {
+            UUID investorid=investorList.get(i).getId();
+            projectListForOne= findProjectbyInvestorId(investorid);
+            if(projectListForOne.size()>0)
+            {
+                projectList.add(projectListForOne.get(0));
+            }
+        }
+
+        return projectList;
+        //return findprojectFromIndex(stmt);
+
+    }
+
     public Projectdetail save(Projectdetail projectdetail) {
         if (projectdetail.getId() == null) {
             projectdetail.setId(UUID.randomUUID());

@@ -95,4 +95,14 @@ public class ProjectdetailServiceImpl implements ProjectdetailService{
 
         return result;
     }
+
+    @Override
+    public List<ProjectdetailDTO> findProjectByUserLogin() {
+        log.debug("Request to get all Projectdetails by UserLogin");
+        List<ProjectdetailDTO> result = projectdetailRepository.findProjectbyUserLogin().stream()
+            .map(projectdetailMapper::projectdetailToProjectdetailDTO)
+            .collect(Collectors.toCollection(LinkedList::new));
+
+        return result;
+    }
 }

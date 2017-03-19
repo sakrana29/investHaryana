@@ -96,6 +96,13 @@ public class ProjectdetailResource {
         return projectdetailService.findProjectByInvestor(investorid);
     }
 
+    @GetMapping("/projectdetails/ByUserLogin/")
+    @Timed
+    public List<ProjectdetailDTO> getAllProjectdetailsByUser() {
+        log.debug("REST request to get all Projectdetails by User");
+        return projectdetailService.findProjectByUserLogin();
+    }
+
     /**
      * GET  /projectdetails/:id : get the "id" projectdetail.
      *

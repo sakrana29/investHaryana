@@ -39,4 +39,6 @@ public interface ProjectdetailService {
     void delete(String id);
 
     List<ProjectdetailDTO> findProjectByInvestor(String investorid);
+
+    List<ProjectdetailDTO> findProjectByUserLogin();
 }
