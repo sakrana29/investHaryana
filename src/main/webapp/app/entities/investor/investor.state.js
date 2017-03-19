@@ -120,6 +120,7 @@
                                 emailsecondary: null,
                                 moudocument: null,
                                 investorpicpath: null,
+                                userlogin: null,
                                 id: null
                             };
                         }

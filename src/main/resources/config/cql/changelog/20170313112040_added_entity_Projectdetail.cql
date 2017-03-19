@@ -17,3 +17,9 @@ CREATE TABLE IF NOT EXISTS projectdetail (
     edc_sif_clu_fee_paid_document text,
     PRIMARY KEY(id)
 );
+
+CREATE TABLE IF NOT EXISTS projectdetail_by_investor (
+investorid uuid,
+id uuid,
+PRIMARY KEY(investorid,id)
+);

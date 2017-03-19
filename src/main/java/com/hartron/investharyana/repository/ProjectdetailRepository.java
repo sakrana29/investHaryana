@@ -5,10 +5,12 @@ import com.hartron.investharyana.domain.Projectdetail;
 import com.datastax.driver.core.*;
 import com.datastax.driver.mapping.Mapper;
 import com.datastax.driver.mapping.MappingManager;
+import com.hartron.investharyana.security.SecurityUtils;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -25,11 +27,24 @@ public class ProjectdetailRepository {
 
     private PreparedStatement truncateStmt;
 
+    private PreparedStatement insertByInvestorStmt;
+    private PreparedStatement findByInvestorStmt;
+
     public ProjectdetailRepository(Session session) {
         this.session = session;
         this.mapper = new MappingManager(session).mapper(Projectdetail.class);
         this.findAllStmt = session.prepare("SELECT * FROM projectdetail");
         this.truncateStmt = session.prepare("TRUNCATE projectdetail");
+
+        this.insertByInvestorStmt = session.prepare(
+            "INSERT INTO projectdetail_by_investor (investorid, id) " +
+                "VALUES (:investorid, :id)");
+
+        this.findByInvestorStmt = session.prepare(
+            "SELECT id " +
+                "FROM projectdetail_by_investor " +
+                "WHERE investorid = :investorid");
+
     }
 
     public List<Projectdetail> findAll() {
@@ -63,11 +78,38 @@ public class ProjectdetailRepository {
         return mapper.get(id);
     }
 
+    public List<Projectdetail> findProjectbyInvestorId(UUID investorid) {
+        BoundStatement stmt = findByInvestorStmt.bind();
+        stmt.setUUID("investorid", investorid);
+        return findprojectFromIndex(stmt);
+    }
+
+    private List<Projectdetail> findprojectFromIndex(BoundStatement stmt) {
+        ResultSet rs = session.execute(stmt);
+        List<Projectdetail> projectList=new ArrayList<>();
+
+        while(!(rs.isExhausted())){
+            Projectdetail project=new Projectdetail();
+            project=(Optional.ofNullable(rs.one().getUUID("id"))
+                .map(id -> Optional.ofNullable(mapper.get(id)))
+                .get()).get();
+            projectList.add(project);
+        }
+        return projectList;
+
+    }
     public Projectdetail save(Projectdetail projectdetail) {
         if (projectdetail.getId() == null) {
             projectdetail.setId(UUID.randomUUID());
         }
         mapper.save(projectdetail);
+
+        BatchStatement batch = new BatchStatement();
+        batch.add(insertByInvestorStmt.bind()
+            .setUUID("investorid", projectdetail.getInvestorid())
+            .setUUID("id", projectdetail.getId()));
+        session.execute(batch);
+
         return projectdetail;
     }
 

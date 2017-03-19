@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class ProjectdetailServiceImpl implements ProjectdetailService{
 
     private final Logger log = LoggerFactory.getLogger(ProjectdetailServiceImpl.class);
-    
+
     private final ProjectdetailRepository projectdetailRepository;
 
     private final ProjectdetailMapper projectdetailMapper;
@@ -48,7 +48,7 @@ public class ProjectdetailServiceImpl implements ProjectdetailService{
 
     /**
      *  Get all the projectdetails.
-     *  
+     *
      *  @return the list of entities
      */
     @Override
@@ -84,5 +84,15 @@ public class ProjectdetailServiceImpl implements ProjectdetailService{
     public void delete(String id) {
         log.debug("Request to delete Projectdetail : {}", id);
         projectdetailRepository.delete(UUID.fromString(id));
+    }
+
+    @Override
+    public List<ProjectdetailDTO> findProjectByInvestor(String investorid) {
+        log.debug("Request to get all Projectdetails by investor");
+        List<ProjectdetailDTO> result = projectdetailRepository.findProjectbyInvestorId(UUID.fromString(investorid)).stream()
+            .map(projectdetailMapper::projectdetailToProjectdetailDTO)
+            .collect(Collectors.toCollection(LinkedList::new));
+
+        return result;
     }
 }

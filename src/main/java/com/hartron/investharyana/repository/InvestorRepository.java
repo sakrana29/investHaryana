@@ -5,10 +5,12 @@ import com.hartron.investharyana.domain.Investor;
 import com.datastax.driver.core.*;
 import com.datastax.driver.mapping.Mapper;
 import com.datastax.driver.mapping.MappingManager;
+import com.hartron.investharyana.security.SecurityUtils;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -25,11 +27,43 @@ public class InvestorRepository {
 
     private PreparedStatement truncateStmt;
 
+    private PreparedStatement insertByUserloginStmt;
+    private PreparedStatement findByUserloginStmt;
+
     public InvestorRepository(Session session) {
         this.session = session;
         this.mapper = new MappingManager(session).mapper(Investor.class);
         this.findAllStmt = session.prepare("SELECT * FROM investor");
         this.truncateStmt = session.prepare("TRUNCATE investor");
+
+        this.insertByUserloginStmt = session.prepare(
+            "INSERT INTO investor_by_userlogin (userlogin, id) " +
+                "VALUES (:userlogin, :id)");
+
+        this.findByUserloginStmt = session.prepare(
+            "SELECT id " +
+                "FROM investor_by_userlogin " +
+                "WHERE userlogin = :userlogin");
+    }
+
+    public List<Investor> findInvestorbyUserLogin() {
+        BoundStatement stmt = findByUserloginStmt.bind();
+        stmt.setString("userlogin", SecurityUtils.getCurrentUserLogin());
+        return findInvestorFromIndex(stmt);
+    }
+
+    private List<Investor> findInvestorFromIndex(BoundStatement stmt) {
+        ResultSet rs = session.execute(stmt);
+        List<Investor> investorList=new ArrayList<>();
+
+        while(!(rs.isExhausted())){
+            Investor investor=new Investor();
+            investor=(Optional.ofNullable(rs.one().getUUID("id"))
+                .map(id -> Optional.ofNullable(mapper.get(id)))
+                .get()).get();
+            investorList.add(investor);
+        }
+        return investorList;
     }
 
     public List<Investor> findAll() {
@@ -55,6 +89,7 @@ public class InvestorRepository {
                 investor.setEmailsecondary(row.getString("emailsecondary"));
                 investor.setMoudocument(row.getString("moudocument"));
                 investor.setInvestorpicpath(row.getString("investorpicpath"));
+                investor.setUserlogin(row.getString("userlogin"));
                 return investor;
             }
         ).forEach(investorsList::add);
@@ -68,8 +103,16 @@ public class InvestorRepository {
     public Investor save(Investor investor) {
         if (investor.getId() == null) {
             investor.setId(UUID.randomUUID());
+            investor.setUserlogin(SecurityUtils.getCurrentUserLogin());
         }
         mapper.save(investor);
+
+        BatchStatement batch = new BatchStatement();
+        batch.add(insertByUserloginStmt.bind()
+            .setString("userlogin", SecurityUtils.getCurrentUserLogin())
+            .setUUID("id", investor.getId()));
+        session.execute(batch);
+
         return investor;
     }
 

@@ -17,5 +17,11 @@ CREATE TABLE IF NOT EXISTS investor (
     emailsecondary text,
     moudocument text,
     investorpicpath text,
+    userlogin text,
     PRIMARY KEY(id)
+);
+CREATE TABLE IF NOT EXISTS investor_by_userlogin (
+userlogin text,
+id uuid,
+PRIMARY KEY(userlogin,id)
 );

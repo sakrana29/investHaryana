@@ -44,6 +44,8 @@ public class InvestorDTO implements Serializable {
 
     private String investorpicpath;
 
+    private String userlogin;
+
     public UUID getId() {
         return id;
     }
@@ -163,6 +165,13 @@ public class InvestorDTO implements Serializable {
     public void setInvestorpicpath(String investorpicpath) {
         this.investorpicpath = investorpicpath;
     }
+    public String getUserlogin() {
+        return userlogin;
+    }
+
+    public void setUserlogin(String userlogin) {
+        this.userlogin = userlogin;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -205,6 +214,7 @@ public class InvestorDTO implements Serializable {
             ", emailsecondary='" + emailsecondary + "'" +
             ", moudocument='" + moudocument + "'" +
             ", investorpicpath='" + investorpicpath + "'" +
+            ", userlogin='" + userlogin + "'" +
             '}';
     }
 }

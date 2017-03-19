@@ -65,6 +65,10 @@
         {
             "fieldName": "investorpicpath",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "userlogin",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313084828",

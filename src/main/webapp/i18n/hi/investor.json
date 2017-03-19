@@ -30,7 +30,8 @@
             "emailprimary": "Emailprimary",
             "emailsecondary": "Emailsecondary",
             "moudocument": "Moudocument",
-            "investorpicpath": "Investorpicpath"
+            "investorpicpath": "Investorpicpath",
+            "userlogin": "Userlogin"
         }
     }
 }

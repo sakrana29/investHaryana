@@ -88,6 +88,9 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
     private static final String DEFAULT_INVESTORPICPATH = "AAAAAAAAAA";
     private static final String UPDATED_INVESTORPICPATH = "BBBBBBBBBB";
 
+    private static final String DEFAULT_USERLOGIN = "AAAAAAAAAA";
+    private static final String UPDATED_USERLOGIN = "BBBBBBBBBB";
+
     @Autowired
     private InvestorRepository investorRepository;
 
@@ -143,7 +146,8 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
                 .emailprimary(DEFAULT_EMAILPRIMARY)
                 .emailsecondary(DEFAULT_EMAILSECONDARY)
                 .moudocument(DEFAULT_MOUDOCUMENT)
-                .investorpicpath(DEFAULT_INVESTORPICPATH);
+                .investorpicpath(DEFAULT_INVESTORPICPATH)
+                .userlogin(DEFAULT_USERLOGIN);
         return investor;
     }
 
@@ -185,6 +189,7 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
         assertThat(testInvestor.getEmailsecondary()).isEqualTo(DEFAULT_EMAILSECONDARY);
         assertThat(testInvestor.getMoudocument()).isEqualTo(DEFAULT_MOUDOCUMENT);
         assertThat(testInvestor.getInvestorpicpath()).isEqualTo(DEFAULT_INVESTORPICPATH);
+        assertThat(testInvestor.getUserlogin()).isEqualTo(DEFAULT_USERLOGIN);
     }
 
     @Test
@@ -232,7 +237,8 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].emailprimary").value(hasItem(DEFAULT_EMAILPRIMARY.toString())))
             .andExpect(jsonPath("$.[*].emailsecondary").value(hasItem(DEFAULT_EMAILSECONDARY.toString())))
             .andExpect(jsonPath("$.[*].moudocument").value(hasItem(DEFAULT_MOUDOCUMENT.toString())))
-            .andExpect(jsonPath("$.[*].investorpicpath").value(hasItem(DEFAULT_INVESTORPICPATH.toString())));
+            .andExpect(jsonPath("$.[*].investorpicpath").value(hasItem(DEFAULT_INVESTORPICPATH.toString())))
+            .andExpect(jsonPath("$.[*].userlogin").value(hasItem(DEFAULT_USERLOGIN.toString())));
     }
 
     @Test
@@ -260,7 +266,8 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.emailprimary").value(DEFAULT_EMAILPRIMARY.toString()))
             .andExpect(jsonPath("$.emailsecondary").value(DEFAULT_EMAILSECONDARY.toString()))
             .andExpect(jsonPath("$.moudocument").value(DEFAULT_MOUDOCUMENT.toString()))
-            .andExpect(jsonPath("$.investorpicpath").value(DEFAULT_INVESTORPICPATH.toString()));
+            .andExpect(jsonPath("$.investorpicpath").value(DEFAULT_INVESTORPICPATH.toString()))
+            .andExpect(jsonPath("$.userlogin").value(DEFAULT_USERLOGIN.toString()));
     }
 
     @Test
@@ -294,7 +301,8 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
                 .emailprimary(UPDATED_EMAILPRIMARY)
                 .emailsecondary(UPDATED_EMAILSECONDARY)
                 .moudocument(UPDATED_MOUDOCUMENT)
-                .investorpicpath(UPDATED_INVESTORPICPATH);
+                .investorpicpath(UPDATED_INVESTORPICPATH)
+                .userlogin(UPDATED_USERLOGIN);
         InvestorDTO investorDTO = investorMapper.investorToInvestorDTO(updatedInvestor);
 
         restInvestorMockMvc.perform(put("/api/investors")
@@ -322,6 +330,7 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
         assertThat(testInvestor.getEmailsecondary()).isEqualTo(UPDATED_EMAILSECONDARY);
         assertThat(testInvestor.getMoudocument()).isEqualTo(UPDATED_MOUDOCUMENT);
         assertThat(testInvestor.getInvestorpicpath()).isEqualTo(UPDATED_INVESTORPICPATH);
+        assertThat(testInvestor.getUserlogin()).isEqualTo(UPDATED_USERLOGIN);
     }
 
     @Test

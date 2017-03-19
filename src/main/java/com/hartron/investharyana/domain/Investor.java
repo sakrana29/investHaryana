@@ -50,6 +50,8 @@ public class Investor implements Serializable {
 
     private String investorpicpath;
 
+    private String userlogin;
+
     public UUID getId() {
         return id;
     }
@@ -266,6 +268,19 @@ public class Investor implements Serializable {
         this.investorpicpath = investorpicpath;
     }
 
+    public String getUserlogin() {
+        return userlogin;
+    }
+
+    public Investor userlogin(String userlogin) {
+        this.userlogin = userlogin;
+        return this;
+    }
+
+    public void setUserlogin(String userlogin) {
+        this.userlogin = userlogin;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -306,6 +321,7 @@ public class Investor implements Serializable {
             ", emailsecondary='" + emailsecondary + "'" +
             ", moudocument='" + moudocument + "'" +
             ", investorpicpath='" + investorpicpath + "'" +
+            ", userlogin='" + userlogin + "'" +
             '}';
     }
 }
