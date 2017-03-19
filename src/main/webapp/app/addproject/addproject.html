@@ -8,7 +8,7 @@
                 <a data-toggle="collapse" data-parent="#accordion" href=".invt">Investor</a>
             </h4>
         </div>
-        <div id="invt" class="panel-collapse collapse in invt">
+        <div id="invt" class="panel-collapse collapse invt">
             <div class="panel-body">
                 <form class="form-horizontal" >
                     <fieldset>
@@ -144,17 +144,14 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="businesstype" class="col-lg-2 control-label">Business Entity Type</label>
+                            <label  class="col-lg-2 control-label">Business Entity Type</label>
                             <div class="col-lg-3">
-                                <select type="text" class="form-control" id="businesstype"  >
-                                    <option>Sole Proprieter</option>
-                                    <option>Partnership</option>
-                                    <option>Private Limited</option>
-                                    <option>Public Limited</option>
-                                    <option>Cooperative</option>
-                                    <option>Company</option>
+                                <select  class="form-control"  >
+                                    <option value="">Select Business Entity Type</option>
+                                    <option ng-repeat = "busines in vm.businesses" value="{{busines.id }}">{{busines.businessentitytype}}</option>
                                 </select>
                             </div>
+
                         </div>
 
 
@@ -227,19 +224,12 @@
                         <div class="form-group">
                             <label for="Sector" class="col-lg-2 control-label">Sector</label>
                             <div class="col-lg-3">
-                                <select type="text" class="form-control" id="Sector"  >
-                                    <option>Auto, Auto Components and Light Engineering</option>
-                                    <option>Agro-based, Food Processing and Allied Industry</option>
-                                    <option>Textiles/ Apparel/ Knitting/ Embroidery/ Technical textiles</option>
-                                    <option>Footwear and Accessories</option>
-                                    <option>Electronics & IT/ITES</option>
-                                    <option>Defence and Aerospace Manufacturing</option>
-                                    <option>Renewable Energy & Solar Parks</option>
-                                    <option>Pharmaceutical Industry</option>
-                                    <option>Chemical Industry</option>
-                                    <option>Other Industries</option>
+                                <select  class="form-control"  >
+                                    <option value="">Select Sector Type</option>
+                                    <option ng-repeat = "sec in vm.sector" value="{{sec.id }}">{{sec.sectortype}}</option>
                                 </select>
                             </div>
+
                         </div>
                         <div class="form-group">
                             <label for="purpose" class="col-lg-2 control-label">Project Purpose</label>
@@ -251,24 +241,23 @@
                         <div class="form-group">
                             <label for="industrysize" class="col-lg-2 control-label">Size of Industry</label>
                             <div class="col-lg-3">
-                                <select type="text" class="form-control" id="industrysize"  data-dpmaxz-eid="20">
-                                    <option>Large - more than 10 crores</option>
-                                    <option>Medium - more than 5 crores and less than 10 crores</option>
-                                    <option>Small - more than 25 lakhs and less  than or upto 5 crores</option>
-                                    <option>Micro - upto 25 lakhs</option>
+                                <select  class="form-control"  >
+                                    <option value="">Select Industry Type</option>
+                                    <option ng-repeat = "size in vm.sizeindustry" value="{{size.id }}">{{size.sizeofindustry}}</option>
                                 </select>
                             </div>
+
                         </div>
 
                         <div class="form-group">
                             <label for="projecttype" class="col-lg-2 control-label">Project Type </label>
                             <div class="col-lg-3">
-                                <select type="text" class="form-control" id="projecttype"  data-dpmaxz-eid="20">
-                                    <option>New Project (New Site)</option>
-                                    <option>New Project (Existing Site)</option>
-                                    <option>Expansion Project</option>
+                                <select  class="form-control"  >
+                                    <option value="">Select Industry Type</option>
+                                    <option ng-repeat = "prj in vm.projecttype" value="{{prj.id }}">{{prj.projectypes}}</option>
                                 </select>
                             </div>
+
                         </div>
 
 
@@ -282,26 +271,24 @@
                         <div class="form-group">
                             <label for="projectcategory" class="col-lg-2 control-label">Category Of Project</label>
                             <div class="col-lg-3">
-                                <select type="text" class="form-control" id="projectcategory" data-dpmaxz-eid="20">
-                                    <option>Export Oriented</option>
-                                    <option>Highly Technical</option>
-                                    <option>Involving Technical Collaboration with Foreign Investor</option>
-                                    <option>Involving Financial Collaboration with Foreign Investor</option>
+                                <select  class="form-control"  >
+                                    <option value="">Select Category Of Project</option>
+                                    <option ng-repeat = "cate in vm.categoryproject" value="{{cate.id }}">{{cate.categorytype}}</option>
                                 </select>
                             </div>
                         </div>
 
 
                         <div class="form-group">
-                            <label for="collaboration" class="col-lg-2 control-label">Collaboration with Foreign Investor</label>
+                            <label  class="col-lg-2 control-label">Collaboration with Foreign Investor</label>
                             <div class="col-lg-3">
-                                <select type="text" class="form-control" id="collaboration" data-dpmaxz-eid="20">
-                                    <option>USA</option>
-                                    <option>Nepal</option>
-                                    <option>Sri Lanka</option>
-                                    <option>England</option>
+                                <select  class="form-control"    >
+                                    <option value="">Select Foreign Investor</option>
+                                    <option  ng-repeat = "country in vm.countries"  value="{{country.id }}">{{country.countryname}}</option>
                                 </select>
                             </div>
+
+
                         </div>
 
 
@@ -321,16 +308,14 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="applicationform" class="col-lg-2 control-label">Application Form</label>
+                            <label  class="col-lg-2 control-label">Application Form</label>
                             <div class="col-lg-3">
-                                <select type="text" class="form-control" id="applicationform" data-dpmaxz-eid="20">
-                                    <option>Allotment of plots</option>
-                                    <option>Application for Licence to Establish Kiln</option>
-                                    <option>Application for New Fire Fighting Scheme</option>
-                                    <option>Application for Tree Felling</option>
-                                    <option>Application form for fertilizer manufacture certificate</option>
+                                <select  class="form-control"  >
+                                    <option value="">Select Application Form</option>
+                                    <option ng-repeat = "appl in vm.applicationform" value="{{appl.id }}">{{appl.existingapprovalforms}}</option>
                                 </select>
                             </div>
+
                             <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"  ></div>
                         </div>
                         <div class="form-group">
@@ -372,42 +357,33 @@
             <div class="form-group">
                 <label for="District" class="col-lg-2 control-label">District</label>
                 <div class="col-lg-3">
-                    <select type="text" class="form-control" id="District" data-dpmaxz-eid="20">
-                        <option>Hisar</option>
-                        <option>Jind</option>
-                        <option>Ambala</option>
-                        <option>Panchkula</option>
-                        <option>Y. Nagar</option>
-                        <option>Kurukshetra</option>
-                        <option>Karnal</option>
-                        <option>Kaithal</option>
-
+                    <select  class="form-control"   >
+                        <option value="">Select District</option>
+                        <option ng-repeat = "district in vm.districts" value="{{district.id }}">{{district.districtname}}</option>
                     </select>
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="Block" class="col-lg-2 control-label">Block</label>
+                <label  class="col-lg-2 control-label">Block</label>
                 <div class="col-lg-3">
-                    <select type="text" class="form-control" id="Block" data-dpmaxz-eid="20">
-                        <option>Hansi</option>
-                        <option>Barwala</option>
-                        <option>Uklana</option>
-                        <option>Adhampur</option>
+                    <select  class="form-control"   >
+                        <option value="">Select Block</option>
+                        <option ng-repeat = "bl in vm.block" value="{{bl.id }}">{{bl.blockname}}</option>
                     </select>
                 </div>
+
             </div>
 
             <div class="form-group">
-                <label for="cityvillage" class="col-lg-2 control-label">City Town Village</label>
+                <label  class="col-lg-2 control-label">City Town Village</label>
                 <div class="col-lg-3">
-                    <select type="text" class="form-control" id="cityvillage" data-dpmaxz-eid="20">
-                        <option>Juglan</option>
-                        <option>Bahablpur</option>
-                        <option>Zora</option>
-                        <option>Pabda</option>
+                    <select  class="form-control"   >
+                        <option value="">Select City /Town /Village</option>
+                        <option ng-repeat = "ct in vm.city" value="{{ct.id }}">{{ct.city_town_village_name}}</option>
                     </select>
                 </div>
+
             </div>
 
            <div class="form-group">
@@ -582,15 +558,14 @@
             <div class="form-group">
             <label class="col-lg-2 control-label">Linears Trip Plan</label>
                 <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ></div>
-                <label for="Connectingroad" class="col-lg-3 control-label">Connecting Road</label>
+                <label class="col-lg-3 control-label">Connecting Road</label>
                 <div class="col-lg-3">
-                    <select type="text" class="form-control" id="Connectingroad" data-dpmaxz-eid="20">
-                        <option>National Highway</option>
-                        <option>State Highway</option>
-                        <option>Schedule Road</option>
-                        <option>Other State Road</option>
+                    <select  class="form-control"   >
+                        <option value="">Select Connecting Road</option>
+                        <option ng-repeat = "cont in vm.connecting" value="{{cont.id }}">{{cont.connectingraodtype}}</option>
                     </select>
                 </div>
+
             </div>
 
             <div class="form-group">
@@ -612,10 +587,11 @@
                     <label><input type="radio" name="radio" > YES </label>
                     <label><input type="radio" name="radio" checked> NO</label>
                 </div>
-                <label for="Landzoneusetype" class="col-lg-2 control-label">Land Zone Use Type</label>
+                <label  class="col-lg-2 control-label">Land Zone Use Type</label>
                 <div class="col-lg-3">
-                    <select type="text" class="form-control" id="Landzoneusetype" data-dpmaxz-eid="20">
-                        <option>select</option>
+                    <select  class="form-control"   >
+                        <option value="">Select Land Zone</option>
+                        <option ng-repeat = "land in vm.landzone" value="{{land.id }}">{{land.landzoneclassificationtype}}</option>
                     </select>
                 </div>
             </div>
@@ -673,7 +649,7 @@
     <a data-toggle="collapse" data-parent="#accordion" href=".financestrength">Proposed Fixed Capital Investment</a>
 </h4>
 </div>
-<div id="financestrength" class="panel-collapse collapse in financestrength">
+<div id="financestrength" class="panel-collapse collapse financestrength">
 <div class="panel-body">
     <form class="form-horizontal" data-dpmaxz-eid="7">
         <fieldset>
@@ -712,24 +688,22 @@
                 <div class="col-lg-3">
                     <input type="number" class="form-control" id="fdivalue" placeholder="0.00">
                 </div>
-                <label for="fdicountryname" class="col-lg-3 control-label">If FDI, name of the country</label>
+                <label " class="col-lg-3 control-label">If FDI, name of the country</label>
                 <div class="col-lg-3">
-                    <select type="text" class="form-control" id="fdicountryname" data-dpmaxz-eid="20">
-                        <option>Country Name</option>
-                        <option>India</option>
-                        <option>Pak</option>
-                        <option>UK</option>
+                   <select  class="form-control"    >
+                        <option value="">Select Country</option>
+                        <option  ng-repeat = "country in vm.countries"  value="{{country.id }}">{{country.countryname}}</option>
                     </select>
                 </div>
+
             </div>
 
             <div class="form-group">
-                <label for="fundingresource" class="col-lg-2 control-label">Foreign Funding Resources</label>
+                <label  class="col-lg-2 control-label">Foreign Funding Resources</label>
                 <div class="col-lg-3">
-                    <select type="text" class="form-control" id="fundingresource" >
-                        <option>Not Applicable</option>
-                        <option>NRI Account</option>
-                        <option>NRE Account</option>
+                    <select  class="form-control"  >
+                        <option value="">Foreign Funding Resources</option>
+                        <option ng-repeat = "fore in vm.foreign" value="{{fore.id }}">{{fore.foreignfundingtypes}}</option>
                     </select>
                 </div>
            </div>
@@ -808,7 +782,7 @@
     <a data-toggle="collapse" data-parent="#accordion" href=".manufacturing">Manufacturing Data</a>
 </h4>
 </div>
-<div id="manufacturing" class="panel-collapse collapse in manufacturing">
+<div id="manufacturing" class="panel-collapse collapse manufacturing">
 <div class="panel-body">
     <form class="form-horizontal" data-dpmaxz-eid="7">
         <fieldset>
@@ -973,16 +947,12 @@
                 </div>
                 <div class="row">
                     <div class="col-md-5">
-                        <label class="control-label col-md-6" for="SourceWaterSupply">Source of Water Supply</label>
-                        <div class="col-md-6">
-                            <select class="form-control" data-val="true" data-val-length="Source of Water Supply must be 1 - 100 characters long!" data-val-length-max="100" data-val-length-min="1" id="SourceWaterSupply" name="SourceWaterSupply" style="width:84%;" data-dpmaxz-eid="14">
-                                <option value="">Select Any One</option>
-                                <option value="Tubewell">Tubewell</option>
-                                <option selected="selected" value="Canal Water">Canal Water</option>
-                                <option value="Muncipal Water Supply">Muncipal Water Supply</option>
-                                <option value="Other">Other</option>
+                        <label class="control-label col-md-6" >Source of Water Supply</label>
+                        <div class="col-lg-6">
+                            <select  class="form-control"  >
+                                <option value="">Select Source of Water Supply</option>
+                                <option ng-repeat = "swater in vm.watersource" value="{{swater.id }}">{{swater.watersupplysourcetype}}</option>
                             </select>
-                            <span class="field-validation-valid errorMsg" data-valmsg-for="SourceWaterSupply" data-valmsg-replace="true"></span>
                         </div>
                     </div>
                 </div>
@@ -1042,17 +1012,10 @@
                             <td>
                                 <table>
                                     <tbody><tr>
-                                        <td>
-                                            <select class="form-control" data-val="true" data-val-length="Waste water treatment process must be 1-100 characters long !" data-val-length-max="100" data-val-length-min="1" data-val-regex="Waste water treatment process can only have alphanumerics, space and special characters (, - / ()) !" data-val-regex-pattern="^([0-9a-zA-Z,-/()
-]+)$" id="WasteWaterTreatmentProcess" name="WasteWaterTreatmentProcess" data-dpmaxz-eid="24"><option value="">Select Any One</option>
-                                                <option selected="selected" value="Recirculation">Recirculation</option>
-                                                <option value="Effluent Treatment Plant">Effluent Treatment Plant</option>
-                                                <option value="Pysio Chemical Treatment">Physio Chemical Treatment</option>
-                                                <option value="Biological Treatment">Biological Treatment</option>
-                                                <option value="Activated Sludge Process">Activated Sludge Process</option>
-                                                <option value="Zero Liquid Discharge">Zero Liquid Discharge</option>
-                                                <option value="Others">Others</option>
-                                            </select>
+                                        <td><select  class="form-control"  >
+                                                    <option value="">Select Waste water treatment</option>
+                                                    <option ng-repeat = "wastetreat in vm.wastewatertreatment" value="{{wastetreat.id }}">{{wastetreat.mode_of_disposal}}</option>
+                                                </select>
                                         </td>
                                     </tr>
                                     <tr>
@@ -1081,16 +1044,10 @@
                                     </tr>
                                     </tbody></table>
                             </td>
-                            <td>
-
-                                <select class="form-control" data-val="true" data-val-length="Waste water treatment cooling must be 1-100 characters long !" data-val-length-max="100" data-val-length-min="1" data-val-regex="Waste water treatment cooling can only have alphanumerics, space and special characters (, - / ()) !" data-val-regex-pattern="^([0-9a-zA-Z,-/()
-]+)$" id="WasteWaterTreatmentCooling" name="WasteWaterTreatmentCooling" data-dpmaxz-eid="26"><option value="">Select Any One</option>
-                                    <option selected="selected" value="Recirculation">Recirculation</option>
-                                    <option value="Others">Others</option>
-                                </select>
-                                <span class="field-validation-valid errorMsg" data-valmsg-for="WasteWaterTreatmentCooling" data-valmsg-replace="true"></span>
-                                <span class="field-validation-valid errorMsg" data-valmsg-for="RequiredWasteWaterTreatmentCooling" data-valmsg-replace="true"></span>
-                                <br>
+                            <td><select  class="form-control"  >
+                                        <option value="">Select Waste water treatment</option>
+                                        <option ng-repeat = "wastetreat in vm.wastewatertreatment" value="{{wastetreat.id }}">{{wastetreat.mode_of_disposal}}</option>
+                                    </select>
                                 <div id="divWasteWaterTreatmentCoolingOther" style="display:none;">
                                     <input class="form-control" data-val="true" data-val-length="Waste water treatment cooling Other must be 1-100 characters long !" data-val-length-max="100" data-val-length-min="1" data-val-regex="Waste water treatment cooling Other can only have alphanumerics, space and special characters (, - / ()) !" data-val-regex-pattern="^([0-9a-zA-Z,-/()
 ]+)$" id="WasteWaterTreatmentCoolingOther" name="WasteWaterTreatmentCoolingOther" placeholder="Cooling (Other)" type="text" value="" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="27">
@@ -1099,14 +1056,10 @@
 
                             </td>
                             <td>
-
-                                <select class="form-control" data-val="true" data-val-length="Waste water treatment domestic must be 1-100 characters long !" data-val-length-max="100" data-val-length-min="1" data-val-regex="Waste water treatment domestic can only have alphanumerics, space and special characters (, - / ()) !" data-val-regex-pattern="^([0-9a-zA-Z,-/()
-]+)$" id="WasteWaterTreatmentDomestic" name="WasteWaterTreatmentDomestic" data-dpmaxz-eid="28"><option value="">Select Any One</option>
-                                    <option selected="selected" value="Sewage Treatment Plant">Sewage Treatment Plant</option>
-                                    <option value="Septic Tank">Septic Tank</option>
-                                    <option value="Public Sewer">Public Sewer</option>
-                                    <option value="Others">Others</option>
-                                </select>
+                                <select  class="form-control"  >
+                                        <option value="">Select Waste water treatment</option>
+                                        <option ng-repeat = "wastetreat in vm.wastewatertreatment" value="{{wastetreat.id }}">{{wastetreat.mode_of_disposal}}</option>
+                                    </select>
                                 <span class="field-validation-valid errorMsg" data-valmsg-for="WasteWaterTreatmentDomestic" data-valmsg-replace="true"></span>
                                 <span class="field-validation-valid errorMsg" data-valmsg-for="RequiredWasteWaterTreatmentDomestic" data-valmsg-replace="true"></span>
 
@@ -1130,14 +1083,12 @@
                 <div class="row" style="min-height:40px;">
                     <div class="col-md-6">
                         <label class="control-label col-md-1">12.3</label>
-                        <label class="control-label col-md-6" for="ModeDispDischarge">Mode of disposal for Discharge</label>
-                        <div class="col-md-5">
-                            <select class="form-control" data-val="true" data-val-length="Mode of disposal for discharge must be 1 - 100 characters long!" data-val-length-max="100" data-val-length-min="1" data-val-regex="Mode of disposal for discharge can only have alphanumerics, space and special characters (, - / ()) !" data-val-regex-pattern="^([0-9a-zA-Z,-/() ]+)$" id="ModeDispDischarge" name="ModeDispDischarge" style="width:104%;" data-dpmaxz-eid="31"><option value="">Select Any One</option>
-                                <option selected="selected" value="Sewer">Sewer</option>
-                                <option value="Onto Land for Irrigation/plantation">Onto Land for Irrigation/plantation</option>
-                                <option value="Other">Other</option>
+                        <label class="control-label col-md-6" >Mode of disposal for Discharge</label>
+                        <div class="col-lg-5">
+                            <select  class="form-control"  >
+                                <option value="">Select Waste water treatment</option>
+                                <option ng-repeat = "wastetreat in vm.wastewatertreatment" value="{{wastetreat.id }}">{{wastetreat.mode_of_disposal}}</option>
                             </select>
-                            <span class="field-validation-valid errorMsg" data-valmsg-for="ModeDispDischarge" data-valmsg-replace="true"></span>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -1210,47 +1161,27 @@
                         </tr>
                         <tr>
                             <td>
-                                <select class="form-control" id="EmissionType" name="EmissionType" data-dpmaxz-eid="35"><option value="">Select Any One</option>
-                                    <option value="Boiler">Boiler (in Ton Per Hour)</option>
-                                    <option value="Furnace">Furnace (in Ton Per Hour)</option>
-                                    <option value="Process Emission">Process Emission (in Ton Per Hour)</option>
-                                    <option value="DG Set">DG Set (in KVA)</option>
-                                    <option value="TG Set">TG Set</option>
-                                    <option value="Not Applicable">Not Applicable</option>
-                                </select>
-                                <span class="field-validation-valid" data-valmsg-for="EmissionType" data-valmsg-replace="true"></span>
-                            </td>
+                                <select  class="form-control"  >
+                                        <option value="">Select Emmision Pollution Controlls</option>
+                                        <option ng-repeat = "empolcon in vm.emissionpolution" value="{{empolcon.id }}">{{empolcon.airpollutioncontroldevice}}</option>
+                                    </select>
+                               </td>
                             <td>
                                 <input class="form-control" data-val="true" data-val-number="The field Capacity must be a number." data-val-regex="Please enter only numbers or decimal" data-val-regex-pattern="^[0-9]{1,9}(\.[0-9]{0,2})?$" id="Capacity" name="Capacity" placeholder="Click here to enter text" type="text" value="" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="36">
                                 <span class="field-validation-valid" data-valmsg-for="Capacity" data-valmsg-replace="true"></span>
                             </td>
                             <td width="150px;">
-                                <select class="form-control" id="TypeOfFuel" name="TypeOfFuel" data-dpmaxz-eid="37"><option value="">Select Any One</option>
-                                    <option value="Rice Husk">Rice Husk</option>
-                                    <option value="Coal">Coal</option>
-                                    <option value="Pet Coke">Pet Coke</option>
-                                    <option value="Furence Oil">Furence Oil</option>
-                                    <option value="LDO">LDO</option>
-                                    <option value="HSD">HSD</option>
-                                    <option value="Electricity">Electricity</option>
-                                    <option value="Other">Other</option>
-                                </select>
+                               <select  class="form-control"  >
+                                        <option value="">Select Emmision Fuel Type</option>
+                                        <option ng-repeat = "emfule in vm.emissionfuel" value="{{emfule.id }}">{{emfule.typeoffuel}}</option>
+                                    </select>
                             </td>
 
                             <td>
-                                <select class="form-control" id="PollutionControlDevice" name="PollutionControlDevice" data-dpmaxz-eid="38"><option value="">Select Any One</option>
-                                    <option value="Cyclone Separator">Cyclone Separator</option>
-                                    <option value="Multi-Cyclone Separator">Multi-Cyclone Separator</option>
-                                    <option value="Trima Cyclone">Trima Cyclone</option>
-                                    <option value="Scrubber">Scrubber</option>
-                                    <option value="Venturi Scrubber">Venturi Scrubber</option>
-                                    <option value="Bag Filters">Bag Filters</option>
-                                    <option value="ESP(ElectroStatic Presipretator)">ESP(ElectroStatic Presipretator)</option>
-                                    <option value="Gravity Dust Settling Chamber">Gravity Dust Settling Chamber</option>
-                                    <option value="Adequate Stack Height Only">Adequate Stack Height Only</option>
-                                </select>
-                                <span class="field-validation-valid" data-valmsg-for="PollutionControlDevice" data-valmsg-replace="true"></span>
-                            </td>
+                                <select  class="form-control"  >
+                                    <option value="">Select Emmision Pollution Controlls</option>
+                                    <option ng-repeat = "empolcon in vm.emissionpolution" value="{{empolcon.id }}">{{empolcon.airpollutioncontroldevice}}</option>
+                                </select></td>
 
                         </tr>
                         <tr>
@@ -1397,7 +1328,7 @@
     <a data-toggle="collapse" data-parent="#accordion" href=".electric">Proposed Fixed Capital Investment</a>
 </h4>
 </div>
-<div id="electric" class="panel-collapse collapse in electric">
+<div id="electric" class="panel-collapse collapse electric">
 <div class="panel-body">
     <form class="form-horizontal" data-dpmaxz-eid="7">
         <fieldset>

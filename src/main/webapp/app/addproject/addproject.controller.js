@@ -44,6 +44,51 @@
        $http.get("/api/districts").then(function(response) {
            vm.districts = response.data;
        });
+       $http.get("/api/businessentities").then(function(response) {
+           vm.businesses = response.data;
+       });
+       $http.get("/api/sectors").then(function(response) {
+           vm.sector = response.data;
+       });
+        $http.get("/api/industrysizes").then(function(response) {
+           vm.sizeindustry = response.data;
+       });
+         $http.get("/api/projectypes").then(function(response) {
+           vm.projecttype = response.data;
+       });
+        $http.get("/api/projectcategories").then(function(response) {
+           vm.categoryproject = response.data;
+       });
+        $http.get("/api/foreignfundingresources").then(function(response) {
+           vm.foreign = response.data;
+       });
+       $http.get("/api/approvalforms").then(function(response) {
+           vm.applicationform = response.data;
+       });
+        $http.get("/api/blocks").then(function(response) {
+           vm.block = response.data;
+       });
+        $http.get("/api/city-town-villages").then(function(response) {
+           vm.city = response.data;
+       });
+        $http.get("/api/connectingroads").then(function(response) {
+           vm.connecting = response.data;
+       });
+        $http.get("/api/landusezoneclassifications").then(function(response) {
+           vm.landzone = response.data;
+       });
+       $http.get("/api/watersupplysources").then(function(response) {
+           vm.watersource = response.data;
+       });
+       $http.get("/api/waste-water-disposal-modes").then(function(response) {
+           vm.wastewatertreatment = response.data;
+       });
+       $http.get("/api/emmision-pollution-controlls").then(function(response) {
+           vm.emissionpolution = response.data;
+       });$http.get("/api/emmision-fuel-types").then(function(response) {
+           vm.emissionfuel = response.data;
+       });
+
 //       function statechange(cntid){
 //       alert(vm.cntid.id);
 //             $http.get("/api/state/country/"+cntid).then(function(response) {
