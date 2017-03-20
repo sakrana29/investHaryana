@@ -6,34 +6,36 @@
     </div>
     <div class="row" >
         <table class="table table-striped table-hover ">
-            <thead>
+            <thead> 
             <tr class="headerGrid">
                 <th>Project Identification No.(PIN)</th>
-                <th>Project Type</th>
-                <th>sector</th>
-                <th>Project Purpose</th>
-                <th>Size of Industry</th>
-                <th>Niccode</th>
+                <th>Approval Application form</th>
+                <th>Approval Document</th>
+                <th>Project Category</th>
+                <th>collaboration with foreign country</th>
                 <th>Detail Project Report</th>
-                <th>Project Category </th>
-               <th>Approval Document</th>
-                <th>Approval Application Form</th>
+                <th>NIC Code</th>
+                <th>Project Purpose </th>
+               <th>Project Type</th>
+                <th>Sector</th>
+                <th>Size Of Industry</th>
                 <th>Action</th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="prdt in vm.prdetail track by prdt.id">
                 <td ></td>
-                <td >{{prdt.projectype}}</td>
-                <td >{{prdt.sector}}</td>
-                <td >{{prdt.projectpurpose}}</td>
-                <td >{{prdt.size_of_industry}}</td>
-                <td >{{prdt.niccode}}</td>
-                <td >{{prdt.detail_project_report}}</td>
-                <td >{{prdt.category_of_project}}</td>
-                <td >{{prdt.category_of_project}}</td>
-                <td >{{prdt.approval_document}}</td>
                 <td >{{prdt.approval_application_form}}</td>
+                <td >{{prdt.approval_document}}</td>
+                <td >{{prdt.category_of_project}}</td>
+                <td >{{prdt.collaboration_with_foreign_country}}</td>
+                <td >{{prdt.detail_project_report}}</td>
+                <td >{{prdt.niccode}}</td>
+                <td >{{prdt.projectpurpose}}</td>
+                <td >{{prdt.category_of_project}}</td>
+                <td >{{prdt.projectype}}</td>
+                <td >{{prdt.sectorid}}</td>
+                <td >{{prdt.size_of_industry}}</td>
                 <td class="action verticalalign">
                     <button type="submit" ui-sref="projectdetailjist"
                             class="btn btn-info ">Details</button>

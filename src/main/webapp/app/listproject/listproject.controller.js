@@ -9,7 +9,7 @@
 
     function listprojectController($http, $state) {
         var vm = this;
-        $http.get("/api/projectdetails/ByUserLogin/").then(function(response) {
+        $http.get("/api/projectdetails").then(function(response) {
            vm.prdetail = response.data;
        });
     }
