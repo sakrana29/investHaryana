@@ -117,8 +117,6 @@ public class ProjectdetailRepository {
         }
 
         return projectList;
-        //return findprojectFromIndex(stmt);
-
     }
 
     public Projectdetail save(Projectdetail projectdetail) {
