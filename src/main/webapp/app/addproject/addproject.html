@@ -58,7 +58,7 @@
                             <label class="col-lg-2 control-label">Country</label>
                             <div class="col-lg-3">
 
-                                <select  class="form-control" ng-model="vm.investor.selectedCountry" ng-options="country.countryname for country in vm.countries">
+                                <select required class="form-control" ng-model="vm.investor.selectedCountry" ng-options="country.countryname for country in vm.countries">
                                 </select>
                             </div>
                         </div>
@@ -260,7 +260,7 @@
                         <div class="form-group">
                             <label for="projectcategory" class="col-lg-2 control-label">Category Of Project</label>
                             <div class="col-lg-3">
-                                <select  class="form-control"  ng-model="vm.projectdetail.selectedProjectCategory" ng-options="projectcategory.projectypes for projectcategory in vm.projectcategories">
+                                <select  class="form-control"  ng-model="vm.projectdetail.selectedProjectCategory" ng-options="projectcategory.categorytype for projectcategory in vm.projectcategories">
 
                                 </select>
                             </div>
@@ -288,7 +288,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label  class="col-lg-2 control-label">Application Form</label>
+                            <label  class="col-lg-2 control-label">Approved Form</label>
                             <div class="col-lg-3">
                                 <select  class="form-control" ng-model="vm.projectdetail.selectedApprovalForm" ng-options="approvalform.existingapprovalforms for approvalform in vm.approvalforms" >
                                 </select>
@@ -308,7 +308,7 @@
                         <div class="form-group">
                             <div class="col-lg-6 col-lg-offset-2">
                             <button type="reset" class="btn btn-default">Cancel</button>
-                            <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12">SAVE</button>
+                            <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12" ng-click="vm.saveProjectDetail()">SAVE</button>
                         </div>
             </div>
                 </fieldset>
@@ -329,15 +329,30 @@
     <form class="form-horizontal" >
         <fieldset>
             <div class="form-group">
+                : null,
+                district: null,
+                block: null,
+                city_town_village: null,
+                tehsil_subtehsil: null,
+                multyvillageinvolved: null,
+                villageinvolved: null,
+                falls_in_aravalli: null,
+                islandprocured: null,
+                allotedbyhsiidc: null,
+                estate: null,
+                cluster: null,
+                phase: null,
+                sector: null,
+                plotno: null,
+                hadbastno: null,
                 <label for="siteaddress" class="col-lg-2 control-label">Site Address</label>
-                <div class="col-lg-3"><textarea class="form-control" rows="3" id="siteaddress"></textarea></div>
+                <div class="col-lg-3"><textarea class="form-control" rows="3" id="siteaddress" ng-model="vm.projectsitedetail.siteaddress"></textarea></div>
             </div>
             <div class="form-group">
                 <label for="District" class="col-lg-2 control-label">District</label>
                 <div class="col-lg-3">
-                    <select  class="form-control"   >
-                        <option value="">Select District</option>
-                        <option ng-repeat = "district in vm.districts" value="{{district.id }}">{{district.districtname}}</option>
+                    <select  class="form-control"  ng-model="vm.projectsitedetail.selectedDistrict" ng-options= "district.districtname for district in vm.districts">
+
                     </select>
                 </div>
             </div>
@@ -345,7 +360,7 @@
             <div class="form-group">
                 <label  class="col-lg-2 control-label">Block</label>
                 <div class="col-lg-3">
-                    <select  class="form-control"   >
+                    <select  class="form-control" ng-model="vm.projectsitedetail.siteaddress"  >
                         <option value="">Select Block</option>
                         <option ng-repeat = "bl in vm.block" value="{{bl.id }}">{{bl.blockname}}</option>
                     </select>
@@ -356,7 +371,7 @@
             <div class="form-group">
                 <label  class="col-lg-2 control-label">City Town Village</label>
                 <div class="col-lg-3">
-                    <select  class="form-control"   >
+                    <select  class="form-control" ng-model="vm.projectsitedetail.siteaddress"   >
                         <option value="">Select City /Town /Village</option>
                         <option ng-repeat = "ct in vm.city" value="{{ct.id }}">{{ct.city_town_village_name}}</option>
                     </select>
@@ -367,126 +382,126 @@
            <div class="form-group">
                 <label  class="col-lg-2 control-label">Multy Village Involved</label>
                <div class="col-lg-10">
-                   <label><input type="radio" name="radio" > YES </label>
-                   <label><input type="radio" name="radio" checked> NO</label>
+                   <input type="checkbox" name="checkMultiVillageInvolved" ng-model="vm.projectsitedetail.siteaddress" >
                </div>
             </div>
             <div class="form-group">
                 <label for="Villageinvolved" class="col-lg-2 control-label">Village Involved</label>
                 <div class="col-lg-3">
-                    <input type="text" class="form-control" id="Villageinvolved" placeholder="Village Involve" data-dpmaxz-eid="20">
+                    <input type="text" class="form-control" id="Villageinvolved" placeholder="Village Involve" data-dpmaxz-eid="20"
+                           ng-model="vm.projectsitedetail.siteaddress" >
                 </div>
             </div>
             <div class="form-group">
                 <label  class="col-lg-2 control-label">If site falls in Gurgaon or Mewat district, whether land falls under Aravalli Notification Act</label>
                 <div class="col-lg-10">
-                    <label><input type="radio" name="radio" > YES </label>
-                    <label><input type="radio" name="radio" checked> NO</label>
+                    <input type="checkbox" ng-model="vm.projectsitedetail.siteaddress"
+                                  name="checkIfinGurgaonorMewat" >
+
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-lg-2 control-label">Is Land Procured</label>
                 <div class="col-lg-10">
-                    <label><input type="radio" name="radio" > YES </label>
-                    <label><input type="radio" name="radio" checked> NO</label>
+                    <input type="checkbox" name="checkIsLandProcured" ng-model="vm.projectsitedetail.siteaddress"  >
+
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-lg-2 control-label">Is Land Allocated By HSIID</label>
                 <div class="col-lg-10">
-                    <label><input type="radio" name="radio" > YES </label>
-                    <label><input type="radio" name="radio" checked> NO</label>
+                    <label><input type="checkbox" name="checkIsLandAllocatedByHSIID" ng-model="vm.projectsitedetail.siteaddress"  >
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="Estate" class="col-lg-2 control-label">Estate</label>
                 <div class="col-lg-3">
-                    <input type="text" class="form-control" id="Estate" placeholder="Estate" >
+                    <input type="text" class="form-control" id="Estate" placeholder="Estate" ng-model="vm.projectsitedetail.siteaddress" >
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="Cluster" class="col-lg-2 control-label">Cluster</label>
                 <div class="col-lg-3">
-                    <input type="text" class="form-control" id="Cluster" placeholder="Cluster" >
+                    <input type="text" class="form-control" id="Cluster" placeholder="Cluster" ng-model="vm.projectsitedetail.siteaddress" >
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="Phase" class="col-lg-2 control-label">Phase</label>
                 <div class="col-lg-3">
-                    <input type="text" class="form-control" id="Phase" placeholder="Phase" >
+                    <input type="text" class="form-control" id="phase" placeholder="Phase" ng-model="vm.projectsitedetail.siteaddress" >
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="Sector" class="col-lg-2 control-label">Sector</label>
                 <div class="col-lg-3">
-                    <input type="text" class="form-control" id="Sector" placeholder="Sector" >
+                    <input type="text" class="form-control" id="Sector" placeholder="Sector" ng-model="vm.projectsitedetail.siteaddress"  >
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="Plotno" class="col-lg-2 control-label">Plot no</label>
                 <div class="col-lg-3">
-                    <input type="text" class="form-control" id="Plotno" placeholder="Plotno" >
+                    <input type="text" class="form-control" id="Plotno" placeholder="Plotno" ng-model="vm.projectsitedetail.siteaddress"  >
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="Hadbastno" class="col-lg-2 control-label">Hadbast no</label>
                 <div class="col-lg-3">
-                    <input type="text" class="form-control" id="Hadbastno" placeholder="Sector" >
+                    <input type="text" class="form-control" id="Hadbastno" placeholder="HadbastNo" ng-model="vm.projectsitedetail.siteaddress" >
                 </div>
                 <label class="col-lg-3 control-label">Khasra Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ></div>
+                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ng-model="vm.projectsitedetail.siteaddress"  ></div>
 
             </div>
 
             <div class="form-group">
                 <label class="col-lg-2 control-label">Lies Under Mc</label>
                 <div class="col-lg-3">
-                    <label><input type="radio" name="radio" > YES </label>
-                    <label><input type="radio" name="radio" checked> NO</label>
+                    <input type="checkbox" name="checkLiesUnderMC" >
                 </div>
                 <label for="mcdistance" class="col-lg-3 control-label">Distance From Mc</label>
                 <div class="col-lg-3">
-                    <input type="number" class="form-control" id="mcdistance" placeholder="Plotno" >
+                    <input type="number" class="form-control" id="mcdistance" placeholder="Plotno" ng-model="vm.projectsitedetail.siteaddress"  >
                 </div>
             </div>
 
             <div class="form-group">
             <label  class="col-lg-2 control-label">Site is located in Urban Area</label>
                 <div class="col-lg-3">
-                    <label><input type="radio" name="radio" > YES </label>
-                    <label><input type="radio" name="radio" checked> NO</label>
+                    <input type="checkbox" name="isSiteAllocatedinUrbanArea" ng-model="vm.projectsitedetail.siteaddress"  >
+
                 </div>
                 <label  class="col-lg-3 control-label">Revenu Shajra Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ></div>
+                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ng-model="vm.projectsitedetail.siteaddress"></div>
 
             </div>
 
             <div class="form-group">
                 <label class="col-lg-2 control-label">Jamabandi</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ></div>
+                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ng-model="vm.projectsitedetail.siteaddress" ></div>
 
                 <label class="col-lg-3 control-label">Nonencumbrance Certificate</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ></div>
+                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ng-model="vm.projectsitedetail.siteaddress" ></div>
 
             </div>
 
             <div class="form-group">
                 <label for="Totalproposedprojectarea" class="col-lg-2 control-label">Total Proposed Project Area</label>
                 <div class="col-lg-3">
-                    <input type="text" class="form-control" id="Totalproposedprojectarea" placeholder="Plotno" >
+                    <input type="text" class="form-control" id="Totalproposedprojectarea" placeholder="Total Project Area" ng-model="vm.projectsitedetail.siteaddress" >
                 </div>
 
                 <label for="proposebuilduparea" class="col-lg-3 control-label">Proposed Built Up Area</label>
                 <div class="col-lg-3">
-                    <input type="number" class="form-control" id="proposebuilduparea" placeholder="Plotno" >
+                    <input type="number" class="form-control" id="proposebuilduparea" placeholder="Proposed Build Up Area"
+                           ng-model="vm.projectsitedetail.siteaddress" >
                 </div>
             </div>
 
@@ -494,22 +509,22 @@
             <div class="form-group">
                 <label  class="col-lg-2 control-label">Certified Ownership</label>
                 <div class="col-lg-3">
-                    <label><input type="radio" name="radio" > YES </label>
-                    <label><input type="radio" name="radio" checked> NO</label>
+                    <input type="checkbox" name="checkCerfiedOwnership" ng-model="vm.projectsitedetail.siteaddress" >
                 </div>
                 <label  class="col-lg-3 control-label">Ownership Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ></div>
+                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                             ng-model="vm.projectsitedetail.siteaddress" ></div>
 
             </div>
 
             <div class="form-group">
                 <label  class="col-lg-2 control-label">Lease Applicable</label>
                 <div class="col-lg-3">
-                    <label><input type="radio" name="radio" > YES </label>
-                    <label><input type="radio" name="radio" checked> NO</label>
+                    <input type="checkbox" name="checkLeaseApplicable" ng-model="vm.projectsitedetail.siteaddress" >
                 </div>
                 <label  class="col-lg-3 control-label">Lease Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ></div>
+                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                             ng-model="vm.projectsitedetail.siteaddress" ></div>
 
             </div>
 
@@ -517,28 +532,31 @@
             <div class="form-group">
                 <label  class="col-lg-2 control-label">Land Agreement Applicable</label>
                 <div class="col-lg-3">
-                    <label><input type="radio" name="radio" > YES </label>
-                    <label><input type="radio" name="radio" checked> NO</label>
+                    <input type="checkbox" name="checkLandAgreementApplicable"
+                                  ng-model="vm.projectsitedetail.siteaddress" >
                 </div>
                 <label  class="col-lg-3 control-label">Agreement Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ></div>
-
+                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                             ng-model="vm.projectsitedetail.siteaddress" ></div>
             </div>
 
             <div class="form-group">
                 <label class="col-lg-2 control-label">Site Layout Plan Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ></div>
+                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                             ng-model="vm.projectsitedetail.siteaddress" ></div>
                 <label class="col-lg-3 control-label">Location Plan Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ></div>
+                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                             ng-model="vm.projectsitedetail.siteaddress" ></div>
 
             </div>
 
             <div class="form-group">
             <label class="col-lg-2 control-label">Linears Trip Plan</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ></div>
+                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                             ng-model="vm.projectsitedetail.siteaddress" ></div>
                 <label class="col-lg-3 control-label">Connecting Road</label>
                 <div class="col-lg-3">
-                    <select  class="form-control"   >
+                    <select  class="form-control"  ng-model="vm.projectsitedetail.siteaddress"  >
                         <option value="">Select Connecting Road</option>
                         <option ng-repeat = "cont in vm.connecting" value="{{cont.id }}">{{cont.connectingraodtype}}</option>
                     </select>
@@ -549,37 +567,35 @@
             <div class="form-group">
                 <label  class="col-lg-2 control-label">Intersection Distance</label>
                 <div class="col-lg-10">
-                    <label><input type="radio" name="radio" > YES </label>
-                    <label><input type="radio" name="radio" checked> NO</label>
+                    <input type="checkbox" name="checkIntersectionDistance" ng-model="vm.projectsitedetail.siteaddress"  >
                 </div>
                 <label  class="col-lg-2 control-label">Railway Distance</label>
                 <div class="col-lg-10">
-                    <label><input type="radio" name="radio" > YES </label>
-                    <label><input type="radio" name="radio" checked> NO</label>
+                    <input type="checkbox" name="checkRailwayDistance" ng-model="vm.projectsitedetail.siteaddress" >
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-lg-2 control-label">Confirmity of land use</label>
                 <div class="col-lg-10">
-                    <label><input type="radio" name="radio" > YES </label>
-                    <label><input type="radio" name="radio" checked> NO</label>
+                    <input type="checkbox" name="checkConfirmityoflanduse" ng-model="vm.projectsitedetail.siteaddress">
                 </div>
                 <label  class="col-lg-2 control-label">Land Zone Use Type</label>
                 <div class="col-lg-3">
-                    <select  class="form-control"   >
+                    <select  class="form-control"  ng-model="vm.projectsitedetail.siteaddress">
                         <option value="">Select Land Zone</option>
-                        <option ng-repeat = "land in vm.landzone" value="{{land.id }}">{{land.landzoneclassificationtype}}</option>
+                        <option ng-repeat = "land in vm.landzone" value="{{land.id}}">{{land.landzoneclassificationtype}}</option>
                     </select>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-lg-2 control-label">Sitesituated Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ></div>
+                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                             ng-model="vm.projectsitedetail.siteaddress" ></div>
                 <label for="buildingexisting" class="col-lg-3 control-label">Building existed</label>
                 <div class="col-lg-3">
-                    <select type="text" class="form-control" id="buildingexisting" data-dpmaxz-eid="20">
+                    <select type="text" class="form-control" id="buildingexisting" ng-model="vm.projectsitedetail.siteaddress" data-dpmaxz-eid="20">
                         <option>Before</option>
                         <option>After</option>
                     </select>
@@ -590,22 +606,24 @@
             <div class="form-group">
             <label class="col-lg-2 control-label">Existing Building Applicable</label>
                 <div class="col-lg-3">
-                    <label><input type="radio" name="radio" > YES </label>
-                    <label><input type="radio" name="radio" checked> NO</label>
+                    <input type="checkbox" name="radio" ng-model="vm.projectsitedetail.siteaddress" >
+
                 </div>
                 <label class="col-lg-3 control-label">Building plan Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ></div>
+                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                             ng-model="vm.projectsitedetail.siteaddress"></div>
 
             </div>
 
             <div class="form-group">
                 <label  class="col-lg-2 control-label">Site Situated In Controlled Area</label>
                 <div class="col-lg-3">
-                    <label><input type="radio" name="radio" > YES </label>
-                    <label><input type="radio" name="radio" checked> NO</label>
+                    <input type="checkbox" name="checkSiteSituatedInControlledArea"
+                           ng-model="vm.projectsitedetail.siteaddress" >
                 </div>
                 <label class="col-lg-3 control-label">Controlled Area Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ></div>
+                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                             ng-model="vm.projectsitedetail.siteaddress" ></div>
             </div>
 
             <div class="form-group">

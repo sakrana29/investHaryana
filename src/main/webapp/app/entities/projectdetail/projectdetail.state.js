@@ -104,20 +104,20 @@
                     resolve: {
                         entity: function () {
                             return {
-                                investorid: null,
-                                sector: null,
                                 projectpurpose: null,
-                                size_of_industry: null,
-                                projectype: null,
                                 niccode: null,
-                                category_of_project: null,
-                                collaboration_with_foreign_country: null,
                                 existing_regulatory_approval: null,
-                                approval_application_form: null,
                                 edc_sif_clu_fee_paid_applicable: null,
                                 detail_project_report: null,
                                 approval_document: null,
                                 edc_sif_clu_fee_paid_document: null,
+                                approval_application_form: null,
+                                category_of_project: null,
+                                collaboration_with_foreign_country: null,
+                                investorid: null,
+                                projectype: null,
+                                sectorid: null,
+                                size_of_industry: null,
                                 id: null
                             };
                         }

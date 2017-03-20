@@ -5,19 +5,21 @@
         .module('investhryApp')
         .controller('addprojectController', addprojectController);
 
-    addprojectController.$inject = ['$scope', 'Principal', 'investor','companydetail', 'LoginService', '$state', '$http' , 'Investor','Companydetail','ProjectDetail'];
+    addprojectController.$inject = ['$scope', 'Principal', 'investor','companydetail','projectdetail', 'LoginService', '$state', '$http' , 'Investor','Companydetail','Projectdetail'];
 
-    function addprojectController ($scope, Principal, investor,companydetail,projectdetail, LoginService, $state, $http , Investor, Companydetail,ProjectDetail) {
+    function addprojectController ($scope, Principal, investor, companydetail, projectdetail, LoginService, $state, $http, Investor, Companydetail, Projectdetail) {
         var vm = this;
         //vm.statechange=statechange;
         vm.investor=investor;
         vm.companydetail=companydetail;
+        vm.projectdetail=projectdetail;
         vm.account = null;
         vm.isAuthenticated = null;
         vm.login = LoginService.open;
         vm.register = register;
         vm.saveInvestor=saveInvestor;
         vm.saveCompanyDetail=saveCompanyDetail;
+        vm.saveProjectDetail=saveProjectDetail;
 //        vm.getStateByCountry=getStateByCountry;
 
 
@@ -51,35 +53,44 @@
                 }
 
         function saveCompanyDetail()
-                {
-                    vm.isSaving = true;
-                    vm.companydetail.investorid=vm.resultInvestor.id;
-                    vm.companydetail.businessentitytype=vm.companydetail.selectedBusiness.id;
-                    Companydetail.save(vm.companydetail, onSaveCompanySuccess, onSaveCompanyError);
-                }
+        {
+            vm.isSaving = true;
+            vm.companydetail.investorid=vm.resultInvestor.id;
+            vm.companydetail.businessentitytype=vm.companydetail.selectedBusiness.id;
+            Companydetail.save(vm.companydetail, onSaveCompanySuccess, onSaveCompanyError);
+        }
         function onSaveCompanySuccess (resultCompany) {
-                    $scope.$emit('investhryApp:companydetailUpdate', resultCompany);
+            $scope.$emit('investhryApp:companydetailUpdate', resultCompany);
 //                    $uibModalInstance.close(result);
-                    vm.isSaving = false;
-                }
+            vm.isSaving = false;
+        }
 
-                function onSaveCompanyError () {
-                    vm.isSaving = false;
-                }
+        function onSaveCompanyError () {
+            vm.isSaving = false;
+        }
 
         function saveProjectDetail()
-                {
-                    vm.isSaving = true;
-                    vm.projectdetail.countryid=vm.projectdetail.selectedCountry.id;
-                    vm.projectdetail.stateid=vm.projectdetail.selectedState.id;
-                    vm.projectdetail.cityid=vm.projectdetail.selectedCity.id;
-                    vm.projectdetail.countryid=vm.projectdetail.selectedCountry.id;
-                    vm.projectdetail.stateid=vm.projectdetail.selectedState.id;
-                    vm.projectdetail.cityid=vm.projectdetail.selectedCity.id;
-                    vm.projectdetail.cityid=vm.projectdetail.selectedCity.id;
+        {
+            vm.isSaving = true;
+            vm.projectdetail.investorid=vm.resultInvestor.id;
+            vm.projectdetail.sectorid=vm.projectdetail.selectedSector.id;
+            vm.projectdetail.size_of_industry=vm.projectdetail.selectedSizeOfIndustry.id;
+            vm.projectdetail.projectype=vm.projectdetail.selectedProjectType.id;
+            vm.projectdetail.category_of_project=vm.projectdetail.selectedProjectCategory.id;
+            vm.projectdetail.collaboration_with_foreign_country=vm.projectdetail.selectedCountry.id;
+            vm.projectdetail.approval_application_form=vm.projectdetail.selectedApprovalForm.id;
+            Projectdetail.save(vm.projectdetail, onSaveProjectDetailSuccess, onSaveProjectDetailError);
+        }
 
-                    ProjectDetail.save(vm.investor, onSaveProjectDetailSuccess, onSaveProjectDetailError);
-                }
+        function onSaveProjectDetailSuccess (resultProjectDetail) {
+            $scope.$emit('investhryApp:companydetailUpdate', resultProjectDetail);
+    //                    $uibModalInstance.close(result);
+            vm.isSaving = false;
+        }
+
+        function onSaveProjectDetailError () {
+            vm.isSaving = false;
+        }
 
         $scope.$on('authenticationSuccess', function() {
             getAccount();
@@ -151,16 +162,14 @@
            vm.watersupplysources = response.data;
        });
        $http.get("/api/waste-water-disposal-modes").then(function(response) {
-           vm.waste-water-disposal-modes = response.data;
+           vm.waste_water_disposal_modes = response.data;
        });
        $http.get("/api/emmision-pollution-controlls").then(function(response) {
-           vm.emmision-pollution-controlls = response.data;
+           vm.emmision_pollution_controlls = response.data;
        });
        $http.get("/api/emmision-fuel-types").then(function(response) {
-           vm.emmision-fuel-types = response.data;
+           vm.emmision_fuel_types = response.data;
        });
        }
-
-
     }
 })();

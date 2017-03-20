@@ -15,20 +15,20 @@
             "detail": {
                 "title": "Projectdetail"
             },
-            "investorid": "Investorid",
-            "sector": "Sector",
             "projectpurpose": "Projectpurpose",
-            "size_of_industry": "Size Of Industry",
-            "projectype": "Projectype",
             "niccode": "Niccode",
-            "category_of_project": "Category Of Project",
-            "collaboration_with_foreign_country": "Collaboration With Foreign Country",
             "existing_regulatory_approval": "Existing Regulatory Approval",
-            "approval_application_form": "Approval Application Form",
             "edc_sif_clu_fee_paid_applicable": "Edc Sif Clu Fee Paid Applicable",
             "detail_project_report": "Detail Project Report",
             "approval_document": "Approval Document",
-            "edc_sif_clu_fee_paid_document": "Edc Sif Clu Fee Paid Document"
+            "edc_sif_clu_fee_paid_document": "Edc Sif Clu Fee Paid Document",
+            "approval_application_form": "Approval Application Form",
+            "category_of_project": "Category Of Project",
+            "collaboration_with_foreign_country": "Collaboration With Foreign Country",
+            "investorid": "Investorid",
+            "projectype": "Projectype",
+            "sectorid": "Sectorid",
+            "size_of_industry": "Size Of Industry"
         }
     }
 }

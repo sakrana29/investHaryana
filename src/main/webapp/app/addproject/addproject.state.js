@@ -74,7 +74,7 @@
                  projectdetail: function () {
                      return {
                          investorid: null,
-                         sector: null,
+                         sectorid: null,
                          projectpurpose: null,
                          size_of_industry: null,
                          projectype: null,
@@ -89,7 +89,58 @@
                          edc_sif_clu_fee_paid_document: null,
                          id: null
                      };
-                 }
+                 },
+                     projectsitedetail: function () {
+                         return {
+                             projectid: null,
+                             siteaddress: null,
+                             district: null,
+                             block: null,
+                             city_town_village: null,
+                             tehsil_subtehsil: null,
+                             multyvillageinvolved: null,
+                             villageinvolved: null,
+                             falls_in_aravalli: null,
+                             islandprocured: null,
+                             allotedbyhsiidc: null,
+                             estate: null,
+                             cluster: null,
+                             phase: null,
+                             sector: null,
+                             plotno: null,
+                             hadbastno: null,
+                             liesunder_mc: null,
+                             distance_from_mc: null,
+                             islocated_in_urban: null,
+                             totalproposedprojectarea: null,
+                             proposedbuilt_up_area: null,
+                             certifiedownership: null,
+                             leaseapplicable: null,
+                             landagreementapplicable: null,
+                             connectingroad: null,
+                             intersectiondistance: null,
+                             railwaydistance: null,
+                             confirmitylanduse: null,
+                             landzoneuse_type: null,
+                             buildingexisted: null,
+                             existing_building_applicable: null,
+                             site_situated_in_controlled_area: null,
+                             khasra_document: null,
+                             revenu_shajra_document: null,
+                             jamabandi: null,
+                             nonencumbrance_certificate: null,
+                             ownership_document: null,
+                             lease_document: null,
+                             landagreement_document: null,
+                             sitelayoutplan: null,
+                             locationplan: null,
+                             linearstripplan: null,
+                             sitesituated_document: null,
+                             controlledarea_document: null,
+                             id: null
+                         };
+                     }
+
 
             }
         });

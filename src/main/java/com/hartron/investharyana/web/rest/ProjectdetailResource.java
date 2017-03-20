@@ -28,7 +28,7 @@ public class ProjectdetailResource {
     private final Logger log = LoggerFactory.getLogger(ProjectdetailResource.class);
 
     private static final String ENTITY_NAME = "projectdetail";
-
+        
     private final ProjectdetailService projectdetailService;
 
     public ProjectdetailResource(ProjectdetailService projectdetailService) {
@@ -87,20 +87,6 @@ public class ProjectdetailResource {
     public List<ProjectdetailDTO> getAllProjectdetails() {
         log.debug("REST request to get all Projectdetails");
         return projectdetailService.findAll();
-    }
-
-    @GetMapping("/projectdetails/project/{investorid}")
-    @Timed
-    public List<ProjectdetailDTO> getAllProjectdetailsByInvestor(@PathVariable String investorid) {
-        log.debug("REST request to get all Projectdetails by Investor");
-        return projectdetailService.findProjectByInvestor(investorid);
-    }
-
-    @GetMapping("/projectdetails/ByUserLogin/")
-    @Timed
-    public List<ProjectdetailDTO> getAllProjectdetailsByUser() {
-        log.debug("REST request to get all Projectdetails by User");
-        return projectdetailService.findProjectByUserLogin();
     }
 
     /**

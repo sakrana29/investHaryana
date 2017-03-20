@@ -3,44 +3,16 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "investorid",
-            "fieldType": "UUID"
-        },
-        {
-            "fieldName": "sector",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "projectpurpose",
             "fieldType": "String"
-        },
-        {
-            "fieldName": "size_of_industry",
-            "fieldType": "UUID"
-        },
-        {
-            "fieldName": "projectype",
-            "fieldType": "UUID"
         },
         {
             "fieldName": "niccode",
             "fieldType": "String"
         },
         {
-            "fieldName": "category_of_project",
-            "fieldType": "UUID"
-        },
-        {
-            "fieldName": "collaboration_with_foreign_country",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "existing_regulatory_approval",
             "fieldType": "Boolean"
-        },
-        {
-            "fieldName": "approval_application_form",
-            "fieldType": "UUID"
         },
         {
             "fieldName": "edc_sif_clu_fee_paid_applicable",
@@ -57,6 +29,34 @@
         {
             "fieldName": "edc_sif_clu_fee_paid_document",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "approval_application_form",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "category_of_project",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "collaboration_with_foreign_country",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "investorid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "projectype",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "sectorid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "size_of_industry",
+            "fieldType": "UUID"
         }
     ],
     "changelogDate": "20170313112040",
