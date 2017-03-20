@@ -5,29 +5,43 @@
         .module('investhryApp')
         .controller('processapplicationController', processapplicationController);
 
-    processapplicationController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
+    processapplicationController.$inject = ['$timeout', '$scope', '$stateParams','$state'];
 
-    function processapplicationController ($scope, Principal, LoginService, $state) {
+    function processapplicationController ($timeout, $scope, $stateParams,$state) {
         var vm = this;
 
-        vm.account = null;
-        vm.isAuthenticated = null;
-        vm.login = LoginService.open;
-        vm.register = register;
-        $scope.$on('authenticationSuccess', function() {
-            getAccount();
-        });
+//        vm.block = entity;
+        vm.clear = clear;
+      //  vm.save = save;
 
-        getAccount();
+//        $timeout(function (){
+//            angular.element('.form-group:eq(1)>input').focus();
+//        });
 
-        function getAccount() {
-            Principal.identity().then(function(account) {
-                vm.account = account;
-                vm.isAuthenticated = Principal.isAuthenticated;
-            });
+        function clear () {
+            //$uibModalInstance.dismiss('cancel');
+            $state.go('processapplication', null, { reload: 'processapplication' });
         }
-        function register () {
-            $state.go('register');
-        }
+
+//        function save () {
+//            vm.isSaving = true;
+//            if (vm.processapplication.id !== null) {
+//                processapplication.update(vm.block, onSaveSuccess, onSaveError);
+//            } else {
+//                processapplication.save(vm.block, onSaveSuccess, onSaveError);
+//            }
+//        }
+//
+//        function onSaveSuccess (result) {
+//            $scope.$emit('investhryApp:blockUpdate', result);
+//            $uibModalInstance.close(result);
+//            vm.isSaving = false;
+//        }
+//
+//        function onSaveError () {
+//            vm.isSaving = false;
+//        }
+
+
     }
 })();

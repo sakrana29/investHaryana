@@ -8,7 +8,8 @@
     stateConfig.$inject = ['$stateProvider'];
 
     function stateConfig($stateProvider) {
-        $stateProvider.state('processapplication', {
+        $stateProvider
+        .state('processapplication', {
             parent: 'app',
             url: '/processapplication{id}',
             data: {
@@ -27,6 +28,47 @@
                     return $translate.refresh();
                 }]
             }
+        })
+         .state('processapplication.payment', {
+            parent: 'app',
+            url: '/process',
+            data: {
+                authorities: ['ROLE_USER']
+            },
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                   templateUrl: 'app/processapplication/paymentservice.html',
+                    controller: 'processapplicationController',
+                    controllerAs: 'vm',
+                    backdrop: 'static',
+                    size: 'lg'
+                }).result.then(function() {
+                    $state.go('processapplication', null, { reload: 'processapplication' });
+                }, function() {
+                    $state.go('processapplication');
+                });
+            }]
         });
+//        .state('processapplication.payment', {
+//            parent: 'app',
+//            url: '/process',
+//            data: {
+//                authorities: []
+//            },
+//             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+//                $uibModal.open({
+//                    templateUrl: 'app/processapplication/paymentservice.html',
+//                    controller: 'processapplicationController',
+//                    controllerAs: 'vm',
+//                    backdrop: 'static',
+//                    size: 'lg'
+//                }).result.then(function() {
+//                    $state.go('processapplication', null, { reload: 'processapplication' });
+//                }, function() {
+//                    $state.go('processapplication');
+//                });
+//            }]
+//
+//        });
     }
 })();
