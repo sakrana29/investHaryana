@@ -5,9 +5,9 @@
         .module('investhryApp')
         .controller('addprojectController', addprojectController);
 
-    addprojectController.$inject = ['$scope', 'Principal', 'investor','companydetail', 'LoginService', '$state', '$http' , 'Investor','Companydetail'];
+    addprojectController.$inject = ['$scope', 'Principal', 'investor','companydetail', 'LoginService', '$state', '$http' , 'Investor','Companydetail','ProjectDetail'];
 
-    function addprojectController ($scope, Principal, investor,companydetail, LoginService, $state, $http , Investor, Companydetail) {
+    function addprojectController ($scope, Principal, investor,companydetail,projectdetail, LoginService, $state, $http , Investor, Companydetail,ProjectDetail) {
         var vm = this;
         //vm.statechange=statechange;
         vm.investor=investor;
@@ -27,6 +27,8 @@
 //                           vm.states = response.data;
 //                       });
 //            }
+
+
         function saveInvestor()
         {
             vm.isSaving = true;
@@ -63,6 +65,20 @@
 
                 function onSaveCompanyError () {
                     vm.isSaving = false;
+                }
+
+        function saveProjectDetail()
+                {
+                    vm.isSaving = true;
+                    vm.projectdetail.countryid=vm.projectdetail.selectedCountry.id;
+                    vm.projectdetail.stateid=vm.projectdetail.selectedState.id;
+                    vm.projectdetail.cityid=vm.projectdetail.selectedCity.id;
+                    vm.projectdetail.countryid=vm.projectdetail.selectedCountry.id;
+                    vm.projectdetail.stateid=vm.projectdetail.selectedState.id;
+                    vm.projectdetail.cityid=vm.projectdetail.selectedCity.id;
+                    vm.projectdetail.cityid=vm.projectdetail.selectedCity.id;
+
+                    ProjectDetail.save(vm.investor, onSaveProjectDetailSuccess, onSaveProjectDetailError);
                 }
 
         $scope.$on('authenticationSuccess', function() {
@@ -102,46 +118,46 @@
            vm.businesses = response.data;
        });
        $http.get("/api/sectors").then(function(response) {
-           vm.sector = response.data;
+           vm.sectors = response.data;
        });
        $http.get("/api/industrysizes").then(function(response) {
-           vm.sizeindustry = response.data;
+           vm.industrysizes = response.data;
        });
        $http.get("/api/projectypes").then(function(response) {
-           vm.projecttype = response.data;
+           vm.project_types = response.data;
        });
        $http.get("/api/projectcategories").then(function(response) {
-           vm.categoryproject = response.data;
+           vm.projectcategories = response.data;
        });
        $http.get("/api/foreignfundingresources").then(function(response) {
-           vm.foreign = response.data;
+           vm.foreignfundingresources = response.data;
        });
        $http.get("/api/approvalforms").then(function(response) {
-           vm.applicationform = response.data;
+           vm.approvalforms = response.data;
        });
         $http.get("/api/blocks").then(function(response) {
-           vm.block = response.data;
+           vm.blocks = response.data;
        });
         $http.get("/api/city-town-villages").then(function(response) {
            vm.city = response.data;
        });
         $http.get("/api/connectingroads").then(function(response) {
-           vm.connecting = response.data;
+           vm.connectingroads = response.data;
        });
         $http.get("/api/landusezoneclassifications").then(function(response) {
-           vm.landzone = response.data;
+           vm.landusezoneclassifications = response.data;
        });
        $http.get("/api/watersupplysources").then(function(response) {
-           vm.watersource = response.data;
+           vm.watersupplysources = response.data;
        });
        $http.get("/api/waste-water-disposal-modes").then(function(response) {
-           vm.wastewatertreatment = response.data;
+           vm.waste-water-disposal-modes = response.data;
        });
        $http.get("/api/emmision-pollution-controlls").then(function(response) {
-           vm.emissionpolution = response.data;
+           vm.emmision-pollution-controlls = response.data;
        });
        $http.get("/api/emmision-fuel-types").then(function(response) {
-           vm.emissionfuel = response.data;
+           vm.emmision-fuel-types = response.data;
        });
        }
 

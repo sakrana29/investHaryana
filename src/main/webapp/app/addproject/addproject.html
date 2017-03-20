@@ -58,7 +58,7 @@
                             <label class="col-lg-2 control-label">Country</label>
                             <div class="col-lg-3">
 
-                                <select  class="form-control" ng-model="vm.investor.selectedCountry" ng-options="country.countryname for country in vm.countries" required>
+                                <select  class="form-control" ng-model="vm.investor.selectedCountry" ng-options="country.countryname for country in vm.countries">
                                 </select>
                             </div>
                         </div>
@@ -217,9 +217,7 @@
                         <div class="form-group">
                             <label for="Sector" class="col-lg-2 control-label">Sector</label>
                             <div class="col-lg-3">
-                                <select  class="form-control"  >
-                                    <option value="">Select Sector Type</option>
-                                    <option ng-repeat = "sec in vm.sector" value="{{sec.id }}">{{sec.sectortype}}</option>
+                                <select  class="form-control" ng-model="vm.projectdetail.selectedSector" ng-options="sector.sectortype for sector in vm.sectors" >
                                 </select>
                             </div>
 
@@ -227,16 +225,14 @@
                         <div class="form-group">
                             <label for="purpose" class="col-lg-2 control-label">Project Purpose</label>
                             <div class="col-lg-3">
-                                <input type="text" class="form-control" id="purpose" placeholder="Project Purpose" >
+                                <input type="text" class="form-control" id="purpose" placeholder="Project Purpose" ng-model="vm.projectdetail.projectpurpose" >
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="industrysize" class="col-lg-2 control-label">Size of Industry</label>
                             <div class="col-lg-3">
-                                <select  class="form-control"  >
-                                    <option value="">Select Industry Type</option>
-                                    <option ng-repeat = "size in vm.sizeindustry" value="{{size.id }}">{{size.sizeofindustry}}</option>
+                                <select  class="form-control" ng-model="vm.projectdetail.selectedSizeOfIndustry" ng-options="si.sizeofindustry for si in vm.industrysizes" >
                                 </select>
                             </div>
 
@@ -245,9 +241,8 @@
                         <div class="form-group">
                             <label for="projecttype" class="col-lg-2 control-label">Project Type </label>
                             <div class="col-lg-3">
-                                <select  class="form-control"  >
-                                    <option value="">Select Industry Type</option>
-                                    <option ng-repeat = "prj in vm.projecttype" value="{{prj.id }}">{{prj.projectypes}}</option>
+                                <select  class="form-control" ng-model="vm.projectdetail.selectedProjectType" ng-options="projecttype.projectypes for projecttype in vm.project_types">
+
                                 </select>
                             </div>
 
@@ -257,74 +252,65 @@
                         <div class="form-group">
                             <label for="NICCode" class="col-lg-2 control-label">NIC Code</label>
                             <div class="col-lg-3">
-                                <input type="number" class="form-control" id="NICCode" placeholder="NIC Code" data-dpmaxz-eid="20">
+                                <input type="number" class="form-control" id="NICCode" placeholder="NIC Code" data-dpmaxz-eid="20"
+                                       ng-model="vm.projectdetail.niccode">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="projectcategory" class="col-lg-2 control-label">Category Of Project</label>
                             <div class="col-lg-3">
-                                <select  class="form-control"  >
-                                    <option value="">Select Category Of Project</option>
-                                    <option ng-repeat = "cate in vm.categoryproject" value="{{cate.id }}">{{cate.categorytype}}</option>
+                                <select  class="form-control"  ng-model="vm.projectdetail.selectedProjectCategory" ng-options="projectcategory.projectypes for projectcategory in vm.projectcategories">
+
                                 </select>
                             </div>
                         </div>
-
 
                         <div class="form-group">
                             <label  class="col-lg-2 control-label">Collaboration with Foreign Investor</label>
                             <div class="col-lg-3">
-                                <select  class="form-control"    >
-                                    <option value="">Select Foreign Investor</option>
-                                    <option  ng-repeat = "country in vm.countries"  value="{{country.id }}">{{country.countryname}}</option>
+                                <select  class="form-control"  ng-model="vm.projectdetail.selectedCountry" ng-options="country.countryname for country in vm.countries">
                                 </select>
                             </div>
-
-
                         </div>
-
-
                         <div class="form-group">
                             <label  class="col-lg-2 control-label">Detailed Project Report</label>
-                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"  ></div>
+                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"
+                                                          ng-model="vm.projectdetail.detail_project_report"></div>
 
                         </div>
-
-
                         <div class="form-group">
                             <label  class="col-lg-2 control-label">Existing Regulatory Approval</label>
                             <div class="col-lg-10">
-                                <label><input type="radio" name="radio" > YES </label>
-                                <label><input type="radio" name="radio" checked> NO</label>
+                                <input type="checkbox" name="checkExistingRegulatoryApproval" ng-model="vm.projectdetail.existing_regulatory_approval">
+                                <!--<label><input type="radio" name="radio" checked> NO</label>-->
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label  class="col-lg-2 control-label">Application Form</label>
                             <div class="col-lg-3">
-                                <select  class="form-control"  >
-                                    <option value="">Select Application Form</option>
-                                    <option ng-repeat = "appl in vm.applicationform" value="{{appl.id }}">{{appl.existingapprovalforms}}</option>
+                                <select  class="form-control" ng-model="vm.projectdetail.selectedApprovalForm" ng-options="approvalform.existingapprovalforms for approvalform in vm.approvalforms" >
                                 </select>
                             </div>
 
-                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"  ></div>
+                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file" ng-model="vm.projectdetail.approval_document" /></div>
                         </div>
                         <div class="form-group">
                             <label  class="col-lg-2 control-label">EDC/SIF/CLU/Other Fee</label>
                             <div class="col-lg-10">
-                                <label><input type="radio" name="radio" > YES </label>
-                                <label><input type="radio" name="radio" checked> NO</label>
+                                <input type="checkbox" name="checkEDCSIFCLUOtherFee" ng-model="vm.projectdetail.edc_sif_clu_fee_paid_applicable"/>
+                                <!--<label><input type="radio" name="radio" checked> NO</label>-->
                             </div>
-                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"  ></div>
+                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"
+                                                          ng-model="vm.projectdetail.edc_sif_clu_fee_paid_document"/></div>
                         </div>
                         <div class="form-group">
-                            <div class="col-lg-6" col-lg-offset-2">
+                            <div class="col-lg-6 col-lg-offset-2">
                             <button type="reset" class="btn btn-default">Cancel</button>
                             <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12">SAVE</button>
                         </div>
-                    </div>
+            </div>
                 </fieldset>
             </form>
             </div>
@@ -332,7 +318,6 @@
     </div>
 
     <!-- Project Site Detail -->
-
     <div class="panel panel-default">
 <div class="panel-heading">
 <h4 class="panel-title">
