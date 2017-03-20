@@ -1,6 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <div class="bs-example">
+    <!--<jhi-alert></jhi-alert>-->
 <div class="panel-group" id="accordion">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -16,48 +17,48 @@
                         <div class="form-group">
                             <label class="col-lg-2 control-label">Mou Applicable</label>
                             <div class="col-lg-10">
-                                <label><input type="radio" name="radio" ng-click="vm.ShowPassport('Y')"> Applicable </label>
-                                <label><input type="radio" name="radio" ng-click="vm.ShowPassport('N')" checked> Not Applicable</label>
+                                <label><input type="checkbox" name="ismouapplicable" ng-model="vm.investor.mouapplicable"> Applicable </label>
+                                <!--<label><input type="radio" name="radio" ng-model="vm.investor.mouapplicable" ng-click="vm.ShowPassport('N')" checked> Not Applicable</label>-->
                             </div>
                         </div>
-                        <div class="form-group " ng-show="vm.IsVisible">
+
+
+                        <!--: null,-->
+                        <div class="form-group">
                             <label for="mouid" class="col-lg-2 control-label">MOU detail</label>
                             <div class="col-lg-3">
-                                <input type="text" class="form-control" id="mouid" placeholder="Mou ID" data-dpmaxz-eid="20">
+                                <input type="text" class="form-control" ng-model="vm.investor.mouidnumber" id="mouid" placeholder="Mou ID" data-dpmaxz-eid="20">
                             </div>
                             <div class="col-lg-3">
-                                <input type="text" class="form-control" id="inputmousignyear" placeholder="Mou signing year" data-dpmaxz-eid="4">
+                                <input type="text" ng-model="vm.investor.mousignyear" class="form-control" id="inputmousignyear" placeholder="Mou signing year" data-dpmaxz-eid="4">
                             </div>
-                            <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ></div>
+                            <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ng-model="vm.investor.moudocument"></div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-lg-2 control-label">Investor Photo</label>
-                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"  ></div>
+                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file" ng-model="vm.investor.investorpicpath"></div>
                         </div>
                         <div class="form-group">
                             <label for="firstname" class="col-lg-2 control-label">Investor Name</label>
                             <div class="col-lg-3">
-                                <input type="text" class="form-control" id="firstname" placeholder="First Name" data-dpmaxz-eid="20">
+                                <input type="text" class="form-control" ng-model="vm.investor.firstname" id="firstname" placeholder="First Name" data-dpmaxz-eid="20">
                             </div>
                             <div class="col-lg-3">
-                                <input type="text" class="form-control" id="middlename" placeholder="Middle Name" data-dpmaxz-eid="20">
+                                <input type="text" class="form-control" id="middlename" ng-model="vm.investor.middlename" placeholder="Middle Name" data-dpmaxz-eid="20">
                             </div>
                             <div class="col-lg-3">
-                                <input type="text" class="form-control" id="lastname" placeholder="Last Name" data-dpmaxz-eid="20">
+                                <input type="text" class="form-control" id="lastname" placeholder="Last Name" data-dpmaxz-eid="20" ng-model="vm.investor.lastname">
                             </div>
                         </div>
+
+
+
                         <div class="form-group">
                             <label class="col-lg-2 control-label">Country</label>
                             <div class="col-lg-3">
-                                <!--<select class="form-control"  ng-options="country as country.countryname for country in vm.countries"-->
-                                        <!--ng-model="abc" ng-change="vm.statechange(abc)">-->
-                                    <!--<option value="">Select Country</option>-->
 
-                                <!--</select>-->
-                                <select  class="form-control"    >
-                                    <option value="">Select Country</option>
-                                    <option  ng-repeat = "country in vm.countries"  value="{{country.id }}">{{country.countryname}}</option>
+                                <select  class="form-control" ng-model="vm.investor.selectedCountry" ng-options="country.countryname for country in vm.countries" required>
                                 </select>
                             </div>
                         </div>
@@ -65,19 +66,15 @@
                         <div class="form-group">
                             <label  class="col-lg-2 control-label">State</label>
                             <div class="col-lg-3">
-                                <select  class="form-control"  >
-                                    <option value="">Select State</option>
-                                    <option ng-repeat = "state in vm.states" value="{{state.id }}">{{state.statename}}</option>
+                                <select  class="form-control" ng-model="vm.investor.selectedState" ng-options="state.statename for state in vm.states" >
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label  class="col-lg-2 control-label">City/District</label>
+                            <label  class="col-lg-2 control-label">City</label>
                             <div class="col-lg-3">
-                                <select  class="form-control"   >
-                                    <option value="">Select District</option>
-                                    <option ng-repeat = "district in vm.districts" value="{{district.id }}">{{district.districtname}}</option>
+                                <select class="form-control"  ng-model="vm.investor.selectedCity" ng-options="city.city_town_village_name for city in vm.cities">
                                 </select>
                             </div>
                         </div>
@@ -85,34 +82,33 @@
                         <div class="form-group">
                             <label for="address1" class="col-lg-2 control-label">Address</label>
                             <div class="col-lg-3">
-                                <textarea class="form-control" rows="3" id="address1" Placeholder="Address 1"></textarea>
+                                <textarea class="form-control" rows="3" id="address1" Placeholder="Address 1" ng-model="vm.investor.address1"></textarea>
                             </div>
                             <div class="col-lg-3">
-                                <textarea class="form-control" rows="3" id="address2" Placeholder="Address 2"></textarea>
+                                <textarea class="form-control" rows="3" id="address2" Placeholder="Address 2" ng-model="vm.investor.address2"></textarea>
                             </div>
                             <div class="col-lg-3">
-                                <textarea class="form-control" rows="3" id="address3" Placeholder="Address 3"></textarea>
+                                <textarea class="form-control" rows="3" id="address3" Placeholder="Address 3" ng-model="vm.investor.address3"></textarea>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="email1" class="col-lg-2 control-label">Email </label>
                             <div class="col-lg-3">
-                                <input type="text" class="form-control" id="email1" placeholder="Primary Email" >
+                                <input type="text" class="form-control" id="email1" placeholder="Primary Email" ng-model="vm.investor.emailprimary">
                             </div>
                             <div class="col-lg-3">
-                                <input type="text" class="form-control" id="email2" placeholder="Secondary Email">
+                                <input type="text" class="form-control" id="email2" placeholder="Secondary Email" ng-model="vm.investor.emailsecondary">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-lg-10 col-lg-offset-2">
                                 <button type="reset" class="btn btn-default">Cancel</button>
-                                <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12">SAVE</button>
+                                <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12" ng-click="vm.saveInvestor()">SAVE</button>
                             </div>
                         </div>
                     </fieldset>
                 </form>
-
             </div>
         </div>
     </div>
@@ -130,79 +126,76 @@
                         <div class="form-group">
                             <label for="mddirector" class="col-lg-2 control-label">Promoter / MD / Director</label>
                             <div class="col-lg-3">
-                               <input type="text" class="form-control" id="mddirector" placeholder="Name" >
+
+                               <input type="text" class="form-control" id="mddirector" placeholder="Name" ng-model="vm.companydetail.promoter_md_director">
                                 </div>
                             <div class="col-lg-3">
-                                <input type="text" class="form-control" id="designation" placeholder="Designation" >
+                                <input type="text" class="form-control" id="designation" placeholder="Designation" ng-model="vm.companydetail.designation">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="businessentity" class="col-lg-2 control-label">Business Entity (M/s)</label>
                             <div class="col-lg-3">
-                                <input type="text" class="form-control" id="businessentity" placeholder="Business Entity (M/s)" >
+                                <input type="text" class="form-control" id="businessentity" placeholder="Business Entity (M/s)" ng-model="vm.companydetail.businessentity">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label  class="col-lg-2 control-label">Business Entity Type</label>
                             <div class="col-lg-3">
-                                <select  class="form-control"  >
-                                    <option value="">Select Business Entity Type</option>
-                                    <option ng-repeat = "busines in vm.businesses" value="{{busines.id }}">{{busines.businessentitytype}}</option>
+                                <select  class="form-control" ng-model="vm.companydetail.selectedBusiness" ng-options="business.businessentitytype for business in vm.businesses">
                                 </select>
                             </div>
-
                         </div>
-
 
                         <div class="form-group">
                             <label for="promotor" class="col-lg-2 control-label">No. of Directors/ Promoters /MDs /CEO</label>
                             <div class="col-lg-3">
-                                <input type="number" class="form-control" id="promotor" placeholder="Number of Directors/Promoters/MDs/CEO" >
+                                <input type="number" class="form-control" id="promotor" placeholder="Number of Directors/Promoters/MDs/CEO" ng-model="vm.companydetail.director_promoter_md_ceo_number">
                             </div>
-                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"  ></div>
+                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file" ng-model="vm.companydetail.director_md_ceo_list"></div>
                         </div>
 
                         <div class="form-group">
                             <label for="PanNumber" class="col-lg-2 control-label">Pan Number</label>
-                            <div class="col-lg-3"><input type="text" class="form-control" id="PanNumber" placeholder="PAN Number" ></div>
-                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"  ></div>
+                            <div class="col-lg-3"><input type="text" class="form-control" id="PanNumber" placeholder="PAN Number" ng-model="vm.companydetail.pan_number"></div>
+                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"  ng-model="vm.companydetail.pancard"></div>
                         </div>
                         <div class="form-group">
                             <label for="aadharnumber" class="col-lg-2 control-label">Aadhar Number</label>
-                            <div class="col-lg-3"><input type="text" class="form-control" id="aadharnumber" placeholder="Aadhar Number" ></div>
-                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"  ></div>
+                            <div class="col-lg-3"><input type="text" class="form-control" id="aadharnumber" placeholder="Aadhar Number" ng-model="vm.companydetail.aadhar_number"></div>
+                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"  ng-model="vm.companydetail.aadharcard"></div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-lg-2 control-label">Applicant is NRI?</label>
                             <div class="col-lg-10">
-                                <label><input type="radio" name="radio" > YES </label>
-                                <label><input type="radio" name="radio" checked> NO</label>
+                                <input type="checkbox" name="radioISNRI" checked="false" ng-model="vm.companydetail.nri">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="tinvatnumber" class="col-lg-2 control-label">Tin Vat Number</label>
-                            <div class="col-lg-3"><input type="text" class="form-control" id="tinvatnumber" placeholder="Tin Vat Number" ></div>
-                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"  ></div>
+                            <div class="col-lg-3"><input type="text" class="form-control" id="tinvatnumber" placeholder="Tin Vat Number" ng-model="vm.companydetail.tin_vat_number"></div>
+                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"  ng-model="vm.companydetail.tin_vat_document"></div>
                         </div>
+
                         <div class="form-group">
                             <label for="cstnumber" class="col-lg-2 control-label">Cst Number</label>
-                            <div class="col-lg-3"><input type="text" class="form-control" id="cstnumber" placeholder="Cst Number"></div>
-                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"  ></div>
+                            <div class="col-lg-3"><input type="text" class="form-control" id="cstnumber" placeholder="Cst Number" ng-model="vm.companydetail.cst_number"></div>
+                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file" ng-model="vm.companydetail.cst_document" ></div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-2 control-label">MoA/Partnership Deed Attachment</label>
-                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"  ></div>
+                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"  ng-model="vm.companydetail.moa_partnershipdeed"></div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-2 control-label">Registration Document</label>
-                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"  ></div>
+                            <div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file" ng-model="vm.companydetail.registration_document" ></div>
                         </div>
                         <div class="form-group">
-                            <div class="col-lg-6" col-lg-offset-2">
+                            <div class="col-lg-6 col-lg-offset-2">
                                 <button type="reset" class="btn btn-default">Cancel</button>
-                                <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12">SAVE</button>
+                                <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12" ng-click="vm.saveCompanyDetail()">SAVE</button>
                             </div>
                         </div>
                     </fieldset>
