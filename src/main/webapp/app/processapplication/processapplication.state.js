@@ -30,7 +30,7 @@
             }
         })
          .state('processapplication.payment', {
-            parent: 'app',
+            parent: 'processapplication',
             url: '/process',
             data: {
                 authorities: ['ROLE_USER']
@@ -38,7 +38,7 @@
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
                    templateUrl: 'app/processapplication/paymentservice.html',
-                    controller: 'processapplicationController',
+                    controller: 'paymentserviceController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg'
