@@ -1,14 +1,20 @@
 package com.hartron.investharyana.web.rest;
 
+import com.codahale.metrics.annotation.Timed;
 import com.hartron.investharyana.service.*;
 import com.hartron.investharyana.service.dto.*;
+import com.hartron.investharyana.web.rest.util.HeaderUtil;
+import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * REST controller for managing Block.
@@ -43,8 +49,8 @@ public class ProjectCompleteDetailResource {
     }
 
     @GetMapping("/CompleteProjectDetail")
-    public List<ProjectCompleteDetailDTO> getOneProjectCompleteDetail() {
-        log.debug("REST request to get one project complete detail");
+    public List<ProjectCompleteDetailDTO> getAllProjectCompleteDetail() {
+        log.debug("REST request to get all project complete detail");
 //        String projectid= "d383d243-da16-4558-9e7b-7217c1259ea3";
 
         List<ProjectCompleteDetailDTO> completeprojectdtolist=new ArrayList<>();
@@ -70,7 +76,100 @@ public class ProjectCompleteDetailResource {
         return completeprojectdtolist;
     }
 
+    @GetMapping("/CompleteProjectDetail/{projectid}")
+    public ResponseEntity<ProjectCompleteDetailDTO> getOneProjectCompleteDetail(String projectid) {
+        log.debug("REST request to get one project complete detail");
+        //ProjectCompleteDetailDTO completeprojectdto=new ProjectCompleteDetailDTO();
 
+            ProjectdetailcombinecodesDTO projectdetailcombinecodesDTO=projectdetailcombinecodesService.findOne(projectid);
+            ProjectCompleteDetailDTO completeprojectdto=new ProjectCompleteDetailDTO();
+            completeprojectdto.setProjectdetailDTO(projectdetailService.findOne(projectdetailcombinecodesDTO.getId().toString()));
+            completeprojectdto.setInvestorDTO(investorService.findOne(projectdetailcombinecodesDTO.getInvestorid().toString()));
+            completeprojectdto.setCompanydetailDTO(companydetailService.findOne(projectdetailcombinecodesDTO.getCompanydetailid().toString()));
+            completeprojectdto.setProjectsitedetailDTO(projectsitedetailService.findOne(projectdetailcombinecodesDTO.getProjectsitedetailid().toString()));
+            completeprojectdto.setProject_finance_investmentDTO(project_finance_investmentService.findOne(projectdetailcombinecodesDTO.getProjectfinanceid().toString()));
+            completeprojectdto.setManufacturingdetailDTO(manufacturingdetailService.findOne(projectdetailcombinecodesDTO.getManufacturingid().toString()));
+            completeprojectdto.setElectricrequirementDTO(electricrequirementService.findOne(projectdetailcombinecodesDTO.getElectricityrequirementid().toString()));
+
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(completeprojectdto));
+        //return projectdetailcombinecodesDTO;
+    }
+
+    @PostMapping("/CompleteProjectDetail")
+    @Timed
+    public ResponseEntity<ProjectCompleteDetailDTO> createProjectCompleteDetail(@RequestBody ProjectCompleteDetailDTO projectCompleteDetailDTO) throws URISyntaxException {
+        log.debug("REST request to save data in all project entities : {}", projectCompleteDetailDTO);
+        if (projectCompleteDetailDTO.getProjectdetailDTO().getId() != null) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("Complete Project Detail", "idexists", "A new Project cannot already have an ID")).body(null);
+        }
+        InvestorDTO resultInvestor = investorService.save(projectCompleteDetailDTO.getInvestorDTO());
+
+        projectCompleteDetailDTO.getCompanydetailDTO().setInvestorid(resultInvestor.getId());
+        CompanydetailDTO resultCompany = companydetailService.save(projectCompleteDetailDTO.getCompanydetailDTO());
+
+        projectCompleteDetailDTO.getProjectdetailDTO().setInvestorid(resultInvestor.getId());
+        ProjectdetailDTO resultProjectdetail = projectdetailService.save(projectCompleteDetailDTO.getProjectdetailDTO());
+
+        projectCompleteDetailDTO.getProjectsitedetailDTO().setProjectid(resultProjectdetail.getId());
+        ProjectsitedetailDTO resultSiteDetail = projectsitedetailService.save(projectCompleteDetailDTO.getProjectsitedetailDTO());
+
+        projectCompleteDetailDTO.getProject_finance_investmentDTO().setProjectid(resultProjectdetail.getId());
+        Project_finance_investmentDTO resultFinance = project_finance_investmentService.save(projectCompleteDetailDTO.getProject_finance_investmentDTO());
+
+        projectCompleteDetailDTO.getManufacturingdetailDTO().setProjectid(resultProjectdetail.getId());
+        ManufacturingdetailDTO resultManufacturing = manufacturingdetailService.save(projectCompleteDetailDTO.getManufacturingdetailDTO());
+
+        projectCompleteDetailDTO.getElectricrequirementDTO().setProjectid(resultProjectdetail.getId());
+        ElectricrequirementDTO resultElectric = electricrequirementService.save(projectCompleteDetailDTO.getElectricrequirementDTO());
+
+        projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setInvestorid(resultInvestor.getId());
+        projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setId(resultProjectdetail.getId());
+        projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setCompanydetailid(resultCompany.getId());
+        projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setProjectsitedetailid(resultSiteDetail.getId());
+        projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setElectricityrequirementid(resultElectric.getId());
+        projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setProjectfinanceid(resultFinance.getId());
+        projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setManufacturingid(resultManufacturing.getId());
+        ProjectdetailcombinecodesDTO resultCombineCodes = projectdetailcombinecodesService.save(projectCompleteDetailDTO.getProjectdetailcombinecodesDTO());
+
+        return ResponseEntity.created(new URI("/api/CompleteProjectDetail/" + resultProjectdetail.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert("CompleteProjectDetail", resultProjectdetail.getId().toString()))
+            .body(projectCompleteDetailDTO);
+    }
+
+    @PutMapping("/CompleteProjectDetail")
+    @Timed
+    public ResponseEntity<ProjectCompleteDetailDTO> updateProjectdetail(@RequestBody ProjectCompleteDetailDTO projectCompleteDetailDTO) throws URISyntaxException {
+        log.debug("REST request to update Complete Project Detail: {}", projectCompleteDetailDTO);
+        if (projectCompleteDetailDTO.getProjectdetailDTO().getId() == null) {
+            return createProjectCompleteDetail(projectCompleteDetailDTO);
+        }
+//        ProjectdetailDTO result = projectdetailService.save(projectCompleteDetailDTO);
+        InvestorDTO resultInvestor = investorService.save(projectCompleteDetailDTO.getInvestorDTO());
+
+//        projectCompleteDetailDTO.getCompanydetailDTO().setInvestorid(resultInvestor.getId());
+        CompanydetailDTO resultCompany = companydetailService.save(projectCompleteDetailDTO.getCompanydetailDTO());
+
+//        projectCompleteDetailDTO.getProjectdetailDTO().setInvestorid(resultInvestor.getId());
+        ProjectdetailDTO resultProjectdetail = projectdetailService.save(projectCompleteDetailDTO.getProjectdetailDTO());
+
+//        projectCompleteDetailDTO.getProjectsitedetailDTO().setProjectid(resultProjectdetail.getId());
+        ProjectsitedetailDTO resultSiteDetail = projectsitedetailService.save(projectCompleteDetailDTO.getProjectsitedetailDTO());
+
+//        projectCompleteDetailDTO.getProject_finance_investmentDTO().setProjectid(resultProjectdetail.getId());
+        Project_finance_investmentDTO resultFinance = project_finance_investmentService.save(projectCompleteDetailDTO.getProject_finance_investmentDTO());
+
+//        projectCompleteDetailDTO.getManufacturingdetailDTO().setProjectid(resultProjectdetail.getId());
+        ManufacturingdetailDTO resultManufacturing = manufacturingdetailService.save(projectCompleteDetailDTO.getManufacturingdetailDTO());
+
+//        projectCompleteDetailDTO.getElectricrequirementDTO().setProjectid(resultProjectdetail.getId());
+        ElectricrequirementDTO resultElectric = electricrequirementService.save(projectCompleteDetailDTO.getElectricrequirementDTO());
+
+
+
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert("Complete Project Detail", projectCompleteDetailDTO.getProjectdetailDTO().getId().toString()))
+            .body(projectCompleteDetailDTO);
+    }
 
 
 
