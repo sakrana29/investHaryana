@@ -49,6 +49,7 @@
                 "environmentImpactdetail": "Environment Impactdetail",
                 "electricrequirement": "Electricrequirement",
                 "termDeclarationAccept": "Term Declaration Accept",
+                "projectdetailcombinecodes": "Projectdetailcombinecodes",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

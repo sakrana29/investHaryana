@@ -1,0 +1,62 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProjectdetailcombinecodesLabel" data-translate="investhryApp.projectdetailcombinecodes.home.createOrEditLabel">Create or edit a Projectdetailcombinecodes</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.projectdetailcombinecodes.id" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectdetailcombinecodes.investorid" for="field_investorid">Investorid</label>
+            <input type="text" class="form-control" name="investorid" id="field_investorid"
+                    ng-model="vm.projectdetailcombinecodes.investorid"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectdetailcombinecodes.companydetailid" for="field_companydetailid">Companydetailid</label>
+            <input type="text" class="form-control" name="companydetailid" id="field_companydetailid"
+                    ng-model="vm.projectdetailcombinecodes.companydetailid"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectdetailcombinecodes.projectsitedetailid" for="field_projectsitedetailid">Projectsitedetailid</label>
+            <input type="text" class="form-control" name="projectsitedetailid" id="field_projectsitedetailid"
+                    ng-model="vm.projectdetailcombinecodes.projectsitedetailid"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectdetailcombinecodes.projectfinanceid" for="field_projectfinanceid">Projectfinanceid</label>
+            <input type="text" class="form-control" name="projectfinanceid" id="field_projectfinanceid"
+                    ng-model="vm.projectdetailcombinecodes.projectfinanceid"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectdetailcombinecodes.manufacturingid" for="field_manufacturingid">Manufacturingid</label>
+            <input type="text" class="form-control" name="manufacturingid" id="field_manufacturingid"
+                    ng-model="vm.projectdetailcombinecodes.manufacturingid"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectdetailcombinecodes.electricityrequirementid" for="field_electricityrequirementid">Electricityrequirementid</label>
+            <input type="text" class="form-control" name="electricityrequirementid" id="field_electricityrequirementid"
+                    ng-model="vm.projectdetailcombinecodes.electricityrequirementid"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

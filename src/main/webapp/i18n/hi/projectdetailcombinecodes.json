@@ -1,0 +1,26 @@
+{
+    "investhryApp": {
+        "projectdetailcombinecodes" : {
+            "home": {
+                "title": "Projectdetailcombinecodes",
+                "createLabel": "नया Projectdetailcombinecodes बनाएँ",
+                "createOrEditLabel": "Projectdetailcombinecodes बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Projectdetailcombinecodes [identifier: {{ param }}] तैयार है",
+            "updated": "एक Projectdetailcombinecodes [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Projectdetailcombinecodes [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Projectdetailcombinecodes [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Projectdetailcombinecodes"
+            },
+            "investorid": "Investorid",
+            "companydetailid": "Companydetailid",
+            "projectsitedetailid": "Projectsitedetailid",
+            "projectfinanceid": "Projectfinanceid",
+            "manufacturingid": "Manufacturingid",
+            "electricityrequirementid": "Electricityrequirementid"
+        }
+    }
+}

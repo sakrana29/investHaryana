@@ -20,12 +20,6 @@
                     controller: 'acceptanceController',
                     controllerAs: 'vm'
                 }
-            },
-            resolve: {
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
-                    $translatePartialLoader.addPart('acceptance');
-                    return $translate.refresh();
-                }]
             }
         });
     }

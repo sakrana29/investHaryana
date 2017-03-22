@@ -6,7 +6,7 @@
     </div>
     <div class="row" >
         <table class="table table-striped table-hover ">
-            <thead> 
+            <thead>
             <tr class="headerGrid">
                 <th>Project Identification No.(PIN)</th>
                 <th>Approval Application form</th>
@@ -16,26 +16,27 @@
                 <th>Detail Project Report</th>
                 <th>NIC Code</th>
                 <th>Project Purpose </th>
-               <th>Project Type</th>
-                <th>Sector</th>
-                <th>Size Of Industry</th>
-                <th>Action</th>
+               <!--<th>Project Type</th>-->
+                <!--<th>Sector</th>-->
+                <!--<th>Size Of Industry</th>-->
+                <!--<th>Action</th>-->
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="prdt in vm.prdetail track by prdt.id">
-                <td ></td>
-                <td >{{prdt.approval_application_form}}</td>
-                <td >{{prdt.approval_document}}</td>
-                <td >{{prdt.category_of_project}}</td>
-                <td >{{prdt.collaboration_with_foreign_country}}</td>
-                <td >{{prdt.detail_project_report}}</td>
-                <td >{{prdt.niccode}}</td>
-                <td >{{prdt.projectpurpose}}</td>
-                <td >{{prdt.category_of_project}}</td>
-                <td >{{prdt.projectype}}</td>
-                <td >{{prdt.sectorid}}</td>
-                <td >{{prdt.size_of_industry}}</td>
+            <tr ng-repeat = "prdtl in vm.projectcompletedetail">
+
+                <!--<td >{{vm.projectcompletedetail.investorDTO.firstname}}</td>-->
+                <td >{{prdtl.companydetailDTO.designation}}</td>
+                <td >{{prdtl.manufacturingdetailDTO.processid}}</td>
+                <td >{{prdtl.electricrequirementDTO.customertype}}</td>
+                <td >{{prdtl.finance_investmentDTO.fdi_country}}</td>
+                <td >{{prdtl.projectdetailDTO.id}}</td>
+                <td >{{prdtl.projectsitedetailDTO.block}}</td>
+                <td >{{prdtl.projectdetailcombinecodesDTO.investorid}}</td>
+                <!--<td >{{prdt.category_of_project}}</td>-->
+                <!--<td >{{prdt.projectype}}</td>-->
+                <!--<td >{{prdt.sectorid}}</td>-->
+                <!--<td >{{prdt.size_of_industry}}</td>-->
                 <td class="action verticalalign">
                     <button type="submit" ui-sref="projectdetailjist"
                             class="btn btn-info ">Details</button>

@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span data-translate="investhryApp.projectdetailcombinecodes.detail.title">Projectdetailcombinecodes</span> {{vm.projectdetailcombinecodes.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="investhryApp.projectdetailcombinecodes.investorid">Investorid</span></dt>
+        <dd>
+            <span>{{vm.projectdetailcombinecodes.investorid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectdetailcombinecodes.companydetailid">Companydetailid</span></dt>
+        <dd>
+            <span>{{vm.projectdetailcombinecodes.companydetailid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectdetailcombinecodes.projectsitedetailid">Projectsitedetailid</span></dt>
+        <dd>
+            <span>{{vm.projectdetailcombinecodes.projectsitedetailid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectdetailcombinecodes.projectfinanceid">Projectfinanceid</span></dt>
+        <dd>
+            <span>{{vm.projectdetailcombinecodes.projectfinanceid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectdetailcombinecodes.manufacturingid">Manufacturingid</span></dt>
+        <dd>
+            <span>{{vm.projectdetailcombinecodes.manufacturingid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectdetailcombinecodes.electricityrequirementid">Electricityrequirementid</span></dt>
+        <dd>
+            <span>{{vm.projectdetailcombinecodes.electricityrequirementid}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="projectdetailcombinecodes-detail.edit({id:vm.projectdetailcombinecodes.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

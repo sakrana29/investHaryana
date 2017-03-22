@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "investorid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "companydetailid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "projectsitedetailid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "projectfinanceid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "manufacturingid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "electricityrequirementid",
+            "fieldType": "UUID"
+        }
+    ],
+    "changelogDate": "20170322055915",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "projectdetailcombinecodes",
+    "pagination": "no"
+}

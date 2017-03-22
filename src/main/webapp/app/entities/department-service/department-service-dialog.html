@@ -26,9 +26,11 @@
         <!--</div>-->
         <div class="form-group">
             <label class="control-label" for="field_departmentID">Department</label>
-            <select ng-model="vm.departmentService.departmentID" class="form-control" required name="departmentID" id="field_departmentID" ng-controller = "depserviceController">
-                <option value="">Select Department</option>
-                <option ng-repeat = "student in students" value="{{student.id }}">{{student.departmentname}}</option>
+            <select class="form-control" required name="departmentID" id="field_departmentID"
+            ng-options="department.departmentname for department in vm.departments" ng-model="vm.deptservice.department"
+                >
+                <!--<option value="">Select Department</option>-->
+                <!--<option ng-repeat = "department in vm.departments" value="{{department.id }}">{{department.departmentname}}</option>-->
             </select>
             <div ng-show="editForm.departmentID.$invalid">
                 <p class="help-block"

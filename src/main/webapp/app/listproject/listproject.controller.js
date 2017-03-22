@@ -5,12 +5,27 @@
         .module('investhryApp')
         .controller('listprojectController', listprojectController);
 
-    listprojectController.$inject = ['$http', '$state'];
+    listprojectController.$inject = ['$scope','$state', 'Projectcompletedetail'];
 
-    function listprojectController($http, $state) {
+    function listprojectController($scope, $state, Projectcompletedetail) {
         var vm = this;
-        $http.get("/api/projectdetails").then(function(response) {
-           vm.prdetail = response.data;
-       });
+        vm.projectcompletedetail=[];
+
+        loadAll();
+
+        function loadAll() {
+
+            Projectcompletedetail.query(function(result){
+                vm.projectcompletedetail=result;
+//                console.log(vm.projectcompletedetail[0].projectdetailDTO);
+            });
+
+
+        }
+
+
+//        $http.get("/api/projectdetails").then(function(response) {
+//           vm.prdetail = response.data;
+//       });
     }
 })();

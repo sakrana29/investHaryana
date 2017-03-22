@@ -1,0 +1,26 @@
+{
+    "investhryApp": {
+        "projectdetailcombinecodes" : {
+            "home": {
+                "title": "Projectdetailcombinecodes",
+                "createLabel": "Create a new Projectdetailcombinecodes",
+                "createOrEditLabel": "Create or edit a Projectdetailcombinecodes"
+            },
+            "created": "A new Projectdetailcombinecodes is created with identifier {{ param }}",
+            "updated": "A Projectdetailcombinecodes is updated with identifier {{ param }}",
+            "deleted": "A Projectdetailcombinecodes is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Projectdetailcombinecodes {{ id }}?"
+            },
+            "detail": {
+                "title": "Projectdetailcombinecodes"
+            },
+            "investorid": "Investorid",
+            "companydetailid": "Companydetailid",
+            "projectsitedetailid": "Projectsitedetailid",
+            "projectfinanceid": "Projectfinanceid",
+            "manufacturingid": "Manufacturingid",
+            "electricityrequirementid": "Electricityrequirementid"
+        }
+    }
+}
