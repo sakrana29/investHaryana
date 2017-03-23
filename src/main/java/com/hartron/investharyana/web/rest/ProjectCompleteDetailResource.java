@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -97,7 +98,7 @@ public class ProjectCompleteDetailResource {
 
     @PostMapping("/CompleteProjectDetail")
     @Timed
-    public ResponseEntity<ProjectCompleteDetailDTO> createProjectCompleteDetail(@RequestBody ProjectCompleteDetailDTO projectCompleteDetailDTO) throws URISyntaxException {
+    public ResponseEntity<ProjectCompleteDetailDTO> createProjectCompleteDetail(@Valid @RequestBody ProjectCompleteDetailDTO projectCompleteDetailDTO) throws URISyntaxException {
         log.debug("REST request to save data in all project entities : {}", projectCompleteDetailDTO);
         if (projectCompleteDetailDTO.getProjectdetailDTO().getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("Complete Project Detail", "idexists", "A new Project cannot already have an ID")).body(null);

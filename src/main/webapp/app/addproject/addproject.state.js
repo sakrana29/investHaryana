@@ -139,9 +139,71 @@
                              controlledarea_document: null,
                              id: null
                          };
-                     }
-
-
+                     },
+                     finance_investment: function () {
+                             return {
+                                 projectid: null,
+                                 land_cost: null,
+                                 building_cost: null,
+                                 machinery_cost: null,
+                                 misc_assests: null,
+                                 total_project_cost: null,
+                                 isfdi: null,
+                                 fdivalue: null,
+                                 fdi_country: null,
+                                 foreign_funding_source: null,
+                                 project_construction_start_date: null,
+                                 commercial_activity_start_date: null,
+                                 proposedproject_scheduleid: null,
+                                 id: null
+                             };
+                         },
+                         manufacturing_detail: function () {
+                             return {
+                                 projectid: null,
+                                 projectrawmaterialid: null,
+                                 productid: null,
+                                 processid: null,
+                                 manufacturing_flow_document: null,
+                                 id: null
+                             };
+                         },
+                        electricrequirement: function () {
+                            return {
+                                projectid: null,
+                                temporaryrequired: null,
+                                tem_load_existing: null,
+                                tem_account_number: null,
+                                temp_existing_load_demand_kw: null,
+                                temp_existing_load_demand_kva: null,
+                                temp_new_load_demand_kw: null,
+                                temp_new_load_demand_kva: null,
+                                temp_load_demand_date: null,
+                                regular_load_required: null,
+                                regular_existing_connection: null,
+                                customertype: null,
+                                regular_account_number: null,
+                                regular_existing_load_ifany_kw: null,
+                                regular_existing_load_ifany_kva: null,
+                                regular_new_load_demand_kw: null,
+                                regular_new_load_demand_kva: null,
+                                regular_load_demand_date: null,
+                                temporaryconnection: null,
+                                regular_connection_doc: null,
+                                id: null
+                            };
+                        },
+                        projectcombinecodes: function () {
+                            return {
+                                investorid: null,
+                                companydetailid: null,
+                                projectsitedetailid: null,
+                                projectfinanceid: null,
+                                manufacturingid: null,
+                                electricityrequirementid: null,
+                                id: null
+                            };
+                        }
             }
         });
     }

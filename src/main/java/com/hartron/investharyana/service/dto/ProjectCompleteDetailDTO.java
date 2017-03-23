@@ -20,8 +20,6 @@ public class ProjectCompleteDetailDTO implements Serializable {
     private ElectricrequirementDTO electricrequirementDTO;
     private ProjectdetailcombinecodesDTO projectdetailcombinecodesDTO;
 
-
-
     public InvestorDTO getInvestorDTO() {
         return investorDTO;
     }

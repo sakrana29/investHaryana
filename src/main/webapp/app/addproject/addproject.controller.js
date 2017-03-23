@@ -5,21 +5,60 @@
         .module('investhryApp')
         .controller('addprojectController', addprojectController);
 
-    addprojectController.$inject = ['$scope', 'Principal', 'investor','companydetail','projectdetail', 'LoginService', '$state', '$http' , 'Investor','Companydetail','Projectdetail'];
+    addprojectController.$inject = ['$scope', 'Principal', 'investor','companydetail','projectdetail','projectsitedetail','electricrequirement','manufacturing_detail','finance_investment','projectcombinecodes','LoginService', '$state', '$http' , 'Investor','Companydetail','Projectdetail','Projectcompletedetail'];
 
-    function addprojectController ($scope, Principal, investor, companydetail, projectdetail, LoginService, $state, $http, Investor, Companydetail, Projectdetail) {
+    function addprojectController ($scope, Principal, investor, companydetail, projectdetail,projectsitedetail,electricrequirement,manufacturing_detail,finance_investment,projectcombinecodes, LoginService, $state, $http, Investor, Companydetail, Projectdetail, Projectcompletedetail) {
         var vm = this;
         //vm.statechange=statechange;
+
+        vm.CompleteProjectDetail={};
+
         vm.investor=investor;
         vm.companydetail=companydetail;
         vm.projectdetail=projectdetail;
+        vm.projectsitedetail=projectsitedetail;
+        vm.electricrequirement=electricrequirement;
+        vm.manufacturing_detail=manufacturing_detail;
+        vm.finance_investment=finance_investment;
+        vm.projectcombinecodes=projectcombinecodes;
+
         vm.account = null;
         vm.isAuthenticated = null;
         vm.login = LoginService.open;
         vm.register = register;
+
         vm.saveInvestor=saveInvestor;
         vm.saveCompanyDetail=saveCompanyDetail;
         vm.saveProjectDetail=saveProjectDetail;
+        vm.saveCompleteProjectDetail=saveCompleteProjectDetail;
+
+//        vm.CompleteProjectDetail=[];
+
+        function saveCompleteProjectDetail()
+        {
+            vm.CompleteProjectDetail.investorDTO=vm.investor;
+            vm.CompleteProjectDetail.companydetailDTO=vm.companydetail;
+            vm.CompleteProjectDetail.projectdetailDTO=vm.projectdetail;
+            vm.CompleteProjectDetail.projectsitedetailDTO=vm.projectsitedetail;
+            vm.CompleteProjectDetail.project_finance_investmentDTO=vm.finance_investment;
+            vm.CompleteProjectDetail.manufacturingdetailDTO=vm.manufacturing_detail;
+            vm.CompleteProjectDetail.electricrequirementDTO=vm.electricrequirement;
+            vm.CompleteProjectDetail.projectdetailcombinecodesDTO =vm.projectcombinecodes;
+//            console.log(vm.CompleteProjectDetail);
+            Projectcompletedetail.save(vm.CompleteProjectDetail,onSaveCompleteProjectSuccess,onSaveCompleteProjectError)
+
+        }
+        function onSaveCompleteProjectSuccess (resultCompleteProject) {
+            $scope.$emit('investhryApp:projectdetailUpdate', resultCompleteProject);
+            //$uibModalInstance.close(result);
+            vm.resultCompleteProject=resultCompleteProject;
+            vm.isSaving = false;
+            alert('saved');
+        }
+        function onSaveCompleteProjectError () {
+            vm.isSaving = false;
+            alert('not saved');
+        }
 //        vm.getStateByCountry=getStateByCountry;
 
 
