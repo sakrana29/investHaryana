@@ -69,7 +69,6 @@ public class ProjectsitedetailRepository {
                 projectsitedetail.setRailwaydistance(row.getBool("railwaydistance"));
                 projectsitedetail.setConfirmitylanduse(row.getBool("confirmitylanduse"));
                 projectsitedetail.setLandzoneuse_type(row.getUUID("landzoneuse_type"));
-                projectsitedetail.setBuildingexisted(row.getUUID("buildingexisted"));
                 projectsitedetail.setExisting_building_applicable(row.getBool("existing_building_applicable"));
                 projectsitedetail.setSite_situated_in_controlled_area(row.getBool("site_situated_in_controlled_area"));
                 projectsitedetail.setKhasra_document(row.getString("khasra_document"));
@@ -84,6 +83,7 @@ public class ProjectsitedetailRepository {
                 projectsitedetail.setLinearstripplan(row.getString("linearstripplan"));
                 projectsitedetail.setSitesituated_document(row.getString("sitesituated_document"));
                 projectsitedetail.setControlledarea_document(row.getString("controlledarea_document"));
+                projectsitedetail.setBuildingexisted(row.getString("buildingexisted"));
                 return projectsitedetail;
             }
         ).forEach(projectsitedetailsList::add);

@@ -18,7 +18,7 @@ public interface ProjectsitedetailService {
 
     /**
      *  Get all the projectsitedetails.
-     *
+     *  
      *  @return the list of entities
      */
     List<ProjectsitedetailDTO> findAll();

@@ -8,31 +8,25 @@
         <table class="table table-striped table-hover ">
             <thead>
             <tr class="headerGrid">
-                <th>Project Identification No.(PIN)</th>
-                <th>Approval Application form</th>
-                <th>Approval Document</th>
-                <th>Project Category</th>
-                <th>collaboration with foreign country</th>
-                <th>Detail Project Report</th>
-                <th>NIC Code</th>
-                <th>Project Purpose </th>
-               <!--<th>Project Type</th>-->
-                <!--<th>Sector</th>-->
-                <!--<th>Size Of Industry</th>-->
-                <!--<th>Action</th>-->
+                <!--<th>Project Identification No.(PIN)</th>-->
+                <th>Project Purpose</th>
+                <th>Investor Name</th>
+                <th>Promotor/MD/Director</th>
+                <th>Size of Industry</th>
+                <th>Project Site(District)</th>
+                <th>Total Project Cost</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat = "prdtl in vm.projectcompletedetail">
-
                 <!--<td >{{vm.projectcompletedetail.investorDTO.firstname}}</td>-->
-                <td >{{prdtl.companydetailDTO.designation}}</td>
-                <td >{{prdtl.manufacturingdetailDTO.processid}}</td>
-                <td >{{prdtl.electricrequirementDTO.customertype}}</td>
-                <td >{{prdtl.finance_investmentDTO.fdi_country}}</td>
-                <td >{{prdtl.projectdetailDTO.id}}</td>
-                <td >{{prdtl.projectsitedetailDTO.block}}</td>
-                <td >{{prdtl.projectdetailcombinecodesDTO.investorid}}</td>
+                <td >{{prdtl.projectdetailDTO.projectpurpose}}</td>
+                <td >{{prdtl.investorDTO.firstname}}</td>
+                <td >{{prdtl.companydetailDTO.promoter_md_director}}</td>
+                <td >{{prdtl.projectdetailDTO.size_of_industry}}</td>
+                <td >{{prdtl.projectsitedetailDTO.district}}</td>
+                <td >{{prdtl.project_finance_investmentDTO.total_project_cost}}</td>
                 <!--<td >{{prdt.category_of_project}}</td>-->
                 <!--<td >{{prdt.projectype}}</td>-->
                 <!--<td >{{prdt.sectorid}}</td>-->

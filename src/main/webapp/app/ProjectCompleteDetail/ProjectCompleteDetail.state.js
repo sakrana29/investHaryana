@@ -8,22 +8,22 @@
     stateConfig.$inject = ['$stateProvider'];
 
     function stateConfig($stateProvider) {
-        $stateProvider.state('completeprojectdetail', {
+        $stateProvider.state('ProjectCompleteDetailState', {
             parent: 'app',
-            url: '/completeprojectdetail/{id}',
+            url: '/ProjectCompleteDetail/{projectid}',
             data: {
                 authorities: []
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/completeprojectdetail/completeprojectdetail.html',
-                    controller: 'completeprojectdetailController',
+                    templateUrl: 'app/ProjectCompleteDetail/ProjectCompleteDetail.html',
+                    controller: 'ProjectCompleteDetailController',
                     controllerAs: 'vm'
                 }
             },
               resolve: {
                   translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
-                      $translatePartialLoader.addPart('completeprojectdetail');
+                      $translatePartialLoader.addPart('home');
                       return $translate.refresh();
                   }]
               }

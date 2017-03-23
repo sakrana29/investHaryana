@@ -134,7 +134,6 @@
                                 railwaydistance: null,
                                 confirmitylanduse: null,
                                 landzoneuse_type: null,
-                                buildingexisted: null,
                                 existing_building_applicable: null,
                                 site_situated_in_controlled_area: null,
                                 khasra_document: null,
@@ -149,6 +148,7 @@
                                 linearstripplan: null,
                                 sitesituated_document: null,
                                 controlledarea_document: null,
+                                buildingexisted: null,
                                 id: null
                             };
                         }

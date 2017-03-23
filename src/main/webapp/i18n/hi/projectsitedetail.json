@@ -45,7 +45,6 @@
             "railwaydistance": "Railwaydistance",
             "confirmitylanduse": "Confirmitylanduse",
             "landzoneuse_type": "Landzoneuse Type",
-            "buildingexisted": "Buildingexisted",
             "existing_building_applicable": "Existing Building Applicable",
             "site_situated_in_controlled_area": "Site Situated In Controlled Area",
             "khasra_document": "Khasra Document",
@@ -59,7 +58,8 @@
             "locationplan": "Locationplan",
             "linearstripplan": "Linearstripplan",
             "sitesituated_document": "Sitesituated Document",
-            "controlledarea_document": "Controlledarea Document"
+            "controlledarea_document": "Controlledarea Document",
+            "buildingexisted": "Buildingexisted"
         }
     }
 }

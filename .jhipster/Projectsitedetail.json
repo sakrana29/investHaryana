@@ -124,10 +124,6 @@
             "fieldType": "UUID"
         },
         {
-            "fieldName": "buildingexisted",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "existing_building_applicable",
             "fieldType": "Boolean"
         },
@@ -181,6 +177,10 @@
         },
         {
             "fieldName": "controlledarea_document",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "buildingexisted",
             "fieldType": "String"
         }
     ],

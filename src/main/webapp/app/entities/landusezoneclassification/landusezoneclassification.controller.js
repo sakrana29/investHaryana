@@ -16,10 +16,7 @@
         loadAll();
 
         function loadAll() {
-            Landusezoneclassification.query(function(result) {
-                vm.landusezoneclassifications = result;
-                vm.searchQuery = null;
-            });
+
         }
     }
 })();

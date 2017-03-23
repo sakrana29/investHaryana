@@ -5,9 +5,18 @@
         .module('investhryApp')
         .controller('addprojectController', addprojectController);
 
-    addprojectController.$inject = ['$scope', 'Principal', 'investor','companydetail','projectdetail','projectsitedetail','electricrequirement','manufacturing_detail','finance_investment','projectcombinecodes','LoginService', '$state', '$http' , 'Investor','Companydetail','Projectdetail','Projectcompletedetail'];
+    addprojectController.$inject = ['$scope', 'Principal', 'investor','companydetail','projectdetail','projectsitedetail',
+    'electricrequirement','manufacturing_detail','finance_investment','projectcombinecodes','LoginService', '$state', 'Investor',
+    'Companydetail','Projectdetail','Projectcompletedetail','Country','State','City_town_village','Businessentity','Sector',
+    'Industrysize','Projectype','Projectcategory','Foreignfundingresource','Approvalforms','Block','Connectingroad','Landusezoneclassification',
+    'Watersupplysource','Waste_water_disposal_mode','Emmision_pollution_controll','Emmision_fuel_type','District'];
 
-    function addprojectController ($scope, Principal, investor, companydetail, projectdetail,projectsitedetail,electricrequirement,manufacturing_detail,finance_investment,projectcombinecodes, LoginService, $state, $http, Investor, Companydetail, Projectdetail, Projectcompletedetail) {
+    function addprojectController ($scope, Principal, investor, companydetail, projectdetail,projectsitedetail,electricrequirement,
+    manufacturing_detail,finance_investment,projectcombinecodes, LoginService, $state, Investor, Companydetail, Projectdetail,
+    Projectcompletedetail,Country,State,City_town_village,Businessentity,Sector,Industrysize,Projectype,Projectcategory,
+    Foreignfundingresource,Approvalforms,Block,Connectingroad,Landusezoneclassification,Watersupplysource,Waste_water_disposal_mode,
+    Emmision_pollution_controll,Emmision_fuel_type,District)
+    {
         var vm = this;
         //vm.statechange=statechange;
 
@@ -36,6 +45,29 @@
 
         function saveCompleteProjectDetail()
         {
+            vm.isSaving = true;
+
+//            vm.investor.countryid=vm.investor.selectedCountry.id;
+//            vm.investor.stateid=vm.investor.selectedState.id;
+//            vm.investor.cityid=vm.investor.selectedCity.id;
+//
+////            vm.companydetail.investorid=vm.resultInvestor.id;
+//            vm.companydetail.businessentitytype=vm.companydetail.selectedBusiness.id;
+//
+////            vm.projectdetail.investorid=vm.resultInvestor.id;
+//            vm.projectdetail.sectorid=vm.projectdetail.selectedSector.id;
+//            vm.projectdetail.size_of_industry=vm.projectdetail.selectedSizeOfIndustry.id;
+//            vm.projectdetail.projectype=vm.projectdetail.selectedProjectType.id;
+//            vm.projectdetail.category_of_project=vm.projectdetail.selectedProjectCategory.id;
+//            vm.projectdetail.collaboration_with_foreign_country=vm.projectdetail.selectedCountry.id;
+//            vm.projectdetail.approval_application_form=vm.projectdetail.selectedApprovalForm.id;
+//
+//            vm.projectsitedetail.district=vm.projectsitedetail.selectedDistrict.id;
+//            vm.projectsitedetail.block=vm.projectsitedetail.selectedBlock.id;
+//            vm.projectsitedetail.city_town_village=vm.projectsitedetail.selectedCityTownVillage.id;
+//            vm.projectsitedetail.connectingroad=vm.projectsitedetail.selectedConnectingRoad.id;
+//            vm.projectsitedetail.landzoneuse_type=vm.projectsitedetail.selectedLandZoneUseType.id;
+
             vm.CompleteProjectDetail.investorDTO=vm.investor;
             vm.CompleteProjectDetail.companydetailDTO=vm.companydetail;
             vm.CompleteProjectDetail.projectdetailDTO=vm.projectdetail;
@@ -54,21 +86,12 @@
             vm.resultCompleteProject=resultCompleteProject;
             vm.isSaving = false;
             alert('saved');
+            $state.go('listproject');
         }
         function onSaveCompleteProjectError () {
             vm.isSaving = false;
             alert('not saved');
         }
-//        vm.getStateByCountry=getStateByCountry;
-
-
-//        function getStateByCountry()
-//            {
-//                $http.get("/api/state/country/"+vm.investor.selectedCountry.id).then(function(response) {
-//                           vm.states = response.data;
-//                       });
-//            }
-
 
         function saveInvestor()
         {
@@ -81,15 +104,15 @@
         }
 
         function onSaveInvestorSuccess (resultInvestor) {
-                    $scope.$emit('investhryApp:investorUpdate', resultInvestor);
-                    //$uibModalInstance.close(result);
-                    vm.resultInvestor=resultInvestor;
-                    vm.isSaving = false;
-                }
+            $scope.$emit('investhryApp:investorUpdate', resultInvestor);
+            //$uibModalInstance.close(result);
+            vm.resultInvestor=resultInvestor;
+            vm.isSaving = false;
+        }
 
-                function onSaveInvestorError () {
-                    vm.isSaving = false;
-                }
+        function onSaveInvestorError () {
+            vm.isSaving = false;
+        }
 
         function saveCompanyDetail()
         {
@@ -155,60 +178,132 @@
        fillFormDataFromEntities();
        function fillFormDataFromEntities()
        {
-       $http.get("/api/countries").then(function(response) {
-           vm.countries = response.data;
+       Country.query(function(result) {
+           vm.countries = result;
+           vm.searchQuery = null;
        });
-       $http.get("/api/states").then(function(response) {
-           vm.states = response.data;
+       State.query(function(result) {
+           vm.states = result;
+           vm.searchQuery = null;
        });
-       $http.get("/api/city-town-villages").then(function(response) {
-           vm.cities = response.data;
+       District.query(function(result) {
+           vm.districts = result;
+           vm.searchQuery = null;
        });
-       $http.get("/api/businessentities").then(function(response) {
-           vm.businesses = response.data;
+       City_town_village.query(function(result) {
+           vm.city_town_villages = result;
+           vm.searchQuery = null;
        });
-       $http.get("/api/sectors").then(function(response) {
-           vm.sectors = response.data;
+       Businessentity.query(function(result) {
+           vm.businessentities = result;
+           vm.searchQuery = null;
        });
-       $http.get("/api/industrysizes").then(function(response) {
-           vm.industrysizes = response.data;
+       Sector.query(function(result) {
+           vm.sectors = result;
+           vm.searchQuery = null;
        });
-       $http.get("/api/projectypes").then(function(response) {
-           vm.project_types = response.data;
+       Industrysize.query(function(result) {
+           vm.industrysizes = result;
+           vm.searchQuery = null;
        });
-       $http.get("/api/projectcategories").then(function(response) {
-           vm.projectcategories = response.data;
+       Projectype.query(function(result) {
+           vm.projectypes = result;
+           vm.searchQuery = null;
        });
-       $http.get("/api/foreignfundingresources").then(function(response) {
-           vm.foreignfundingresources = response.data;
+       Projectcategory.query(function(result) {
+           vm.projectcategories = result;
+           vm.searchQuery = null;
        });
-       $http.get("/api/approvalforms").then(function(response) {
-           vm.approvalforms = response.data;
+       Foreignfundingresource.query(function(result) {
+           vm.foreignfundingresources = result;
+           vm.searchQuery = null;
        });
-        $http.get("/api/blocks").then(function(response) {
-           vm.blocks = response.data;
+       Approvalforms.query(function(result) {
+           vm.approvalforms = result;
+           vm.searchQuery = null;
        });
-        $http.get("/api/city-town-villages").then(function(response) {
-           vm.city = response.data;
+       Block.query(function(result) {
+           vm.blocks = result;
+           vm.searchQuery = null;
        });
-        $http.get("/api/connectingroads").then(function(response) {
-           vm.connectingroads = response.data;
+       Connectingroad.query(function(result) {
+           vm.connectingroads = result;
+           vm.searchQuery = null;
        });
-        $http.get("/api/landusezoneclassifications").then(function(response) {
-           vm.landusezoneclassifications = response.data;
+       Landusezoneclassification.query(function(result) {
+           vm.landusezoneclassifications = result;
+           vm.searchQuery = null;
        });
-       $http.get("/api/watersupplysources").then(function(response) {
-           vm.watersupplysources = response.data;
+       Watersupplysource.query(function(result) {
+           vm.watersupplysources = result;
+           vm.searchQuery = null;
        });
-       $http.get("/api/waste-water-disposal-modes").then(function(response) {
-           vm.waste_water_disposal_modes = response.data;
+       Waste_water_disposal_mode.query(function(result) {
+           vm.waste_water_disposal_modes = result;
+               vm.searchQuery = null;
+           });
+       Emmision_pollution_controll.query(function(result) {
+           vm.emmision_pollution_controlls = result;
+           vm.searchQuery = null;
        });
-       $http.get("/api/emmision-pollution-controlls").then(function(response) {
-           vm.emmision_pollution_controlls = response.data;
+       Emmision_fuel_type.query(function(result) {
+           vm.emmision_fuel_types = result;
+           vm.searchQuery = null;
        });
-       $http.get("/api/emmision-fuel-types").then(function(response) {
-           vm.emmision_fuel_types = response.data;
-       });
+//       $http.get("/api/countries").then(function(response) {
+//           vm.countries = response.data;
+//       });
+//       $http.get("/api/states").then(function(response) {
+//           vm.states = response.data;
+//       });
+//       $http.get("/api/city-town-villages").then(function(response) {
+//           vm.cities = response.data;
+//       });
+//       $http.get("/api/businessentities").then(function(response) {
+//           vm.businesses = response.data;
+//       });
+//       $http.get("/api/sectors").then(function(response) {
+//           vm.sectors = response.data;
+//       });
+//       $http.get("/api/industrysizes").then(function(response) {
+//           vm.industrysizes = response.data;
+//       });
+//       $http.get("/api/projectypes").then(function(response) {
+//           vm.project_types = response.data;
+//       });
+//       $http.get("/api/projectcategories").then(function(response) {
+//           vm.projectcategories = response.data;
+//       });
+//       $http.get("/api/foreignfundingresources").then(function(response) {
+//           vm.foreignfundingresources = response.data;
+//       });
+//       $http.get("/api/approvalforms").then(function(response) {
+//           vm.approvalforms = response.data;
+//       });
+//        $http.get("/api/blocks").then(function(response) {
+//           vm.blocks = response.data;
+//       });
+//        $http.get("/api/city-town-villages").then(function(response) {
+//           vm.city = response.data;
+//       });
+//        $http.get("/api/connectingroads").then(function(response) {
+//           vm.connectingroads = response.data;
+//       });
+//        $http.get("/api/landusezoneclassifications").then(function(response) {
+//           vm.landusezoneclassifications = response.data;
+//       });
+//       $http.get("/api/watersupplysources").then(function(response) {
+//           vm.watersupplysources = response.data;
+//       });
+//       $http.get("/api/waste-water-disposal-modes").then(function(response) {
+//           vm.waste_water_disposal_modes = response.data;
+//       });
+//       $http.get("/api/emmision-pollution-controlls").then(function(response) {
+//           vm.emmision_pollution_controlls = response.data;
+//       });
+//       $http.get("/api/emmision-fuel-types").then(function(response) {
+//           vm.emmision_fuel_types = response.data;
+//       });
        }
     }
 })();

@@ -74,7 +74,7 @@
                         <div class="form-group">
                             <label  class="col-lg-2 control-label">City</label>
                             <div class="col-lg-3">
-                                <select class="form-control"  ng-model="vm.investor.selectedCity" ng-options="city.city_town_village_name for city in vm.cities">
+                                <select class="form-control"  ng-model="vm.investor.selectedCity" ng-options="city.city_town_village_name for city in vm.city_town_villages">
                                 </select>
                             </div>
                         </div>
@@ -103,8 +103,8 @@
                         </div>
                         <div class="form-group">
                             <div class="col-lg-10 col-lg-offset-2">
-                                <button type="reset" class="btn btn-default">Cancel</button>
-                                <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12" ng-click="vm.saveCompleteProjectDetail()">SAVE</button>
+                                <!--<button type="reset" class="btn btn-default">Cancel</button>-->
+                                <!--<button type="submit" class="btn btn-primary" data-dpmaxz-eid="12">SAVE</button>-->
                             </div>
                         </div>
                     </fieldset>
@@ -143,7 +143,7 @@
                         <div class="form-group">
                             <label  class="col-lg-2 control-label">Business Entity Type</label>
                             <div class="col-lg-3">
-                                <select  class="form-control" ng-model="vm.companydetail.selectedBusiness" ng-options="business.businessentitytype for business in vm.businesses">
+                                <select  class="form-control" ng-model="vm.companydetail.selectedBusiness" ng-options="business.businessentitytype for business in vm.businessentities">
                                 </select>
                             </div>
                         </div>
@@ -194,8 +194,8 @@
                         </div>
                         <div class="form-group">
                             <div class="col-lg-6 col-lg-offset-2">
-                                <button type="reset" class="btn btn-default">Cancel</button>
-                                <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12" ng-click="vm.saveCompanyDetail()">SAVE</button>
+                                <!--<button type="reset" class="btn btn-default">Cancel</button>-->
+                                <!--<button type="submit" class="btn btn-primary" data-dpmaxz-eid="12" ng-click="vm.saveCompanyDetail()">SAVE</button>-->
                             </div>
                         </div>
                     </fieldset>
@@ -241,7 +241,7 @@
                         <div class="form-group">
                             <label for="projecttype" class="col-lg-2 control-label">Project Type </label>
                             <div class="col-lg-3">
-                                <select  class="form-control" ng-model="vm.projectdetail.selectedProjectType" ng-options="projecttype.projectypes for projecttype in vm.project_types">
+                                <select  class="form-control" ng-model="vm.projectdetail.selectedProjectType" ng-options="projecttype.projectypes for projecttype in vm.projectypes">
 
                                 </select>
                             </div>
@@ -307,8 +307,8 @@
                         </div>
                         <div class="form-group">
                             <div class="col-lg-6 col-lg-offset-2">
-                            <button type="reset" class="btn btn-default">Cancel</button>
-                            <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12" ng-click="vm.saveProjectDetail()">SAVE</button>
+                            <!--<button type="reset" class="btn btn-default">Cancel</button>-->
+                            <!--<button type="submit" class="btn btn-primary" data-dpmaxz-eid="12" ng-click="vm.saveProjectDetail()">SAVE</button>-->
                         </div>
             </div>
                 </fieldset>
@@ -317,327 +317,663 @@
         </div>
     </div>
 
-    <!-- Project Site Detail -->
+    <!--&lt;!&ndash; Project Site Detail &ndash;&gt;-->
+    <!--<div class="panel panel-default">-->
+        <!--<div class="panel-heading">-->
+            <!--<h4 class="panel-title">-->
+                <!--<a data-toggle="collapse" data-parent="#accordion" href=".projectsitedetail2">Project Site Detail </a>-->
+            <!--</h4>-->
+        <!--</div>-->
+        <!--<div id="projectsitedetail2" class="panel-collapse collapse projectsitedetail2">-->
+            <!--<div class="panel-body">-->
+                <!--<form class="form-horizontal" >-->
+                    <!--<fieldset>-->
+                        <!--<div class="form-group">-->
+
+                            <!--<label for="siteaddress" class="col-lg-2 control-label">Site Address</label>-->
+                            <!--<div class="col-lg-3"><textarea class="form-control" rows="3" id="siteaddress" ng-model="vm.projectsitedetail.siteaddress"></textarea></div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label for="District" class="col-lg-2 control-label">District</label>-->
+                            <!--<div class="col-lg-3">-->
+                                <!--<select  class="form-control"  ng-model="vm.projectsitedetail.selectedDistrict" ng-options= "district.districtname for district in vm.districts">-->
+
+                                <!--</select>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="form-group">-->
+                            <!--<label  class="col-lg-2 control-label">Block</label>-->
+                            <!--<div class="col-lg-3">-->
+                                            <!--<select  class="form-control" ng-model="vm.projectsitedetail.siteaddress"  >-->
+                        <!--<option value="">Select Block</option>-->
+                        <!--<option ng-repeat = "bl in vm.block" value="{{bl.id }}">{{bl.blockname}}</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label  class="col-lg-2 control-label">City Town Village</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<select  class="form-control" ng-model="vm.projectsitedetail.siteaddress"   >-->
+                        <!--<option value="">Select City /Town /Village</option>-->
+                        <!--<option ng-repeat = "ct in vm.city" value="{{ct.id }}">{{ct.city_town_village_name}}</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+
+            <!--</div>-->
+
+           <!--<div class="form-group">-->
+                <!--<label  class="col-lg-2 control-label">Multy Village Involved</label>-->
+               <!--<div class="col-lg-10">-->
+                   <!--<input type="checkbox" name="checkMultiVillageInvolved" ng-model="vm.projectsitedetail.siteaddress" >-->
+               <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<label for="Villageinvolved" class="col-lg-2 control-label">Village Involved</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<input type="text" class="form-control" id="Villageinvolved" placeholder="Village Involve" data-dpmaxz-eid="20"-->
+                           <!--ng-model="vm.projectsitedetail.siteaddress" >-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<label  class="col-lg-2 control-label">If site falls in Gurgaon or Mewat district, whether land falls under Aravalli Notification Act</label>-->
+                <!--<div class="col-lg-10">-->
+                    <!--<input type="checkbox" ng-model="vm.projectsitedetail.siteaddress"-->
+                                  <!--name="checkIfinGurgaonorMewat" >-->
+
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label class="col-lg-2 control-label">Is Land Procured</label>-->
+                <!--<div class="col-lg-10">-->
+                    <!--<input type="checkbox" name="checkIsLandProcured" ng-model="vm.projectsitedetail.siteaddress"  >-->
+
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label class="col-lg-2 control-label">Is Land Allocated By HSIID</label>-->
+                <!--<div class="col-lg-10">-->
+                    <!--<label><input type="checkbox" name="checkIsLandAllocatedByHSIID" ng-model="vm.projectsitedetail.siteaddress"  >-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label for="Estate" class="col-lg-2 control-label">Estate</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<input type="text" class="form-control" id="Estate" placeholder="Estate" ng-model="vm.projectsitedetail.siteaddress" >-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label for="Cluster" class="col-lg-2 control-label">Cluster</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<input type="text" class="form-control" id="Cluster" placeholder="Cluster" ng-model="vm.projectsitedetail.siteaddress" >-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label for="Phase" class="col-lg-2 control-label">Phase</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<input type="text" class="form-control" id="phase" placeholder="Phase" ng-model="vm.projectsitedetail.siteaddress" >-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label for="Sector" class="col-lg-2 control-label">Sector</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<input type="text" class="form-control" id="Sector" placeholder="Sector" ng-model="vm.projectsitedetail.siteaddress"  >-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label for="Plotno" class="col-lg-2 control-label">Plot no</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<input type="text" class="form-control" id="Plotno" placeholder="Plotno" ng-model="vm.projectsitedetail.siteaddress"  >-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label for="Hadbastno" class="col-lg-2 control-label">Hadbast no</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<input type="text" class="form-control" id="Hadbastno" placeholder="HadbastNo" ng-model="vm.projectsitedetail.siteaddress" >-->
+                <!--</div>-->
+                <!--<label class="col-lg-3 control-label">Khasra Document</label>-->
+                <!--<div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ng-model="vm.projectsitedetail.siteaddress"  ></div>-->
+
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label class="col-lg-2 control-label">Lies Under Mc</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<input type="checkbox" name="checkLiesUnderMC" >-->
+                <!--</div>-->
+                <!--<label for="mcdistance" class="col-lg-3 control-label">Distance From Mc</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<input type="number" class="form-control" id="mcdistance" placeholder="Plotno" ng-model="vm.projectsitedetail.siteaddress"  >-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+            <!--<label  class="col-lg-2 control-label">Site is located in Urban Area</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<input type="checkbox" name="isSiteAllocatedinUrbanArea" ng-model="vm.projectsitedetail.siteaddress"  >-->
+
+                <!--</div>-->
+                <!--<label  class="col-lg-3 control-label">Revenu Shajra Document</label>-->
+                <!--<div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ng-model="vm.projectsitedetail.siteaddress"></div>-->
+
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label class="col-lg-2 control-label">Jamabandi</label>-->
+                <!--<div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ng-model="vm.projectsitedetail.siteaddress" ></div>-->
+
+                <!--<label class="col-lg-3 control-label">Nonencumbrance Certificate</label>-->
+                <!--<div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ng-model="vm.projectsitedetail.siteaddress" ></div>-->
+
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label for="Totalproposedprojectarea" class="col-lg-2 control-label">Total Proposed Project Area</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<input type="text" class="form-control" id="Totalproposedprojectarea" placeholder="Total Project Area" ng-model="vm.projectsitedetail.siteaddress" >-->
+                <!--</div>-->
+
+                <!--<label for="proposebuilduparea" class="col-lg-3 control-label">Proposed Built Up Area</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<input type="number" class="form-control" id="proposebuilduparea" placeholder="Proposed Build Up Area"-->
+                           <!--ng-model="vm.projectsitedetail.siteaddress" >-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+            <!--<div class="form-group">-->
+                <!--<label  class="col-lg-2 control-label">Certified Ownership</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<input type="checkbox" name="checkCerfiedOwnership" ng-model="vm.projectsitedetail.siteaddress" >-->
+                <!--</div>-->
+                <!--<label  class="col-lg-3 control-label">Ownership Document</label>-->
+                <!--<div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"-->
+                                             <!--ng-model="vm.projectsitedetail.siteaddress" ></div>-->
+
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label  class="col-lg-2 control-label">Lease Applicable</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<input type="checkbox" name="checkLeaseApplicable" ng-model="vm.projectsitedetail.siteaddress" >-->
+                <!--</div>-->
+                <!--<label  class="col-lg-3 control-label">Lease Document</label>-->
+                <!--<div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"-->
+                                             <!--ng-model="vm.projectsitedetail.siteaddress" ></div>-->
+
+            <!--</div>-->
+
+
+            <!--<div class="form-group">-->
+                <!--<label  class="col-lg-2 control-label">Land Agreement Applicable</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<input type="checkbox" name="checkLandAgreementApplicable"-->
+                                  <!--ng-model="vm.projectsitedetail.siteaddress" >-->
+                <!--</div>-->
+                <!--<label  class="col-lg-3 control-label">Agreement Document</label>-->
+                <!--<div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"-->
+                                             <!--ng-model="vm.projectsitedetail.siteaddress" ></div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label class="col-lg-2 control-label">Site Layout Plan Document</label>-->
+                <!--<div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"-->
+                                             <!--ng-model="vm.projectsitedetail.siteaddress" ></div>-->
+                <!--<label class="col-lg-3 control-label">Location Plan Document</label>-->
+                <!--<div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"-->
+                                             <!--ng-model="vm.projectsitedetail.siteaddress" ></div>-->
+
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+            <!--<label class="col-lg-2 control-label">Linears Trip Plan</label>-->
+                <!--<div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"-->
+                                             <!--ng-model="vm.projectsitedetail.siteaddress" ></div>-->
+                <!--<label class="col-lg-3 control-label">Connecting Road</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<select  class="form-control"  ng-model="vm.projectsitedetail.siteaddress"  >-->
+                        <!--<option value="">Select Connecting Road</option>-->
+                        <!--<option ng-repeat = "cont in vm.connecting" value="{{cont.id }}">{{cont.connectingraodtype}}</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label  class="col-lg-2 control-label">Intersection Distance</label>-->
+                <!--<div class="col-lg-10">-->
+                    <!--<input type="checkbox" name="checkIntersectionDistance" ng-model="vm.projectsitedetail.siteaddress"  >-->
+                <!--</div>-->
+                <!--<label  class="col-lg-2 control-label">Railway Distance</label>-->
+                <!--<div class="col-lg-10">-->
+                    <!--<input type="checkbox" name="checkRailwayDistance" ng-model="vm.projectsitedetail.siteaddress" >-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label class="col-lg-2 control-label">Confirmity of land use</label>-->
+                <!--<div class="col-lg-10">-->
+                    <!--<input type="checkbox" name="checkConfirmityoflanduse" ng-model="vm.projectsitedetail.siteaddress">-->
+                <!--</div>-->
+                <!--<label  class="col-lg-2 control-label">Land Zone Use Type</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<select  class="form-control"  ng-model="vm.projectsitedetail.siteaddress">-->
+                        <!--<option value="">Select Land Zone</option>-->
+                        <!--<option ng-repeat = "land in vm.landzone" value="{{land.id}}">{{land.landzoneclassificationtype}}</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label class="col-lg-2 control-label">Sitesituated Document</label>-->
+                <!--<div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"-->
+                                             <!--ng-model="vm.projectsitedetail.siteaddress" ></div>-->
+                <!--<label for="buildingexisting" class="col-lg-3 control-label">Building existed</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<select type="text" class="form-control" id="buildingexisting" ng-model="vm.projectsitedetail.siteaddress" data-dpmaxz-eid="20">-->
+                        <!--<option>Before</option>-->
+                        <!--<option>After</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+            <!--<div class="form-group">-->
+            <!--<label class="col-lg-2 control-label">Existing Building Applicable</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<input type="checkbox" name="radio" ng-model="vm.projectsitedetail.siteaddress" >-->
+
+                <!--</div>-->
+                <!--<label class="col-lg-3 control-label">Building plan Document</label>-->
+                <!--<div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"-->
+                                             <!--ng-model="vm.projectsitedetail.siteaddress"></div>-->
+
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label  class="col-lg-2 control-label">Site Situated In Controlled Area</label>-->
+                <!--<div class="col-lg-3">-->
+                    <!--<input type="checkbox" name="checkSiteSituatedInControlledArea"-->
+                           <!--ng-model="vm.projectsitedetail.siteaddress" >-->
+                <!--</div>-->
+                <!--<label class="col-lg-3 control-label">Controlled Area Document</label>-->
+                <!--<div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"-->
+                                             <!--ng-model="vm.projectsitedetail.siteaddress" ></div>-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<div class="col-lg-10 col-lg-offset-2">-->
+                    <!--<button type="reset" class="btn btn-default">Cancel</button>-->
+                    <!--<button type="submit" class="btn btn-primary" data-dpmaxz-eid="12">SAVE</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</fieldset>-->
+    <!--</form>-->
+
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+    <!--Project Site Detail-->
+
+    <!-- Project Site Detail by Deepika-->
     <div class="panel panel-default">
-<div class="panel-heading">
-<h4 class="panel-title">
-    <a data-toggle="collapse" data-parent="#accordion" href=".projectsitedetail2">Project Site Detail </a>
-</h4>
-</div>
-<div id="projectsitedetail2" class="panel-collapse collapse projectsitedetail2">
-<div class="panel-body">
-    <form class="form-horizontal" >
-        <fieldset>
-            <div class="form-group">
-                : null,
-                district: null,
-                block: null,
-                city_town_village: null,
-                tehsil_subtehsil: null,
-                multyvillageinvolved: null,
-                villageinvolved: null,
-                falls_in_aravalli: null,
-                islandprocured: null,
-                allotedbyhsiidc: null,
-                estate: null,
-                cluster: null,
-                phase: null,
-                sector: null,
-                plotno: null,
-                hadbastno: null,
-                <label for="siteaddress" class="col-lg-2 control-label">Site Address</label>
-                <div class="col-lg-3"><textarea class="form-control" rows="3" id="siteaddress" ng-model="vm.projectsitedetail.siteaddress"></textarea></div>
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href=".projectsitedetail2">Project Site Detail </a>
+            </h4>
+        </div>
+        <div id="projectsitedetail2" class="panel-collapse collapse projectsitedetail2">
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="siteaddress" class="col-lg-2 control-label">Site Address</label>
+                            <div class="col-lg-3"><textarea class="form-control" rows="3" id="siteaddress"
+                                                            ng-model="vm.projectsitedetail.siteaddress"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="district" class="col-lg-2 control-label">District</label>
+                            <div class="col-lg-3">
+                                <select class="form-control" id="district" ng-model="vm.projectsitedetail.selectedDistrict"
+                                        ng-options="district.districtname for district in vm.districts">
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="block" class="col-lg-2 control-label">Block</label>
+                            <div class="col-lg-3">
+                                <select class="form-control" id="block" ng-model="vm.projectsitedetail.selectedBlock"
+                                        ng-options="block.blockname for block in vm.blocks">
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">City/Town/Village</label>
+                            <div class="col-lg-3">
+                                <select class="form-control" ng-model="vm.projectsitedetail.selectedCityTownVillage"
+                                        ng-options="city.city_town_village_name for city in vm.city_town_villages">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Multi-Village Involved</label>
+                            <div class="col-lg-10">
+                                <input type="checkbox" name="checkMultyVillageInvolved"
+                                       ng-model="vm.projectsitedetail.multyvillageinvolved">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Villageinvolved" class="col-lg-2 control-label">Village Involved</label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" id="Villageinvolved"
+                                       placeholder="Enter Village Involve" data-dpmaxz-eid="20"
+                                       ng-model="vm.projectsitedetail.villageinvolved">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-10">
+                                <label class="col-lg-3 control-label">If site falls in Gurgaon or Mewat district, whether
+                                    land falls under Aravalli Notification Act </label>
+
+                                <input type="checkbox" ng-model="vm.projectsitedetail.falls_in_aravalli"
+                                       name="checkIfinGurgaonorMewat">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Is Land Procured</label>
+                            <div class="col-lg-10">
+                                <input type="checkbox" name="checkIsLandProcured"
+                                       ng-model="vm.projectsitedetail.islandprocured">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Is Land Allocated By HSIID</label>
+                            <div class="col-lg-10">
+                                <label><input type="checkbox" name="checkIsLandAllocatedByHSIID"
+                                              ng-model="vm.projectsitedetail.allotedbyhsiidc">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Estate" class="col-lg-2 control-label">Estate</label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" id="Estate" placeholder="Estate"
+                                       ng-model="vm.projectsitedetail.estate">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Cluster" class="col-lg-2 control-label">Cluster</label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" id="Cluster" placeholder="Cluster"
+                                       ng-model="vm.projectsitedetail.cluster">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Phase" class="col-lg-2 control-label">Phase</label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" id="phase" placeholder="Phase"
+                                       ng-model="vm.projectsitedetail.phase">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Sector" class="col-lg-2 control-label">Sector</label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" id="Sector" placeholder="Sector"
+                                       ng-model="vm.projectsitedetail.sector">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Plotno" class="col-lg-2 control-label">Plot no</label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" id="Plotno" placeholder="Plotno"
+                                       ng-model="vm.projectsitedetail.plotno">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Hadbastno" class="col-lg-2 control-label">Hadbast no</label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" id="Hadbastno" placeholder="HadbastNo"
+                                       ng-model="vm.projectsitedetail.hadbastno">
+                            </div>
+
+                            <label class="col-lg-3 control-label">Khasra Document</label>
+                            <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                                         ng-model="vm.projectsitedetail.khasra_document"></div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Lies Under MC</label>
+                            <div class="col-lg-3">
+                                <input type="checkbox" name="checkLiesUnderMC" ng-model="vm.projectsitedetail.liesunder_mc">
+                            </div>
+
+                            <label for="mcdistance" class="col-lg-3 control-label">Distance From MC</label>
+                            <div class="col-lg-3">
+                                <input type="number" class="form-control" id="mcdistance" placeholder="Enter distance from MC"
+                                       ng-model="vm.projectsitedetail.distance_from_mc">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Site is located in Urban Area</label>
+                            <div class="col-lg-3">
+                                <input type="checkbox" name="checkisSiteAllocatedinUrbanArea"
+                                       ng-model="vm.projectsitedetail.islocated_in_urban">
+
+                            </div>
+                            <label class="col-lg-3 control-label">Revenue Shajra Document</label>
+                            <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                                         ng-model="vm.projectsitedetail.revenu_shajra_document"></div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Jamabandi</label>
+                            <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                                         ng-model="vm.projectsitedetail.jamabandi"></div>
+
+                            <label class="col-lg-3 control-label">Nonencumbrance Certificate</label>
+                            <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                                         ng-model="vm.projectsitedetail.nonencumbrance_certificate"></div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Totalproposedprojectarea" class="col-lg-2 control-label">Total Proposed Project
+                                Area</label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" id="Totalproposedprojectarea"
+                                       placeholder="Total Project Area" ng-model="vm.projectsitedetail.totalproposedprojectarea">
+                            </div>
+
+                            <label for="proposebuilduparea" class="col-lg-3 control-label">Proposed Built Up
+                                Area</label>
+                            <div class="col-lg-3">
+                                <input type="number" class="form-control" id="proposebuilduparea"
+                                       placeholder="Proposed Build Up Area"
+                                       ng-model="vm.projectsitedetail.proposedbuilt_up_area">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Certified Ownership</label>
+                            <div class="col-lg-3">
+                                <input type="checkbox" name="checkCerfiedOwnership"
+                                       ng-model="vm.projectsitedetail.certifiedownership">
+                            </div>
+                            <label class="col-lg-3 control-label">Ownership Document</label>
+                            <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                                         ng-model="vm.projectsitedetail.ownership_document"></div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Lease Applicable</label>
+                            <div class="col-lg-3">
+                                <input type="checkbox" name="checkLeaseApplicable"
+                                       ng-model="vm.projectsitedetail.leaseapplicable">
+                            </div>
+                            <label class="col-lg-3 control-label">Lease Document</label>
+                            <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                                         ng-model="vm.projectsitedetail.lease_document"></div>
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Land Agreement Applicable</label>
+                            <div class="col-lg-3">
+                                <input type="checkbox" name="checkLandAgreementApplicable"
+                                       ng-model="vm.projectsitedetail.landagreementapplicable">
+                            </div>
+                            <label class="col-lg-3 control-label">Agreement Document</label>
+                            <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                                         ng-model="vm.projectsitedetail.landagreement_document"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Site Layout Plan Document</label>
+                            <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                                         ng-model="vm.projectsitedetail.sitelayoutplan"></div>
+
+                            <label class="col-lg-3 control-label">Location Plan Document</label>
+                            <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                                         ng-model="vm.projectsitedetail.locationplan"></div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Linears Trip Plan</label>
+                            <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                                         ng-model="vm.projectsitedetail.linearstripplan"></div>
+
+                            <label class="col-lg-3 control-label">Connecting Road</label>
+                            <div class="col-lg-3">
+                                <select class="form-control" ng-model="vm.projectsitedetail.selectedConnectingRoad"
+                                        ng-options="connectingraodtype.connectingraodtype for connectingraodtype in vm.connectingroads">
+
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Intersection Distance</label>
+                            <div class="col-lg-10">
+                                <input type="checkbox" name="checkIntersectionDistance"
+                                       ng-model="vm.projectsitedetail.intersectiondistance">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Railway Distance</label>
+                            <div class="col-lg-10">
+                                <input type="checkbox" name="checkRailwayDistance"
+                                       ng-model="vm.projectsitedetail.railwaydistance">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Confirmity of land use</label>
+                            <div class="col-lg-10">
+                                <input type="checkbox" name="checkConfirmityoflanduse"
+                                       ng-model="vm.projectsitedetail.confirmitylanduse">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Land Zone Use Type</label>
+                            <div class="col-lg-3">
+                                <select class="form-control" ng-model="vm.projectsitedetail.selectedLandZoneUseType"
+                                        ng-options="landzoneclassificationtype.landzoneclassificationtype for landzoneclassificationtype in vm.landusezoneclassifications">
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Site situated Document</label>
+                            <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                                         ng-model="vm.projectsitedetail.sitesituated_document">
+                            </div>
+
+                            <!--comment: please check how to bind-->
+
+                            <label for="buildingexisting" class="col-lg-3 control-label">Building existed</label>
+                            <div class="col-lg-3">
+                                <select type="text" class="form-control" id="buildingexisting"
+                                        ng-model="vm.projectsitedetail.buildingexisted" data-dpmaxz-eid="20">
+                                        <option>Before</option>
+                                    <option>After</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Existing Building Applicable</label>
+                            <div class="col-lg-3">
+                                <input type="checkbox" name="radio" ng-model="vm.projectsitedetail.existing_building_applicable">
+
+                            </div>
+
+                            <!--Comment:Not added in the entity-->
+
+
+
+                            <!--<label class="col-lg-3 control-label">Building plan Document</label>-->
+                            <!--<div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"-->
+                            <!--ng-model="vm.projectsitedetail.buildingPlanDocument"></div>-->
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Site Situated In Controlled Area</label>
+                            <div class="col-lg-3">
+                                <input type="checkbox" name="checkSiteSituatedInControlledArea"
+                                       ng-model="vm.projectsitedetail.site_situated_in_controlled_area">
+                            </div>
+                            <label class="col-lg-3 control-label">Controlled Area Document</label>
+                            <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
+                                                         ng-model="vm.projectsitedetail.controlledarea_document"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-10 col-lg-offset-2">
+                                <!--<button type="reset" class="btn btn-default">Cancel</button>-->
+                                <!--<button type="submit" class="btn btn-primary" data-dpmaxz-eid="12">SAVE</button>-->
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
             </div>
-            <div class="form-group">
-                <label for="District" class="col-lg-2 control-label">District</label>
-                <div class="col-lg-3">
-                    <select  class="form-control"  ng-model="vm.projectsitedetail.selectedDistrict" ng-options= "district.districtname for district in vm.districts">
-
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label  class="col-lg-2 control-label">Block</label>
-                <div class="col-lg-3">
-                    <select  class="form-control" ng-model="vm.projectsitedetail.siteaddress"  >
-                        <option value="">Select Block</option>
-                        <option ng-repeat = "bl in vm.block" value="{{bl.id }}">{{bl.blockname}}</option>
-                    </select>
-                </div>
-
-            </div>
-
-            <div class="form-group">
-                <label  class="col-lg-2 control-label">City Town Village</label>
-                <div class="col-lg-3">
-                    <select  class="form-control" ng-model="vm.projectsitedetail.siteaddress"   >
-                        <option value="">Select City /Town /Village</option>
-                        <option ng-repeat = "ct in vm.city" value="{{ct.id }}">{{ct.city_town_village_name}}</option>
-                    </select>
-                </div>
-
-            </div>
-
-           <div class="form-group">
-                <label  class="col-lg-2 control-label">Multy Village Involved</label>
-               <div class="col-lg-10">
-                   <input type="checkbox" name="checkMultiVillageInvolved" ng-model="vm.projectsitedetail.siteaddress" >
-               </div>
-            </div>
-            <div class="form-group">
-                <label for="Villageinvolved" class="col-lg-2 control-label">Village Involved</label>
-                <div class="col-lg-3">
-                    <input type="text" class="form-control" id="Villageinvolved" placeholder="Village Involve" data-dpmaxz-eid="20"
-                           ng-model="vm.projectsitedetail.siteaddress" >
-                </div>
-            </div>
-            <div class="form-group">
-                <label  class="col-lg-2 control-label">If site falls in Gurgaon or Mewat district, whether land falls under Aravalli Notification Act</label>
-                <div class="col-lg-10">
-                    <input type="checkbox" ng-model="vm.projectsitedetail.siteaddress"
-                                  name="checkIfinGurgaonorMewat" >
-
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Is Land Procured</label>
-                <div class="col-lg-10">
-                    <input type="checkbox" name="checkIsLandProcured" ng-model="vm.projectsitedetail.siteaddress"  >
-
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Is Land Allocated By HSIID</label>
-                <div class="col-lg-10">
-                    <label><input type="checkbox" name="checkIsLandAllocatedByHSIID" ng-model="vm.projectsitedetail.siteaddress"  >
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="Estate" class="col-lg-2 control-label">Estate</label>
-                <div class="col-lg-3">
-                    <input type="text" class="form-control" id="Estate" placeholder="Estate" ng-model="vm.projectsitedetail.siteaddress" >
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="Cluster" class="col-lg-2 control-label">Cluster</label>
-                <div class="col-lg-3">
-                    <input type="text" class="form-control" id="Cluster" placeholder="Cluster" ng-model="vm.projectsitedetail.siteaddress" >
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="Phase" class="col-lg-2 control-label">Phase</label>
-                <div class="col-lg-3">
-                    <input type="text" class="form-control" id="phase" placeholder="Phase" ng-model="vm.projectsitedetail.siteaddress" >
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="Sector" class="col-lg-2 control-label">Sector</label>
-                <div class="col-lg-3">
-                    <input type="text" class="form-control" id="Sector" placeholder="Sector" ng-model="vm.projectsitedetail.siteaddress"  >
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="Plotno" class="col-lg-2 control-label">Plot no</label>
-                <div class="col-lg-3">
-                    <input type="text" class="form-control" id="Plotno" placeholder="Plotno" ng-model="vm.projectsitedetail.siteaddress"  >
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="Hadbastno" class="col-lg-2 control-label">Hadbast no</label>
-                <div class="col-lg-3">
-                    <input type="text" class="form-control" id="Hadbastno" placeholder="HadbastNo" ng-model="vm.projectsitedetail.siteaddress" >
-                </div>
-                <label class="col-lg-3 control-label">Khasra Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ng-model="vm.projectsitedetail.siteaddress"  ></div>
-
-            </div>
-
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Lies Under Mc</label>
-                <div class="col-lg-3">
-                    <input type="checkbox" name="checkLiesUnderMC" >
-                </div>
-                <label for="mcdistance" class="col-lg-3 control-label">Distance From Mc</label>
-                <div class="col-lg-3">
-                    <input type="number" class="form-control" id="mcdistance" placeholder="Plotno" ng-model="vm.projectsitedetail.siteaddress"  >
-                </div>
-            </div>
-
-            <div class="form-group">
-            <label  class="col-lg-2 control-label">Site is located in Urban Area</label>
-                <div class="col-lg-3">
-                    <input type="checkbox" name="isSiteAllocatedinUrbanArea" ng-model="vm.projectsitedetail.siteaddress"  >
-
-                </div>
-                <label  class="col-lg-3 control-label">Revenu Shajra Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ng-model="vm.projectsitedetail.siteaddress"></div>
-
-            </div>
-
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Jamabandi</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ng-model="vm.projectsitedetail.siteaddress" ></div>
-
-                <label class="col-lg-3 control-label">Nonencumbrance Certificate</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file" ng-model="vm.projectsitedetail.siteaddress" ></div>
-
-            </div>
-
-            <div class="form-group">
-                <label for="Totalproposedprojectarea" class="col-lg-2 control-label">Total Proposed Project Area</label>
-                <div class="col-lg-3">
-                    <input type="text" class="form-control" id="Totalproposedprojectarea" placeholder="Total Project Area" ng-model="vm.projectsitedetail.siteaddress" >
-                </div>
-
-                <label for="proposebuilduparea" class="col-lg-3 control-label">Proposed Built Up Area</label>
-                <div class="col-lg-3">
-                    <input type="number" class="form-control" id="proposebuilduparea" placeholder="Proposed Build Up Area"
-                           ng-model="vm.projectsitedetail.siteaddress" >
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <label  class="col-lg-2 control-label">Certified Ownership</label>
-                <div class="col-lg-3">
-                    <input type="checkbox" name="checkCerfiedOwnership" ng-model="vm.projectsitedetail.siteaddress" >
-                </div>
-                <label  class="col-lg-3 control-label">Ownership Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
-                                             ng-model="vm.projectsitedetail.siteaddress" ></div>
-
-            </div>
-
-            <div class="form-group">
-                <label  class="col-lg-2 control-label">Lease Applicable</label>
-                <div class="col-lg-3">
-                    <input type="checkbox" name="checkLeaseApplicable" ng-model="vm.projectsitedetail.siteaddress" >
-                </div>
-                <label  class="col-lg-3 control-label">Lease Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
-                                             ng-model="vm.projectsitedetail.siteaddress" ></div>
-
-            </div>
-
-
-            <div class="form-group">
-                <label  class="col-lg-2 control-label">Land Agreement Applicable</label>
-                <div class="col-lg-3">
-                    <input type="checkbox" name="checkLandAgreementApplicable"
-                                  ng-model="vm.projectsitedetail.siteaddress" >
-                </div>
-                <label  class="col-lg-3 control-label">Agreement Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
-                                             ng-model="vm.projectsitedetail.siteaddress" ></div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Site Layout Plan Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
-                                             ng-model="vm.projectsitedetail.siteaddress" ></div>
-                <label class="col-lg-3 control-label">Location Plan Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
-                                             ng-model="vm.projectsitedetail.siteaddress" ></div>
-
-            </div>
-
-            <div class="form-group">
-            <label class="col-lg-2 control-label">Linears Trip Plan</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
-                                             ng-model="vm.projectsitedetail.siteaddress" ></div>
-                <label class="col-lg-3 control-label">Connecting Road</label>
-                <div class="col-lg-3">
-                    <select  class="form-control"  ng-model="vm.projectsitedetail.siteaddress"  >
-                        <option value="">Select Connecting Road</option>
-                        <option ng-repeat = "cont in vm.connecting" value="{{cont.id }}">{{cont.connectingraodtype}}</option>
-                    </select>
-                </div>
-
-            </div>
-
-            <div class="form-group">
-                <label  class="col-lg-2 control-label">Intersection Distance</label>
-                <div class="col-lg-10">
-                    <input type="checkbox" name="checkIntersectionDistance" ng-model="vm.projectsitedetail.siteaddress"  >
-                </div>
-                <label  class="col-lg-2 control-label">Railway Distance</label>
-                <div class="col-lg-10">
-                    <input type="checkbox" name="checkRailwayDistance" ng-model="vm.projectsitedetail.siteaddress" >
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Confirmity of land use</label>
-                <div class="col-lg-10">
-                    <input type="checkbox" name="checkConfirmityoflanduse" ng-model="vm.projectsitedetail.siteaddress">
-                </div>
-                <label  class="col-lg-2 control-label">Land Zone Use Type</label>
-                <div class="col-lg-3">
-                    <select  class="form-control"  ng-model="vm.projectsitedetail.siteaddress">
-                        <option value="">Select Land Zone</option>
-                        <option ng-repeat = "land in vm.landzone" value="{{land.id}}">{{land.landzoneclassificationtype}}</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Sitesituated Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
-                                             ng-model="vm.projectsitedetail.siteaddress" ></div>
-                <label for="buildingexisting" class="col-lg-3 control-label">Building existed</label>
-                <div class="col-lg-3">
-                    <select type="text" class="form-control" id="buildingexisting" ng-model="vm.projectsitedetail.siteaddress" data-dpmaxz-eid="20">
-                        <option>Before</option>
-                        <option>After</option>
-                    </select>
-                </div>
-            </div>
-
-
-            <div class="form-group">
-            <label class="col-lg-2 control-label">Existing Building Applicable</label>
-                <div class="col-lg-3">
-                    <input type="checkbox" name="radio" ng-model="vm.projectsitedetail.siteaddress" >
-
-                </div>
-                <label class="col-lg-3 control-label">Building plan Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
-                                             ng-model="vm.projectsitedetail.siteaddress"></div>
-
-            </div>
-
-            <div class="form-group">
-                <label  class="col-lg-2 control-label">Site Situated In Controlled Area</label>
-                <div class="col-lg-3">
-                    <input type="checkbox" name="checkSiteSituatedInControlledArea"
-                           ng-model="vm.projectsitedetail.siteaddress" >
-                </div>
-                <label class="col-lg-3 control-label">Controlled Area Document</label>
-                <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"
-                                             ng-model="vm.projectsitedetail.siteaddress" ></div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-lg-10 col-lg-offset-2">
-                    <button type="reset" class="btn btn-default">Cancel</button>
-                    <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12">SAVE</button>
-                </div>
-            </div>
-        </fieldset>
-    </form>
-
-</div>
-</div>
-</div>
+        </div>
+    </div>
+    <!--by Deepika-->
 
     <div class="panel panel-default">
 <div class="panel-heading">
@@ -730,14 +1066,14 @@
                     <div class="col-lg-2"><input type="text" class="form-control" id="Implementationdate"></div>
                     </div>
                 <div class="col-lg-12 col-lg-offset-5">
-                    <button type="reset" class="btn btn-default">Cancel</button>
+                    <!--<button type="reset" class="btn btn-default">Cancel</button>-->
                     <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12">ADD</button>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
-                    <button type="reset" class="btn btn-default">Cancel</button>
-                    <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12">SAVE</button>
+                    <!--<button type="reset" class="btn btn-default">Cancel</button>-->
+                    <!--<button type="submit" class="btn btn-primary" data-dpmaxz-eid="12">SAVE</button>-->
                 </div>
             </div>
         </fieldset>
@@ -1171,7 +1507,7 @@
                         </tr>
                         <tr>
                             <td align="right" colspan="12">
-                                <button type="submit" id="btnEmissionData" name="Command" class="btn btn-primary" value="SaveEmissionData" data-dpmaxz-eid="40">Add</button>
+                                <!--<button type="submit" id="btnEmissionData" name="Command" class="btn btn-primary" value="SaveEmissionData" data-dpmaxz-eid="40">Add</button>-->
                             </td>
                         </tr>
                         </tbody></table>
@@ -1264,7 +1600,7 @@
                         </tr>
                         <tr>
                             <td align="right" colspan="6">
-                                <button type="submit" id="btnSolidWaste" name="Command" class="btn btn-primary" value="SaveSolidWaste" data-dpmaxz-eid="46">Add</button>
+                                <!--<button type="submit" id="btnSolidWaste" name="Command" class="btn btn-primary" value="SaveSolidWaste" data-dpmaxz-eid="46">Add</button>-->
                             </td>
                         </tr>
                         </tbody></table>
@@ -1281,8 +1617,8 @@
 
             <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
-                    <button type="reset" class="btn btn-default">Cancel</button>
-                    <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12">SAVE</button>
+                    <!--<button type="reset" class="btn btn-default">Cancel</button>-->
+                    <!--<button type="submit" class="btn btn-primary" data-dpmaxz-eid="12">SAVE</button>-->
                 </div>
             </div>
         </fieldset>
@@ -1296,379 +1632,376 @@
 
 <!-- Electrict Requirement -->
 
-<div class="panel panel-default">
-<div class="panel-heading">
-<h4 class="panel-title">
-    <a data-toggle="collapse" data-parent="#accordion" href=".electric">Proposed Fixed Capital Investment</a>
-</h4>
-</div>
-<div id="electric" class="panel-collapse collapse electric">
-<div class="panel-body">
-    <form class="form-horizontal" data-dpmaxz-eid="7">
-        <fieldset>
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="alert alert-success" style="font-size:17px; font-weight:bold; ">Electric Power Requirement</h3>
-                </div>
-            </div>
-            <div id="divElectric">
-                <div style="background-color:aliceblue;" class="pull-right">
-                    <span class="field-validation-valid errorMsg" data-valmsg-for="SelectEletricPower" data-valmsg-replace="true" id="SelectEletricPower"></span>
-                </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href=".electric">Electric Requirement</a>
+            </h4>
+        </div>
+        <div id="electric" class="panel-collapse collapse electric">
+            <div class="panel-body">
+                <form class="form-horizontal" data-dpmaxz-eid="7">
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="alert alert-success" style="font-size:17px; font-weight:bold; ">Electric Power Requirement</h3>
+                            </div>
+                        </div>
+                        <div id="divElectric">
+                            <div style="background-color:aliceblue;" class="pull-right">
+                                <span class="field-validation-valid errorMsg" data-valmsg-for="SelectEletricPower" data-valmsg-replace="true" id="SelectEletricPower"></span>
+                            </div>
 
-                <div id="temporary" class="row table col-md-12">
-                    <div class="col-md-5">
-                        <label class="control-label col-md-6">Temporary Connection<label class="cafSubHeadings" style="margin-left:-15px;">* During Construction</label><label class="cafSubHeadings" style="margin-left:-15px;">* Enclose bill copy in case of existing connection</label><br></label>
-                       <div class="row col-md-8">
-                            <table>
-                                <tbody><tr>
-                                    <td style="border-top:none;">
+                            <div id="temporary" class="row table col-md-12">
+                                <div class="col-md-5">
+                                    <label class="control-label col-md-6">Temporary Connection<label class="cafSubHeadings" style="margin-left:-15px;">* During Construction</label><label class="cafSubHeadings" style="margin-left:-15px;">* Enclose bill copy in case of existing connection</label><br></label>
+                                    <div class="row col-md-8">
+                                        <table>
+                                            <tbody><tr>
+                                                <td style="border-top:none;">
                                     <span class="btn btn-primary fileinput-button" style="margin-left:20px;">
-                                        <input id="ExistingTempBill" type="file" name="files[]" disabled="disabled" autocomplete="off" autocompletetype="Disable">
+                                        <input id="ExistingTempBill" type="file" name="files[]" disabled="disabled" autocomplete="off" autocompletetype="Disable"
+                                               ng-model="vm.electricrequirement.temporaryconnection">
                                     </span>
-                                    </td>
-                                </tr>
+                                                </td>
+                                            </tr>
 
-                                </tbody></table>
-                        </div>
-
-
-                    </div>
-                    <div class="col-md-7">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">Load Required</label>
-                        </div>
-                        <div class="col-md-3">
-                            <select class="form-control" id="tLoadRequired" name="tLoadRequired" data-dpmaxz-eid="3">
-                                <option value="">Select Any One</option>
-                                <option value="Yes">Yes</option>
-                                <option selected="selected" value="No">No</option>
-                            </select>
-                        </div>
-                        <strong><small>* If applicable fill below</small></strong>
-                    </div>
-
-                    <div class="col-md-7" style="min-height:30px;">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">Power Company</label>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="control-label">UHBVN</label>
-                        </div>
-                    </div>
-
-                    <div class="col-md-5">
-                    </div>
-                    <div class="col-md-7" style="min-height:30px;">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">Existing Connection</label>
-                        </div>
-                        <div class="col-md-3" id="divTempRunning">
-                            <input data-val="true" data-val-required="The Already Running field is required." id="TempAlreadyRunningY" name="TempConnectionRunning" type="radio" value="True" autocomplete="off" autocompletetype="Disable" style="pointer-events: auto;"> Yes
-                            <input checked="checked" id="TempAlreadyRunningN" name="TempConnectionRunning" type="radio" value="False" autocomplete="off" autocompletetype="Disable" style="pointer-events: auto;"> No
-                        </div>
-                    </div>
+                                            </tbody></table>
+                                    </div>
 
 
-                    <div class="col-md-5">
-                    </div>
-                    <div class="col-md-7">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">Account Number</label>
-                        </div>
-                        <div class="col-md-3">
-                            <input class="form-control" id="TempAccountNo" name="TempAccountNo" placeholder="Click here" type="text" value="" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="4">
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                    </div>
-                    <div class="col-md-7">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">Existing Load Demand (KW) </span></label>
-                        </div>
-                        <div class="col-md-3">
-                            <input class="form-control" data-val="true" data-val-number="The field Existing Load Demand (In KW) must be a number." id="TempExistingLoadKW" name="TempExistingLoadKW" placeholder="Click here" type="text" value="0.00" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="5">
-                        </div>
-                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">Load Required</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" ng-model="vm.electricrequirement.temporaryrequired">
+                                    </div>
+                                    <!--<strong><small>* If applicable fill below</small></strong>-->
+                                </div>
 
-                    <div class="col-md-5">
-                    </div>
-                    <div class="col-md-7">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">Existing Load Demand (KVA) </label>
-                        </div>
-                        <div class="col-md-3">
-                            <input class="form-control" data-val="true" data-val-number="The field Existing Load Demand (In KVA) must be a number." id="TempExistingLoadKVA" name="TempExistingLoadKVA" placeholder="Click here" type="text" value="0.00" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="6">
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                    </div>
-                    <div class="col-md-7">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">New Load Demand (KW) </label>
-                        </div>
-                        <div class="col-md-3">
-                            <input class="form-control" data-val="true" data-val-number="The field New Load Demand (In KW) must be a number." id="LoadDemandKW" name="LoadDemandKW" placeholder="Click here" type="text" value="0.00"  autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="7">
-                        </div>
-                    </div>
+                                <div class="col-md-7" style="min-height:30px;">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">Power Company</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label">UHBVN</label>
+                                    </div>
+                                </div>
 
-                    <div class="col-md-5">
-                    </div>
-                    <div class="col-md-7">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">New Load Demand (KVA) </label>
-                        </div>
-                        <div class="col-md-3">
-                            <input class="form-control" data-val="true" data-val-number="The field New Load Demand (In KVA) must be a number." id="LoadDemandKVA" name="LoadDemandKVA" placeholder="Click here" type="text" value="0.00" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="8">
-                        </div>
-                    </div>
-
-                    <div class="col-md-5">
-                    </div>
-                    <div id="tDemandDate" class="col-md-7">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">Demand Date</label>
-                        </div>
-                        <div class="col-md-3">
-                            <input type="date" class="form-control" id="demanddate" placeholder="Demand Date" data-dpmaxz-eid="20">
-                        </div>
-                    </div>
-                </div>
+                                <div class="col-md-5">
+                                </div>
+                                <div class="col-md-7" style="min-height:30px;">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">Existing Connection</label>
+                                    </div>
+                                    <div class="col-md-3" id="divTempRunning">
+                                        <input type="checkbox" ng-model="vm.electricrequirement.tem_load_existing">
+                                        <!--<input type="checkbox" value="No" ng-model="vm.electricrequirement.tem_load_existing">No-->
+                                    </div>
+                                </div>
 
 
-                <div id="regular" class="table row col-md-12">
-                    <div class="col-md-5">
-                        <label class="control-label col-md-6">Regular Connection<label style="margin-left:-15px;">* During Commercial Activity</label>
-                            <label class="cafSubHeadings" style="margin-left:-15px;">* Enclose bill copy in case of existing connection</label></label><br>
-                        <br><br>
+                                <div class="col-md-5">
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">Account Number</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control" id="TempAccountNo" name="TempAccountNo" placeholder="Click here" type="text" value="" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="4"
+                                               ng-model="vm.electricrequirement.tem_account_number">
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">Existing Load Demand (KW) </span></label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control" data-val="true" data-val-number="The field Existing Load Demand (In KW) must be a number." id="TempExistingLoadKW" name="TempExistingLoadKW" placeholder="Click here" type="text" value="0.00" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="5"
+                                               ng-model="vm.electricrequirement.temp_existing_load_demand_kw">
+                                    </div>
+                                </div>
 
-                        <div class="row col-md-8">
-                            <table>
-                                <tbody><tr>
-                                    <td style="border-top:none;">
+                                <div class="col-md-5">
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">Existing Load Demand (KVA) </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control" data-val="true" data-val-number="The field Existing Load Demand (In KVA) must be a number." id="TempExistingLoadKVA" name="TempExistingLoadKVA" placeholder="Click here" type="text" value="0.00" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="6"
+                                               ng-model="vm.electricrequirement.temp_existing_load_demand_kva">
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">New Load Demand (KW) </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control" data-val="true" data-val-number="The field New Load Demand (In KW) must be a number." id="LoadDemandKW" name="LoadDemandKW" placeholder="Click here" type="text" value="0.00"  autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="7"
+                                               ng-model="vm.electricrequirement.temp_new_load_demand_kw">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-5">
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">New Load Demand (KVA) </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control" data-val="true" data-val-number="The field New Load Demand (In KVA) must be a number." id="LoadDemandKVA" name="LoadDemandKVA" placeholder="Click here" type="text" value="0.00" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="8"
+                                               ng-model="vm.electricrequirement.temp_new_load_demand_kva">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-5">
+                                </div>
+                                <div id="tDemandDate" class="col-md-7">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">Demand Date</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="date" class="form-control" placeholder="Demand Date" data-dpmaxz-eid="20"
+                                               ng-model="vm.electricrequirement.temp_load_demand_date">
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div id="regular" class="table row col-md-12">
+                                <div class="col-md-5">
+                                    <label class="control-label col-md-6">Regular Connection<label style="margin-left:-15px;">* During Commercial Activity</label>
+                                        <label class="cafSubHeadings" style="margin-left:-15px;">* Enclose bill copy in case of existing connection</label></label><br>
+                                    <br><br>
+
+                                    <div class="row col-md-8">
+                                        <table>
+                                            <tbody><tr>
+                                                <td style="border-top:none;">
                                     <span class="btn btn-primary fileinput-button" style="margin-left:20px;">
-                                        <input id="ExistingBill" type="file" name="files[]" disabled="disabled" autocomplete="off" autocompletetype="Disable">
+                                        <input id="ExistingBill" type="file" name="files[]" disabled="disabled" autocomplete="off" autocompletetype="Disable"
+                                               ng-model="vm.electricrequirement.regular_connection_doc">
                                     </span>
-                                    </td>
-                                    <td style="border-top:none;">
-                                        <span id="rReqBill" style="color:red; display:none; width:10px;">*</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="border-top:none;">
-                                        <div class="bill_name" style="display:none;"></div>
-                                        <div id="divEBill" </div>
-                                        <span class="field-validation-valid errorMsg" data-valmsg-for="ErrorExistingBill" data-valmsg-replace="true" id="ErrorExistingBill"></span>
-                                    </td>
-                                </tr>
-                                </tbody></table>
+                                                </td>
+                                                <td style="border-top:none;">
+                                                    <span id="rReqBill" style="color:red; display:none; width:10px;">*</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border-top:none;">
+                                                    <div class="bill_name" style="display:none;"></div>
+                                                    <div id="divEBill" ></div>
+                                                    <span class="field-validation-valid errorMsg" data-valmsg-for="ErrorExistingBill" data-valmsg-replace="true" id="ErrorExistingBill"></span>
+                                                </td>
+                                            </tr>
+                                            </tbody></table>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">Load Required</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="checkbox" ng-model="vm.electricrequirement.regular_load_required">
+                                    </div>
+                                </div>
+                                <div class="col-md-7" style="min-height:30px;">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">Power Company</span></label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label">UHBVN</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                </div>
+                                <div class="col-md-7" style="min-height:30px;">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">Existing Connection</label>
+                                    </div>
+                                    <div class="col-md-3" id="divRegRunning">
+                                        <input type="checkbox" ng-model="vm.electricrequirement.regular_existing_connection">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-5"></div>
+                                <div class="col-md-7">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">UHBVN/DHBVN Customer Type</span></label>
+                                    </div>
+
+                                    <!--comment: No Entity for customertype-->
+
+
+                                    <!--<div class="col-md-3">-->
+                                    <!--<select required class="form-control" ng-model="vm.electricrequirement.selectedCustomerType"-->
+                                    <!--ng-options="customer.customertype for customer in vm.customertype">-->
+                                    <!--</select>-->
+                                    <!--</div>-->
+                                </div>
+                                <div class="col-md-5">
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">Account Number</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control" id="RegAccountNo" name="RegAccountNo" placeholder="Click here" type="text" value="" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="12"
+                                               ng-model="vm.electricrequirement.regular_account_number">
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">Existing Load If Any (In KW)<span style="color:red;">*</span></label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control" data-val="true" data-val-number="The field Existing Load If Any (In KW) must be a number." id="ExistingLoadKW" name="ExistingLoadKW" placeholder="Click here" type="text" value="0.00" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="13"
+                                               ng-model="vm.electricrequirement.regular_existing_load_ifany_kw">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-5">
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">Existing Load If Any(In KVA)<span style="color:red;">*</span></label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control" data-val="true" data-val-number="The field Existing Load If Any (In KVA) must be a number." id="ExistingLoadKVA" name="ExistingLoadKVA" placeholder="Click here" type="text" value="0.00" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="14"
+                                               ng-model="vm.electricrequirement.regular_existing_load_ifany_kva">
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">New Load Demand (In KW)</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control" data-val="true" data-val-number="The field New Load Demand(In KW) must be a number." id="NewLoadKW" name="NewLoadKW" placeholder="Click here" type="text" value="10.00" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="15"
+                                               ng-model="vm.electricrequirement.regular_new_load_demand_kw">
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">New Load Demand (In KVA)</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control" data-val="true" data-val-number="The field New Load Demand(In KVA) must be a number." id="NewLoadKVA" name="NewLoadKVA" placeholder="Click here" type="text" value="8.70" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="16"
+                                               ng-model="vm.electricrequirement.regular_new_load_demand_kva">
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                </div>
+                                <div id="rDemandDate" class="col-md-7">
+                                    <div class="col-md-5" style="text-align:right;">
+                                        <label class="control-label">Demand Date</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="date" class="form-control" id="regulardemanddate" placeholder="Demand Date" data-dpmaxz-eid="20"
+                                               ng-model="vm.electricrequirement.regular_load_demand_date">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">Load Required</label>
+                        <div class="col-md-12">
+                            <p class="alert alert-success" style="font-size:14px; font-weight:bold; width:100%;">TERMS AND CONDITIONS</p>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-12">
+                                <ol>
+                                    <li style="padding:10px;">I/We _____________, hereby undertake that all the information furnished above is true and correct to the best of my/our knowledge and belief. No part of the information is false and nothing has been concealed therein.</li>
+                                    <li style="padding:10px;">All the required attachments have been completely and legibly attached to this form.</li>
+                                </ol>
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            <select class="form-control" id="rLoadRequired" name="rLoadRequired" data-dpmaxz-eid="10"><option value="">Select Any One</option>
-                                <option selected="selected" value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                            <span class="field-validation-valid" data-valmsg-for="rLoadRequired" data-valmsg-replace="true"></span>
-                        </div>
-                        <strong><small>* If applicable fill below</small></strong>
-                    </div>
-                    <div class="col-md-7" style="min-height:30px;">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">Power Company</span></label>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="control-label">UHBVN</label>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                    </div>
-                    <div class="col-md-7" style="min-height:30px;">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">Existing Connection</label>
-                        </div>
-                        <div class="col-md-3" id="divRegRunning">
-                            <input data-val="true" data-val-required="The Already Running field is required." id="RegAlreadyRunningY" name="RegConnectionRunning" type="radio" value="True" autocomplete="off" autocompletetype="Disable" style="pointer-events: auto;"> Yes
-                            <input checked="checked" id="RegAlreadyRunningN" name="RegConnectionRunning" type="radio" value="False" autocomplete="off" autocompletetype="Disable" style="pointer-events: auto;"> No
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <input type="checkbox" id="chkAccept" style="outline: 2px solid; margin-left:23px;" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="18"> I Accept Terms and Conditions
+                                </div>
+                            </div>
+                            <br>
+                            <div class="table table-striped" style="min-height:40px;">
+                                <div class="row">
+                                    <div class="col-md-8">
+
+                                    </div>
+                                    <div class="col-md-4">
+                                        <script type="text/javascript">
+                    <!--$(".appSig").css("display", "none");-->
+                                        </script>
+                                        <div id="PreviousFile">
+
+                                        </div>
+                                        <div class="file_name" style="display:none;"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="col-md-6 control-label">
+                                            <label>Application Date</label>
+                                        </div>
+                                        <div class="col-md-6" style="margin-top:7px;">
+                                            <label>_________</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-4 control-label">
+                                            <label>Applicant Name</label>
+                                        </div>
+                                        <div class="col-md-8" style="margin-top:7px;">
+                                            <label>___________</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="col-md-6 control-label">
+                                            <label>Place </label>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <input class="form-control capitalize" id="Place" name="Place" placeholder="Click here to enter text" type="text" value="Chandigarh" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="19">
+                                            <span class="field-validation-valid" data-valmsg-for="Place" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="col-md-4 control-label">
+                                            <label>Signature </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input id="Signature" type="file" name="files[]" autocomplete="off" autocompletetype="Disable">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
 
                         </div>
+                        <div class="form-group">
+                            <div class="col-lg-10 col-lg-offset-2">
+                                <!--<button type="reset" class="btn btn-default">Cancel</button>-->
+                                <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12" ng-click="vm.saveCompleteProjectDetail()">Submit Complete Form</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
 
-                    </div>
-                    <div class="col-md-5"></div>
-                    <div class="col-md-7">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">UHBVN/DHBVN Customer Type</span></label>
-                        </div>
-                        <div class="col-md-3">
-                            <select class="form-control" id="CustomerType" name="CustomerType" data-dpmaxz-eid="11"><option value="">Select Any One</option>
-                                <option value="Domestic">Domestic</option>
-                                <option value="Non-Domestic">Non-Domestic</option>
-                                <option selected="selected" value="LT Industrial ">LT Industrial </option>
-                                <option value="HT Industrial">HT Industrial</option>
-                                <option value="Public Water Works">Public Water Works</option>
-                                <option value="Lift irrigation">Lift irrigation</option>
-                                <option value="Street Light">Street Light</option>
-                                <option value="Bulk Supply">Bulk Supply</option>
-                                <option value="Railway Traction">Railway Traction</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                    </div>
-                    <div class="col-md-7">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">Account Number</label>
-                        </div>
-                        <div class="col-md-3">
-                            <input class="form-control" id="RegAccountNo" name="RegAccountNo" placeholder="Click here" type="text" value="" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="12">
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                    </div>
-                    <div class="col-md-7">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">Existing Load If Any (In KW)<span style="color:red;">*</span></label>
-                        </div>
-                        <div class="col-md-3">
-                            <input class="form-control" data-val="true" data-val-number="The field Existing Load If Any (In KW) must be a number." id="ExistingLoadKW" name="ExistingLoadKW" placeholder="Click here" type="text" value="0.00" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="13">
-                        </div>
-                    </div>
-
-                    <div class="col-md-5">
-                    </div>
-                    <div class="col-md-7">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">Existing Load If Any(In KVA)<span style="color:red;">*</span></label>
-                        </div>
-                        <div class="col-md-3">
-                            <input class="form-control" data-val="true" data-val-number="The field Existing Load If Any (In KVA) must be a number." id="ExistingLoadKVA" name="ExistingLoadKVA" placeholder="Click here" type="text" value="0.00" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="14">
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                    </div>
-                    <div class="col-md-7">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">New Load Demand (In KW)</label>
-                        </div>
-                        <div class="col-md-3">
-                            <input class="form-control" data-val="true" data-val-number="The field New Load Demand(In KW) must be a number." id="NewLoadKW" name="NewLoadKW" placeholder="Click here" type="text" value="10.00" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="15">
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                    </div>
-                    <div class="col-md-7">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">New Load Demand (In KVA)</label>
-                        </div>
-                        <div class="col-md-3">
-                            <input class="form-control" data-val="true" data-val-number="The field New Load Demand(In KVA) must be a number." id="NewLoadKVA" name="NewLoadKVA" placeholder="Click here" type="text" value="8.70" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="16">
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                    </div>
-                    <div id="rDemandDate" class="col-md-7">
-                        <div class="col-md-5" style="text-align:right;">
-                            <label class="control-label">Demand Date</label>
-                        </div>
-                        <div class="col-md-3">
-                            <input type="file" class="form-control" id="regulardemanddate" placeholder="Middle Name" data-dpmaxz-eid="20">
-                        </div>
-                    </div>
-                </div>
             </div>
-<div class="col-md-12">
-    <p class="alert alert-success" style="font-size:14px; font-weight:bold; width:100%;">TERMS AND CONDITIONS</p>
-    <div class="col-md-1"></div>
-    <div class="col-md-12">
-        <ol>
-            <li style="padding:10px;">I/We _____________, hereby undertake that all the information furnished above is true and correct to the best of my/our knowledge and belief. No part of the information is false and nothing has been concealed therein.</li>
-            <li style="padding:10px;">All the required attachments have been completely and legibly attached to this form.</li>
-        </ol>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <div class="col-md-6">
-            <input type="checkbox" id="chkAccept" style="outline: 2px solid; margin-left:23px;" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="18"> I Accept Terms and Conditions
         </div>
-
     </div>
-
-
-    <br>
-    <div class="table table-striped" style="min-height:40px;">
-        <div class="row">
-            <div class="col-md-8">
-
-            </div>
-            <div class="col-md-4">
-                <script type="text/javascript">
-                    $(".appSig").css("display", "none");
-                </script>
-                <div id="PreviousFile">
-
-                </div>
-                <div class="file_name" style="display:none;"></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="col-md-6 control-label">
-                    <label>Application Date</label>
-                </div>
-                <div class="col-md-6" style="margin-top:7px;">
-                    <label>_________</label>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="col-md-4 control-label">
-                    <label>Applicant Name</label>
-                </div>
-                <div class="col-md-8" style="margin-top:7px;">
-                    <label>___________</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="col-md-6 control-label">
-                    <label>Place </label>
-                </div>
-
-                <div class="col-md-6">
-                    <input class="form-control capitalize" id="Place" name="Place" placeholder="Click here to enter text" type="text" value="Chandigarh" autocomplete="off" autocompletetype="Disable" data-dpmaxz-eid="19">
-                    <span class="field-validation-valid" data-valmsg-for="Place" data-valmsg-replace="true"></span>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="col-md-4 control-label">
-                    <label>Signature </label>
-                </div>
-                <div class="col-md-8">
-                    <input id="Signature" type="file" name="files[]" autocomplete="off" autocompletetype="Disable">
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-<div class="form-group">
-    <div class="col-lg-10 col-lg-offset-2">
-        <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12">SAVE</button>
-    </div>
-</div>
-        </fieldset>
-    </form>
-
-</div>
-</div>
-</div>
 
 </div>
 </div>

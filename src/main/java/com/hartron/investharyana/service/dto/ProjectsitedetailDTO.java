@@ -73,8 +73,6 @@ public class ProjectsitedetailDTO implements Serializable {
 
     private UUID landzoneuse_type;
 
-    private UUID buildingexisted;
-
     private Boolean existing_building_applicable;
 
     private Boolean site_situated_in_controlled_area;
@@ -102,6 +100,8 @@ public class ProjectsitedetailDTO implements Serializable {
     private String sitesituated_document;
 
     private String controlledarea_document;
+
+    private String buildingexisted;
 
     public UUID getId() {
         return id;
@@ -320,13 +320,6 @@ public class ProjectsitedetailDTO implements Serializable {
     public void setLandzoneuse_type(UUID landzoneuse_type) {
         this.landzoneuse_type = landzoneuse_type;
     }
-    public UUID getBuildingexisted() {
-        return buildingexisted;
-    }
-
-    public void setBuildingexisted(UUID buildingexisted) {
-        this.buildingexisted = buildingexisted;
-    }
     public Boolean getExisting_building_applicable() {
         return existing_building_applicable;
     }
@@ -425,6 +418,13 @@ public class ProjectsitedetailDTO implements Serializable {
     public void setControlledarea_document(String controlledarea_document) {
         this.controlledarea_document = controlledarea_document;
     }
+    public String getBuildingexisted() {
+        return buildingexisted;
+    }
+
+    public void setBuildingexisted(String buildingexisted) {
+        this.buildingexisted = buildingexisted;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -481,7 +481,6 @@ public class ProjectsitedetailDTO implements Serializable {
             ", railwaydistance='" + railwaydistance + "'" +
             ", confirmitylanduse='" + confirmitylanduse + "'" +
             ", landzoneuse_type='" + landzoneuse_type + "'" +
-            ", buildingexisted='" + buildingexisted + "'" +
             ", existing_building_applicable='" + existing_building_applicable + "'" +
             ", site_situated_in_controlled_area='" + site_situated_in_controlled_area + "'" +
             ", khasra_document='" + khasra_document + "'" +
@@ -496,6 +495,7 @@ public class ProjectsitedetailDTO implements Serializable {
             ", linearstripplan='" + linearstripplan + "'" +
             ", sitesituated_document='" + sitesituated_document + "'" +
             ", controlledarea_document='" + controlledarea_document + "'" +
+            ", buildingexisted='" + buildingexisted + "'" +
             '}';
     }
 }

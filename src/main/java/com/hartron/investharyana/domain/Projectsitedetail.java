@@ -79,8 +79,6 @@ public class Projectsitedetail implements Serializable {
 
     private UUID landzoneuse_type;
 
-    private UUID buildingexisted;
-
     private Boolean existing_building_applicable;
 
     private Boolean site_situated_in_controlled_area;
@@ -108,6 +106,8 @@ public class Projectsitedetail implements Serializable {
     private String sitesituated_document;
 
     private String controlledarea_document;
+
+    private String buildingexisted;
 
     public UUID getId() {
         return id;
@@ -507,19 +507,6 @@ public class Projectsitedetail implements Serializable {
         this.landzoneuse_type = landzoneuse_type;
     }
 
-    public UUID getBuildingexisted() {
-        return buildingexisted;
-    }
-
-    public Projectsitedetail buildingexisted(UUID buildingexisted) {
-        this.buildingexisted = buildingexisted;
-        return this;
-    }
-
-    public void setBuildingexisted(UUID buildingexisted) {
-        this.buildingexisted = buildingexisted;
-    }
-
     public Boolean isExisting_building_applicable() {
         return existing_building_applicable;
     }
@@ -702,6 +689,19 @@ public class Projectsitedetail implements Serializable {
         this.controlledarea_document = controlledarea_document;
     }
 
+    public String getBuildingexisted() {
+        return buildingexisted;
+    }
+
+    public Projectsitedetail buildingexisted(String buildingexisted) {
+        this.buildingexisted = buildingexisted;
+        return this;
+    }
+
+    public void setBuildingexisted(String buildingexisted) {
+        this.buildingexisted = buildingexisted;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -756,7 +756,6 @@ public class Projectsitedetail implements Serializable {
             ", railwaydistance='" + railwaydistance + "'" +
             ", confirmitylanduse='" + confirmitylanduse + "'" +
             ", landzoneuse_type='" + landzoneuse_type + "'" +
-            ", buildingexisted='" + buildingexisted + "'" +
             ", existing_building_applicable='" + existing_building_applicable + "'" +
             ", site_situated_in_controlled_area='" + site_situated_in_controlled_area + "'" +
             ", khasra_document='" + khasra_document + "'" +
@@ -771,6 +770,7 @@ public class Projectsitedetail implements Serializable {
             ", linearstripplan='" + linearstripplan + "'" +
             ", sitesituated_document='" + sitesituated_document + "'" +
             ", controlledarea_document='" + controlledarea_document + "'" +
+            ", buildingexisted='" + buildingexisted + "'" +
             '}';
     }
 }

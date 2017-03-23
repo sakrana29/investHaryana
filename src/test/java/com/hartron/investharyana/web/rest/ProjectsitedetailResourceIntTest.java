@@ -131,9 +131,6 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
     private static final UUID DEFAULT_LANDZONEUSE_TYPE = UUID.randomUUID();
     private static final UUID UPDATED_LANDZONEUSE_TYPE = UUID.randomUUID();
 
-    private static final UUID DEFAULT_BUILDINGEXISTED = UUID.randomUUID();
-    private static final UUID UPDATED_BUILDINGEXISTED = UUID.randomUUID();
-
     private static final Boolean DEFAULT_EXISTING_BUILDING_APPLICABLE = false;
     private static final Boolean UPDATED_EXISTING_BUILDING_APPLICABLE = true;
 
@@ -175,6 +172,9 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
 
     private static final String DEFAULT_CONTROLLEDAREA_DOCUMENT = "AAAAAAAAAA";
     private static final String UPDATED_CONTROLLEDAREA_DOCUMENT = "BBBBBBBBBB";
+
+    private static final String DEFAULT_BUILDINGEXISTED = "AAAAAAAAAA";
+    private static final String UPDATED_BUILDINGEXISTED = "BBBBBBBBBB";
 
     @Autowired
     private ProjectsitedetailRepository projectsitedetailRepository;
@@ -246,7 +246,6 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
                 .railwaydistance(DEFAULT_RAILWAYDISTANCE)
                 .confirmitylanduse(DEFAULT_CONFIRMITYLANDUSE)
                 .landzoneuse_type(DEFAULT_LANDZONEUSE_TYPE)
-                .buildingexisted(DEFAULT_BUILDINGEXISTED)
                 .existing_building_applicable(DEFAULT_EXISTING_BUILDING_APPLICABLE)
                 .site_situated_in_controlled_area(DEFAULT_SITE_SITUATED_IN_CONTROLLED_AREA)
                 .khasra_document(DEFAULT_KHASRA_DOCUMENT)
@@ -260,7 +259,8 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
                 .locationplan(DEFAULT_LOCATIONPLAN)
                 .linearstripplan(DEFAULT_LINEARSTRIPPLAN)
                 .sitesituated_document(DEFAULT_SITESITUATED_DOCUMENT)
-                .controlledarea_document(DEFAULT_CONTROLLEDAREA_DOCUMENT);
+                .controlledarea_document(DEFAULT_CONTROLLEDAREA_DOCUMENT)
+                .buildingexisted(DEFAULT_BUILDINGEXISTED);
         return projectsitedetail;
     }
 
@@ -316,7 +316,6 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectsitedetail.isRailwaydistance()).isEqualTo(DEFAULT_RAILWAYDISTANCE);
         assertThat(testProjectsitedetail.isConfirmitylanduse()).isEqualTo(DEFAULT_CONFIRMITYLANDUSE);
         assertThat(testProjectsitedetail.getLandzoneuse_type()).isEqualTo(DEFAULT_LANDZONEUSE_TYPE);
-        assertThat(testProjectsitedetail.getBuildingexisted()).isEqualTo(DEFAULT_BUILDINGEXISTED);
         assertThat(testProjectsitedetail.isExisting_building_applicable()).isEqualTo(DEFAULT_EXISTING_BUILDING_APPLICABLE);
         assertThat(testProjectsitedetail.isSite_situated_in_controlled_area()).isEqualTo(DEFAULT_SITE_SITUATED_IN_CONTROLLED_AREA);
         assertThat(testProjectsitedetail.getKhasra_document()).isEqualTo(DEFAULT_KHASRA_DOCUMENT);
@@ -331,6 +330,7 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectsitedetail.getLinearstripplan()).isEqualTo(DEFAULT_LINEARSTRIPPLAN);
         assertThat(testProjectsitedetail.getSitesituated_document()).isEqualTo(DEFAULT_SITESITUATED_DOCUMENT);
         assertThat(testProjectsitedetail.getControlledarea_document()).isEqualTo(DEFAULT_CONTROLLEDAREA_DOCUMENT);
+        assertThat(testProjectsitedetail.getBuildingexisted()).isEqualTo(DEFAULT_BUILDINGEXISTED);
     }
 
     @Test
@@ -393,7 +393,6 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].railwaydistance").value(hasItem(DEFAULT_RAILWAYDISTANCE.booleanValue())))
             .andExpect(jsonPath("$.[*].confirmitylanduse").value(hasItem(DEFAULT_CONFIRMITYLANDUSE.booleanValue())))
             .andExpect(jsonPath("$.[*].landzoneuse_type").value(hasItem(DEFAULT_LANDZONEUSE_TYPE.toString())))
-            .andExpect(jsonPath("$.[*].buildingexisted").value(hasItem(DEFAULT_BUILDINGEXISTED.toString())))
             .andExpect(jsonPath("$.[*].existing_building_applicable").value(hasItem(DEFAULT_EXISTING_BUILDING_APPLICABLE.booleanValue())))
             .andExpect(jsonPath("$.[*].site_situated_in_controlled_area").value(hasItem(DEFAULT_SITE_SITUATED_IN_CONTROLLED_AREA.booleanValue())))
             .andExpect(jsonPath("$.[*].khasra_document").value(hasItem(DEFAULT_KHASRA_DOCUMENT.toString())))
@@ -407,7 +406,8 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].locationplan").value(hasItem(DEFAULT_LOCATIONPLAN.toString())))
             .andExpect(jsonPath("$.[*].linearstripplan").value(hasItem(DEFAULT_LINEARSTRIPPLAN.toString())))
             .andExpect(jsonPath("$.[*].sitesituated_document").value(hasItem(DEFAULT_SITESITUATED_DOCUMENT.toString())))
-            .andExpect(jsonPath("$.[*].controlledarea_document").value(hasItem(DEFAULT_CONTROLLEDAREA_DOCUMENT.toString())));
+            .andExpect(jsonPath("$.[*].controlledarea_document").value(hasItem(DEFAULT_CONTROLLEDAREA_DOCUMENT.toString())))
+            .andExpect(jsonPath("$.[*].buildingexisted").value(hasItem(DEFAULT_BUILDINGEXISTED.toString())));
     }
 
     @Test
@@ -450,7 +450,6 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.railwaydistance").value(DEFAULT_RAILWAYDISTANCE.booleanValue()))
             .andExpect(jsonPath("$.confirmitylanduse").value(DEFAULT_CONFIRMITYLANDUSE.booleanValue()))
             .andExpect(jsonPath("$.landzoneuse_type").value(DEFAULT_LANDZONEUSE_TYPE.toString()))
-            .andExpect(jsonPath("$.buildingexisted").value(DEFAULT_BUILDINGEXISTED.toString()))
             .andExpect(jsonPath("$.existing_building_applicable").value(DEFAULT_EXISTING_BUILDING_APPLICABLE.booleanValue()))
             .andExpect(jsonPath("$.site_situated_in_controlled_area").value(DEFAULT_SITE_SITUATED_IN_CONTROLLED_AREA.booleanValue()))
             .andExpect(jsonPath("$.khasra_document").value(DEFAULT_KHASRA_DOCUMENT.toString()))
@@ -464,7 +463,8 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.locationplan").value(DEFAULT_LOCATIONPLAN.toString()))
             .andExpect(jsonPath("$.linearstripplan").value(DEFAULT_LINEARSTRIPPLAN.toString()))
             .andExpect(jsonPath("$.sitesituated_document").value(DEFAULT_SITESITUATED_DOCUMENT.toString()))
-            .andExpect(jsonPath("$.controlledarea_document").value(DEFAULT_CONTROLLEDAREA_DOCUMENT.toString()));
+            .andExpect(jsonPath("$.controlledarea_document").value(DEFAULT_CONTROLLEDAREA_DOCUMENT.toString()))
+            .andExpect(jsonPath("$.buildingexisted").value(DEFAULT_BUILDINGEXISTED.toString()));
     }
 
     @Test
@@ -513,7 +513,6 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
                 .railwaydistance(UPDATED_RAILWAYDISTANCE)
                 .confirmitylanduse(UPDATED_CONFIRMITYLANDUSE)
                 .landzoneuse_type(UPDATED_LANDZONEUSE_TYPE)
-                .buildingexisted(UPDATED_BUILDINGEXISTED)
                 .existing_building_applicable(UPDATED_EXISTING_BUILDING_APPLICABLE)
                 .site_situated_in_controlled_area(UPDATED_SITE_SITUATED_IN_CONTROLLED_AREA)
                 .khasra_document(UPDATED_KHASRA_DOCUMENT)
@@ -527,7 +526,8 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
                 .locationplan(UPDATED_LOCATIONPLAN)
                 .linearstripplan(UPDATED_LINEARSTRIPPLAN)
                 .sitesituated_document(UPDATED_SITESITUATED_DOCUMENT)
-                .controlledarea_document(UPDATED_CONTROLLEDAREA_DOCUMENT);
+                .controlledarea_document(UPDATED_CONTROLLEDAREA_DOCUMENT)
+                .buildingexisted(UPDATED_BUILDINGEXISTED);
         ProjectsitedetailDTO projectsitedetailDTO = projectsitedetailMapper.projectsitedetailToProjectsitedetailDTO(updatedProjectsitedetail);
 
         restProjectsitedetailMockMvc.perform(put("/api/projectsitedetails")
@@ -569,7 +569,6 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectsitedetail.isRailwaydistance()).isEqualTo(UPDATED_RAILWAYDISTANCE);
         assertThat(testProjectsitedetail.isConfirmitylanduse()).isEqualTo(UPDATED_CONFIRMITYLANDUSE);
         assertThat(testProjectsitedetail.getLandzoneuse_type()).isEqualTo(UPDATED_LANDZONEUSE_TYPE);
-        assertThat(testProjectsitedetail.getBuildingexisted()).isEqualTo(UPDATED_BUILDINGEXISTED);
         assertThat(testProjectsitedetail.isExisting_building_applicable()).isEqualTo(UPDATED_EXISTING_BUILDING_APPLICABLE);
         assertThat(testProjectsitedetail.isSite_situated_in_controlled_area()).isEqualTo(UPDATED_SITE_SITUATED_IN_CONTROLLED_AREA);
         assertThat(testProjectsitedetail.getKhasra_document()).isEqualTo(UPDATED_KHASRA_DOCUMENT);
@@ -584,6 +583,7 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectsitedetail.getLinearstripplan()).isEqualTo(UPDATED_LINEARSTRIPPLAN);
         assertThat(testProjectsitedetail.getSitesituated_document()).isEqualTo(UPDATED_SITESITUATED_DOCUMENT);
         assertThat(testProjectsitedetail.getControlledarea_document()).isEqualTo(UPDATED_CONTROLLEDAREA_DOCUMENT);
+        assertThat(testProjectsitedetail.getBuildingexisted()).isEqualTo(UPDATED_BUILDINGEXISTED);
     }
 
     @Test

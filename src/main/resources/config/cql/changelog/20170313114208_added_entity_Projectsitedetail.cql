@@ -31,7 +31,6 @@ CREATE TABLE IF NOT EXISTS projectsitedetail (
     railwaydistance boolean,
     confirmitylanduse boolean,
     landzoneuse_type uuid,
-    buildingexisted uuid,
     existing_building_applicable boolean,
     site_situated_in_controlled_area boolean,
     khasra_document text,
@@ -46,5 +45,6 @@ CREATE TABLE IF NOT EXISTS projectsitedetail (
     linearstripplan text,
     sitesituated_document text,
     controlledarea_document text,
+    buildingexisted text,
     PRIMARY KEY(id)
 );
