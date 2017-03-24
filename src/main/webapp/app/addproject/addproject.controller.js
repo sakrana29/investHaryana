@@ -6,13 +6,13 @@
         .controller('addprojectController', addprojectController);
 
     addprojectController.$inject = ['$scope', 'Principal', 'investor','companydetail','projectdetail','projectsitedetail',
-    'electricrequirement','manufacturing_detail','finance_investment','projectcombinecodes','LoginService', '$state', 'Investor',
+    'electricrequirement','manufacturing_detail','project_finance_investment','projectcombinecodes','LoginService', '$state', 'Investor',
     'Companydetail','Projectdetail','Projectcompletedetail','Country','State','City_town_village','Businessentity','Sector',
     'Industrysize','Projectype','Projectcategory','Foreignfundingresource','Approvalforms','Block','Connectingroad','Landusezoneclassification',
     'Watersupplysource','Waste_water_disposal_mode','Emmision_pollution_controll','Emmision_fuel_type','District'];
 
     function addprojectController ($scope, Principal, investor, companydetail, projectdetail,projectsitedetail,electricrequirement,
-    manufacturing_detail,finance_investment,projectcombinecodes, LoginService, $state, Investor, Companydetail, Projectdetail,
+    manufacturing_detail,project_finance_investment,projectcombinecodes, LoginService, $state, Investor, Companydetail, Projectdetail,
     Projectcompletedetail,Country,State,City_town_village,Businessentity,Sector,Industrysize,Projectype,Projectcategory,
     Foreignfundingresource,Approvalforms,Block,Connectingroad,Landusezoneclassification,Watersupplysource,Waste_water_disposal_mode,
     Emmision_pollution_controll,Emmision_fuel_type,District)
@@ -28,7 +28,7 @@
         vm.projectsitedetail=projectsitedetail;
         vm.electricrequirement=electricrequirement;
         vm.manufacturing_detail=manufacturing_detail;
-        vm.finance_investment=finance_investment;
+        vm.project_finance_investment=project_finance_investment;
         vm.projectcombinecodes=projectcombinecodes;
 
         vm.account = null;
@@ -68,15 +68,19 @@
 //            vm.projectsitedetail.connectingroad=vm.projectsitedetail.selectedConnectingRoad.id;
 //            vm.projectsitedetail.landzoneuse_type=vm.projectsitedetail.selectedLandZoneUseType.id;
 
+
+            vm.project_finance_investment.fdi_country=vm.project_finance_investment.selectedcountryid.id;
+            vm.project_finance_investment.foreign_funding_source= vm.foreignfundingresources.selectedforeignfundingresourceid.id;
+
             vm.CompleteProjectDetail.investorDTO=vm.investor;
             vm.CompleteProjectDetail.companydetailDTO=vm.companydetail;
             vm.CompleteProjectDetail.projectdetailDTO=vm.projectdetail;
             vm.CompleteProjectDetail.projectsitedetailDTO=vm.projectsitedetail;
-            vm.CompleteProjectDetail.project_finance_investmentDTO=vm.finance_investment;
+            vm.CompleteProjectDetail.project_finance_investmentDTO=vm.project_finance_investment;
             vm.CompleteProjectDetail.manufacturingdetailDTO=vm.manufacturing_detail;
             vm.CompleteProjectDetail.electricrequirementDTO=vm.electricrequirement;
             vm.CompleteProjectDetail.projectdetailcombinecodesDTO =vm.projectcombinecodes;
-//            console.log(vm.CompleteProjectDetail);
+            console.log(vm.CompleteProjectDetail);
             Projectcompletedetail.save(vm.CompleteProjectDetail,onSaveCompleteProjectSuccess,onSaveCompleteProjectError)
 
         }

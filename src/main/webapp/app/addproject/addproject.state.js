@@ -140,7 +140,7 @@
                              id: null
                          };
                      },
-                     finance_investment: function () {
+                     project_finance_investment: function () {
                              return {
                                  projectid: null,
                                  land_cost: null,
