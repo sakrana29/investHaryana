@@ -10,8 +10,7 @@
     'Companydetail','Projectdetail','Projectcompletedetail','Country','State','City_town_village','Businessentity','Sector',
     'Industrysize','Projectype','Projectcategory','Foreignfundingresource','Approvalforms','Block','Connectingroad','Landusezoneclassification',
     'Watersupplysource','Waste_water_disposal_mode','Emmision_pollution_controll','Emmision_fuel_type','District','Wwtreatmentone','Wwtreatmenttwo',
-    'Wwtreatmentthree','Manufacturingunits','Modeofdisposalfor_discharge','Particular',
-    'Waste_water_naturetype'];
+    'Wwtreatmentthree','Manufacturingunits','Modeofdisposalfor_discharge','Particular','Waste_water_naturetype'];
 
     function addprojectController ($scope, Principal, investor, companydetail, projectdetail,projectsitedetail,electricrequirement,
     manufacturingdetail,project_finance_investment,projectcombinecodes, LoginService, $state, Investor, Companydetail, Projectdetail,
