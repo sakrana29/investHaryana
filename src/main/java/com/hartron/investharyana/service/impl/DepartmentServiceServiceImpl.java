@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class DepartmentServiceServiceImpl implements DepartmentServiceService{
 
     private final Logger log = LoggerFactory.getLogger(DepartmentServiceServiceImpl.class);
-
+    
     private final DepartmentServiceRepository departmentServiceRepository;
 
     private final DepartmentServiceMapper departmentServiceMapper;
@@ -48,7 +48,7 @@ public class DepartmentServiceServiceImpl implements DepartmentServiceService{
 
     /**
      *  Get all the departmentServices.
-     *
+     *  
      *  @return the list of entities
      */
     @Override
@@ -84,15 +84,5 @@ public class DepartmentServiceServiceImpl implements DepartmentServiceService{
     public void delete(String id) {
         log.debug("Request to delete DepartmentService : {}", id);
         departmentServiceRepository.delete(UUID.fromString(id));
-    }
-
-    @Override
-    public List<DepartmentServiceDTO> findServiceByDepartmentId(String departmentId) {
-        log.debug("Request to get DepartmentService by DepartmentId : {}", departmentId);
-        List<DepartmentServiceDTO> result = departmentServiceRepository.findServicesByDepartmentId(UUID.fromString(departmentId)).stream()
-            .map(departmentServiceMapper::departmentServiceToDepartmentServiceDTO)
-            .collect(Collectors.toCollection(LinkedList::new));
-
-        return result;
     }
 }

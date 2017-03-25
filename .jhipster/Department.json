@@ -15,6 +15,18 @@
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldName": "hod",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hodmobile",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170311171413",

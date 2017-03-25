@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "projectid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "serviceid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "userlogin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "servicerequired",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "servicestatus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "assigndate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "servicefee",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "remarks",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170325092523",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "projectservicedetail",
+    "pagination": "no"
+}

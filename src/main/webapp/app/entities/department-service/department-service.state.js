@@ -90,50 +90,60 @@
         })
         .state('department-service.new', {
             parent: 'department-service',
-            url: '/new/{id}',
+            url: '/new',
             data: {
-                authorities: ['ROLE_USER'],
-                pageTitle:'Create or Edit Service'
+                authorities: ['ROLE_USER']
             },
-            views: {
-                    'content@': {
-                        templateUrl: 'app/entities/department-service/department-service-dialog.html',
-                        controller: 'DepartmentServiceDialogController',
-                        controllerAs: 'vm',
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/entities/department-service/department-service-dialog.html',
+                    controller: 'DepartmentServiceDialogController',
+                    controllerAs: 'vm',
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: function () {
+                            return {
+                                serviceName: null,
+                                serviceDescription: null,
+                                departmentID: null,
+                                duration: null,
+                                stage: null,
+                                id: null
+                            };
+                        }
                     }
-                },
-                resolve: {
-                    entity: function ($stateParams, $state) {
-                        return {
-                            serviceName: null,
-                            discription: null,
-                            serviceDurationInDays: null,
-                            departmentID: $stateParams.id,
-                            id: null
-                        };
-                    }
-                }
+                }).result.then(function() {
+                    $state.go('department-service', null, { reload: 'department-service' });
+                }, function() {
+                    $state.go('department-service');
+                });
+            }]
         })
         .state('department-service.edit', {
             parent: 'department-service',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_USER'],
-                pageTitle: 'Create or Edit Service'
+                authorities: ['ROLE_USER']
             },
-            views: {
-                'content@': {
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
                     templateUrl: 'app/entities/department-service/department-service-dialog.html',
                     controller: 'DepartmentServiceDialogController',
                     controllerAs: 'vm',
-
-                }
-            },
-            resolve: {
-                entity: function($stateParams, $state, DepartmentService) {
-                    return DepartmentService.get({id : $stateParams.id}).$promise;
-                }
-            }
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: ['DepartmentService', function(DepartmentService) {
+                            return DepartmentService.get({id : $stateParams.id}).$promise;
+                        }]
+                    }
+                }).result.then(function() {
+                    $state.go('department-service', null, { reload: 'department-service' });
+                }, function() {
+                    $state.go('^');
+                });
+            }]
         })
         .state('department-service.delete', {
             parent: 'department-service',

@@ -5,30 +5,24 @@
         .module('investhryApp')
         .controller('DepartmentServiceDialogController', DepartmentServiceDialogController);
 
-    DepartmentServiceDialogController.$inject = ['$timeout', '$scope', '$state','entity', 'DepartmentService', 'Department'];
+    DepartmentServiceDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'DepartmentService'];
 
-    function DepartmentServiceDialogController ($timeout, $scope, $state, entity, DepartmentService, Department) {
+    function DepartmentServiceDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, DepartmentService) {
         var vm = this;
 
         vm.departmentService = entity;
         vm.clear = clear;
         vm.save = save;
 
-        Department.query(function(result) {
-                        vm.departments = result;
-//                        vm.searchQuery = null;
-                    });
-
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
         });
 
         function clear () {
-            $state.go('department-service', {}, { reload: 'department-service' });
+            $uibModalInstance.dismiss('cancel');
         }
 
         function save () {
-            vm.departmentService.departmentID=vm.deptservice.department.id;
             vm.isSaving = true;
             if (vm.departmentService.id !== null) {
                 DepartmentService.update(vm.departmentService, onSaveSuccess, onSaveError);
@@ -38,8 +32,8 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('investharyanaApp:departmentServiceUpdate', result);
-            $state.go('department-service', {}, { reload: 'department-service' });
+            $scope.$emit('investhryApp:departmentServiceUpdate', result);
+            $uibModalInstance.close(result);
             vm.isSaving = false;
         }
 

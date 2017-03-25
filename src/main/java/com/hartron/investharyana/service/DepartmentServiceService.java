@@ -18,7 +18,7 @@ public interface DepartmentServiceService {
 
     /**
      *  Get all the departmentServices.
-     *
+     *  
      *  @return the list of entities
      */
     List<DepartmentServiceDTO> findAll();
@@ -37,6 +37,4 @@ public interface DepartmentServiceService {
      *  @param id the id of the entity
      */
     void delete(String id);
-
-    List<DepartmentServiceDTO> findServiceByDepartmentId(String id);
 }

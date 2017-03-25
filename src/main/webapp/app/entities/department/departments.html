@@ -21,6 +21,9 @@
                     <th><span data-translate="global.field.id">ID</span></th>
                     <th><span data-translate="investhryApp.department.departmentname">Departmentname</span></th>
                     <th><span data-translate="investhryApp.department.description">Description</span></th>
+                    <th><span data-translate="investhryApp.department.hod">Hod</span></th>
+                    <th><span data-translate="investhryApp.department.email">Email</span></th>
+                    <th><span data-translate="investhryApp.department.hodmobile">Hodmobile</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -29,6 +32,9 @@
                     <td><a ui-sref="department-detail({id:department.id})">{{department.id}}</a></td>
                     <td>{{department.departmentname}}</td>
                     <td>{{department.description}}</td>
+                    <td>{{department.hod}}</td>
+                    <td>{{department.email}}</td>
+                    <td>{{department.hodmobile}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
@@ -49,7 +55,6 @@
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
                             </button>
-
                         </div>
                     </td>
                 </tr>

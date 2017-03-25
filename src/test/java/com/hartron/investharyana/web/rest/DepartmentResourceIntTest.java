@@ -46,6 +46,15 @@ public class DepartmentResourceIntTest extends AbstractCassandraTest {
     private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
     private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
 
+    private static final String DEFAULT_HOD = "AAAAAAAAAA";
+    private static final String UPDATED_HOD = "BBBBBBBBBB";
+
+    private static final String DEFAULT_EMAIL = "AAAAAAAAAA";
+    private static final String UPDATED_EMAIL = "BBBBBBBBBB";
+
+    private static final String DEFAULT_HODMOBILE = "AAAAAAAAAA";
+    private static final String UPDATED_HODMOBILE = "BBBBBBBBBB";
+
     @Autowired
     private DepartmentRepository departmentRepository;
 
@@ -87,7 +96,10 @@ public class DepartmentResourceIntTest extends AbstractCassandraTest {
     public static Department createEntity() {
         Department department = new Department()
                 .departmentname(DEFAULT_DEPARTMENTNAME)
-                .description(DEFAULT_DESCRIPTION);
+                .description(DEFAULT_DESCRIPTION)
+                .hod(DEFAULT_HOD)
+                .email(DEFAULT_EMAIL)
+                .hodmobile(DEFAULT_HODMOBILE);
         return department;
     }
 
@@ -115,6 +127,9 @@ public class DepartmentResourceIntTest extends AbstractCassandraTest {
         Department testDepartment = departmentList.get(departmentList.size() - 1);
         assertThat(testDepartment.getDepartmentname()).isEqualTo(DEFAULT_DEPARTMENTNAME);
         assertThat(testDepartment.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
+        assertThat(testDepartment.getHod()).isEqualTo(DEFAULT_HOD);
+        assertThat(testDepartment.getEmail()).isEqualTo(DEFAULT_EMAIL);
+        assertThat(testDepartment.getHodmobile()).isEqualTo(DEFAULT_HODMOBILE);
     }
 
     @Test
@@ -184,7 +199,10 @@ public class DepartmentResourceIntTest extends AbstractCassandraTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(department.getId().toString())))
             .andExpect(jsonPath("$.[*].departmentname").value(hasItem(DEFAULT_DEPARTMENTNAME.toString())))
-            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())));
+            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
+            .andExpect(jsonPath("$.[*].hod").value(hasItem(DEFAULT_HOD.toString())))
+            .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL.toString())))
+            .andExpect(jsonPath("$.[*].hodmobile").value(hasItem(DEFAULT_HODMOBILE.toString())));
     }
 
     @Test
@@ -198,7 +216,10 @@ public class DepartmentResourceIntTest extends AbstractCassandraTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(department.getId().toString()))
             .andExpect(jsonPath("$.departmentname").value(DEFAULT_DEPARTMENTNAME.toString()))
-            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()));
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
+            .andExpect(jsonPath("$.hod").value(DEFAULT_HOD.toString()))
+            .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL.toString()))
+            .andExpect(jsonPath("$.hodmobile").value(DEFAULT_HODMOBILE.toString()));
     }
 
     @Test
@@ -218,7 +239,10 @@ public class DepartmentResourceIntTest extends AbstractCassandraTest {
         Department updatedDepartment = departmentRepository.findOne(department.getId());
         updatedDepartment
                 .departmentname(UPDATED_DEPARTMENTNAME)
-                .description(UPDATED_DESCRIPTION);
+                .description(UPDATED_DESCRIPTION)
+                .hod(UPDATED_HOD)
+                .email(UPDATED_EMAIL)
+                .hodmobile(UPDATED_HODMOBILE);
         DepartmentDTO departmentDTO = departmentMapper.departmentToDepartmentDTO(updatedDepartment);
 
         restDepartmentMockMvc.perform(put("/api/departments")
@@ -232,6 +256,9 @@ public class DepartmentResourceIntTest extends AbstractCassandraTest {
         Department testDepartment = departmentList.get(departmentList.size() - 1);
         assertThat(testDepartment.getDepartmentname()).isEqualTo(UPDATED_DEPARTMENTNAME);
         assertThat(testDepartment.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testDepartment.getHod()).isEqualTo(UPDATED_HOD);
+        assertThat(testDepartment.getEmail()).isEqualTo(UPDATED_EMAIL);
+        assertThat(testDepartment.getHodmobile()).isEqualTo(UPDATED_HODMOBILE);
     }
 
     @Test

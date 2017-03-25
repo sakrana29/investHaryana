@@ -22,6 +22,10 @@ public class DepartmentServiceDTO implements Serializable {
     @NotNull
     private UUID departmentID;
 
+    private Integer duration;
+
+    private String stage;
+
     public UUID getId() {
         return id;
     }
@@ -49,6 +53,20 @@ public class DepartmentServiceDTO implements Serializable {
 
     public void setDepartmentID(UUID departmentID) {
         this.departmentID = departmentID;
+    }
+    public Integer getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
+    public String getStage() {
+        return stage;
+    }
+
+    public void setStage(String stage) {
+        this.stage = stage;
     }
 
     @Override
@@ -79,6 +97,8 @@ public class DepartmentServiceDTO implements Serializable {
             ", serviceName='" + serviceName + "'" +
             ", serviceDescription='" + serviceDescription + "'" +
             ", departmentID='" + departmentID + "'" +
+            ", duration='" + duration + "'" +
+            ", stage='" + stage + "'" +
             '}';
     }
 }

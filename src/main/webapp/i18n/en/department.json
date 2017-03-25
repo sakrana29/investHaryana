@@ -16,7 +16,10 @@
                 "title": "Department"
             },
             "departmentname": "Departmentname",
-            "description": "Description"
+            "description": "Description",
+            "hod": "Hod",
+            "email": "Email",
+            "hodmobile": "Hodmobile"
         }
     }
 }

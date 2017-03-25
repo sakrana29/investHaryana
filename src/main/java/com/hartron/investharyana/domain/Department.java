@@ -25,6 +25,12 @@ public class Department implements Serializable {
     @NotNull
     private String description;
 
+    private String hod;
+
+    private String email;
+
+    private String hodmobile;
+
     public UUID getId() {
         return id;
     }
@@ -59,6 +65,45 @@ public class Department implements Serializable {
         this.description = description;
     }
 
+    public String getHod() {
+        return hod;
+    }
+
+    public Department hod(String hod) {
+        this.hod = hod;
+        return this;
+    }
+
+    public void setHod(String hod) {
+        this.hod = hod;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Department email(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getHodmobile() {
+        return hodmobile;
+    }
+
+    public Department hodmobile(String hodmobile) {
+        this.hodmobile = hodmobile;
+        return this;
+    }
+
+    public void setHodmobile(String hodmobile) {
+        this.hodmobile = hodmobile;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -85,6 +130,9 @@ public class Department implements Serializable {
             "id=" + id +
             ", departmentname='" + departmentname + "'" +
             ", description='" + description + "'" +
+            ", hod='" + hod + "'" +
+            ", email='" + email + "'" +
+            ", hodmobile='" + hodmobile + "'" +
             '}';
     }
 }

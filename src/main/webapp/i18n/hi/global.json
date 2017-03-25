@@ -53,6 +53,8 @@
                 "wwtreatmentone": "Wwtreatmentone",
                 "wwtreatmenttwo": "Wwtreatmenttwo",
                 "wwtreatmentthree": "Wwtreatmentthree",
+                "projectservicedetail": "Projectservicedetail",
+                "departmentservice": "Departmentservice",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

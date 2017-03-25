@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -26,46 +25,11 @@ public class DepartmentServiceRepository {
 
     private PreparedStatement truncateStmt;
 
-    private PreparedStatement insertByDepartmentStmt;
-
-    private PreparedStatement findServicesByDepartmentIdStmt;
-
-
     public DepartmentServiceRepository(Session session) {
         this.session = session;
         this.mapper = new MappingManager(session).mapper(DepartmentService.class);
         this.findAllStmt = session.prepare("SELECT * FROM departmentService");
         this.truncateStmt = session.prepare("TRUNCATE departmentService");
-
-        insertByDepartmentStmt = session.prepare(
-            "INSERT INTO departmentService_by_department (departmentID, id) " +
-                "VALUES (:departmentID, :id)");
-
-        findServicesByDepartmentIdStmt = session.prepare(
-            "SELECT id " +
-                "FROM departmentService_by_department " +
-                "WHERE departmentID = :departmentID");
-    }
-
-    public List<DepartmentService> findServicesByDepartmentId(UUID departmentID) {
-        BoundStatement stmt = findServicesByDepartmentIdStmt.bind();
-        stmt.setUUID("departmentID", departmentID);
-        return findServiceFromIndex(stmt);
-    }
-
-    private List<DepartmentService> findServiceFromIndex(BoundStatement stmt) {
-        ResultSet rs = session.execute(stmt);
-        List<DepartmentService> departmentServiceList=new ArrayList<>();
-
-        while(!(rs.isExhausted())){
-            DepartmentService service=new DepartmentService();
-            service=(Optional.ofNullable(rs.one().getUUID("id"))
-                .map(id -> Optional.ofNullable(mapper.get(id)))
-                .get()).get();
-            departmentServiceList.add(service);
-        }
-        return departmentServiceList;
-
     }
 
     public List<DepartmentService> findAll() {
@@ -78,6 +42,8 @@ public class DepartmentServiceRepository {
                 departmentService.setServiceName(row.getString("serviceName"));
                 departmentService.setServiceDescription(row.getString("serviceDescription"));
                 departmentService.setDepartmentID(row.getUUID("departmentID"));
+                departmentService.setDuration(row.getInt("duration"));
+                departmentService.setStage(row.getString("stage"));
                 return departmentService;
             }
         ).forEach(departmentServicesList::add);
@@ -89,24 +55,15 @@ public class DepartmentServiceRepository {
     }
 
     public DepartmentService save(DepartmentService departmentService) {
-        UUID departmentServiceid = UUID.randomUUID();
         if (departmentService.getId() == null) {
-            departmentService.setId(departmentServiceid);
+            departmentService.setId(UUID.randomUUID());
         }
         mapper.save(departmentService);
-
-        BatchStatement batch = new BatchStatement();
-        batch.add(insertByDepartmentStmt.bind()
-            .setUUID("departmentID", departmentService.getDepartmentID())
-            .setUUID("id", departmentService.getId()));
-        session.execute(batch);
         return departmentService;
     }
 
     public void delete(UUID id) {
-
         mapper.delete(id);
-
     }
 
     public void deleteAll() {

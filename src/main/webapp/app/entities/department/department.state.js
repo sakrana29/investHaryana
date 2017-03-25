@@ -92,49 +92,58 @@
             parent: 'department',
             url: '/new',
             data: {
-                authorities: ['ROLE_USER'],
-                pageTitle: 'Create or Edit Departments'
-
+                authorities: ['ROLE_USER']
             },
-            views: {
-                    'content@': {
-                        templateUrl: 'app/entities/department/department-dialog.html',
-                        controller: 'DepartmentDialogController',
-                        controllerAs: 'vm',
-
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/entities/department/department-dialog.html',
+                    controller: 'DepartmentDialogController',
+                    controllerAs: 'vm',
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: function () {
+                            return {
+                                departmentname: null,
+                                description: null,
+                                hod: null,
+                                email: null,
+                                hodmobile: null,
+                                id: null
+                            };
+                        }
                     }
-                },
-                resolve: {
-                    entity: function ($stateParams, $state) {
-                        return {
-                            departmentname: null,
-                            description: null,
-                            id: null
-                        };
-                    }
-                }
-
+                }).result.then(function() {
+                    $state.go('department', null, { reload: 'department' });
+                }, function() {
+                    $state.go('department');
+                });
+            }]
         })
         .state('department.edit', {
             parent: 'department',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_USER'],
-                pageTitle: 'Create or Edit Departments'
+                authorities: ['ROLE_USER']
             },
-            views: {
-                'content@': {
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
                     templateUrl: 'app/entities/department/department-dialog.html',
                     controller: 'DepartmentDialogController',
                     controllerAs: 'vm',
-
-                }
-            },
-            resolve: {
-                entity: function ($stateParams, $state, Department) {
-                    return Department.get({id : $stateParams.id}).$promise;
-                }
-            }
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: ['Department', function(Department) {
+                            return Department.get({id : $stateParams.id}).$promise;
+                        }]
+                    }
+                }).result.then(function() {
+                    $state.go('department', null, { reload: 'department' });
+                }, function() {
+                    $state.go('^');
+                });
+            }]
         })
         .state('department.delete', {
             parent: 'department',

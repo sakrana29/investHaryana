@@ -1,0 +1,28 @@
+{
+    "investhryApp": {
+        "projectservicedetail" : {
+            "home": {
+                "title": "Projectservicedetails",
+                "createLabel": "Create a new Projectservicedetail",
+                "createOrEditLabel": "Create or edit a Projectservicedetail"
+            },
+            "created": "A new Projectservicedetail is created with identifier {{ param }}",
+            "updated": "A Projectservicedetail is updated with identifier {{ param }}",
+            "deleted": "A Projectservicedetail is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Projectservicedetail {{ id }}?"
+            },
+            "detail": {
+                "title": "Projectservicedetail"
+            },
+            "projectid": "Projectid",
+            "serviceid": "Serviceid",
+            "userlogin": "Userlogin",
+            "servicerequired": "Servicerequired",
+            "servicestatus": "Servicestatus",
+            "assigndate": "Assigndate",
+            "servicefee": "Servicefee",
+            "remarks": "Remarks"
+        }
+    }
+}

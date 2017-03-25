@@ -19,6 +19,12 @@ public class DepartmentDTO implements Serializable {
     @NotNull
     private String description;
 
+    private String hod;
+
+    private String email;
+
+    private String hodmobile;
+
     public UUID getId() {
         return id;
     }
@@ -39,6 +45,27 @@ public class DepartmentDTO implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    public String getHod() {
+        return hod;
+    }
+
+    public void setHod(String hod) {
+        this.hod = hod;
+    }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getHodmobile() {
+        return hodmobile;
+    }
+
+    public void setHodmobile(String hodmobile) {
+        this.hodmobile = hodmobile;
     }
 
     @Override
@@ -68,6 +95,9 @@ public class DepartmentDTO implements Serializable {
             "id=" + id +
             ", departmentname='" + departmentname + "'" +
             ", description='" + description + "'" +
+            ", hod='" + hod + "'" +
+            ", email='" + email + "'" +
+            ", hodmobile='" + hodmobile + "'" +
             '}';
     }
 }

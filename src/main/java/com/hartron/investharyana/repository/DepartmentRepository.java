@@ -25,17 +25,11 @@ public class DepartmentRepository {
 
     private PreparedStatement truncateStmt;
 
-    private PreparedStatement deleteByDepartmentStmt;
-
     public DepartmentRepository(Session session) {
         this.session = session;
         this.mapper = new MappingManager(session).mapper(Department.class);
         this.findAllStmt = session.prepare("SELECT * FROM department");
         this.truncateStmt = session.prepare("TRUNCATE department");
-
-        deleteByDepartmentStmt = session.prepare(
-            "DELETE FROM departmentService_by_department " +
-                "WHERE departmentID = :departmentID");
     }
 
     public List<Department> findAll() {
@@ -47,6 +41,9 @@ public class DepartmentRepository {
                 department.setId(row.getUUID("id"));
                 department.setDepartmentname(row.getString("departmentname"));
                 department.setDescription(row.getString("description"));
+                department.setHod(row.getString("hod"));
+                department.setEmail(row.getString("email"));
+                department.setHodmobile(row.getString("hodmobile"));
                 return department;
             }
         ).forEach(departmentsList::add);
@@ -65,9 +62,7 @@ public class DepartmentRepository {
         return department;
     }
 
-    public void delete(UUID id)
-    {
-        BatchStatement batch = new BatchStatement();
+    public void delete(UUID id) {
         mapper.delete(id);
     }
 

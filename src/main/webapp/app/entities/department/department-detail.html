@@ -12,6 +12,18 @@
         <dd>
             <span>{{vm.department.description}}</span>
         </dd>
+        <dt><span data-translate="investhryApp.department.hod">Hod</span></dt>
+        <dd>
+            <span>{{vm.department.hod}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.department.email">Email</span></dt>
+        <dd>
+            <span>{{vm.department.email}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.department.hodmobile">Hodmobile</span></dt>
+        <dd>
+            <span>{{vm.department.hodmobile}}</span>
+        </dd>
     </dl>
 
     <button type="submit"
@@ -20,7 +32,7 @@
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
     </button>
 
-    <button type="button" ui-sref="department.edit({id:vm.department.id})" class="btn btn-primary">
+    <button type="button" ui-sref="department-detail.edit({id:vm.department.id})" class="btn btn-primary">
         <span class="glyphicon glyphicon-pencil"></span>
         <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
     </button>

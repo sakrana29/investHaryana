@@ -1,0 +1,28 @@
+{
+    "investhryApp": {
+        "projectservicedetail" : {
+            "home": {
+                "title": "Projectservicedetails",
+                "createLabel": "नया Projectservicedetail बनाएँ",
+                "createOrEditLabel": "Projectservicedetail बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Projectservicedetail [identifier: {{ param }}] तैयार है",
+            "updated": "एक Projectservicedetail [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Projectservicedetail [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Projectservicedetail [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Projectservicedetail"
+            },
+            "projectid": "Projectid",
+            "serviceid": "Serviceid",
+            "userlogin": "Userlogin",
+            "servicerequired": "Servicerequired",
+            "servicestatus": "Servicestatus",
+            "assigndate": "Assigndate",
+            "servicefee": "Servicefee",
+            "remarks": "Remarks"
+        }
+    }
+}

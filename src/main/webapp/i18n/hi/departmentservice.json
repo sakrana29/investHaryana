@@ -1,0 +1,22 @@
+{
+    "investhryApp": {
+        "departmentservice" : {
+            "home": {
+                "title": "Departmentservices",
+                "createLabel": "नया Departmentservice बनाएँ",
+                "createOrEditLabel": "Departmentservice बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Departmentservice [identifier: {{ param }}] तैयार है",
+            "updated": "एक Departmentservice [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Departmentservice [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Departmentservice [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Departmentservice"
+            },
+            "duration": "Duration",
+            "stage": "Stage"
+        }
+    }
+}

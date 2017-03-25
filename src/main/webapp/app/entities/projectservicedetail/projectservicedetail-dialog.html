@@ -1,0 +1,78 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProjectservicedetailLabel" data-translate="investhryApp.projectservicedetail.home.createOrEditLabel">Create or edit a Projectservicedetail</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.projectservicedetail.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.projectservicedetail.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.projectid" for="field_projectid">Projectid</label>
+            <input type="text" class="form-control" name="projectid" id="field_projectid"
+                    ng-model="vm.projectservicedetail.projectid"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.serviceid" for="field_serviceid">Serviceid</label>
+            <input type="text" class="form-control" name="serviceid" id="field_serviceid"
+                    ng-model="vm.projectservicedetail.serviceid"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.userlogin" for="field_userlogin">Userlogin</label>
+            <input type="text" class="form-control" name="userlogin" id="field_userlogin"
+                    ng-model="vm.projectservicedetail.userlogin"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.servicerequired" for="field_servicerequired">Servicerequired</label>
+            <input type="checkbox" class="form-control" name="servicerequired" id="field_servicerequired"
+                    ng-model="vm.projectservicedetail.servicerequired"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.servicestatus" for="field_servicestatus">Servicestatus</label>
+            <input type="text" class="form-control" name="servicestatus" id="field_servicestatus"
+                    ng-model="vm.projectservicedetail.servicestatus"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.assigndate" for="field_assigndate">Assigndate</label>
+                <div class="input-group">
+                    <input id="field_assigndate" type="text" class="form-control" name="assigndate" datetime-picker="{{dateformat}}" ng-model="vm.projectservicedetail.assigndate" is-open="vm.datePickerOpenStatus.assigndate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('assigndate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.servicefee" for="field_servicefee">Servicefee</label>
+            <input type="number" class="form-control" name="servicefee" id="field_servicefee"
+                    ng-model="vm.projectservicedetail.servicefee"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.remarks" for="field_remarks">Remarks</label>
+            <input type="text" class="form-control" name="remarks" id="field_remarks"
+                    ng-model="vm.projectservicedetail.remarks"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
