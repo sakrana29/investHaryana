@@ -292,6 +292,23 @@
             vm.searchQuery = null;
         });
 
+        Manufacturingunits.query(function(result) {
+            vm.manufacturingunits = result;
+            vm.searchQuery = null;
+          });
+
+        Modeofdisposalfor_discharge.query(function(result) {
+             vm.modeofdisposalfor_discharge = result;
+             vm.searchQuery = null;
+         });
+        Particular.query(function(result) {
+            vm.particulars = result;
+            vm.searchQuery = null;
+        });
+        Waste_water_naturetype.query(function(result) {
+            vm.waste_water_naturetype = result;
+            vm.searchQuery = null;
+        });
        }
     }
 })();

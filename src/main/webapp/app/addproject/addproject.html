@@ -1354,7 +1354,7 @@
                                             -->
                                             <select required class="form-control"
                                                     ng-model="vm.projectrawmaterial.selectedUnit"
-                                                    ng-options="unit.unittypes for unit in vm.units"
+                                                    ng-options="unit.unittypes for unit in vm.manufacturingunits"
                                                     data-dpmaxz-eid="20">
                                             </select>
                                         </div>
@@ -1430,7 +1430,7 @@
                                         <div class="col-lg-12">
                                             <select required class="form-control"
                                                     ng-model="vm.projectproduct.selectedUnit"
-                                                    ng-options="unit.unittypes for unit in vm.units" id="Units"
+                                                    ng-options="unit.unittypes for unit in vm.manufacturingunits" id="Units"
                                                     data-dpmaxz-eid="20">
                                             </select>
                                         </div>
@@ -1518,7 +1518,7 @@
                                         <!--</select>-->
                                         <select required class="form-control"
                                                 ng-model="vm.environmentimpactdetail.selectedWatersource"
-                                                ng-options="watersupplysource.watersupplysourcetype for watersupplysource in vm.watersupplysourcetype" placeholder="Select Source of Water Supply"
+                                                ng-options="watersupplysource.watersupplysourcetype for watersupplysource in vm.watersupplysources" placeholder="Select Source of Water Supply"
                                                 data-dpmaxz-eid="20">
                                         </select>
 
@@ -1778,7 +1778,7 @@
 
                                         <select required class="form-control"
                                                 ng-model="vm.environmentimpactdetail.selectedDischarge"
-                                                ng-options="discharge.disposal_for_discharge for discharge in vm.disposal_for_discharge"
+                                                ng-options="discharge.disposal_for_discharge for discharge in vm.modeofdisposalfor_discharge"
                                                 data-dpmaxz-eid="20" placeholder="Select Waste water treatment">
                                         </select>
                                         <!--<select class="form-control">-->
@@ -1865,7 +1865,7 @@
                                             <!--</select>-->
                                             <select required class="form-control"
                                                     ng-model="vm.emissiondetail.selectedTypeoffuel"
-                                                    ng-options="typeoffuelname.typeoffuel for typeoffuelname in vm.typeoffuel"
+                                                    ng-options="typeoffuelname.typeoffuel for typeoffuelname in vm.emmision_fuel_types"
                                                     data-dpmaxz-eid="20" placeholder="Select Emmision Fuel Type">
                                             </select>
                                         </td>
@@ -1880,7 +1880,7 @@
                                             <!--</select>-->
                                             <select required class="form-control"
                                                     ng-model="vm.emissiondetail.selectedAirpollutioncontroldevice"
-                                                    ng-options="airpollutioncontroldevicename.airpollutioncontroldevice for airpollutioncontroldevicename in vm.airpollutioncontroldevice"
+                                                    ng-options="airpollutioncontroldevicename.airpollutioncontroldevice for airpollutioncontroldevicename in vm.emmision_pollution_controlls"
                                                     data-dpmaxz-eid="20" placeholder="Select Emmision Fuel Type">
                                             </select>
 
@@ -2019,7 +2019,7 @@
 
                                             <select required class="form-control"
                                                     ng-model="vm.wastewaterdetail.selectedNaturetype"
-                                                    ng-options="naturetypename.naturetype for naturetypename in vm.naturetype"
+                                                    ng-options="naturetypename.naturetype for naturetypename in vm.waste_water_naturetype"
                                                     data-dpmaxz-eid="20" placeholder="Select Nature of Type">
                                             </select>
 
@@ -2055,7 +2055,7 @@
 
                                             <select required class="form-control"
                                                     ng-model="vm.wastewaterdetail.selectedModeofdisposal"
-                                                    ng-options="mode_of_disposalname.mode_of_disposal for mode_of_disposalname in vm.mode_of_disposal"
+                                                    ng-options="mode_of_disposalname.mode_of_disposal for mode_of_disposalname in vm.waste_water_disposal_modes"
                                                     data-dpmaxz-eid="20" placeholder="Select Mode of Dipsosal">
                                             </select>
                                             <span class="field-validation-valid" data-valmsg-for="ModeOfDisposal"
