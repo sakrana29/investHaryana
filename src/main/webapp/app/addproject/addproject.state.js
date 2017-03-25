@@ -205,6 +205,28 @@
                             };
                         }
             }
-        });
+        })
+        .state('projectedit', {
+            parent: 'app',
+            url: '/{id}/edit',
+            data: {
+                authorities: []
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/addproject/addproject.html',
+                    controller: 'editprojectController',
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+            translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
+                $translatePartialLoader.addPart('addproject');
+                return $translate.refresh();
+            }],
+            entity: ['$stateParams', 'Projectcompletedetail', function($stateParams,Projectcompletedetail) {
+                    return Projectcompletedetail.get({id : $stateParams.id}).$promise;
+            }]
+        }});
     }
 })();

@@ -7,7 +7,7 @@
     Projectcompletedetail.$inject = ['$resource'];
 
     function Projectcompletedetail ($resource) {
-        var resourceUrl =  '/api/CompleteProjectDetail/:projectid';
+        var resourceUrl =  '/api/CompleteProjectDetail/:id';
 
 
         return $resource(resourceUrl, {}, {

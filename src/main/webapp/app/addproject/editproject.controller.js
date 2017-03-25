@@ -3,42 +3,48 @@
 
     angular
         .module('investhryApp')
-        .controller('addprojectController', addprojectController);
+        .controller('editprojectController', editprojectController);
 
-    addprojectController.$inject = ['$scope', 'Principal', 'investor','companydetail','projectdetail','projectsitedetail',
-    'electricrequirement','manufacturing_detail','project_finance_investment','projectcombinecodes','LoginService', '$state', 'Investor',
-    'Companydetail','Projectdetail','Projectcompletedetail','Country','State','City_town_village','Businessentity','Sector',
+    editprojectController.$inject = ['$scope', 'Principal','entity','Projectcompletedetail','LoginService', '$state', 'Country','State','City_town_village','Businessentity','Sector',
     'Industrysize','Projectype','Projectcategory','Foreignfundingresource','Approvalforms','Block','Connectingroad','Landusezoneclassification',
     'Watersupplysource','Waste_water_disposal_mode','Emmision_pollution_controll','Emmision_fuel_type','District'];
 
-    function addprojectController ($scope, Principal, investor, companydetail, projectdetail,projectsitedetail,electricrequirement,
-    manufacturing_detail,project_finance_investment,projectcombinecodes, LoginService, $state, Investor, Companydetail, Projectdetail,
-    Projectcompletedetail,Country,State,City_town_village,Businessentity,Sector,Industrysize,Projectype,Projectcategory,
+    function editprojectController ($scope, Principal, entity,Projectcompletedetail, LoginService, $state,
+    Country,State,City_town_village,Businessentity,Sector,Industrysize,Projectype,Projectcategory,
     Foreignfundingresource,Approvalforms,Block,Connectingroad,Landusezoneclassification,Watersupplysource,Waste_water_disposal_mode,
     Emmision_pollution_controll,Emmision_fuel_type,District)
     {
         var vm = this;
         //vm.statechange=statechange;
 
-        vm.CompleteProjectDetail={};
+        vm.CompleteProjectDetail=entity;
+//        vm.investor=investor;
+//        vm.companydetail=companydetail;
+//        vm.projectdetail=projectdetail;
+//        vm.projectsitedetail=projectsitedetail;
+//        vm.electricrequirement=electricrequirement;
+//        vm.manufacturing_detail=manufacturing_detail;
+//        vm.project_finance_investment=project_finance_investment;
+//        vm.projectcombinecodes=projectcombinecodes;
 
-        vm.investor=investor;
-        vm.companydetail=companydetail;
-        vm.projectdetail=projectdetail;
-        vm.projectsitedetail=projectsitedetail;
-        vm.electricrequirement=electricrequirement;
-        vm.manufacturing_detail=manufacturing_detail;
-        vm.project_finance_investment=project_finance_investment;
-        vm.projectcombinecodes=projectcombinecodes;
+        vm.investor=vm.CompleteProjectDetail.investorDTO;
+        vm.companydetail=vm.CompleteProjectDetail.companydetailDTO;
+        vm.projectdetail=vm.CompleteProjectDetail.projectdetailDTO;
+        vm.projectsitedetail=vm.CompleteProjectDetail.projectsitedetailDTO;
+        vm.project_finance_investment=vm.CompleteProjectDetail.project_finance_investmentDTO;
+        vm.manufacturing_detail=vm.CompleteProjectDetail.manufacturingdetailDTO;
+        vm.electricrequirement=vm.CompleteProjectDetail.electricrequirementDTO;
+        vm.projectcombinecodes=vm.CompleteProjectDetail.projectdetailcombinecodesDTO ;
+
 
         vm.account = null;
         vm.isAuthenticated = null;
         vm.login = LoginService.open;
         vm.register = register;
 
-        vm.saveInvestor=saveInvestor;
-        vm.saveCompanyDetail=saveCompanyDetail;
-        vm.saveProjectDetail=saveProjectDetail;
+//        vm.saveInvestor=saveInvestor;
+//        vm.saveCompanyDetail=saveCompanyDetail;
+//        vm.saveProjectDetail=saveProjectDetail;
         vm.saveCompleteProjectDetail=saveCompleteProjectDetail;
 
 //        vm.CompleteProjectDetail=[];
@@ -51,10 +57,8 @@
             vm.investor.stateid=vm.investor.selectedState.id;
             vm.investor.cityid=vm.investor.selectedCity.id;
 
-//            vm.companydetail.investorid=vm.resultInvestor.id;
             vm.companydetail.businessentitytype=vm.companydetail.selectedBusiness.id;
 
-//            vm.projectdetail.investorid=vm.resultInvestor.id;
             vm.projectdetail.sectorid=vm.projectdetail.selectedSector.id;
             vm.projectdetail.size_of_industry=vm.projectdetail.selectedSizeOfIndustry.id;
             vm.projectdetail.projectype=vm.projectdetail.selectedProjectType.id;
@@ -81,20 +85,19 @@
             vm.CompleteProjectDetail.electricrequirementDTO=vm.electricrequirement;
             vm.CompleteProjectDetail.projectdetailcombinecodesDTO =vm.projectcombinecodes;
 //            console.log(vm.CompleteProjectDetail);
-            Projectcompletedetail.save(vm.CompleteProjectDetail,onSaveCompleteProjectSuccess,onSaveCompleteProjectError)
-
+            Projectcompletedetail.update(vm.CompleteProjectDetail,onUpdateCompleteProjectSuccess,onUpdateCompleteProjectError)
         }
-        function onSaveCompleteProjectSuccess (resultCompleteProject) {
+        function onUpdateCompleteProjectSuccess (resultCompleteProject) {
             $scope.$emit('investhryApp:projectdetailUpdate', resultCompleteProject);
             //$uibModalInstance.close(result);
             vm.resultCompleteProject=resultCompleteProject;
             vm.isSaving = false;
-            alert('saved');
+            alert('updated');
             $state.go('listproject');
         }
-        function onSaveCompleteProjectError () {
+        function onUpdateCompleteProjectError () {
             vm.isSaving = false;
-            alert('not saved');
+            alert('not updated');
         }
 
         function saveInvestor()

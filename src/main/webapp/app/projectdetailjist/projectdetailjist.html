@@ -51,11 +51,11 @@
                     <td>CAF</td>
                     <td>Project Submitted</td>
                     <td >
-                       <button type="submit" has-authority="ROLE_ADMIN"
-                                    ui-sref="addproject({id:project.id})"
+                       <button type="submit"
+                                    ui-sref="projectedit({id:vm.selectedprojectdetail.projectdetailDTO.id})"
                                     class="btn btn-info btn-sm">Edit Form</button>
-                        <button type="submit" has-authority="ROLE_ADMIN"
-                                ui-sref="ProjectCompleteDetailState({projectid:project.id})"
+                        <button type="submit"
+                                ui-sref="ProjectCompleteDetailState({id:vm.selectedprojectdetail.projectdetailDTO.id})"
                                 class="btn btn-info btn-sm">View Form</button>
                         <button type="submit"
                                     ui-sref="processapplication({id:project.id})"

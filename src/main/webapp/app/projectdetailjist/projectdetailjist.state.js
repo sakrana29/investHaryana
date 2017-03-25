@@ -10,7 +10,7 @@
     function stateConfig($stateProvider) {
         $stateProvider.state('projectdetailjist', {
             parent: 'app',
-            url: '/projectdetailjist{id}',
+            url: '/{id}/projectdetailjist',
             data: {
                 authorities: []
             },
@@ -25,6 +25,9 @@
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
                     $translatePartialLoader.addPart('projectdetailjist');
                     return $translate.refresh();
+                }],
+                entity: ['$stateParams', 'Projectcompletedetail', function($stateParams,Projectcompletedetail) {
+                    return Projectcompletedetail.get({id : $stateParams.id}).$promise;
                 }]
             }
         })

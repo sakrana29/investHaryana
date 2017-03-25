@@ -61,7 +61,6 @@ public class ProjectCompleteDetailResource {
         List<ProjectdetailcombinecodesDTO> projectdetailcombinecodesDTOlist=projectdetailcombinecodesService.findAll();
 
         for(int i=0; i < projectdetailcombinecodesDTOlist.size(); i++) {
-
             ProjectCompleteDetailDTO completeprojectdto=new ProjectCompleteDetailDTO();
             completeprojectdto.setProjectdetailDTO(projectdetailService.findOne(projectdetailcombinecodesDTOlist.get(i).getId().toString()));
             completeprojectdto.setInvestorDTO(investorService.findOne(projectdetailcombinecodesDTOlist.get(i).getInvestorid().toString()));
@@ -70,19 +69,18 @@ public class ProjectCompleteDetailResource {
             completeprojectdto.setProject_finance_investmentDTO(project_finance_investmentService.findOne(projectdetailcombinecodesDTOlist.get(i).getProjectfinanceid().toString()));
             completeprojectdto.setManufacturingdetailDTO(manufacturingdetailService.findOne(projectdetailcombinecodesDTOlist.get(i).getManufacturingid().toString()));
             completeprojectdto.setElectricrequirementDTO(electricrequirementService.findOne(projectdetailcombinecodesDTOlist.get(i).getElectricityrequirementid().toString()));
-
             completeprojectdtolist.add(completeprojectdto);
         }
-
         return completeprojectdtolist;
     }
 
-    @GetMapping("/CompleteProjectDetail/{projectid}")
-    public ResponseEntity<ProjectCompleteDetailDTO> getOneProjectCompleteDetail(String projectid) {
+    @GetMapping("/CompleteProjectDetail/{id}")
+    @Timed
+    public ResponseEntity<ProjectCompleteDetailDTO> getOneProjectCompleteDetail(@PathVariable String id) {
         log.debug("REST request to get one project complete detail");
         //ProjectCompleteDetailDTO completeprojectdto=new ProjectCompleteDetailDTO();
 
-            ProjectdetailcombinecodesDTO projectdetailcombinecodesDTO=projectdetailcombinecodesService.findOne(projectid);
+            ProjectdetailcombinecodesDTO projectdetailcombinecodesDTO=projectdetailcombinecodesService.findOne(id);
             ProjectCompleteDetailDTO completeprojectdto=new ProjectCompleteDetailDTO();
             completeprojectdto.setProjectdetailDTO(projectdetailService.findOne(projectdetailcombinecodesDTO.getId().toString()));
             completeprojectdto.setInvestorDTO(investorService.findOne(projectdetailcombinecodesDTO.getInvestorid().toString()));

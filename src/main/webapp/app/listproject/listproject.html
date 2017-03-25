@@ -19,9 +19,10 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat = "prdtl in vm.projectcompletedetail">
+            <tr ng-repeat = "prdtl in vm.projectcompletedetail track by prdtl.projectdetailDTO.id">
                 <!--<td >{{vm.projectcompletedetail.investorDTO.firstname}}</td>-->
-                <td >{{prdtl.projectdetailDTO.projectpurpose}}</td>
+                <!--{{prdtl.projectdetailDTO.id}}-->
+                <td >{{prdtl.projectdetailDTO.id}}</td>
                 <td >{{prdtl.investorDTO.firstname}}</td>
                 <td >{{prdtl.companydetailDTO.promoter_md_director}}</td>
                 <td >{{prdtl.projectdetailDTO.size_of_industry}}</td>
@@ -32,10 +33,11 @@
                 <!--<td >{{prdt.sectorid}}</td>-->
                 <!--<td >{{prdt.size_of_industry}}</td>-->
                 <td class="action verticalalign">
-                    <button type="submit" ui-sref="projectdetailjist"
+                    <button type="submit" ui-sref="projectdetailjist({id:prdtl.projectdetailDTO.id})"
                             class="btn btn-info ">Details</button>
                     </td>
             </tr>
             </tbody>
         </table>
     </div>
+</div>

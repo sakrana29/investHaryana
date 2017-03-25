@@ -5,266 +5,121 @@
     </div>
     <div class="panel-body">
         <table class="table table-striped table-hover">
-            <!--<tbody><tr>-->
-                <!--<td class="col-md-1">1.1</td>-->
-                <!--<td class="col-md-4 bold">Application For</td>-->
-                <!--<td class="col-md-5">Regulatory Approvals &amp; Services</td>-->
-                <!--<td rowspan="3">-->
-                    <!--<img style="float:right" src="./DetailCAF1 - Single Roof Clearance Systems, HEPB_files/e8cf30a8-337c-470a-a15e-92ee15c3ae1d.png" width="100px;">                    </td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">1.2</td>-->
-                <!--<td class="col-md-4 bold">Have you signed MoU with the Haryana Government? If Yes, specify year</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>No</span>-->
-                <!--</td>-->
-
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">2</td>-->
-                <!--<td class="col-md-4 bold">Applicant Name</td>-->
-                <!--<td class="col-md-3">Satish Kumar Sharma</td>-->
-            <!--</tr>-->
-            <!--</tbody>-->
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Mou Applicable</label>
-                <div class="col-lg-10">
-                    <label name="ismouapplicable" ng-model="vm.investor.mouapplicable"> </label>
-                    <!--<label><input type="radio" name="radio" ng-model="vm.investor.mouapplicable" ng-click="vm.ShowPassport('N')" checked> Not Applicable</label>-->
-                </div>
-            </div>
-
-
-            <!--: null,-->
-            <div class="form-group">
-                <label for="mouid" class="col-lg-2 control-label">MOU detail</label>
-                <div class="col-lg-3">
-                    <label class="form-control label-info control-label" ng-model="vm.investor.mouidnumber" id="mouid" data-dpmaxz-eid="20"/>
-                </div>
-                <div class="col-lg-3">
-                    <label ng-model="vm.investor.mousignyear" class="form-control label-info control-label" id="inputmousignyear" data-dpmaxz-eid="4"/>
-                </div>
-
-            </div>
-
-            <div class="form-group">
-                <label for="firstname" class="col-lg-2 control-label">Investor Name</label>
-                <div class="col-lg-3">
-                    <label class="form-control label-info control-label" ng-model="vm.investor.firstname" id="firstname" data-dpmaxz-eid="20"/>
-                </div>
-                <div class="col-lg-3">
-                    <label class="form-control label-info control-label" id="middlename" ng-model="vm.investor.middlename" data-dpmaxz-eid="20"/>
-                </div>
-                <div class="col-lg-3">
-                    <label class="form-control label-info control-label" id="lastname" data-dpmaxz-eid="20" ng-model="vm.investor.lastname"/>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Country</label>
-                <div class="col-lg-3">
-                    <label class="form-control label-info control-label" id="country" ng-model="vm.investor.selectedCountry"  data-dpmaxz-eid="20"/>
-
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label  class="col-lg-2 control-label">State</label>
-                <div class="col-lg-3">
-                    <label class="form-control label-info control-label" id="state" ng-model="vm.investor.selectedState"  data-dpmaxz-eid="20"/>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label  class="col-lg-2 control-label">City</label>
-                <div class="col-lg-3">
-                    <label class="form-control label-info control-label" id="statename" ng-model="vm.investor.selectedCity"  data-dpmaxz-eid="20"/>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="address1" class="col-lg-2 control-label">Address</label>
-                <div class="col-lg-3">
-                    <label class="form-control label-info control-label" id="address1" ng-model="vm.investor.address1"></label>
-                </div>
-                <div class="col-lg-3">
-                    <label class="form-control label-info control-label" id="address2" ng-model="vm.investor.address2"></label>
-                </div>
-                <div class="col-lg-3">
-                    <label class="form-control label-info control-label"  ng-model="vm.investor.address3"></label>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="email1" class="col-lg-2 control-label">Email </label>
-                <div class="col-lg-3">
-                    <label class="form-control label-info control-label" id="email1" ng-model="vm.investor.emailprimary"/>
-                </div>
-                <div class="col-lg-3">
-                    <label class="form-control label-info control-label" id="email2" ng-model="vm.investor.emailsecondary"/>
-                </div>
-            </div>
+            <tbody>
+            <tr>
+                <th class="col-md-2">Mou Applicable</th>
+                <td class="col-md-2">{{vm.investor.mouapplicable}}</td>
+                <th class="col-md-2">Mou Signyear</th>
+                <td class="col-md-2">{{vm.investor.mousignyear}}</td>
+            </tr>
+            <tr>
+                <th class="col-md-2">MOU detail</th>
+                <td class="col-md-2">{{vm.investor.mouidnumber}}</td>
+                <th class="col-md-1">Investor Photo</th>
+                <td class="col-md-1">{{vm.investor.investorpicpath}}</td>
+            </tr>
+            <tr>
+                <th class="col-md-1">Investor Name</th>
+                <td class="col-md-1">{{vm.investor.firstname}} {{vm.investor.middlename}} {{vm.investor.lastname}} </td>
+                <th class="col-md-1">Country</th>
+                <td class="col-md-1">{{vm.investor.countryid}}</td>
+            </tr>
+            <tr>
+                <th class="col-md-2">State</th>
+                <td class="col-md-2">{{vm.investor.stateid}}</td>
+                <th class="col-md-2">City</th>
+                <td class="col-md-2">{{vm.investor.cityid}}</td>
+            </tr>
+            <tr>
+                <th class="col-md-2">Address</th>
+                <td class="col-md-2">{{vm.investor.address1}} {{vm.investor.address2}} {{vm.investor.address3}}</td>
+                <th class="col-md-2">Email</th>
+                <td class="col-md-2">{{vm.investor.emailprimary}} {{vm.investor.emailsecondary}}</td>
+            </tr>
+            </tbody>
         </table>
     </div>
 </div>
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-    <h3 class="panel-title">COMPANY DETAIL</h3>
+        <h3 class="panel-title"> Company Details</h3>
     </div>
+
     <div class="panel-body">
         <table class="table table-striped table-hover ">
-            <tbody>
-            <!--<tr>-->
-            <!--<td class="col-md-1">3.1</td>-->
-            <!--<td class="col-md-4 bold">Country</td>-->
-            <!--<td class="col-md-3">India</td>-->
-            <!--<td></td>-->
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td class="col-md-1">3.2</td>-->
-            <!--<td class="col-md-4 bold">State</td>-->
-            <!--<td class="col-md-3">-->
-                <!--<span>NA</span>-->
-            <!--</td>-->
-            <!--<td></td>-->
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td class="col-md-1">3.3</td>-->
-            <!--<td class="col-md-4 bold">City</td>-->
-            <!--<td class="col-md-3">Kolkata</td>-->
-            <!--<td></td>-->
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td class="col-md-1">3.4</td>-->
-            <!--<td class="col-md-4 bold">Pin Code / Zip Code</td>-->
-            <!--<td class="col-md-3">700012</td>-->
-            <!--<td></td>-->
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td class="col-md-1">3.5</td>-->
-            <!--<td class="col-md-4 bold">Address Line 1</td>-->
-            <!--<td class="col-md-3">P4 Black Burn Lane</td>-->
-            <!--<td></td>-->
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td class="col-md-1">3.6</td>-->
-            <!--<td class="col-md-4 bold">Address Line 2</td>-->
-            <!--<td class="col-md-3">3rd Floor</td>-->
-            <!--<td></td>-->
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td class="col-md-1">3.7</td>-->
-            <!--<td class="col-md-4 bold">Address Line 3</td>-->
-            <!--<td class="col-md-3">-->
-                <!--<span>NA</span>-->
-            <!--</td>-->
-            <!--<td></td>-->
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td class="col-md-1">3.8</td>-->
-            <!--<td class="col-md-4 bold">Phone Number</td>-->
-            <!--<td class="col-md-3">-->
+            <tbody><tr>
 
-                <!--<span>NA</span>-->
-            <!--</td>-->
-            <!--<td></td>-->
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td class="col-md-1">3.9</td>-->
-            <!--<td class="col-md-4 bold">Mobile Number</td>-->
-            <!--<td class="col-md-3">9820126050</td>-->
-            <!--<td></td>-->
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td class="col-md-1">3.10</td>-->
-            <!--<td class="col-md-4 bold">Fax Number</td>-->
-            <!--<td class="col-md-3">-->
+                <th class="col-md-4 bold">Promoter/MD/Director  </th>
+                <td class="col-md-3">{{vm.companydetail.promoter_md_director}}</td>
 
-                <!--<span>NA</span>-->
-            <!--</td>-->
-            <!--<td></td>-->
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td class="col-md-1">3.11.1</td>-->
-            <!--<td class="col-md-4 bold">Email Address</td>-->
-            <!--<td class="col-md-3"><a href="mailto:naresh@cci-logistics.com">naresh@cci-logistics.com</a></td>-->
-            <!--<td></td>-->
-        <!--</tr>-->
-        <!--<tr>-->
-            <!--<td class="col-md-1">3.11.2</td>-->
-            <!--<td class="col-md-4 bold">Alternate Email Address</td>-->
-            <!--<td class="col-md-3">-->
+            </tr>
+            <tr>
 
-                <!--<a href="mailto:satish@cci-logistics.com">satish@cci-logistics.com</a>                    </td>-->
-            <!--<td></td>-->
-        <!--</tr>-->
+                <th class="col-md-4 bold">Business Entity Type</th>
+                <td class="col-md-3">
+                    {{vm.companydetail.businessentitytype}}                    </td>
+                <td class="col-md-4"></td>
+            </tr>
+            <tr>
 
-            <div class="form-group">
-                <label for="mddirector" class="col-lg-2 control-label">Promoter / MD / Director</label>
-                <div class="col-lg-3">
+                <th class="col-md-4 bold">Business Entity (M/s)</th>
+                <td class="col-md-3">{{vm.companydetail.businessentity}}</td>
+                <td class="col-md-4"></td>
+            </tr>
+            <tr>
 
-                    <label class="form-control label-info control-label" id="mddirector" ng-model="vm.companydetail.promoter_md_director"/>
-                </div>
-                <div class="col-lg-3">
-                    <label class="form-control label-info control-label" id="designation" ng-model="vm.companydetail.designation"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="businessentity" class="col-lg-2 control-label">Business Entity (M/s)</label>
-                <div class="col-lg-3">
-                    <label class="form-control label-info control-label" id="businessentity" ng-model="vm.companydetail.businessentity"/>
-                </div>
-            </div>
+                <th class="col-md-4 bold">No. of Directors/ Promoters /MDs /CEO</th>
+                <td class="col-md-3">{{vm.companydetail.director_promoter_md_ceo_number}}</td>
+                <td class="col-md-4"></td>
+            </tr>
+            <tr>
 
-            <div class="form-group">
-                <label  class="col-lg-2 control-label">Business Entity Type</label>
-                <div class="col-lg-3">
-                    <label class="form-control label-info control-label" id="businessentitytype" ng-model="vm.companydetail.selectedBusiness"/>
-                </div>
-            </div>
+                <th class="col-md-4 bold">Pan Number</th>
+                <td class="col-md-3">
+                    <span>{{vm.companydetail.pan_number}}</span>
+                </td>
 
-            <div class="form-group">
-                <label for="promotor" class="col-lg-2 control-label">No. of Directors/ Promoters /MDs /CEO</label>
-                <div class="col-lg-3">
-                    <label class="form-control label-info control-label" id="promotor" ng-model="vm.companydetail.director_promoter_md_ceo_number"/>
-                </div>
+                <td class="col-md-4"></td>
+            </tr>
+            <tr>
 
-            </div>
+                <th class="col-md-4 bold">Aadhar Number</th>
+                <td class="col-md-3">{{vm.companydetail.aadhar_number}}</td>
+                <td class="col-md-4"></td>
+            </tr>
+            <tr>
 
-            <div class="form-group">
-                <label for="PanNumber" class="col-lg-2 control-label">Pan Number</label>
-                <div class="col-lg-3"><label class="form-control label-info control-label" id="PanNumber" ng-model="vm.companydetail.pan_number"></label></div>
+                <th class="col-md-4 bold">Applicant is NRI</th>
+                <td class="col-md-3">
+                    <span>{{vm.companydetail.nri}}</span>
+                </td>
+                <td class="col-md-4"></td>
+            </tr>
+            <tr>
 
-            </div>
-            <div class="form-group">
-                <label for="aadharnumber" class="col-lg-2 control-label">Aadhar Number</label>
-                <div class="col-lg-3"><label class="form-control label-info control-label" id="aadharnumber" ng-model="vm.companydetail.aadhar_number"></label></div>
+                <th class="col-md-4 bold">Cst Number</th>
+                <td class="col-md-3">
+                    <span>{{vm.companydetail.cst_number}}</span>
+                </td>
+                <td class="col-md-4"></td>
+            </tr>
+            <tr>
 
-            </div>
-
-            <div class="form-group">
-                <label class="col-lg-2 control-label">Applicant is NRI?</label>
-                <div class="col-lg-10">
-                    <label name="radioISNRI" ng-model="vm.companydetail.nri"></label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="tinvatnumber" class="col-lg-2 control-label">Tin Vat Number</label>
-                <div class="col-lg-3"><label class="form-control label-info control-label" id="tinvatnumber" ng-model="vm.companydetail.tin_vat_number"></label></div>
-
-            </div>
-
-            <div class="form-group">
-                <label for="cstnumber" class="col-lg-2 control-label">Cst Number</label>
-                <div class="col-lg-3"><label class="form-control label-info control-label" id="cstnumber" ng-model="vm.companydetail.cst_number"></label></div>
-
-            </div>
+                <th class="col-md-4 bold">Tin/Vat Number</th>
+                <td class="col-md-3">
+                    <span>{{vm.companydetail.tin_vat_number}}</span>
+                </td>
+                <td class="col-md-4">
+                </td>
+            </tr>
 
             </tbody>
+
         </table>
     </div>
 </div>
+
 
 
 
@@ -272,104 +127,90 @@
     <div class="panel-heading">
         <h3 class="panel-title">PROJECT DETAIL</h3>
     </div>
+
     <div class="panel-body">
+
+
         <table class="table table-striped table-hover ">
-            <tbody>
-            <!--<tr>-->
-                <!--<td class="col-md-1">4.1.1</td>-->
-                <!--<td class="col-md-4 bold">Name of Promoter / MD</td>-->
-                <!--<td class="col-md-3">Satish Kumar Sharma</td>-->
-                <!--<td></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">4.1.2</td>-->
-                <!--<td class="col-md-4 bold">Designation</td>-->
-                <!--<td class="col-md-3">Director</td>-->
-                <!--<td></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">4.2</td>-->
-                <!--<td class="col-md-4 bold">Name of Business Entity</td>-->
-                <!--<td class="col-md-3">JKS INFRASTRUCTURE PVT LTD</td>-->
-                <!--<td></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">4.3</td>-->
-                <!--<td class="col-md-4 bold">Type of Business Entity</td>-->
-                <!--<td class="col-md-3">Private Limited</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">4.4</td>-->
-                <!--<td class="col-md-4 bold">Number of Directors</td>-->
-                <!--<td class="col-md-3">-->
+            <tbody><tr>
 
+                <th class="col-md-4 bold">Sector  </th>
+                <td class="col-md-3">{{vm.projectdetail.sectorid}}</td>
 
-                    <!--2                    </td>-->
-                <!--<td class="col-md-4">-->
-                    <!--<a class="dlnk" target="_blank" href="http://investharyana.nic.in/writereaddata/upload/e5c490ae-8f3a-4d2e-b91a-8564da375bd3.pdf">View Directory List Attachment</a>                    </td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">4.5.1</td>-->
-                <!--<td class="col-md-4 bold">PAN Number</td>-->
-                <!--<td class="col-md-3">AABCG3408M</td>-->
-                <!--<td class="col-md-4"><a class="dlnk" target="_blank" href="http://investharyana.nic.in/writereaddata/upload/eabc07e7-95be-49b2-8ebc-ee377e3d7a8a.pdf">View PAN Number Attachment</a></td>-->
-            <!--</tr>-->
+            </tr>
+            <tr>
 
-            <!--<tr>-->
-                <!--<td class="col-md-1">4.5.2</td>-->
-                <!--<td class="col-md-4 bold">AADHAR Number</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>NA</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4">-->
-                <!--</td>-->
-            <!--</tr>-->
+                <th class="col-md-4 bold">Project Purpose</th>
+                <td class="col-md-3">
+                    {{vm.projectdetail.projectpurpose}}                    </td>
+                <td class="col-md-4"></td>
+            </tr>
+            <tr>
 
-            <!--<tr>-->
-                <!--<td class="col-md-1">4.5.3</td>-->
-                <!--<td class="col-md-4 bold">Is NRI</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>No</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
+                <th class="col-md-4 bold">Size of Industry</th>
+                <td class="col-md-3">{{vm.projectdetail.size_of_industry}}</td>
+                <td class="col-md-4"></td>
+            </tr>
+            <tr>
 
-            <!--<tr>-->
-                <!--<td class="col-md-1">4.6</td>-->
-                <!--<td class="col-md-4 bold" >TIN / VAT Number</td>-->
-                <!--<td class="col-md-3">-->
+                <th class="col-md-4 bold">Project Type</th>
+                <td class="col-md-3">{{vm.projectdetail.projectype}}</td>
+                <td class="col-md-4"></td>
+            </tr>
+            <tr>
 
-                    <!--<span>NA</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4">-->
-                <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">4.7</td>-->
-                <!--<td class="col-md-4 bold">CST Number</td>-->
-                <!--<td class="col-md-3">-->
+                <th class="col-md-4 bold">NIC Code</th>
+                <td class="col-md-3">
+                    <span>{{vm.projectdetail.niccode}}</span>
+                </td>
 
-                    <!--<span>NA</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4">-->
-                <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">4.8</td>-->
-                <!--<td class="col-md-4 bold">MoA / Partnership Deed</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<a class="dlnk" target="_blank" href="http://investharyana.nic.in/writereaddata/upload/4887b556-5f04-4346-8b3a-42705610606f.pdf">View MoA Partnership Deed Attachment</a>                    </td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">4.9</td>-->
-                <!--<td class="col-md-4 bold">Certificate of Incorporation / Registration</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<a class="dlnk" target="_blank" href="http://investharyana.nic.in/writereaddata/upload/50f31468-9a43-4dfa-838b-418f117c434a.pdf">View Certificate of Incorporation / Registration Attachment</a>                    </td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
+                <td class="col-md-4"></td>
+            </tr>
+            <tr>
+
+                <th class="col-md-4 bold">Category of Project</th>
+                <td class="col-md-3">{{vm.projectdetail.category_of_project}}</td>
+                <td class="col-md-4"></td>
+            </tr>
+            <tr>
+
+                <th class="col-md-4 bold">Foreign Country</th>
+                <td class="col-md-3">
+                    <span>{{vm.projectdetail.collaboration_with_foreign_country}}</span>
+                </td>
+                <td class="col-md-4"></td>
+            </tr>
+            <tr>
+
+                <th class="col-md-4 bold">Detailed Project Report (DPR)</th>
+                <td class="col-md-3">
+                    <span>{{vm.projectdetail.detail_project_report}}</span>
+                </td>
+                <td class="col-md-4"></td>
+            </tr>
+            <tr>
+
+                <th class="col-md-4 bold">Any Existing Regulatory Approval Granted</th>
+                <td class="col-md-3">
+                    <span>{{vm.projectdetail.existing_regulatory_approval}}</span>
+                </td>
+                <td class="col-md-4">
+                </td>
+            </tr>
+            <tr>
+
+                <th class="col-md-4 bold">Detail of EDC / SIF / CLU / License-Fee Paid</th>
+                <td class="col-md-3">
+                    <span>{{vm.projectdetail.edc_sif_clu_fee_paid_applicable}}</span>
+                </td>
+                <td class="col-md-4">
+                    <span>{{vm.projectdetail.edc_sif_clu_fee_paid_document}}</span>
+
+                </td>
+            </tr>
+
             </tbody>
+
         </table>
     </div>
 </div>
@@ -380,327 +221,154 @@
         <h3 class="panel-title">PROJECT SITE DETAIL</h3>
     </div>
     <div class="panel-body">
+
+        <!-- Project Site Detail by Meena-->
         <table class="table table-striped table-hover ">
             <tbody>
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.1</td>-->
-                <!--<td class="col-md-4 bold">Site Address</td>-->
-                <!--<td class="col-md-3">Village Pathreri, Patuadi-Bilaspur Tauru Road</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
+            <tr>
+                <th class="col-sm-3">Site Address</th>
+                <td>{{vm.projectsitedetail.siteaddress}}</td>
+                <th class="col-sm-3">District</th>
+                <td>{{vm.projectsitedetail.selectedDistrict}}</td>
+            </tr>
 
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.2a</td>-->
-                <!--<td class="col-md-4 bold">District</td>-->
-                <!--<td class="col-md-3">Gurgaon</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
+            <tr >
+                <th class="col-sm-3">Block</th>
+                <td>{{vm.projectsitedetail.selectedBlock}}</td>
+                <th class="col-sm-3"> City/Town/Village</th>
+                <td>{{vm.projectsitedetail.selectedCityTownVillage}}</td>
+            </tr>
 
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.2b</td>-->
-                <!--<td class="col-md-4 bold">Block</td>-->
-                <!--<td class="col-md-3">GURGAON</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
+            <tr>
+                <th class="col-sm-3">Multi-Village Involved</th>
+                <td>{{vm.projectsitedetail.multyvillageinvolved}}</td>
+                <th class="col-sm-3">Village Involved</th>
+                <td>{{vm.projectsitedetail.villageinvolved}}</td>
 
+            </tr>
 
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.2c</td>-->
-                <!--<td class="col-md-4 bold">Village / Town / City</td>-->
-                <!--<td class="col-md-3">Gurgaon</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.2d</td>-->
-                <!--<td class="col-md-4 bold">Tehsil</td>-->
-                <!--<td class="col-md-3">Manesar</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
+            <tr>
+                <th class="col-sm-3">If site falls in Gurgaon or Mewat district, whether
+                    land falls under Aravalli Notification Act</th>
+                <td>{{vm.projectsitedetail.falls_in_aravalli}}</td>
+                <th></th>
+                <td></td>
 
-            <!--<tr>-->
-                <!--<td class="col-md-1"></td>-->
-                <!--<td class="col-md-4 bold">Multiple Villages Involved?</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>No</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
+            </tr>
+            <tr>
+                <th class="col-sm-3"> Is Land Procured</th>
+                <td>{{vm.projectsitedetail.islandprocured}}</td>
+                <th class="col-sm-3">Is Land Allocated By HSIID</th>
+                <td>{{vm.projectsitedetail.allotedbyhsiidc}}</td>
 
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.2e</td>-->
-                <!--<td class="col-md-4 bold">If site falls in Gurgaon or Mewat district, whether land falls under Aravalli Notification Act </td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>No</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
+            </tr><tr>
+                <th class="col-sm-3">Estate</th>
+                <td>{{vm.projectsitedetail.estate}}</td>
+                <th class="col-sm-3">Cluster</th>
+                <td>{{vm.projectsitedetail.cluster}}</td>
 
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.3</td>-->
-                <!--<td class="col-md-4 bold">Site has been alloted by HSIIDC </td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>No</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
+            </tr>
+            <tr>
+                <th class="col-sm-3">Phase</th>
+                <td>{{vm.projectsitedetail.phase}}</td>
+                <th class="col-sm-3">Sector</th>
+                <td>{{vm.projectsitedetail.sector}}</td>
 
+            </tr>
+            <tr>
+                <th class="col-sm-3">Plot No.</th>
+                <td>{{vm.projectsitedetail.plotno}}</td>
+                <th class="col-sm-3">Hadbast No.</th>
+                <td>{{vm.projectsitedetail.hadbastno}}</td>
 
-            <!--<tr>-->
-                <!--<td class="col-md-1"></td>-->
-                <!--<td class="col-md-4 bold">If YES, please indicate the following </td>-->
-                <!--<td class="col-md-3"></td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">(i)</td>-->
-                <!--<td class="col-md-4 bold">Estate</td>-->
-                <!--<td class="col-md-3">NA</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">(ii)</td>-->
-                <!--<td class="col-md-4 bold">Cluster</td>-->
-                <!--<td class="col-md-3">NA</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">(iii)</td>-->
-                <!--<td class="col-md-4 bold">Phase</td>-->
-                <!--<td class="col-md-3">NA</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">(iv)</td>-->
-                <!--<td class="col-md-4 bold">Sector</td>-->
-                <!--<td class="col-md-3">NA</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">(v)</td>-->
-                <!--<td class="col-md-4 bold">Plot Number</td>-->
-                <!--<td class="col-md-3">NA</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
+            </tr>
 
-            <!--<tr>-->
-                <!--<td class="col-md-1"></td>-->
-                <!--<td class="col-md-4 bold">If NO, please indicate the following </td>-->
-                <!--<td class="col-md-3"></td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
+            <tr>
+                <th class="col-sm-3">Lies Under MC</th>
+                <td>{{vm.projectsitedetail.liesunder_mc}}</td>
+                <th class="col-sm-3">Distance Under MC</th>
+                <td>{{vm.projectsitedetail.distance_from_mc}}</td>
 
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.4</td>-->
-                <!--<td class="col-md-4 bold">Hadbast Number</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--143-->
-                <!--</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.5</td>-->
-                <!--<td class="col-md-4 bold">Khasra Number</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<a class="dlnk" target="_blank" href="http://investharyana.nic.in/writereaddata/upload/b307cd3d-bc17-49c7-983c-62f23b0b37b6.PDF">View Khasra Attachment</a>                    </td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.5a</td>-->
-                <!--<td class="col-md-4 bold">SiteInMCLimit</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>No</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4">-->
-                    <!--<div>15 Km</div>-->
-                <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.5b</td>-->
-                <!--<td class="col-md-4 bold">Site is located in Urban Area</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>No</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.6</td>-->
-                <!--<td class="col-md-4 bold">Revenue/Shajra Plan</td>-->
-                <!--<td class="col-md-3"><a class="dlnk" target="_blank" href="http://investharyana.nic.in/writereaddata/upload/e9e80528-9f91-4189-8f15-18b020b1df1e.pdf">View Revenue/Shajra Plan Attachment</a></td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.7</td>-->
-                <!--<td class="col-md-4 bold">Jamabandi of the site area</td>-->
-                <!--<td class="col-md-3"><a class="dlnk" target="_blank" href="http://investharyana.nic.in/writereaddata/upload/e2e250d6-f2bb-43ab-a8e2-da90daa6cf06.pdf">View Jamabandi Attachment</a></td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.8</td>-->
-                <!--<td class="col-md-4 bold">Non Encumbrance Certificate of the site</td>-->
-                <!--<td class="col-md-3"><a class="dlnk" target="_blank" href="http://investharyana.nic.in/writereaddata/upload/a5ad4c03-441c-441c-bcbc-97bb31e50674.pdf">View Non Encumbrance Attachment</a></td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
+            </tr>
+
+            <tr>
+                <th class="col-sm-3">Site is located in Urban Area </th>
+                <td>{{vm.projectsitedetail.islocated_in_urban}}</td>
+                <th></th>
+                <td></td>
+
+            </tr>
+
+            <tr>
+                <th class="col-sm-3">Total Proposed Project Area </th>
+                <td>{{vm.projectsitedetail.totalproposedprojectarea}}</td>
+                <th class="col-sm-3">Proposed Built up Area </th>
+                <td>{{vm.projectsitedetail.proposedbuilt_up_area}}</td>
+
+            </tr>
+            <tr>
+                <th class="col-sm-3">Certified Ownership</th>
+                <td>{{vm.projectsitedetail.certifiedownership}}</td>
+                <th></th>
+                <td></td>
+
+            </tr>
+
+            <tr>
+                <th class="col-sm-3">Lease Applicable </th>
+                <td>{{vm.projectsitedetail.leaseapplicable}}</td>
+                <th class="col-sm-3">Land Agreement Applicable </th>
+                <td>{{vm.projectsitedetail.landagreementapplicable}}</td>
+
+            </tr>
+
+            <tr>
+                <th class="col-sm-3">Connecting Road</th>
+                <td>{{vm.projectsitedetail.selectedConnectingRoad}}</td>
+                <th></th>
+                <td></td>
+
+            </tr>
+
+            <tr>
+                <th class="col-sm-3">Intersection Distance </th>
+                <td>{{vm.projectsitedetail.intersectiondistance}}</td>
+                <th class="col-sm-3">Raiway Distance</th>
+                <td>{{vm.projectsitedetail.railwaydistance}}</td>
 
 
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.9</td>-->
-                <!--<td class="col-md-4 bold">Total Proposed Project Area</td>-->
-                <!--<td class="col-md-3">114547.70 Acre</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.10</td>-->
-                <!--<td class="col-md-4 bold">Total Built-up Area</td>-->
-                <!--<td class="col-md-3">70635.00 m<sup>2</sup></td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.11</td>-->
-                <!--<td class="col-md-4 bold">Certified Copy of Ownership</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>Yes</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4">-->
-                    <!--<a class="dlnk" target="_blank" href="http://investharyana.nic.in/writereaddata/upload/e71e79ba-3321-4286-999d-7857ab8ae6ca.PDF">View Ownership Attachment</a>                </td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.12</td>-->
-                <!--<td class="col-md-4 bold">Certified Copy of Lease Document</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>No</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4">-->
-                <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.13</td>-->
-                <!--<td class="col-md-4 bold">Certified Copy of Land under Agreement</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>No</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4">-->
-                <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.14</td>-->
-                <!--<td class="col-md-4 bold">-->
-                    <!--Site / Layout Plan<br>-->
-                    <!--<span style="font-size:12px; font-style:italic; font-weight:normal">*Map showing dimensions &amp; directions of project site with entry/exit</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-3"><a class="dlnk" target="_blank" href="http://investharyana.nic.in/writereaddata/upload/b689a2ab-d0c2-4305-8f49-f41228df748a.pdf">View Site / Layout Plan</a></td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.15</td>-->
-                <!--<td class="col-md-4 bold">-->
-                    <!--Location Plan<br>-->
-                    <!--<span style="font-size:12px; font-style:italic;font-weight:normal">*Map showing all major natural features &amp; establishment in surrounding of 500 mtr of site &amp; connecting road</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-3"><a class="dlnk" target="_blank" href="http://investharyana.nic.in/writereaddata/upload/f2ac9201-92dc-43bb-a255-1ced85a6f43f.pdf">View Location plan </a></td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.16</td>-->
-                <!--<td class="col-md-4 bold">-->
-                    <!--Linear Strip Plan <br>-->
-                    <!--<span style="font-size:12px; font-style:italic; font-weight:normal">*Map showing the width of entry/exit gate and its distance from the connecting NH/SH/SR/Other road</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-3"><a class="dlnk" target="_blank" href="http://investharyana.nic.in/writereaddata/upload/0516e54c-6526-4db9-8aaf-28a7edfab540.pdf">View Linear Strip Plan</a></td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.17</td>-->
-                <!--<td class="col-md-4 bold">Connecting Road</td>-->
-                <!--<td class="col-md-3">State Highway</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">(i)</td>-->
-                <!--<td class="col-md-4 bold">Is Minimum distance from Intersection/Median opening and take off point of an access-->
-                    <!--<br><span style="font-size:12px; font-style:italic; font-weight:normal">-->
-                        <!--(a) For Urban: more than 100m-->
-                    <!--</span>-->
-                    <!--<br><span style="font-size:12px; font-style:italic; font-weight:normal">-->
-                        <!--(b) For Rural: more than 300m-->
-                    <!--</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>No</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">(ii)</td>-->
-                <!--<td class="col-md-4 bold">Is Minimum distance from railway crossing is more than 300m (for urban and rural)</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>No</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.18.1</td>-->
-                <!--<td class="col-md-4 bold">Conformity of Land Use</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>No</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.18.2</td>-->
-                <!--<td class="col-md-4 bold">Land Use Zone Classification</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>NA</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.19.1</td>-->
-                <!--<td class="col-md-4 bold">-->
-                    <!--Site situated on National Highway/ Scheduled Road <br>-->
-                    <!--<span style="font-size:12px; font-style:italic; font-weight:normal">*Attach permission from Competent Authority</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-3"><a class="dlnk" target="_blank" href="http://investharyana.nic.in/writereaddata/upload/">View Site situated on National Highway/ Scheduled Road</a></td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.19.2</td>-->
-                <!--<td class="col-md-4 bold">Building exists BEFORE/AFTER declaration of controlled area</td>-->
-                <!--<td class="col-md-3"></td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.19.3</td>-->
-                <!--<td class="col-md-4 bold">Is there any building structure exists</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>No</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4">-->
-                <!--</td>-->
-            <!--</tr>-->
+            </tr>
 
 
+            <tr>
+                <th class="col-sm-3">Confirmity of Land Used </th>
+                <td>{{vm.projectsitedetail.confrmitylanduse}}</td>
+                <th class="col-sm-3">Land Zone Use Type</th>
+                <td>{{vm.projectsitedetail.selectedLandZoneUseType}}</td>
 
-            <!--<tr>-->
-                <!--<td class="col-md-1">5.19.4</td>-->
-                <!--<td class="col-md-4 bold">-->
-                    <!--Site situated in controlled area <br>-->
-                    <!--<span style="font-size:12px; font-style:italic; font-weight:normal">*Details of controlled area at website of Town and Country Planning Department (http://tcpharyana.gov.in/)</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>No</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4">-->
-                <!--</td>-->
-            <!--</tr>-->
+            </tr>
+
+            <tr>
+                <th class="col-sm-3">Building Existed </th>
+                <td>{{vm.projectsitedetail.buildingexisted}}</td>
+                <th class="col-sm-3">Existing Building Applicable</th>
+                <td>{{vm.projectsitedetail.existing_building_applicable}}</td>
+            </tr>
+
+            <tr>
+                <th class="col-sm-3">Site Situated in Controlled Area </th>
+                <td>{{vm.projectsitedetail.site_situated_in_controlled_area}}</td>
+                <th></th>
+                <td></td>
+            </tr>
+
 
             </tbody>
         </table>
+        <!--By Meena --->
     </div>
 </div>
+
 
 
 <div class="panel panel-primary">
@@ -710,83 +378,64 @@
     <div class="panel-body">
         <table class="table table-striped table-hover ">
             <tbody>
-            <!--<tr>-->
-                <!--<td class="col-md-1">6.1</td>-->
-                <!--<td class="col-md-4 bold">Sector</td>-->
-                <!--<td class="col-md-3">Other Industries</td>-->
-                <!--<td class="col-md-4">Warehouse</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">6.2</td>-->
-                <!--<td class="col-md-4 bold">Project Purpose</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--Logistic Park                    </td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">6.3</td>-->
-                <!--<td class="col-md-4 bold">Size of Industry</td>-->
-                <!--<td class="col-md-3">Large - more than 10 crores</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">6.4</td>-->
-                <!--<td class="col-md-4 bold">Project Type</td>-->
-                <!--<td class="col-md-3">New Project (New Site)</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">6.5a</td>-->
-                <!--<td class="col-md-4 bold">NIC Code</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>NA</span>-->
-                <!--</td>-->
-
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">6.5b</td>-->
-                <!--<td class="col-md-4 bold">Category of Project</td>-->
-                <!--<td class="col-md-3">None of these</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">6.5c</td>-->
-                <!--<td class="col-md-4 bold">Foreign Country</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>NA</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">6.6</td>-->
-                <!--<td class="col-md-4 bold">Detailed Project Report (DPR)</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<a class="dlnk" target="_blank" href="http://investharyana.nic.in/writereaddata/upload/1e32bf42-68cf-4e57-a984-0078c6d2b112.pdf">View Detailed Project Report</a>-->
-                <!--</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">6.7</td>-->
-                <!--<td class="col-md-4 bold">Any Existing Regulatory Approval Granted</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>No</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4">-->
-                <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">6.8</td>-->
-                <!--<td class="col-md-4 bold">Detail of EDC / SIF / CLU / License-Fee Paid</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>Yes</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4">-->
-                    <!--<a class="dlnk" target="_blank" href="http://investharyana.nic.in/writereaddata/upload/630f05e0-cdce-45ff-a0ca-d1c2e8bb7c27.PDF">View Details of EDC/SIF/CLU/License-Fee Paid</a>                    </td>-->
-            <!--</tr>-->
-
+            <tr>
+                <th class="col-md-2">Land Cost</th>
+                <td class="col-md-2">{{vm.project_finance_investment.land_cost}}</td>
+                <th class="col-md-2">Building Cost</th>
+                <td class="col-md-2">{{vm.project_finance_investment.building_cost}}</td>
+            </tr>
+            <tr>
+                <th class ="col-md-1">Plant & Machinery Cost </th>
+                <td class ="col-md-1">{{vm.project_finance_investment.machinery_cost}}</td>
+                <th class ="col-md-1">Cost of Miscellaneous Assets</th>
+                <td class ="col-md-1">{{vm.project_finance_investment.misc_assests}}</td>
+            </tr>
+            <tr>
+                <th class ="col-md-1">Total Project Cost</th>
+                <td class ="col-md-1">{{vm.project_finance_investment.total_project_cost}}</td>
+                <th class ="col-md-1">FDI, If applicable</th>
+                <td class ="col-md-1">{{vm.project_finance_investment.isfdi}}</td>
+            </tr>
+            <tr>
+                <th class ="col-md-1">FDI Value</th>
+                <td class ="col-md-1">{{vm.project_finance_investment.fdivalue}}</td>
+                <th class ="col-md-1">If FDI, name of the country</th>
+                <td class ="col-md-1">{{vm.project_finance_investment.fdi_country}}</td>
+            </tr>
+            <tr>
+                <th class ="col-md-1">Foreign Funding Resources</th>
+                <td class ="col-md-1">{{vm.project_finance_investment.foreign_funding_source}}</td>
+                <th class ="col-md-1">Start of Project Construction</th>
+                <td class ="col-md-1">{{vm.project_finance_investment.project_construction_start_date}}</td>
+            </tr>
+            <th class ="col-md-1">Start of Commercial Activity</th>
+            <td class ="col-md-1">{{vm.project_finance_investment.commercial_activity_start_date}}</td>
+            </tr>
             </tbody>
         </table>
+    </div>
+
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">PHASE-WISE IMPLEMENTATION / FCI DETAILS</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped table-hover">
+                <tbody>
+                <tr>
+                    <th class ="col-md-1">Phase</th>
+                    <td class ="col-md-1">{{vm.project_phase.phase}}</td>
+                    <th class ="col-md-1">Product category</th>
+                    <td class ="col-md-1">{{vm.project_phase.productcategory}}</td>
+                    <th class ="col-md-1">FCI</th>
+                    <td class ="col-md-1">{{vm.project_phase.fci}}</td>
+                    <th class ="col-md-1">Implementation Date</th>
+                    <td class ="col-md-1">{{vm.project_phase.implementationdate}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
@@ -851,38 +500,106 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">ELECTRIC POWER REQUIREMENT</h3>
+        <h3 class="panel-title"><b>Electric Power Requirements</b></h3>
     </div>
     <div class="panel-body">
         <table class="table table-striped table-hover ">
-            <tbody>
-            <!--<tr>-->
-                <!--<td class="col-md-1">8.1a</td>-->
-                <!--<td class="col-md-4 bold">FDI</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>Rs. 0.00</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="col-md-1">8.1b</td>-->
-                <!--<td class="col-md-4 bold">If FDI, Name of Country</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>NA</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
+            <tr ng-repeat="projectdetails in vm.electricrequirement track by electricrequirements.id">
+                <tbody>
+                <tr>
+                    <td class="col-md-4"><b>Temporary Connection</b></td>
+                    <td class="col-md-3"></td>
+                    <td class="col-md-4"></td>
+                    <td class="col-md-3"></td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">View Existing Bill</td>
+                    <td class="col-md-3">{{vm.electricrequirement.temporaryconnection}}</td>
 
+                    <td class="col-md-4">Load Required</td>
+                    <td class="col-md-3">{{vm.electricrequirement.temporaryrequired}}</td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">Power Company</td>
+                    <td class="col-md-3">UHBVN</td>
 
-            <!--<tr>-->
-                <!--<td class="col-md-1">8.2</td>-->
-                <!--<td class="col-md-4 bold">Foreign Funding Resources</td>-->
-                <!--<td class="col-md-3">-->
-                    <!--<span>Not Applicable</span>-->
-                <!--</td>-->
-                <!--<td class="col-md-4"></td>-->
-            <!--</tr>-->
-            </tbody>
+                    <td class="col-md-4">Existing Connection</td>
+                    <td class="col-md-3">{{vm.electricrequirement.tem_load_existing}}</td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">Account Number</td>
+                    <td class="col-md-3">{{vm.electricrequirement.tem_account_number}}</td>
+
+                    <td class="col-md-4">Existing Load Demand(in KW)</td>
+                    <td class="col-md-3">{{vm.electricrequirement.temp_existing_load_demand_kw}}</td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">Existing Load Demand(in KVA)</td>
+                    <td class="col-md-3">{{vm.electricrequirement.temp_existing_load_demand_kva}}</td>
+
+                    <td class="col-md-4">New Load Demand (in KW)</td>
+                    <td class="col-md-3">{{vm.electricrequirement.temp_new_load_demand_kw}}</td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">New Load Demand (in KVA)</td>
+                    <td class="col-md-3">{{vm.electricrequirement.temp_new_load_demand_kva}}</td>
+
+                    <td class="col-md-4">Demand Date</td>
+                    <td class="col-md-3">{{vm.electricrequirement.temp_load_demand_date}}</td>
+                </tr>
+                <tr>
+                    <td class="col-md-4"><b>Regular Connection</b></td>
+                    <td class="col-md-3"></td>
+                    <td class="col-md-4"></td>
+                    <td class="col-md-3"></td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">View Existing Bill</td>
+                    <td class="col-md-3">{{vm.electricrequirement.regular_connection_doc}}</td>
+
+                    <td class="col-md-4">Load Required</td>
+                    <td class="col-md-3">{{vm.electricrequirement.regular_load_required}}</td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">Power Company</td>
+                    <td class="col-md-3">UHBVN</td>
+
+                    <td class="col-md-4">Existing Connection</td>
+                    <td class="col-md-3">{{vm.electricrequirement.regular_existing_connection}}</td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">Customer Type</td>
+                    <td class="col-md-3">{{vm.electricrequirement.selectedCustomerType}}</td>
+
+                    <td class="col-md-4">Account Number</td>
+                    <td class="col-md-3">{{vm.electricrequirement.regular_account_number}}</td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">Existing Load (in KW)</td>
+                    <td class="col-md-3">{{vm.electricrequirement.regular_existing_load_ifany_kw}}</td>
+
+                    <td class="col-md-4">Existing Load (in KVA)</td>
+                    <td class="col-md-3">{{vm.electricrequirement.regular_existing_load_ifany_kva}}</td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">New Load (in KW)</td>
+                    <td class="col-md-3">{{vm.electricrequirement.regular_new_load_demand_kw}}</td>
+
+                    <td class="col-md-4">New Load (in KVA)</td>
+                    <td class="col-md-3">{{vm.electricrequirement.regular_new_load_demand_kva}}</td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">Demand Date</td>
+                    <td class="col-md-3">{{vm.electricrequirement.regular_load_demand_date}}</td>
+
+                    <td class="col-md-4"></td>
+                    <td class="col-md-3"></td>
+
+                </tr>
+                </tbody>
+
+            </tr>
+
         </table>
     </div>
 </div>

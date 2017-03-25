@@ -5,11 +5,11 @@
         .module('investhryApp')
         .controller('projectdetailjistController', projectdetailjistController);
 
-    projectdetailjistController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
+    projectdetailjistController.$inject = ['$scope', 'Principal', 'LoginService', '$state','entity'];
 
-    function projectdetailjistController ($scope, Principal, LoginService, $state) {
+    function projectdetailjistController ($scope, Principal, LoginService, $state, entity) {
         var vm = this;
-
+        vm.selectedprojectdetail = entity;
         vm.account = null;
         vm.isAuthenticated = null;
         vm.login = LoginService.open;

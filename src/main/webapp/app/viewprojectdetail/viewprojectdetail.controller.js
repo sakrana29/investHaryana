@@ -5,9 +5,9 @@
         .module('investhryApp')
         .controller('viewprojectdetailController', addprojectController);
 
-    addprojectController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
+    addprojectController.$inject = ['$scope', 'Principal', 'LoginService', '$state', 'Projectcompletedetail'];
 
-    function addprojectController ($scope, Principal, LoginService, $state) {
+    function addprojectController ($scope, Principal, LoginService, $state, Projectcompletedetail) {
         var vm = this;
 
         vm.account = null;
@@ -28,6 +28,18 @@
         }
         function register () {
             $state.go('register');
+        }
+
+        vm.projectcompletedetail=[];
+
+        loadAll();
+
+        function loadAll() {
+
+            Projectcompletedetail.query(function(result){
+                vm.projectcompletedetail=result;
+//                console.log(vm.projectcompletedetail[0].projectdetailDTO);
+            });
         }
     }
 })();
