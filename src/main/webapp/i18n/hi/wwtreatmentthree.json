@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "wwtreatmentthree" : {
+            "home": {
+                "title": "Wwtreatmentthrees",
+                "createLabel": "नया Wwtreatmentthree बनाएँ",
+                "createOrEditLabel": "Wwtreatmentthree बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Wwtreatmentthree [identifier: {{ param }}] तैयार है",
+            "updated": "एक Wwtreatmentthree [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Wwtreatmentthree [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Wwtreatmentthree [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Wwtreatmentthree"
+            },
+            "treatment3": "Treatment 3"
+        }
+    }
+}

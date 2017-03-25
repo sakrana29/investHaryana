@@ -16,5 +16,6 @@ CREATE TABLE IF NOT EXISTS environment_impactdetail (
     emissionid uuid,
     wastewaterdetailid uuid,
     document_attached text,
+    other text,
     PRIMARY KEY(id)
 );

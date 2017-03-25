@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "wwtreatmenttwo" : {
+            "home": {
+                "title": "Wwtreatmenttwos",
+                "createLabel": "Create a new Wwtreatmenttwo",
+                "createOrEditLabel": "Create or edit a Wwtreatmenttwo"
+            },
+            "created": "A new Wwtreatmenttwo is created with identifier {{ param }}",
+            "updated": "A Wwtreatmenttwo is updated with identifier {{ param }}",
+            "deleted": "A Wwtreatmenttwo is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Wwtreatmenttwo {{ id }}?"
+            },
+            "detail": {
+                "title": "Wwtreatmenttwo"
+            },
+            "treatment2": "Treatment 2"
+        }
+    }
+}

@@ -54,6 +54,7 @@ public class Environment_impactdetailRepository {
                 environment_impactdetail.setEmissionid(row.getUUID("emissionid"));
                 environment_impactdetail.setWastewaterdetailid(row.getUUID("wastewaterdetailid"));
                 environment_impactdetail.setDocument_attached(row.getString("document_attached"));
+                environment_impactdetail.setOther(row.getString("other"));
                 return environment_impactdetail;
             }
         ).forEach(environment_impactdetailsList::add);

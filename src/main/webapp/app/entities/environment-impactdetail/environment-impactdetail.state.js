@@ -119,6 +119,7 @@
                                 emissionid: null,
                                 wastewaterdetailid: null,
                                 document_attached: null,
+                                other: null,
                                 id: null
                             };
                         }

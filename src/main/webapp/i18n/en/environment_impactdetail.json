@@ -29,7 +29,8 @@
             "mode_of_disposal_for_discharge": "Mode Of Disposal For Discharge",
             "emissionid": "Emissionid",
             "wastewaterdetailid": "Wastewaterdetailid",
-            "document_attached": "Document Attached"
+            "document_attached": "Document Attached",
+            "other": "Other"
         }
     }
 }

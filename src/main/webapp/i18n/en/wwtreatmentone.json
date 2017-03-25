@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "wwtreatmentone" : {
+            "home": {
+                "title": "Wwtreatmentones",
+                "createLabel": "Create a new Wwtreatmentone",
+                "createOrEditLabel": "Create or edit a Wwtreatmentone"
+            },
+            "created": "A new Wwtreatmentone is created with identifier {{ param }}",
+            "updated": "A Wwtreatmentone is updated with identifier {{ param }}",
+            "deleted": "A Wwtreatmentone is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Wwtreatmentone {{ id }}?"
+            },
+            "detail": {
+                "title": "Wwtreatmentone"
+            },
+            "treatment1": "Treatment 1"
+        }
+    }
+}

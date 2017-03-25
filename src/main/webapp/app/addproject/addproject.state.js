@@ -168,7 +168,97 @@
                                  id: null
                              };
                          },
-                        electricrequirement: function () {
+                         manufacturingdetail: function() {
+                             return {
+                                 projectid: null,
+                                 projectrawmaterialid: null,
+                                 productid: null,
+                                 processid: null,
+                                 manufacturing_flow_document: null,
+                                 id: null
+                             };
+                          },
+
+                          projectrawmaterial: function () {
+                              return {
+                                  projectid: null,
+                                  rawmaterial: null,
+                                  quantity: null,
+                                  units: null,
+                                  id: null
+                              };
+                          },
+
+                          projectproduct: function () {
+                              return {
+                                  projectid: null,
+                                  mainproduct: null,
+                                  quantity: null,
+                                  units: null,
+                                  id: null
+                              };
+                          },
+
+                          projectprocessflowstep: function () {
+                              return {
+                                  projectid: null,
+                                  steps: null,
+                                  id: null
+                              };
+                          },
+
+                          environmentimpactdetail: function () {
+                              return {
+                                  projectid: null,
+                                  source_of_water_supply: null,
+                                  water_process: null,
+                                  water_cooling: null,
+                                  water_domestic: null,
+                                  water_other: null,
+                                  waste_water_process: null,
+                                  waste_water_cooling: null,
+                                  waste_water_domesting: null,
+                                  waste_water_other: null,
+                                  waste_water_treatment: null,
+                                  mode_of_disposal_for_discharge: null,
+                                  emissionid: null,
+                                  wastewaterdetailid: null,
+                                  document_attached: null,
+                                  other: null,
+                                  id: null
+                              };
+                          },
+
+                          modeofdisposalfor_discharge: function () {
+                              return {
+                                  disposal_for_discharge: null,
+                                  id: null
+                              };
+                          },
+
+                          emissiondetail: function () {
+                              return {
+                                  projectid: null,
+                                  particulars: null,
+                                  capacity: null,
+                                  type_of_fuel: null,
+                                  air_pollution_control_device: null,
+                                  id: null
+                              };
+                          },
+
+                          wastewaterdetail: function () {
+                              return {
+                                  projectid: null,
+                                  source_of_generation: null,
+                                  naturetype: null,
+                                  quantity: null,
+                                  mode_of_disposal: null,
+                                  description: null,
+                                  id: null
+                              };
+                         },
+                         electricrequirement: function () {
                             return {
                                 projectid: null,
                                 temporaryrequired: null,
@@ -201,6 +291,24 @@
                                 projectfinanceid: null,
                                 manufacturingid: null,
                                 electricityrequirementid: null,
+                                id: null
+                            };
+                        },
+                        treatment1: function () {
+                            return {
+                                treatment1: null,
+                                id: null
+                            };
+                        },
+                        treatment2: function () {
+                            return {
+                                treatment2: null,
+                                id: null
+                            };
+                        },
+                        treatment3: function () {
+                            return {
+                                treatment3: null,
                                 id: null
                             };
                         }

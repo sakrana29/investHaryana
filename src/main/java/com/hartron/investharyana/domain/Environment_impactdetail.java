@@ -48,6 +48,8 @@ public class Environment_impactdetail implements Serializable {
 
     private String document_attached;
 
+    private String other;
+
     public UUID getId() {
         return id;
     }
@@ -251,6 +253,19 @@ public class Environment_impactdetail implements Serializable {
         this.document_attached = document_attached;
     }
 
+    public String getOther() {
+        return other;
+    }
+
+    public Environment_impactdetail other(String other) {
+        this.other = other;
+        return this;
+    }
+
+    public void setOther(String other) {
+        this.other = other;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -290,6 +305,7 @@ public class Environment_impactdetail implements Serializable {
             ", emissionid='" + emissionid + "'" +
             ", wastewaterdetailid='" + wastewaterdetailid + "'" +
             ", document_attached='" + document_attached + "'" +
+            ", other='" + other + "'" +
             '}';
     }
 }

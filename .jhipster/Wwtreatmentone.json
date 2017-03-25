@@ -1,0 +1,15 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "treatment1",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170325072546",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "wwtreatmentone",
+    "pagination": "no"
+}

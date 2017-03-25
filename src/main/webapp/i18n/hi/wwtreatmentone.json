@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "wwtreatmentone" : {
+            "home": {
+                "title": "Wwtreatmentones",
+                "createLabel": "नया Wwtreatmentone बनाएँ",
+                "createOrEditLabel": "Wwtreatmentone बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Wwtreatmentone [identifier: {{ param }}] तैयार है",
+            "updated": "एक Wwtreatmentone [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Wwtreatmentone [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Wwtreatmentone [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Wwtreatmentone"
+            },
+            "treatment1": "Treatment 1"
+        }
+    }
+}

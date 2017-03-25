@@ -61,6 +61,10 @@
         {
             "fieldName": "document_attached",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "other",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313123226",
