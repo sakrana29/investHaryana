@@ -2,12 +2,12 @@
     'use strict';
     angular
         .module('investhryApp')
-        .factory('Projectservicedetail', Projectservicedetail);
+        .factory('DepartmentServiceData', DepartmentServiceData);
 
-    Projectservicedetail.$inject = ['$resource', 'DateUtils'];
+    DepartmentServiceData.$inject = ['$resource'];
 
-    function Projectservicedetail ($resource, DateUtils) {
-        var resourceUrl =  'api/projectservicedetails/:id';
+    function DepartmentServiceData ($resource) {
+        var resourceUrl =  'api/department-servicesdata/:id';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
@@ -16,7 +16,6 @@
                 transformResponse: function (data) {
                     if (data) {
                         data = angular.fromJson(data);
-                        data.assigndate = DateUtils.convertDateTimeFromServer(data.assigndate);
                     }
                     return data;
                 }
