@@ -1278,7 +1278,7 @@
                             <div class="form-group text-center col-lg-12">
                                 <div class="form-group">
                                     <label for="Phase" class="col-lg-1 control-label">Phase</label>
-                                    <div class="col-lg-1"><input type="text" class="form-control" id="Phase" placeholder="Phase" ng-model="vm.project_phase.phase"></div>
+                                        <div class="col-lg-1"><input type="text" class="form-control" id="Phase" placeholder="Phase" ng-model="vm.project_phase.phase"></div>
                                     <label for="Productcategory" class="col-lg-2 control-label">Product category</label>
                                     <div class="col-lg-2"><input type="text" class="form-control" id="Productcategory" placeholder="Productcategory" ng-model="vm.project_phase.productcategory"></div>
                                     <label for="Fci" class="col-lg-1 control-label">FCI</label>
@@ -1287,16 +1287,30 @@
                                     <div class="col-lg-2"><input type="date" class="form-control" id="Implementationdate" ng-model="vm.project_phase.implementationdate"></div>
                                 </div>
                                 <div class="col-lg-12 col-lg-offset-5">
-                                    <button type="reset" class="btn btn-default">Cancel</button>
-                                    <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12" ng-click="vm.saveProject_phase()">ADD</button>
+                                    <!--<button type="reset" class="btn btn-default">Cancel</button>-->
+                                    <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12" ng-click="vm.addProject_phaseData()">ADD</button>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="col-lg-10 col-lg-offset-2">
-                                    <!--<button type="reset" class="btn btn-default">Cancel</button>-->
-                                    <!--<button type="submit" class="btn btn-primary" data-dpmaxz-eid="12" ng-click="vm.saveCompleteProjectDetail()">SAVE</button>-->
+                            <div class="col-lg-12">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Phase</th>
+                                        <th>Product Category</th>
+                                        <th>FCI</th>
+                                        <th>Implementation Date</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat= "projectphase in vm.completeprojectphasedata">
+                                        <td>{{projectphase.phase}}</td>
+                                        <td>{{projectphase.productcategory}}</td>
+                                        <td>{{projectphase.fci}}</td>
+                                        <td>{{projectphase.implementationdate}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
 
-                                </div>
                             </div>
                         </fieldset>
                     </form>

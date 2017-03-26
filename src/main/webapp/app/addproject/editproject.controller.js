@@ -19,6 +19,13 @@
         var vm = this;
         //vm.statechange=statechange;
 
+        vm.completeprojectphasedata=[];
+        vm.addProject_phaseData=addProject_phaseData;
+        function addProject_phaseData(){
+          vm.completeprojectphasedata.push(vm.project_phase);
+          vm.project_phase={};
+        }
+
         vm.CompleteProjectDetail=entity;
 //        vm.investor=investor;
 //        vm.companydetail=companydetail;

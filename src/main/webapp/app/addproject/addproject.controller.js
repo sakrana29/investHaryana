@@ -24,6 +24,15 @@
 
         vm.CompleteProjectDetail={};
 
+        vm.completeprojectphasedata=[];
+        vm.addProject_phaseData=addProject_phaseData;
+        function addProject_phaseData(){
+          alert('hello');
+          vm.completeprojectphasedata.push(vm.project_phase);
+          //reinstantiate your $scope.formVariable so that your form is empty
+          vm.project_phase={};
+        }
+
         vm.investor=investor;
         vm.companydetail=companydetail;
         vm.projectdetail=projectdetail;
