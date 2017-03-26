@@ -7,9 +7,9 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20170313085212",
-    "dto": "no",
+    "changelogDate": "20170326061234",
+    "dto": "mapstruct",
     "service": "serviceImpl",
-    "entityTableName": "businessentity",
+    "entityTableName": "businessentitys",
     "pagination": "no"
 }

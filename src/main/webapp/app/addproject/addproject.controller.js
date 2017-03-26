@@ -7,14 +7,14 @@
 
     addprojectController.$inject = ['$scope', 'Principal', 'investor','companydetail','projectdetail','projectsitedetail',
     'electricrequirement','manufacturingdetail','project_finance_investment','projectcombinecodes','LoginService', '$state', 'Investor',
-    'Companydetail','Projectdetail','Projectcompletedetail','Country','State','City_town_village','Businessentity','Sector',
+    'Companydetail','Projectdetail','Projectcompletedetail','Country','State','City_town_village','Businessentitys','Sector',
     'Industrysize','Projectype','Projectcategory','Foreignfundingresource','Approvalforms','Block','Connectingroad','Landusezoneclassification',
     'Watersupplysource','Waste_water_disposal_mode','Emmision_pollution_controll','Emmision_fuel_type','District','Wwtreatmentone','Wwtreatmenttwo',
     'Wwtreatmentthree','Manufacturingunits','Modeofdisposalfor_discharge','Particular','Waste_water_naturetype'];
 
     function addprojectController ($scope, Principal, investor, companydetail, projectdetail,projectsitedetail,electricrequirement,
     manufacturingdetail,project_finance_investment,projectcombinecodes, LoginService, $state, Investor, Companydetail, Projectdetail,
-    Projectcompletedetail,Country,State,City_town_village,Businessentity,Sector,Industrysize,Projectype,Projectcategory,
+    Projectcompletedetail,Country,State,City_town_village,Businessentitys,Sector,Industrysize,Projectype,Projectcategory,
     Foreignfundingresource,Approvalforms,Block,Connectingroad,Landusezoneclassification,Watersupplysource,Waste_water_disposal_mode,
     Emmision_pollution_controll,Emmision_fuel_type,District,Wwtreatmentone,Wwtreatmenttwo,Wwtreatmentthree,Manufacturingunits,
     Modeofdisposalfor_discharge,Particular,Waste_water_naturetype)
@@ -103,7 +103,7 @@
             vm.CompleteProjectDetail.manufacturingdetailDTO=vm.manufacturingdetail;
             vm.CompleteProjectDetail.electricrequirementDTO=vm.electricrequirement;
             vm.CompleteProjectDetail.projectdetailcombinecodesDTO =vm.projectcombinecodes;
-//            console.log(vm.CompleteProjectDetail);
+            console.log(vm.CompleteProjectDetail);
             Projectcompletedetail.save(vm.CompleteProjectDetail,onSaveCompleteProjectSuccess,onSaveCompleteProjectError)
 
         }
@@ -221,7 +221,7 @@
            vm.city_town_villages = result;
            vm.searchQuery = null;
        });
-       Businessentity.query(function(result) {
+       Businessentitys.query(function(result) {
            vm.businessentities = result;
            vm.searchQuery = null;
        });

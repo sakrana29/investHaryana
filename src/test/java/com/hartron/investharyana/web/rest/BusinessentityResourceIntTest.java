@@ -126,23 +126,6 @@ public class BusinessentityResourceIntTest extends AbstractCassandraTest {
     }
 
     @Test
-    public void checkBusinessentitytypeIsRequired() throws Exception {
-        int databaseSizeBeforeTest = businessentityRepository.findAll().size();
-        // set the field null
-        businessentity.setBusinessentitytype(null);
-
-        // Create the Businessentity, which fails.
-
-        restBusinessentityMockMvc.perform(post("/api/businessentities")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(businessentity)))
-            .andExpect(status().isBadRequest());
-
-        List<Businessentity> businessentityList = businessentityRepository.findAll();
-        assertThat(businessentityList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
     public void getAllBusinessentities() throws Exception {
         // Initialize the database
         businessentityRepository.save(businessentity);

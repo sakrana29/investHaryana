@@ -26,8 +26,8 @@
                       $translatePartialLoader.addPart('home');
                       return $translate.refresh();
                   }],
-                  entity: ['$stateParams', 'Projectcompletedetail', function($stateParams,Projectcompletedetail) {
-                          return Projectcompletedetail.get({id : $stateParams.id}).$promise;
+                  entity: ['$stateParams', 'Projectcompletedetaildata', function($stateParams,Projectcompletedetaildata) {
+                          return Projectcompletedetaildata.get({id : $stateParams.id}).$promise;
                   }]
               }
         });

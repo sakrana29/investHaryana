@@ -5,13 +5,13 @@
         .module('investhryApp')
         .controller('editprojectController', editprojectController);
 
-    editprojectController.$inject = ['$scope', 'Principal','entity','Projectcompletedetail','LoginService', '$state', 'Country','State','City_town_village','Businessentity','Sector',
+    editprojectController.$inject = ['$scope', 'Principal','entity','Projectcompletedetail','LoginService', '$state', 'Country','State','City_town_village','Businessentitys','Sector',
     'Industrysize','Projectype','Projectcategory','Foreignfundingresource','Approvalforms','Block','Connectingroad','Landusezoneclassification',
     'Watersupplysource','Waste_water_disposal_mode','Emmision_pollution_controll','Emmision_fuel_type','District','Wwtreatmentone','Wwtreatmenttwo',
     'Wwtreatmentthree','Manufacturingunits','Modeofdisposalfor_discharge','Particular','Waste_water_naturetype'];
 
     function editprojectController ($scope, Principal, entity,Projectcompletedetail, LoginService, $state,
-    Country,State,City_town_village,Businessentity,Sector,Industrysize,Projectype,Projectcategory,
+    Country,State,City_town_village,Businessentitys,Sector,Industrysize,Projectype,Projectcategory,
     Foreignfundingresource,Approvalforms,Block,Connectingroad,Landusezoneclassification,Watersupplysource,Waste_water_disposal_mode,
     Emmision_pollution_controll,Emmision_fuel_type,District,Wwtreatmentone,Wwtreatmenttwo,Wwtreatmentthree,Manufacturingunits,
     Modeofdisposalfor_discharge,Particular,Waste_water_naturetype)
@@ -109,7 +109,7 @@
             vm.CompleteProjectDetail.manufacturingdetailDTO=vm.manufacturing_detail;
             vm.CompleteProjectDetail.electricrequirementDTO=vm.electricrequirement;
             vm.CompleteProjectDetail.projectdetailcombinecodesDTO =vm.projectcombinecodes;
-//            console.log(vm.CompleteProjectDetail);
+            console.log(vm.CompleteProjectDetail);
             Projectcompletedetail.update(vm.CompleteProjectDetail,onUpdateCompleteProjectSuccess,onUpdateCompleteProjectError)
         }
         function onUpdateCompleteProjectSuccess (resultCompleteProject) {
@@ -226,7 +226,7 @@
           vm.city_town_villages = result;
           vm.searchQuery = null;
       });
-      Businessentity.query(function(result) {
+      Businessentitys.query(function(result) {
           vm.businessentities = result;
           vm.searchQuery = null;
       });

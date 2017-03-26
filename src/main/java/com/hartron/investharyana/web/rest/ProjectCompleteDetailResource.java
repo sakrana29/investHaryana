@@ -37,8 +37,13 @@ public class ProjectCompleteDetailResource {
     private final ManufacturingdetailService manufacturingdetailService;
     private final ElectricrequirementService electricrequirementService;
     private final ProjectdetailcombinecodesService projectdetailcombinecodesService;
+    private final CountryService countryService;
+    private final StateService stateService;
+    private final City_town_villageService city_town_villageService;
+    private final BusinessentitysService businessentitysService;
 
-    public ProjectCompleteDetailResource(InvestorService investorService, CompanydetailService companydetailService, ProjectdetailService projectdetailService, ProjectsitedetailService projectsitedetailService, Project_finance_investmentService project_finance_investmentService, ManufacturingdetailService manufacturingdetailService, ElectricrequirementService electricrequirementService, ProjectdetailcombinecodesService projectdetailcombinecodesService) {
+
+    public ProjectCompleteDetailResource(InvestorService investorService, CompanydetailService companydetailService, ProjectdetailService projectdetailService, ProjectsitedetailService projectsitedetailService, Project_finance_investmentService project_finance_investmentService, ManufacturingdetailService manufacturingdetailService, ElectricrequirementService electricrequirementService, ProjectdetailcombinecodesService projectdetailcombinecodesService, CountryService countryService, StateService stateService, City_town_villageService city_town_villageService, BusinessentitysService businessentitysService) {
         this.investorService = investorService;
         this.companydetailService = companydetailService;
         this.projectdetailService = projectdetailService;
@@ -47,6 +52,10 @@ public class ProjectCompleteDetailResource {
         this.manufacturingdetailService = manufacturingdetailService;
         this.electricrequirementService = electricrequirementService;
         this.projectdetailcombinecodesService = projectdetailcombinecodesService;
+        this.countryService = countryService;
+        this.stateService = stateService;
+        this.city_town_villageService = city_town_villageService;
+        this.businessentitysService = businessentitysService;
     }
 
     @GetMapping("/CompleteProjectDetail")
@@ -92,6 +101,89 @@ public class ProjectCompleteDetailResource {
 
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(completeprojectdto));
         //return projectdetailcombinecodesDTO;
+    }
+
+    @GetMapping("/CompleteProjectDetailData/{id}")
+    @Timed
+    public ResponseEntity<ProjectCompleteDetailDataDTO> getOneProjectCompleteDetailData(@PathVariable String id) {
+        log.debug("REST request to get one project complete detail");
+        //ProjectCompleteDetailDTO completeprojectdto=new ProjectCompleteDetailDTO();
+
+        ProjectdetailcombinecodesDTO projectdetailcombinecodesDTO=projectdetailcombinecodesService.findOne(id);
+        ProjectCompleteDetailDataDTO completeprojectdatadto=new ProjectCompleteDetailDataDTO();
+        completeprojectdatadto.setProjectdetailDTO(projectdetailService.findOne(projectdetailcombinecodesDTO.getId().toString()));
+
+        InvestorDTO investorDTO=investorService.findOne(projectdetailcombinecodesDTO.getInvestorid().toString());
+        InvestorDataDTO investorDataDTO=new InvestorDataDTO();
+        CountryDTO countryDTO= countryService.findOne(investorDTO.getCountryid().toString());
+        StateDTO stateDTO = stateService.findOne(investorDTO.getStateid().toString());
+
+        City_town_villageDTO city_town_villageDTO=new City_town_villageDTO();
+        city_town_villageDTO = city_town_villageService.findOne(investorDTO.getCityid().toString());
+
+        generateInvstorDataDTO(investorDTO, investorDataDTO, countryDTO, stateDTO, city_town_villageDTO);
+
+        CompanydetailDTO companydetailDTO1 = companydetailService.findOne(projectdetailcombinecodesDTO.getCompanydetailid().toString());
+        BusinessentitysDTO businessentitysDTO= businessentitysService.findOne(companydetailDTO1.getBusinessentitytype().toString());
+        CompanydetailDataDTO companydetailDTO=new CompanydetailDataDTO();
+        generateCompanyDataDTO(companydetailDTO1, businessentitysDTO, companydetailDTO);
+
+        completeprojectdatadto.setInvestorDTO(investorDataDTO);
+        completeprojectdatadto.setCompanydetailDTO(companydetailDTO);
+        completeprojectdatadto.setProjectsitedetailDTO(projectsitedetailService.findOne(projectdetailcombinecodesDTO.getProjectsitedetailid().toString()));
+        completeprojectdatadto.setProject_finance_investmentDTO(project_finance_investmentService.findOne(projectdetailcombinecodesDTO.getProjectfinanceid().toString()));
+        completeprojectdatadto.setManufacturingdetailDTO(manufacturingdetailService.findOne(projectdetailcombinecodesDTO.getManufacturingid().toString()));
+        completeprojectdatadto.setElectricrequirementDTO(electricrequirementService.findOne(projectdetailcombinecodesDTO.getElectricityrequirementid().toString()));
+
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(completeprojectdatadto));
+        //return projectdetailcombinecodesDTO;
+    }
+
+    private void generateCompanyDataDTO(CompanydetailDTO companydetailDTO1, BusinessentitysDTO businessentitysDTO, CompanydetailDataDTO companydetailDTO) {
+        companydetailDTO.setAadhar_number(companydetailDTO1.getAadhar_number());
+        companydetailDTO.setAadharcard(companydetailDTO1.getAadharcard());
+        companydetailDTO.setBusinessentity(companydetailDTO1.getBusinessentity());
+        companydetailDTO.setBusinessentitytype(companydetailDTO1.getBusinessentitytype());
+        companydetailDTO.setBusinessentitytypename(businessentitysDTO.getBusinessentitytype());
+        companydetailDTO.setCst_document(companydetailDTO1.getCst_document());
+        companydetailDTO.setCst_number(companydetailDTO1.getCst_number());
+        companydetailDTO.setDesignation(companydetailDTO1.getDesignation());
+        companydetailDTO.setDirector_md_ceo_list(companydetailDTO1.getDirector_md_ceo_list());
+        companydetailDTO.setDirector_promoter_md_ceo_number(companydetailDTO1.getDirector_promoter_md_ceo_number());
+        companydetailDTO.setId(companydetailDTO1.getId());
+        companydetailDTO.setInvestorid(companydetailDTO1.getInvestorid());
+        companydetailDTO.setMoa_partnershipdeed(companydetailDTO1.getMoa_partnershipdeed());
+        companydetailDTO.setNri(companydetailDTO1.getNri());
+        companydetailDTO.setPan_number(companydetailDTO1.getPan_number());
+        companydetailDTO.setPancard(companydetailDTO1.getPancard());
+        companydetailDTO.setPromoter_md_director(companydetailDTO1.getPromoter_md_director());
+        companydetailDTO.setRegistration_document(companydetailDTO1.getRegistration_document());
+        companydetailDTO.setTin_vat_document(companydetailDTO1.getTin_vat_document());
+        companydetailDTO.setTin_vat_number(companydetailDTO1.getTin_vat_number());
+    }
+
+    private void generateInvstorDataDTO(InvestorDTO investorDTO, InvestorDataDTO investorDataDTO, CountryDTO countryDTO, StateDTO stateDTO, City_town_villageDTO city_town_villageDTO) {
+        investorDataDTO.setId(investorDTO.getId());
+        investorDataDTO.setAddress1(investorDTO.getAddress1());
+        investorDataDTO.setAddress2(investorDTO.getAddress2());
+        investorDataDTO.setAddress3(investorDTO.getAddress3());
+        investorDataDTO.setCityid(investorDTO.getCityid());
+        investorDataDTO.setCityname(city_town_villageDTO.getCity_town_village_name());
+        investorDataDTO.setCountryid(investorDTO.getCountryid());
+        investorDataDTO.setCountryname(countryDTO.getCountryname());
+        investorDataDTO.setEmailprimary(investorDTO.getEmailprimary());
+        investorDataDTO.setEmailsecondary(investorDTO.getEmailsecondary());
+        investorDataDTO.setFirstname(investorDTO.getFirstname());
+        investorDataDTO.setInvestorpicpath(investorDTO.getInvestorpicpath());
+        investorDataDTO.setLastname(investorDTO.getLastname());
+        investorDataDTO.setMiddlename(investorDTO.getMiddlename());
+        investorDataDTO.setMouapplicable(investorDTO.getMouapplicable());
+        investorDataDTO.setMoudocument(investorDTO.getMoudocument());
+        investorDataDTO.setMouidnumber(investorDTO.getMouidnumber());
+        investorDataDTO.setMousignyear(investorDTO.getMousignyear());
+        investorDataDTO.setStateid(investorDTO.getStateid());
+        investorDataDTO.setStatename(stateDTO.getStatename());
+        investorDataDTO.setUserlogin(investorDTO.getUserlogin());
     }
 
     @PostMapping("/CompleteProjectDetail")

@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "businessentitys" : {
+            "home": {
+                "title": "Businessentitys",
+                "createLabel": "नया Businessentitys बनाएँ",
+                "createOrEditLabel": "Businessentitys बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Businessentitys [identifier: {{ param }}] तैयार है",
+            "updated": "एक Businessentitys [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Businessentitys [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Businessentitys [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Businessentitys"
+            },
+            "businessentitytype": "Businessentitytype"
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "businessentitys" : {
+            "home": {
+                "title": "Businessentitys",
+                "createLabel": "Create a new Businessentitys",
+                "createOrEditLabel": "Create or edit a Businessentitys"
+            },
+            "created": "A new Businessentitys is created with identifier {{ param }}",
+            "updated": "A Businessentitys is updated with identifier {{ param }}",
+            "deleted": "A Businessentitys is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Businessentitys {{ id }}?"
+            },
+            "detail": {
+                "title": "Businessentitys"
+            },
+            "businessentitytype": "Businessentitytype"
+        }
+    }
+}

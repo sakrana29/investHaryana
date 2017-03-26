@@ -1,21 +1,15 @@
-package com.hartron.investharyana.domain;
+package com.hartron.investharyana.service.dto;
 
-import com.datastax.driver.mapping.annotations.*;
 
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 
 /**
- * A Businessentity.
+ * A DTO for the Businessentitys entity.
  */
+public class BusinessentitysDTO implements Serializable {
 
-@Table(name = "businessentity")
-public class Businessentity implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @PartitionKey
     private UUID id;
 
     private String businessentitytype;
@@ -27,14 +21,8 @@ public class Businessentity implements Serializable {
     public void setId(UUID id) {
         this.id = id;
     }
-
     public String getBusinessentitytype() {
         return businessentitytype;
-    }
-
-    public Businessentity businessentitytype(String businessentitytype) {
-        this.businessentitytype = businessentitytype;
-        return this;
     }
 
     public void setBusinessentitytype(String businessentitytype) {
@@ -49,11 +37,12 @@ public class Businessentity implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Businessentity businessentity = (Businessentity) o;
-        if (businessentity.id == null || id == null) {
-            return false;
-        }
-        return Objects.equals(id, businessentity.id);
+
+        BusinessentitysDTO businessentitysDTO = (BusinessentitysDTO) o;
+
+        if ( ! Objects.equals(id, businessentitysDTO.id)) { return false; }
+
+        return true;
     }
 
     @Override
@@ -63,7 +52,7 @@ public class Businessentity implements Serializable {
 
     @Override
     public String toString() {
-        return "Businessentity{" +
+        return "BusinessentitysDTO{" +
             "id=" + id +
             ", businessentitytype='" + businessentitytype + "'" +
             '}';

@@ -7,11 +7,11 @@ import java.util.Objects;
 import java.util.UUID;
 
 /**
- * A Businessentity.
+ * A Businessentitys.
  */
 
-@Table(name = "businessentity")
-public class Businessentity implements Serializable {
+@Table(name = "businessentitys")
+public class Businessentitys implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -32,7 +32,7 @@ public class Businessentity implements Serializable {
         return businessentitytype;
     }
 
-    public Businessentity businessentitytype(String businessentitytype) {
+    public Businessentitys businessentitytype(String businessentitytype) {
         this.businessentitytype = businessentitytype;
         return this;
     }
@@ -49,11 +49,11 @@ public class Businessentity implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Businessentity businessentity = (Businessentity) o;
-        if (businessentity.id == null || id == null) {
+        Businessentitys businessentitys = (Businessentitys) o;
+        if (businessentitys.id == null || id == null) {
             return false;
         }
-        return Objects.equals(id, businessentity.id);
+        return Objects.equals(id, businessentitys.id);
     }
 
     @Override
@@ -63,7 +63,7 @@ public class Businessentity implements Serializable {
 
     @Override
     public String toString() {
-        return "Businessentity{" +
+        return "Businessentitys{" +
             "id=" + id +
             ", businessentitytype='" + businessentitytype + "'" +
             '}';

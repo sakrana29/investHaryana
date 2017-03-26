@@ -55,6 +55,7 @@
                 "wwtreatmentthree": "Wwtreatmentthree",
                 "projectservicedetail": "Projectservicedetail",
                 "departmentservice": "Departmentservice",
+                "businessentitys": "Businessentitys",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
