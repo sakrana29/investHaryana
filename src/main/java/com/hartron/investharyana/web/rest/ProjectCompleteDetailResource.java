@@ -41,9 +41,13 @@ public class ProjectCompleteDetailResource {
     private final StateService stateService;
     private final City_town_villageService city_town_villageService;
     private final BusinessentitysService businessentitysService;
+    private final SectorService sectorService;
+    private final IndustrysizeService industrysizeService;
+    private final ProjectypeService projectypeService;
+    private final ProjectcategoryService projectcategoryService;
+    private final ApprovalformsService approvalformsService;
 
-
-    public ProjectCompleteDetailResource(InvestorService investorService, CompanydetailService companydetailService, ProjectdetailService projectdetailService, ProjectsitedetailService projectsitedetailService, Project_finance_investmentService project_finance_investmentService, ManufacturingdetailService manufacturingdetailService, ElectricrequirementService electricrequirementService, ProjectdetailcombinecodesService projectdetailcombinecodesService, CountryService countryService, StateService stateService, City_town_villageService city_town_villageService, BusinessentitysService businessentitysService) {
+    public ProjectCompleteDetailResource(InvestorService investorService, CompanydetailService companydetailService, ProjectdetailService projectdetailService, ProjectsitedetailService projectsitedetailService, Project_finance_investmentService project_finance_investmentService, ManufacturingdetailService manufacturingdetailService, ElectricrequirementService electricrequirementService, ProjectdetailcombinecodesService projectdetailcombinecodesService, CountryService countryService, StateService stateService, City_town_villageService city_town_villageService, BusinessentitysService businessentitysService, SectorService sectorService, IndustrysizeService industrysizeService, ProjectypeService projectypeService, ProjectcategoryService projectcategoryService, ApprovalformsService approvalformsService) {
         this.investorService = investorService;
         this.companydetailService = companydetailService;
         this.projectdetailService = projectdetailService;
@@ -56,6 +60,11 @@ public class ProjectCompleteDetailResource {
         this.stateService = stateService;
         this.city_town_villageService = city_town_villageService;
         this.businessentitysService = businessentitysService;
+        this.sectorService = sectorService;
+        this.industrysizeService = industrysizeService;
+        this.projectypeService = projectypeService;
+        this.projectcategoryService = projectcategoryService;
+        this.approvalformsService = approvalformsService;
     }
 
     @GetMapping("/CompleteProjectDetail")
@@ -103,40 +112,175 @@ public class ProjectCompleteDetailResource {
         //return projectdetailcombinecodesDTO;
     }
 
-    @GetMapping("/CompleteProjectDetailData/{id}")
+    @GetMapping("/CompleteProjectDetailData")
     @Timed
-    public ResponseEntity<ProjectCompleteDetailDataDTO> getOneProjectCompleteDetailData(@PathVariable String id) {
-        log.debug("REST request to get one project complete detail");
+    public List<ProjectCompleteDetailDataDTO> getAllProjectCompleteDetailData() {
+        log.debug("REST request to get all project complete detail data");
         //ProjectCompleteDetailDTO completeprojectdto=new ProjectCompleteDetailDTO();
 
-        ProjectdetailcombinecodesDTO projectdetailcombinecodesDTO=projectdetailcombinecodesService.findOne(id);
-        ProjectCompleteDetailDataDTO completeprojectdatadto=new ProjectCompleteDetailDataDTO();
-        completeprojectdatadto.setProjectdetailDTO(projectdetailService.findOne(projectdetailcombinecodesDTO.getId().toString()));
+        List<ProjectCompleteDetailDataDTO> projectCompleteDetailDataDTOList=new ArrayList<>();
+        List<ProjectdetailcombinecodesDTO> projectdetailcombinecodesDTOList = projectdetailcombinecodesService.findAll();
 
-        InvestorDTO investorDTO=investorService.findOne(projectdetailcombinecodesDTO.getInvestorid().toString());
-        InvestorDataDTO investorDataDTO=new InvestorDataDTO();
-        CountryDTO countryDTO= countryService.findOne(investorDTO.getCountryid().toString());
-        StateDTO stateDTO = stateService.findOne(investorDTO.getStateid().toString());
+        for(int i=0;i<projectdetailcombinecodesDTOList.size();i++) {
+            ProjectCompleteDetailDataDTO completeprojectdatadto = new ProjectCompleteDetailDataDTO();
+            ProjectdetailcombinecodesDTO projectdetailcombinecodesDTO= projectdetailcombinecodesDTOList.get(i);
 
-        City_town_villageDTO city_town_villageDTO=new City_town_villageDTO();
-        city_town_villageDTO = city_town_villageService.findOne(investorDTO.getCityid().toString());
+            InvestorDTO investorDTO = investorService.findOne(projectdetailcombinecodesDTO.getInvestorid().toString());
+            InvestorDataDTO investorDataDTO = new InvestorDataDTO();
+            CountryDTO countryDTO = new CountryDTO();
+            if (investorDTO.getCountryid() != null)
+                countryDTO = countryService.findOne(investorDTO.getCountryid().toString());
 
-        generateInvstorDataDTO(investorDTO, investorDataDTO, countryDTO, stateDTO, city_town_villageDTO);
+            StateDTO stateDTO = new StateDTO();
+            if (investorDTO.getStateid() != null)
+                stateDTO = stateService.findOne(investorDTO.getStateid().toString());
 
-        CompanydetailDTO companydetailDTO1 = companydetailService.findOne(projectdetailcombinecodesDTO.getCompanydetailid().toString());
-        BusinessentitysDTO businessentitysDTO= businessentitysService.findOne(companydetailDTO1.getBusinessentitytype().toString());
-        CompanydetailDataDTO companydetailDTO=new CompanydetailDataDTO();
-        generateCompanyDataDTO(companydetailDTO1, businessentitysDTO, companydetailDTO);
+            City_town_villageDTO city_town_villageDTO = new City_town_villageDTO();
+            if (investorDTO.getCityid() != null)
+                city_town_villageDTO = city_town_villageService.findOne(investorDTO.getCityid().toString());
+            generateInvstorDataDTO(investorDTO, investorDataDTO, countryDTO, stateDTO, city_town_villageDTO);
 
-        completeprojectdatadto.setInvestorDTO(investorDataDTO);
-        completeprojectdatadto.setCompanydetailDTO(companydetailDTO);
-        completeprojectdatadto.setProjectsitedetailDTO(projectsitedetailService.findOne(projectdetailcombinecodesDTO.getProjectsitedetailid().toString()));
-        completeprojectdatadto.setProject_finance_investmentDTO(project_finance_investmentService.findOne(projectdetailcombinecodesDTO.getProjectfinanceid().toString()));
-        completeprojectdatadto.setManufacturingdetailDTO(manufacturingdetailService.findOne(projectdetailcombinecodesDTO.getManufacturingid().toString()));
-        completeprojectdatadto.setElectricrequirementDTO(electricrequirementService.findOne(projectdetailcombinecodesDTO.getElectricityrequirementid().toString()));
+            CompanydetailDTO companydetailDTO1 = companydetailService.findOne(projectdetailcombinecodesDTO.getCompanydetailid().toString());
+            BusinessentitysDTO businessentitysDTO = new BusinessentitysDTO();
+            if (companydetailDTO1.getBusinessentitytype() != null)
+                businessentitysDTO = businessentitysService.findOne(companydetailDTO1.getBusinessentitytype().toString());
+            CompanydetailDataDTO companydetailDTO = new CompanydetailDataDTO();
+            generateCompanyDataDTO(companydetailDTO1, businessentitysDTO, companydetailDTO);
 
+            ProjectdetailDTO projectdetailDTO1 = projectdetailService.findOne(projectdetailcombinecodesDTO.getId().toString());
+            SectorDTO sectorDTO = new SectorDTO();
+            if (projectdetailDTO1.getSectorid() != null)
+                sectorDTO = sectorService.findOne(projectdetailDTO1.getSectorid().toString());
+
+            IndustrysizeDTO industrysizeDTO = new IndustrysizeDTO();
+            if (projectdetailDTO1.getSize_of_industry() != null)
+                industrysizeDTO = industrysizeService.findOne(projectdetailDTO1.getSize_of_industry().toString());
+
+            ProjectypeDTO projectypeDTO = new ProjectypeDTO();
+            if (projectdetailDTO1.getProjectype() != null)
+                projectypeDTO = projectypeService.findOne(projectdetailDTO1.getProjectype().toString());
+
+            ProjectcategoryDTO projectcategoryDTO = new ProjectcategoryDTO();
+            if (projectdetailDTO1.getCategory_of_project() != null)
+                projectcategoryDTO = projectcategoryService.findOne(projectdetailDTO1.getCategory_of_project().toString());
+
+            CountryDTO countryDTO1 = new CountryDTO();
+            if (projectdetailDTO1.getCollaboration_with_foreign_country() != null)
+                countryDTO1 = countryService.findOne(projectdetailDTO1.getCollaboration_with_foreign_country().toString());
+
+            ApprovalformsDTO approvalformsDTO = new ApprovalformsDTO();
+            if (projectdetailDTO1.getApproval_application_form() != null)
+                approvalformsDTO = approvalformsService.findOne(projectdetailDTO1.getApproval_application_form().toString());
+            ProjectdetailDataDTO projectdetailDTO = generateProjectdetailDataDTO(projectdetailDTO1, sectorDTO, industrysizeDTO, projectypeDTO, projectcategoryDTO, countryDTO1, approvalformsDTO);
+
+            completeprojectdatadto.setInvestorDTO(investorDataDTO);
+            completeprojectdatadto.setCompanydetailDTO(companydetailDTO);
+            completeprojectdatadto.setProjectdetailDTO(projectdetailDTO);
+            completeprojectdatadto.setProjectsitedetailDTO(projectsitedetailService.findOne(projectdetailcombinecodesDTO.getProjectsitedetailid().toString()));
+            completeprojectdatadto.setProject_finance_investmentDTO(project_finance_investmentService.findOne(projectdetailcombinecodesDTO.getProjectfinanceid().toString()));
+            completeprojectdatadto.setManufacturingdetailDTO(manufacturingdetailService.findOne(projectdetailcombinecodesDTO.getManufacturingid().toString()));
+            completeprojectdatadto.setElectricrequirementDTO(electricrequirementService.findOne(projectdetailcombinecodesDTO.getElectricityrequirementid().toString()));
+
+            projectCompleteDetailDataDTOList.add(completeprojectdatadto);
+        }
+//        System.out.print(completeprojectdatadto);
+        return projectCompleteDetailDataDTOList;
+        //return projectdetailcombinecodesDTO;
+    }
+    @GetMapping("/CompleteProjectDetailData/{id}")
+    @Timed
+    public ResponseEntity<ProjectCompleteDetailDataDTO> getOneProjectCompleteDetailData(@PathVariable String id){
+            log.debug("REST request to get one project complete detail data");
+            //ProjectCompleteDetailDTO completeprojectdto=new ProjectCompleteDetailDTO();
+
+            ProjectdetailcombinecodesDTO projectdetailcombinecodesDTO = projectdetailcombinecodesService.findOne(id);
+            ProjectCompleteDetailDataDTO completeprojectdatadto = new ProjectCompleteDetailDataDTO();
+
+            InvestorDTO investorDTO = investorService.findOne(projectdetailcombinecodesDTO.getInvestorid().toString());
+            InvestorDataDTO investorDataDTO = new InvestorDataDTO();
+            CountryDTO countryDTO = new CountryDTO();
+            if (investorDTO.getCountryid() != null)
+                countryDTO = countryService.findOne(investorDTO.getCountryid().toString());
+
+            StateDTO stateDTO = new StateDTO();
+            if (investorDTO.getStateid() != null)
+                stateDTO = stateService.findOne(investorDTO.getStateid().toString());
+
+            City_town_villageDTO city_town_villageDTO = new City_town_villageDTO();
+            if (investorDTO.getCityid() != null)
+                city_town_villageDTO = city_town_villageService.findOne(investorDTO.getCityid().toString());
+            generateInvstorDataDTO(investorDTO, investorDataDTO, countryDTO, stateDTO, city_town_villageDTO);
+
+            CompanydetailDTO companydetailDTO1 = companydetailService.findOne(projectdetailcombinecodesDTO.getCompanydetailid().toString());
+            BusinessentitysDTO businessentitysDTO = new BusinessentitysDTO();
+            if (companydetailDTO1.getBusinessentitytype() != null)
+                businessentitysDTO = businessentitysService.findOne(companydetailDTO1.getBusinessentitytype().toString());
+            CompanydetailDataDTO companydetailDTO = new CompanydetailDataDTO();
+            generateCompanyDataDTO(companydetailDTO1, businessentitysDTO, companydetailDTO);
+
+            ProjectdetailDTO projectdetailDTO1 = projectdetailService.findOne(projectdetailcombinecodesDTO.getId().toString());
+            SectorDTO sectorDTO = new SectorDTO();
+            if (projectdetailDTO1.getSectorid() != null)
+                sectorDTO = sectorService.findOne(projectdetailDTO1.getSectorid().toString());
+
+            IndustrysizeDTO industrysizeDTO = new IndustrysizeDTO();
+            if (projectdetailDTO1.getSize_of_industry() != null)
+                industrysizeDTO = industrysizeService.findOne(projectdetailDTO1.getSize_of_industry().toString());
+
+            ProjectypeDTO projectypeDTO = new ProjectypeDTO();
+            if (projectdetailDTO1.getProjectype() != null)
+                projectypeDTO = projectypeService.findOne(projectdetailDTO1.getProjectype().toString());
+
+            ProjectcategoryDTO projectcategoryDTO = new ProjectcategoryDTO();
+            if (projectdetailDTO1.getCategory_of_project() != null)
+                projectcategoryDTO = projectcategoryService.findOne(projectdetailDTO1.getCategory_of_project().toString());
+
+            CountryDTO countryDTO1 = new CountryDTO();
+            if (projectdetailDTO1.getCollaboration_with_foreign_country() != null)
+                countryDTO1 = countryService.findOne(projectdetailDTO1.getCollaboration_with_foreign_country().toString());
+
+            ApprovalformsDTO approvalformsDTO = new ApprovalformsDTO();
+            if (projectdetailDTO1.getApproval_application_form() != null)
+                approvalformsDTO = approvalformsService.findOne(projectdetailDTO1.getApproval_application_form().toString());
+            ProjectdetailDataDTO projectdetailDTO = generateProjectdetailDataDTO(projectdetailDTO1, sectorDTO, industrysizeDTO, projectypeDTO, projectcategoryDTO, countryDTO1, approvalformsDTO);
+
+            completeprojectdatadto.setInvestorDTO(investorDataDTO);
+            completeprojectdatadto.setCompanydetailDTO(companydetailDTO);
+            completeprojectdatadto.setProjectdetailDTO(projectdetailDTO);
+            completeprojectdatadto.setProjectsitedetailDTO(projectsitedetailService.findOne(projectdetailcombinecodesDTO.getProjectsitedetailid().toString()));
+            completeprojectdatadto.setProject_finance_investmentDTO(project_finance_investmentService.findOne(projectdetailcombinecodesDTO.getProjectfinanceid().toString()));
+            completeprojectdatadto.setManufacturingdetailDTO(manufacturingdetailService.findOne(projectdetailcombinecodesDTO.getManufacturingid().toString()));
+            completeprojectdatadto.setElectricrequirementDTO(electricrequirementService.findOne(projectdetailcombinecodesDTO.getElectricityrequirementid().toString()));
+
+//        System.out.print(completeprojectdatadto);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(completeprojectdatadto));
         //return projectdetailcombinecodesDTO;
+    }
+
+    private ProjectdetailDataDTO generateProjectdetailDataDTO(ProjectdetailDTO projectdetailDTO1, SectorDTO sectorDTO, IndustrysizeDTO industrysizeDTO, ProjectypeDTO projectypeDTO, ProjectcategoryDTO projectcategoryDTO, CountryDTO countryDTO1, ApprovalformsDTO approvalformsDTO) {
+        ProjectdetailDataDTO projectdetailDTO=new ProjectdetailDataDTO();
+        projectdetailDTO.setApproval_application_form(projectdetailDTO1.getApproval_application_form());
+        projectdetailDTO.setApproval_application_formname(approvalformsDTO.getExistingapprovalforms());
+        projectdetailDTO.setApproval_document(projectdetailDTO1.getApproval_document());
+        projectdetailDTO.setCategory_of_project(projectdetailDTO1.getCategory_of_project());
+        projectdetailDTO.setCategory_of_projectname(projectcategoryDTO.getCategorytype());
+        projectdetailDTO.setCollaboration_with_foreign_country(projectdetailDTO1.getCollaboration_with_foreign_country());
+        projectdetailDTO.setCollaboration_with_foreign_countryname(countryDTO1.getCountryname());
+        projectdetailDTO.setDetail_project_report(projectdetailDTO1.getDetail_project_report());
+        projectdetailDTO.setEdc_sif_clu_fee_paid_applicable(projectdetailDTO1.getEdc_sif_clu_fee_paid_applicable());
+        projectdetailDTO.setEdc_sif_clu_fee_paid_document(projectdetailDTO1.getEdc_sif_clu_fee_paid_document());
+        projectdetailDTO.setExisting_regulatory_approval(projectdetailDTO1.getExisting_regulatory_approval());
+        projectdetailDTO.setId(projectdetailDTO1.getId());
+        projectdetailDTO.setInvestorid(projectdetailDTO1.getInvestorid());
+        projectdetailDTO.setNiccode(projectdetailDTO1.getNiccode());
+        projectdetailDTO.setProjectpurpose(projectdetailDTO1.getProjectpurpose());
+        projectdetailDTO.setProjectype(projectdetailDTO1.getProjectype());
+        projectdetailDTO.setProjectypename(projectypeDTO.getProjectypes());
+        projectdetailDTO.setSectorid(projectdetailDTO1.getSectorid());
+        projectdetailDTO.setSectorname(sectorDTO.getSectortype());
+        projectdetailDTO.setSize_of_industry(projectdetailDTO1.getSize_of_industry());
+        projectdetailDTO.setSize_of_industryname(industrysizeDTO.getSizeofindustry());
+        return projectdetailDTO;
     }
 
     private void generateCompanyDataDTO(CompanydetailDTO companydetailDTO1, BusinessentitysDTO businessentitysDTO, CompanydetailDataDTO companydetailDTO) {

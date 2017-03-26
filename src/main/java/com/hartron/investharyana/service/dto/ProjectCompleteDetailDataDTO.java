@@ -10,7 +10,7 @@ public class ProjectCompleteDetailDataDTO implements Serializable {
 
     private InvestorDataDTO investorDTO;
     private CompanydetailDataDTO companydetailDTO;
-    private ProjectdetailDTO projectdetailDTO;
+    private ProjectdetailDataDTO projectdetailDTO;
     private ProjectsitedetailDTO projectsitedetailDTO;
     private Project_finance_investmentDTO project_finance_investmentDTO;
     private ManufacturingdetailDTO manufacturingdetailDTO;
@@ -31,10 +31,10 @@ public class ProjectCompleteDetailDataDTO implements Serializable {
         this.companydetailDTO = companydetailDTO;
     }
 
-    public ProjectdetailDTO getProjectdetailDTO() {
+    public ProjectdetailDataDTO getProjectdetailDTO() {
         return projectdetailDTO;
     }
-    public void setProjectdetailDTO(ProjectdetailDTO projectdetailDTO) {
+    public void setProjectdetailDTO(ProjectdetailDataDTO projectdetailDTO) {
         this.projectdetailDTO = projectdetailDTO;
     }
 
