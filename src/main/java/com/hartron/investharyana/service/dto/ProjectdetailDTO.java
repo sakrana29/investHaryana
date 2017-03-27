@@ -26,19 +26,19 @@ public class ProjectdetailDTO implements Serializable {
 
     private String edc_sif_clu_fee_paid_document;
 
-    private UUID approval_application_form;
-
-    private UUID category_of_project;
-
-    private UUID collaboration_with_foreign_country;
-
     private UUID investorid;
 
-    private UUID projectype;
+    private String approval_application_form;
 
-    private UUID sectorid;
+    private String category_of_project;
 
-    private UUID size_of_industry;
+    private String collaboration_with_foreign_country;
+
+    private String projectype;
+
+    private String sectorname;
+
+    private String size_of_industry;
 
     public UUID getId() {
         return id;
@@ -96,27 +96,6 @@ public class ProjectdetailDTO implements Serializable {
     public void setEdc_sif_clu_fee_paid_document(String edc_sif_clu_fee_paid_document) {
         this.edc_sif_clu_fee_paid_document = edc_sif_clu_fee_paid_document;
     }
-    public UUID getApproval_application_form() {
-        return approval_application_form;
-    }
-
-    public void setApproval_application_form(UUID approval_application_form) {
-        this.approval_application_form = approval_application_form;
-    }
-    public UUID getCategory_of_project() {
-        return category_of_project;
-    }
-
-    public void setCategory_of_project(UUID category_of_project) {
-        this.category_of_project = category_of_project;
-    }
-    public UUID getCollaboration_with_foreign_country() {
-        return collaboration_with_foreign_country;
-    }
-
-    public void setCollaboration_with_foreign_country(UUID collaboration_with_foreign_country) {
-        this.collaboration_with_foreign_country = collaboration_with_foreign_country;
-    }
     public UUID getInvestorid() {
         return investorid;
     }
@@ -124,25 +103,46 @@ public class ProjectdetailDTO implements Serializable {
     public void setInvestorid(UUID investorid) {
         this.investorid = investorid;
     }
-    public UUID getProjectype() {
+    public String getApproval_application_form() {
+        return approval_application_form;
+    }
+
+    public void setApproval_application_form(String approval_application_form) {
+        this.approval_application_form = approval_application_form;
+    }
+    public String getCategory_of_project() {
+        return category_of_project;
+    }
+
+    public void setCategory_of_project(String category_of_project) {
+        this.category_of_project = category_of_project;
+    }
+    public String getCollaboration_with_foreign_country() {
+        return collaboration_with_foreign_country;
+    }
+
+    public void setCollaboration_with_foreign_country(String collaboration_with_foreign_country) {
+        this.collaboration_with_foreign_country = collaboration_with_foreign_country;
+    }
+    public String getProjectype() {
         return projectype;
     }
 
-    public void setProjectype(UUID projectype) {
+    public void setProjectype(String projectype) {
         this.projectype = projectype;
     }
-    public UUID getSectorid() {
-        return sectorid;
+    public String getSectorname() {
+        return sectorname;
     }
 
-    public void setSectorid(UUID sectorid) {
-        this.sectorid = sectorid;
+    public void setSectorname(String sectorname) {
+        this.sectorname = sectorname;
     }
-    public UUID getSize_of_industry() {
+    public String getSize_of_industry() {
         return size_of_industry;
     }
 
-    public void setSize_of_industry(UUID size_of_industry) {
+    public void setSize_of_industry(String size_of_industry) {
         this.size_of_industry = size_of_industry;
     }
 
@@ -178,12 +178,12 @@ public class ProjectdetailDTO implements Serializable {
             ", detail_project_report='" + detail_project_report + "'" +
             ", approval_document='" + approval_document + "'" +
             ", edc_sif_clu_fee_paid_document='" + edc_sif_clu_fee_paid_document + "'" +
+            ", investorid='" + investorid + "'" +
             ", approval_application_form='" + approval_application_form + "'" +
             ", category_of_project='" + category_of_project + "'" +
             ", collaboration_with_foreign_country='" + collaboration_with_foreign_country + "'" +
-            ", investorid='" + investorid + "'" +
             ", projectype='" + projectype + "'" +
-            ", sectorid='" + sectorid + "'" +
+            ", sectorname='" + sectorname + "'" +
             ", size_of_industry='" + size_of_industry + "'" +
             '}';
     }

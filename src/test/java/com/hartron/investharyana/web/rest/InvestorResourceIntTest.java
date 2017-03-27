@@ -58,15 +58,6 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
     private static final String DEFAULT_LASTNAME = "AAAAAAAAAA";
     private static final String UPDATED_LASTNAME = "BBBBBBBBBB";
 
-    private static final UUID DEFAULT_COUNTRYID = UUID.randomUUID();
-    private static final UUID UPDATED_COUNTRYID = UUID.randomUUID();
-
-    private static final UUID DEFAULT_STATEID = UUID.randomUUID();
-    private static final UUID UPDATED_STATEID = UUID.randomUUID();
-
-    private static final UUID DEFAULT_CITYID = UUID.randomUUID();
-    private static final UUID UPDATED_CITYID = UUID.randomUUID();
-
     private static final String DEFAULT_ADDRESS_1 = "AAAAAAAAAA";
     private static final String UPDATED_ADDRESS_1 = "BBBBBBBBBB";
 
@@ -90,6 +81,15 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
 
     private static final String DEFAULT_USERLOGIN = "AAAAAAAAAA";
     private static final String UPDATED_USERLOGIN = "BBBBBBBBBB";
+
+    private static final String DEFAULT_CITYNAME = "AAAAAAAAAA";
+    private static final String UPDATED_CITYNAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_COUNTRYNAME = "AAAAAAAAAA";
+    private static final String UPDATED_COUNTRYNAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_STATENAME = "AAAAAAAAAA";
+    private static final String UPDATED_STATENAME = "BBBBBBBBBB";
 
     @Autowired
     private InvestorRepository investorRepository;
@@ -137,9 +137,6 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
                 .firstname(DEFAULT_FIRSTNAME)
                 .middlename(DEFAULT_MIDDLENAME)
                 .lastname(DEFAULT_LASTNAME)
-                .countryid(DEFAULT_COUNTRYID)
-                .stateid(DEFAULT_STATEID)
-                .cityid(DEFAULT_CITYID)
                 .address1(DEFAULT_ADDRESS_1)
                 .address2(DEFAULT_ADDRESS_2)
                 .address3(DEFAULT_ADDRESS_3)
@@ -147,7 +144,10 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
                 .emailsecondary(DEFAULT_EMAILSECONDARY)
                 .moudocument(DEFAULT_MOUDOCUMENT)
                 .investorpicpath(DEFAULT_INVESTORPICPATH)
-                .userlogin(DEFAULT_USERLOGIN);
+                .userlogin(DEFAULT_USERLOGIN)
+                .cityname(DEFAULT_CITYNAME)
+                .countryname(DEFAULT_COUNTRYNAME)
+                .statename(DEFAULT_STATENAME);
         return investor;
     }
 
@@ -179,9 +179,6 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
         assertThat(testInvestor.getFirstname()).isEqualTo(DEFAULT_FIRSTNAME);
         assertThat(testInvestor.getMiddlename()).isEqualTo(DEFAULT_MIDDLENAME);
         assertThat(testInvestor.getLastname()).isEqualTo(DEFAULT_LASTNAME);
-        assertThat(testInvestor.getCountryid()).isEqualTo(DEFAULT_COUNTRYID);
-        assertThat(testInvestor.getStateid()).isEqualTo(DEFAULT_STATEID);
-        assertThat(testInvestor.getCityid()).isEqualTo(DEFAULT_CITYID);
         assertThat(testInvestor.getAddress1()).isEqualTo(DEFAULT_ADDRESS_1);
         assertThat(testInvestor.getAddress2()).isEqualTo(DEFAULT_ADDRESS_2);
         assertThat(testInvestor.getAddress3()).isEqualTo(DEFAULT_ADDRESS_3);
@@ -190,6 +187,9 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
         assertThat(testInvestor.getMoudocument()).isEqualTo(DEFAULT_MOUDOCUMENT);
         assertThat(testInvestor.getInvestorpicpath()).isEqualTo(DEFAULT_INVESTORPICPATH);
         assertThat(testInvestor.getUserlogin()).isEqualTo(DEFAULT_USERLOGIN);
+        assertThat(testInvestor.getCityname()).isEqualTo(DEFAULT_CITYNAME);
+        assertThat(testInvestor.getCountryname()).isEqualTo(DEFAULT_COUNTRYNAME);
+        assertThat(testInvestor.getStatename()).isEqualTo(DEFAULT_STATENAME);
     }
 
     @Test
@@ -228,9 +228,6 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].firstname").value(hasItem(DEFAULT_FIRSTNAME.toString())))
             .andExpect(jsonPath("$.[*].middlename").value(hasItem(DEFAULT_MIDDLENAME.toString())))
             .andExpect(jsonPath("$.[*].lastname").value(hasItem(DEFAULT_LASTNAME.toString())))
-            .andExpect(jsonPath("$.[*].countryid").value(hasItem(DEFAULT_COUNTRYID.toString())))
-            .andExpect(jsonPath("$.[*].stateid").value(hasItem(DEFAULT_STATEID.toString())))
-            .andExpect(jsonPath("$.[*].cityid").value(hasItem(DEFAULT_CITYID.toString())))
             .andExpect(jsonPath("$.[*].address1").value(hasItem(DEFAULT_ADDRESS_1.toString())))
             .andExpect(jsonPath("$.[*].address2").value(hasItem(DEFAULT_ADDRESS_2.toString())))
             .andExpect(jsonPath("$.[*].address3").value(hasItem(DEFAULT_ADDRESS_3.toString())))
@@ -238,7 +235,10 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].emailsecondary").value(hasItem(DEFAULT_EMAILSECONDARY.toString())))
             .andExpect(jsonPath("$.[*].moudocument").value(hasItem(DEFAULT_MOUDOCUMENT.toString())))
             .andExpect(jsonPath("$.[*].investorpicpath").value(hasItem(DEFAULT_INVESTORPICPATH.toString())))
-            .andExpect(jsonPath("$.[*].userlogin").value(hasItem(DEFAULT_USERLOGIN.toString())));
+            .andExpect(jsonPath("$.[*].userlogin").value(hasItem(DEFAULT_USERLOGIN.toString())))
+            .andExpect(jsonPath("$.[*].cityname").value(hasItem(DEFAULT_CITYNAME.toString())))
+            .andExpect(jsonPath("$.[*].countryname").value(hasItem(DEFAULT_COUNTRYNAME.toString())))
+            .andExpect(jsonPath("$.[*].statename").value(hasItem(DEFAULT_STATENAME.toString())));
     }
 
     @Test
@@ -257,9 +257,6 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.firstname").value(DEFAULT_FIRSTNAME.toString()))
             .andExpect(jsonPath("$.middlename").value(DEFAULT_MIDDLENAME.toString()))
             .andExpect(jsonPath("$.lastname").value(DEFAULT_LASTNAME.toString()))
-            .andExpect(jsonPath("$.countryid").value(DEFAULT_COUNTRYID.toString()))
-            .andExpect(jsonPath("$.stateid").value(DEFAULT_STATEID.toString()))
-            .andExpect(jsonPath("$.cityid").value(DEFAULT_CITYID.toString()))
             .andExpect(jsonPath("$.address1").value(DEFAULT_ADDRESS_1.toString()))
             .andExpect(jsonPath("$.address2").value(DEFAULT_ADDRESS_2.toString()))
             .andExpect(jsonPath("$.address3").value(DEFAULT_ADDRESS_3.toString()))
@@ -267,7 +264,10 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.emailsecondary").value(DEFAULT_EMAILSECONDARY.toString()))
             .andExpect(jsonPath("$.moudocument").value(DEFAULT_MOUDOCUMENT.toString()))
             .andExpect(jsonPath("$.investorpicpath").value(DEFAULT_INVESTORPICPATH.toString()))
-            .andExpect(jsonPath("$.userlogin").value(DEFAULT_USERLOGIN.toString()));
+            .andExpect(jsonPath("$.userlogin").value(DEFAULT_USERLOGIN.toString()))
+            .andExpect(jsonPath("$.cityname").value(DEFAULT_CITYNAME.toString()))
+            .andExpect(jsonPath("$.countryname").value(DEFAULT_COUNTRYNAME.toString()))
+            .andExpect(jsonPath("$.statename").value(DEFAULT_STATENAME.toString()));
     }
 
     @Test
@@ -292,9 +292,6 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
                 .firstname(UPDATED_FIRSTNAME)
                 .middlename(UPDATED_MIDDLENAME)
                 .lastname(UPDATED_LASTNAME)
-                .countryid(UPDATED_COUNTRYID)
-                .stateid(UPDATED_STATEID)
-                .cityid(UPDATED_CITYID)
                 .address1(UPDATED_ADDRESS_1)
                 .address2(UPDATED_ADDRESS_2)
                 .address3(UPDATED_ADDRESS_3)
@@ -302,7 +299,10 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
                 .emailsecondary(UPDATED_EMAILSECONDARY)
                 .moudocument(UPDATED_MOUDOCUMENT)
                 .investorpicpath(UPDATED_INVESTORPICPATH)
-                .userlogin(UPDATED_USERLOGIN);
+                .userlogin(UPDATED_USERLOGIN)
+                .cityname(UPDATED_CITYNAME)
+                .countryname(UPDATED_COUNTRYNAME)
+                .statename(UPDATED_STATENAME);
         InvestorDTO investorDTO = investorMapper.investorToInvestorDTO(updatedInvestor);
 
         restInvestorMockMvc.perform(put("/api/investors")
@@ -320,9 +320,6 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
         assertThat(testInvestor.getFirstname()).isEqualTo(UPDATED_FIRSTNAME);
         assertThat(testInvestor.getMiddlename()).isEqualTo(UPDATED_MIDDLENAME);
         assertThat(testInvestor.getLastname()).isEqualTo(UPDATED_LASTNAME);
-        assertThat(testInvestor.getCountryid()).isEqualTo(UPDATED_COUNTRYID);
-        assertThat(testInvestor.getStateid()).isEqualTo(UPDATED_STATEID);
-        assertThat(testInvestor.getCityid()).isEqualTo(UPDATED_CITYID);
         assertThat(testInvestor.getAddress1()).isEqualTo(UPDATED_ADDRESS_1);
         assertThat(testInvestor.getAddress2()).isEqualTo(UPDATED_ADDRESS_2);
         assertThat(testInvestor.getAddress3()).isEqualTo(UPDATED_ADDRESS_3);
@@ -331,6 +328,9 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
         assertThat(testInvestor.getMoudocument()).isEqualTo(UPDATED_MOUDOCUMENT);
         assertThat(testInvestor.getInvestorpicpath()).isEqualTo(UPDATED_INVESTORPICPATH);
         assertThat(testInvestor.getUserlogin()).isEqualTo(UPDATED_USERLOGIN);
+        assertThat(testInvestor.getCityname()).isEqualTo(UPDATED_CITYNAME);
+        assertThat(testInvestor.getCountryname()).isEqualTo(UPDATED_COUNTRYNAME);
+        assertThat(testInvestor.getStatename()).isEqualTo(UPDATED_STATENAME);
     }
 
     @Test

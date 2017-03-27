@@ -18,7 +18,7 @@
         function loadAll() {
             Investor.query(function(result) {
                 vm.investors = result;
-                vm.searchQuery =  null;
+                vm.searchQuery = null;
             });
         }
     }

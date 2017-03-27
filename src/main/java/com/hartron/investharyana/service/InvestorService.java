@@ -18,7 +18,7 @@ public interface InvestorService {
 
     /**
      *  Get all the investors.
-     *
+     *  
      *  @return the list of entities
      */
     List<InvestorDTO> findAll();
@@ -37,6 +37,4 @@ public interface InvestorService {
      *  @param id the id of the entity
      */
     void delete(String id);
-
-    List<InvestorDTO> findAllInvestorByUserLogin();
 }

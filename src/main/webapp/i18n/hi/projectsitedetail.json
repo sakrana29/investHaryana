@@ -17,9 +17,6 @@
             },
             "projectid": "Projectid",
             "siteaddress": "Siteaddress",
-            "district": "District",
-            "block": "Block",
-            "city_town_village": "City Town Village",
             "tehsil_subtehsil": "Tehsil Subtehsil",
             "multyvillageinvolved": "Multyvillageinvolved",
             "villageinvolved": "Villageinvolved",
@@ -40,11 +37,9 @@
             "certifiedownership": "Certifiedownership",
             "leaseapplicable": "Leaseapplicable",
             "landagreementapplicable": "Landagreementapplicable",
-            "connectingroad": "Connectingroad",
             "intersectiondistance": "Intersectiondistance",
             "railwaydistance": "Railwaydistance",
             "confirmitylanduse": "Confirmitylanduse",
-            "landzoneuse_type": "Landzoneuse Type",
             "existing_building_applicable": "Existing Building Applicable",
             "site_situated_in_controlled_area": "Site Situated In Controlled Area",
             "khasra_document": "Khasra Document",
@@ -59,7 +54,12 @@
             "linearstripplan": "Linearstripplan",
             "sitesituated_document": "Sitesituated Document",
             "controlledarea_document": "Controlledarea Document",
-            "buildingexisted": "Buildingexisted"
+            "buildingexisted": "Buildingexisted",
+            "district": "District",
+            "block": "Block",
+            "city_town_village": "City Town Village",
+            "connectingroad": "Connectingroad",
+            "landzoneuse_type": "Landzoneuse Type"
         }
     }
 }

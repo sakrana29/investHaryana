@@ -41,9 +41,6 @@ public class ProjectsitedetailRepository {
                 projectsitedetail.setId(row.getUUID("id"));
                 projectsitedetail.setProjectid(row.getUUID("projectid"));
                 projectsitedetail.setSiteaddress(row.getString("siteaddress"));
-                projectsitedetail.setDistrict(row.getUUID("district"));
-                projectsitedetail.setBlock(row.getUUID("block"));
-                projectsitedetail.setCity_town_village(row.getUUID("city_town_village"));
                 projectsitedetail.setTehsil_subtehsil(row.getUUID("tehsil_subtehsil"));
                 projectsitedetail.setMultyvillageinvolved(row.getBool("multyvillageinvolved"));
                 projectsitedetail.setVillageinvolved(row.getString("villageinvolved"));
@@ -64,11 +61,9 @@ public class ProjectsitedetailRepository {
                 projectsitedetail.setCertifiedownership(row.getBool("certifiedownership"));
                 projectsitedetail.setLeaseapplicable(row.getBool("leaseapplicable"));
                 projectsitedetail.setLandagreementapplicable(row.getBool("landagreementapplicable"));
-                projectsitedetail.setConnectingroad(row.getUUID("connectingroad"));
                 projectsitedetail.setIntersectiondistance(row.getBool("intersectiondistance"));
                 projectsitedetail.setRailwaydistance(row.getBool("railwaydistance"));
                 projectsitedetail.setConfirmitylanduse(row.getBool("confirmitylanduse"));
-                projectsitedetail.setLandzoneuse_type(row.getUUID("landzoneuse_type"));
                 projectsitedetail.setExisting_building_applicable(row.getBool("existing_building_applicable"));
                 projectsitedetail.setSite_situated_in_controlled_area(row.getBool("site_situated_in_controlled_area"));
                 projectsitedetail.setKhasra_document(row.getString("khasra_document"));
@@ -84,6 +79,11 @@ public class ProjectsitedetailRepository {
                 projectsitedetail.setSitesituated_document(row.getString("sitesituated_document"));
                 projectsitedetail.setControlledarea_document(row.getString("controlledarea_document"));
                 projectsitedetail.setBuildingexisted(row.getString("buildingexisted"));
+                projectsitedetail.setDistrict(row.getString("district"));
+                projectsitedetail.setBlock(row.getString("block"));
+                projectsitedetail.setCity_town_village(row.getString("city_town_village"));
+                projectsitedetail.setConnectingroad(row.getString("connectingroad"));
+                projectsitedetail.setLandzoneuse_type(row.getString("landzoneuse_type"));
                 return projectsitedetail;
             }
         ).forEach(projectsitedetailsList::add);

@@ -61,26 +61,26 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
     private static final String DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT = "AAAAAAAAAA";
     private static final String UPDATED_EDC_SIF_CLU_FEE_PAID_DOCUMENT = "BBBBBBBBBB";
 
-    private static final UUID DEFAULT_APPROVAL_APPLICATION_FORM = UUID.randomUUID();
-    private static final UUID UPDATED_APPROVAL_APPLICATION_FORM = UUID.randomUUID();
-
-    private static final UUID DEFAULT_CATEGORY_OF_PROJECT = UUID.randomUUID();
-    private static final UUID UPDATED_CATEGORY_OF_PROJECT = UUID.randomUUID();
-
-    private static final UUID DEFAULT_COLLABORATION_WITH_FOREIGN_COUNTRY = UUID.randomUUID();
-    private static final UUID UPDATED_COLLABORATION_WITH_FOREIGN_COUNTRY = UUID.randomUUID();
-
     private static final UUID DEFAULT_INVESTORID = UUID.randomUUID();
     private static final UUID UPDATED_INVESTORID = UUID.randomUUID();
 
-    private static final UUID DEFAULT_PROJECTYPE = UUID.randomUUID();
-    private static final UUID UPDATED_PROJECTYPE = UUID.randomUUID();
+    private static final String DEFAULT_APPROVAL_APPLICATION_FORM = "AAAAAAAAAA";
+    private static final String UPDATED_APPROVAL_APPLICATION_FORM = "BBBBBBBBBB";
 
-    private static final UUID DEFAULT_SECTORID = UUID.randomUUID();
-    private static final UUID UPDATED_SECTORID = UUID.randomUUID();
+    private static final String DEFAULT_CATEGORY_OF_PROJECT = "AAAAAAAAAA";
+    private static final String UPDATED_CATEGORY_OF_PROJECT = "BBBBBBBBBB";
 
-    private static final UUID DEFAULT_SIZE_OF_INDUSTRY = UUID.randomUUID();
-    private static final UUID UPDATED_SIZE_OF_INDUSTRY = UUID.randomUUID();
+    private static final String DEFAULT_COLLABORATION_WITH_FOREIGN_COUNTRY = "AAAAAAAAAA";
+    private static final String UPDATED_COLLABORATION_WITH_FOREIGN_COUNTRY = "BBBBBBBBBB";
+
+    private static final String DEFAULT_PROJECTYPE = "AAAAAAAAAA";
+    private static final String UPDATED_PROJECTYPE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_SECTORNAME = "AAAAAAAAAA";
+    private static final String UPDATED_SECTORNAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_SIZE_OF_INDUSTRY = "AAAAAAAAAA";
+    private static final String UPDATED_SIZE_OF_INDUSTRY = "BBBBBBBBBB";
 
     @Autowired
     private ProjectdetailRepository projectdetailRepository;
@@ -129,12 +129,12 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
                 .detail_project_report(DEFAULT_DETAIL_PROJECT_REPORT)
                 .approval_document(DEFAULT_APPROVAL_DOCUMENT)
                 .edc_sif_clu_fee_paid_document(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT)
+                .investorid(DEFAULT_INVESTORID)
                 .approval_application_form(DEFAULT_APPROVAL_APPLICATION_FORM)
                 .category_of_project(DEFAULT_CATEGORY_OF_PROJECT)
                 .collaboration_with_foreign_country(DEFAULT_COLLABORATION_WITH_FOREIGN_COUNTRY)
-                .investorid(DEFAULT_INVESTORID)
                 .projectype(DEFAULT_PROJECTYPE)
-                .sectorid(DEFAULT_SECTORID)
+                .sectorname(DEFAULT_SECTORNAME)
                 .size_of_industry(DEFAULT_SIZE_OF_INDUSTRY);
         return projectdetail;
     }
@@ -168,12 +168,12 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectdetail.getDetail_project_report()).isEqualTo(DEFAULT_DETAIL_PROJECT_REPORT);
         assertThat(testProjectdetail.getApproval_document()).isEqualTo(DEFAULT_APPROVAL_DOCUMENT);
         assertThat(testProjectdetail.getEdc_sif_clu_fee_paid_document()).isEqualTo(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT);
+        assertThat(testProjectdetail.getInvestorid()).isEqualTo(DEFAULT_INVESTORID);
         assertThat(testProjectdetail.getApproval_application_form()).isEqualTo(DEFAULT_APPROVAL_APPLICATION_FORM);
         assertThat(testProjectdetail.getCategory_of_project()).isEqualTo(DEFAULT_CATEGORY_OF_PROJECT);
         assertThat(testProjectdetail.getCollaboration_with_foreign_country()).isEqualTo(DEFAULT_COLLABORATION_WITH_FOREIGN_COUNTRY);
-        assertThat(testProjectdetail.getInvestorid()).isEqualTo(DEFAULT_INVESTORID);
         assertThat(testProjectdetail.getProjectype()).isEqualTo(DEFAULT_PROJECTYPE);
-        assertThat(testProjectdetail.getSectorid()).isEqualTo(DEFAULT_SECTORID);
+        assertThat(testProjectdetail.getSectorname()).isEqualTo(DEFAULT_SECTORNAME);
         assertThat(testProjectdetail.getSize_of_industry()).isEqualTo(DEFAULT_SIZE_OF_INDUSTRY);
     }
 
@@ -214,12 +214,12 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].detail_project_report").value(hasItem(DEFAULT_DETAIL_PROJECT_REPORT.toString())))
             .andExpect(jsonPath("$.[*].approval_document").value(hasItem(DEFAULT_APPROVAL_DOCUMENT.toString())))
             .andExpect(jsonPath("$.[*].edc_sif_clu_fee_paid_document").value(hasItem(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT.toString())))
+            .andExpect(jsonPath("$.[*].investorid").value(hasItem(DEFAULT_INVESTORID.toString())))
             .andExpect(jsonPath("$.[*].approval_application_form").value(hasItem(DEFAULT_APPROVAL_APPLICATION_FORM.toString())))
             .andExpect(jsonPath("$.[*].category_of_project").value(hasItem(DEFAULT_CATEGORY_OF_PROJECT.toString())))
             .andExpect(jsonPath("$.[*].collaboration_with_foreign_country").value(hasItem(DEFAULT_COLLABORATION_WITH_FOREIGN_COUNTRY.toString())))
-            .andExpect(jsonPath("$.[*].investorid").value(hasItem(DEFAULT_INVESTORID.toString())))
             .andExpect(jsonPath("$.[*].projectype").value(hasItem(DEFAULT_PROJECTYPE.toString())))
-            .andExpect(jsonPath("$.[*].sectorid").value(hasItem(DEFAULT_SECTORID.toString())))
+            .andExpect(jsonPath("$.[*].sectorname").value(hasItem(DEFAULT_SECTORNAME.toString())))
             .andExpect(jsonPath("$.[*].size_of_industry").value(hasItem(DEFAULT_SIZE_OF_INDUSTRY.toString())));
     }
 
@@ -240,12 +240,12 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.detail_project_report").value(DEFAULT_DETAIL_PROJECT_REPORT.toString()))
             .andExpect(jsonPath("$.approval_document").value(DEFAULT_APPROVAL_DOCUMENT.toString()))
             .andExpect(jsonPath("$.edc_sif_clu_fee_paid_document").value(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT.toString()))
+            .andExpect(jsonPath("$.investorid").value(DEFAULT_INVESTORID.toString()))
             .andExpect(jsonPath("$.approval_application_form").value(DEFAULT_APPROVAL_APPLICATION_FORM.toString()))
             .andExpect(jsonPath("$.category_of_project").value(DEFAULT_CATEGORY_OF_PROJECT.toString()))
             .andExpect(jsonPath("$.collaboration_with_foreign_country").value(DEFAULT_COLLABORATION_WITH_FOREIGN_COUNTRY.toString()))
-            .andExpect(jsonPath("$.investorid").value(DEFAULT_INVESTORID.toString()))
             .andExpect(jsonPath("$.projectype").value(DEFAULT_PROJECTYPE.toString()))
-            .andExpect(jsonPath("$.sectorid").value(DEFAULT_SECTORID.toString()))
+            .andExpect(jsonPath("$.sectorname").value(DEFAULT_SECTORNAME.toString()))
             .andExpect(jsonPath("$.size_of_industry").value(DEFAULT_SIZE_OF_INDUSTRY.toString()));
     }
 
@@ -272,12 +272,12 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
                 .detail_project_report(UPDATED_DETAIL_PROJECT_REPORT)
                 .approval_document(UPDATED_APPROVAL_DOCUMENT)
                 .edc_sif_clu_fee_paid_document(UPDATED_EDC_SIF_CLU_FEE_PAID_DOCUMENT)
+                .investorid(UPDATED_INVESTORID)
                 .approval_application_form(UPDATED_APPROVAL_APPLICATION_FORM)
                 .category_of_project(UPDATED_CATEGORY_OF_PROJECT)
                 .collaboration_with_foreign_country(UPDATED_COLLABORATION_WITH_FOREIGN_COUNTRY)
-                .investorid(UPDATED_INVESTORID)
                 .projectype(UPDATED_PROJECTYPE)
-                .sectorid(UPDATED_SECTORID)
+                .sectorname(UPDATED_SECTORNAME)
                 .size_of_industry(UPDATED_SIZE_OF_INDUSTRY);
         ProjectdetailDTO projectdetailDTO = projectdetailMapper.projectdetailToProjectdetailDTO(updatedProjectdetail);
 
@@ -297,12 +297,12 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectdetail.getDetail_project_report()).isEqualTo(UPDATED_DETAIL_PROJECT_REPORT);
         assertThat(testProjectdetail.getApproval_document()).isEqualTo(UPDATED_APPROVAL_DOCUMENT);
         assertThat(testProjectdetail.getEdc_sif_clu_fee_paid_document()).isEqualTo(UPDATED_EDC_SIF_CLU_FEE_PAID_DOCUMENT);
+        assertThat(testProjectdetail.getInvestorid()).isEqualTo(UPDATED_INVESTORID);
         assertThat(testProjectdetail.getApproval_application_form()).isEqualTo(UPDATED_APPROVAL_APPLICATION_FORM);
         assertThat(testProjectdetail.getCategory_of_project()).isEqualTo(UPDATED_CATEGORY_OF_PROJECT);
         assertThat(testProjectdetail.getCollaboration_with_foreign_country()).isEqualTo(UPDATED_COLLABORATION_WITH_FOREIGN_COUNTRY);
-        assertThat(testProjectdetail.getInvestorid()).isEqualTo(UPDATED_INVESTORID);
         assertThat(testProjectdetail.getProjectype()).isEqualTo(UPDATED_PROJECTYPE);
-        assertThat(testProjectdetail.getSectorid()).isEqualTo(UPDATED_SECTORID);
+        assertThat(testProjectdetail.getSectorname()).isEqualTo(UPDATED_SECTORNAME);
         assertThat(testProjectdetail.getSize_of_industry()).isEqualTo(UPDATED_SIZE_OF_INDUSTRY);
     }
 

@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class InvestorServiceImpl implements InvestorService{
 
     private final Logger log = LoggerFactory.getLogger(InvestorServiceImpl.class);
-
+    
     private final InvestorRepository investorRepository;
 
     private final InvestorMapper investorMapper;
@@ -48,7 +48,7 @@ public class InvestorServiceImpl implements InvestorService{
 
     /**
      *  Get all the investors.
-     *
+     *  
      *  @return the list of entities
      */
     @Override
@@ -84,15 +84,5 @@ public class InvestorServiceImpl implements InvestorService{
     public void delete(String id) {
         log.debug("Request to delete Investor : {}", id);
         investorRepository.delete(UUID.fromString(id));
-    }
-
-    @Override
-    public List<InvestorDTO> findAllInvestorByUserLogin() {
-        log.debug("Request to get all Investors by userlogin");
-        List<InvestorDTO> result = investorRepository.findInvestorbyUserLogin().stream()
-            .map(investorMapper::investorToInvestorDTO)
-            .collect(Collectors.toCollection(LinkedList::new));
-
-        return result;
     }
 }

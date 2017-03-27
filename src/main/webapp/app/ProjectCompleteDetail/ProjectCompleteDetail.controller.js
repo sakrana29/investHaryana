@@ -23,7 +23,7 @@
         vm.project_finance_investment=vm.CompleteProjectDetailData.project_finance_investmentDTO;
         vm.manufacturing_detail=vm.CompleteProjectDetailData.manufacturingdetailDTO;
         vm.electricrequirement=vm.CompleteProjectDetailData.electricrequirementDTO;
-        vm.projectcombinecodes=vm.CompleteProjectDetailData.projectdetailcombinecodesDTO ;
+        vm.projectcombinecodes=vm.CompleteProjectDetailData.projectdetailcombinecodesDTO;
 
         $scope.$on('authenticationSuccess', function() {
             getAccount();

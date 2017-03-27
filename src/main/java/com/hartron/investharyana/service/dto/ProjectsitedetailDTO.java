@@ -17,12 +17,6 @@ public class ProjectsitedetailDTO implements Serializable {
 
     private String siteaddress;
 
-    private UUID district;
-
-    private UUID block;
-
-    private UUID city_town_village;
-
     private UUID tehsil_subtehsil;
 
     private Boolean multyvillageinvolved;
@@ -63,15 +57,11 @@ public class ProjectsitedetailDTO implements Serializable {
 
     private Boolean landagreementapplicable;
 
-    private UUID connectingroad;
-
     private Boolean intersectiondistance;
 
     private Boolean railwaydistance;
 
     private Boolean confirmitylanduse;
-
-    private UUID landzoneuse_type;
 
     private Boolean existing_building_applicable;
 
@@ -103,6 +93,16 @@ public class ProjectsitedetailDTO implements Serializable {
 
     private String buildingexisted;
 
+    private String district;
+
+    private String block;
+
+    private String city_town_village;
+
+    private String connectingroad;
+
+    private String landzoneuse_type;
+
     public UUID getId() {
         return id;
     }
@@ -123,27 +123,6 @@ public class ProjectsitedetailDTO implements Serializable {
 
     public void setSiteaddress(String siteaddress) {
         this.siteaddress = siteaddress;
-    }
-    public UUID getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(UUID district) {
-        this.district = district;
-    }
-    public UUID getBlock() {
-        return block;
-    }
-
-    public void setBlock(UUID block) {
-        this.block = block;
-    }
-    public UUID getCity_town_village() {
-        return city_town_village;
-    }
-
-    public void setCity_town_village(UUID city_town_village) {
-        this.city_town_village = city_town_village;
     }
     public UUID getTehsil_subtehsil() {
         return tehsil_subtehsil;
@@ -285,13 +264,6 @@ public class ProjectsitedetailDTO implements Serializable {
     public void setLandagreementapplicable(Boolean landagreementapplicable) {
         this.landagreementapplicable = landagreementapplicable;
     }
-    public UUID getConnectingroad() {
-        return connectingroad;
-    }
-
-    public void setConnectingroad(UUID connectingroad) {
-        this.connectingroad = connectingroad;
-    }
     public Boolean getIntersectiondistance() {
         return intersectiondistance;
     }
@@ -312,13 +284,6 @@ public class ProjectsitedetailDTO implements Serializable {
 
     public void setConfirmitylanduse(Boolean confirmitylanduse) {
         this.confirmitylanduse = confirmitylanduse;
-    }
-    public UUID getLandzoneuse_type() {
-        return landzoneuse_type;
-    }
-
-    public void setLandzoneuse_type(UUID landzoneuse_type) {
-        this.landzoneuse_type = landzoneuse_type;
     }
     public Boolean getExisting_building_applicable() {
         return existing_building_applicable;
@@ -425,6 +390,41 @@ public class ProjectsitedetailDTO implements Serializable {
     public void setBuildingexisted(String buildingexisted) {
         this.buildingexisted = buildingexisted;
     }
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+    public String getBlock() {
+        return block;
+    }
+
+    public void setBlock(String block) {
+        this.block = block;
+    }
+    public String getCity_town_village() {
+        return city_town_village;
+    }
+
+    public void setCity_town_village(String city_town_village) {
+        this.city_town_village = city_town_village;
+    }
+    public String getConnectingroad() {
+        return connectingroad;
+    }
+
+    public void setConnectingroad(String connectingroad) {
+        this.connectingroad = connectingroad;
+    }
+    public String getLandzoneuse_type() {
+        return landzoneuse_type;
+    }
+
+    public void setLandzoneuse_type(String landzoneuse_type) {
+        this.landzoneuse_type = landzoneuse_type;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -453,9 +453,6 @@ public class ProjectsitedetailDTO implements Serializable {
             "id=" + id +
             ", projectid='" + projectid + "'" +
             ", siteaddress='" + siteaddress + "'" +
-            ", district='" + district + "'" +
-            ", block='" + block + "'" +
-            ", city_town_village='" + city_town_village + "'" +
             ", tehsil_subtehsil='" + tehsil_subtehsil + "'" +
             ", multyvillageinvolved='" + multyvillageinvolved + "'" +
             ", villageinvolved='" + villageinvolved + "'" +
@@ -476,11 +473,9 @@ public class ProjectsitedetailDTO implements Serializable {
             ", certifiedownership='" + certifiedownership + "'" +
             ", leaseapplicable='" + leaseapplicable + "'" +
             ", landagreementapplicable='" + landagreementapplicable + "'" +
-            ", connectingroad='" + connectingroad + "'" +
             ", intersectiondistance='" + intersectiondistance + "'" +
             ", railwaydistance='" + railwaydistance + "'" +
             ", confirmitylanduse='" + confirmitylanduse + "'" +
-            ", landzoneuse_type='" + landzoneuse_type + "'" +
             ", existing_building_applicable='" + existing_building_applicable + "'" +
             ", site_situated_in_controlled_area='" + site_situated_in_controlled_area + "'" +
             ", khasra_document='" + khasra_document + "'" +
@@ -496,6 +491,11 @@ public class ProjectsitedetailDTO implements Serializable {
             ", sitesituated_document='" + sitesituated_document + "'" +
             ", controlledarea_document='" + controlledarea_document + "'" +
             ", buildingexisted='" + buildingexisted + "'" +
+            ", district='" + district + "'" +
+            ", block='" + block + "'" +
+            ", city_town_village='" + city_town_village + "'" +
+            ", connectingroad='" + connectingroad + "'" +
+            ", landzoneuse_type='" + landzoneuse_type + "'" +
             '}';
     }
 }

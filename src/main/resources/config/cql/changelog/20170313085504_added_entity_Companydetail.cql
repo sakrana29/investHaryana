@@ -5,7 +5,6 @@ CREATE TABLE IF NOT EXISTS companydetail (
     promoter_md_director text,
     designation text,
     businessentity text,
-    businessentitytype uuid,
     director_promoter_md_ceo_number int,
     pan_number text,
     aadhar_number text,
@@ -19,5 +18,6 @@ CREATE TABLE IF NOT EXISTS companydetail (
     cst_document text,
     moa_partnershipdeed text,
     registration_document text,
+    businessentitytype text,
     PRIMARY KEY(id)
 );

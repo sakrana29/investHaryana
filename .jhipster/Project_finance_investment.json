@@ -35,14 +35,6 @@
             "fieldType": "BigDecimal"
         },
         {
-            "fieldName": "fdi_country",
-            "fieldType": "UUID"
-        },
-        {
-            "fieldName": "foreign_funding_source",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "project_construction_start_date",
             "fieldType": "ZonedDateTime"
         },
@@ -53,6 +45,14 @@
         {
             "fieldName": "proposedproject_scheduleid",
             "fieldType": "UUID"
+        },
+        {
+            "fieldName": "fdi_country",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "foreign_funding_source",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313115519",

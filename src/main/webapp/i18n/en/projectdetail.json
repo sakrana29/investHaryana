@@ -22,12 +22,12 @@
             "detail_project_report": "Detail Project Report",
             "approval_document": "Approval Document",
             "edc_sif_clu_fee_paid_document": "Edc Sif Clu Fee Paid Document",
+            "investorid": "Investorid",
             "approval_application_form": "Approval Application Form",
             "category_of_project": "Category Of Project",
             "collaboration_with_foreign_country": "Collaboration With Foreign Country",
-            "investorid": "Investorid",
             "projectype": "Projectype",
-            "sectorid": "Sectorid",
+            "sectorname": "Sectorname",
             "size_of_industry": "Size Of Industry"
         }
     }

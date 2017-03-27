@@ -47,15 +47,6 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
     private static final String DEFAULT_SITEADDRESS = "AAAAAAAAAA";
     private static final String UPDATED_SITEADDRESS = "BBBBBBBBBB";
 
-    private static final UUID DEFAULT_DISTRICT = UUID.randomUUID();
-    private static final UUID UPDATED_DISTRICT = UUID.randomUUID();
-
-    private static final UUID DEFAULT_BLOCK = UUID.randomUUID();
-    private static final UUID UPDATED_BLOCK = UUID.randomUUID();
-
-    private static final UUID DEFAULT_CITY_TOWN_VILLAGE = UUID.randomUUID();
-    private static final UUID UPDATED_CITY_TOWN_VILLAGE = UUID.randomUUID();
-
     private static final UUID DEFAULT_TEHSIL_SUBTEHSIL = UUID.randomUUID();
     private static final UUID UPDATED_TEHSIL_SUBTEHSIL = UUID.randomUUID();
 
@@ -116,9 +107,6 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
     private static final Boolean DEFAULT_LANDAGREEMENTAPPLICABLE = false;
     private static final Boolean UPDATED_LANDAGREEMENTAPPLICABLE = true;
 
-    private static final UUID DEFAULT_CONNECTINGROAD = UUID.randomUUID();
-    private static final UUID UPDATED_CONNECTINGROAD = UUID.randomUUID();
-
     private static final Boolean DEFAULT_INTERSECTIONDISTANCE = false;
     private static final Boolean UPDATED_INTERSECTIONDISTANCE = true;
 
@@ -127,9 +115,6 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
 
     private static final Boolean DEFAULT_CONFIRMITYLANDUSE = false;
     private static final Boolean UPDATED_CONFIRMITYLANDUSE = true;
-
-    private static final UUID DEFAULT_LANDZONEUSE_TYPE = UUID.randomUUID();
-    private static final UUID UPDATED_LANDZONEUSE_TYPE = UUID.randomUUID();
 
     private static final Boolean DEFAULT_EXISTING_BUILDING_APPLICABLE = false;
     private static final Boolean UPDATED_EXISTING_BUILDING_APPLICABLE = true;
@@ -176,6 +161,21 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
     private static final String DEFAULT_BUILDINGEXISTED = "AAAAAAAAAA";
     private static final String UPDATED_BUILDINGEXISTED = "BBBBBBBBBB";
 
+    private static final String DEFAULT_DISTRICT = "AAAAAAAAAA";
+    private static final String UPDATED_DISTRICT = "BBBBBBBBBB";
+
+    private static final String DEFAULT_BLOCK = "AAAAAAAAAA";
+    private static final String UPDATED_BLOCK = "BBBBBBBBBB";
+
+    private static final String DEFAULT_CITY_TOWN_VILLAGE = "AAAAAAAAAA";
+    private static final String UPDATED_CITY_TOWN_VILLAGE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_CONNECTINGROAD = "AAAAAAAAAA";
+    private static final String UPDATED_CONNECTINGROAD = "BBBBBBBBBB";
+
+    private static final String DEFAULT_LANDZONEUSE_TYPE = "AAAAAAAAAA";
+    private static final String UPDATED_LANDZONEUSE_TYPE = "BBBBBBBBBB";
+
     @Autowired
     private ProjectsitedetailRepository projectsitedetailRepository;
 
@@ -218,9 +218,6 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
         Projectsitedetail projectsitedetail = new Projectsitedetail()
                 .projectid(DEFAULT_PROJECTID)
                 .siteaddress(DEFAULT_SITEADDRESS)
-                .district(DEFAULT_DISTRICT)
-                .block(DEFAULT_BLOCK)
-                .city_town_village(DEFAULT_CITY_TOWN_VILLAGE)
                 .tehsil_subtehsil(DEFAULT_TEHSIL_SUBTEHSIL)
                 .multyvillageinvolved(DEFAULT_MULTYVILLAGEINVOLVED)
                 .villageinvolved(DEFAULT_VILLAGEINVOLVED)
@@ -241,11 +238,9 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
                 .certifiedownership(DEFAULT_CERTIFIEDOWNERSHIP)
                 .leaseapplicable(DEFAULT_LEASEAPPLICABLE)
                 .landagreementapplicable(DEFAULT_LANDAGREEMENTAPPLICABLE)
-                .connectingroad(DEFAULT_CONNECTINGROAD)
                 .intersectiondistance(DEFAULT_INTERSECTIONDISTANCE)
                 .railwaydistance(DEFAULT_RAILWAYDISTANCE)
                 .confirmitylanduse(DEFAULT_CONFIRMITYLANDUSE)
-                .landzoneuse_type(DEFAULT_LANDZONEUSE_TYPE)
                 .existing_building_applicable(DEFAULT_EXISTING_BUILDING_APPLICABLE)
                 .site_situated_in_controlled_area(DEFAULT_SITE_SITUATED_IN_CONTROLLED_AREA)
                 .khasra_document(DEFAULT_KHASRA_DOCUMENT)
@@ -260,7 +255,12 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
                 .linearstripplan(DEFAULT_LINEARSTRIPPLAN)
                 .sitesituated_document(DEFAULT_SITESITUATED_DOCUMENT)
                 .controlledarea_document(DEFAULT_CONTROLLEDAREA_DOCUMENT)
-                .buildingexisted(DEFAULT_BUILDINGEXISTED);
+                .buildingexisted(DEFAULT_BUILDINGEXISTED)
+                .district(DEFAULT_DISTRICT)
+                .block(DEFAULT_BLOCK)
+                .city_town_village(DEFAULT_CITY_TOWN_VILLAGE)
+                .connectingroad(DEFAULT_CONNECTINGROAD)
+                .landzoneuse_type(DEFAULT_LANDZONEUSE_TYPE);
         return projectsitedetail;
     }
 
@@ -288,9 +288,6 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
         Projectsitedetail testProjectsitedetail = projectsitedetailList.get(projectsitedetailList.size() - 1);
         assertThat(testProjectsitedetail.getProjectid()).isEqualTo(DEFAULT_PROJECTID);
         assertThat(testProjectsitedetail.getSiteaddress()).isEqualTo(DEFAULT_SITEADDRESS);
-        assertThat(testProjectsitedetail.getDistrict()).isEqualTo(DEFAULT_DISTRICT);
-        assertThat(testProjectsitedetail.getBlock()).isEqualTo(DEFAULT_BLOCK);
-        assertThat(testProjectsitedetail.getCity_town_village()).isEqualTo(DEFAULT_CITY_TOWN_VILLAGE);
         assertThat(testProjectsitedetail.getTehsil_subtehsil()).isEqualTo(DEFAULT_TEHSIL_SUBTEHSIL);
         assertThat(testProjectsitedetail.isMultyvillageinvolved()).isEqualTo(DEFAULT_MULTYVILLAGEINVOLVED);
         assertThat(testProjectsitedetail.getVillageinvolved()).isEqualTo(DEFAULT_VILLAGEINVOLVED);
@@ -311,11 +308,9 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectsitedetail.isCertifiedownership()).isEqualTo(DEFAULT_CERTIFIEDOWNERSHIP);
         assertThat(testProjectsitedetail.isLeaseapplicable()).isEqualTo(DEFAULT_LEASEAPPLICABLE);
         assertThat(testProjectsitedetail.isLandagreementapplicable()).isEqualTo(DEFAULT_LANDAGREEMENTAPPLICABLE);
-        assertThat(testProjectsitedetail.getConnectingroad()).isEqualTo(DEFAULT_CONNECTINGROAD);
         assertThat(testProjectsitedetail.isIntersectiondistance()).isEqualTo(DEFAULT_INTERSECTIONDISTANCE);
         assertThat(testProjectsitedetail.isRailwaydistance()).isEqualTo(DEFAULT_RAILWAYDISTANCE);
         assertThat(testProjectsitedetail.isConfirmitylanduse()).isEqualTo(DEFAULT_CONFIRMITYLANDUSE);
-        assertThat(testProjectsitedetail.getLandzoneuse_type()).isEqualTo(DEFAULT_LANDZONEUSE_TYPE);
         assertThat(testProjectsitedetail.isExisting_building_applicable()).isEqualTo(DEFAULT_EXISTING_BUILDING_APPLICABLE);
         assertThat(testProjectsitedetail.isSite_situated_in_controlled_area()).isEqualTo(DEFAULT_SITE_SITUATED_IN_CONTROLLED_AREA);
         assertThat(testProjectsitedetail.getKhasra_document()).isEqualTo(DEFAULT_KHASRA_DOCUMENT);
@@ -331,6 +326,11 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectsitedetail.getSitesituated_document()).isEqualTo(DEFAULT_SITESITUATED_DOCUMENT);
         assertThat(testProjectsitedetail.getControlledarea_document()).isEqualTo(DEFAULT_CONTROLLEDAREA_DOCUMENT);
         assertThat(testProjectsitedetail.getBuildingexisted()).isEqualTo(DEFAULT_BUILDINGEXISTED);
+        assertThat(testProjectsitedetail.getDistrict()).isEqualTo(DEFAULT_DISTRICT);
+        assertThat(testProjectsitedetail.getBlock()).isEqualTo(DEFAULT_BLOCK);
+        assertThat(testProjectsitedetail.getCity_town_village()).isEqualTo(DEFAULT_CITY_TOWN_VILLAGE);
+        assertThat(testProjectsitedetail.getConnectingroad()).isEqualTo(DEFAULT_CONNECTINGROAD);
+        assertThat(testProjectsitedetail.getLandzoneuse_type()).isEqualTo(DEFAULT_LANDZONEUSE_TYPE);
     }
 
     @Test
@@ -365,9 +365,6 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(projectsitedetail.getId().toString())))
             .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())))
             .andExpect(jsonPath("$.[*].siteaddress").value(hasItem(DEFAULT_SITEADDRESS.toString())))
-            .andExpect(jsonPath("$.[*].district").value(hasItem(DEFAULT_DISTRICT.toString())))
-            .andExpect(jsonPath("$.[*].block").value(hasItem(DEFAULT_BLOCK.toString())))
-            .andExpect(jsonPath("$.[*].city_town_village").value(hasItem(DEFAULT_CITY_TOWN_VILLAGE.toString())))
             .andExpect(jsonPath("$.[*].tehsil_subtehsil").value(hasItem(DEFAULT_TEHSIL_SUBTEHSIL.toString())))
             .andExpect(jsonPath("$.[*].multyvillageinvolved").value(hasItem(DEFAULT_MULTYVILLAGEINVOLVED.booleanValue())))
             .andExpect(jsonPath("$.[*].villageinvolved").value(hasItem(DEFAULT_VILLAGEINVOLVED.toString())))
@@ -388,11 +385,9 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].certifiedownership").value(hasItem(DEFAULT_CERTIFIEDOWNERSHIP.booleanValue())))
             .andExpect(jsonPath("$.[*].leaseapplicable").value(hasItem(DEFAULT_LEASEAPPLICABLE.booleanValue())))
             .andExpect(jsonPath("$.[*].landagreementapplicable").value(hasItem(DEFAULT_LANDAGREEMENTAPPLICABLE.booleanValue())))
-            .andExpect(jsonPath("$.[*].connectingroad").value(hasItem(DEFAULT_CONNECTINGROAD.toString())))
             .andExpect(jsonPath("$.[*].intersectiondistance").value(hasItem(DEFAULT_INTERSECTIONDISTANCE.booleanValue())))
             .andExpect(jsonPath("$.[*].railwaydistance").value(hasItem(DEFAULT_RAILWAYDISTANCE.booleanValue())))
             .andExpect(jsonPath("$.[*].confirmitylanduse").value(hasItem(DEFAULT_CONFIRMITYLANDUSE.booleanValue())))
-            .andExpect(jsonPath("$.[*].landzoneuse_type").value(hasItem(DEFAULT_LANDZONEUSE_TYPE.toString())))
             .andExpect(jsonPath("$.[*].existing_building_applicable").value(hasItem(DEFAULT_EXISTING_BUILDING_APPLICABLE.booleanValue())))
             .andExpect(jsonPath("$.[*].site_situated_in_controlled_area").value(hasItem(DEFAULT_SITE_SITUATED_IN_CONTROLLED_AREA.booleanValue())))
             .andExpect(jsonPath("$.[*].khasra_document").value(hasItem(DEFAULT_KHASRA_DOCUMENT.toString())))
@@ -407,7 +402,12 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].linearstripplan").value(hasItem(DEFAULT_LINEARSTRIPPLAN.toString())))
             .andExpect(jsonPath("$.[*].sitesituated_document").value(hasItem(DEFAULT_SITESITUATED_DOCUMENT.toString())))
             .andExpect(jsonPath("$.[*].controlledarea_document").value(hasItem(DEFAULT_CONTROLLEDAREA_DOCUMENT.toString())))
-            .andExpect(jsonPath("$.[*].buildingexisted").value(hasItem(DEFAULT_BUILDINGEXISTED.toString())));
+            .andExpect(jsonPath("$.[*].buildingexisted").value(hasItem(DEFAULT_BUILDINGEXISTED.toString())))
+            .andExpect(jsonPath("$.[*].district").value(hasItem(DEFAULT_DISTRICT.toString())))
+            .andExpect(jsonPath("$.[*].block").value(hasItem(DEFAULT_BLOCK.toString())))
+            .andExpect(jsonPath("$.[*].city_town_village").value(hasItem(DEFAULT_CITY_TOWN_VILLAGE.toString())))
+            .andExpect(jsonPath("$.[*].connectingroad").value(hasItem(DEFAULT_CONNECTINGROAD.toString())))
+            .andExpect(jsonPath("$.[*].landzoneuse_type").value(hasItem(DEFAULT_LANDZONEUSE_TYPE.toString())));
     }
 
     @Test
@@ -422,9 +422,6 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.id").value(projectsitedetail.getId().toString()))
             .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()))
             .andExpect(jsonPath("$.siteaddress").value(DEFAULT_SITEADDRESS.toString()))
-            .andExpect(jsonPath("$.district").value(DEFAULT_DISTRICT.toString()))
-            .andExpect(jsonPath("$.block").value(DEFAULT_BLOCK.toString()))
-            .andExpect(jsonPath("$.city_town_village").value(DEFAULT_CITY_TOWN_VILLAGE.toString()))
             .andExpect(jsonPath("$.tehsil_subtehsil").value(DEFAULT_TEHSIL_SUBTEHSIL.toString()))
             .andExpect(jsonPath("$.multyvillageinvolved").value(DEFAULT_MULTYVILLAGEINVOLVED.booleanValue()))
             .andExpect(jsonPath("$.villageinvolved").value(DEFAULT_VILLAGEINVOLVED.toString()))
@@ -445,11 +442,9 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.certifiedownership").value(DEFAULT_CERTIFIEDOWNERSHIP.booleanValue()))
             .andExpect(jsonPath("$.leaseapplicable").value(DEFAULT_LEASEAPPLICABLE.booleanValue()))
             .andExpect(jsonPath("$.landagreementapplicable").value(DEFAULT_LANDAGREEMENTAPPLICABLE.booleanValue()))
-            .andExpect(jsonPath("$.connectingroad").value(DEFAULT_CONNECTINGROAD.toString()))
             .andExpect(jsonPath("$.intersectiondistance").value(DEFAULT_INTERSECTIONDISTANCE.booleanValue()))
             .andExpect(jsonPath("$.railwaydistance").value(DEFAULT_RAILWAYDISTANCE.booleanValue()))
             .andExpect(jsonPath("$.confirmitylanduse").value(DEFAULT_CONFIRMITYLANDUSE.booleanValue()))
-            .andExpect(jsonPath("$.landzoneuse_type").value(DEFAULT_LANDZONEUSE_TYPE.toString()))
             .andExpect(jsonPath("$.existing_building_applicable").value(DEFAULT_EXISTING_BUILDING_APPLICABLE.booleanValue()))
             .andExpect(jsonPath("$.site_situated_in_controlled_area").value(DEFAULT_SITE_SITUATED_IN_CONTROLLED_AREA.booleanValue()))
             .andExpect(jsonPath("$.khasra_document").value(DEFAULT_KHASRA_DOCUMENT.toString()))
@@ -464,7 +459,12 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.linearstripplan").value(DEFAULT_LINEARSTRIPPLAN.toString()))
             .andExpect(jsonPath("$.sitesituated_document").value(DEFAULT_SITESITUATED_DOCUMENT.toString()))
             .andExpect(jsonPath("$.controlledarea_document").value(DEFAULT_CONTROLLEDAREA_DOCUMENT.toString()))
-            .andExpect(jsonPath("$.buildingexisted").value(DEFAULT_BUILDINGEXISTED.toString()));
+            .andExpect(jsonPath("$.buildingexisted").value(DEFAULT_BUILDINGEXISTED.toString()))
+            .andExpect(jsonPath("$.district").value(DEFAULT_DISTRICT.toString()))
+            .andExpect(jsonPath("$.block").value(DEFAULT_BLOCK.toString()))
+            .andExpect(jsonPath("$.city_town_village").value(DEFAULT_CITY_TOWN_VILLAGE.toString()))
+            .andExpect(jsonPath("$.connectingroad").value(DEFAULT_CONNECTINGROAD.toString()))
+            .andExpect(jsonPath("$.landzoneuse_type").value(DEFAULT_LANDZONEUSE_TYPE.toString()));
     }
 
     @Test
@@ -485,9 +485,6 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
         updatedProjectsitedetail
                 .projectid(UPDATED_PROJECTID)
                 .siteaddress(UPDATED_SITEADDRESS)
-                .district(UPDATED_DISTRICT)
-                .block(UPDATED_BLOCK)
-                .city_town_village(UPDATED_CITY_TOWN_VILLAGE)
                 .tehsil_subtehsil(UPDATED_TEHSIL_SUBTEHSIL)
                 .multyvillageinvolved(UPDATED_MULTYVILLAGEINVOLVED)
                 .villageinvolved(UPDATED_VILLAGEINVOLVED)
@@ -508,11 +505,9 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
                 .certifiedownership(UPDATED_CERTIFIEDOWNERSHIP)
                 .leaseapplicable(UPDATED_LEASEAPPLICABLE)
                 .landagreementapplicable(UPDATED_LANDAGREEMENTAPPLICABLE)
-                .connectingroad(UPDATED_CONNECTINGROAD)
                 .intersectiondistance(UPDATED_INTERSECTIONDISTANCE)
                 .railwaydistance(UPDATED_RAILWAYDISTANCE)
                 .confirmitylanduse(UPDATED_CONFIRMITYLANDUSE)
-                .landzoneuse_type(UPDATED_LANDZONEUSE_TYPE)
                 .existing_building_applicable(UPDATED_EXISTING_BUILDING_APPLICABLE)
                 .site_situated_in_controlled_area(UPDATED_SITE_SITUATED_IN_CONTROLLED_AREA)
                 .khasra_document(UPDATED_KHASRA_DOCUMENT)
@@ -527,7 +522,12 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
                 .linearstripplan(UPDATED_LINEARSTRIPPLAN)
                 .sitesituated_document(UPDATED_SITESITUATED_DOCUMENT)
                 .controlledarea_document(UPDATED_CONTROLLEDAREA_DOCUMENT)
-                .buildingexisted(UPDATED_BUILDINGEXISTED);
+                .buildingexisted(UPDATED_BUILDINGEXISTED)
+                .district(UPDATED_DISTRICT)
+                .block(UPDATED_BLOCK)
+                .city_town_village(UPDATED_CITY_TOWN_VILLAGE)
+                .connectingroad(UPDATED_CONNECTINGROAD)
+                .landzoneuse_type(UPDATED_LANDZONEUSE_TYPE);
         ProjectsitedetailDTO projectsitedetailDTO = projectsitedetailMapper.projectsitedetailToProjectsitedetailDTO(updatedProjectsitedetail);
 
         restProjectsitedetailMockMvc.perform(put("/api/projectsitedetails")
@@ -541,9 +541,6 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
         Projectsitedetail testProjectsitedetail = projectsitedetailList.get(projectsitedetailList.size() - 1);
         assertThat(testProjectsitedetail.getProjectid()).isEqualTo(UPDATED_PROJECTID);
         assertThat(testProjectsitedetail.getSiteaddress()).isEqualTo(UPDATED_SITEADDRESS);
-        assertThat(testProjectsitedetail.getDistrict()).isEqualTo(UPDATED_DISTRICT);
-        assertThat(testProjectsitedetail.getBlock()).isEqualTo(UPDATED_BLOCK);
-        assertThat(testProjectsitedetail.getCity_town_village()).isEqualTo(UPDATED_CITY_TOWN_VILLAGE);
         assertThat(testProjectsitedetail.getTehsil_subtehsil()).isEqualTo(UPDATED_TEHSIL_SUBTEHSIL);
         assertThat(testProjectsitedetail.isMultyvillageinvolved()).isEqualTo(UPDATED_MULTYVILLAGEINVOLVED);
         assertThat(testProjectsitedetail.getVillageinvolved()).isEqualTo(UPDATED_VILLAGEINVOLVED);
@@ -564,11 +561,9 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectsitedetail.isCertifiedownership()).isEqualTo(UPDATED_CERTIFIEDOWNERSHIP);
         assertThat(testProjectsitedetail.isLeaseapplicable()).isEqualTo(UPDATED_LEASEAPPLICABLE);
         assertThat(testProjectsitedetail.isLandagreementapplicable()).isEqualTo(UPDATED_LANDAGREEMENTAPPLICABLE);
-        assertThat(testProjectsitedetail.getConnectingroad()).isEqualTo(UPDATED_CONNECTINGROAD);
         assertThat(testProjectsitedetail.isIntersectiondistance()).isEqualTo(UPDATED_INTERSECTIONDISTANCE);
         assertThat(testProjectsitedetail.isRailwaydistance()).isEqualTo(UPDATED_RAILWAYDISTANCE);
         assertThat(testProjectsitedetail.isConfirmitylanduse()).isEqualTo(UPDATED_CONFIRMITYLANDUSE);
-        assertThat(testProjectsitedetail.getLandzoneuse_type()).isEqualTo(UPDATED_LANDZONEUSE_TYPE);
         assertThat(testProjectsitedetail.isExisting_building_applicable()).isEqualTo(UPDATED_EXISTING_BUILDING_APPLICABLE);
         assertThat(testProjectsitedetail.isSite_situated_in_controlled_area()).isEqualTo(UPDATED_SITE_SITUATED_IN_CONTROLLED_AREA);
         assertThat(testProjectsitedetail.getKhasra_document()).isEqualTo(UPDATED_KHASRA_DOCUMENT);
@@ -584,6 +579,11 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectsitedetail.getSitesituated_document()).isEqualTo(UPDATED_SITESITUATED_DOCUMENT);
         assertThat(testProjectsitedetail.getControlledarea_document()).isEqualTo(UPDATED_CONTROLLEDAREA_DOCUMENT);
         assertThat(testProjectsitedetail.getBuildingexisted()).isEqualTo(UPDATED_BUILDINGEXISTED);
+        assertThat(testProjectsitedetail.getDistrict()).isEqualTo(UPDATED_DISTRICT);
+        assertThat(testProjectsitedetail.getBlock()).isEqualTo(UPDATED_BLOCK);
+        assertThat(testProjectsitedetail.getCity_town_village()).isEqualTo(UPDATED_CITY_TOWN_VILLAGE);
+        assertThat(testProjectsitedetail.getConnectingroad()).isEqualTo(UPDATED_CONNECTINGROAD);
+        assertThat(testProjectsitedetail.getLandzoneuse_type()).isEqualTo(UPDATED_LANDZONEUSE_TYPE);
     }
 
     @Test

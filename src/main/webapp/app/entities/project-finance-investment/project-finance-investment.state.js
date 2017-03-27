@@ -112,11 +112,11 @@
                                 total_project_cost: null,
                                 isfdi: null,
                                 fdivalue: null,
-                                fdi_country: null,
-                                foreign_funding_source: null,
                                 project_construction_start_date: null,
                                 commercial_activity_start_date: null,
                                 proposedproject_scheduleid: null,
+                                fdi_country: null,
+                                foreign_funding_source: null,
                                 id: null
                             };
                         }

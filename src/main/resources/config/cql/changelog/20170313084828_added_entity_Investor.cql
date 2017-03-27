@@ -7,9 +7,6 @@ CREATE TABLE IF NOT EXISTS investor (
     firstname text,
     middlename text,
     lastname text,
-    countryid uuid,
-    stateid uuid,
-    cityid uuid,
     address1 text,
     address2 text,
     address3 text,
@@ -18,10 +15,8 @@ CREATE TABLE IF NOT EXISTS investor (
     moudocument text,
     investorpicpath text,
     userlogin text,
+    cityname text,
+    countryname text,
+    statename text,
     PRIMARY KEY(id)
-);
-CREATE TABLE IF NOT EXISTS investor_by_userlogin (
-userlogin text,
-id uuid,
-PRIMARY KEY(userlogin,id)
 );

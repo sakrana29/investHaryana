@@ -106,9 +106,6 @@
                             return {
                                 projectid: null,
                                 siteaddress: null,
-                                district: null,
-                                block: null,
-                                city_town_village: null,
                                 tehsil_subtehsil: null,
                                 multyvillageinvolved: null,
                                 villageinvolved: null,
@@ -129,11 +126,9 @@
                                 certifiedownership: null,
                                 leaseapplicable: null,
                                 landagreementapplicable: null,
-                                connectingroad: null,
                                 intersectiondistance: null,
                                 railwaydistance: null,
                                 confirmitylanduse: null,
-                                landzoneuse_type: null,
                                 existing_building_applicable: null,
                                 site_situated_in_controlled_area: null,
                                 khasra_document: null,
@@ -149,6 +144,11 @@
                                 sitesituated_document: null,
                                 controlledarea_document: null,
                                 buildingexisted: null,
+                                district: null,
+                                block: null,
+                                city_town_village: null,
+                                connectingroad: null,
+                                landzoneuse_type: null,
                                 id: null
                             };
                         }

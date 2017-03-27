@@ -20,8 +20,6 @@ public class CompanydetailDTO implements Serializable {
 
     private String businessentity;
 
-    private UUID businessentitytype;
-
     private Integer director_promoter_md_ceo_number;
 
     private String pan_number;
@@ -47,6 +45,8 @@ public class CompanydetailDTO implements Serializable {
     private String moa_partnershipdeed;
 
     private String registration_document;
+
+    private String businessentitytype;
 
     public UUID getId() {
         return id;
@@ -82,13 +82,6 @@ public class CompanydetailDTO implements Serializable {
 
     public void setBusinessentity(String businessentity) {
         this.businessentity = businessentity;
-    }
-    public UUID getBusinessentitytype() {
-        return businessentitytype;
-    }
-
-    public void setBusinessentitytype(UUID businessentitytype) {
-        this.businessentitytype = businessentitytype;
     }
     public Integer getDirector_promoter_md_ceo_number() {
         return director_promoter_md_ceo_number;
@@ -181,6 +174,13 @@ public class CompanydetailDTO implements Serializable {
     public void setRegistration_document(String registration_document) {
         this.registration_document = registration_document;
     }
+    public String getBusinessentitytype() {
+        return businessentitytype;
+    }
+
+    public void setBusinessentitytype(String businessentitytype) {
+        this.businessentitytype = businessentitytype;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -211,7 +211,6 @@ public class CompanydetailDTO implements Serializable {
             ", promoter_md_director='" + promoter_md_director + "'" +
             ", designation='" + designation + "'" +
             ", businessentity='" + businessentity + "'" +
-            ", businessentitytype='" + businessentitytype + "'" +
             ", director_promoter_md_ceo_number='" + director_promoter_md_ceo_number + "'" +
             ", pan_number='" + pan_number + "'" +
             ", aadhar_number='" + aadhar_number + "'" +
@@ -225,6 +224,7 @@ public class CompanydetailDTO implements Serializable {
             ", cst_document='" + cst_document + "'" +
             ", moa_partnershipdeed='" + moa_partnershipdeed + "'" +
             ", registration_document='" + registration_document + "'" +
+            ", businessentitytype='" + businessentitytype + "'" +
             '}';
     }
 }

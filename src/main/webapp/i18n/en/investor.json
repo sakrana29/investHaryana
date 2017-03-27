@@ -21,9 +21,6 @@
             "firstname": "Firstname",
             "middlename": "Middlename",
             "lastname": "Lastname",
-            "countryid": "Countryid",
-            "stateid": "Stateid",
-            "cityid": "Cityid",
             "address1": "Address 1",
             "address2": "Address 2",
             "address3": "Address 3",
@@ -31,7 +28,10 @@
             "emailsecondary": "Emailsecondary",
             "moudocument": "Moudocument",
             "investorpicpath": "Investorpicpath",
-            "userlogin": "Userlogin"
+            "userlogin": "Userlogin",
+            "cityname": "Cityname",
+            "countryname": "Countryname",
+            "statename": "Statename"
         }
     }
 }

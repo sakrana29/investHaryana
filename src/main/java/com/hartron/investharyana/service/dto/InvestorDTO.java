@@ -24,12 +24,6 @@ public class InvestorDTO implements Serializable {
 
     private String lastname;
 
-    private UUID countryid;
-
-    private UUID stateid;
-
-    private UUID cityid;
-
     private String address1;
 
     private String address2;
@@ -45,6 +39,12 @@ public class InvestorDTO implements Serializable {
     private String investorpicpath;
 
     private String userlogin;
+
+    private String cityname;
+
+    private String countryname;
+
+    private String statename;
 
     public UUID getId() {
         return id;
@@ -94,27 +94,6 @@ public class InvestorDTO implements Serializable {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
-    }
-    public UUID getCountryid() {
-        return countryid;
-    }
-
-    public void setCountryid(UUID countryid) {
-        this.countryid = countryid;
-    }
-    public UUID getStateid() {
-        return stateid;
-    }
-
-    public void setStateid(UUID stateid) {
-        this.stateid = stateid;
-    }
-    public UUID getCityid() {
-        return cityid;
-    }
-
-    public void setCityid(UUID cityid) {
-        this.cityid = cityid;
     }
     public String getAddress1() {
         return address1;
@@ -172,6 +151,27 @@ public class InvestorDTO implements Serializable {
     public void setUserlogin(String userlogin) {
         this.userlogin = userlogin;
     }
+    public String getCityname() {
+        return cityname;
+    }
+
+    public void setCityname(String cityname) {
+        this.cityname = cityname;
+    }
+    public String getCountryname() {
+        return countryname;
+    }
+
+    public void setCountryname(String countryname) {
+        this.countryname = countryname;
+    }
+    public String getStatename() {
+        return statename;
+    }
+
+    public void setStatename(String statename) {
+        this.statename = statename;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -204,9 +204,6 @@ public class InvestorDTO implements Serializable {
             ", firstname='" + firstname + "'" +
             ", middlename='" + middlename + "'" +
             ", lastname='" + lastname + "'" +
-            ", countryid='" + countryid + "'" +
-            ", stateid='" + stateid + "'" +
-            ", cityid='" + cityid + "'" +
             ", address1='" + address1 + "'" +
             ", address2='" + address2 + "'" +
             ", address3='" + address3 + "'" +
@@ -215,6 +212,9 @@ public class InvestorDTO implements Serializable {
             ", moudocument='" + moudocument + "'" +
             ", investorpicpath='" + investorpicpath + "'" +
             ", userlogin='" + userlogin + "'" +
+            ", cityname='" + cityname + "'" +
+            ", countryname='" + countryname + "'" +
+            ", statename='" + statename + "'" +
             '}';
     }
 }

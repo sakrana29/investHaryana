@@ -28,7 +28,7 @@ public class InvestorResource {
     private final Logger log = LoggerFactory.getLogger(InvestorResource.class);
 
     private static final String ENTITY_NAME = "investor";
-
+        
     private final InvestorService investorService;
 
     public InvestorResource(InvestorService investorService) {
@@ -89,13 +89,6 @@ public class InvestorResource {
         return investorService.findAll();
     }
 
-    @GetMapping("/investors/ByUser")
-    @Timed
-    public List<InvestorDTO> getAllInvestorsByUser() {
-        log.debug("REST request to get all Investors By User");
-        return investorService.findAllInvestorByUserLogin();
-    }
-
     /**
      * GET  /investors/:id : get the "id" investor.
      *
@@ -123,4 +116,5 @@ public class InvestorResource {
         investorService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
+
 }

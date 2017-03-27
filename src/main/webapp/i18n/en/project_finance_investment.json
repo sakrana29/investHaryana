@@ -23,11 +23,11 @@
             "total_project_cost": "Total Project Cost",
             "isfdi": "Isfdi",
             "fdivalue": "Fdivalue",
-            "fdi_country": "Fdi Country",
-            "foreign_funding_source": "Foreign Funding Source",
             "project_construction_start_date": "Project Construction Start Date",
             "commercial_activity_start_date": "Commercial Activity Start Date",
-            "proposedproject_scheduleid": "Proposedproject Scheduleid"
+            "proposedproject_scheduleid": "Proposedproject Scheduleid",
+            "fdi_country": "Fdi Country",
+            "foreign_funding_source": "Foreign Funding Source"
         }
     }
 }

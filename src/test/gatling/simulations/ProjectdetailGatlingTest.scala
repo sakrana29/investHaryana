@@ -68,7 +68,7 @@ class ProjectdetailGatlingTest extends Simulation {
             .exec(http("Create new projectdetail")
             .post("/api/projectdetails")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "projectpurpose":"SAMPLE_TEXT", "niccode":"SAMPLE_TEXT", "existing_regulatory_approval":null, "edc_sif_clu_fee_paid_applicable":null, "detail_project_report":"SAMPLE_TEXT", "approval_document":"SAMPLE_TEXT", "edc_sif_clu_fee_paid_document":"SAMPLE_TEXT", "approval_application_form":null, "category_of_project":null, "collaboration_with_foreign_country":null, "investorid":null, "projectype":null, "sectorid":null, "size_of_industry":null}""")).asJSON
+            .body(StringBody("""{"id":null, "projectpurpose":"SAMPLE_TEXT", "niccode":"SAMPLE_TEXT", "existing_regulatory_approval":null, "edc_sif_clu_fee_paid_applicable":null, "detail_project_report":"SAMPLE_TEXT", "approval_document":"SAMPLE_TEXT", "edc_sif_clu_fee_paid_document":"SAMPLE_TEXT", "investorid":null, "approval_application_form":"SAMPLE_TEXT", "category_of_project":"SAMPLE_TEXT", "collaboration_with_foreign_country":"SAMPLE_TEXT", "projectype":"SAMPLE_TEXT", "sectorname":"SAMPLE_TEXT", "size_of_industry":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_projectdetail_url"))).exitHereIfFailed
             .pause(10)

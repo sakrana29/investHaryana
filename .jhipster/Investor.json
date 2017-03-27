@@ -27,18 +27,6 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "countryid",
-            "fieldType": "UUID"
-        },
-        {
-            "fieldName": "stateid",
-            "fieldType": "UUID"
-        },
-        {
-            "fieldName": "cityid",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "address1",
             "fieldType": "String"
         },
@@ -68,6 +56,18 @@
         },
         {
             "fieldName": "userlogin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cityname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "countryname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "statename",
             "fieldType": "String"
         }
     ],

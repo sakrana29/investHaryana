@@ -108,7 +108,6 @@
                                 promoter_md_director: null,
                                 designation: null,
                                 businessentity: null,
-                                businessentitytype: null,
                                 director_promoter_md_ceo_number: null,
                                 pan_number: null,
                                 aadhar_number: null,
@@ -122,6 +121,7 @@
                                 cst_document: null,
                                 moa_partnershipdeed: null,
                                 registration_document: null,
+                                businessentitytype: null,
                                 id: null
                             };
                         }

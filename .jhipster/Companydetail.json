@@ -19,10 +19,6 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "businessentitytype",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "director_promoter_md_ceo_number",
             "fieldType": "Integer"
         },
@@ -72,6 +68,10 @@
         },
         {
             "fieldName": "registration_document",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "businessentitytype",
             "fieldType": "String"
         }
     ],

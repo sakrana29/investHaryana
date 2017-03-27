@@ -9,10 +9,10 @@ CREATE TABLE IF NOT EXISTS project_finance_investment (
     total_project_cost decimal,
     isfdi boolean,
     fdivalue decimal,
-    fdi_country uuid,
-    foreign_funding_source uuid,
     project_construction_start_date timestamp,
     commercial_activity_start_date timestamp,
     proposedproject_scheduleid uuid,
+    fdi_country text,
+    foreign_funding_source text,
     PRIMARY KEY(id)
 );

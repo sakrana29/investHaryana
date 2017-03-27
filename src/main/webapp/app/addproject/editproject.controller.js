@@ -61,46 +61,45 @@
         function checkDropDowns()
         {
             if (angular.isDefined(vm.investor.selectedCountry))
-                vm.investor.countryid=vm.investor.selectedCountry.id;
-
+                vm.investor.countryname=vm.investor.selectedCountry.countryname;
             if (angular.isDefined(vm.investor.selectedState))
-                vm.investor.stateid=vm.investor.selectedState.id;
+                vm.investor.statename=vm.investor.selectedState.statename;
             if (angular.isDefined(vm.investor.selectedCity))
-                vm.investor.cityid=vm.investor.selectedCity.id;
+                vm.investor.cityname=vm.investor.selectedCity.city_town_village_name;
 
     //            vm.companydetail.investorid=vm.resultInvestor.id;
             if (angular.isDefined(vm.companydetail.selectedBusiness))
-                vm.companydetail.businessentitytype=vm.companydetail.selectedBusiness.id;
+                vm.companydetail.businessentitytype=vm.companydetail.selectedBusiness.businessentitytype;
 
     //            vm.projectdetail.investorid=vm.resultInvestor.id;
             if (angular.isDefined(vm.projectdetail.selectedSector))
-                vm.projectdetail.sectorid=vm.projectdetail.selectedSector.id;
+                vm.projectdetail.sectorname=vm.projectdetail.selectedSector.sectortype;
             if (angular.isDefined(vm.projectdetail.selectedSizeOfIndustry))
-                vm.projectdetail.size_of_industry=vm.projectdetail.selectedSizeOfIndustry.id;
+                vm.projectdetail.size_of_industry=vm.projectdetail.selectedSizeOfIndustry.sizeofindustry;
             if (angular.isDefined(vm.projectdetail.selectedProjectType))
-                vm.projectdetail.projectype=vm.projectdetail.selectedProjectType.id;
+                vm.projectdetail.projectype=vm.projectdetail.selectedProjectType.projectypes;
             if (angular.isDefined(vm.projectdetail.selectedProjectCategory))
-                vm.projectdetail.category_of_project=vm.projectdetail.selectedProjectCategory.id;
+                vm.projectdetail.category_of_project=vm.projectdetail.selectedProjectCategory.categorytype;
             if (angular.isDefined(vm.projectdetail.selectedCountry))
-                vm.projectdetail.collaboration_with_foreign_country=vm.projectdetail.selectedCountry.id;
+                vm.projectdetail.collaboration_with_foreign_country=vm.projectdetail.selectedCountry.countryname;
             if (angular.isDefined(vm.projectdetail.selectedApprovalForm))
-                vm.projectdetail.approval_application_form=vm.projectdetail.selectedApprovalForm.id;
+                vm.projectdetail.approval_application_form=vm.projectdetail.selectedApprovalForm.existingapprovalforms;
 
             if (angular.isDefined(vm.projectsitedetail.selectedDistrict))
-                vm.projectsitedetail.district=vm.projectsitedetail.selectedDistrict.id;
+                vm.projectsitedetail.district=vm.projectsitedetail.selectedDistrict.districtname;
             if (angular.isDefined(vm.projectsitedetail.selectedBlock))
-                vm.projectsitedetail.block=vm.projectsitedetail.selectedBlock.id;
+                vm.projectsitedetail.block=vm.projectsitedetail.selectedBlock.blockname;
             if (angular.isDefined(vm.projectsitedetail.selectedCityTownVillage))
-                vm.projectsitedetail.city_town_village=vm.projectsitedetail.selectedCityTownVillage.id;
+                vm.projectsitedetail.city_town_village=vm.projectsitedetail.selectedCityTownVillage.city_town_village_name;
             if (angular.isDefined(vm.projectsitedetail.selectedConnectingRoad))
-                vm.projectsitedetail.connectingroad=vm.projectsitedetail.selectedConnectingRoad.id;
+                vm.projectsitedetail.connectingroad=vm.projectsitedetail.selectedConnectingRoad.connectingraodtype;
             if (angular.isDefined(vm.projectsitedetail.selectedLandZoneUseType))
-                vm.projectsitedetail.landzoneuse_type=vm.projectsitedetail.selectedLandZoneUseType.id;
+                vm.projectsitedetail.landzoneuse_type=vm.projectsitedetail.selectedLandZoneUseType.landzoneclassificationtype;
 
             if (angular.isDefined(vm.project_finance_investment.selectedcountryid))
-                vm.project_finance_investment.fdi_country=vm.project_finance_investment.selectedcountryid.id;
+                vm.project_finance_investment.fdi_country=vm.project_finance_investment.selectedcountryid.countryname;
             if (angular.isDefined(vm.foreignfundingresources.selectedforeignfundingresourceid))
-                vm.project_finance_investment.foreign_funding_source= vm.foreignfundingresources.selectedforeignfundingresourceid.id;
+                vm.project_finance_investment.foreign_funding_source= vm.foreignfundingresources.selectedforeignfundingresourceid.foreignfundingtypes;
         }
 
         function saveCompleteProjectDetail($scope)

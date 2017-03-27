@@ -52,9 +52,6 @@ public class CompanydetailResourceIntTest extends AbstractCassandraTest {
     private static final String DEFAULT_BUSINESSENTITY = "AAAAAAAAAA";
     private static final String UPDATED_BUSINESSENTITY = "BBBBBBBBBB";
 
-    private static final UUID DEFAULT_BUSINESSENTITYTYPE = UUID.randomUUID();
-    private static final UUID UPDATED_BUSINESSENTITYTYPE = UUID.randomUUID();
-
     private static final Integer DEFAULT_DIRECTOR_PROMOTER_MD_CEO_NUMBER = 1;
     private static final Integer UPDATED_DIRECTOR_PROMOTER_MD_CEO_NUMBER = 2;
 
@@ -93,6 +90,9 @@ public class CompanydetailResourceIntTest extends AbstractCassandraTest {
 
     private static final String DEFAULT_REGISTRATION_DOCUMENT = "AAAAAAAAAA";
     private static final String UPDATED_REGISTRATION_DOCUMENT = "BBBBBBBBBB";
+
+    private static final String DEFAULT_BUSINESSENTITYTYPE = "AAAAAAAAAA";
+    private static final String UPDATED_BUSINESSENTITYTYPE = "BBBBBBBBBB";
 
     @Autowired
     private CompanydetailRepository companydetailRepository;
@@ -138,7 +138,6 @@ public class CompanydetailResourceIntTest extends AbstractCassandraTest {
                 .promoter_md_director(DEFAULT_PROMOTER_MD_DIRECTOR)
                 .designation(DEFAULT_DESIGNATION)
                 .businessentity(DEFAULT_BUSINESSENTITY)
-                .businessentitytype(DEFAULT_BUSINESSENTITYTYPE)
                 .director_promoter_md_ceo_number(DEFAULT_DIRECTOR_PROMOTER_MD_CEO_NUMBER)
                 .pan_number(DEFAULT_PAN_NUMBER)
                 .aadhar_number(DEFAULT_AADHAR_NUMBER)
@@ -151,7 +150,8 @@ public class CompanydetailResourceIntTest extends AbstractCassandraTest {
                 .tin_vat_document(DEFAULT_TIN_VAT_DOCUMENT)
                 .cst_document(DEFAULT_CST_DOCUMENT)
                 .moa_partnershipdeed(DEFAULT_MOA_PARTNERSHIPDEED)
-                .registration_document(DEFAULT_REGISTRATION_DOCUMENT);
+                .registration_document(DEFAULT_REGISTRATION_DOCUMENT)
+                .businessentitytype(DEFAULT_BUSINESSENTITYTYPE);
         return companydetail;
     }
 
@@ -181,7 +181,6 @@ public class CompanydetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testCompanydetail.getPromoter_md_director()).isEqualTo(DEFAULT_PROMOTER_MD_DIRECTOR);
         assertThat(testCompanydetail.getDesignation()).isEqualTo(DEFAULT_DESIGNATION);
         assertThat(testCompanydetail.getBusinessentity()).isEqualTo(DEFAULT_BUSINESSENTITY);
-        assertThat(testCompanydetail.getBusinessentitytype()).isEqualTo(DEFAULT_BUSINESSENTITYTYPE);
         assertThat(testCompanydetail.getDirector_promoter_md_ceo_number()).isEqualTo(DEFAULT_DIRECTOR_PROMOTER_MD_CEO_NUMBER);
         assertThat(testCompanydetail.getPan_number()).isEqualTo(DEFAULT_PAN_NUMBER);
         assertThat(testCompanydetail.getAadhar_number()).isEqualTo(DEFAULT_AADHAR_NUMBER);
@@ -195,6 +194,7 @@ public class CompanydetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testCompanydetail.getCst_document()).isEqualTo(DEFAULT_CST_DOCUMENT);
         assertThat(testCompanydetail.getMoa_partnershipdeed()).isEqualTo(DEFAULT_MOA_PARTNERSHIPDEED);
         assertThat(testCompanydetail.getRegistration_document()).isEqualTo(DEFAULT_REGISTRATION_DOCUMENT);
+        assertThat(testCompanydetail.getBusinessentitytype()).isEqualTo(DEFAULT_BUSINESSENTITYTYPE);
     }
 
     @Test
@@ -231,7 +231,6 @@ public class CompanydetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].promoter_md_director").value(hasItem(DEFAULT_PROMOTER_MD_DIRECTOR.toString())))
             .andExpect(jsonPath("$.[*].designation").value(hasItem(DEFAULT_DESIGNATION.toString())))
             .andExpect(jsonPath("$.[*].businessentity").value(hasItem(DEFAULT_BUSINESSENTITY.toString())))
-            .andExpect(jsonPath("$.[*].businessentitytype").value(hasItem(DEFAULT_BUSINESSENTITYTYPE.toString())))
             .andExpect(jsonPath("$.[*].director_promoter_md_ceo_number").value(hasItem(DEFAULT_DIRECTOR_PROMOTER_MD_CEO_NUMBER)))
             .andExpect(jsonPath("$.[*].pan_number").value(hasItem(DEFAULT_PAN_NUMBER.toString())))
             .andExpect(jsonPath("$.[*].aadhar_number").value(hasItem(DEFAULT_AADHAR_NUMBER.toString())))
@@ -244,7 +243,8 @@ public class CompanydetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].tin_vat_document").value(hasItem(DEFAULT_TIN_VAT_DOCUMENT.toString())))
             .andExpect(jsonPath("$.[*].cst_document").value(hasItem(DEFAULT_CST_DOCUMENT.toString())))
             .andExpect(jsonPath("$.[*].moa_partnershipdeed").value(hasItem(DEFAULT_MOA_PARTNERSHIPDEED.toString())))
-            .andExpect(jsonPath("$.[*].registration_document").value(hasItem(DEFAULT_REGISTRATION_DOCUMENT.toString())));
+            .andExpect(jsonPath("$.[*].registration_document").value(hasItem(DEFAULT_REGISTRATION_DOCUMENT.toString())))
+            .andExpect(jsonPath("$.[*].businessentitytype").value(hasItem(DEFAULT_BUSINESSENTITYTYPE.toString())));
     }
 
     @Test
@@ -261,7 +261,6 @@ public class CompanydetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.promoter_md_director").value(DEFAULT_PROMOTER_MD_DIRECTOR.toString()))
             .andExpect(jsonPath("$.designation").value(DEFAULT_DESIGNATION.toString()))
             .andExpect(jsonPath("$.businessentity").value(DEFAULT_BUSINESSENTITY.toString()))
-            .andExpect(jsonPath("$.businessentitytype").value(DEFAULT_BUSINESSENTITYTYPE.toString()))
             .andExpect(jsonPath("$.director_promoter_md_ceo_number").value(DEFAULT_DIRECTOR_PROMOTER_MD_CEO_NUMBER))
             .andExpect(jsonPath("$.pan_number").value(DEFAULT_PAN_NUMBER.toString()))
             .andExpect(jsonPath("$.aadhar_number").value(DEFAULT_AADHAR_NUMBER.toString()))
@@ -274,7 +273,8 @@ public class CompanydetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.tin_vat_document").value(DEFAULT_TIN_VAT_DOCUMENT.toString()))
             .andExpect(jsonPath("$.cst_document").value(DEFAULT_CST_DOCUMENT.toString()))
             .andExpect(jsonPath("$.moa_partnershipdeed").value(DEFAULT_MOA_PARTNERSHIPDEED.toString()))
-            .andExpect(jsonPath("$.registration_document").value(DEFAULT_REGISTRATION_DOCUMENT.toString()));
+            .andExpect(jsonPath("$.registration_document").value(DEFAULT_REGISTRATION_DOCUMENT.toString()))
+            .andExpect(jsonPath("$.businessentitytype").value(DEFAULT_BUSINESSENTITYTYPE.toString()));
     }
 
     @Test
@@ -297,7 +297,6 @@ public class CompanydetailResourceIntTest extends AbstractCassandraTest {
                 .promoter_md_director(UPDATED_PROMOTER_MD_DIRECTOR)
                 .designation(UPDATED_DESIGNATION)
                 .businessentity(UPDATED_BUSINESSENTITY)
-                .businessentitytype(UPDATED_BUSINESSENTITYTYPE)
                 .director_promoter_md_ceo_number(UPDATED_DIRECTOR_PROMOTER_MD_CEO_NUMBER)
                 .pan_number(UPDATED_PAN_NUMBER)
                 .aadhar_number(UPDATED_AADHAR_NUMBER)
@@ -310,7 +309,8 @@ public class CompanydetailResourceIntTest extends AbstractCassandraTest {
                 .tin_vat_document(UPDATED_TIN_VAT_DOCUMENT)
                 .cst_document(UPDATED_CST_DOCUMENT)
                 .moa_partnershipdeed(UPDATED_MOA_PARTNERSHIPDEED)
-                .registration_document(UPDATED_REGISTRATION_DOCUMENT);
+                .registration_document(UPDATED_REGISTRATION_DOCUMENT)
+                .businessentitytype(UPDATED_BUSINESSENTITYTYPE);
         CompanydetailDTO companydetailDTO = companydetailMapper.companydetailToCompanydetailDTO(updatedCompanydetail);
 
         restCompanydetailMockMvc.perform(put("/api/companydetails")
@@ -326,7 +326,6 @@ public class CompanydetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testCompanydetail.getPromoter_md_director()).isEqualTo(UPDATED_PROMOTER_MD_DIRECTOR);
         assertThat(testCompanydetail.getDesignation()).isEqualTo(UPDATED_DESIGNATION);
         assertThat(testCompanydetail.getBusinessentity()).isEqualTo(UPDATED_BUSINESSENTITY);
-        assertThat(testCompanydetail.getBusinessentitytype()).isEqualTo(UPDATED_BUSINESSENTITYTYPE);
         assertThat(testCompanydetail.getDirector_promoter_md_ceo_number()).isEqualTo(UPDATED_DIRECTOR_PROMOTER_MD_CEO_NUMBER);
         assertThat(testCompanydetail.getPan_number()).isEqualTo(UPDATED_PAN_NUMBER);
         assertThat(testCompanydetail.getAadhar_number()).isEqualTo(UPDATED_AADHAR_NUMBER);
@@ -340,6 +339,7 @@ public class CompanydetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testCompanydetail.getCst_document()).isEqualTo(UPDATED_CST_DOCUMENT);
         assertThat(testCompanydetail.getMoa_partnershipdeed()).isEqualTo(UPDATED_MOA_PARTNERSHIPDEED);
         assertThat(testCompanydetail.getRegistration_document()).isEqualTo(UPDATED_REGISTRATION_DOCUMENT);
+        assertThat(testCompanydetail.getBusinessentitytype()).isEqualTo(UPDATED_BUSINESSENTITYTYPE);
     }
 
     @Test

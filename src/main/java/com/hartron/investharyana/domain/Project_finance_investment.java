@@ -36,15 +36,15 @@ public class Project_finance_investment implements Serializable {
 
     private BigDecimal fdivalue;
 
-    private UUID fdi_country;
-
-    private UUID foreign_funding_source;
-
     private ZonedDateTime project_construction_start_date;
 
     private ZonedDateTime commercial_activity_start_date;
 
     private UUID proposedproject_scheduleid;
+
+    private String fdi_country;
+
+    private String foreign_funding_source;
 
     public UUID getId() {
         return id;
@@ -158,32 +158,6 @@ public class Project_finance_investment implements Serializable {
         this.fdivalue = fdivalue;
     }
 
-    public UUID getFdi_country() {
-        return fdi_country;
-    }
-
-    public Project_finance_investment fdi_country(UUID fdi_country) {
-        this.fdi_country = fdi_country;
-        return this;
-    }
-
-    public void setFdi_country(UUID fdi_country) {
-        this.fdi_country = fdi_country;
-    }
-
-    public UUID getForeign_funding_source() {
-        return foreign_funding_source;
-    }
-
-    public Project_finance_investment foreign_funding_source(UUID foreign_funding_source) {
-        this.foreign_funding_source = foreign_funding_source;
-        return this;
-    }
-
-    public void setForeign_funding_source(UUID foreign_funding_source) {
-        this.foreign_funding_source = foreign_funding_source;
-    }
-
     public ZonedDateTime getProject_construction_start_date() {
         return project_construction_start_date;
     }
@@ -223,6 +197,32 @@ public class Project_finance_investment implements Serializable {
         this.proposedproject_scheduleid = proposedproject_scheduleid;
     }
 
+    public String getFdi_country() {
+        return fdi_country;
+    }
+
+    public Project_finance_investment fdi_country(String fdi_country) {
+        this.fdi_country = fdi_country;
+        return this;
+    }
+
+    public void setFdi_country(String fdi_country) {
+        this.fdi_country = fdi_country;
+    }
+
+    public String getForeign_funding_source() {
+        return foreign_funding_source;
+    }
+
+    public Project_finance_investment foreign_funding_source(String foreign_funding_source) {
+        this.foreign_funding_source = foreign_funding_source;
+        return this;
+    }
+
+    public void setForeign_funding_source(String foreign_funding_source) {
+        this.foreign_funding_source = foreign_funding_source;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -255,11 +255,11 @@ public class Project_finance_investment implements Serializable {
             ", total_project_cost='" + total_project_cost + "'" +
             ", isfdi='" + isfdi + "'" +
             ", fdivalue='" + fdivalue + "'" +
-            ", fdi_country='" + fdi_country + "'" +
-            ", foreign_funding_source='" + foreign_funding_source + "'" +
             ", project_construction_start_date='" + project_construction_start_date + "'" +
             ", commercial_activity_start_date='" + commercial_activity_start_date + "'" +
             ", proposedproject_scheduleid='" + proposedproject_scheduleid + "'" +
+            ", fdi_country='" + fdi_country + "'" +
+            ", foreign_funding_source='" + foreign_funding_source + "'" +
             '}';
     }
 }

@@ -36,7 +36,7 @@
 
         function loadAll() {
 
-            Projectcompletedetaildata.query(function(result){
+            Projectcompletedetail.query(function(result){
                 vm.projectcompletedetail=result;
 //                console.log(vm.projectcompletedetail[0].projectdetailDTO);
             });

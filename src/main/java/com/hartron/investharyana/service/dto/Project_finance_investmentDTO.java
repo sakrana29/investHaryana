@@ -30,15 +30,15 @@ public class Project_finance_investmentDTO implements Serializable {
 
     private BigDecimal fdivalue;
 
-    private UUID fdi_country;
-
-    private UUID foreign_funding_source;
-
     private ZonedDateTime project_construction_start_date;
 
     private ZonedDateTime commercial_activity_start_date;
 
     private UUID proposedproject_scheduleid;
+
+    private String fdi_country;
+
+    private String foreign_funding_source;
 
     public UUID getId() {
         return id;
@@ -103,20 +103,6 @@ public class Project_finance_investmentDTO implements Serializable {
     public void setFdivalue(BigDecimal fdivalue) {
         this.fdivalue = fdivalue;
     }
-    public UUID getFdi_country() {
-        return fdi_country;
-    }
-
-    public void setFdi_country(UUID fdi_country) {
-        this.fdi_country = fdi_country;
-    }
-    public UUID getForeign_funding_source() {
-        return foreign_funding_source;
-    }
-
-    public void setForeign_funding_source(UUID foreign_funding_source) {
-        this.foreign_funding_source = foreign_funding_source;
-    }
     public ZonedDateTime getProject_construction_start_date() {
         return project_construction_start_date;
     }
@@ -137,6 +123,20 @@ public class Project_finance_investmentDTO implements Serializable {
 
     public void setProposedproject_scheduleid(UUID proposedproject_scheduleid) {
         this.proposedproject_scheduleid = proposedproject_scheduleid;
+    }
+    public String getFdi_country() {
+        return fdi_country;
+    }
+
+    public void setFdi_country(String fdi_country) {
+        this.fdi_country = fdi_country;
+    }
+    public String getForeign_funding_source() {
+        return foreign_funding_source;
+    }
+
+    public void setForeign_funding_source(String foreign_funding_source) {
+        this.foreign_funding_source = foreign_funding_source;
     }
 
     @Override
@@ -172,11 +172,11 @@ public class Project_finance_investmentDTO implements Serializable {
             ", total_project_cost='" + total_project_cost + "'" +
             ", isfdi='" + isfdi + "'" +
             ", fdivalue='" + fdivalue + "'" +
-            ", fdi_country='" + fdi_country + "'" +
-            ", foreign_funding_source='" + foreign_funding_source + "'" +
             ", project_construction_start_date='" + project_construction_start_date + "'" +
             ", commercial_activity_start_date='" + commercial_activity_start_date + "'" +
             ", proposedproject_scheduleid='" + proposedproject_scheduleid + "'" +
+            ", fdi_country='" + fdi_country + "'" +
+            ", foreign_funding_source='" + foreign_funding_source + "'" +
             '}';
     }
 }

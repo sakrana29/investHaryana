@@ -8,12 +8,12 @@ CREATE TABLE IF NOT EXISTS projectdetail (
     detail_project_report text,
     approval_document text,
     edc_sif_clu_fee_paid_document text,
-    approval_application_form uuid,
-    category_of_project uuid,
-    collaboration_with_foreign_country uuid,
     investorid uuid,
-    projectype uuid,
-    sectorid uuid,
-    size_of_industry uuid,
+    approval_application_form text,
+    category_of_project text,
+    collaboration_with_foreign_country text,
+    projectype text,
+    sectorname text,
+    size_of_industry text,
     PRIMARY KEY(id)
 );

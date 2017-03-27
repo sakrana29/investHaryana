@@ -43,7 +43,6 @@ public class CompanydetailRepository {
                 companydetail.setPromoter_md_director(row.getString("promoter_md_director"));
                 companydetail.setDesignation(row.getString("designation"));
                 companydetail.setBusinessentity(row.getString("businessentity"));
-                companydetail.setBusinessentitytype(row.getUUID("businessentitytype"));
                 companydetail.setDirector_promoter_md_ceo_number(row.getInt("director_promoter_md_ceo_number"));
                 companydetail.setPan_number(row.getString("pan_number"));
                 companydetail.setAadhar_number(row.getString("aadhar_number"));
@@ -57,6 +56,7 @@ public class CompanydetailRepository {
                 companydetail.setCst_document(row.getString("cst_document"));
                 companydetail.setMoa_partnershipdeed(row.getString("moa_partnershipdeed"));
                 companydetail.setRegistration_document(row.getString("registration_document"));
+                companydetail.setBusinessentitytype(row.getString("businessentitytype"));
                 return companydetail;
             }
         ).forEach(companydetailsList::add);

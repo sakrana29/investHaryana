@@ -46,13 +46,13 @@ public class ProjectdetailRepository {
                 projectdetail.setDetail_project_report(row.getString("detail_project_report"));
                 projectdetail.setApproval_document(row.getString("approval_document"));
                 projectdetail.setEdc_sif_clu_fee_paid_document(row.getString("edc_sif_clu_fee_paid_document"));
-                projectdetail.setApproval_application_form(row.getUUID("approval_application_form"));
-                projectdetail.setCategory_of_project(row.getUUID("category_of_project"));
-                projectdetail.setCollaboration_with_foreign_country(row.getUUID("collaboration_with_foreign_country"));
                 projectdetail.setInvestorid(row.getUUID("investorid"));
-                projectdetail.setProjectype(row.getUUID("projectype"));
-                projectdetail.setSectorid(row.getUUID("sectorid"));
-                projectdetail.setSize_of_industry(row.getUUID("size_of_industry"));
+                projectdetail.setApproval_application_form(row.getString("approval_application_form"));
+                projectdetail.setCategory_of_project(row.getString("category_of_project"));
+                projectdetail.setCollaboration_with_foreign_country(row.getString("collaboration_with_foreign_country"));
+                projectdetail.setProjectype(row.getString("projectype"));
+                projectdetail.setSectorname(row.getString("sectorname"));
+                projectdetail.setSize_of_industry(row.getString("size_of_industry"));
                 return projectdetail;
             }
         ).forEach(projectdetailsList::add);

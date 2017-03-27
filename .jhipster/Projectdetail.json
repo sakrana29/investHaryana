@@ -31,32 +31,32 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "approval_application_form",
-            "fieldType": "UUID"
-        },
-        {
-            "fieldName": "category_of_project",
-            "fieldType": "UUID"
-        },
-        {
-            "fieldName": "collaboration_with_foreign_country",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "investorid",
             "fieldType": "UUID"
         },
         {
-            "fieldName": "projectype",
-            "fieldType": "UUID"
+            "fieldName": "approval_application_form",
+            "fieldType": "String"
         },
         {
-            "fieldName": "sectorid",
-            "fieldType": "UUID"
+            "fieldName": "category_of_project",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "collaboration_with_foreign_country",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "projectype",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sectorname",
+            "fieldType": "String"
         },
         {
             "fieldName": "size_of_industry",
-            "fieldType": "UUID"
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313112040",

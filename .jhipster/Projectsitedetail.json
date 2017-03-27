@@ -11,18 +11,6 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "district",
-            "fieldType": "UUID"
-        },
-        {
-            "fieldName": "block",
-            "fieldType": "UUID"
-        },
-        {
-            "fieldName": "city_town_village",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "tehsil_subtehsil",
             "fieldType": "UUID"
         },
@@ -103,10 +91,6 @@
             "fieldType": "Boolean"
         },
         {
-            "fieldName": "connectingroad",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "intersectiondistance",
             "fieldType": "Boolean"
         },
@@ -118,10 +102,6 @@
             "fieldName": "confirmitylanduse",
             "fieldType": "Boolean",
             "fieldValidateRules": []
-        },
-        {
-            "fieldName": "landzoneuse_type",
-            "fieldType": "UUID"
         },
         {
             "fieldName": "existing_building_applicable",
@@ -181,6 +161,26 @@
         },
         {
             "fieldName": "buildingexisted",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "district",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "block",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "city_town_village",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "connectingroad",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "landzoneuse_type",
             "fieldType": "String"
         }
     ],

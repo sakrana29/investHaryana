@@ -30,12 +30,6 @@ public class Investor implements Serializable {
 
     private String lastname;
 
-    private UUID countryid;
-
-    private UUID stateid;
-
-    private UUID cityid;
-
     private String address1;
 
     private String address2;
@@ -51,6 +45,12 @@ public class Investor implements Serializable {
     private String investorpicpath;
 
     private String userlogin;
+
+    private String cityname;
+
+    private String countryname;
+
+    private String statename;
 
     public UUID getId() {
         return id;
@@ -136,45 +136,6 @@ public class Investor implements Serializable {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
-    }
-
-    public UUID getCountryid() {
-        return countryid;
-    }
-
-    public Investor countryid(UUID countryid) {
-        this.countryid = countryid;
-        return this;
-    }
-
-    public void setCountryid(UUID countryid) {
-        this.countryid = countryid;
-    }
-
-    public UUID getStateid() {
-        return stateid;
-    }
-
-    public Investor stateid(UUID stateid) {
-        this.stateid = stateid;
-        return this;
-    }
-
-    public void setStateid(UUID stateid) {
-        this.stateid = stateid;
-    }
-
-    public UUID getCityid() {
-        return cityid;
-    }
-
-    public Investor cityid(UUID cityid) {
-        this.cityid = cityid;
-        return this;
-    }
-
-    public void setCityid(UUID cityid) {
-        this.cityid = cityid;
     }
 
     public String getAddress1() {
@@ -281,6 +242,45 @@ public class Investor implements Serializable {
         this.userlogin = userlogin;
     }
 
+    public String getCityname() {
+        return cityname;
+    }
+
+    public Investor cityname(String cityname) {
+        this.cityname = cityname;
+        return this;
+    }
+
+    public void setCityname(String cityname) {
+        this.cityname = cityname;
+    }
+
+    public String getCountryname() {
+        return countryname;
+    }
+
+    public Investor countryname(String countryname) {
+        this.countryname = countryname;
+        return this;
+    }
+
+    public void setCountryname(String countryname) {
+        this.countryname = countryname;
+    }
+
+    public String getStatename() {
+        return statename;
+    }
+
+    public Investor statename(String statename) {
+        this.statename = statename;
+        return this;
+    }
+
+    public void setStatename(String statename) {
+        this.statename = statename;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -311,9 +311,6 @@ public class Investor implements Serializable {
             ", firstname='" + firstname + "'" +
             ", middlename='" + middlename + "'" +
             ", lastname='" + lastname + "'" +
-            ", countryid='" + countryid + "'" +
-            ", stateid='" + stateid + "'" +
-            ", cityid='" + cityid + "'" +
             ", address1='" + address1 + "'" +
             ", address2='" + address2 + "'" +
             ", address3='" + address3 + "'" +
@@ -322,6 +319,9 @@ public class Investor implements Serializable {
             ", moudocument='" + moudocument + "'" +
             ", investorpicpath='" + investorpicpath + "'" +
             ", userlogin='" + userlogin + "'" +
+            ", cityname='" + cityname + "'" +
+            ", countryname='" + countryname + "'" +
+            ", statename='" + statename + "'" +
             '}';
     }
 }

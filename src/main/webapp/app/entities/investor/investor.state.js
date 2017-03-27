@@ -110,9 +110,6 @@
                                 firstname: null,
                                 middlename: null,
                                 lastname: null,
-                                countryid: null,
-                                stateid: null,
-                                cityid: null,
                                 address1: null,
                                 address2: null,
                                 address3: null,
@@ -121,6 +118,9 @@
                                 moudocument: null,
                                 investorpicpath: null,
                                 userlogin: null,
+                                cityname: null,
+                                countryname: null,
+                                statename: null,
                                 id: null
                             };
                         }
