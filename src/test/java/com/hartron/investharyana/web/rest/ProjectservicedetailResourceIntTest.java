@@ -69,6 +69,12 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
     private static final String DEFAULT_REMARKS = "AAAAAAAAAA";
     private static final String UPDATED_REMARKS = "BBBBBBBBBB";
 
+    private static final String DEFAULT_PROJECTNAME = "AAAAAAAAAA";
+    private static final String UPDATED_PROJECTNAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_SERVICENAME = "AAAAAAAAAA";
+    private static final String UPDATED_SERVICENAME = "BBBBBBBBBB";
+
     @Autowired
     private ProjectservicedetailRepository projectservicedetailRepository;
 
@@ -116,7 +122,9 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
                 .servicestatus(DEFAULT_SERVICESTATUS)
                 .assigndate(DEFAULT_ASSIGNDATE)
                 .servicefee(DEFAULT_SERVICEFEE)
-                .remarks(DEFAULT_REMARKS);
+                .remarks(DEFAULT_REMARKS)
+                .projectname(DEFAULT_PROJECTNAME)
+                .servicename(DEFAULT_SERVICENAME);
         return projectservicedetail;
     }
 
@@ -150,6 +158,8 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectservicedetail.getAssigndate()).isEqualTo(DEFAULT_ASSIGNDATE);
         assertThat(testProjectservicedetail.getServicefee()).isEqualTo(DEFAULT_SERVICEFEE);
         assertThat(testProjectservicedetail.getRemarks()).isEqualTo(DEFAULT_REMARKS);
+        assertThat(testProjectservicedetail.getProjectname()).isEqualTo(DEFAULT_PROJECTNAME);
+        assertThat(testProjectservicedetail.getServicename()).isEqualTo(DEFAULT_SERVICENAME);
     }
 
     @Test
@@ -189,7 +199,9 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].servicestatus").value(hasItem(DEFAULT_SERVICESTATUS.toString())))
             .andExpect(jsonPath("$.[*].assigndate").value(hasItem(sameInstant(DEFAULT_ASSIGNDATE))))
             .andExpect(jsonPath("$.[*].servicefee").value(hasItem(DEFAULT_SERVICEFEE.doubleValue())))
-            .andExpect(jsonPath("$.[*].remarks").value(hasItem(DEFAULT_REMARKS.toString())));
+            .andExpect(jsonPath("$.[*].remarks").value(hasItem(DEFAULT_REMARKS.toString())))
+            .andExpect(jsonPath("$.[*].projectname").value(hasItem(DEFAULT_PROJECTNAME.toString())))
+            .andExpect(jsonPath("$.[*].servicename").value(hasItem(DEFAULT_SERVICENAME.toString())));
     }
 
     @Test
@@ -209,7 +221,9 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.servicestatus").value(DEFAULT_SERVICESTATUS.toString()))
             .andExpect(jsonPath("$.assigndate").value(sameInstant(DEFAULT_ASSIGNDATE)))
             .andExpect(jsonPath("$.servicefee").value(DEFAULT_SERVICEFEE.doubleValue()))
-            .andExpect(jsonPath("$.remarks").value(DEFAULT_REMARKS.toString()));
+            .andExpect(jsonPath("$.remarks").value(DEFAULT_REMARKS.toString()))
+            .andExpect(jsonPath("$.projectname").value(DEFAULT_PROJECTNAME.toString()))
+            .andExpect(jsonPath("$.servicename").value(DEFAULT_SERVICENAME.toString()));
     }
 
     @Test
@@ -235,7 +249,9 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
                 .servicestatus(UPDATED_SERVICESTATUS)
                 .assigndate(UPDATED_ASSIGNDATE)
                 .servicefee(UPDATED_SERVICEFEE)
-                .remarks(UPDATED_REMARKS);
+                .remarks(UPDATED_REMARKS)
+                .projectname(UPDATED_PROJECTNAME)
+                .servicename(UPDATED_SERVICENAME);
         ProjectservicedetailDTO projectservicedetailDTO = projectservicedetailMapper.projectservicedetailToProjectservicedetailDTO(updatedProjectservicedetail);
 
         restProjectservicedetailMockMvc.perform(put("/api/projectservicedetails")
@@ -255,6 +271,8 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectservicedetail.getAssigndate()).isEqualTo(UPDATED_ASSIGNDATE);
         assertThat(testProjectservicedetail.getServicefee()).isEqualTo(UPDATED_SERVICEFEE);
         assertThat(testProjectservicedetail.getRemarks()).isEqualTo(UPDATED_REMARKS);
+        assertThat(testProjectservicedetail.getProjectname()).isEqualTo(UPDATED_PROJECTNAME);
+        assertThat(testProjectservicedetail.getServicename()).isEqualTo(UPDATED_SERVICENAME);
     }
 
     @Test

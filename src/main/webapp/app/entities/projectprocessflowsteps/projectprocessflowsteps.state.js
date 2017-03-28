@@ -106,6 +106,7 @@
                             return {
                                 projectid: null,
                                 steps: null,
+                                projectname: null,
                                 id: null
                             };
                         }

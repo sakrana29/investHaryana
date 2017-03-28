@@ -5,5 +5,7 @@ CREATE TABLE IF NOT EXISTS projectrawmaterial (
     rawmaterial text,
     quantity int,
     units uuid,
+    projectname text,
+    unitsname text,
     PRIMARY KEY(id)
 );

@@ -29,7 +29,7 @@ public class BlockResource {
     private final Logger log = LoggerFactory.getLogger(BlockResource.class);
 
     private static final String ENTITY_NAME = "block";
-
+        
     private final BlockService blockService;
 
     public BlockResource(BlockService blockService) {
@@ -88,13 +88,6 @@ public class BlockResource {
     public List<BlockDTO> getAllBlocks() {
         log.debug("REST request to get all Blocks");
         return blockService.findAll();
-    }
-
-    @GetMapping("/blocks/district/{districtid}")
-    @Timed
-    public List<BlockDTO> getAllBlocksByDistrict(@PathVariable String districtid) {
-        log.debug("REST request to get all Blocks by districtid");
-        return blockService.findBlockByDistrict(districtid);
     }
 
     /**

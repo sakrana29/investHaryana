@@ -52,6 +52,12 @@ public class ProjectproductResourceIntTest extends AbstractCassandraTest {
     private static final UUID DEFAULT_UNITS = UUID.randomUUID();
     private static final UUID UPDATED_UNITS = UUID.randomUUID();
 
+    private static final String DEFAULT_PROJECTNAME = "AAAAAAAAAA";
+    private static final String UPDATED_PROJECTNAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_UNITSNAME = "AAAAAAAAAA";
+    private static final String UPDATED_UNITSNAME = "BBBBBBBBBB";
+
     @Autowired
     private ProjectproductRepository projectproductRepository;
 
@@ -95,7 +101,9 @@ public class ProjectproductResourceIntTest extends AbstractCassandraTest {
                 .projectid(DEFAULT_PROJECTID)
                 .mainproduct(DEFAULT_MAINPRODUCT)
                 .quantity(DEFAULT_QUANTITY)
-                .units(DEFAULT_UNITS);
+                .units(DEFAULT_UNITS)
+                .projectname(DEFAULT_PROJECTNAME)
+                .unitsname(DEFAULT_UNITSNAME);
         return projectproduct;
     }
 
@@ -125,6 +133,8 @@ public class ProjectproductResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectproduct.getMainproduct()).isEqualTo(DEFAULT_MAINPRODUCT);
         assertThat(testProjectproduct.getQuantity()).isEqualTo(DEFAULT_QUANTITY);
         assertThat(testProjectproduct.getUnits()).isEqualTo(DEFAULT_UNITS);
+        assertThat(testProjectproduct.getProjectname()).isEqualTo(DEFAULT_PROJECTNAME);
+        assertThat(testProjectproduct.getUnitsname()).isEqualTo(DEFAULT_UNITSNAME);
     }
 
     @Test
@@ -160,7 +170,9 @@ public class ProjectproductResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())))
             .andExpect(jsonPath("$.[*].mainproduct").value(hasItem(DEFAULT_MAINPRODUCT.toString())))
             .andExpect(jsonPath("$.[*].quantity").value(hasItem(DEFAULT_QUANTITY)))
-            .andExpect(jsonPath("$.[*].units").value(hasItem(DEFAULT_UNITS.toString())));
+            .andExpect(jsonPath("$.[*].units").value(hasItem(DEFAULT_UNITS.toString())))
+            .andExpect(jsonPath("$.[*].projectname").value(hasItem(DEFAULT_PROJECTNAME.toString())))
+            .andExpect(jsonPath("$.[*].unitsname").value(hasItem(DEFAULT_UNITSNAME.toString())));
     }
 
     @Test
@@ -176,7 +188,9 @@ public class ProjectproductResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()))
             .andExpect(jsonPath("$.mainproduct").value(DEFAULT_MAINPRODUCT.toString()))
             .andExpect(jsonPath("$.quantity").value(DEFAULT_QUANTITY))
-            .andExpect(jsonPath("$.units").value(DEFAULT_UNITS.toString()));
+            .andExpect(jsonPath("$.units").value(DEFAULT_UNITS.toString()))
+            .andExpect(jsonPath("$.projectname").value(DEFAULT_PROJECTNAME.toString()))
+            .andExpect(jsonPath("$.unitsname").value(DEFAULT_UNITSNAME.toString()));
     }
 
     @Test
@@ -198,7 +212,9 @@ public class ProjectproductResourceIntTest extends AbstractCassandraTest {
                 .projectid(UPDATED_PROJECTID)
                 .mainproduct(UPDATED_MAINPRODUCT)
                 .quantity(UPDATED_QUANTITY)
-                .units(UPDATED_UNITS);
+                .units(UPDATED_UNITS)
+                .projectname(UPDATED_PROJECTNAME)
+                .unitsname(UPDATED_UNITSNAME);
         ProjectproductDTO projectproductDTO = projectproductMapper.projectproductToProjectproductDTO(updatedProjectproduct);
 
         restProjectproductMockMvc.perform(put("/api/projectproducts")
@@ -214,6 +230,8 @@ public class ProjectproductResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectproduct.getMainproduct()).isEqualTo(UPDATED_MAINPRODUCT);
         assertThat(testProjectproduct.getQuantity()).isEqualTo(UPDATED_QUANTITY);
         assertThat(testProjectproduct.getUnits()).isEqualTo(UPDATED_UNITS);
+        assertThat(testProjectproduct.getProjectname()).isEqualTo(UPDATED_PROJECTNAME);
+        assertThat(testProjectproduct.getUnitsname()).isEqualTo(UPDATED_UNITSNAME);
     }
 
     @Test

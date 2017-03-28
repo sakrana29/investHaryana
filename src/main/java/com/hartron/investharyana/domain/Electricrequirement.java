@@ -60,6 +60,10 @@ public class Electricrequirement implements Serializable {
 
     private String regular_connection_doc;
 
+    private String projectname;
+
+    private String customertypename;
+
     public UUID getId() {
         return id;
     }
@@ -328,6 +332,32 @@ public class Electricrequirement implements Serializable {
         this.regular_connection_doc = regular_connection_doc;
     }
 
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public Electricrequirement projectname(String projectname) {
+        this.projectname = projectname;
+        return this;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
+
+    public String getCustomertypename() {
+        return customertypename;
+    }
+
+    public Electricrequirement customertypename(String customertypename) {
+        this.customertypename = customertypename;
+        return this;
+    }
+
+    public void setCustomertypename(String customertypename) {
+        this.customertypename = customertypename;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -372,6 +402,8 @@ public class Electricrequirement implements Serializable {
             ", regular_load_demand_date='" + regular_load_demand_date + "'" +
             ", temporaryconnection='" + temporaryconnection + "'" +
             ", regular_connection_doc='" + regular_connection_doc + "'" +
+            ", projectname='" + projectname + "'" +
+            ", customertypename='" + customertypename + "'" +
             '}';
     }
 }

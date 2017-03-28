@@ -44,6 +44,10 @@ public class EmissiondetailRepository {
                 emissiondetail.setCapacity(row.getString("capacity"));
                 emissiondetail.setType_of_fuel(row.getUUID("type_of_fuel"));
                 emissiondetail.setAir_pollution_control_device(row.getUUID("air_pollution_control_device"));
+                emissiondetail.setProjectname(row.getString("projectname"));
+                emissiondetail.setParticularsname(row.getString("particularsname"));
+                emissiondetail.setTypeoffuelname(row.getString("typeoffuelname"));
+                emissiondetail.setAirpollutioncontroldevicename(row.getString("airpollutioncontroldevicename"));
                 return emissiondetail;
             }
         ).forEach(emissiondetailsList::add);

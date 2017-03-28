@@ -45,6 +45,9 @@ public class WastewaterdetailRepository {
                 wastewaterdetail.setQuantity(row.getInt("quantity"));
                 wastewaterdetail.setMode_of_disposal(row.getUUID("mode_of_disposal"));
                 wastewaterdetail.setDescription(row.getString("description"));
+                wastewaterdetail.setProjectname(row.getString("projectname"));
+                wastewaterdetail.setNaturetypename(row.getString("naturetypename"));
+                wastewaterdetail.setModeofdisposal(row.getString("modeofdisposal"));
                 return wastewaterdetail;
             }
         ).forEach(wastewaterdetailsList::add);

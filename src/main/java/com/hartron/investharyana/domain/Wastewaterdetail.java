@@ -30,6 +30,12 @@ public class Wastewaterdetail implements Serializable {
 
     private String description;
 
+    private String projectname;
+
+    private String naturetypename;
+
+    private String modeofdisposal;
+
     public UUID getId() {
         return id;
     }
@@ -116,6 +122,45 @@ public class Wastewaterdetail implements Serializable {
         this.description = description;
     }
 
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public Wastewaterdetail projectname(String projectname) {
+        this.projectname = projectname;
+        return this;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
+
+    public String getNaturetypename() {
+        return naturetypename;
+    }
+
+    public Wastewaterdetail naturetypename(String naturetypename) {
+        this.naturetypename = naturetypename;
+        return this;
+    }
+
+    public void setNaturetypename(String naturetypename) {
+        this.naturetypename = naturetypename;
+    }
+
+    public String getModeofdisposal() {
+        return modeofdisposal;
+    }
+
+    public Wastewaterdetail modeofdisposal(String modeofdisposal) {
+        this.modeofdisposal = modeofdisposal;
+        return this;
+    }
+
+    public void setModeofdisposal(String modeofdisposal) {
+        this.modeofdisposal = modeofdisposal;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -146,6 +191,9 @@ public class Wastewaterdetail implements Serializable {
             ", quantity='" + quantity + "'" +
             ", mode_of_disposal='" + mode_of_disposal + "'" +
             ", description='" + description + "'" +
+            ", projectname='" + projectname + "'" +
+            ", naturetypename='" + naturetypename + "'" +
+            ", modeofdisposal='" + modeofdisposal + "'" +
             '}';
     }
 }

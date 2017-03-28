@@ -106,6 +106,7 @@
                             return {
                                 districtid: null,
                                 tehsil_subtehsilname: null,
+                                districtname: null,
                                 id: null
                             };
                         }

@@ -29,6 +29,10 @@ public class ProjectservicedetailDTO implements Serializable {
 
     private String remarks;
 
+    private String projectname;
+
+    private String servicename;
+
     public UUID getId() {
         return id;
     }
@@ -92,6 +96,20 @@ public class ProjectservicedetailDTO implements Serializable {
     public void setRemarks(String remarks) {
         this.remarks = remarks;
     }
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
+    public String getServicename() {
+        return servicename;
+    }
+
+    public void setServicename(String servicename) {
+        this.servicename = servicename;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -126,6 +144,8 @@ public class ProjectservicedetailDTO implements Serializable {
             ", assigndate='" + assigndate + "'" +
             ", servicefee='" + servicefee + "'" +
             ", remarks='" + remarks + "'" +
+            ", projectname='" + projectname + "'" +
+            ", servicename='" + servicename + "'" +
             '}';
     }
 }

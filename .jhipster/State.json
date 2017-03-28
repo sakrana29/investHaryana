@@ -15,6 +15,10 @@
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldName": "countryname",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313081731",

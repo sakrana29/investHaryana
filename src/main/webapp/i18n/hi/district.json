@@ -16,7 +16,8 @@
                 "title": "District"
             },
             "stateid": "Stateid",
-            "districtname": "Districtname"
+            "districtname": "Districtname",
+            "statename": "Statename"
         }
     }
 }

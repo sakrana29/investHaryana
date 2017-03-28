@@ -52,6 +52,12 @@ public class ProjectrawmaterialResourceIntTest extends AbstractCassandraTest {
     private static final UUID DEFAULT_UNITS = UUID.randomUUID();
     private static final UUID UPDATED_UNITS = UUID.randomUUID();
 
+    private static final String DEFAULT_PROJECTNAME = "AAAAAAAAAA";
+    private static final String UPDATED_PROJECTNAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_UNITSNAME = "AAAAAAAAAA";
+    private static final String UPDATED_UNITSNAME = "BBBBBBBBBB";
+
     @Autowired
     private ProjectrawmaterialRepository projectrawmaterialRepository;
 
@@ -95,7 +101,9 @@ public class ProjectrawmaterialResourceIntTest extends AbstractCassandraTest {
                 .projectid(DEFAULT_PROJECTID)
                 .rawmaterial(DEFAULT_RAWMATERIAL)
                 .quantity(DEFAULT_QUANTITY)
-                .units(DEFAULT_UNITS);
+                .units(DEFAULT_UNITS)
+                .projectname(DEFAULT_PROJECTNAME)
+                .unitsname(DEFAULT_UNITSNAME);
         return projectrawmaterial;
     }
 
@@ -125,6 +133,8 @@ public class ProjectrawmaterialResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectrawmaterial.getRawmaterial()).isEqualTo(DEFAULT_RAWMATERIAL);
         assertThat(testProjectrawmaterial.getQuantity()).isEqualTo(DEFAULT_QUANTITY);
         assertThat(testProjectrawmaterial.getUnits()).isEqualTo(DEFAULT_UNITS);
+        assertThat(testProjectrawmaterial.getProjectname()).isEqualTo(DEFAULT_PROJECTNAME);
+        assertThat(testProjectrawmaterial.getUnitsname()).isEqualTo(DEFAULT_UNITSNAME);
     }
 
     @Test
@@ -160,7 +170,9 @@ public class ProjectrawmaterialResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())))
             .andExpect(jsonPath("$.[*].rawmaterial").value(hasItem(DEFAULT_RAWMATERIAL.toString())))
             .andExpect(jsonPath("$.[*].quantity").value(hasItem(DEFAULT_QUANTITY)))
-            .andExpect(jsonPath("$.[*].units").value(hasItem(DEFAULT_UNITS.toString())));
+            .andExpect(jsonPath("$.[*].units").value(hasItem(DEFAULT_UNITS.toString())))
+            .andExpect(jsonPath("$.[*].projectname").value(hasItem(DEFAULT_PROJECTNAME.toString())))
+            .andExpect(jsonPath("$.[*].unitsname").value(hasItem(DEFAULT_UNITSNAME.toString())));
     }
 
     @Test
@@ -176,7 +188,9 @@ public class ProjectrawmaterialResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()))
             .andExpect(jsonPath("$.rawmaterial").value(DEFAULT_RAWMATERIAL.toString()))
             .andExpect(jsonPath("$.quantity").value(DEFAULT_QUANTITY))
-            .andExpect(jsonPath("$.units").value(DEFAULT_UNITS.toString()));
+            .andExpect(jsonPath("$.units").value(DEFAULT_UNITS.toString()))
+            .andExpect(jsonPath("$.projectname").value(DEFAULT_PROJECTNAME.toString()))
+            .andExpect(jsonPath("$.unitsname").value(DEFAULT_UNITSNAME.toString()));
     }
 
     @Test
@@ -198,7 +212,9 @@ public class ProjectrawmaterialResourceIntTest extends AbstractCassandraTest {
                 .projectid(UPDATED_PROJECTID)
                 .rawmaterial(UPDATED_RAWMATERIAL)
                 .quantity(UPDATED_QUANTITY)
-                .units(UPDATED_UNITS);
+                .units(UPDATED_UNITS)
+                .projectname(UPDATED_PROJECTNAME)
+                .unitsname(UPDATED_UNITSNAME);
         ProjectrawmaterialDTO projectrawmaterialDTO = projectrawmaterialMapper.projectrawmaterialToProjectrawmaterialDTO(updatedProjectrawmaterial);
 
         restProjectrawmaterialMockMvc.perform(put("/api/projectrawmaterials")
@@ -214,6 +230,8 @@ public class ProjectrawmaterialResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectrawmaterial.getRawmaterial()).isEqualTo(UPDATED_RAWMATERIAL);
         assertThat(testProjectrawmaterial.getQuantity()).isEqualTo(UPDATED_QUANTITY);
         assertThat(testProjectrawmaterial.getUnits()).isEqualTo(UPDATED_UNITS);
+        assertThat(testProjectrawmaterial.getProjectname()).isEqualTo(UPDATED_PROJECTNAME);
+        assertThat(testProjectrawmaterial.getUnitsname()).isEqualTo(UPDATED_UNITSNAME);
     }
 
     @Test

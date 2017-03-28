@@ -29,7 +29,7 @@ public class City_town_villageResource {
     private final Logger log = LoggerFactory.getLogger(City_town_villageResource.class);
 
     private static final String ENTITY_NAME = "city_town_village";
-
+        
     private final City_town_villageService city_town_villageService;
 
     public City_town_villageResource(City_town_villageService city_town_villageService) {
@@ -88,13 +88,6 @@ public class City_town_villageResource {
     public List<City_town_villageDTO> getAllCity_town_villages() {
         log.debug("REST request to get all City_town_villages");
         return city_town_villageService.findAll();
-    }
-
-    @GetMapping("/city-town-villages/block/{blockid}")
-    @Timed
-    public List<City_town_villageDTO> getAllCity_town_villagesByBlock(@PathVariable String blockid) {
-        log.debug("REST request to get all City_town_villages by block");
-        return city_town_villageService.findVillageByBlock(blockid);
     }
 
     /**

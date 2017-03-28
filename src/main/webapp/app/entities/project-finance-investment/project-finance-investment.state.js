@@ -117,6 +117,8 @@
                                 proposedproject_scheduleid: null,
                                 fdi_country: null,
                                 foreign_funding_source: null,
+                                projectname: null,
+                                proposedproject_schedulename: null,
                                 id: null
                             };
                         }

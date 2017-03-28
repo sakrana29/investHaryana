@@ -110,6 +110,9 @@
                                 quantity: null,
                                 mode_of_disposal: null,
                                 description: null,
+                                projectname: null,
+                                naturetypename: null,
+                                modeofdisposal: null,
                                 id: null
                             };
                         }

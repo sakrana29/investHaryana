@@ -20,6 +20,10 @@ public class ProjectproductDTO implements Serializable {
 
     private UUID units;
 
+    private String projectname;
+
+    private String unitsname;
+
     public UUID getId() {
         return id;
     }
@@ -55,6 +59,20 @@ public class ProjectproductDTO implements Serializable {
     public void setUnits(UUID units) {
         this.units = units;
     }
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
+    public String getUnitsname() {
+        return unitsname;
+    }
+
+    public void setUnitsname(String unitsname) {
+        this.unitsname = unitsname;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -85,6 +103,8 @@ public class ProjectproductDTO implements Serializable {
             ", mainproduct='" + mainproduct + "'" +
             ", quantity='" + quantity + "'" +
             ", units='" + units + "'" +
+            ", projectname='" + projectname + "'" +
+            ", unitsname='" + unitsname + "'" +
             '}';
     }
 }

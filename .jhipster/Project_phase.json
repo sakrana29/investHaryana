@@ -21,6 +21,10 @@
         {
             "fieldName": "implementationdate",
             "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "projectname",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313120018",

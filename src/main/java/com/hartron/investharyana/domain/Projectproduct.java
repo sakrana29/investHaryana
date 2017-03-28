@@ -26,6 +26,10 @@ public class Projectproduct implements Serializable {
 
     private UUID units;
 
+    private String projectname;
+
+    private String unitsname;
+
     public UUID getId() {
         return id;
     }
@@ -86,6 +90,32 @@ public class Projectproduct implements Serializable {
         this.units = units;
     }
 
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public Projectproduct projectname(String projectname) {
+        this.projectname = projectname;
+        return this;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
+
+    public String getUnitsname() {
+        return unitsname;
+    }
+
+    public Projectproduct unitsname(String unitsname) {
+        this.unitsname = unitsname;
+        return this;
+    }
+
+    public void setUnitsname(String unitsname) {
+        this.unitsname = unitsname;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -114,6 +144,8 @@ public class Projectproduct implements Serializable {
             ", mainproduct='" + mainproduct + "'" +
             ", quantity='" + quantity + "'" +
             ", units='" + units + "'" +
+            ", projectname='" + projectname + "'" +
+            ", unitsname='" + unitsname + "'" +
             '}';
     }
 }

@@ -6,5 +6,6 @@ CREATE TABLE IF NOT EXISTS project_phase (
     productcategory text,
     fci text,
     implementationdate timestamp,
+    projectname text,
     PRIMARY KEY(id)
 );

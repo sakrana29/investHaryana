@@ -27,7 +27,9 @@
             "commercial_activity_start_date": "Commercial Activity Start Date",
             "proposedproject_scheduleid": "Proposedproject Scheduleid",
             "fdi_country": "Fdi Country",
-            "foreign_funding_source": "Foreign Funding Source"
+            "foreign_funding_source": "Foreign Funding Source",
+            "projectname": "Projectname",
+            "proposedproject_schedulename": "Proposedproject Schedulename"
         }
     }
 }

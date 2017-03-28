@@ -18,7 +18,9 @@
             "projectid": "Projectid",
             "rawmaterial": "Rawmaterial",
             "quantity": "Quantity",
-            "units": "Units"
+            "units": "Units",
+            "projectname": "Projectname",
+            "unitsname": "Unitsname"
         }
     }
 }

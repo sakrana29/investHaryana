@@ -24,6 +24,12 @@ public class WastewaterdetailDTO implements Serializable {
 
     private String description;
 
+    private String projectname;
+
+    private String naturetypename;
+
+    private String modeofdisposal;
+
     public UUID getId() {
         return id;
     }
@@ -73,6 +79,27 @@ public class WastewaterdetailDTO implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
+    public String getNaturetypename() {
+        return naturetypename;
+    }
+
+    public void setNaturetypename(String naturetypename) {
+        this.naturetypename = naturetypename;
+    }
+    public String getModeofdisposal() {
+        return modeofdisposal;
+    }
+
+    public void setModeofdisposal(String modeofdisposal) {
+        this.modeofdisposal = modeofdisposal;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -105,6 +132,9 @@ public class WastewaterdetailDTO implements Serializable {
             ", quantity='" + quantity + "'" +
             ", mode_of_disposal='" + mode_of_disposal + "'" +
             ", description='" + description + "'" +
+            ", projectname='" + projectname + "'" +
+            ", naturetypename='" + naturetypename + "'" +
+            ", modeofdisposal='" + modeofdisposal + "'" +
             '}';
     }
 }

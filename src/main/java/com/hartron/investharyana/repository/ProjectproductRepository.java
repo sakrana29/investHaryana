@@ -43,6 +43,8 @@ public class ProjectproductRepository {
                 projectproduct.setMainproduct(row.getString("mainproduct"));
                 projectproduct.setQuantity(row.getInt("quantity"));
                 projectproduct.setUnits(row.getUUID("units"));
+                projectproduct.setProjectname(row.getString("projectname"));
+                projectproduct.setUnitsname(row.getString("unitsname"));
                 return projectproduct;
             }
         ).forEach(projectproductsList::add);

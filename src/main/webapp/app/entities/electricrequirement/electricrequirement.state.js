@@ -124,6 +124,8 @@
                                 regular_load_demand_date: null,
                                 temporaryconnection: null,
                                 regular_connection_doc: null,
+                                projectname: null,
+                                customertypename: null,
                                 id: null
                             };
                         }

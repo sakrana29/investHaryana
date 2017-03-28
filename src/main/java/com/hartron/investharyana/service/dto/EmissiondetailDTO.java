@@ -22,6 +22,14 @@ public class EmissiondetailDTO implements Serializable {
 
     private UUID air_pollution_control_device;
 
+    private String projectname;
+
+    private String particularsname;
+
+    private String typeoffuelname;
+
+    private String airpollutioncontroldevicename;
+
     public UUID getId() {
         return id;
     }
@@ -64,6 +72,34 @@ public class EmissiondetailDTO implements Serializable {
     public void setAir_pollution_control_device(UUID air_pollution_control_device) {
         this.air_pollution_control_device = air_pollution_control_device;
     }
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
+    public String getParticularsname() {
+        return particularsname;
+    }
+
+    public void setParticularsname(String particularsname) {
+        this.particularsname = particularsname;
+    }
+    public String getTypeoffuelname() {
+        return typeoffuelname;
+    }
+
+    public void setTypeoffuelname(String typeoffuelname) {
+        this.typeoffuelname = typeoffuelname;
+    }
+    public String getAirpollutioncontroldevicename() {
+        return airpollutioncontroldevicename;
+    }
+
+    public void setAirpollutioncontroldevicename(String airpollutioncontroldevicename) {
+        this.airpollutioncontroldevicename = airpollutioncontroldevicename;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -95,6 +131,10 @@ public class EmissiondetailDTO implements Serializable {
             ", capacity='" + capacity + "'" +
             ", type_of_fuel='" + type_of_fuel + "'" +
             ", air_pollution_control_device='" + air_pollution_control_device + "'" +
+            ", projectname='" + projectname + "'" +
+            ", particularsname='" + particularsname + "'" +
+            ", typeoffuelname='" + typeoffuelname + "'" +
+            ", airpollutioncontroldevicename='" + airpollutioncontroldevicename + "'" +
             '}';
     }
 }

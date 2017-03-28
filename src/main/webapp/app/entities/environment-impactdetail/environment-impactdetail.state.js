@@ -120,6 +120,9 @@
                                 wastewaterdetailid: null,
                                 document_attached: null,
                                 other: null,
+                                projectname: null,
+                                sourceofwatersupply: null,
+                                modeofdisposalfordischarge: null,
                                 id: null
                             };
                         }

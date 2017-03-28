@@ -50,6 +50,12 @@ public class Environment_impactdetail implements Serializable {
 
     private String other;
 
+    private String projectname;
+
+    private String sourceofwatersupply;
+
+    private String modeofdisposalfordischarge;
+
     public UUID getId() {
         return id;
     }
@@ -266,6 +272,45 @@ public class Environment_impactdetail implements Serializable {
         this.other = other;
     }
 
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public Environment_impactdetail projectname(String projectname) {
+        this.projectname = projectname;
+        return this;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
+
+    public String getSourceofwatersupply() {
+        return sourceofwatersupply;
+    }
+
+    public Environment_impactdetail sourceofwatersupply(String sourceofwatersupply) {
+        this.sourceofwatersupply = sourceofwatersupply;
+        return this;
+    }
+
+    public void setSourceofwatersupply(String sourceofwatersupply) {
+        this.sourceofwatersupply = sourceofwatersupply;
+    }
+
+    public String getModeofdisposalfordischarge() {
+        return modeofdisposalfordischarge;
+    }
+
+    public Environment_impactdetail modeofdisposalfordischarge(String modeofdisposalfordischarge) {
+        this.modeofdisposalfordischarge = modeofdisposalfordischarge;
+        return this;
+    }
+
+    public void setModeofdisposalfordischarge(String modeofdisposalfordischarge) {
+        this.modeofdisposalfordischarge = modeofdisposalfordischarge;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -306,6 +351,9 @@ public class Environment_impactdetail implements Serializable {
             ", wastewaterdetailid='" + wastewaterdetailid + "'" +
             ", document_attached='" + document_attached + "'" +
             ", other='" + other + "'" +
+            ", projectname='" + projectname + "'" +
+            ", sourceofwatersupply='" + sourceofwatersupply + "'" +
+            ", modeofdisposalfordischarge='" + modeofdisposalfordischarge + "'" +
             '}';
     }
 }

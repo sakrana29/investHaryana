@@ -19,6 +19,8 @@ public class DistrictDTO implements Serializable {
     @NotNull
     private String districtname;
 
+    private String statename;
+
     public UUID getId() {
         return id;
     }
@@ -39,6 +41,13 @@ public class DistrictDTO implements Serializable {
 
     public void setDistrictname(String districtname) {
         this.districtname = districtname;
+    }
+    public String getStatename() {
+        return statename;
+    }
+
+    public void setStatename(String statename) {
+        this.statename = statename;
     }
 
     @Override
@@ -68,6 +77,7 @@ public class DistrictDTO implements Serializable {
             "id=" + id +
             ", stateid='" + stateid + "'" +
             ", districtname='" + districtname + "'" +
+            ", statename='" + statename + "'" +
             '}';
     }
 }

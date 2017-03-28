@@ -14,5 +14,7 @@ CREATE TABLE IF NOT EXISTS project_finance_investment (
     proposedproject_scheduleid uuid,
     fdi_country text,
     foreign_funding_source text,
+    projectname text,
+    proposedproject_schedulename text,
     PRIMARY KEY(id)
 );

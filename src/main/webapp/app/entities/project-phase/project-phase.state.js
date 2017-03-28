@@ -109,6 +109,7 @@
                                 productcategory: null,
                                 fci: null,
                                 implementationdate: null,
+                                projectname: null,
                                 id: null
                             };
                         }

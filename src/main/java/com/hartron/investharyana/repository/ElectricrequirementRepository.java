@@ -60,6 +60,8 @@ public class ElectricrequirementRepository {
                 electricrequirement.setRegular_load_demand_date(row.get("regular_load_demand_date", ZonedDateTime.class));
                 electricrequirement.setTemporaryconnection(row.getString("temporaryconnection"));
                 electricrequirement.setRegular_connection_doc(row.getString("regular_connection_doc"));
+                electricrequirement.setProjectname(row.getString("projectname"));
+                electricrequirement.setCustomertypename(row.getString("customertypename"));
                 return electricrequirement;
             }
         ).forEach(electricrequirementsList::add);

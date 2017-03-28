@@ -64,6 +64,9 @@ public class Term_declaration_acceptResourceIntTest extends AbstractCassandraTes
     private static final String DEFAULT_SIGNATURE_CONTENT_TYPE = "image/jpg";
     private static final String UPDATED_SIGNATURE_CONTENT_TYPE = "image/png";
 
+    private static final String DEFAULT_PROJECTNAME = "AAAAAAAAAA";
+    private static final String UPDATED_PROJECTNAME = "BBBBBBBBBB";
+
     @Autowired
     private Term_declaration_acceptRepository term_declaration_acceptRepository;
 
@@ -109,7 +112,8 @@ public class Term_declaration_acceptResourceIntTest extends AbstractCassandraTes
                 .applicationdate(DEFAULT_APPLICATIONDATE)
                 .place(DEFAULT_PLACE)
                 .signature(DEFAULT_SIGNATURE)
-                .signatureContentType(DEFAULT_SIGNATURE_CONTENT_TYPE);
+                .signatureContentType(DEFAULT_SIGNATURE_CONTENT_TYPE)
+                .projectname(DEFAULT_PROJECTNAME);
         return term_declaration_accept;
     }
 
@@ -141,6 +145,7 @@ public class Term_declaration_acceptResourceIntTest extends AbstractCassandraTes
         assertThat(testTerm_declaration_accept.getPlace()).isEqualTo(DEFAULT_PLACE);
         assertThat(testTerm_declaration_accept.getSignature()).isEqualTo(DEFAULT_SIGNATURE);
         assertThat(testTerm_declaration_accept.getSignatureContentType()).isEqualTo(DEFAULT_SIGNATURE_CONTENT_TYPE);
+        assertThat(testTerm_declaration_accept.getProjectname()).isEqualTo(DEFAULT_PROJECTNAME);
     }
 
     @Test
@@ -178,7 +183,8 @@ public class Term_declaration_acceptResourceIntTest extends AbstractCassandraTes
             .andExpect(jsonPath("$.[*].applicationdate").value(hasItem(sameInstant(DEFAULT_APPLICATIONDATE))))
             .andExpect(jsonPath("$.[*].place").value(hasItem(DEFAULT_PLACE.toString())))
             .andExpect(jsonPath("$.[*].signatureContentType").value(hasItem(DEFAULT_SIGNATURE_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].signature").value(hasItem(Base64Utils.encodeToString(DEFAULT_SIGNATURE.array()))));
+            .andExpect(jsonPath("$.[*].signature").value(hasItem(Base64Utils.encodeToString(DEFAULT_SIGNATURE.array()))))
+            .andExpect(jsonPath("$.[*].projectname").value(hasItem(DEFAULT_PROJECTNAME.toString())));
     }
 
     @Test
@@ -196,7 +202,8 @@ public class Term_declaration_acceptResourceIntTest extends AbstractCassandraTes
             .andExpect(jsonPath("$.applicationdate").value(sameInstant(DEFAULT_APPLICATIONDATE)))
             .andExpect(jsonPath("$.place").value(DEFAULT_PLACE.toString()))
             .andExpect(jsonPath("$.signatureContentType").value(DEFAULT_SIGNATURE_CONTENT_TYPE))
-            .andExpect(jsonPath("$.signature").value(Base64Utils.encodeToString(DEFAULT_SIGNATURE.array())));
+            .andExpect(jsonPath("$.signature").value(Base64Utils.encodeToString(DEFAULT_SIGNATURE.array())))
+            .andExpect(jsonPath("$.projectname").value(DEFAULT_PROJECTNAME.toString()));
     }
 
     @Test
@@ -220,7 +227,8 @@ public class Term_declaration_acceptResourceIntTest extends AbstractCassandraTes
                 .applicationdate(UPDATED_APPLICATIONDATE)
                 .place(UPDATED_PLACE)
                 .signature(UPDATED_SIGNATURE)
-                .signatureContentType(UPDATED_SIGNATURE_CONTENT_TYPE);
+                .signatureContentType(UPDATED_SIGNATURE_CONTENT_TYPE)
+                .projectname(UPDATED_PROJECTNAME);
         Term_declaration_acceptDTO term_declaration_acceptDTO = term_declaration_acceptMapper.term_declaration_acceptToTerm_declaration_acceptDTO(updatedTerm_declaration_accept);
 
         restTerm_declaration_acceptMockMvc.perform(put("/api/term-declaration-accepts")
@@ -238,6 +246,7 @@ public class Term_declaration_acceptResourceIntTest extends AbstractCassandraTes
         assertThat(testTerm_declaration_accept.getPlace()).isEqualTo(UPDATED_PLACE);
         assertThat(testTerm_declaration_accept.getSignature()).isEqualTo(UPDATED_SIGNATURE);
         assertThat(testTerm_declaration_accept.getSignatureContentType()).isEqualTo(UPDATED_SIGNATURE_CONTENT_TYPE);
+        assertThat(testTerm_declaration_accept.getProjectname()).isEqualTo(UPDATED_PROJECTNAME);
     }
 
     @Test

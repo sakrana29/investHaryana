@@ -68,7 +68,7 @@ class ProjectprocessflowstepsGatlingTest extends Simulation {
             .exec(http("Create new projectprocessflowsteps")
             .post("/api/projectprocessflowsteps")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "projectid":null, "steps":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "projectid":null, "steps":"SAMPLE_TEXT", "projectname":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_projectprocessflowsteps_url"))).exitHereIfFailed
             .pause(10)

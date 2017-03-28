@@ -22,6 +22,8 @@ public class Projectprocessflowsteps implements Serializable {
 
     private String steps;
 
+    private String projectname;
+
     public UUID getId() {
         return id;
     }
@@ -56,6 +58,19 @@ public class Projectprocessflowsteps implements Serializable {
         this.steps = steps;
     }
 
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public Projectprocessflowsteps projectname(String projectname) {
+        this.projectname = projectname;
+        return this;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -82,6 +97,7 @@ public class Projectprocessflowsteps implements Serializable {
             "id=" + id +
             ", projectid='" + projectid + "'" +
             ", steps='" + steps + "'" +
+            ", projectname='" + projectname + "'" +
             '}';
     }
 }

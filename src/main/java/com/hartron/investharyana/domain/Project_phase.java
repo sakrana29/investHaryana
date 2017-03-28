@@ -29,6 +29,8 @@ public class Project_phase implements Serializable {
 
     private ZonedDateTime implementationdate;
 
+    private String projectname;
+
     public UUID getId() {
         return id;
     }
@@ -102,6 +104,19 @@ public class Project_phase implements Serializable {
         this.implementationdate = implementationdate;
     }
 
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public Project_phase projectname(String projectname) {
+        this.projectname = projectname;
+        return this;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -131,6 +146,7 @@ public class Project_phase implements Serializable {
             ", productcategory='" + productcategory + "'" +
             ", fci='" + fci + "'" +
             ", implementationdate='" + implementationdate + "'" +
+            ", projectname='" + projectname + "'" +
             '}';
     }
 }

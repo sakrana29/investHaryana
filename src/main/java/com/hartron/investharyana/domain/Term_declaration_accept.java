@@ -33,6 +33,8 @@ public class Term_declaration_accept implements Serializable {
     @Column(name = "signature_content_type")
     private String signatureContentType;
 
+    private String projectname;
+
     public UUID getId() {
         return id;
     }
@@ -119,6 +121,19 @@ public class Term_declaration_accept implements Serializable {
         this.signatureContentType = signatureContentType;
     }
 
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public Term_declaration_accept projectname(String projectname) {
+        this.projectname = projectname;
+        return this;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -149,6 +164,7 @@ public class Term_declaration_accept implements Serializable {
             ", place='" + place + "'" +
             ", signature='" + signature + "'" +
             ", signatureContentType='" + signatureContentType + "'" +
+            ", projectname='" + projectname + "'" +
             '}';
     }
 }

@@ -46,6 +46,9 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
     private static final String DEFAULT_STEPS = "AAAAAAAAAA";
     private static final String UPDATED_STEPS = "BBBBBBBBBB";
 
+    private static final String DEFAULT_PROJECTNAME = "AAAAAAAAAA";
+    private static final String UPDATED_PROJECTNAME = "BBBBBBBBBB";
+
     @Autowired
     private ProjectprocessflowstepsRepository projectprocessflowstepsRepository;
 
@@ -87,7 +90,8 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
     public static Projectprocessflowsteps createEntity() {
         Projectprocessflowsteps projectprocessflowsteps = new Projectprocessflowsteps()
                 .projectid(DEFAULT_PROJECTID)
-                .steps(DEFAULT_STEPS);
+                .steps(DEFAULT_STEPS)
+                .projectname(DEFAULT_PROJECTNAME);
         return projectprocessflowsteps;
     }
 
@@ -115,6 +119,7 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
         Projectprocessflowsteps testProjectprocessflowsteps = projectprocessflowstepsList.get(projectprocessflowstepsList.size() - 1);
         assertThat(testProjectprocessflowsteps.getProjectid()).isEqualTo(DEFAULT_PROJECTID);
         assertThat(testProjectprocessflowsteps.getSteps()).isEqualTo(DEFAULT_STEPS);
+        assertThat(testProjectprocessflowsteps.getProjectname()).isEqualTo(DEFAULT_PROJECTNAME);
     }
 
     @Test
@@ -148,7 +153,8 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(projectprocessflowsteps.getId().toString())))
             .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())))
-            .andExpect(jsonPath("$.[*].steps").value(hasItem(DEFAULT_STEPS.toString())));
+            .andExpect(jsonPath("$.[*].steps").value(hasItem(DEFAULT_STEPS.toString())))
+            .andExpect(jsonPath("$.[*].projectname").value(hasItem(DEFAULT_PROJECTNAME.toString())));
     }
 
     @Test
@@ -162,7 +168,8 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(projectprocessflowsteps.getId().toString()))
             .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()))
-            .andExpect(jsonPath("$.steps").value(DEFAULT_STEPS.toString()));
+            .andExpect(jsonPath("$.steps").value(DEFAULT_STEPS.toString()))
+            .andExpect(jsonPath("$.projectname").value(DEFAULT_PROJECTNAME.toString()));
     }
 
     @Test
@@ -182,7 +189,8 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
         Projectprocessflowsteps updatedProjectprocessflowsteps = projectprocessflowstepsRepository.findOne(projectprocessflowsteps.getId());
         updatedProjectprocessflowsteps
                 .projectid(UPDATED_PROJECTID)
-                .steps(UPDATED_STEPS);
+                .steps(UPDATED_STEPS)
+                .projectname(UPDATED_PROJECTNAME);
         ProjectprocessflowstepsDTO projectprocessflowstepsDTO = projectprocessflowstepsMapper.projectprocessflowstepsToProjectprocessflowstepsDTO(updatedProjectprocessflowsteps);
 
         restProjectprocessflowstepsMockMvc.perform(put("/api/projectprocessflowsteps")
@@ -196,6 +204,7 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
         Projectprocessflowsteps testProjectprocessflowsteps = projectprocessflowstepsList.get(projectprocessflowstepsList.size() - 1);
         assertThat(testProjectprocessflowsteps.getProjectid()).isEqualTo(UPDATED_PROJECTID);
         assertThat(testProjectprocessflowsteps.getSteps()).isEqualTo(UPDATED_STEPS);
+        assertThat(testProjectprocessflowsteps.getProjectname()).isEqualTo(UPDATED_PROJECTNAME);
     }
 
     @Test

@@ -112,6 +112,8 @@
                                 assigndate: null,
                                 servicefee: null,
                                 remarks: null,
+                                projectname: null,
+                                servicename: null,
                                 id: null
                             };
                         }

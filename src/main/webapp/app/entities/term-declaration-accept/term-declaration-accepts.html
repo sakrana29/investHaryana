@@ -24,6 +24,7 @@
                     <th><span data-translate="investhryApp.term_declaration_accept.applicationdate">Applicationdate</span></th>
                     <th><span data-translate="investhryApp.term_declaration_accept.place">Place</span></th>
                     <th><span data-translate="investhryApp.term_declaration_accept.signature">Signature</span></th>
+                    <th><span data-translate="investhryApp.term_declaration_accept.projectname">Projectname</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -38,6 +39,7 @@
                         <a ng-if="term_declaration_accept.signature" ng-click="vm.openFile(term_declaration_accept.signatureContentType, term_declaration_accept.signature)" data-translate="entity.action.open">open</a>
                         <span ng-if="term_declaration_accept.signature">{{term_declaration_accept.signatureContentType}}, {{vm.byteSize(term_declaration_accept.signature)}}</span>
                     </td>
+                    <td>{{term_declaration_accept.projectname}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

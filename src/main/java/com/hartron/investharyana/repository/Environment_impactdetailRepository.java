@@ -55,6 +55,9 @@ public class Environment_impactdetailRepository {
                 environment_impactdetail.setWastewaterdetailid(row.getUUID("wastewaterdetailid"));
                 environment_impactdetail.setDocument_attached(row.getString("document_attached"));
                 environment_impactdetail.setOther(row.getString("other"));
+                environment_impactdetail.setProjectname(row.getString("projectname"));
+                environment_impactdetail.setSourceofwatersupply(row.getString("sourceofwatersupply"));
+                environment_impactdetail.setModeofdisposalfordischarge(row.getString("modeofdisposalfordischarge"));
                 return environment_impactdetail;
             }
         ).forEach(environment_impactdetailsList::add);

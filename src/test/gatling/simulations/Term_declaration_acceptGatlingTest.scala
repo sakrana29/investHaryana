@@ -68,7 +68,7 @@ class Term_declaration_acceptGatlingTest extends Simulation {
             .exec(http("Create new term_declaration_accept")
             .post("/api/term-declaration-accepts")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "projectid":null, "acceptance":null, "applicationdate":"2020-01-01T00:00:00.000Z", "place":"SAMPLE_TEXT", "signature":null}""")).asJSON
+            .body(StringBody("""{"id":null, "projectid":null, "acceptance":null, "applicationdate":"2020-01-01T00:00:00.000Z", "place":"SAMPLE_TEXT", "signature":null, "projectname":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_term_declaration_accept_url"))).exitHereIfFailed
             .pause(10)

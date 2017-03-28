@@ -81,6 +81,14 @@
         {
             "fieldName": "regular_connection_doc",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "projectname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customertypename",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313125439",

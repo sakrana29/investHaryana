@@ -85,6 +85,12 @@ public class Project_finance_investmentResourceIntTest extends AbstractCassandra
     private static final String DEFAULT_FOREIGN_FUNDING_SOURCE = "AAAAAAAAAA";
     private static final String UPDATED_FOREIGN_FUNDING_SOURCE = "BBBBBBBBBB";
 
+    private static final String DEFAULT_PROJECTNAME = "AAAAAAAAAA";
+    private static final String UPDATED_PROJECTNAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_PROPOSEDPROJECT_SCHEDULENAME = "AAAAAAAAAA";
+    private static final String UPDATED_PROPOSEDPROJECT_SCHEDULENAME = "BBBBBBBBBB";
+
     @Autowired
     private Project_finance_investmentRepository project_finance_investmentRepository;
 
@@ -137,7 +143,9 @@ public class Project_finance_investmentResourceIntTest extends AbstractCassandra
                 .commercial_activity_start_date(DEFAULT_COMMERCIAL_ACTIVITY_START_DATE)
                 .proposedproject_scheduleid(DEFAULT_PROPOSEDPROJECT_SCHEDULEID)
                 .fdi_country(DEFAULT_FDI_COUNTRY)
-                .foreign_funding_source(DEFAULT_FOREIGN_FUNDING_SOURCE);
+                .foreign_funding_source(DEFAULT_FOREIGN_FUNDING_SOURCE)
+                .projectname(DEFAULT_PROJECTNAME)
+                .proposedproject_schedulename(DEFAULT_PROPOSEDPROJECT_SCHEDULENAME);
         return project_finance_investment;
     }
 
@@ -176,6 +184,8 @@ public class Project_finance_investmentResourceIntTest extends AbstractCassandra
         assertThat(testProject_finance_investment.getProposedproject_scheduleid()).isEqualTo(DEFAULT_PROPOSEDPROJECT_SCHEDULEID);
         assertThat(testProject_finance_investment.getFdi_country()).isEqualTo(DEFAULT_FDI_COUNTRY);
         assertThat(testProject_finance_investment.getForeign_funding_source()).isEqualTo(DEFAULT_FOREIGN_FUNDING_SOURCE);
+        assertThat(testProject_finance_investment.getProjectname()).isEqualTo(DEFAULT_PROJECTNAME);
+        assertThat(testProject_finance_investment.getProposedproject_schedulename()).isEqualTo(DEFAULT_PROPOSEDPROJECT_SCHEDULENAME);
     }
 
     @Test
@@ -220,7 +230,9 @@ public class Project_finance_investmentResourceIntTest extends AbstractCassandra
             .andExpect(jsonPath("$.[*].commercial_activity_start_date").value(hasItem(sameInstant(DEFAULT_COMMERCIAL_ACTIVITY_START_DATE))))
             .andExpect(jsonPath("$.[*].proposedproject_scheduleid").value(hasItem(DEFAULT_PROPOSEDPROJECT_SCHEDULEID.toString())))
             .andExpect(jsonPath("$.[*].fdi_country").value(hasItem(DEFAULT_FDI_COUNTRY.toString())))
-            .andExpect(jsonPath("$.[*].foreign_funding_source").value(hasItem(DEFAULT_FOREIGN_FUNDING_SOURCE.toString())));
+            .andExpect(jsonPath("$.[*].foreign_funding_source").value(hasItem(DEFAULT_FOREIGN_FUNDING_SOURCE.toString())))
+            .andExpect(jsonPath("$.[*].projectname").value(hasItem(DEFAULT_PROJECTNAME.toString())))
+            .andExpect(jsonPath("$.[*].proposedproject_schedulename").value(hasItem(DEFAULT_PROPOSEDPROJECT_SCHEDULENAME.toString())));
     }
 
     @Test
@@ -245,7 +257,9 @@ public class Project_finance_investmentResourceIntTest extends AbstractCassandra
             .andExpect(jsonPath("$.commercial_activity_start_date").value(sameInstant(DEFAULT_COMMERCIAL_ACTIVITY_START_DATE)))
             .andExpect(jsonPath("$.proposedproject_scheduleid").value(DEFAULT_PROPOSEDPROJECT_SCHEDULEID.toString()))
             .andExpect(jsonPath("$.fdi_country").value(DEFAULT_FDI_COUNTRY.toString()))
-            .andExpect(jsonPath("$.foreign_funding_source").value(DEFAULT_FOREIGN_FUNDING_SOURCE.toString()));
+            .andExpect(jsonPath("$.foreign_funding_source").value(DEFAULT_FOREIGN_FUNDING_SOURCE.toString()))
+            .andExpect(jsonPath("$.projectname").value(DEFAULT_PROJECTNAME.toString()))
+            .andExpect(jsonPath("$.proposedproject_schedulename").value(DEFAULT_PROPOSEDPROJECT_SCHEDULENAME.toString()));
     }
 
     @Test
@@ -276,7 +290,9 @@ public class Project_finance_investmentResourceIntTest extends AbstractCassandra
                 .commercial_activity_start_date(UPDATED_COMMERCIAL_ACTIVITY_START_DATE)
                 .proposedproject_scheduleid(UPDATED_PROPOSEDPROJECT_SCHEDULEID)
                 .fdi_country(UPDATED_FDI_COUNTRY)
-                .foreign_funding_source(UPDATED_FOREIGN_FUNDING_SOURCE);
+                .foreign_funding_source(UPDATED_FOREIGN_FUNDING_SOURCE)
+                .projectname(UPDATED_PROJECTNAME)
+                .proposedproject_schedulename(UPDATED_PROPOSEDPROJECT_SCHEDULENAME);
         Project_finance_investmentDTO project_finance_investmentDTO = project_finance_investmentMapper.project_finance_investmentToProject_finance_investmentDTO(updatedProject_finance_investment);
 
         restProject_finance_investmentMockMvc.perform(put("/api/project-finance-investments")
@@ -301,6 +317,8 @@ public class Project_finance_investmentResourceIntTest extends AbstractCassandra
         assertThat(testProject_finance_investment.getProposedproject_scheduleid()).isEqualTo(UPDATED_PROPOSEDPROJECT_SCHEDULEID);
         assertThat(testProject_finance_investment.getFdi_country()).isEqualTo(UPDATED_FDI_COUNTRY);
         assertThat(testProject_finance_investment.getForeign_funding_source()).isEqualTo(UPDATED_FOREIGN_FUNDING_SOURCE);
+        assertThat(testProject_finance_investment.getProjectname()).isEqualTo(UPDATED_PROJECTNAME);
+        assertThat(testProject_finance_investment.getProposedproject_schedulename()).isEqualTo(UPDATED_PROPOSEDPROJECT_SCHEDULENAME);
     }
 
     @Test

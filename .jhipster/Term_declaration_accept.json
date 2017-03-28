@@ -22,6 +22,10 @@
             "fieldName": "signature",
             "fieldType": "ByteBuffer",
             "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "projectname",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313125732",

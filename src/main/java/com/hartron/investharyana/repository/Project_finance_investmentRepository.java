@@ -53,6 +53,8 @@ public class Project_finance_investmentRepository {
                 project_finance_investment.setProposedproject_scheduleid(row.getUUID("proposedproject_scheduleid"));
                 project_finance_investment.setFdi_country(row.getString("fdi_country"));
                 project_finance_investment.setForeign_funding_source(row.getString("foreign_funding_source"));
+                project_finance_investment.setProjectname(row.getString("projectname"));
+                project_finance_investment.setProposedproject_schedulename(row.getString("proposedproject_schedulename"));
                 return project_finance_investment;
             }
         ).forEach(project_finance_investmentsList::add);

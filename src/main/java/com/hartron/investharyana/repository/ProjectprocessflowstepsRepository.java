@@ -41,6 +41,7 @@ public class ProjectprocessflowstepsRepository {
                 projectprocessflowsteps.setId(row.getUUID("id"));
                 projectprocessflowsteps.setProjectid(row.getUUID("projectid"));
                 projectprocessflowsteps.setSteps(row.getString("steps"));
+                projectprocessflowsteps.setProjectname(row.getString("projectname"));
                 return projectprocessflowsteps;
             }
         ).forEach(projectprocessflowstepsList::add);

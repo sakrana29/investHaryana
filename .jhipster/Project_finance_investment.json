@@ -53,6 +53,14 @@
         {
             "fieldName": "foreign_funding_source",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "projectname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "proposedproject_schedulename",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313115519",

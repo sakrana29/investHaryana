@@ -33,6 +33,14 @@
         {
             "fieldName": "remarks",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "projectname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "servicename",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170325092523",

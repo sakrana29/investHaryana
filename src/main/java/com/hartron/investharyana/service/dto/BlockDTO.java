@@ -19,6 +19,8 @@ public class BlockDTO implements Serializable {
     @NotNull
     private String blockname;
 
+    private String districtname;
+
     public UUID getId() {
         return id;
     }
@@ -39,6 +41,13 @@ public class BlockDTO implements Serializable {
 
     public void setBlockname(String blockname) {
         this.blockname = blockname;
+    }
+    public String getDistrictname() {
+        return districtname;
+    }
+
+    public void setDistrictname(String districtname) {
+        this.districtname = districtname;
     }
 
     @Override
@@ -68,6 +77,7 @@ public class BlockDTO implements Serializable {
             "id=" + id +
             ", districtid='" + districtid + "'" +
             ", blockname='" + blockname + "'" +
+            ", districtname='" + districtname + "'" +
             '}';
     }
 }

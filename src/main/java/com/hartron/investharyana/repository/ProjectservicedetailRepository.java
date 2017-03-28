@@ -48,6 +48,8 @@ public class ProjectservicedetailRepository {
                 projectservicedetail.setAssigndate(row.get("assigndate", ZonedDateTime.class));
                 projectservicedetail.setServicefee(row.getDouble("servicefee"));
                 projectservicedetail.setRemarks(row.getString("remarks"));
+                projectservicedetail.setProjectname(row.getString("projectname"));
+                projectservicedetail.setServicename(row.getString("servicename"));
                 return projectservicedetail;
             }
         ).forEach(projectservicedetailsList::add);

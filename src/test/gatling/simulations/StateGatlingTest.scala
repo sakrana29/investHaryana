@@ -68,7 +68,7 @@ class StateGatlingTest extends Simulation {
             .exec(http("Create new state")
             .post("/api/states")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "countryid":null, "statename":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "countryid":null, "statename":"SAMPLE_TEXT", "countryname":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_state_url"))).exitHereIfFailed
             .pause(10)

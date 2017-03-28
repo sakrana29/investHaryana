@@ -45,6 +45,7 @@ public class Project_phaseRepository {
                 project_phase.setProductcategory(row.getString("productcategory"));
                 project_phase.setFci(row.getString("fci"));
                 project_phase.setImplementationdate(row.get("implementationdate", ZonedDateTime.class));
+                project_phase.setProjectname(row.getString("projectname"));
                 return project_phase;
             }
         ).forEach(project_phasesList::add);

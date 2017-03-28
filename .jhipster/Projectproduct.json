@@ -17,6 +17,14 @@
         {
             "fieldName": "units",
             "fieldType": "UUID"
+        },
+        {
+            "fieldName": "projectname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unitsname",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313120512",

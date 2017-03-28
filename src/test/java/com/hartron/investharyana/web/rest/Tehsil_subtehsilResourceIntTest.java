@@ -46,6 +46,9 @@ public class Tehsil_subtehsilResourceIntTest extends AbstractCassandraTest {
     private static final String DEFAULT_TEHSIL_SUBTEHSILNAME = "AAAAAAAAAA";
     private static final String UPDATED_TEHSIL_SUBTEHSILNAME = "BBBBBBBBBB";
 
+    private static final String DEFAULT_DISTRICTNAME = "AAAAAAAAAA";
+    private static final String UPDATED_DISTRICTNAME = "BBBBBBBBBB";
+
     @Autowired
     private Tehsil_subtehsilRepository tehsil_subtehsilRepository;
 
@@ -87,7 +90,8 @@ public class Tehsil_subtehsilResourceIntTest extends AbstractCassandraTest {
     public static Tehsil_subtehsil createEntity() {
         Tehsil_subtehsil tehsil_subtehsil = new Tehsil_subtehsil()
                 .districtid(DEFAULT_DISTRICTID)
-                .tehsil_subtehsilname(DEFAULT_TEHSIL_SUBTEHSILNAME);
+                .tehsil_subtehsilname(DEFAULT_TEHSIL_SUBTEHSILNAME)
+                .districtname(DEFAULT_DISTRICTNAME);
         return tehsil_subtehsil;
     }
 
@@ -115,6 +119,7 @@ public class Tehsil_subtehsilResourceIntTest extends AbstractCassandraTest {
         Tehsil_subtehsil testTehsil_subtehsil = tehsil_subtehsilList.get(tehsil_subtehsilList.size() - 1);
         assertThat(testTehsil_subtehsil.getDistrictid()).isEqualTo(DEFAULT_DISTRICTID);
         assertThat(testTehsil_subtehsil.getTehsil_subtehsilname()).isEqualTo(DEFAULT_TEHSIL_SUBTEHSILNAME);
+        assertThat(testTehsil_subtehsil.getDistrictname()).isEqualTo(DEFAULT_DISTRICTNAME);
     }
 
     @Test
@@ -174,6 +179,24 @@ public class Tehsil_subtehsilResourceIntTest extends AbstractCassandraTest {
     }
 
     @Test
+    public void checkDistrictnameIsRequired() throws Exception {
+        int databaseSizeBeforeTest = tehsil_subtehsilRepository.findAll().size();
+        // set the field null
+        tehsil_subtehsil.setDistrictname(null);
+
+        // Create the Tehsil_subtehsil, which fails.
+        Tehsil_subtehsilDTO tehsil_subtehsilDTO = tehsil_subtehsilMapper.tehsil_subtehsilToTehsil_subtehsilDTO(tehsil_subtehsil);
+
+        restTehsil_subtehsilMockMvc.perform(post("/api/tehsil-subtehsils")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(tehsil_subtehsilDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Tehsil_subtehsil> tehsil_subtehsilList = tehsil_subtehsilRepository.findAll();
+        assertThat(tehsil_subtehsilList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
     public void getAllTehsil_subtehsils() throws Exception {
         // Initialize the database
         tehsil_subtehsilRepository.save(tehsil_subtehsil);
@@ -184,7 +207,8 @@ public class Tehsil_subtehsilResourceIntTest extends AbstractCassandraTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(tehsil_subtehsil.getId().toString())))
             .andExpect(jsonPath("$.[*].districtid").value(hasItem(DEFAULT_DISTRICTID.toString())))
-            .andExpect(jsonPath("$.[*].tehsil_subtehsilname").value(hasItem(DEFAULT_TEHSIL_SUBTEHSILNAME.toString())));
+            .andExpect(jsonPath("$.[*].tehsil_subtehsilname").value(hasItem(DEFAULT_TEHSIL_SUBTEHSILNAME.toString())))
+            .andExpect(jsonPath("$.[*].districtname").value(hasItem(DEFAULT_DISTRICTNAME.toString())));
     }
 
     @Test
@@ -198,7 +222,8 @@ public class Tehsil_subtehsilResourceIntTest extends AbstractCassandraTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(tehsil_subtehsil.getId().toString()))
             .andExpect(jsonPath("$.districtid").value(DEFAULT_DISTRICTID.toString()))
-            .andExpect(jsonPath("$.tehsil_subtehsilname").value(DEFAULT_TEHSIL_SUBTEHSILNAME.toString()));
+            .andExpect(jsonPath("$.tehsil_subtehsilname").value(DEFAULT_TEHSIL_SUBTEHSILNAME.toString()))
+            .andExpect(jsonPath("$.districtname").value(DEFAULT_DISTRICTNAME.toString()));
     }
 
     @Test
@@ -218,7 +243,8 @@ public class Tehsil_subtehsilResourceIntTest extends AbstractCassandraTest {
         Tehsil_subtehsil updatedTehsil_subtehsil = tehsil_subtehsilRepository.findOne(tehsil_subtehsil.getId());
         updatedTehsil_subtehsil
                 .districtid(UPDATED_DISTRICTID)
-                .tehsil_subtehsilname(UPDATED_TEHSIL_SUBTEHSILNAME);
+                .tehsil_subtehsilname(UPDATED_TEHSIL_SUBTEHSILNAME)
+                .districtname(UPDATED_DISTRICTNAME);
         Tehsil_subtehsilDTO tehsil_subtehsilDTO = tehsil_subtehsilMapper.tehsil_subtehsilToTehsil_subtehsilDTO(updatedTehsil_subtehsil);
 
         restTehsil_subtehsilMockMvc.perform(put("/api/tehsil-subtehsils")
@@ -232,6 +258,7 @@ public class Tehsil_subtehsilResourceIntTest extends AbstractCassandraTest {
         Tehsil_subtehsil testTehsil_subtehsil = tehsil_subtehsilList.get(tehsil_subtehsilList.size() - 1);
         assertThat(testTehsil_subtehsil.getDistrictid()).isEqualTo(UPDATED_DISTRICTID);
         assertThat(testTehsil_subtehsil.getTehsil_subtehsilname()).isEqualTo(UPDATED_TEHSIL_SUBTEHSILNAME);
+        assertThat(testTehsil_subtehsil.getDistrictname()).isEqualTo(UPDATED_DISTRICTNAME);
     }
 
     @Test

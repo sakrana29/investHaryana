@@ -7,5 +7,8 @@ CREATE TABLE IF NOT EXISTS wastewaterdetail (
     quantity int,
     mode_of_disposal uuid,
     description text,
+    projectname text,
+    naturetypename text,
+    modeofdisposal text,
     PRIMARY KEY(id)
 );

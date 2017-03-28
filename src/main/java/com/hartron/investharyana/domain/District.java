@@ -25,6 +25,8 @@ public class District implements Serializable {
     @NotNull
     private String districtname;
 
+    private String statename;
+
     public UUID getId() {
         return id;
     }
@@ -59,6 +61,19 @@ public class District implements Serializable {
         this.districtname = districtname;
     }
 
+    public String getStatename() {
+        return statename;
+    }
+
+    public District statename(String statename) {
+        this.statename = statename;
+        return this;
+    }
+
+    public void setStatename(String statename) {
+        this.statename = statename;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -85,6 +100,7 @@ public class District implements Serializable {
             "id=" + id +
             ", stateid='" + stateid + "'" +
             ", districtname='" + districtname + "'" +
+            ", statename='" + statename + "'" +
             '}';
     }
 }

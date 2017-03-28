@@ -109,6 +109,10 @@
                                 capacity: null,
                                 type_of_fuel: null,
                                 air_pollution_control_device: null,
+                                projectname: null,
+                                particularsname: null,
+                                typeoffuelname: null,
+                                airpollutioncontroldevicename: null,
                                 id: null
                             };
                         }

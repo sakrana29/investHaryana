@@ -25,6 +25,8 @@ public class Term_declaration_acceptDTO implements Serializable {
     private ByteBuffer signature;
     private String signatureContentType;
 
+    private String projectname;
+
     public UUID getId() {
         return id;
     }
@@ -75,6 +77,13 @@ public class Term_declaration_acceptDTO implements Serializable {
     public void setSignatureContentType(String signatureContentType) {
         this.signatureContentType = signatureContentType;
     }
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -106,6 +115,7 @@ public class Term_declaration_acceptDTO implements Serializable {
             ", applicationdate='" + applicationdate + "'" +
             ", place='" + place + "'" +
             ", signature='" + signature + "'" +
+            ", projectname='" + projectname + "'" +
             '}';
     }
 }

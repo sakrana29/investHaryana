@@ -30,6 +30,10 @@
         {
             "fieldName": "stage",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "departmentname",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170311171701",

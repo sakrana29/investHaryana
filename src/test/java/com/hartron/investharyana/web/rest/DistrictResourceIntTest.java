@@ -46,6 +46,9 @@ public class DistrictResourceIntTest extends AbstractCassandraTest {
     private static final String DEFAULT_DISTRICTNAME = "AAAAAAAAAA";
     private static final String UPDATED_DISTRICTNAME = "BBBBBBBBBB";
 
+    private static final String DEFAULT_STATENAME = "AAAAAAAAAA";
+    private static final String UPDATED_STATENAME = "BBBBBBBBBB";
+
     @Autowired
     private DistrictRepository districtRepository;
 
@@ -87,7 +90,8 @@ public class DistrictResourceIntTest extends AbstractCassandraTest {
     public static District createEntity() {
         District district = new District()
                 .stateid(DEFAULT_STATEID)
-                .districtname(DEFAULT_DISTRICTNAME);
+                .districtname(DEFAULT_DISTRICTNAME)
+                .statename(DEFAULT_STATENAME);
         return district;
     }
 
@@ -115,6 +119,7 @@ public class DistrictResourceIntTest extends AbstractCassandraTest {
         District testDistrict = districtList.get(districtList.size() - 1);
         assertThat(testDistrict.getStateid()).isEqualTo(DEFAULT_STATEID);
         assertThat(testDistrict.getDistrictname()).isEqualTo(DEFAULT_DISTRICTNAME);
+        assertThat(testDistrict.getStatename()).isEqualTo(DEFAULT_STATENAME);
     }
 
     @Test
@@ -184,7 +189,8 @@ public class DistrictResourceIntTest extends AbstractCassandraTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(district.getId().toString())))
             .andExpect(jsonPath("$.[*].stateid").value(hasItem(DEFAULT_STATEID.toString())))
-            .andExpect(jsonPath("$.[*].districtname").value(hasItem(DEFAULT_DISTRICTNAME.toString())));
+            .andExpect(jsonPath("$.[*].districtname").value(hasItem(DEFAULT_DISTRICTNAME.toString())))
+            .andExpect(jsonPath("$.[*].statename").value(hasItem(DEFAULT_STATENAME.toString())));
     }
 
     @Test
@@ -198,7 +204,8 @@ public class DistrictResourceIntTest extends AbstractCassandraTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(district.getId().toString()))
             .andExpect(jsonPath("$.stateid").value(DEFAULT_STATEID.toString()))
-            .andExpect(jsonPath("$.districtname").value(DEFAULT_DISTRICTNAME.toString()));
+            .andExpect(jsonPath("$.districtname").value(DEFAULT_DISTRICTNAME.toString()))
+            .andExpect(jsonPath("$.statename").value(DEFAULT_STATENAME.toString()));
     }
 
     @Test
@@ -218,7 +225,8 @@ public class DistrictResourceIntTest extends AbstractCassandraTest {
         District updatedDistrict = districtRepository.findOne(district.getId());
         updatedDistrict
                 .stateid(UPDATED_STATEID)
-                .districtname(UPDATED_DISTRICTNAME);
+                .districtname(UPDATED_DISTRICTNAME)
+                .statename(UPDATED_STATENAME);
         DistrictDTO districtDTO = districtMapper.districtToDistrictDTO(updatedDistrict);
 
         restDistrictMockMvc.perform(put("/api/districts")
@@ -232,6 +240,7 @@ public class DistrictResourceIntTest extends AbstractCassandraTest {
         District testDistrict = districtList.get(districtList.size() - 1);
         assertThat(testDistrict.getStateid()).isEqualTo(UPDATED_STATEID);
         assertThat(testDistrict.getDistrictname()).isEqualTo(UPDATED_DISTRICTNAME);
+        assertThat(testDistrict.getStatename()).isEqualTo(UPDATED_STATENAME);
     }
 
     @Test

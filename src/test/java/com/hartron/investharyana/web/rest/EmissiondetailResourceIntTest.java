@@ -55,6 +55,18 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
     private static final UUID DEFAULT_AIR_POLLUTION_CONTROL_DEVICE = UUID.randomUUID();
     private static final UUID UPDATED_AIR_POLLUTION_CONTROL_DEVICE = UUID.randomUUID();
 
+    private static final String DEFAULT_PROJECTNAME = "AAAAAAAAAA";
+    private static final String UPDATED_PROJECTNAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_PARTICULARSNAME = "AAAAAAAAAA";
+    private static final String UPDATED_PARTICULARSNAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_TYPEOFFUELNAME = "AAAAAAAAAA";
+    private static final String UPDATED_TYPEOFFUELNAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_AIRPOLLUTIONCONTROLDEVICENAME = "AAAAAAAAAA";
+    private static final String UPDATED_AIRPOLLUTIONCONTROLDEVICENAME = "BBBBBBBBBB";
+
     @Autowired
     private EmissiondetailRepository emissiondetailRepository;
 
@@ -99,7 +111,11 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
                 .particulars(DEFAULT_PARTICULARS)
                 .capacity(DEFAULT_CAPACITY)
                 .type_of_fuel(DEFAULT_TYPE_OF_FUEL)
-                .air_pollution_control_device(DEFAULT_AIR_POLLUTION_CONTROL_DEVICE);
+                .air_pollution_control_device(DEFAULT_AIR_POLLUTION_CONTROL_DEVICE)
+                .projectname(DEFAULT_PROJECTNAME)
+                .particularsname(DEFAULT_PARTICULARSNAME)
+                .typeoffuelname(DEFAULT_TYPEOFFUELNAME)
+                .airpollutioncontroldevicename(DEFAULT_AIRPOLLUTIONCONTROLDEVICENAME);
         return emissiondetail;
     }
 
@@ -130,6 +146,10 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testEmissiondetail.getCapacity()).isEqualTo(DEFAULT_CAPACITY);
         assertThat(testEmissiondetail.getType_of_fuel()).isEqualTo(DEFAULT_TYPE_OF_FUEL);
         assertThat(testEmissiondetail.getAir_pollution_control_device()).isEqualTo(DEFAULT_AIR_POLLUTION_CONTROL_DEVICE);
+        assertThat(testEmissiondetail.getProjectname()).isEqualTo(DEFAULT_PROJECTNAME);
+        assertThat(testEmissiondetail.getParticularsname()).isEqualTo(DEFAULT_PARTICULARSNAME);
+        assertThat(testEmissiondetail.getTypeoffuelname()).isEqualTo(DEFAULT_TYPEOFFUELNAME);
+        assertThat(testEmissiondetail.getAirpollutioncontroldevicename()).isEqualTo(DEFAULT_AIRPOLLUTIONCONTROLDEVICENAME);
     }
 
     @Test
@@ -166,7 +186,11 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].particulars").value(hasItem(DEFAULT_PARTICULARS.toString())))
             .andExpect(jsonPath("$.[*].capacity").value(hasItem(DEFAULT_CAPACITY.toString())))
             .andExpect(jsonPath("$.[*].type_of_fuel").value(hasItem(DEFAULT_TYPE_OF_FUEL.toString())))
-            .andExpect(jsonPath("$.[*].air_pollution_control_device").value(hasItem(DEFAULT_AIR_POLLUTION_CONTROL_DEVICE.toString())));
+            .andExpect(jsonPath("$.[*].air_pollution_control_device").value(hasItem(DEFAULT_AIR_POLLUTION_CONTROL_DEVICE.toString())))
+            .andExpect(jsonPath("$.[*].projectname").value(hasItem(DEFAULT_PROJECTNAME.toString())))
+            .andExpect(jsonPath("$.[*].particularsname").value(hasItem(DEFAULT_PARTICULARSNAME.toString())))
+            .andExpect(jsonPath("$.[*].typeoffuelname").value(hasItem(DEFAULT_TYPEOFFUELNAME.toString())))
+            .andExpect(jsonPath("$.[*].airpollutioncontroldevicename").value(hasItem(DEFAULT_AIRPOLLUTIONCONTROLDEVICENAME.toString())));
     }
 
     @Test
@@ -183,7 +207,11 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.particulars").value(DEFAULT_PARTICULARS.toString()))
             .andExpect(jsonPath("$.capacity").value(DEFAULT_CAPACITY.toString()))
             .andExpect(jsonPath("$.type_of_fuel").value(DEFAULT_TYPE_OF_FUEL.toString()))
-            .andExpect(jsonPath("$.air_pollution_control_device").value(DEFAULT_AIR_POLLUTION_CONTROL_DEVICE.toString()));
+            .andExpect(jsonPath("$.air_pollution_control_device").value(DEFAULT_AIR_POLLUTION_CONTROL_DEVICE.toString()))
+            .andExpect(jsonPath("$.projectname").value(DEFAULT_PROJECTNAME.toString()))
+            .andExpect(jsonPath("$.particularsname").value(DEFAULT_PARTICULARSNAME.toString()))
+            .andExpect(jsonPath("$.typeoffuelname").value(DEFAULT_TYPEOFFUELNAME.toString()))
+            .andExpect(jsonPath("$.airpollutioncontroldevicename").value(DEFAULT_AIRPOLLUTIONCONTROLDEVICENAME.toString()));
     }
 
     @Test
@@ -206,7 +234,11 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
                 .particulars(UPDATED_PARTICULARS)
                 .capacity(UPDATED_CAPACITY)
                 .type_of_fuel(UPDATED_TYPE_OF_FUEL)
-                .air_pollution_control_device(UPDATED_AIR_POLLUTION_CONTROL_DEVICE);
+                .air_pollution_control_device(UPDATED_AIR_POLLUTION_CONTROL_DEVICE)
+                .projectname(UPDATED_PROJECTNAME)
+                .particularsname(UPDATED_PARTICULARSNAME)
+                .typeoffuelname(UPDATED_TYPEOFFUELNAME)
+                .airpollutioncontroldevicename(UPDATED_AIRPOLLUTIONCONTROLDEVICENAME);
         EmissiondetailDTO emissiondetailDTO = emissiondetailMapper.emissiondetailToEmissiondetailDTO(updatedEmissiondetail);
 
         restEmissiondetailMockMvc.perform(put("/api/emissiondetails")
@@ -223,6 +255,10 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testEmissiondetail.getCapacity()).isEqualTo(UPDATED_CAPACITY);
         assertThat(testEmissiondetail.getType_of_fuel()).isEqualTo(UPDATED_TYPE_OF_FUEL);
         assertThat(testEmissiondetail.getAir_pollution_control_device()).isEqualTo(UPDATED_AIR_POLLUTION_CONTROL_DEVICE);
+        assertThat(testEmissiondetail.getProjectname()).isEqualTo(UPDATED_PROJECTNAME);
+        assertThat(testEmissiondetail.getParticularsname()).isEqualTo(UPDATED_PARTICULARSNAME);
+        assertThat(testEmissiondetail.getTypeoffuelname()).isEqualTo(UPDATED_TYPEOFFUELNAME);
+        assertThat(testEmissiondetail.getAirpollutioncontroldevicename()).isEqualTo(UPDATED_AIRPOLLUTIONCONTROLDEVICENAME);
     }
 
     @Test

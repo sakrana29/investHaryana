@@ -47,6 +47,7 @@ public class Term_declaration_acceptRepository {
                 term_declaration_accept.setSignature(row.getBytes("signature"));
                 term_declaration_accept.setSignatureContentType(row.getString("signature_content_type"));
 
+                term_declaration_accept.setProjectname(row.getString("projectname"));
                 return term_declaration_accept;
             }
         ).forEach(term_declaration_acceptsList::add);

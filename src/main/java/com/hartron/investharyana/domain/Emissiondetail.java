@@ -28,6 +28,14 @@ public class Emissiondetail implements Serializable {
 
     private UUID air_pollution_control_device;
 
+    private String projectname;
+
+    private String particularsname;
+
+    private String typeoffuelname;
+
+    private String airpollutioncontroldevicename;
+
     public UUID getId() {
         return id;
     }
@@ -101,6 +109,58 @@ public class Emissiondetail implements Serializable {
         this.air_pollution_control_device = air_pollution_control_device;
     }
 
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public Emissiondetail projectname(String projectname) {
+        this.projectname = projectname;
+        return this;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
+
+    public String getParticularsname() {
+        return particularsname;
+    }
+
+    public Emissiondetail particularsname(String particularsname) {
+        this.particularsname = particularsname;
+        return this;
+    }
+
+    public void setParticularsname(String particularsname) {
+        this.particularsname = particularsname;
+    }
+
+    public String getTypeoffuelname() {
+        return typeoffuelname;
+    }
+
+    public Emissiondetail typeoffuelname(String typeoffuelname) {
+        this.typeoffuelname = typeoffuelname;
+        return this;
+    }
+
+    public void setTypeoffuelname(String typeoffuelname) {
+        this.typeoffuelname = typeoffuelname;
+    }
+
+    public String getAirpollutioncontroldevicename() {
+        return airpollutioncontroldevicename;
+    }
+
+    public Emissiondetail airpollutioncontroldevicename(String airpollutioncontroldevicename) {
+        this.airpollutioncontroldevicename = airpollutioncontroldevicename;
+        return this;
+    }
+
+    public void setAirpollutioncontroldevicename(String airpollutioncontroldevicename) {
+        this.airpollutioncontroldevicename = airpollutioncontroldevicename;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -130,6 +190,10 @@ public class Emissiondetail implements Serializable {
             ", capacity='" + capacity + "'" +
             ", type_of_fuel='" + type_of_fuel + "'" +
             ", air_pollution_control_device='" + air_pollution_control_device + "'" +
+            ", projectname='" + projectname + "'" +
+            ", particularsname='" + particularsname + "'" +
+            ", typeoffuelname='" + typeoffuelname + "'" +
+            ", airpollutioncontroldevicename='" + airpollutioncontroldevicename + "'" +
             '}';
     }
 }

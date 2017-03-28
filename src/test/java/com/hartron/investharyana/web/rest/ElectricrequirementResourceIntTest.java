@@ -106,6 +106,12 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
     private static final String DEFAULT_REGULAR_CONNECTION_DOC = "AAAAAAAAAA";
     private static final String UPDATED_REGULAR_CONNECTION_DOC = "BBBBBBBBBB";
 
+    private static final String DEFAULT_PROJECTNAME = "AAAAAAAAAA";
+    private static final String UPDATED_PROJECTNAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_CUSTOMERTYPENAME = "AAAAAAAAAA";
+    private static final String UPDATED_CUSTOMERTYPENAME = "BBBBBBBBBB";
+
     @Autowired
     private ElectricrequirementRepository electricrequirementRepository;
 
@@ -165,7 +171,9 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
                 .regular_new_load_demand_kva(DEFAULT_REGULAR_NEW_LOAD_DEMAND_KVA)
                 .regular_load_demand_date(DEFAULT_REGULAR_LOAD_DEMAND_DATE)
                 .temporaryconnection(DEFAULT_TEMPORARYCONNECTION)
-                .regular_connection_doc(DEFAULT_REGULAR_CONNECTION_DOC);
+                .regular_connection_doc(DEFAULT_REGULAR_CONNECTION_DOC)
+                .projectname(DEFAULT_PROJECTNAME)
+                .customertypename(DEFAULT_CUSTOMERTYPENAME);
         return electricrequirement;
     }
 
@@ -211,6 +219,8 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
         assertThat(testElectricrequirement.getRegular_load_demand_date()).isEqualTo(DEFAULT_REGULAR_LOAD_DEMAND_DATE);
         assertThat(testElectricrequirement.getTemporaryconnection()).isEqualTo(DEFAULT_TEMPORARYCONNECTION);
         assertThat(testElectricrequirement.getRegular_connection_doc()).isEqualTo(DEFAULT_REGULAR_CONNECTION_DOC);
+        assertThat(testElectricrequirement.getProjectname()).isEqualTo(DEFAULT_PROJECTNAME);
+        assertThat(testElectricrequirement.getCustomertypename()).isEqualTo(DEFAULT_CUSTOMERTYPENAME);
     }
 
     @Test
@@ -262,7 +272,9 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].regular_new_load_demand_kva").value(hasItem(DEFAULT_REGULAR_NEW_LOAD_DEMAND_KVA.intValue())))
             .andExpect(jsonPath("$.[*].regular_load_demand_date").value(hasItem(sameInstant(DEFAULT_REGULAR_LOAD_DEMAND_DATE))))
             .andExpect(jsonPath("$.[*].temporaryconnection").value(hasItem(DEFAULT_TEMPORARYCONNECTION.toString())))
-            .andExpect(jsonPath("$.[*].regular_connection_doc").value(hasItem(DEFAULT_REGULAR_CONNECTION_DOC.toString())));
+            .andExpect(jsonPath("$.[*].regular_connection_doc").value(hasItem(DEFAULT_REGULAR_CONNECTION_DOC.toString())))
+            .andExpect(jsonPath("$.[*].projectname").value(hasItem(DEFAULT_PROJECTNAME.toString())))
+            .andExpect(jsonPath("$.[*].customertypename").value(hasItem(DEFAULT_CUSTOMERTYPENAME.toString())));
     }
 
     @Test
@@ -294,7 +306,9 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.regular_new_load_demand_kva").value(DEFAULT_REGULAR_NEW_LOAD_DEMAND_KVA.intValue()))
             .andExpect(jsonPath("$.regular_load_demand_date").value(sameInstant(DEFAULT_REGULAR_LOAD_DEMAND_DATE)))
             .andExpect(jsonPath("$.temporaryconnection").value(DEFAULT_TEMPORARYCONNECTION.toString()))
-            .andExpect(jsonPath("$.regular_connection_doc").value(DEFAULT_REGULAR_CONNECTION_DOC.toString()));
+            .andExpect(jsonPath("$.regular_connection_doc").value(DEFAULT_REGULAR_CONNECTION_DOC.toString()))
+            .andExpect(jsonPath("$.projectname").value(DEFAULT_PROJECTNAME.toString()))
+            .andExpect(jsonPath("$.customertypename").value(DEFAULT_CUSTOMERTYPENAME.toString()));
     }
 
     @Test
@@ -332,7 +346,9 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
                 .regular_new_load_demand_kva(UPDATED_REGULAR_NEW_LOAD_DEMAND_KVA)
                 .regular_load_demand_date(UPDATED_REGULAR_LOAD_DEMAND_DATE)
                 .temporaryconnection(UPDATED_TEMPORARYCONNECTION)
-                .regular_connection_doc(UPDATED_REGULAR_CONNECTION_DOC);
+                .regular_connection_doc(UPDATED_REGULAR_CONNECTION_DOC)
+                .projectname(UPDATED_PROJECTNAME)
+                .customertypename(UPDATED_CUSTOMERTYPENAME);
         ElectricrequirementDTO electricrequirementDTO = electricrequirementMapper.electricrequirementToElectricrequirementDTO(updatedElectricrequirement);
 
         restElectricrequirementMockMvc.perform(put("/api/electricrequirements")
@@ -364,6 +380,8 @@ public class ElectricrequirementResourceIntTest extends AbstractCassandraTest {
         assertThat(testElectricrequirement.getRegular_load_demand_date()).isEqualTo(UPDATED_REGULAR_LOAD_DEMAND_DATE);
         assertThat(testElectricrequirement.getTemporaryconnection()).isEqualTo(UPDATED_TEMPORARYCONNECTION);
         assertThat(testElectricrequirement.getRegular_connection_doc()).isEqualTo(UPDATED_REGULAR_CONNECTION_DOC);
+        assertThat(testElectricrequirement.getProjectname()).isEqualTo(UPDATED_PROJECTNAME);
+        assertThat(testElectricrequirement.getCustomertypename()).isEqualTo(UPDATED_CUSTOMERTYPENAME);
     }
 
     @Test

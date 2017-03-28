@@ -16,6 +16,8 @@ public class ProjectprocessflowstepsDTO implements Serializable {
 
     private String steps;
 
+    private String projectname;
+
     public UUID getId() {
         return id;
     }
@@ -36,6 +38,13 @@ public class ProjectprocessflowstepsDTO implements Serializable {
 
     public void setSteps(String steps) {
         this.steps = steps;
+    }
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
     }
 
     @Override
@@ -65,6 +74,7 @@ public class ProjectprocessflowstepsDTO implements Serializable {
             "id=" + id +
             ", projectid='" + projectid + "'" +
             ", steps='" + steps + "'" +
+            ", projectname='" + projectname + "'" +
             '}';
     }
 }

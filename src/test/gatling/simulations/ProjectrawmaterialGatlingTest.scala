@@ -68,7 +68,7 @@ class ProjectrawmaterialGatlingTest extends Simulation {
             .exec(http("Create new projectrawmaterial")
             .post("/api/projectrawmaterials")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "projectid":null, "rawmaterial":"SAMPLE_TEXT", "quantity":"0", "units":null}""")).asJSON
+            .body(StringBody("""{"id":null, "projectid":null, "rawmaterial":"SAMPLE_TEXT", "quantity":"0", "units":null, "projectname":"SAMPLE_TEXT", "unitsname":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_projectrawmaterial_url"))).exitHereIfFailed
             .pause(10)

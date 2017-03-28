@@ -17,5 +17,8 @@ CREATE TABLE IF NOT EXISTS environment_impactdetail (
     wastewaterdetailid uuid,
     document_attached text,
     other text,
+    projectname text,
+    sourceofwatersupply text,
+    modeofdisposalfordischarge text,
     PRIMARY KEY(id)
 );

@@ -46,6 +46,10 @@ public class Project_finance_investment implements Serializable {
 
     private String foreign_funding_source;
 
+    private String projectname;
+
+    private String proposedproject_schedulename;
+
     public UUID getId() {
         return id;
     }
@@ -223,6 +227,32 @@ public class Project_finance_investment implements Serializable {
         this.foreign_funding_source = foreign_funding_source;
     }
 
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public Project_finance_investment projectname(String projectname) {
+        this.projectname = projectname;
+        return this;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
+
+    public String getProposedproject_schedulename() {
+        return proposedproject_schedulename;
+    }
+
+    public Project_finance_investment proposedproject_schedulename(String proposedproject_schedulename) {
+        this.proposedproject_schedulename = proposedproject_schedulename;
+        return this;
+    }
+
+    public void setProposedproject_schedulename(String proposedproject_schedulename) {
+        this.proposedproject_schedulename = proposedproject_schedulename;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -260,6 +290,8 @@ public class Project_finance_investment implements Serializable {
             ", proposedproject_scheduleid='" + proposedproject_scheduleid + "'" +
             ", fdi_country='" + fdi_country + "'" +
             ", foreign_funding_source='" + foreign_funding_source + "'" +
+            ", projectname='" + projectname + "'" +
+            ", proposedproject_schedulename='" + proposedproject_schedulename + "'" +
             '}';
     }
 }

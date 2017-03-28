@@ -19,7 +19,11 @@
             "particulars": "Particulars",
             "capacity": "Capacity",
             "type_of_fuel": "Type Of Fuel",
-            "air_pollution_control_device": "Air Pollution Control Device"
+            "air_pollution_control_device": "Air Pollution Control Device",
+            "projectname": "Projectname",
+            "particularsname": "Particularsname",
+            "typeoffuelname": "Typeoffuelname",
+            "airpollutioncontroldevicename": "Airpollutioncontroldevicename"
         }
     }
 }

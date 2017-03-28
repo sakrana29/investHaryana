@@ -68,7 +68,7 @@ class EmissiondetailGatlingTest extends Simulation {
             .exec(http("Create new emissiondetail")
             .post("/api/emissiondetails")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "projectid":null, "particulars":null, "capacity":"SAMPLE_TEXT", "type_of_fuel":null, "air_pollution_control_device":null}""")).asJSON
+            .body(StringBody("""{"id":null, "projectid":null, "particulars":null, "capacity":"SAMPLE_TEXT", "type_of_fuel":null, "air_pollution_control_device":null, "projectname":"SAMPLE_TEXT", "particularsname":"SAMPLE_TEXT", "typeoffuelname":"SAMPLE_TEXT", "airpollutioncontroldevicename":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_emissiondetail_url"))).exitHereIfFailed
             .pause(10)

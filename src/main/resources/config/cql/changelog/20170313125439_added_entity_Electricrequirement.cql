@@ -21,5 +21,7 @@ CREATE TABLE IF NOT EXISTS electricrequirement (
     regular_load_demand_date timestamp,
     temporaryconnection text,
     regular_connection_doc text,
+    projectname text,
+    customertypename text,
     PRIMARY KEY(id)
 );

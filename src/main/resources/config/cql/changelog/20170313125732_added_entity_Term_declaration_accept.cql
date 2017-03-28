@@ -7,5 +7,6 @@ CREATE TABLE IF NOT EXISTS term_declaration_accept (
     place text,
     signature blob,
     signature_content_type text,
+    projectname text,
     PRIMARY KEY(id)
 );

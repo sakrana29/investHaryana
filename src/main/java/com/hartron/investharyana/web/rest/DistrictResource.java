@@ -29,7 +29,7 @@ public class DistrictResource {
     private final Logger log = LoggerFactory.getLogger(DistrictResource.class);
 
     private static final String ENTITY_NAME = "district";
-
+        
     private final DistrictService districtService;
 
     public DistrictResource(DistrictService districtService) {
@@ -88,13 +88,6 @@ public class DistrictResource {
     public List<DistrictDTO> getAllDistricts() {
         log.debug("REST request to get all Districts");
         return districtService.findAll();
-    }
-
-    @GetMapping("/districts/state/{stateid}")
-    @Timed
-    public List<DistrictDTO> getDistrictsByState(@PathVariable String stateid) {
-        log.debug("REST request to get all Districts by State");
-        return districtService.findDistrictByState(stateid);
     }
 
     /**

@@ -108,6 +108,8 @@
                                 rawmaterial: null,
                                 quantity: null,
                                 units: null,
+                                projectname: null,
+                                unitsname: null,
                                 id: null
                             };
                         }

@@ -21,6 +21,22 @@
         {
             "fieldName": "air_pollution_control_device",
             "fieldType": "UUID"
+        },
+        {
+            "fieldName": "projectname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "particularsname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "typeoffuelname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "airpollutioncontroldevicename",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313122621",

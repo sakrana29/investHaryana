@@ -25,6 +25,8 @@ public class Block implements Serializable {
     @NotNull
     private String blockname;
 
+    private String districtname;
+
     public UUID getId() {
         return id;
     }
@@ -59,6 +61,19 @@ public class Block implements Serializable {
         this.blockname = blockname;
     }
 
+    public String getDistrictname() {
+        return districtname;
+    }
+
+    public Block districtname(String districtname) {
+        this.districtname = districtname;
+        return this;
+    }
+
+    public void setDistrictname(String districtname) {
+        this.districtname = districtname;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -85,6 +100,7 @@ public class Block implements Serializable {
             "id=" + id +
             ", districtid='" + districtid + "'" +
             ", blockname='" + blockname + "'" +
+            ", districtname='" + districtname + "'" +
             '}';
     }
 }

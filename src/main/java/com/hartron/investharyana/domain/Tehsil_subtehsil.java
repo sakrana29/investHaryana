@@ -25,6 +25,9 @@ public class Tehsil_subtehsil implements Serializable {
     @NotNull
     private String tehsil_subtehsilname;
 
+    @NotNull
+    private String districtname;
+
     public UUID getId() {
         return id;
     }
@@ -59,6 +62,19 @@ public class Tehsil_subtehsil implements Serializable {
         this.tehsil_subtehsilname = tehsil_subtehsilname;
     }
 
+    public String getDistrictname() {
+        return districtname;
+    }
+
+    public Tehsil_subtehsil districtname(String districtname) {
+        this.districtname = districtname;
+        return this;
+    }
+
+    public void setDistrictname(String districtname) {
+        this.districtname = districtname;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -85,6 +101,7 @@ public class Tehsil_subtehsil implements Serializable {
             "id=" + id +
             ", districtid='" + districtid + "'" +
             ", tehsil_subtehsilname='" + tehsil_subtehsilname + "'" +
+            ", districtname='" + districtname + "'" +
             '}';
     }
 }

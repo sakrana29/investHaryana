@@ -35,6 +35,10 @@ public class Projectservicedetail implements Serializable {
 
     private String remarks;
 
+    private String projectname;
+
+    private String servicename;
+
     public UUID getId() {
         return id;
     }
@@ -147,6 +151,32 @@ public class Projectservicedetail implements Serializable {
         this.remarks = remarks;
     }
 
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public Projectservicedetail projectname(String projectname) {
+        this.projectname = projectname;
+        return this;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
+
+    public String getServicename() {
+        return servicename;
+    }
+
+    public Projectservicedetail servicename(String servicename) {
+        this.servicename = servicename;
+        return this;
+    }
+
+    public void setServicename(String servicename) {
+        this.servicename = servicename;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -179,6 +209,8 @@ public class Projectservicedetail implements Serializable {
             ", assigndate='" + assigndate + "'" +
             ", servicefee='" + servicefee + "'" +
             ", remarks='" + remarks + "'" +
+            ", projectname='" + projectname + "'" +
+            ", servicename='" + servicename + "'" +
             '}';
     }
 }

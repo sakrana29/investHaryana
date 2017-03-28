@@ -20,7 +20,10 @@
             "naturetype": "Naturetype",
             "quantity": "Quantity",
             "mode_of_disposal": "Mode Of Disposal",
-            "description": "Description"
+            "description": "Description",
+            "projectname": "Projectname",
+            "naturetypename": "Naturetypename",
+            "modeofdisposal": "Modeofdisposal"
         }
     }
 }

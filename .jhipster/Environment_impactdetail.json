@@ -65,6 +65,18 @@
         {
             "fieldName": "other",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "projectname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sourceofwatersupply",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "modeofdisposalfordischarge",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313123226",

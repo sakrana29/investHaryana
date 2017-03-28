@@ -110,6 +110,7 @@
                                 place: null,
                                 signature: null,
                                 signatureContentType: null,
+                                projectname: null,
                                 id: null
                             };
                         }

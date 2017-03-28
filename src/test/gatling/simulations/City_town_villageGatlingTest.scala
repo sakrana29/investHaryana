@@ -68,7 +68,7 @@ class City_town_villageGatlingTest extends Simulation {
             .exec(http("Create new city_town_village")
             .post("/api/city-town-villages")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "blockid":null, "city_town_village_name":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "blockid":null, "city_town_village_name":"SAMPLE_TEXT", "blockname":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_city_town_village_url"))).exitHereIfFailed
             .pause(10)

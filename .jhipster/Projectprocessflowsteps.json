@@ -9,6 +9,10 @@
         {
             "fieldName": "steps",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "projectname",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313120748",

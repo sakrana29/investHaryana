@@ -25,6 +25,8 @@ public class State implements Serializable {
     @NotNull
     private String statename;
 
+    private String countryname;
+
     public UUID getId() {
         return id;
     }
@@ -59,6 +61,19 @@ public class State implements Serializable {
         this.statename = statename;
     }
 
+    public String getCountryname() {
+        return countryname;
+    }
+
+    public State countryname(String countryname) {
+        this.countryname = countryname;
+        return this;
+    }
+
+    public void setCountryname(String countryname) {
+        this.countryname = countryname;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -85,6 +100,7 @@ public class State implements Serializable {
             "id=" + id +
             ", countryid='" + countryid + "'" +
             ", statename='" + statename + "'" +
+            ", countryname='" + countryname + "'" +
             '}';
     }
 }

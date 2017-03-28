@@ -18,7 +18,9 @@
             "projectid": "Projectid",
             "mainproduct": "Mainproduct",
             "quantity": "Quantity",
-            "units": "Units"
+            "units": "Units",
+            "projectname": "Projectname",
+            "unitsname": "Unitsname"
         }
     }
 }

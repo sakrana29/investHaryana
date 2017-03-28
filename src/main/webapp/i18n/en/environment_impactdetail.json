@@ -30,7 +30,10 @@
             "emissionid": "Emissionid",
             "wastewaterdetailid": "Wastewaterdetailid",
             "document_attached": "Document Attached",
-            "other": "Other"
+            "other": "Other",
+            "projectname": "Projectname",
+            "sourceofwatersupply": "Sourceofwatersupply",
+            "modeofdisposalfordischarge": "Modeofdisposalfordischarge"
         }
     }
 }

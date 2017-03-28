@@ -19,6 +19,8 @@ public class StateDTO implements Serializable {
     @NotNull
     private String statename;
 
+    private String countryname;
+
     public UUID getId() {
         return id;
     }
@@ -39,6 +41,13 @@ public class StateDTO implements Serializable {
 
     public void setStatename(String statename) {
         this.statename = statename;
+    }
+    public String getCountryname() {
+        return countryname;
+    }
+
+    public void setCountryname(String countryname) {
+        this.countryname = countryname;
     }
 
     @Override
@@ -68,6 +77,7 @@ public class StateDTO implements Serializable {
             "id=" + id +
             ", countryid='" + countryid + "'" +
             ", statename='" + statename + "'" +
+            ", countryname='" + countryname + "'" +
             '}';
     }
 }

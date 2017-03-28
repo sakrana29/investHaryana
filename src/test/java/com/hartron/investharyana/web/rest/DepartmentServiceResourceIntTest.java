@@ -55,6 +55,9 @@ public class DepartmentServiceResourceIntTest extends AbstractCassandraTest {
     private static final String DEFAULT_STAGE = "AAAAAAAAAA";
     private static final String UPDATED_STAGE = "BBBBBBBBBB";
 
+    private static final String DEFAULT_DEPARTMENTNAME = "AAAAAAAAAA";
+    private static final String UPDATED_DEPARTMENTNAME = "BBBBBBBBBB";
+
     @Autowired
     private DepartmentServiceRepository departmentServiceRepository;
 
@@ -99,7 +102,8 @@ public class DepartmentServiceResourceIntTest extends AbstractCassandraTest {
                 .serviceDescription(DEFAULT_SERVICE_DESCRIPTION)
                 .departmentID(DEFAULT_DEPARTMENT_ID)
                 .duration(DEFAULT_DURATION)
-                .stage(DEFAULT_STAGE);
+                .stage(DEFAULT_STAGE)
+                .departmentname(DEFAULT_DEPARTMENTNAME);
         return departmentService;
     }
 
@@ -130,6 +134,7 @@ public class DepartmentServiceResourceIntTest extends AbstractCassandraTest {
         assertThat(testDepartmentService.getDepartmentID()).isEqualTo(DEFAULT_DEPARTMENT_ID);
         assertThat(testDepartmentService.getDuration()).isEqualTo(DEFAULT_DURATION);
         assertThat(testDepartmentService.getStage()).isEqualTo(DEFAULT_STAGE);
+        assertThat(testDepartmentService.getDepartmentname()).isEqualTo(DEFAULT_DEPARTMENTNAME);
     }
 
     @Test
@@ -220,7 +225,8 @@ public class DepartmentServiceResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].serviceDescription").value(hasItem(DEFAULT_SERVICE_DESCRIPTION.toString())))
             .andExpect(jsonPath("$.[*].departmentID").value(hasItem(DEFAULT_DEPARTMENT_ID.toString())))
             .andExpect(jsonPath("$.[*].duration").value(hasItem(DEFAULT_DURATION)))
-            .andExpect(jsonPath("$.[*].stage").value(hasItem(DEFAULT_STAGE.toString())));
+            .andExpect(jsonPath("$.[*].stage").value(hasItem(DEFAULT_STAGE.toString())))
+            .andExpect(jsonPath("$.[*].departmentname").value(hasItem(DEFAULT_DEPARTMENTNAME.toString())));
     }
 
     @Test
@@ -237,7 +243,8 @@ public class DepartmentServiceResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.serviceDescription").value(DEFAULT_SERVICE_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.departmentID").value(DEFAULT_DEPARTMENT_ID.toString()))
             .andExpect(jsonPath("$.duration").value(DEFAULT_DURATION))
-            .andExpect(jsonPath("$.stage").value(DEFAULT_STAGE.toString()));
+            .andExpect(jsonPath("$.stage").value(DEFAULT_STAGE.toString()))
+            .andExpect(jsonPath("$.departmentname").value(DEFAULT_DEPARTMENTNAME.toString()));
     }
 
     @Test
@@ -260,7 +267,8 @@ public class DepartmentServiceResourceIntTest extends AbstractCassandraTest {
                 .serviceDescription(UPDATED_SERVICE_DESCRIPTION)
                 .departmentID(UPDATED_DEPARTMENT_ID)
                 .duration(UPDATED_DURATION)
-                .stage(UPDATED_STAGE);
+                .stage(UPDATED_STAGE)
+                .departmentname(UPDATED_DEPARTMENTNAME);
         DepartmentServiceDTO departmentServiceDTO = departmentServiceMapper.departmentServiceToDepartmentServiceDTO(updatedDepartmentService);
 
         restDepartmentServiceMockMvc.perform(put("/api/department-services")
@@ -277,6 +285,7 @@ public class DepartmentServiceResourceIntTest extends AbstractCassandraTest {
         assertThat(testDepartmentService.getDepartmentID()).isEqualTo(UPDATED_DEPARTMENT_ID);
         assertThat(testDepartmentService.getDuration()).isEqualTo(UPDATED_DURATION);
         assertThat(testDepartmentService.getStage()).isEqualTo(UPDATED_STAGE);
+        assertThat(testDepartmentService.getDepartmentname()).isEqualTo(UPDATED_DEPARTMENTNAME);
     }
 
     @Test

@@ -106,6 +106,7 @@
                             return {
                                 stateid: null,
                                 districtname: null,
+                                statename: null,
                                 id: null
                             };
                         }

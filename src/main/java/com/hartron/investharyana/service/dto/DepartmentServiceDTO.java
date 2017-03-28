@@ -26,6 +26,8 @@ public class DepartmentServiceDTO implements Serializable {
 
     private String stage;
 
+    private String departmentname;
+
     public UUID getId() {
         return id;
     }
@@ -68,6 +70,13 @@ public class DepartmentServiceDTO implements Serializable {
     public void setStage(String stage) {
         this.stage = stage;
     }
+    public String getDepartmentname() {
+        return departmentname;
+    }
+
+    public void setDepartmentname(String departmentname) {
+        this.departmentname = departmentname;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -99,6 +108,7 @@ public class DepartmentServiceDTO implements Serializable {
             ", departmentID='" + departmentID + "'" +
             ", duration='" + duration + "'" +
             ", stage='" + stage + "'" +
+            ", departmentname='" + departmentname + "'" +
             '}';
     }
 }

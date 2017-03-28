@@ -19,7 +19,8 @@
             "acceptance": "Acceptance",
             "applicationdate": "Applicationdate",
             "place": "Place",
-            "signature": "Signature"
+            "signature": "Signature",
+            "projectname": "Projectname"
         }
     }
 }

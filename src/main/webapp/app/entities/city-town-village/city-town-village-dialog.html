@@ -37,6 +37,18 @@
                 </p>
             </div>
         </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.city_town_village.blockname" for="field_blockname">Blockname</label>
+            <input type="text" class="form-control" name="blockname" id="field_blockname"
+                    ng-model="vm.city_town_village.blockname"
+                    required/>
+            <div ng-show="editForm.blockname.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.blockname.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
 
     </div>
     <div class="modal-footer">

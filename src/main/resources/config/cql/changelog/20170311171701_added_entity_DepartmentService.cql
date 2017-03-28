@@ -6,5 +6,6 @@ CREATE TABLE IF NOT EXISTS departmentService (
     departmentID uuid,
     duration int,
     stage text,
+    departmentname text,
     PRIMARY KEY(id)
 );

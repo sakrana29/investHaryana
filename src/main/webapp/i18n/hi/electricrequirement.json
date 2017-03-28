@@ -34,7 +34,9 @@
             "regular_new_load_demand_kva": "Regular New Load Demand Kva",
             "regular_load_demand_date": "Regular Load Demand Date",
             "temporaryconnection": "Temporaryconnection",
-            "regular_connection_doc": "Regular Connection Doc"
+            "regular_connection_doc": "Regular Connection Doc",
+            "projectname": "Projectname",
+            "customertypename": "Customertypename"
         }
     }
 }

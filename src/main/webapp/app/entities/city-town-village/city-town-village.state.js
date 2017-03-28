@@ -106,6 +106,7 @@
                             return {
                                 blockid: null,
                                 city_town_village_name: null,
+                                blockname: null,
                                 id: null
                             };
                         }

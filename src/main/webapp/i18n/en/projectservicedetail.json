@@ -22,7 +22,9 @@
             "servicestatus": "Servicestatus",
             "assigndate": "Assigndate",
             "servicefee": "Servicefee",
-            "remarks": "Remarks"
+            "remarks": "Remarks",
+            "projectname": "Projectname",
+            "servicename": "Servicename"
         }
     }
 }

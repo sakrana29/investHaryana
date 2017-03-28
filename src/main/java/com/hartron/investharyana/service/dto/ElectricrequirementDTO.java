@@ -54,6 +54,10 @@ public class ElectricrequirementDTO implements Serializable {
 
     private String regular_connection_doc;
 
+    private String projectname;
+
+    private String customertypename;
+
     public UUID getId() {
         return id;
     }
@@ -201,6 +205,20 @@ public class ElectricrequirementDTO implements Serializable {
     public void setRegular_connection_doc(String regular_connection_doc) {
         this.regular_connection_doc = regular_connection_doc;
     }
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
+    }
+    public String getCustomertypename() {
+        return customertypename;
+    }
+
+    public void setCustomertypename(String customertypename) {
+        this.customertypename = customertypename;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -247,6 +265,8 @@ public class ElectricrequirementDTO implements Serializable {
             ", regular_load_demand_date='" + regular_load_demand_date + "'" +
             ", temporaryconnection='" + temporaryconnection + "'" +
             ", regular_connection_doc='" + regular_connection_doc + "'" +
+            ", projectname='" + projectname + "'" +
+            ", customertypename='" + customertypename + "'" +
             '}';
     }
 }

@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class DistrictServiceImpl implements DistrictService{
 
     private final Logger log = LoggerFactory.getLogger(DistrictServiceImpl.class);
-
+    
     private final DistrictRepository districtRepository;
 
     private final DistrictMapper districtMapper;
@@ -48,7 +48,7 @@ public class DistrictServiceImpl implements DistrictService{
 
     /**
      *  Get all the districts.
-     *
+     *  
      *  @return the list of entities
      */
     @Override
@@ -84,15 +84,5 @@ public class DistrictServiceImpl implements DistrictService{
     public void delete(String id) {
         log.debug("Request to delete District : {}", id);
         districtRepository.delete(UUID.fromString(id));
-    }
-
-    @Override
-    public List<DistrictDTO> findDistrictByState(String stateid) {
-        log.debug("Request to get all Districts by State");
-        List<DistrictDTO> result = districtRepository.findDistrictByStateId(UUID.fromString(stateid)).stream()
-            .map(districtMapper::districtToDistrictDTO)
-            .collect(Collectors.toCollection(LinkedList::new));
-
-        return result;
     }
 }
