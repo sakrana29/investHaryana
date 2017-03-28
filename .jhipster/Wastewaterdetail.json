@@ -11,19 +11,19 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "naturetype",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "quantity",
             "fieldType": "Integer"
         },
         {
-            "fieldName": "mode_of_disposal",
-            "fieldType": "UUID"
+            "fieldName": "description",
+            "fieldType": "String"
         },
         {
-            "fieldName": "description",
+            "fieldName": "naturetype",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mode_of_disposal",
             "fieldType": "String"
         }
     ],

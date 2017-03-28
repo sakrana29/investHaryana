@@ -40,10 +40,10 @@ public class EmissiondetailRepository {
                 Emissiondetail emissiondetail = new Emissiondetail();
                 emissiondetail.setId(row.getUUID("id"));
                 emissiondetail.setProjectid(row.getUUID("projectid"));
-                emissiondetail.setParticulars(row.getUUID("particulars"));
                 emissiondetail.setCapacity(row.getString("capacity"));
-                emissiondetail.setType_of_fuel(row.getUUID("type_of_fuel"));
-                emissiondetail.setAir_pollution_control_device(row.getUUID("air_pollution_control_device"));
+                emissiondetail.setParticulars(row.getString("particulars"));
+                emissiondetail.setType_of_fuel(row.getString("type_of_fuel"));
+                emissiondetail.setAir_pollution_control_device(row.getString("air_pollution_control_device"));
                 return emissiondetail;
             }
         ).forEach(emissiondetailsList::add);

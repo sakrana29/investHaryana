@@ -49,8 +49,8 @@ public class ProjectrawmaterialResourceIntTest extends AbstractCassandraTest {
     private static final Integer DEFAULT_QUANTITY = 1;
     private static final Integer UPDATED_QUANTITY = 2;
 
-    private static final UUID DEFAULT_UNITS = UUID.randomUUID();
-    private static final UUID UPDATED_UNITS = UUID.randomUUID();
+    private static final String DEFAULT_UNITS = "AAAAAAAAAA";
+    private static final String UPDATED_UNITS = "BBBBBBBBBB";
 
     @Autowired
     private ProjectrawmaterialRepository projectrawmaterialRepository;

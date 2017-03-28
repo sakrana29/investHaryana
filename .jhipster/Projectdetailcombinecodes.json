@@ -25,6 +25,10 @@
         {
             "fieldName": "electricityrequirementid",
             "fieldType": "UUID"
+        },
+        {
+            "fieldName": "environmentimpactdetailid",
+            "fieldType": "UUID"
         }
     ],
     "changelogDate": "20170322055915",

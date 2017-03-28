@@ -54,7 +54,7 @@
                 <th class="col-md-3">Promoter/MD/Director  </th>
                 <td class="col-md-3">{{vm.companydetail.promoter_md_director}}</td>
                 <th class="col-md-3">Business Entity Type</th>
-                <td class="col-md-3">{{vm.companydetail.businessentitytypename}}</td>
+                <td class="col-md-3">{{vm.companydetail.businessentitytype}}</td>
             </tr>
             <tr>
                 <th class="col-md-3">Business Entity (M/s)</th>
@@ -118,26 +118,27 @@
 
                 <th class="col-md-4 bold">Project Purpose</th>
                 <td class="col-md-3">
-                    {{vm.projectdetail.projectpurpose}}                    </td>
+                    {{vm.projectdetail.projectpurpose}}
+                </td>
                 <td class="col-md-4"></td>
             </tr>
             <tr>
 
                 <th class="col-md-4 bold">Approval Application Form</th>
                 <td class="col-md-3">
-                    {{vm.projectdetail.approval_application_formname}}                    </td>
+                    {{vm.projectdetail.approval_application_form}}                    </td>
                 <td class="col-md-4"></td>
             </tr>
             <tr>
 
                 <th class="col-md-4 bold">Size of Industry</th>
-                <td class="col-md-3">{{vm.projectdetail.size_of_industryname}}</td>
+                <td class="col-md-3">{{vm.projectdetail.size_of_industry}}</td>
                 <td class="col-md-4"></td>
             </tr>
             <tr>
 
                 <th class="col-md-4 bold">Project Type</th>
-                <td class="col-md-3">{{vm.projectdetail.projectypename}}</td>
+                <td class="col-md-3">{{vm.projectdetail.projectype}}</td>
                 <td class="col-md-4"></td>
             </tr>
             <tr>
@@ -152,14 +153,14 @@
             <tr>
 
                 <th class="col-md-4 bold">Category of Project</th>
-                <td class="col-md-3">{{vm.projectdetail.category_of_projectname}}</td>
+                <td class="col-md-3">{{vm.projectdetail.category_of_project}}</td>
                 <td class="col-md-4"></td>
             </tr>
             <tr>
 
                 <th class="col-md-4 bold">Foreign Country</th>
                 <td class="col-md-3">
-                    <span>{{vm.projectdetail.collaboration_with_foreign_countryname}}</span>
+                    <span>{{vm.projectdetail.collaboration_with_foreign_country}}</span>
                 </td>
                 <td class="col-md-4"></td>
             </tr>
@@ -306,7 +307,7 @@
 
             <tr>
                 <th class="col-sm-3">Connecting Road</th>
-                <td>{{vm.projectsitedetail.selectedConnectingRoad}}</td>
+                <td>{{vm.projectsitedetail.connectingroad}}</td>
                 <th></th>
                 <td></td>
 
@@ -324,9 +325,9 @@
 
             <tr>
                 <th class="col-sm-3">Confirmity of Land Used </th>
-                <td>{{vm.projectsitedetail.confrmitylanduse}}</td>
+                <td>{{vm.projectsitedetail.confirmitylanduse}}</td>
                 <th class="col-sm-3">Land Zone Use Type</th>
-                <td>{{vm.projectsitedetail.selectedLandZoneUseType}}</td>
+                <td>{{vm.projectsitedetail.landzoneuse_type}}</td>
 
             </tr>
 
@@ -414,10 +415,10 @@
                     <th class ="col-md-1">Implementation Date</th>
                 </tr>
                 <tr ng-repeat="x in vm.project_phase">
-                    <td class ="col-md-1">{{x.project_phase.phase}}</td>
-                    <td class ="col-md-1">{{x.project_phase.productcategory}}</td>
-                    <td class ="col-md-1">{{x.project_phase.fci}}</td>
-                    <td class ="col-md-1">{{x.project_phase.implementationdate}}</td>
+                    <td class ="col-md-1">{{x.phase}}</td>
+                    <td class ="col-md-1">{{x.productcategory}}</td>
+                    <td class ="col-md-1">{{x.fci}}</td>
+                    <td class ="col-md-1">{{x.implementationdate}}</td>
                 </tr>
                 </tbody>
             </table>

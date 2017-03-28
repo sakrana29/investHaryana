@@ -24,7 +24,7 @@ public class Projectrawmaterial implements Serializable {
 
     private Integer quantity;
 
-    private UUID units;
+    private String units;
 
     public UUID getId() {
         return id;
@@ -73,16 +73,16 @@ public class Projectrawmaterial implements Serializable {
         this.quantity = quantity;
     }
 
-    public UUID getUnits() {
+    public String getUnits() {
         return units;
     }
 
-    public Projectrawmaterial units(UUID units) {
+    public Projectrawmaterial units(String units) {
         this.units = units;
         return this;
     }
 
-    public void setUnits(UUID units) {
+    public void setUnits(String units) {
         this.units = units;
     }
 

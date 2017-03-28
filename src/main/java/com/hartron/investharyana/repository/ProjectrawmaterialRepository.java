@@ -42,7 +42,7 @@ public class ProjectrawmaterialRepository {
                 projectrawmaterial.setProjectid(row.getUUID("projectid"));
                 projectrawmaterial.setRawmaterial(row.getString("rawmaterial"));
                 projectrawmaterial.setQuantity(row.getInt("quantity"));
-                projectrawmaterial.setUnits(row.getUUID("units"));
+                projectrawmaterial.setUnits(row.getString("units"));
                 return projectrawmaterial;
             }
         ).forEach(projectrawmaterialsList::add);

@@ -16,7 +16,7 @@
         },
         {
             "fieldName": "units",
-            "fieldType": "UUID"
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313120512",

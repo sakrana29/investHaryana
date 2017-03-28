@@ -41,10 +41,10 @@ public class WastewaterdetailRepository {
                 wastewaterdetail.setId(row.getUUID("id"));
                 wastewaterdetail.setProjectid(row.getUUID("projectid"));
                 wastewaterdetail.setSource_of_generation(row.getString("source_of_generation"));
-                wastewaterdetail.setNaturetype(row.getUUID("naturetype"));
                 wastewaterdetail.setQuantity(row.getInt("quantity"));
-                wastewaterdetail.setMode_of_disposal(row.getUUID("mode_of_disposal"));
                 wastewaterdetail.setDescription(row.getString("description"));
+                wastewaterdetail.setNaturetype(row.getString("naturetype"));
+                wastewaterdetail.setMode_of_disposal(row.getString("mode_of_disposal"));
                 return wastewaterdetail;
             }
         ).forEach(wastewaterdetailsList::add);

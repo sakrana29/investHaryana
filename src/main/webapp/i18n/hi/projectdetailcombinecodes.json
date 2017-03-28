@@ -20,7 +20,8 @@
             "projectsitedetailid": "Projectsitedetailid",
             "projectfinanceid": "Projectfinanceid",
             "manufacturingid": "Manufacturingid",
-            "electricityrequirementid": "Electricityrequirementid"
+            "electricityrequirementid": "Electricityrequirementid",
+            "environmentimpactdetailid": "Environmentimpactdetailid"
         }
     }
 }

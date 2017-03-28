@@ -16,8 +16,8 @@
                 "title": "Emissiondetail"
             },
             "projectid": "Projectid",
-            "particulars": "Particulars",
             "capacity": "Capacity",
+            "particulars": "Particulars",
             "type_of_fuel": "Type Of Fuel",
             "air_pollution_control_device": "Air Pollution Control Device"
         }

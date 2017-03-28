@@ -30,6 +30,8 @@ public class Projectdetailcombinecodes implements Serializable {
 
     private UUID electricityrequirementid;
 
+    private UUID environmentimpactdetailid;
+
     public UUID getId() {
         return id;
     }
@@ -116,6 +118,19 @@ public class Projectdetailcombinecodes implements Serializable {
         this.electricityrequirementid = electricityrequirementid;
     }
 
+    public UUID getEnvironmentimpactdetailid() {
+        return environmentimpactdetailid;
+    }
+
+    public Projectdetailcombinecodes environmentimpactdetailid(UUID environmentimpactdetailid) {
+        this.environmentimpactdetailid = environmentimpactdetailid;
+        return this;
+    }
+
+    public void setEnvironmentimpactdetailid(UUID environmentimpactdetailid) {
+        this.environmentimpactdetailid = environmentimpactdetailid;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -146,6 +161,7 @@ public class Projectdetailcombinecodes implements Serializable {
             ", projectfinanceid='" + projectfinanceid + "'" +
             ", manufacturingid='" + manufacturingid + "'" +
             ", electricityrequirementid='" + electricityrequirementid + "'" +
+            ", environmentimpactdetailid='" + environmentimpactdetailid + "'" +
             '}';
     }
 }

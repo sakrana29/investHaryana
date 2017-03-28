@@ -24,6 +24,8 @@ public class ProjectdetailcombinecodesDTO implements Serializable {
 
     private UUID electricityrequirementid;
 
+    private UUID environmentimpactdetailid;
+
     public UUID getId() {
         return id;
     }
@@ -73,6 +75,13 @@ public class ProjectdetailcombinecodesDTO implements Serializable {
     public void setElectricityrequirementid(UUID electricityrequirementid) {
         this.electricityrequirementid = electricityrequirementid;
     }
+    public UUID getEnvironmentimpactdetailid() {
+        return environmentimpactdetailid;
+    }
+
+    public void setEnvironmentimpactdetailid(UUID environmentimpactdetailid) {
+        this.environmentimpactdetailid = environmentimpactdetailid;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -105,6 +114,7 @@ public class ProjectdetailcombinecodesDTO implements Serializable {
             ", projectfinanceid='" + projectfinanceid + "'" +
             ", manufacturingid='" + manufacturingid + "'" +
             ", electricityrequirementid='" + electricityrequirementid + "'" +
+            ", environmentimpactdetailid='" + environmentimpactdetailid + "'" +
             '}';
     }
 }

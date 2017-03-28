@@ -20,8 +20,6 @@ public class Environment_impactdetail implements Serializable {
 
     private UUID projectid;
 
-    private UUID source_of_water_supply;
-
     private Integer water_process;
 
     private Integer water_cooling;
@@ -40,15 +38,17 @@ public class Environment_impactdetail implements Serializable {
 
     private String waste_water_treatment;
 
-    private UUID mode_of_disposal_for_discharge;
-
-    private UUID emissionid;
-
-    private UUID wastewaterdetailid;
-
     private String document_attached;
 
     private String other;
+
+    private String source_of_water_supply;
+
+    private String mode_of_disposal_for_discharge;
+
+    private String emissionname;
+
+    private String wastewaterdetailid;
 
     public UUID getId() {
         return id;
@@ -69,19 +69,6 @@ public class Environment_impactdetail implements Serializable {
 
     public void setProjectid(UUID projectid) {
         this.projectid = projectid;
-    }
-
-    public UUID getSource_of_water_supply() {
-        return source_of_water_supply;
-    }
-
-    public Environment_impactdetail source_of_water_supply(UUID source_of_water_supply) {
-        this.source_of_water_supply = source_of_water_supply;
-        return this;
-    }
-
-    public void setSource_of_water_supply(UUID source_of_water_supply) {
-        this.source_of_water_supply = source_of_water_supply;
     }
 
     public Integer getWater_process() {
@@ -201,45 +188,6 @@ public class Environment_impactdetail implements Serializable {
         this.waste_water_treatment = waste_water_treatment;
     }
 
-    public UUID getMode_of_disposal_for_discharge() {
-        return mode_of_disposal_for_discharge;
-    }
-
-    public Environment_impactdetail mode_of_disposal_for_discharge(UUID mode_of_disposal_for_discharge) {
-        this.mode_of_disposal_for_discharge = mode_of_disposal_for_discharge;
-        return this;
-    }
-
-    public void setMode_of_disposal_for_discharge(UUID mode_of_disposal_for_discharge) {
-        this.mode_of_disposal_for_discharge = mode_of_disposal_for_discharge;
-    }
-
-    public UUID getEmissionid() {
-        return emissionid;
-    }
-
-    public Environment_impactdetail emissionid(UUID emissionid) {
-        this.emissionid = emissionid;
-        return this;
-    }
-
-    public void setEmissionid(UUID emissionid) {
-        this.emissionid = emissionid;
-    }
-
-    public UUID getWastewaterdetailid() {
-        return wastewaterdetailid;
-    }
-
-    public Environment_impactdetail wastewaterdetailid(UUID wastewaterdetailid) {
-        this.wastewaterdetailid = wastewaterdetailid;
-        return this;
-    }
-
-    public void setWastewaterdetailid(UUID wastewaterdetailid) {
-        this.wastewaterdetailid = wastewaterdetailid;
-    }
-
     public String getDocument_attached() {
         return document_attached;
     }
@@ -264,6 +212,58 @@ public class Environment_impactdetail implements Serializable {
 
     public void setOther(String other) {
         this.other = other;
+    }
+
+    public String getSource_of_water_supply() {
+        return source_of_water_supply;
+    }
+
+    public Environment_impactdetail source_of_water_supply(String source_of_water_supply) {
+        this.source_of_water_supply = source_of_water_supply;
+        return this;
+    }
+
+    public void setSource_of_water_supply(String source_of_water_supply) {
+        this.source_of_water_supply = source_of_water_supply;
+    }
+
+    public String getMode_of_disposal_for_discharge() {
+        return mode_of_disposal_for_discharge;
+    }
+
+    public Environment_impactdetail mode_of_disposal_for_discharge(String mode_of_disposal_for_discharge) {
+        this.mode_of_disposal_for_discharge = mode_of_disposal_for_discharge;
+        return this;
+    }
+
+    public void setMode_of_disposal_for_discharge(String mode_of_disposal_for_discharge) {
+        this.mode_of_disposal_for_discharge = mode_of_disposal_for_discharge;
+    }
+
+    public String getEmissionname() {
+        return emissionname;
+    }
+
+    public Environment_impactdetail emissionname(String emissionname) {
+        this.emissionname = emissionname;
+        return this;
+    }
+
+    public void setEmissionname(String emissionname) {
+        this.emissionname = emissionname;
+    }
+
+    public String getWastewaterdetailid() {
+        return wastewaterdetailid;
+    }
+
+    public Environment_impactdetail wastewaterdetailid(String wastewaterdetailid) {
+        this.wastewaterdetailid = wastewaterdetailid;
+        return this;
+    }
+
+    public void setWastewaterdetailid(String wastewaterdetailid) {
+        this.wastewaterdetailid = wastewaterdetailid;
     }
 
     @Override
@@ -291,7 +291,6 @@ public class Environment_impactdetail implements Serializable {
         return "Environment_impactdetail{" +
             "id=" + id +
             ", projectid='" + projectid + "'" +
-            ", source_of_water_supply='" + source_of_water_supply + "'" +
             ", water_process='" + water_process + "'" +
             ", water_cooling='" + water_cooling + "'" +
             ", water_domestic='" + water_domestic + "'" +
@@ -301,11 +300,12 @@ public class Environment_impactdetail implements Serializable {
             ", waste_water_domesting='" + waste_water_domesting + "'" +
             ", waste_water_other='" + waste_water_other + "'" +
             ", waste_water_treatment='" + waste_water_treatment + "'" +
-            ", mode_of_disposal_for_discharge='" + mode_of_disposal_for_discharge + "'" +
-            ", emissionid='" + emissionid + "'" +
-            ", wastewaterdetailid='" + wastewaterdetailid + "'" +
             ", document_attached='" + document_attached + "'" +
             ", other='" + other + "'" +
+            ", source_of_water_supply='" + source_of_water_supply + "'" +
+            ", mode_of_disposal_for_discharge='" + mode_of_disposal_for_discharge + "'" +
+            ", emissionname='" + emissionname + "'" +
+            ", wastewaterdetailid='" + wastewaterdetailid + "'" +
             '}';
     }
 }

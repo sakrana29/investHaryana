@@ -110,6 +110,7 @@
                                 projectfinanceid: null,
                                 manufacturingid: null,
                                 electricityrequirementid: null,
+                                environmentimpactdetailid: null,
                                 id: null
                             };
                         }

@@ -18,10 +18,11 @@ public interface Project_phaseService {
 
     /**
      *  Get all the project_phases.
-     *  
+     *
      *  @return the list of entities
      */
     List<Project_phaseDTO> findAll();
+    List<Project_phaseDTO> findAllByProjectid(String projectid);
 
     /**
      *  Get the "id" project_phase.
@@ -37,4 +38,7 @@ public interface Project_phaseService {
      *  @param id the id of the entity
      */
     void delete(String id);
+
+    void deleteByProject(String projectid);
+
 }

@@ -16,13 +16,13 @@ public class WastewaterdetailDTO implements Serializable {
 
     private String source_of_generation;
 
-    private UUID naturetype;
-
     private Integer quantity;
 
-    private UUID mode_of_disposal;
-
     private String description;
+
+    private String naturetype;
+
+    private String mode_of_disposal;
 
     public UUID getId() {
         return id;
@@ -45,13 +45,6 @@ public class WastewaterdetailDTO implements Serializable {
     public void setSource_of_generation(String source_of_generation) {
         this.source_of_generation = source_of_generation;
     }
-    public UUID getNaturetype() {
-        return naturetype;
-    }
-
-    public void setNaturetype(UUID naturetype) {
-        this.naturetype = naturetype;
-    }
     public Integer getQuantity() {
         return quantity;
     }
@@ -59,19 +52,26 @@ public class WastewaterdetailDTO implements Serializable {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
-    public UUID getMode_of_disposal() {
-        return mode_of_disposal;
-    }
-
-    public void setMode_of_disposal(UUID mode_of_disposal) {
-        this.mode_of_disposal = mode_of_disposal;
-    }
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    public String getNaturetype() {
+        return naturetype;
+    }
+
+    public void setNaturetype(String naturetype) {
+        this.naturetype = naturetype;
+    }
+    public String getMode_of_disposal() {
+        return mode_of_disposal;
+    }
+
+    public void setMode_of_disposal(String mode_of_disposal) {
+        this.mode_of_disposal = mode_of_disposal;
     }
 
     @Override
@@ -101,10 +101,10 @@ public class WastewaterdetailDTO implements Serializable {
             "id=" + id +
             ", projectid='" + projectid + "'" +
             ", source_of_generation='" + source_of_generation + "'" +
-            ", naturetype='" + naturetype + "'" +
             ", quantity='" + quantity + "'" +
-            ", mode_of_disposal='" + mode_of_disposal + "'" +
             ", description='" + description + "'" +
+            ", naturetype='" + naturetype + "'" +
+            ", mode_of_disposal='" + mode_of_disposal + "'" +
             '}';
     }
 }

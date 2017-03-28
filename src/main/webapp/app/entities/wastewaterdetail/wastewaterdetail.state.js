@@ -106,10 +106,10 @@
                             return {
                                 projectid: null,
                                 source_of_generation: null,
-                                naturetype: null,
                                 quantity: null,
-                                mode_of_disposal: null,
                                 description: null,
+                                naturetype: null,
+                                mode_of_disposal: null,
                                 id: null
                             };
                         }

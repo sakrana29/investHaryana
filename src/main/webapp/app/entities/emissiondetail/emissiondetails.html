@@ -20,8 +20,8 @@
                 <tr>
                     <th><span data-translate="global.field.id">ID</span></th>
                     <th><span data-translate="investhryApp.emissiondetail.projectid">Projectid</span></th>
-                    <th><span data-translate="investhryApp.emissiondetail.particulars">Particulars</span></th>
                     <th><span data-translate="investhryApp.emissiondetail.capacity">Capacity</span></th>
+                    <th><span data-translate="investhryApp.emissiondetail.particulars">Particulars</span></th>
                     <th><span data-translate="investhryApp.emissiondetail.type_of_fuel">Type Of Fuel</span></th>
                     <th><span data-translate="investhryApp.emissiondetail.air_pollution_control_device">Air Pollution Control Device</span></th>
                     <th></th>
@@ -31,8 +31,8 @@
                 <tr ng-repeat="emissiondetail in vm.emissiondetails track by emissiondetail.id">
                     <td><a ui-sref="emissiondetail-detail({id:emissiondetail.id})">{{emissiondetail.id}}</a></td>
                     <td>{{emissiondetail.projectid}}</td>
-                    <td>{{emissiondetail.particulars}}</td>
                     <td>{{emissiondetail.capacity}}</td>
+                    <td>{{emissiondetail.particulars}}</td>
                     <td>{{emissiondetail.type_of_fuel}}</td>
                     <td>{{emissiondetail.air_pollution_control_device}}</td>
                     <td class="text-right">

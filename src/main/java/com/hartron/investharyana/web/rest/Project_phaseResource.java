@@ -28,7 +28,7 @@ public class Project_phaseResource {
     private final Logger log = LoggerFactory.getLogger(Project_phaseResource.class);
 
     private static final String ENTITY_NAME = "project_phase";
-        
+
     private final Project_phaseService project_phaseService;
 
     public Project_phaseResource(Project_phaseService project_phaseService) {
@@ -101,6 +101,14 @@ public class Project_phaseResource {
         log.debug("REST request to get Project_phase : {}", id);
         Project_phaseDTO project_phaseDTO = project_phaseService.findOne(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(project_phaseDTO));
+    }
+
+    @GetMapping("/project-phases/project/{projectid}")
+    @Timed
+    public List<Project_phaseDTO> getProject_phaseByProjectid(@PathVariable String projectid) {
+        log.debug("REST request to get Project_phase by projectid : {}", projectid);
+        List<Project_phaseDTO> project_phaseDTOList = project_phaseService.findAllByProjectid(projectid);
+        return project_phaseDTOList;
     }
 
     /**

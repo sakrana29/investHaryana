@@ -22,13 +22,13 @@ public class Wastewaterdetail implements Serializable {
 
     private String source_of_generation;
 
-    private UUID naturetype;
-
     private Integer quantity;
 
-    private UUID mode_of_disposal;
-
     private String description;
+
+    private String naturetype;
+
+    private String mode_of_disposal;
 
     public UUID getId() {
         return id;
@@ -64,19 +64,6 @@ public class Wastewaterdetail implements Serializable {
         this.source_of_generation = source_of_generation;
     }
 
-    public UUID getNaturetype() {
-        return naturetype;
-    }
-
-    public Wastewaterdetail naturetype(UUID naturetype) {
-        this.naturetype = naturetype;
-        return this;
-    }
-
-    public void setNaturetype(UUID naturetype) {
-        this.naturetype = naturetype;
-    }
-
     public Integer getQuantity() {
         return quantity;
     }
@@ -90,19 +77,6 @@ public class Wastewaterdetail implements Serializable {
         this.quantity = quantity;
     }
 
-    public UUID getMode_of_disposal() {
-        return mode_of_disposal;
-    }
-
-    public Wastewaterdetail mode_of_disposal(UUID mode_of_disposal) {
-        this.mode_of_disposal = mode_of_disposal;
-        return this;
-    }
-
-    public void setMode_of_disposal(UUID mode_of_disposal) {
-        this.mode_of_disposal = mode_of_disposal;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -114,6 +88,32 @@ public class Wastewaterdetail implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getNaturetype() {
+        return naturetype;
+    }
+
+    public Wastewaterdetail naturetype(String naturetype) {
+        this.naturetype = naturetype;
+        return this;
+    }
+
+    public void setNaturetype(String naturetype) {
+        this.naturetype = naturetype;
+    }
+
+    public String getMode_of_disposal() {
+        return mode_of_disposal;
+    }
+
+    public Wastewaterdetail mode_of_disposal(String mode_of_disposal) {
+        this.mode_of_disposal = mode_of_disposal;
+        return this;
+    }
+
+    public void setMode_of_disposal(String mode_of_disposal) {
+        this.mode_of_disposal = mode_of_disposal;
     }
 
     @Override
@@ -142,10 +142,10 @@ public class Wastewaterdetail implements Serializable {
             "id=" + id +
             ", projectid='" + projectid + "'" +
             ", source_of_generation='" + source_of_generation + "'" +
-            ", naturetype='" + naturetype + "'" +
             ", quantity='" + quantity + "'" +
-            ", mode_of_disposal='" + mode_of_disposal + "'" +
             ", description='" + description + "'" +
+            ", naturetype='" + naturetype + "'" +
+            ", mode_of_disposal='" + mode_of_disposal + "'" +
             '}';
     }
 }

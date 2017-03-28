@@ -7,20 +7,20 @@
             "fieldType": "UUID"
         },
         {
-            "fieldName": "particulars",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "capacity",
             "fieldType": "String"
         },
         {
+            "fieldName": "particulars",
+            "fieldType": "String"
+        },
+        {
             "fieldName": "type_of_fuel",
-            "fieldType": "UUID"
+            "fieldType": "String"
         },
         {
             "fieldName": "air_pollution_control_device",
-            "fieldType": "UUID"
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313122621",

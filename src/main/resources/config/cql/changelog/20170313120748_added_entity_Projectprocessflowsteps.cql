@@ -5,3 +5,8 @@ CREATE TABLE IF NOT EXISTS projectprocessflowsteps (
     steps text,
     PRIMARY KEY(id)
 );
+CREATE TABLE IF NOT EXISTS projectprocessflowsteps_By_projectid (
+id uuid,
+projectid uuid,
+PRIMARY KEY(projectid,id)
+);

@@ -7,10 +7,6 @@
             "fieldType": "UUID"
         },
         {
-            "fieldName": "source_of_water_supply",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "water_process",
             "fieldType": "Integer"
         },
@@ -47,23 +43,27 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "mode_of_disposal_for_discharge",
-            "fieldType": "UUID"
-        },
-        {
-            "fieldName": "emissionid",
-            "fieldType": "UUID"
-        },
-        {
-            "fieldName": "wastewaterdetailid",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "document_attached",
             "fieldType": "String"
         },
         {
             "fieldName": "other",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "source_of_water_supply",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mode_of_disposal_for_discharge",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emissionname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "wastewaterdetailid",
             "fieldType": "String"
         }
     ],

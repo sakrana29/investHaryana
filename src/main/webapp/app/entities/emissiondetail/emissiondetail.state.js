@@ -105,8 +105,8 @@
                         entity: function () {
                             return {
                                 projectid: null,
-                                particulars: null,
                                 capacity: null,
+                                particulars: null,
                                 type_of_fuel: null,
                                 air_pollution_control_device: null,
                                 id: null

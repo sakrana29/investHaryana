@@ -46,17 +46,17 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
     private static final String DEFAULT_SOURCE_OF_GENERATION = "AAAAAAAAAA";
     private static final String UPDATED_SOURCE_OF_GENERATION = "BBBBBBBBBB";
 
-    private static final UUID DEFAULT_NATURETYPE = UUID.randomUUID();
-    private static final UUID UPDATED_NATURETYPE = UUID.randomUUID();
-
     private static final Integer DEFAULT_QUANTITY = 1;
     private static final Integer UPDATED_QUANTITY = 2;
 
-    private static final UUID DEFAULT_MODE_OF_DISPOSAL = UUID.randomUUID();
-    private static final UUID UPDATED_MODE_OF_DISPOSAL = UUID.randomUUID();
-
     private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
     private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
+
+    private static final String DEFAULT_NATURETYPE = "AAAAAAAAAA";
+    private static final String UPDATED_NATURETYPE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_MODE_OF_DISPOSAL = "AAAAAAAAAA";
+    private static final String UPDATED_MODE_OF_DISPOSAL = "BBBBBBBBBB";
 
     @Autowired
     private WastewaterdetailRepository wastewaterdetailRepository;
@@ -100,10 +100,10 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
         Wastewaterdetail wastewaterdetail = new Wastewaterdetail()
                 .projectid(DEFAULT_PROJECTID)
                 .source_of_generation(DEFAULT_SOURCE_OF_GENERATION)
-                .naturetype(DEFAULT_NATURETYPE)
                 .quantity(DEFAULT_QUANTITY)
-                .mode_of_disposal(DEFAULT_MODE_OF_DISPOSAL)
-                .description(DEFAULT_DESCRIPTION);
+                .description(DEFAULT_DESCRIPTION)
+                .naturetype(DEFAULT_NATURETYPE)
+                .mode_of_disposal(DEFAULT_MODE_OF_DISPOSAL);
         return wastewaterdetail;
     }
 
@@ -131,10 +131,10 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
         Wastewaterdetail testWastewaterdetail = wastewaterdetailList.get(wastewaterdetailList.size() - 1);
         assertThat(testWastewaterdetail.getProjectid()).isEqualTo(DEFAULT_PROJECTID);
         assertThat(testWastewaterdetail.getSource_of_generation()).isEqualTo(DEFAULT_SOURCE_OF_GENERATION);
-        assertThat(testWastewaterdetail.getNaturetype()).isEqualTo(DEFAULT_NATURETYPE);
         assertThat(testWastewaterdetail.getQuantity()).isEqualTo(DEFAULT_QUANTITY);
-        assertThat(testWastewaterdetail.getMode_of_disposal()).isEqualTo(DEFAULT_MODE_OF_DISPOSAL);
         assertThat(testWastewaterdetail.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
+        assertThat(testWastewaterdetail.getNaturetype()).isEqualTo(DEFAULT_NATURETYPE);
+        assertThat(testWastewaterdetail.getMode_of_disposal()).isEqualTo(DEFAULT_MODE_OF_DISPOSAL);
     }
 
     @Test
@@ -169,10 +169,10 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(wastewaterdetail.getId().toString())))
             .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())))
             .andExpect(jsonPath("$.[*].source_of_generation").value(hasItem(DEFAULT_SOURCE_OF_GENERATION.toString())))
-            .andExpect(jsonPath("$.[*].naturetype").value(hasItem(DEFAULT_NATURETYPE.toString())))
             .andExpect(jsonPath("$.[*].quantity").value(hasItem(DEFAULT_QUANTITY)))
-            .andExpect(jsonPath("$.[*].mode_of_disposal").value(hasItem(DEFAULT_MODE_OF_DISPOSAL.toString())))
-            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())));
+            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
+            .andExpect(jsonPath("$.[*].naturetype").value(hasItem(DEFAULT_NATURETYPE.toString())))
+            .andExpect(jsonPath("$.[*].mode_of_disposal").value(hasItem(DEFAULT_MODE_OF_DISPOSAL.toString())));
     }
 
     @Test
@@ -187,10 +187,10 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.id").value(wastewaterdetail.getId().toString()))
             .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()))
             .andExpect(jsonPath("$.source_of_generation").value(DEFAULT_SOURCE_OF_GENERATION.toString()))
-            .andExpect(jsonPath("$.naturetype").value(DEFAULT_NATURETYPE.toString()))
             .andExpect(jsonPath("$.quantity").value(DEFAULT_QUANTITY))
-            .andExpect(jsonPath("$.mode_of_disposal").value(DEFAULT_MODE_OF_DISPOSAL.toString()))
-            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()));
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
+            .andExpect(jsonPath("$.naturetype").value(DEFAULT_NATURETYPE.toString()))
+            .andExpect(jsonPath("$.mode_of_disposal").value(DEFAULT_MODE_OF_DISPOSAL.toString()));
     }
 
     @Test
@@ -211,10 +211,10 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
         updatedWastewaterdetail
                 .projectid(UPDATED_PROJECTID)
                 .source_of_generation(UPDATED_SOURCE_OF_GENERATION)
-                .naturetype(UPDATED_NATURETYPE)
                 .quantity(UPDATED_QUANTITY)
-                .mode_of_disposal(UPDATED_MODE_OF_DISPOSAL)
-                .description(UPDATED_DESCRIPTION);
+                .description(UPDATED_DESCRIPTION)
+                .naturetype(UPDATED_NATURETYPE)
+                .mode_of_disposal(UPDATED_MODE_OF_DISPOSAL);
         WastewaterdetailDTO wastewaterdetailDTO = wastewaterdetailMapper.wastewaterdetailToWastewaterdetailDTO(updatedWastewaterdetail);
 
         restWastewaterdetailMockMvc.perform(put("/api/wastewaterdetails")
@@ -228,10 +228,10 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
         Wastewaterdetail testWastewaterdetail = wastewaterdetailList.get(wastewaterdetailList.size() - 1);
         assertThat(testWastewaterdetail.getProjectid()).isEqualTo(UPDATED_PROJECTID);
         assertThat(testWastewaterdetail.getSource_of_generation()).isEqualTo(UPDATED_SOURCE_OF_GENERATION);
-        assertThat(testWastewaterdetail.getNaturetype()).isEqualTo(UPDATED_NATURETYPE);
         assertThat(testWastewaterdetail.getQuantity()).isEqualTo(UPDATED_QUANTITY);
-        assertThat(testWastewaterdetail.getMode_of_disposal()).isEqualTo(UPDATED_MODE_OF_DISPOSAL);
         assertThat(testWastewaterdetail.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testWastewaterdetail.getNaturetype()).isEqualTo(UPDATED_NATURETYPE);
+        assertThat(testWastewaterdetail.getMode_of_disposal()).isEqualTo(UPDATED_MODE_OF_DISPOSAL);
     }
 
     @Test

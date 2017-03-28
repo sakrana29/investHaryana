@@ -3,6 +3,7 @@ package com.hartron.investharyana.service.dto;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -19,6 +20,15 @@ public class ProjectCompleteDetailDTO implements Serializable {
     private ManufacturingdetailDTO manufacturingdetailDTO;
     private ElectricrequirementDTO electricrequirementDTO;
     private ProjectdetailcombinecodesDTO projectdetailcombinecodesDTO;
+
+    private List<Project_phaseDTO> project_phaseDTOList;
+
+    public List<Project_phaseDTO> getProject_phaseDTOList() {
+        return project_phaseDTOList;
+    }
+    public void setProject_phaseDTOList(List<Project_phaseDTO> project_phaseDTOList) {
+        this.project_phaseDTOList= project_phaseDTOList;
+    }
 
     public InvestorDTO getInvestorDTO() {
         return investorDTO;

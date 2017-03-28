@@ -14,13 +14,13 @@ public class EmissiondetailDTO implements Serializable {
 
     private UUID projectid;
 
-    private UUID particulars;
-
     private String capacity;
 
-    private UUID type_of_fuel;
+    private String particulars;
 
-    private UUID air_pollution_control_device;
+    private String type_of_fuel;
+
+    private String air_pollution_control_device;
 
     public UUID getId() {
         return id;
@@ -36,13 +36,6 @@ public class EmissiondetailDTO implements Serializable {
     public void setProjectid(UUID projectid) {
         this.projectid = projectid;
     }
-    public UUID getParticulars() {
-        return particulars;
-    }
-
-    public void setParticulars(UUID particulars) {
-        this.particulars = particulars;
-    }
     public String getCapacity() {
         return capacity;
     }
@@ -50,18 +43,25 @@ public class EmissiondetailDTO implements Serializable {
     public void setCapacity(String capacity) {
         this.capacity = capacity;
     }
-    public UUID getType_of_fuel() {
+    public String getParticulars() {
+        return particulars;
+    }
+
+    public void setParticulars(String particulars) {
+        this.particulars = particulars;
+    }
+    public String getType_of_fuel() {
         return type_of_fuel;
     }
 
-    public void setType_of_fuel(UUID type_of_fuel) {
+    public void setType_of_fuel(String type_of_fuel) {
         this.type_of_fuel = type_of_fuel;
     }
-    public UUID getAir_pollution_control_device() {
+    public String getAir_pollution_control_device() {
         return air_pollution_control_device;
     }
 
-    public void setAir_pollution_control_device(UUID air_pollution_control_device) {
+    public void setAir_pollution_control_device(String air_pollution_control_device) {
         this.air_pollution_control_device = air_pollution_control_device;
     }
 
@@ -91,8 +91,8 @@ public class EmissiondetailDTO implements Serializable {
         return "EmissiondetailDTO{" +
             "id=" + id +
             ", projectid='" + projectid + "'" +
-            ", particulars='" + particulars + "'" +
             ", capacity='" + capacity + "'" +
+            ", particulars='" + particulars + "'" +
             ", type_of_fuel='" + type_of_fuel + "'" +
             ", air_pollution_control_device='" + air_pollution_control_device + "'" +
             '}';

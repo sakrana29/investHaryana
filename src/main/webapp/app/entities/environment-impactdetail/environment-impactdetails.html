@@ -20,7 +20,6 @@
                 <tr>
                     <th><span data-translate="global.field.id">ID</span></th>
                     <th><span data-translate="investhryApp.environment_impactdetail.projectid">Projectid</span></th>
-                    <th><span data-translate="investhryApp.environment_impactdetail.source_of_water_supply">Source Of Water Supply</span></th>
                     <th><span data-translate="investhryApp.environment_impactdetail.water_process">Water Process</span></th>
                     <th><span data-translate="investhryApp.environment_impactdetail.water_cooling">Water Cooling</span></th>
                     <th><span data-translate="investhryApp.environment_impactdetail.water_domestic">Water Domestic</span></th>
@@ -30,11 +29,12 @@
                     <th><span data-translate="investhryApp.environment_impactdetail.waste_water_domesting">Waste Water Domesting</span></th>
                     <th><span data-translate="investhryApp.environment_impactdetail.waste_water_other">Waste Water Other</span></th>
                     <th><span data-translate="investhryApp.environment_impactdetail.waste_water_treatment">Waste Water Treatment</span></th>
-                    <th><span data-translate="investhryApp.environment_impactdetail.mode_of_disposal_for_discharge">Mode Of Disposal For Discharge</span></th>
-                    <th><span data-translate="investhryApp.environment_impactdetail.emissionid">Emissionid</span></th>
-                    <th><span data-translate="investhryApp.environment_impactdetail.wastewaterdetailid">Wastewaterdetailid</span></th>
                     <th><span data-translate="investhryApp.environment_impactdetail.document_attached">Document Attached</span></th>
                     <th><span data-translate="investhryApp.environment_impactdetail.other">Other</span></th>
+                    <th><span data-translate="investhryApp.environment_impactdetail.source_of_water_supply">Source Of Water Supply</span></th>
+                    <th><span data-translate="investhryApp.environment_impactdetail.mode_of_disposal_for_discharge">Mode Of Disposal For Discharge</span></th>
+                    <th><span data-translate="investhryApp.environment_impactdetail.emissionname">Emissionname</span></th>
+                    <th><span data-translate="investhryApp.environment_impactdetail.wastewaterdetailid">Wastewaterdetailid</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -42,7 +42,6 @@
                 <tr ng-repeat="environment_impactdetail in vm.environment_impactdetails track by environment_impactdetail.id">
                     <td><a ui-sref="environment-impactdetail-detail({id:environment_impactdetail.id})">{{environment_impactdetail.id}}</a></td>
                     <td>{{environment_impactdetail.projectid}}</td>
-                    <td>{{environment_impactdetail.source_of_water_supply}}</td>
                     <td>{{environment_impactdetail.water_process}}</td>
                     <td>{{environment_impactdetail.water_cooling}}</td>
                     <td>{{environment_impactdetail.water_domestic}}</td>
@@ -52,11 +51,12 @@
                     <td>{{environment_impactdetail.waste_water_domesting}}</td>
                     <td>{{environment_impactdetail.waste_water_other}}</td>
                     <td>{{environment_impactdetail.waste_water_treatment}}</td>
-                    <td>{{environment_impactdetail.mode_of_disposal_for_discharge}}</td>
-                    <td>{{environment_impactdetail.emissionid}}</td>
-                    <td>{{environment_impactdetail.wastewaterdetailid}}</td>
                     <td>{{environment_impactdetail.document_attached}}</td>
                     <td>{{environment_impactdetail.other}}</td>
+                    <td>{{environment_impactdetail.source_of_water_supply}}</td>
+                    <td>{{environment_impactdetail.mode_of_disposal_for_discharge}}</td>
+                    <td>{{environment_impactdetail.emissionname}}</td>
+                    <td>{{environment_impactdetail.wastewaterdetailid}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

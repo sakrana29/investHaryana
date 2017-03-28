@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class Project_phaseServiceImpl implements Project_phaseService{
 
     private final Logger log = LoggerFactory.getLogger(Project_phaseServiceImpl.class);
-    
+
     private final Project_phaseRepository project_phaseRepository;
 
     private final Project_phaseMapper project_phaseMapper;
@@ -48,13 +48,23 @@ public class Project_phaseServiceImpl implements Project_phaseService{
 
     /**
      *  Get all the project_phases.
-     *  
+     *
      *  @return the list of entities
      */
     @Override
     public List<Project_phaseDTO> findAll() {
         log.debug("Request to get all Project_phases");
         List<Project_phaseDTO> result = project_phaseRepository.findAll().stream()
+            .map(project_phaseMapper::project_phaseToProject_phaseDTO)
+            .collect(Collectors.toCollection(LinkedList::new));
+
+        return result;
+    }
+
+    @Override
+    public List<Project_phaseDTO> findAllByProjectid(String projectid) {
+        log.debug("Request to get all Project_phases by projectid");
+        List<Project_phaseDTO> result = project_phaseRepository.findAllByProjectid(UUID.fromString(projectid)).stream()
             .map(project_phaseMapper::project_phaseToProject_phaseDTO)
             .collect(Collectors.toCollection(LinkedList::new));
 
@@ -85,4 +95,11 @@ public class Project_phaseServiceImpl implements Project_phaseService{
         log.debug("Request to delete Project_phase : {}", id);
         project_phaseRepository.delete(UUID.fromString(id));
     }
+
+    @Override
+    public void deleteByProject(String projectid) {
+        log.debug("Request to delete entry from Project_phaseByProject by projectid : {}", projectid);
+        project_phaseRepository.deleteByProject(UUID.fromString(projectid));
+    }
+
 }

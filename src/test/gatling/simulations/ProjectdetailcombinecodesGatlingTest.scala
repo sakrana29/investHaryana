@@ -68,7 +68,7 @@ class ProjectdetailcombinecodesGatlingTest extends Simulation {
             .exec(http("Create new projectdetailcombinecodes")
             .post("/api/projectdetailcombinecodes")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "investorid":null, "companydetailid":null, "projectsitedetailid":null, "projectfinanceid":null, "manufacturingid":null, "electricityrequirementid":null}""")).asJSON
+            .body(StringBody("""{"id":null, "investorid":null, "companydetailid":null, "projectsitedetailid":null, "projectfinanceid":null, "manufacturingid":null, "electricityrequirementid":null, "environmentimpactdetailid":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_projectdetailcombinecodes_url"))).exitHereIfFailed
             .pause(10)

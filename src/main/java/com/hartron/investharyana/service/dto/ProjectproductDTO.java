@@ -18,7 +18,7 @@ public class ProjectproductDTO implements Serializable {
 
     private Integer quantity;
 
-    private UUID units;
+    private String units;
 
     public UUID getId() {
         return id;
@@ -48,11 +48,11 @@ public class ProjectproductDTO implements Serializable {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
-    public UUID getUnits() {
+    public String getUnits() {
         return units;
     }
 
-    public void setUnits(UUID units) {
+    public void setUnits(String units) {
         this.units = units;
     }
 

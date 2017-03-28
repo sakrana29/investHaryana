@@ -8,3 +8,9 @@ CREATE TABLE IF NOT EXISTS project_phase (
     implementationdate timestamp,
     PRIMARY KEY(id)
 );
+CREATE TABLE IF NOT EXISTS projectphase_by_projectid (
+projectid uuid,
+id uuid,
+PRIMARY KEY(projectid,id)
+);
+

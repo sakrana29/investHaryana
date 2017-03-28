@@ -43,17 +43,17 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
     private static final UUID DEFAULT_PROJECTID = UUID.randomUUID();
     private static final UUID UPDATED_PROJECTID = UUID.randomUUID();
 
-    private static final UUID DEFAULT_PARTICULARS = UUID.randomUUID();
-    private static final UUID UPDATED_PARTICULARS = UUID.randomUUID();
-
     private static final String DEFAULT_CAPACITY = "AAAAAAAAAA";
     private static final String UPDATED_CAPACITY = "BBBBBBBBBB";
 
-    private static final UUID DEFAULT_TYPE_OF_FUEL = UUID.randomUUID();
-    private static final UUID UPDATED_TYPE_OF_FUEL = UUID.randomUUID();
+    private static final String DEFAULT_PARTICULARS = "AAAAAAAAAA";
+    private static final String UPDATED_PARTICULARS = "BBBBBBBBBB";
 
-    private static final UUID DEFAULT_AIR_POLLUTION_CONTROL_DEVICE = UUID.randomUUID();
-    private static final UUID UPDATED_AIR_POLLUTION_CONTROL_DEVICE = UUID.randomUUID();
+    private static final String DEFAULT_TYPE_OF_FUEL = "AAAAAAAAAA";
+    private static final String UPDATED_TYPE_OF_FUEL = "BBBBBBBBBB";
+
+    private static final String DEFAULT_AIR_POLLUTION_CONTROL_DEVICE = "AAAAAAAAAA";
+    private static final String UPDATED_AIR_POLLUTION_CONTROL_DEVICE = "BBBBBBBBBB";
 
     @Autowired
     private EmissiondetailRepository emissiondetailRepository;
@@ -96,8 +96,8 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
     public static Emissiondetail createEntity() {
         Emissiondetail emissiondetail = new Emissiondetail()
                 .projectid(DEFAULT_PROJECTID)
-                .particulars(DEFAULT_PARTICULARS)
                 .capacity(DEFAULT_CAPACITY)
+                .particulars(DEFAULT_PARTICULARS)
                 .type_of_fuel(DEFAULT_TYPE_OF_FUEL)
                 .air_pollution_control_device(DEFAULT_AIR_POLLUTION_CONTROL_DEVICE);
         return emissiondetail;
@@ -126,8 +126,8 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
         assertThat(emissiondetailList).hasSize(databaseSizeBeforeCreate + 1);
         Emissiondetail testEmissiondetail = emissiondetailList.get(emissiondetailList.size() - 1);
         assertThat(testEmissiondetail.getProjectid()).isEqualTo(DEFAULT_PROJECTID);
-        assertThat(testEmissiondetail.getParticulars()).isEqualTo(DEFAULT_PARTICULARS);
         assertThat(testEmissiondetail.getCapacity()).isEqualTo(DEFAULT_CAPACITY);
+        assertThat(testEmissiondetail.getParticulars()).isEqualTo(DEFAULT_PARTICULARS);
         assertThat(testEmissiondetail.getType_of_fuel()).isEqualTo(DEFAULT_TYPE_OF_FUEL);
         assertThat(testEmissiondetail.getAir_pollution_control_device()).isEqualTo(DEFAULT_AIR_POLLUTION_CONTROL_DEVICE);
     }
@@ -163,8 +163,8 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(emissiondetail.getId().toString())))
             .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())))
-            .andExpect(jsonPath("$.[*].particulars").value(hasItem(DEFAULT_PARTICULARS.toString())))
             .andExpect(jsonPath("$.[*].capacity").value(hasItem(DEFAULT_CAPACITY.toString())))
+            .andExpect(jsonPath("$.[*].particulars").value(hasItem(DEFAULT_PARTICULARS.toString())))
             .andExpect(jsonPath("$.[*].type_of_fuel").value(hasItem(DEFAULT_TYPE_OF_FUEL.toString())))
             .andExpect(jsonPath("$.[*].air_pollution_control_device").value(hasItem(DEFAULT_AIR_POLLUTION_CONTROL_DEVICE.toString())));
     }
@@ -180,8 +180,8 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(emissiondetail.getId().toString()))
             .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()))
-            .andExpect(jsonPath("$.particulars").value(DEFAULT_PARTICULARS.toString()))
             .andExpect(jsonPath("$.capacity").value(DEFAULT_CAPACITY.toString()))
+            .andExpect(jsonPath("$.particulars").value(DEFAULT_PARTICULARS.toString()))
             .andExpect(jsonPath("$.type_of_fuel").value(DEFAULT_TYPE_OF_FUEL.toString()))
             .andExpect(jsonPath("$.air_pollution_control_device").value(DEFAULT_AIR_POLLUTION_CONTROL_DEVICE.toString()));
     }
@@ -203,8 +203,8 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
         Emissiondetail updatedEmissiondetail = emissiondetailRepository.findOne(emissiondetail.getId());
         updatedEmissiondetail
                 .projectid(UPDATED_PROJECTID)
-                .particulars(UPDATED_PARTICULARS)
                 .capacity(UPDATED_CAPACITY)
+                .particulars(UPDATED_PARTICULARS)
                 .type_of_fuel(UPDATED_TYPE_OF_FUEL)
                 .air_pollution_control_device(UPDATED_AIR_POLLUTION_CONTROL_DEVICE);
         EmissiondetailDTO emissiondetailDTO = emissiondetailMapper.emissiondetailToEmissiondetailDTO(updatedEmissiondetail);
@@ -219,8 +219,8 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
         assertThat(emissiondetailList).hasSize(databaseSizeBeforeUpdate);
         Emissiondetail testEmissiondetail = emissiondetailList.get(emissiondetailList.size() - 1);
         assertThat(testEmissiondetail.getProjectid()).isEqualTo(UPDATED_PROJECTID);
-        assertThat(testEmissiondetail.getParticulars()).isEqualTo(UPDATED_PARTICULARS);
         assertThat(testEmissiondetail.getCapacity()).isEqualTo(UPDATED_CAPACITY);
+        assertThat(testEmissiondetail.getParticulars()).isEqualTo(UPDATED_PARTICULARS);
         assertThat(testEmissiondetail.getType_of_fuel()).isEqualTo(UPDATED_TYPE_OF_FUEL);
         assertThat(testEmissiondetail.getAir_pollution_control_device()).isEqualTo(UPDATED_AIR_POLLUTION_CONTROL_DEVICE);
     }

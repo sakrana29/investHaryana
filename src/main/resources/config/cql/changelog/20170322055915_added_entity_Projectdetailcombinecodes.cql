@@ -7,5 +7,6 @@ CREATE TABLE IF NOT EXISTS projectdetailcombinecodes (
     projectfinanceid uuid,
     manufacturingid uuid,
     electricityrequirementid uuid,
+    environmentimpactdetailid uuid,
     PRIMARY KEY(id)
 );

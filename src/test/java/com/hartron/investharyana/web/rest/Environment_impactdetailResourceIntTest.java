@@ -43,9 +43,6 @@ public class Environment_impactdetailResourceIntTest extends AbstractCassandraTe
     private static final UUID DEFAULT_PROJECTID = UUID.randomUUID();
     private static final UUID UPDATED_PROJECTID = UUID.randomUUID();
 
-    private static final UUID DEFAULT_SOURCE_OF_WATER_SUPPLY = UUID.randomUUID();
-    private static final UUID UPDATED_SOURCE_OF_WATER_SUPPLY = UUID.randomUUID();
-
     private static final Integer DEFAULT_WATER_PROCESS = 1;
     private static final Integer UPDATED_WATER_PROCESS = 2;
 
@@ -73,20 +70,23 @@ public class Environment_impactdetailResourceIntTest extends AbstractCassandraTe
     private static final String DEFAULT_WASTE_WATER_TREATMENT = "AAAAAAAAAA";
     private static final String UPDATED_WASTE_WATER_TREATMENT = "BBBBBBBBBB";
 
-    private static final UUID DEFAULT_MODE_OF_DISPOSAL_FOR_DISCHARGE = UUID.randomUUID();
-    private static final UUID UPDATED_MODE_OF_DISPOSAL_FOR_DISCHARGE = UUID.randomUUID();
-
-    private static final UUID DEFAULT_EMISSIONID = UUID.randomUUID();
-    private static final UUID UPDATED_EMISSIONID = UUID.randomUUID();
-
-    private static final UUID DEFAULT_WASTEWATERDETAILID = UUID.randomUUID();
-    private static final UUID UPDATED_WASTEWATERDETAILID = UUID.randomUUID();
-
     private static final String DEFAULT_DOCUMENT_ATTACHED = "AAAAAAAAAA";
     private static final String UPDATED_DOCUMENT_ATTACHED = "BBBBBBBBBB";
 
     private static final String DEFAULT_OTHER = "AAAAAAAAAA";
     private static final String UPDATED_OTHER = "BBBBBBBBBB";
+
+    private static final String DEFAULT_SOURCE_OF_WATER_SUPPLY = "AAAAAAAAAA";
+    private static final String UPDATED_SOURCE_OF_WATER_SUPPLY = "BBBBBBBBBB";
+
+    private static final String DEFAULT_MODE_OF_DISPOSAL_FOR_DISCHARGE = "AAAAAAAAAA";
+    private static final String UPDATED_MODE_OF_DISPOSAL_FOR_DISCHARGE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_EMISSIONNAME = "AAAAAAAAAA";
+    private static final String UPDATED_EMISSIONNAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_WASTEWATERDETAILID = "AAAAAAAAAA";
+    private static final String UPDATED_WASTEWATERDETAILID = "BBBBBBBBBB";
 
     @Autowired
     private Environment_impactdetailRepository environment_impactdetailRepository;
@@ -129,7 +129,6 @@ public class Environment_impactdetailResourceIntTest extends AbstractCassandraTe
     public static Environment_impactdetail createEntity() {
         Environment_impactdetail environment_impactdetail = new Environment_impactdetail()
                 .projectid(DEFAULT_PROJECTID)
-                .source_of_water_supply(DEFAULT_SOURCE_OF_WATER_SUPPLY)
                 .water_process(DEFAULT_WATER_PROCESS)
                 .water_cooling(DEFAULT_WATER_COOLING)
                 .water_domestic(DEFAULT_WATER_DOMESTIC)
@@ -139,11 +138,12 @@ public class Environment_impactdetailResourceIntTest extends AbstractCassandraTe
                 .waste_water_domesting(DEFAULT_WASTE_WATER_DOMESTING)
                 .waste_water_other(DEFAULT_WASTE_WATER_OTHER)
                 .waste_water_treatment(DEFAULT_WASTE_WATER_TREATMENT)
-                .mode_of_disposal_for_discharge(DEFAULT_MODE_OF_DISPOSAL_FOR_DISCHARGE)
-                .emissionid(DEFAULT_EMISSIONID)
-                .wastewaterdetailid(DEFAULT_WASTEWATERDETAILID)
                 .document_attached(DEFAULT_DOCUMENT_ATTACHED)
-                .other(DEFAULT_OTHER);
+                .other(DEFAULT_OTHER)
+                .source_of_water_supply(DEFAULT_SOURCE_OF_WATER_SUPPLY)
+                .mode_of_disposal_for_discharge(DEFAULT_MODE_OF_DISPOSAL_FOR_DISCHARGE)
+                .emissionname(DEFAULT_EMISSIONNAME)
+                .wastewaterdetailid(DEFAULT_WASTEWATERDETAILID);
         return environment_impactdetail;
     }
 
@@ -170,7 +170,6 @@ public class Environment_impactdetailResourceIntTest extends AbstractCassandraTe
         assertThat(environment_impactdetailList).hasSize(databaseSizeBeforeCreate + 1);
         Environment_impactdetail testEnvironment_impactdetail = environment_impactdetailList.get(environment_impactdetailList.size() - 1);
         assertThat(testEnvironment_impactdetail.getProjectid()).isEqualTo(DEFAULT_PROJECTID);
-        assertThat(testEnvironment_impactdetail.getSource_of_water_supply()).isEqualTo(DEFAULT_SOURCE_OF_WATER_SUPPLY);
         assertThat(testEnvironment_impactdetail.getWater_process()).isEqualTo(DEFAULT_WATER_PROCESS);
         assertThat(testEnvironment_impactdetail.getWater_cooling()).isEqualTo(DEFAULT_WATER_COOLING);
         assertThat(testEnvironment_impactdetail.getWater_domestic()).isEqualTo(DEFAULT_WATER_DOMESTIC);
@@ -180,11 +179,12 @@ public class Environment_impactdetailResourceIntTest extends AbstractCassandraTe
         assertThat(testEnvironment_impactdetail.getWaste_water_domesting()).isEqualTo(DEFAULT_WASTE_WATER_DOMESTING);
         assertThat(testEnvironment_impactdetail.getWaste_water_other()).isEqualTo(DEFAULT_WASTE_WATER_OTHER);
         assertThat(testEnvironment_impactdetail.getWaste_water_treatment()).isEqualTo(DEFAULT_WASTE_WATER_TREATMENT);
-        assertThat(testEnvironment_impactdetail.getMode_of_disposal_for_discharge()).isEqualTo(DEFAULT_MODE_OF_DISPOSAL_FOR_DISCHARGE);
-        assertThat(testEnvironment_impactdetail.getEmissionid()).isEqualTo(DEFAULT_EMISSIONID);
-        assertThat(testEnvironment_impactdetail.getWastewaterdetailid()).isEqualTo(DEFAULT_WASTEWATERDETAILID);
         assertThat(testEnvironment_impactdetail.getDocument_attached()).isEqualTo(DEFAULT_DOCUMENT_ATTACHED);
         assertThat(testEnvironment_impactdetail.getOther()).isEqualTo(DEFAULT_OTHER);
+        assertThat(testEnvironment_impactdetail.getSource_of_water_supply()).isEqualTo(DEFAULT_SOURCE_OF_WATER_SUPPLY);
+        assertThat(testEnvironment_impactdetail.getMode_of_disposal_for_discharge()).isEqualTo(DEFAULT_MODE_OF_DISPOSAL_FOR_DISCHARGE);
+        assertThat(testEnvironment_impactdetail.getEmissionname()).isEqualTo(DEFAULT_EMISSIONNAME);
+        assertThat(testEnvironment_impactdetail.getWastewaterdetailid()).isEqualTo(DEFAULT_WASTEWATERDETAILID);
     }
 
     @Test
@@ -218,7 +218,6 @@ public class Environment_impactdetailResourceIntTest extends AbstractCassandraTe
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(environment_impactdetail.getId().toString())))
             .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())))
-            .andExpect(jsonPath("$.[*].source_of_water_supply").value(hasItem(DEFAULT_SOURCE_OF_WATER_SUPPLY.toString())))
             .andExpect(jsonPath("$.[*].water_process").value(hasItem(DEFAULT_WATER_PROCESS)))
             .andExpect(jsonPath("$.[*].water_cooling").value(hasItem(DEFAULT_WATER_COOLING)))
             .andExpect(jsonPath("$.[*].water_domestic").value(hasItem(DEFAULT_WATER_DOMESTIC)))
@@ -228,11 +227,12 @@ public class Environment_impactdetailResourceIntTest extends AbstractCassandraTe
             .andExpect(jsonPath("$.[*].waste_water_domesting").value(hasItem(DEFAULT_WASTE_WATER_DOMESTING)))
             .andExpect(jsonPath("$.[*].waste_water_other").value(hasItem(DEFAULT_WASTE_WATER_OTHER)))
             .andExpect(jsonPath("$.[*].waste_water_treatment").value(hasItem(DEFAULT_WASTE_WATER_TREATMENT.toString())))
-            .andExpect(jsonPath("$.[*].mode_of_disposal_for_discharge").value(hasItem(DEFAULT_MODE_OF_DISPOSAL_FOR_DISCHARGE.toString())))
-            .andExpect(jsonPath("$.[*].emissionid").value(hasItem(DEFAULT_EMISSIONID.toString())))
-            .andExpect(jsonPath("$.[*].wastewaterdetailid").value(hasItem(DEFAULT_WASTEWATERDETAILID.toString())))
             .andExpect(jsonPath("$.[*].document_attached").value(hasItem(DEFAULT_DOCUMENT_ATTACHED.toString())))
-            .andExpect(jsonPath("$.[*].other").value(hasItem(DEFAULT_OTHER.toString())));
+            .andExpect(jsonPath("$.[*].other").value(hasItem(DEFAULT_OTHER.toString())))
+            .andExpect(jsonPath("$.[*].source_of_water_supply").value(hasItem(DEFAULT_SOURCE_OF_WATER_SUPPLY.toString())))
+            .andExpect(jsonPath("$.[*].mode_of_disposal_for_discharge").value(hasItem(DEFAULT_MODE_OF_DISPOSAL_FOR_DISCHARGE.toString())))
+            .andExpect(jsonPath("$.[*].emissionname").value(hasItem(DEFAULT_EMISSIONNAME.toString())))
+            .andExpect(jsonPath("$.[*].wastewaterdetailid").value(hasItem(DEFAULT_WASTEWATERDETAILID.toString())));
     }
 
     @Test
@@ -246,7 +246,6 @@ public class Environment_impactdetailResourceIntTest extends AbstractCassandraTe
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(environment_impactdetail.getId().toString()))
             .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()))
-            .andExpect(jsonPath("$.source_of_water_supply").value(DEFAULT_SOURCE_OF_WATER_SUPPLY.toString()))
             .andExpect(jsonPath("$.water_process").value(DEFAULT_WATER_PROCESS))
             .andExpect(jsonPath("$.water_cooling").value(DEFAULT_WATER_COOLING))
             .andExpect(jsonPath("$.water_domestic").value(DEFAULT_WATER_DOMESTIC))
@@ -256,11 +255,12 @@ public class Environment_impactdetailResourceIntTest extends AbstractCassandraTe
             .andExpect(jsonPath("$.waste_water_domesting").value(DEFAULT_WASTE_WATER_DOMESTING))
             .andExpect(jsonPath("$.waste_water_other").value(DEFAULT_WASTE_WATER_OTHER))
             .andExpect(jsonPath("$.waste_water_treatment").value(DEFAULT_WASTE_WATER_TREATMENT.toString()))
-            .andExpect(jsonPath("$.mode_of_disposal_for_discharge").value(DEFAULT_MODE_OF_DISPOSAL_FOR_DISCHARGE.toString()))
-            .andExpect(jsonPath("$.emissionid").value(DEFAULT_EMISSIONID.toString()))
-            .andExpect(jsonPath("$.wastewaterdetailid").value(DEFAULT_WASTEWATERDETAILID.toString()))
             .andExpect(jsonPath("$.document_attached").value(DEFAULT_DOCUMENT_ATTACHED.toString()))
-            .andExpect(jsonPath("$.other").value(DEFAULT_OTHER.toString()));
+            .andExpect(jsonPath("$.other").value(DEFAULT_OTHER.toString()))
+            .andExpect(jsonPath("$.source_of_water_supply").value(DEFAULT_SOURCE_OF_WATER_SUPPLY.toString()))
+            .andExpect(jsonPath("$.mode_of_disposal_for_discharge").value(DEFAULT_MODE_OF_DISPOSAL_FOR_DISCHARGE.toString()))
+            .andExpect(jsonPath("$.emissionname").value(DEFAULT_EMISSIONNAME.toString()))
+            .andExpect(jsonPath("$.wastewaterdetailid").value(DEFAULT_WASTEWATERDETAILID.toString()));
     }
 
     @Test
@@ -280,7 +280,6 @@ public class Environment_impactdetailResourceIntTest extends AbstractCassandraTe
         Environment_impactdetail updatedEnvironment_impactdetail = environment_impactdetailRepository.findOne(environment_impactdetail.getId());
         updatedEnvironment_impactdetail
                 .projectid(UPDATED_PROJECTID)
-                .source_of_water_supply(UPDATED_SOURCE_OF_WATER_SUPPLY)
                 .water_process(UPDATED_WATER_PROCESS)
                 .water_cooling(UPDATED_WATER_COOLING)
                 .water_domestic(UPDATED_WATER_DOMESTIC)
@@ -290,11 +289,12 @@ public class Environment_impactdetailResourceIntTest extends AbstractCassandraTe
                 .waste_water_domesting(UPDATED_WASTE_WATER_DOMESTING)
                 .waste_water_other(UPDATED_WASTE_WATER_OTHER)
                 .waste_water_treatment(UPDATED_WASTE_WATER_TREATMENT)
-                .mode_of_disposal_for_discharge(UPDATED_MODE_OF_DISPOSAL_FOR_DISCHARGE)
-                .emissionid(UPDATED_EMISSIONID)
-                .wastewaterdetailid(UPDATED_WASTEWATERDETAILID)
                 .document_attached(UPDATED_DOCUMENT_ATTACHED)
-                .other(UPDATED_OTHER);
+                .other(UPDATED_OTHER)
+                .source_of_water_supply(UPDATED_SOURCE_OF_WATER_SUPPLY)
+                .mode_of_disposal_for_discharge(UPDATED_MODE_OF_DISPOSAL_FOR_DISCHARGE)
+                .emissionname(UPDATED_EMISSIONNAME)
+                .wastewaterdetailid(UPDATED_WASTEWATERDETAILID);
         Environment_impactdetailDTO environment_impactdetailDTO = environment_impactdetailMapper.environment_impactdetailToEnvironment_impactdetailDTO(updatedEnvironment_impactdetail);
 
         restEnvironment_impactdetailMockMvc.perform(put("/api/environment-impactdetails")
@@ -307,7 +307,6 @@ public class Environment_impactdetailResourceIntTest extends AbstractCassandraTe
         assertThat(environment_impactdetailList).hasSize(databaseSizeBeforeUpdate);
         Environment_impactdetail testEnvironment_impactdetail = environment_impactdetailList.get(environment_impactdetailList.size() - 1);
         assertThat(testEnvironment_impactdetail.getProjectid()).isEqualTo(UPDATED_PROJECTID);
-        assertThat(testEnvironment_impactdetail.getSource_of_water_supply()).isEqualTo(UPDATED_SOURCE_OF_WATER_SUPPLY);
         assertThat(testEnvironment_impactdetail.getWater_process()).isEqualTo(UPDATED_WATER_PROCESS);
         assertThat(testEnvironment_impactdetail.getWater_cooling()).isEqualTo(UPDATED_WATER_COOLING);
         assertThat(testEnvironment_impactdetail.getWater_domestic()).isEqualTo(UPDATED_WATER_DOMESTIC);
@@ -317,11 +316,12 @@ public class Environment_impactdetailResourceIntTest extends AbstractCassandraTe
         assertThat(testEnvironment_impactdetail.getWaste_water_domesting()).isEqualTo(UPDATED_WASTE_WATER_DOMESTING);
         assertThat(testEnvironment_impactdetail.getWaste_water_other()).isEqualTo(UPDATED_WASTE_WATER_OTHER);
         assertThat(testEnvironment_impactdetail.getWaste_water_treatment()).isEqualTo(UPDATED_WASTE_WATER_TREATMENT);
-        assertThat(testEnvironment_impactdetail.getMode_of_disposal_for_discharge()).isEqualTo(UPDATED_MODE_OF_DISPOSAL_FOR_DISCHARGE);
-        assertThat(testEnvironment_impactdetail.getEmissionid()).isEqualTo(UPDATED_EMISSIONID);
-        assertThat(testEnvironment_impactdetail.getWastewaterdetailid()).isEqualTo(UPDATED_WASTEWATERDETAILID);
         assertThat(testEnvironment_impactdetail.getDocument_attached()).isEqualTo(UPDATED_DOCUMENT_ATTACHED);
         assertThat(testEnvironment_impactdetail.getOther()).isEqualTo(UPDATED_OTHER);
+        assertThat(testEnvironment_impactdetail.getSource_of_water_supply()).isEqualTo(UPDATED_SOURCE_OF_WATER_SUPPLY);
+        assertThat(testEnvironment_impactdetail.getMode_of_disposal_for_discharge()).isEqualTo(UPDATED_MODE_OF_DISPOSAL_FOR_DISCHARGE);
+        assertThat(testEnvironment_impactdetail.getEmissionname()).isEqualTo(UPDATED_EMISSIONNAME);
+        assertThat(testEnvironment_impactdetail.getWastewaterdetailid()).isEqualTo(UPDATED_WASTEWATERDETAILID);
     }
 
     @Test

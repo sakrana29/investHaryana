@@ -14,16 +14,17 @@
         vm.isAuthenticated = null;
         vm.login = LoginService.open;
         vm.register = register;
-        vm.CompleteProjectDetailData=entity;
+        vm.CompleteProjectDetail=entity;
 
-        vm.investor=vm.CompleteProjectDetailData.investorDTO;
-        vm.companydetail=vm.CompleteProjectDetailData.companydetailDTO;
-        vm.projectdetail=vm.CompleteProjectDetailData.projectdetailDTO;
-        vm.projectsitedetail=vm.CompleteProjectDetailData.projectsitedetailDTO;
-        vm.project_finance_investment=vm.CompleteProjectDetailData.project_finance_investmentDTO;
-        vm.manufacturing_detail=vm.CompleteProjectDetailData.manufacturingdetailDTO;
-        vm.electricrequirement=vm.CompleteProjectDetailData.electricrequirementDTO;
-        vm.projectcombinecodes=vm.CompleteProjectDetailData.projectdetailcombinecodesDTO;
+        vm.investor=vm.CompleteProjectDetail.investorDTO;
+        vm.companydetail=vm.CompleteProjectDetail.companydetailDTO;
+        vm.projectdetail=vm.CompleteProjectDetail.projectdetailDTO;
+        vm.projectsitedetail=vm.CompleteProjectDetail.projectsitedetailDTO;
+        vm.project_finance_investment=vm.CompleteProjectDetail.project_finance_investmentDTO;
+        vm.manufacturing_detail=vm.CompleteProjectDetail.manufacturingdetailDTO;
+        vm.electricrequirement=vm.CompleteProjectDetail.electricrequirementDTO;
+        vm.projectcombinecodes=vm.CompleteProjectDetail.projectdetailcombinecodesDTO;
+        vm.project_phase=vm.CompleteProjectDetail.project_phaseDTOList;
 
         $scope.$on('authenticationSuccess', function() {
             getAccount();

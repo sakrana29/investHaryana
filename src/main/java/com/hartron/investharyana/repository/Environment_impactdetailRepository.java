@@ -40,7 +40,6 @@ public class Environment_impactdetailRepository {
                 Environment_impactdetail environment_impactdetail = new Environment_impactdetail();
                 environment_impactdetail.setId(row.getUUID("id"));
                 environment_impactdetail.setProjectid(row.getUUID("projectid"));
-                environment_impactdetail.setSource_of_water_supply(row.getUUID("source_of_water_supply"));
                 environment_impactdetail.setWater_process(row.getInt("water_process"));
                 environment_impactdetail.setWater_cooling(row.getInt("water_cooling"));
                 environment_impactdetail.setWater_domestic(row.getInt("water_domestic"));
@@ -50,11 +49,12 @@ public class Environment_impactdetailRepository {
                 environment_impactdetail.setWaste_water_domesting(row.getInt("waste_water_domesting"));
                 environment_impactdetail.setWaste_water_other(row.getInt("waste_water_other"));
                 environment_impactdetail.setWaste_water_treatment(row.getString("waste_water_treatment"));
-                environment_impactdetail.setMode_of_disposal_for_discharge(row.getUUID("mode_of_disposal_for_discharge"));
-                environment_impactdetail.setEmissionid(row.getUUID("emissionid"));
-                environment_impactdetail.setWastewaterdetailid(row.getUUID("wastewaterdetailid"));
                 environment_impactdetail.setDocument_attached(row.getString("document_attached"));
                 environment_impactdetail.setOther(row.getString("other"));
+                environment_impactdetail.setSource_of_water_supply(row.getString("source_of_water_supply"));
+                environment_impactdetail.setMode_of_disposal_for_discharge(row.getString("mode_of_disposal_for_discharge"));
+                environment_impactdetail.setEmissionname(row.getString("emissionname"));
+                environment_impactdetail.setWastewaterdetailid(row.getString("wastewaterdetailid"));
                 return environment_impactdetail;
             }
         ).forEach(environment_impactdetailsList::add);
