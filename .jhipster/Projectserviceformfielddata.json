@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "serviceid",
+            "fieldType": "UUID",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "formfieldvalue",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "projectserviceformfieldvalue",
+            "fieldType": "UUID",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "projectid",
+            "fieldType": "UUID",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170328025841",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "projectserviceformfielddata",
+    "pagination": "no"
+}

@@ -25,12 +25,11 @@ public class DepartmentService implements Serializable {
     @NotNull
     private String serviceDescription;
 
-    @NotNull
-    private UUID departmentID;
-
     private Integer duration;
 
     private String stage;
+
+    private UUID departmentid;
 
     public UUID getId() {
         return id;
@@ -66,19 +65,6 @@ public class DepartmentService implements Serializable {
         this.serviceDescription = serviceDescription;
     }
 
-    public UUID getDepartmentID() {
-        return departmentID;
-    }
-
-    public DepartmentService departmentID(UUID departmentID) {
-        this.departmentID = departmentID;
-        return this;
-    }
-
-    public void setDepartmentID(UUID departmentID) {
-        this.departmentID = departmentID;
-    }
-
     public Integer getDuration() {
         return duration;
     }
@@ -103,6 +89,19 @@ public class DepartmentService implements Serializable {
 
     public void setStage(String stage) {
         this.stage = stage;
+    }
+
+    public UUID getDepartmentid() {
+        return departmentid;
+    }
+
+    public DepartmentService departmentid(UUID departmentid) {
+        this.departmentid = departmentid;
+        return this;
+    }
+
+    public void setDepartmentid(UUID departmentid) {
+        this.departmentid = departmentid;
     }
 
     @Override
@@ -131,9 +130,9 @@ public class DepartmentService implements Serializable {
             "id=" + id +
             ", serviceName='" + serviceName + "'" +
             ", serviceDescription='" + serviceDescription + "'" +
-            ", departmentID='" + departmentID + "'" +
             ", duration='" + duration + "'" +
             ", stage='" + stage + "'" +
+            ", departmentid='" + departmentid + "'" +
             '}';
     }
 }

@@ -5,9 +5,9 @@
         .module('investhryApp')
         .controller('projectdetailjistController', projectdetailjistController);
 
-    projectdetailjistController.$inject = ['$scope', 'Principal', 'LoginService', '$state','entity'];
+    projectdetailjistController.$inject = ['$scope', 'Principal', 'LoginService', '$state','entity','Projectservicedetail','DepartmentServiceData'];
 
-    function projectdetailjistController ($scope, Principal, LoginService, $state, entity) {
+    function projectdetailjistController ($scope, Principal, LoginService, $state, entity,Projectservicedetail,DepartmentServiceData) {
         var vm = this;
         vm.selectedprojectdetail = entity;
         vm.account = null;
@@ -29,5 +29,15 @@
         function register () {
             $state.go('register');
         }
+
+        Projectservicedetail.query(function(result) {
+            vm.projectservicedetails = result;
+            vm.searchQuery = null;
+        });
+
+        DepartmentServiceData.query(function(data) {
+             vm.departmentServices = data;
+             vm.searchQuery = null;
+        });
     }
 })();

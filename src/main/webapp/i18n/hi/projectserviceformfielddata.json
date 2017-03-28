@@ -1,0 +1,24 @@
+{
+    "investhryApp": {
+        "projectserviceformfielddata" : {
+            "home": {
+                "title": "Projectserviceformfielddata",
+                "createLabel": "नया Projectserviceformfielddata बनाएँ",
+                "createOrEditLabel": "Projectserviceformfielddata बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Projectserviceformfielddata [identifier: {{ param }}] तैयार है",
+            "updated": "एक Projectserviceformfielddata [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Projectserviceformfielddata [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Projectserviceformfielddata [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Projectserviceformfielddata"
+            },
+            "serviceid": "Serviceid",
+            "formfieldvalue": "Formfieldvalue",
+            "projectserviceformfieldvalue": "Projectserviceformfieldvalue",
+            "projectid": "Projectid"
+        }
+    }
+}

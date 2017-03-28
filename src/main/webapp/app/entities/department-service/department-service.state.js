@@ -106,9 +106,9 @@
                             return {
                                 serviceName: null,
                                 serviceDescription: null,
-                                departmentID: null,
                                 duration: null,
                                 stage: null,
+                                departmentid: null,
                                 id: null
                             };
                         }

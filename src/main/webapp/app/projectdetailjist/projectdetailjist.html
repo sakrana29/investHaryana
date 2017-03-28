@@ -58,7 +58,7 @@
                                 ui-sref="ProjectCompleteDetailState({id:vm.selectedprojectdetail.projectdetailDTO.id})"
                                 class="btn btn-info btn-sm">View Form</button>
                         <button type="submit"
-                                    ui-sref="processapplication({id:project.id})"
+                                    ui-sref="assignservicetoproject({id:vm.selectedprojectdetail.projectdetailDTO.id})"
                                     class="btn btn-danger btn-sm">Process</button>
 
                     </td>
@@ -75,18 +75,19 @@
             <table class="table table-striped table-hover ">
                 <thead>
                 <tr>
-                    <th scope="col">  Department</th>
-                    <th scope="col">    Service   </th>
-                    <th scope="col">    Action   </th>
+                    <th >  Department</th>
+                    <th >    Service   </th>
+                    <th >    Action   </th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                     <td>HARTRON</td>
-                    <td>DEVELOPMENT</td>
+                <tr ng-repeat="departmentservice in vm.projectservicedetails" ng-show="departmentservice.projectid ==vm.selectedprojectdetail.projectdetailDTO.id" >
+                    <td><div ng-repeat="departmentservicedata in vm.departmentServices | filter: departmentservice.serviceid"><label>{{departmentservicedata.departmentname}}</label></div></td>
+                    <td><div ng-repeat="departmentservicedata in vm.departmentServices | filter: departmentservice.serviceid"><label>{{departmentservicedata.serviceName}}</label></div></td>
+                    <!--<td>{{vm.selectedprojectdetail.projectdetailDTO.id}}</td>-->
                     <td>
-                        <button type="submit"  ui-sref="projectdetailjist.fillform" class="btn btn-info ">Fill form</button>
-                        <button type="submit"  ui-sref="projectdetailjist.payfee" class="btn btn-info ">Pay Fee</button>
+                        <button type="submit"  ui-sref="projectdetailjist-fillform({serviceID:departmentservice.serviceid, projectid:vm.selectedprojectdetail.projectdetailDTO.id })" class="btn btn-info ">Fill Form</button>
+                        <button type="submit"  ui-sref="projectdetailjist-payfee({serviceID:departmentservice.serviceid, projectid:vm.selectedprojectdetail.projectdetailDTO.id })" class="btn btn-info ">Pay Fee</button>
                     </td>
                 </tr>
 
@@ -94,6 +95,34 @@
             </table>
         </div>
     </div>
+    <!--<div class="panel panel-primary">-->
+        <!--<div class="panel-heading">-->
+            <!--<h3 class="panel-title">Department Services</h3>-->
+        <!--</div>-->
+        <!--<div class="panel-body">-->
+            <!--<table class="table table-striped table-hover ">-->
+                <!--<thead>-->
+                <!--<tr>-->
+                    <!--<th scope="col">  Department</th>-->
+                    <!--<th scope="col">    Service   </th>-->
+                    <!--<th scope="col">    Action   </th>-->
+                <!--</tr>-->
+                <!--</thead>-->
+                <!--<tbody>-->
+                <!--<tr>-->
+                     <!--<td>HARTRON</td>-->
+                    <!--<td>DEVELOPMENT</td>-->
+                    <!--<td>-->
+                        <!--<button type="submit"  ui-sref="projectdetailjist.fillform" class="btn btn-info ">Fill form</button>-->
+                        <!--<button type="submit"  ui-sref="projectdetailjist.payfee" class="btn btn-info ">Pay Fee</button>-->
+                    <!--</td>-->
+                <!--</tr>-->
+
+                <!--</tbody>-->
+            <!--</table>-->
+        <!--</div>-->
+    <!--</div>-->
+
     <div class="panel panel-primary">
         <div class="panel-heading">
             <button type="submit"

@@ -1,0 +1,67 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "projectid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "projecttype",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "departmentname",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "servicename",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "assignDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "requireDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stage",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "investorName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cafPin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "finalAction",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "finalActionDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "projectInvestment",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "projectEmployment",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170328155423",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "project_service_report_info",
+    "pagination": "no"
+}

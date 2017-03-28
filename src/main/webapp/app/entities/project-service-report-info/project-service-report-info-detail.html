@@ -1,0 +1,75 @@
+
+<div>
+    <h2><span data-translate="investhryApp.projectServiceReportInfo.detail.title">Project Service Report Info</span> {{vm.projectServiceReportInfo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="investhryApp.projectServiceReportInfo.projectid">Projectid</span></dt>
+        <dd>
+            <span>{{vm.projectServiceReportInfo.projectid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServiceReportInfo.projecttype">Projecttype</span></dt>
+        <dd>
+            <span>{{vm.projectServiceReportInfo.projecttype}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServiceReportInfo.departmentname">Departmentname</span></dt>
+        <dd>
+            <span>{{vm.projectServiceReportInfo.departmentname}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServiceReportInfo.servicename">Servicename</span></dt>
+        <dd>
+            <span>{{vm.projectServiceReportInfo.servicename}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServiceReportInfo.assignDate">Assign Date</span></dt>
+        <dd>
+            <span>{{vm.projectServiceReportInfo.assignDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServiceReportInfo.requireDate">Require Date</span></dt>
+        <dd>
+            <span>{{vm.projectServiceReportInfo.requireDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServiceReportInfo.status">Status</span></dt>
+        <dd>
+            <span>{{vm.projectServiceReportInfo.status}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServiceReportInfo.stage">Stage</span></dt>
+        <dd>
+            <span>{{vm.projectServiceReportInfo.stage}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServiceReportInfo.investorName">Investor Name</span></dt>
+        <dd>
+            <span>{{vm.projectServiceReportInfo.investorName}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServiceReportInfo.cafPin">Caf Pin</span></dt>
+        <dd>
+            <span>{{vm.projectServiceReportInfo.cafPin}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServiceReportInfo.finalAction">Final Action</span></dt>
+        <dd>
+            <span>{{vm.projectServiceReportInfo.finalAction}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServiceReportInfo.finalActionDate">Final Action Date</span></dt>
+        <dd>
+            <span>{{vm.projectServiceReportInfo.finalActionDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServiceReportInfo.projectInvestment">Project Investment</span></dt>
+        <dd>
+            <span>{{vm.projectServiceReportInfo.projectInvestment}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServiceReportInfo.projectEmployment">Project Employment</span></dt>
+        <dd>
+            <span>{{vm.projectServiceReportInfo.projectEmployment}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="project-service-report-info-detail.edit({id:vm.projectServiceReportInfo.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

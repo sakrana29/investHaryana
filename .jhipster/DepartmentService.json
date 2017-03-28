@@ -17,19 +17,16 @@
             ]
         },
         {
-            "fieldName": "departmentID",
-            "fieldType": "UUID",
-            "fieldValidateRules": [
-                "required"
-            ]
-        },
-        {
             "fieldName": "duration",
             "fieldType": "Integer"
         },
         {
             "fieldName": "stage",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "departmentid",
+            "fieldType": "UUID"
         }
     ],
     "changelogDate": "20170311171701",

@@ -56,6 +56,8 @@
                 "projectservicedetail": "Projectservicedetail",
                 "departmentservice": "Departmentservice",
                 "businessentitys": "Businessentitys",
+                "projectServiceReportInfo": "Project Service Report Info",
+                "projectserviceformfielddata": "Projectserviceformfielddata",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,122 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProjectServiceReportInfoLabel" data-translate="investhryApp.projectServiceReportInfo.home.createOrEditLabel">Create or edit a Project Service Report Info</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.projectServiceReportInfo.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.projectServiceReportInfo.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectServiceReportInfo.projectid" for="field_projectid">Projectid</label>
+            <input type="text" class="form-control" name="projectid" id="field_projectid"
+                    ng-model="vm.projectServiceReportInfo.projectid"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectServiceReportInfo.projecttype" for="field_projecttype">Projecttype</label>
+            <input type="text" class="form-control" name="projecttype" id="field_projecttype"
+                    ng-model="vm.projectServiceReportInfo.projecttype"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectServiceReportInfo.departmentname" for="field_departmentname">Departmentname</label>
+            <input type="text" class="form-control" name="departmentname" id="field_departmentname"
+                    ng-model="vm.projectServiceReportInfo.departmentname"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectServiceReportInfo.servicename" for="field_servicename">Servicename</label>
+            <input type="text" class="form-control" name="servicename" id="field_servicename"
+                    ng-model="vm.projectServiceReportInfo.servicename"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectServiceReportInfo.assignDate" for="field_assignDate">Assign Date</label>
+                <div class="input-group">
+                    <input id="field_assignDate" type="text" class="form-control" name="assignDate" datetime-picker="{{dateformat}}" ng-model="vm.projectServiceReportInfo.assignDate" is-open="vm.datePickerOpenStatus.assignDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('assignDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectServiceReportInfo.requireDate" for="field_requireDate">Require Date</label>
+                <div class="input-group">
+                    <input id="field_requireDate" type="text" class="form-control" name="requireDate" datetime-picker="{{dateformat}}" ng-model="vm.projectServiceReportInfo.requireDate" is-open="vm.datePickerOpenStatus.requireDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('requireDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectServiceReportInfo.status" for="field_status">Status</label>
+            <input type="text" class="form-control" name="status" id="field_status"
+                    ng-model="vm.projectServiceReportInfo.status"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectServiceReportInfo.stage" for="field_stage">Stage</label>
+            <input type="text" class="form-control" name="stage" id="field_stage"
+                    ng-model="vm.projectServiceReportInfo.stage"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectServiceReportInfo.investorName" for="field_investorName">Investor Name</label>
+            <input type="text" class="form-control" name="investorName" id="field_investorName"
+                    ng-model="vm.projectServiceReportInfo.investorName"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectServiceReportInfo.cafPin" for="field_cafPin">Caf Pin</label>
+            <input type="text" class="form-control" name="cafPin" id="field_cafPin"
+                    ng-model="vm.projectServiceReportInfo.cafPin"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectServiceReportInfo.finalAction" for="field_finalAction">Final Action</label>
+            <input type="text" class="form-control" name="finalAction" id="field_finalAction"
+                    ng-model="vm.projectServiceReportInfo.finalAction"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectServiceReportInfo.finalActionDate" for="field_finalActionDate">Final Action Date</label>
+                <div class="input-group">
+                    <input id="field_finalActionDate" type="text" class="form-control" name="finalActionDate" datetime-picker="{{dateformat}}" ng-model="vm.projectServiceReportInfo.finalActionDate" is-open="vm.datePickerOpenStatus.finalActionDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('finalActionDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectServiceReportInfo.projectInvestment" for="field_projectInvestment">Project Investment</label>
+            <input type="number" class="form-control" name="projectInvestment" id="field_projectInvestment"
+                    ng-model="vm.projectServiceReportInfo.projectInvestment"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectServiceReportInfo.projectEmployment" for="field_projectEmployment">Project Employment</label>
+            <input type="text" class="form-control" name="projectEmployment" id="field_projectEmployment"
+                    ng-model="vm.projectServiceReportInfo.projectEmployment"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

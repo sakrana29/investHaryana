@@ -31,9 +31,9 @@
                 }]
             }
         })
-        .state('projectdetailjist.fillform', {
+        .state('projectdetailjist-fillform', {
             parent: 'projectdetailjist',
-            url: '/fillform',
+            url: '/fillform/:serviceID?projectid',
             data: {
                 authorities: ['ROLE_USER']
             },
@@ -61,9 +61,9 @@
                 });
             }]
         })
-        .state('projectdetailjist.payfee', {
+        .state('projectdetailjist-payfee', {
             parent: 'projectdetailjist',
-            url: '/payfee',
+            url: '/payfee/:serviceID?projectid',
             data: {
                 authorities: ['ROLE_USER']
             },

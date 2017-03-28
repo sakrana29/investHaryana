@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS projectdetail (
     approval_application_form text,
     category_of_project text,
     collaboration_with_foreign_country text,
-    projectype text,
+        projectype text,
     sectorname text,
     size_of_industry text,
     PRIMARY KEY(id)

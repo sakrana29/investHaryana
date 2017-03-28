@@ -1,0 +1,82 @@
+<div>
+    <h2 data-translate="investhryApp.projectServiceReportInfo.home.title">Project Service Report Infos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="project-service-report-info.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="investhryApp.projectServiceReportInfo.home.createLabel">
+                        Create new Project Service Report Info
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="investhryApp.projectServiceReportInfo.projectid">Projectid</span></th>
+                    <th><span data-translate="investhryApp.projectServiceReportInfo.projecttype">Projecttype</span></th>
+                    <th><span data-translate="investhryApp.projectServiceReportInfo.departmentname">Departmentname</span></th>
+                    <th><span data-translate="investhryApp.projectServiceReportInfo.servicename">Servicename</span></th>
+                    <th><span data-translate="investhryApp.projectServiceReportInfo.assignDate">Assign Date</span></th>
+                    <th><span data-translate="investhryApp.projectServiceReportInfo.requireDate">Require Date</span></th>
+                    <th><span data-translate="investhryApp.projectServiceReportInfo.status">Status</span></th>
+                    <th><span data-translate="investhryApp.projectServiceReportInfo.stage">Stage</span></th>
+                    <th><span data-translate="investhryApp.projectServiceReportInfo.investorName">Investor Name</span></th>
+                    <th><span data-translate="investhryApp.projectServiceReportInfo.cafPin">Caf Pin</span></th>
+                    <th><span data-translate="investhryApp.projectServiceReportInfo.finalAction">Final Action</span></th>
+                    <th><span data-translate="investhryApp.projectServiceReportInfo.finalActionDate">Final Action Date</span></th>
+                    <th><span data-translate="investhryApp.projectServiceReportInfo.projectInvestment">Project Investment</span></th>
+                    <th><span data-translate="investhryApp.projectServiceReportInfo.projectEmployment">Project Employment</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="projectServiceReportInfo in vm.projectServiceReportInfos track by projectServiceReportInfo.id">
+                    <td><a ui-sref="project-service-report-info-detail({id:projectServiceReportInfo.id})">{{projectServiceReportInfo.id}}</a></td>
+                    <td>{{projectServiceReportInfo.projectid}}</td>
+                    <td>{{projectServiceReportInfo.projecttype}}</td>
+                    <td>{{projectServiceReportInfo.departmentname}}</td>
+                    <td>{{projectServiceReportInfo.servicename}}</td>
+                    <td>{{projectServiceReportInfo.assignDate | date:'medium'}}</td>
+                    <td>{{projectServiceReportInfo.requireDate | date:'medium'}}</td>
+                    <td>{{projectServiceReportInfo.status}}</td>
+                    <td>{{projectServiceReportInfo.stage}}</td>
+                    <td>{{projectServiceReportInfo.investorName}}</td>
+                    <td>{{projectServiceReportInfo.cafPin}}</td>
+                    <td>{{projectServiceReportInfo.finalAction}}</td>
+                    <td>{{projectServiceReportInfo.finalActionDate | date:'medium'}}</td>
+                    <td>{{projectServiceReportInfo.projectInvestment}}</td>
+                    <td>{{projectServiceReportInfo.projectEmployment}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="project-service-report-info-detail({id:projectServiceReportInfo.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="project-service-report-info.edit({id:projectServiceReportInfo.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="project-service-report-info.delete({id:projectServiceReportInfo.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

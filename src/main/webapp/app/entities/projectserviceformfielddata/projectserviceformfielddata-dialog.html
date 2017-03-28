@@ -1,0 +1,68 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProjectserviceformfielddataLabel" data-translate="investhryApp.projectserviceformfielddata.home.createOrEditLabel">Create or edit a Projectserviceformfielddata</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.projectserviceformfielddata.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.projectserviceformfielddata.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectserviceformfielddata.serviceid" for="field_serviceid">Serviceid</label>
+            <input type="text" class="form-control" name="serviceid" id="field_serviceid"
+                    ng-model="vm.projectserviceformfielddata.serviceid"
+                    required/>
+            <div ng-show="editForm.serviceid.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.serviceid.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectserviceformfielddata.formfieldvalue" for="field_formfieldvalue">Formfieldvalue</label>
+            <input type="text" class="form-control" name="formfieldvalue" id="field_formfieldvalue"
+                    ng-model="vm.projectserviceformfielddata.formfieldvalue"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectserviceformfielddata.projectserviceformfieldvalue" for="field_projectserviceformfieldvalue">Projectserviceformfieldvalue</label>
+            <input type="text" class="form-control" name="projectserviceformfieldvalue" id="field_projectserviceformfieldvalue"
+                    ng-model="vm.projectserviceformfielddata.projectserviceformfieldvalue"
+                    required/>
+            <div ng-show="editForm.projectserviceformfieldvalue.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.projectserviceformfieldvalue.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectserviceformfielddata.projectid" for="field_projectid">Projectid</label>
+            <input type="text" class="form-control" name="projectid" id="field_projectid"
+                    ng-model="vm.projectserviceformfielddata.projectid"
+                    required/>
+            <div ng-show="editForm.projectid.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.projectid.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

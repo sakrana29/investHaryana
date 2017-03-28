@@ -1,0 +1,34 @@
+{
+    "investhryApp": {
+        "projectServiceReportInfo" : {
+            "home": {
+                "title": "ProjectServiceReportInfos",
+                "createLabel": "नया Project Service Report Info बनाएँ",
+                "createOrEditLabel": "Project Service Report Info बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Project Service Report Info [identifier: {{ param }}] तैयार है",
+            "updated": "एक Project Service Report Info [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Project Service Report Info [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Project Service Report Info [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Project Service Report Info"
+            },
+            "projectid": "Projectid",
+            "projecttype": "Projecttype",
+            "departmentname": "Departmentname",
+            "servicename": "Servicename",
+            "assignDate": "Assign Date",
+            "requireDate": "Require Date",
+            "status": "Status",
+            "stage": "Stage",
+            "investorName": "Investor Name",
+            "cafPin": "Caf Pin",
+            "finalAction": "Final Action",
+            "finalActionDate": "Final Action Date",
+            "projectInvestment": "Project Investment",
+            "projectEmployment": "Project Employment"
+        }
+    }
+}

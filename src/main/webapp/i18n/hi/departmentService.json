@@ -17,9 +17,9 @@
             },
             "serviceName": "Service Name",
             "serviceDescription": "Service Description",
-            "departmentID": "Department ID",
             "duration": "Duration",
-            "stage": "Stage"
+            "stage": "Stage",
+            "departmentid": "Departmentid"
         }
     }
 }
