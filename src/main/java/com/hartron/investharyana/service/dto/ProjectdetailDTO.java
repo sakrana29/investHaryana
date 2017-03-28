@@ -40,6 +40,8 @@ public class ProjectdetailDTO implements Serializable {
 
     private String size_of_industry;
 
+    private String cafPIN;
+
     public UUID getId() {
         return id;
     }
@@ -145,6 +147,13 @@ public class ProjectdetailDTO implements Serializable {
     public void setSize_of_industry(String size_of_industry) {
         this.size_of_industry = size_of_industry;
     }
+    public String getCafPIN() {
+        return cafPIN;
+    }
+
+    public void setCafPIN(String cafPIN) {
+        this.cafPIN = cafPIN;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -185,6 +194,7 @@ public class ProjectdetailDTO implements Serializable {
             ", projectype='" + projectype + "'" +
             ", sectorname='" + sectorname + "'" +
             ", size_of_industry='" + size_of_industry + "'" +
+            ", cafPIN='" + cafPIN + "'" +
             '}';
     }
 }

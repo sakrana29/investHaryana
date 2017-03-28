@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class BlockServiceImpl implements BlockService{
 
     private final Logger log = LoggerFactory.getLogger(BlockServiceImpl.class);
-
+    
     private final BlockRepository blockRepository;
 
     private final BlockMapper blockMapper;
@@ -48,7 +48,7 @@ public class BlockServiceImpl implements BlockService{
 
     /**
      *  Get all the blocks.
-     *
+     *  
      *  @return the list of entities
      */
     @Override
@@ -84,15 +84,5 @@ public class BlockServiceImpl implements BlockService{
     public void delete(String id) {
         log.debug("Request to delete Block : {}", id);
         blockRepository.delete(UUID.fromString(id));
-    }
-
-    @Override
-    public List<BlockDTO> findBlockByDistrict(String districtid) {
-        log.debug("Request to get all Blocks by district");
-        List<BlockDTO> result = blockRepository.findBlockByDistrictId(UUID.fromString(districtid)).stream()
-            .map(blockMapper::blockToBlockDTO)
-            .collect(Collectors.toCollection(LinkedList::new));
-
-        return result;
     }
 }

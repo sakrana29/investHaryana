@@ -68,7 +68,7 @@ class Tehsil_subtehsilGatlingTest extends Simulation {
             .exec(http("Create new tehsil_subtehsil")
             .post("/api/tehsil-subtehsils")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "districtid":null, "tehsil_subtehsilname":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "tehsil_subtehsilname":"SAMPLE_TEXT", "districtname":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_tehsil_subtehsil_url"))).exitHereIfFailed
             .pause(10)

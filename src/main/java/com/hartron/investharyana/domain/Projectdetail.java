@@ -46,6 +46,8 @@ public class Projectdetail implements Serializable {
 
     private String size_of_industry;
 
+    private String cafPIN;
+
     public UUID getId() {
         return id;
     }
@@ -236,6 +238,19 @@ public class Projectdetail implements Serializable {
         this.size_of_industry = size_of_industry;
     }
 
+    public String getCafPIN() {
+        return cafPIN;
+    }
+
+    public Projectdetail cafPIN(String cafPIN) {
+        this.cafPIN = cafPIN;
+        return this;
+    }
+
+    public void setCafPIN(String cafPIN) {
+        this.cafPIN = cafPIN;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -274,6 +289,7 @@ public class Projectdetail implements Serializable {
             ", projectype='" + projectype + "'" +
             ", sectorname='" + sectorname + "'" +
             ", size_of_industry='" + size_of_industry + "'" +
+            ", cafPIN='" + cafPIN + "'" +
             '}';
     }
 }

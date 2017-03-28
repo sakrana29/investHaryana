@@ -43,7 +43,7 @@ public class DepartmentServiceRepository {
                 departmentService.setServiceDescription(row.getString("serviceDescription"));
                 departmentService.setDuration(row.getInt("duration"));
                 departmentService.setStage(row.getString("stage"));
-                departmentService.setDepartmentid(row.getUUID("departmentid"));
+                departmentService.setDepartmentname(row.getString("departmentname"));
                 return departmentService;
             }
         ).forEach(departmentServicesList::add);

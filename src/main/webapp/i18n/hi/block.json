@@ -15,8 +15,8 @@
             "detail": {
                 "title": "Block"
             },
-            "districtid": "Districtid",
-            "blockname": "Blockname"
+            "blockname": "Blockname",
+            "districtname": "Districtname"
         }
     }
 }

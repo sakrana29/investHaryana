@@ -14,18 +14,6 @@
                     ng-model="vm.state.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.state.countryid" for="field_countryid">Countryid</label>
-            <input type="text" class="form-control" name="countryid" id="field_countryid"
-                    ng-model="vm.state.countryid"
-                    required/>
-            <div ng-show="editForm.countryid.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.countryid.$error.required" data-translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="control-label" data-translate="investhryApp.state.statename" for="field_statename">Statename</label>
             <input type="text" class="form-control" name="statename" id="field_statename"
                     ng-model="vm.state.statename"
@@ -36,6 +24,12 @@
                     This field is required.
                 </p>
             </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.state.countryname" for="field_countryname">Countryname</label>
+            <input type="text" class="form-control" name="countryname" id="field_countryname"
+                    ng-model="vm.state.countryname"
+                    />
         </div>
 
     </div>

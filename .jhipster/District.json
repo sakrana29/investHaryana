@@ -3,18 +3,15 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "stateid",
-            "fieldType": "UUID",
-            "fieldValidateRules": [
-                "required"
-            ]
-        },
-        {
             "fieldName": "districtname",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldName": "statename",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313081807",

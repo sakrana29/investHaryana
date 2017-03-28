@@ -29,7 +29,7 @@ public class DepartmentService implements Serializable {
 
     private String stage;
 
-    private UUID departmentid;
+    private String departmentname;
 
     public UUID getId() {
         return id;
@@ -91,17 +91,17 @@ public class DepartmentService implements Serializable {
         this.stage = stage;
     }
 
-    public UUID getDepartmentid() {
-        return departmentid;
+    public String getDepartmentname() {
+        return departmentname;
     }
 
-    public DepartmentService departmentid(UUID departmentid) {
-        this.departmentid = departmentid;
+    public DepartmentService departmentname(String departmentname) {
+        this.departmentname = departmentname;
         return this;
     }
 
-    public void setDepartmentid(UUID departmentid) {
-        this.departmentid = departmentid;
+    public void setDepartmentname(String departmentname) {
+        this.departmentname = departmentname;
     }
 
     @Override
@@ -132,7 +132,7 @@ public class DepartmentService implements Serializable {
             ", serviceDescription='" + serviceDescription + "'" +
             ", duration='" + duration + "'" +
             ", stage='" + stage + "'" +
-            ", departmentid='" + departmentid + "'" +
+            ", departmentname='" + departmentname + "'" +
             '}';
     }
 }

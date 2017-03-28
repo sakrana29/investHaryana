@@ -18,10 +18,12 @@ public interface ProjectServiceReportInfoService {
 
     /**
      *  Get all the projectServiceReportInfos.
-     *  
+     *
      *  @return the list of entities
      */
     List<ProjectServiceReportInfoDTO> findAll();
+
+    List<ProjectServiceReportInfoDTO> findAllByDepartment(String departmentname);
 
     /**
      *  Get the "id" projectServiceReportInfo.

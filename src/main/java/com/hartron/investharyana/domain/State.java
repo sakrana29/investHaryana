@@ -20,10 +20,9 @@ public class State implements Serializable {
     private UUID id;
 
     @NotNull
-    private UUID countryid;
-
-    @NotNull
     private String statename;
+
+    private String countryname;
 
     public UUID getId() {
         return id;
@@ -31,19 +30,6 @@ public class State implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public UUID getCountryid() {
-        return countryid;
-    }
-
-    public State countryid(UUID countryid) {
-        this.countryid = countryid;
-        return this;
-    }
-
-    public void setCountryid(UUID countryid) {
-        this.countryid = countryid;
     }
 
     public String getStatename() {
@@ -57,6 +43,19 @@ public class State implements Serializable {
 
     public void setStatename(String statename) {
         this.statename = statename;
+    }
+
+    public String getCountryname() {
+        return countryname;
+    }
+
+    public State countryname(String countryname) {
+        this.countryname = countryname;
+        return this;
+    }
+
+    public void setCountryname(String countryname) {
+        this.countryname = countryname;
     }
 
     @Override
@@ -83,8 +82,8 @@ public class State implements Serializable {
     public String toString() {
         return "State{" +
             "id=" + id +
-            ", countryid='" + countryid + "'" +
             ", statename='" + statename + "'" +
+            ", countryname='" + countryname + "'" +
             '}';
     }
 }

@@ -40,11 +40,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = InvesthryApp.class)
 public class BlockResourceIntTest extends AbstractCassandraTest {
 
-    private static final UUID DEFAULT_DISTRICTID = UUID.randomUUID();
-    private static final UUID UPDATED_DISTRICTID = UUID.randomUUID();
-
     private static final String DEFAULT_BLOCKNAME = "AAAAAAAAAA";
     private static final String UPDATED_BLOCKNAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DISTRICTNAME = "AAAAAAAAAA";
+    private static final String UPDATED_DISTRICTNAME = "BBBBBBBBBB";
 
     @Autowired
     private BlockRepository blockRepository;
@@ -86,8 +86,8 @@ public class BlockResourceIntTest extends AbstractCassandraTest {
      */
     public static Block createEntity() {
         Block block = new Block()
-                .districtid(DEFAULT_DISTRICTID)
-                .blockname(DEFAULT_BLOCKNAME);
+                .blockname(DEFAULT_BLOCKNAME)
+                .districtname(DEFAULT_DISTRICTNAME);
         return block;
     }
 
@@ -113,8 +113,8 @@ public class BlockResourceIntTest extends AbstractCassandraTest {
         List<Block> blockList = blockRepository.findAll();
         assertThat(blockList).hasSize(databaseSizeBeforeCreate + 1);
         Block testBlock = blockList.get(blockList.size() - 1);
-        assertThat(testBlock.getDistrictid()).isEqualTo(DEFAULT_DISTRICTID);
         assertThat(testBlock.getBlockname()).isEqualTo(DEFAULT_BLOCKNAME);
+        assertThat(testBlock.getDistrictname()).isEqualTo(DEFAULT_DISTRICTNAME);
     }
 
     @Test
@@ -135,24 +135,6 @@ public class BlockResourceIntTest extends AbstractCassandraTest {
         // Validate the Alice in the database
         List<Block> blockList = blockRepository.findAll();
         assertThat(blockList).hasSize(databaseSizeBeforeCreate);
-    }
-
-    @Test
-    public void checkDistrictidIsRequired() throws Exception {
-        int databaseSizeBeforeTest = blockRepository.findAll().size();
-        // set the field null
-        block.setDistrictid(null);
-
-        // Create the Block, which fails.
-        BlockDTO blockDTO = blockMapper.blockToBlockDTO(block);
-
-        restBlockMockMvc.perform(post("/api/blocks")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(blockDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<Block> blockList = blockRepository.findAll();
-        assertThat(blockList).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -183,8 +165,8 @@ public class BlockResourceIntTest extends AbstractCassandraTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(block.getId().toString())))
-            .andExpect(jsonPath("$.[*].districtid").value(hasItem(DEFAULT_DISTRICTID.toString())))
-            .andExpect(jsonPath("$.[*].blockname").value(hasItem(DEFAULT_BLOCKNAME.toString())));
+            .andExpect(jsonPath("$.[*].blockname").value(hasItem(DEFAULT_BLOCKNAME.toString())))
+            .andExpect(jsonPath("$.[*].districtname").value(hasItem(DEFAULT_DISTRICTNAME.toString())));
     }
 
     @Test
@@ -197,8 +179,8 @@ public class BlockResourceIntTest extends AbstractCassandraTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(block.getId().toString()))
-            .andExpect(jsonPath("$.districtid").value(DEFAULT_DISTRICTID.toString()))
-            .andExpect(jsonPath("$.blockname").value(DEFAULT_BLOCKNAME.toString()));
+            .andExpect(jsonPath("$.blockname").value(DEFAULT_BLOCKNAME.toString()))
+            .andExpect(jsonPath("$.districtname").value(DEFAULT_DISTRICTNAME.toString()));
     }
 
     @Test
@@ -217,8 +199,8 @@ public class BlockResourceIntTest extends AbstractCassandraTest {
         // Update the block
         Block updatedBlock = blockRepository.findOne(block.getId());
         updatedBlock
-                .districtid(UPDATED_DISTRICTID)
-                .blockname(UPDATED_BLOCKNAME);
+                .blockname(UPDATED_BLOCKNAME)
+                .districtname(UPDATED_DISTRICTNAME);
         BlockDTO blockDTO = blockMapper.blockToBlockDTO(updatedBlock);
 
         restBlockMockMvc.perform(put("/api/blocks")
@@ -230,8 +212,8 @@ public class BlockResourceIntTest extends AbstractCassandraTest {
         List<Block> blockList = blockRepository.findAll();
         assertThat(blockList).hasSize(databaseSizeBeforeUpdate);
         Block testBlock = blockList.get(blockList.size() - 1);
-        assertThat(testBlock.getDistrictid()).isEqualTo(UPDATED_DISTRICTID);
         assertThat(testBlock.getBlockname()).isEqualTo(UPDATED_BLOCKNAME);
+        assertThat(testBlock.getDistrictname()).isEqualTo(UPDATED_DISTRICTNAME);
     }
 
     @Test

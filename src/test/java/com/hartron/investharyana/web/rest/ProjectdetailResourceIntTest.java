@@ -82,6 +82,9 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
     private static final String DEFAULT_SIZE_OF_INDUSTRY = "AAAAAAAAAA";
     private static final String UPDATED_SIZE_OF_INDUSTRY = "BBBBBBBBBB";
 
+    private static final String DEFAULT_CAF_PIN = "AAAAAAAAAA";
+    private static final String UPDATED_CAF_PIN = "BBBBBBBBBB";
+
     @Autowired
     private ProjectdetailRepository projectdetailRepository;
 
@@ -135,7 +138,8 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
                 .collaboration_with_foreign_country(DEFAULT_COLLABORATION_WITH_FOREIGN_COUNTRY)
                 .projectype(DEFAULT_PROJECTYPE)
                 .sectorname(DEFAULT_SECTORNAME)
-                .size_of_industry(DEFAULT_SIZE_OF_INDUSTRY);
+                .size_of_industry(DEFAULT_SIZE_OF_INDUSTRY)
+                .cafPIN(DEFAULT_CAF_PIN);
         return projectdetail;
     }
 
@@ -175,6 +179,7 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectdetail.getProjectype()).isEqualTo(DEFAULT_PROJECTYPE);
         assertThat(testProjectdetail.getSectorname()).isEqualTo(DEFAULT_SECTORNAME);
         assertThat(testProjectdetail.getSize_of_industry()).isEqualTo(DEFAULT_SIZE_OF_INDUSTRY);
+        assertThat(testProjectdetail.getCafPIN()).isEqualTo(DEFAULT_CAF_PIN);
     }
 
     @Test
@@ -220,7 +225,8 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].collaboration_with_foreign_country").value(hasItem(DEFAULT_COLLABORATION_WITH_FOREIGN_COUNTRY.toString())))
             .andExpect(jsonPath("$.[*].projectype").value(hasItem(DEFAULT_PROJECTYPE.toString())))
             .andExpect(jsonPath("$.[*].sectorname").value(hasItem(DEFAULT_SECTORNAME.toString())))
-            .andExpect(jsonPath("$.[*].size_of_industry").value(hasItem(DEFAULT_SIZE_OF_INDUSTRY.toString())));
+            .andExpect(jsonPath("$.[*].size_of_industry").value(hasItem(DEFAULT_SIZE_OF_INDUSTRY.toString())))
+            .andExpect(jsonPath("$.[*].cafPIN").value(hasItem(DEFAULT_CAF_PIN.toString())));
     }
 
     @Test
@@ -246,7 +252,8 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.collaboration_with_foreign_country").value(DEFAULT_COLLABORATION_WITH_FOREIGN_COUNTRY.toString()))
             .andExpect(jsonPath("$.projectype").value(DEFAULT_PROJECTYPE.toString()))
             .andExpect(jsonPath("$.sectorname").value(DEFAULT_SECTORNAME.toString()))
-            .andExpect(jsonPath("$.size_of_industry").value(DEFAULT_SIZE_OF_INDUSTRY.toString()));
+            .andExpect(jsonPath("$.size_of_industry").value(DEFAULT_SIZE_OF_INDUSTRY.toString()))
+            .andExpect(jsonPath("$.cafPIN").value(DEFAULT_CAF_PIN.toString()));
     }
 
     @Test
@@ -278,7 +285,8 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
                 .collaboration_with_foreign_country(UPDATED_COLLABORATION_WITH_FOREIGN_COUNTRY)
                 .projectype(UPDATED_PROJECTYPE)
                 .sectorname(UPDATED_SECTORNAME)
-                .size_of_industry(UPDATED_SIZE_OF_INDUSTRY);
+                .size_of_industry(UPDATED_SIZE_OF_INDUSTRY)
+                .cafPIN(UPDATED_CAF_PIN);
         ProjectdetailDTO projectdetailDTO = projectdetailMapper.projectdetailToProjectdetailDTO(updatedProjectdetail);
 
         restProjectdetailMockMvc.perform(put("/api/projectdetails")
@@ -304,6 +312,7 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectdetail.getProjectype()).isEqualTo(UPDATED_PROJECTYPE);
         assertThat(testProjectdetail.getSectorname()).isEqualTo(UPDATED_SECTORNAME);
         assertThat(testProjectdetail.getSize_of_industry()).isEqualTo(UPDATED_SIZE_OF_INDUSTRY);
+        assertThat(testProjectdetail.getCafPIN()).isEqualTo(UPDATED_CAF_PIN);
     }
 
     @Test

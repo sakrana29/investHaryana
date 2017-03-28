@@ -108,7 +108,7 @@
                                 serviceDescription: null,
                                 duration: null,
                                 stage: null,
-                                departmentid: null,
+                                departmentname: null,
                                 id: null
                             };
                         }

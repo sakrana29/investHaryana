@@ -104,8 +104,8 @@
                     resolve: {
                         entity: function () {
                             return {
-                                countryid: null,
                                 statename: null,
+                                countryname: null,
                                 id: null
                             };
                         }

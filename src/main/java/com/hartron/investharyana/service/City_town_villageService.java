@@ -18,7 +18,7 @@ public interface City_town_villageService {
 
     /**
      *  Get all the city_town_villages.
-     *
+     *  
      *  @return the list of entities
      */
     List<City_town_villageDTO> findAll();
@@ -37,6 +37,4 @@ public interface City_town_villageService {
      *  @param id the id of the entity
      */
     void delete(String id);
-
-    List<City_town_villageDTO> findVillageByBlock(String blockid);
 }

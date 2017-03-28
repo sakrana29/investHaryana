@@ -53,6 +53,7 @@ public class ProjectdetailRepository {
                 projectdetail.setProjectype(row.getString("projectype"));
                 projectdetail.setSectorname(row.getString("sectorname"));
                 projectdetail.setSize_of_industry(row.getString("size_of_industry"));
+                projectdetail.setCafPIN(row.getString("cafPIN"));
                 return projectdetail;
             }
         ).forEach(projectdetailsList::add);

@@ -14,10 +14,9 @@ public class Tehsil_subtehsilDTO implements Serializable {
     private UUID id;
 
     @NotNull
-    private UUID districtid;
-
-    @NotNull
     private String tehsil_subtehsilname;
+
+    private String districtname;
 
     public UUID getId() {
         return id;
@@ -26,19 +25,19 @@ public class Tehsil_subtehsilDTO implements Serializable {
     public void setId(UUID id) {
         this.id = id;
     }
-    public UUID getDistrictid() {
-        return districtid;
-    }
-
-    public void setDistrictid(UUID districtid) {
-        this.districtid = districtid;
-    }
     public String getTehsil_subtehsilname() {
         return tehsil_subtehsilname;
     }
 
     public void setTehsil_subtehsilname(String tehsil_subtehsilname) {
         this.tehsil_subtehsilname = tehsil_subtehsilname;
+    }
+    public String getDistrictname() {
+        return districtname;
+    }
+
+    public void setDistrictname(String districtname) {
+        this.districtname = districtname;
     }
 
     @Override
@@ -66,8 +65,8 @@ public class Tehsil_subtehsilDTO implements Serializable {
     public String toString() {
         return "Tehsil_subtehsilDTO{" +
             "id=" + id +
-            ", districtid='" + districtid + "'" +
             ", tehsil_subtehsilname='" + tehsil_subtehsilname + "'" +
+            ", districtname='" + districtname + "'" +
             '}';
     }
 }

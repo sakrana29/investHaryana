@@ -57,6 +57,10 @@
         {
             "fieldName": "size_of_industry",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "cafPIN",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313112040",

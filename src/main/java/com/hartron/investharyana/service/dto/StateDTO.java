@@ -14,10 +14,9 @@ public class StateDTO implements Serializable {
     private UUID id;
 
     @NotNull
-    private UUID countryid;
-
-    @NotNull
     private String statename;
+
+    private String countryname;
 
     public UUID getId() {
         return id;
@@ -26,19 +25,19 @@ public class StateDTO implements Serializable {
     public void setId(UUID id) {
         this.id = id;
     }
-    public UUID getCountryid() {
-        return countryid;
-    }
-
-    public void setCountryid(UUID countryid) {
-        this.countryid = countryid;
-    }
     public String getStatename() {
         return statename;
     }
 
     public void setStatename(String statename) {
         this.statename = statename;
+    }
+    public String getCountryname() {
+        return countryname;
+    }
+
+    public void setCountryname(String countryname) {
+        this.countryname = countryname;
     }
 
     @Override
@@ -66,8 +65,8 @@ public class StateDTO implements Serializable {
     public String toString() {
         return "StateDTO{" +
             "id=" + id +
-            ", countryid='" + countryid + "'" +
             ", statename='" + statename + "'" +
+            ", countryname='" + countryname + "'" +
             '}';
     }
 }

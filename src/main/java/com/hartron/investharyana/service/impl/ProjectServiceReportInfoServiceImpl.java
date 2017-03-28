@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class ProjectServiceReportInfoServiceImpl implements ProjectServiceReportInfoService{
 
     private final Logger log = LoggerFactory.getLogger(ProjectServiceReportInfoServiceImpl.class);
-    
+
     private final ProjectServiceReportInfoRepository projectServiceReportInfoRepository;
 
     private final ProjectServiceReportInfoMapper projectServiceReportInfoMapper;
@@ -48,13 +48,23 @@ public class ProjectServiceReportInfoServiceImpl implements ProjectServiceReport
 
     /**
      *  Get all the projectServiceReportInfos.
-     *  
+     *
      *  @return the list of entities
      */
     @Override
     public List<ProjectServiceReportInfoDTO> findAll() {
         log.debug("Request to get all ProjectServiceReportInfos");
         List<ProjectServiceReportInfoDTO> result = projectServiceReportInfoRepository.findAll().stream()
+            .map(projectServiceReportInfoMapper::projectServiceReportInfoToProjectServiceReportInfoDTO)
+            .collect(Collectors.toCollection(LinkedList::new));
+
+        return result;
+    }
+
+    @Override
+    public List<ProjectServiceReportInfoDTO> findAllByDepartment(String departmentname) {
+        log.debug("Request to get all ProjectServiceReportInfos by department");
+        List<ProjectServiceReportInfoDTO> result = projectServiceReportInfoRepository.findAllByDept(departmentname).stream()
             .map(projectServiceReportInfoMapper::projectServiceReportInfoToProjectServiceReportInfoDTO)
             .collect(Collectors.toCollection(LinkedList::new));
 

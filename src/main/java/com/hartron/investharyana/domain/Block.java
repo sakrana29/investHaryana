@@ -20,10 +20,9 @@ public class Block implements Serializable {
     private UUID id;
 
     @NotNull
-    private UUID districtid;
-
-    @NotNull
     private String blockname;
+
+    private String districtname;
 
     public UUID getId() {
         return id;
@@ -31,19 +30,6 @@ public class Block implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public UUID getDistrictid() {
-        return districtid;
-    }
-
-    public Block districtid(UUID districtid) {
-        this.districtid = districtid;
-        return this;
-    }
-
-    public void setDistrictid(UUID districtid) {
-        this.districtid = districtid;
     }
 
     public String getBlockname() {
@@ -57,6 +43,19 @@ public class Block implements Serializable {
 
     public void setBlockname(String blockname) {
         this.blockname = blockname;
+    }
+
+    public String getDistrictname() {
+        return districtname;
+    }
+
+    public Block districtname(String districtname) {
+        this.districtname = districtname;
+        return this;
+    }
+
+    public void setDistrictname(String districtname) {
+        this.districtname = districtname;
     }
 
     @Override
@@ -83,8 +82,8 @@ public class Block implements Serializable {
     public String toString() {
         return "Block{" +
             "id=" + id +
-            ", districtid='" + districtid + "'" +
             ", blockname='" + blockname + "'" +
+            ", districtname='" + districtname + "'" +
             '}';
     }
 }

@@ -118,6 +118,7 @@
                                 projectype: null,
                                 sectorname: null,
                                 size_of_industry: null,
+                                cafPIN: null,
                                 id: null
                             };
                         }

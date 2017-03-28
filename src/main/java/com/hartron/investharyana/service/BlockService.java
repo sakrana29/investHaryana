@@ -18,7 +18,7 @@ public interface BlockService {
 
     /**
      *  Get all the blocks.
-     *
+     *  
      *  @return the list of entities
      */
     List<BlockDTO> findAll();
@@ -37,6 +37,4 @@ public interface BlockService {
      *  @param id the id of the entity
      */
     void delete(String id);
-
-    List<BlockDTO> findBlockByDistrict(String districtid);
 }

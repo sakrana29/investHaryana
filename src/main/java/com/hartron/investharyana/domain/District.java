@@ -20,10 +20,9 @@ public class District implements Serializable {
     private UUID id;
 
     @NotNull
-    private UUID stateid;
-
-    @NotNull
     private String districtname;
+
+    private String statename;
 
     public UUID getId() {
         return id;
@@ -31,19 +30,6 @@ public class District implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public UUID getStateid() {
-        return stateid;
-    }
-
-    public District stateid(UUID stateid) {
-        this.stateid = stateid;
-        return this;
-    }
-
-    public void setStateid(UUID stateid) {
-        this.stateid = stateid;
     }
 
     public String getDistrictname() {
@@ -57,6 +43,19 @@ public class District implements Serializable {
 
     public void setDistrictname(String districtname) {
         this.districtname = districtname;
+    }
+
+    public String getStatename() {
+        return statename;
+    }
+
+    public District statename(String statename) {
+        this.statename = statename;
+        return this;
+    }
+
+    public void setStatename(String statename) {
+        this.statename = statename;
     }
 
     @Override
@@ -83,8 +82,8 @@ public class District implements Serializable {
     public String toString() {
         return "District{" +
             "id=" + id +
-            ", stateid='" + stateid + "'" +
             ", districtname='" + districtname + "'" +
+            ", statename='" + statename + "'" +
             '}';
     }
 }

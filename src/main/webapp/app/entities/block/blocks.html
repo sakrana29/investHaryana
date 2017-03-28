@@ -19,16 +19,16 @@
             <thead>
                 <tr>
                     <th><span data-translate="global.field.id">ID</span></th>
-                    <th><span data-translate="investhryApp.block.districtid">Districtid</span></th>
                     <th><span data-translate="investhryApp.block.blockname">Blockname</span></th>
+                    <th><span data-translate="investhryApp.block.districtname">Districtname</span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="block in vm.blocks track by block.id">
                     <td><a ui-sref="block-detail({id:block.id})">{{block.id}}</a></td>
-                    <td>{{block.districtid}}</td>
                     <td>{{block.blockname}}</td>
+                    <td>{{block.districtname}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

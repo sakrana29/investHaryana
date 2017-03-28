@@ -68,7 +68,7 @@ class BlockGatlingTest extends Simulation {
             .exec(http("Create new block")
             .post("/api/blocks")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "districtid":null, "blockname":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "blockname":"SAMPLE_TEXT", "districtname":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_block_url"))).exitHereIfFailed
             .pause(10)

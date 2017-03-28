@@ -14,18 +14,6 @@
                     ng-model="vm.city_town_village.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.city_town_village.blockid" for="field_blockid">Blockid</label>
-            <input type="text" class="form-control" name="blockid" id="field_blockid"
-                    ng-model="vm.city_town_village.blockid"
-                    required/>
-            <div ng-show="editForm.blockid.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.blockid.$error.required" data-translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="control-label" data-translate="investhryApp.city_town_village.city_town_village_name" for="field_city_town_village_name">City Town Village Name</label>
             <input type="text" class="form-control" name="city_town_village_name" id="field_city_town_village_name"
                     ng-model="vm.city_town_village.city_town_village_name"
@@ -36,6 +24,12 @@
                     This field is required.
                 </p>
             </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.city_town_village.blockname" for="field_blockname">Blockname</label>
+            <input type="text" class="form-control" name="blockname" id="field_blockname"
+                    ng-model="vm.city_town_village.blockname"
+                    />
         </div>
 
     </div>

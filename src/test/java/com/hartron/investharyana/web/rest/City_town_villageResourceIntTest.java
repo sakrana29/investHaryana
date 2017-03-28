@@ -40,11 +40,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = InvesthryApp.class)
 public class City_town_villageResourceIntTest extends AbstractCassandraTest {
 
-    private static final UUID DEFAULT_BLOCKID = UUID.randomUUID();
-    private static final UUID UPDATED_BLOCKID = UUID.randomUUID();
-
     private static final String DEFAULT_CITY_TOWN_VILLAGE_NAME = "AAAAAAAAAA";
     private static final String UPDATED_CITY_TOWN_VILLAGE_NAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_BLOCKNAME = "AAAAAAAAAA";
+    private static final String UPDATED_BLOCKNAME = "BBBBBBBBBB";
 
     @Autowired
     private City_town_villageRepository city_town_villageRepository;
@@ -86,8 +86,8 @@ public class City_town_villageResourceIntTest extends AbstractCassandraTest {
      */
     public static City_town_village createEntity() {
         City_town_village city_town_village = new City_town_village()
-                .blockid(DEFAULT_BLOCKID)
-                .city_town_village_name(DEFAULT_CITY_TOWN_VILLAGE_NAME);
+                .city_town_village_name(DEFAULT_CITY_TOWN_VILLAGE_NAME)
+                .blockname(DEFAULT_BLOCKNAME);
         return city_town_village;
     }
 
@@ -113,8 +113,8 @@ public class City_town_villageResourceIntTest extends AbstractCassandraTest {
         List<City_town_village> city_town_villageList = city_town_villageRepository.findAll();
         assertThat(city_town_villageList).hasSize(databaseSizeBeforeCreate + 1);
         City_town_village testCity_town_village = city_town_villageList.get(city_town_villageList.size() - 1);
-        assertThat(testCity_town_village.getBlockid()).isEqualTo(DEFAULT_BLOCKID);
         assertThat(testCity_town_village.getCity_town_village_name()).isEqualTo(DEFAULT_CITY_TOWN_VILLAGE_NAME);
+        assertThat(testCity_town_village.getBlockname()).isEqualTo(DEFAULT_BLOCKNAME);
     }
 
     @Test
@@ -135,24 +135,6 @@ public class City_town_villageResourceIntTest extends AbstractCassandraTest {
         // Validate the Alice in the database
         List<City_town_village> city_town_villageList = city_town_villageRepository.findAll();
         assertThat(city_town_villageList).hasSize(databaseSizeBeforeCreate);
-    }
-
-    @Test
-    public void checkBlockidIsRequired() throws Exception {
-        int databaseSizeBeforeTest = city_town_villageRepository.findAll().size();
-        // set the field null
-        city_town_village.setBlockid(null);
-
-        // Create the City_town_village, which fails.
-        City_town_villageDTO city_town_villageDTO = city_town_villageMapper.city_town_villageToCity_town_villageDTO(city_town_village);
-
-        restCity_town_villageMockMvc.perform(post("/api/city-town-villages")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(city_town_villageDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<City_town_village> city_town_villageList = city_town_villageRepository.findAll();
-        assertThat(city_town_villageList).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -183,8 +165,8 @@ public class City_town_villageResourceIntTest extends AbstractCassandraTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(city_town_village.getId().toString())))
-            .andExpect(jsonPath("$.[*].blockid").value(hasItem(DEFAULT_BLOCKID.toString())))
-            .andExpect(jsonPath("$.[*].city_town_village_name").value(hasItem(DEFAULT_CITY_TOWN_VILLAGE_NAME.toString())));
+            .andExpect(jsonPath("$.[*].city_town_village_name").value(hasItem(DEFAULT_CITY_TOWN_VILLAGE_NAME.toString())))
+            .andExpect(jsonPath("$.[*].blockname").value(hasItem(DEFAULT_BLOCKNAME.toString())));
     }
 
     @Test
@@ -197,8 +179,8 @@ public class City_town_villageResourceIntTest extends AbstractCassandraTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(city_town_village.getId().toString()))
-            .andExpect(jsonPath("$.blockid").value(DEFAULT_BLOCKID.toString()))
-            .andExpect(jsonPath("$.city_town_village_name").value(DEFAULT_CITY_TOWN_VILLAGE_NAME.toString()));
+            .andExpect(jsonPath("$.city_town_village_name").value(DEFAULT_CITY_TOWN_VILLAGE_NAME.toString()))
+            .andExpect(jsonPath("$.blockname").value(DEFAULT_BLOCKNAME.toString()));
     }
 
     @Test
@@ -217,8 +199,8 @@ public class City_town_villageResourceIntTest extends AbstractCassandraTest {
         // Update the city_town_village
         City_town_village updatedCity_town_village = city_town_villageRepository.findOne(city_town_village.getId());
         updatedCity_town_village
-                .blockid(UPDATED_BLOCKID)
-                .city_town_village_name(UPDATED_CITY_TOWN_VILLAGE_NAME);
+                .city_town_village_name(UPDATED_CITY_TOWN_VILLAGE_NAME)
+                .blockname(UPDATED_BLOCKNAME);
         City_town_villageDTO city_town_villageDTO = city_town_villageMapper.city_town_villageToCity_town_villageDTO(updatedCity_town_village);
 
         restCity_town_villageMockMvc.perform(put("/api/city-town-villages")
@@ -230,8 +212,8 @@ public class City_town_villageResourceIntTest extends AbstractCassandraTest {
         List<City_town_village> city_town_villageList = city_town_villageRepository.findAll();
         assertThat(city_town_villageList).hasSize(databaseSizeBeforeUpdate);
         City_town_village testCity_town_village = city_town_villageList.get(city_town_villageList.size() - 1);
-        assertThat(testCity_town_village.getBlockid()).isEqualTo(UPDATED_BLOCKID);
         assertThat(testCity_town_village.getCity_town_village_name()).isEqualTo(UPDATED_CITY_TOWN_VILLAGE_NAME);
+        assertThat(testCity_town_village.getBlockname()).isEqualTo(UPDATED_BLOCKNAME);
     }
 
     @Test

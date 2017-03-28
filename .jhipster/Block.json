@@ -3,18 +3,15 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "districtid",
-            "fieldType": "UUID",
-            "fieldValidateRules": [
-                "required"
-            ]
-        },
-        {
             "fieldName": "blockname",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldName": "districtname",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313082007",

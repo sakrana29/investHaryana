@@ -40,11 +40,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = InvesthryApp.class)
 public class StateResourceIntTest extends AbstractCassandraTest {
 
-    private static final UUID DEFAULT_COUNTRYID = UUID.randomUUID();
-    private static final UUID UPDATED_COUNTRYID = UUID.randomUUID();
-
     private static final String DEFAULT_STATENAME = "AAAAAAAAAA";
     private static final String UPDATED_STATENAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_COUNTRYNAME = "AAAAAAAAAA";
+    private static final String UPDATED_COUNTRYNAME = "BBBBBBBBBB";
 
     @Autowired
     private StateRepository stateRepository;
@@ -86,8 +86,8 @@ public class StateResourceIntTest extends AbstractCassandraTest {
      */
     public static State createEntity() {
         State state = new State()
-                .countryid(DEFAULT_COUNTRYID)
-                .statename(DEFAULT_STATENAME);
+                .statename(DEFAULT_STATENAME)
+                .countryname(DEFAULT_COUNTRYNAME);
         return state;
     }
 
@@ -113,8 +113,8 @@ public class StateResourceIntTest extends AbstractCassandraTest {
         List<State> stateList = stateRepository.findAll();
         assertThat(stateList).hasSize(databaseSizeBeforeCreate + 1);
         State testState = stateList.get(stateList.size() - 1);
-        assertThat(testState.getCountryid()).isEqualTo(DEFAULT_COUNTRYID);
         assertThat(testState.getStatename()).isEqualTo(DEFAULT_STATENAME);
+        assertThat(testState.getCountryname()).isEqualTo(DEFAULT_COUNTRYNAME);
     }
 
     @Test
@@ -135,24 +135,6 @@ public class StateResourceIntTest extends AbstractCassandraTest {
         // Validate the Alice in the database
         List<State> stateList = stateRepository.findAll();
         assertThat(stateList).hasSize(databaseSizeBeforeCreate);
-    }
-
-    @Test
-    public void checkCountryidIsRequired() throws Exception {
-        int databaseSizeBeforeTest = stateRepository.findAll().size();
-        // set the field null
-        state.setCountryid(null);
-
-        // Create the State, which fails.
-        StateDTO stateDTO = stateMapper.stateToStateDTO(state);
-
-        restStateMockMvc.perform(post("/api/states")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(stateDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<State> stateList = stateRepository.findAll();
-        assertThat(stateList).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -183,8 +165,8 @@ public class StateResourceIntTest extends AbstractCassandraTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(state.getId().toString())))
-            .andExpect(jsonPath("$.[*].countryid").value(hasItem(DEFAULT_COUNTRYID.toString())))
-            .andExpect(jsonPath("$.[*].statename").value(hasItem(DEFAULT_STATENAME.toString())));
+            .andExpect(jsonPath("$.[*].statename").value(hasItem(DEFAULT_STATENAME.toString())))
+            .andExpect(jsonPath("$.[*].countryname").value(hasItem(DEFAULT_COUNTRYNAME.toString())));
     }
 
     @Test
@@ -197,8 +179,8 @@ public class StateResourceIntTest extends AbstractCassandraTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(state.getId().toString()))
-            .andExpect(jsonPath("$.countryid").value(DEFAULT_COUNTRYID.toString()))
-            .andExpect(jsonPath("$.statename").value(DEFAULT_STATENAME.toString()));
+            .andExpect(jsonPath("$.statename").value(DEFAULT_STATENAME.toString()))
+            .andExpect(jsonPath("$.countryname").value(DEFAULT_COUNTRYNAME.toString()));
     }
 
     @Test
@@ -217,8 +199,8 @@ public class StateResourceIntTest extends AbstractCassandraTest {
         // Update the state
         State updatedState = stateRepository.findOne(state.getId());
         updatedState
-                .countryid(UPDATED_COUNTRYID)
-                .statename(UPDATED_STATENAME);
+                .statename(UPDATED_STATENAME)
+                .countryname(UPDATED_COUNTRYNAME);
         StateDTO stateDTO = stateMapper.stateToStateDTO(updatedState);
 
         restStateMockMvc.perform(put("/api/states")
@@ -230,8 +212,8 @@ public class StateResourceIntTest extends AbstractCassandraTest {
         List<State> stateList = stateRepository.findAll();
         assertThat(stateList).hasSize(databaseSizeBeforeUpdate);
         State testState = stateList.get(stateList.size() - 1);
-        assertThat(testState.getCountryid()).isEqualTo(UPDATED_COUNTRYID);
         assertThat(testState.getStatename()).isEqualTo(UPDATED_STATENAME);
+        assertThat(testState.getCountryname()).isEqualTo(UPDATED_COUNTRYNAME);
     }
 
     @Test

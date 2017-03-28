@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -26,23 +25,11 @@ public class DistrictRepository {
 
     private PreparedStatement truncateStmt;
 
-    private PreparedStatement insertByStateStmt;
-
-    private PreparedStatement findByStateStmt;
-
     public DistrictRepository(Session session) {
         this.session = session;
         this.mapper = new MappingManager(session).mapper(District.class);
         this.findAllStmt = session.prepare("SELECT * FROM district");
         this.truncateStmt = session.prepare("TRUNCATE district");
-        this.insertByStateStmt = session.prepare(
-            "INSERT INTO district_by_state (stateid, id) " +
-                "VALUES (:stateid, :id)");
-
-        this.findByStateStmt = session.prepare(
-            "SELECT id " +
-                "FROM district_by_state " +
-                "WHERE stateid = :stateid");
     }
 
     public List<District> findAll() {
@@ -52,8 +39,8 @@ public class DistrictRepository {
             row -> {
                 District district = new District();
                 district.setId(row.getUUID("id"));
-                district.setStateid(row.getUUID("stateid"));
                 district.setDistrictname(row.getString("districtname"));
+                district.setStatename(row.getString("statename"));
                 return district;
             }
         ).forEach(districtsList::add);
@@ -64,39 +51,11 @@ public class DistrictRepository {
         return mapper.get(id);
     }
 
-    public List<District> findDistrictByStateId(UUID stateid) {
-        BoundStatement stmt = findByStateStmt.bind();
-        stmt.setUUID("stateid", stateid);
-        return findDistrictFromIndex(stmt);
-    }
-
-    private List<District> findDistrictFromIndex(BoundStatement stmt) {
-        ResultSet rs = session.execute(stmt);
-        List<District> districtList=new ArrayList<>();
-
-        while(!(rs.isExhausted())){
-            District district=new District();
-            district=(Optional.ofNullable(rs.one().getUUID("id"))
-                .map(id -> Optional.ofNullable(mapper.get(id)))
-                .get()).get();
-            districtList.add(district);
-        }
-        return districtList;
-
-    }
-
     public District save(District district) {
         if (district.getId() == null) {
             district.setId(UUID.randomUUID());
         }
         mapper.save(district);
-
-        BatchStatement batch = new BatchStatement();
-        batch.add(insertByStateStmt.bind()
-            .setUUID("stateid", district.getStateid())
-            .setUUID("id", district.getId()));
-        session.execute(batch);
-
         return district;
     }
 

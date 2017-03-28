@@ -15,8 +15,8 @@
             "detail": {
                 "title": "City Town Village"
             },
-            "blockid": "Blockid",
-            "city_town_village_name": "City Town Village Name"
+            "city_town_village_name": "City Town Village Name",
+            "blockname": "Blockname"
         }
     }
 }

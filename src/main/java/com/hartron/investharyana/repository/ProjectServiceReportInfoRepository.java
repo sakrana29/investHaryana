@@ -6,10 +6,12 @@ import com.datastax.driver.core.*;
 import com.datastax.driver.mapping.Mapper;
 import com.datastax.driver.mapping.MappingManager;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -26,11 +28,24 @@ public class ProjectServiceReportInfoRepository {
 
     private PreparedStatement truncateStmt;
 
+    private PreparedStatement findAllByDeptStmt;
+
+    private PreparedStatement insertByDeptStmt;
+
     public ProjectServiceReportInfoRepository(Session session) {
         this.session = session;
         this.mapper = new MappingManager(session).mapper(ProjectServiceReportInfo.class);
         this.findAllStmt = session.prepare("SELECT * FROM projectServiceReportInfo");
         this.truncateStmt = session.prepare("TRUNCATE projectServiceReportInfo");
+
+        this.findAllByDeptStmt = session.prepare(
+            "SELECT id " +
+                "FROM projectServiceReportInfo_By_DepartmentName " +
+                "WHERE departmentname = :departmentname");
+
+        insertByDeptStmt = session.prepare(
+            "INSERT INTO projectServiceReportInfo_By_DepartmentName (departmentname, id) " +
+                "VALUES (:departmentname, :id)");
     }
 
     public List<ProjectServiceReportInfo> findAll() {
@@ -64,11 +79,37 @@ public class ProjectServiceReportInfoRepository {
         return mapper.get(id);
     }
 
+    public List<ProjectServiceReportInfo> findAllByDept(String departmentname) {
+        BoundStatement stmt = findAllByDeptStmt.bind();
+        stmt.setString("departmentname", departmentname);
+        return findAllFromIndex(stmt);
+    }
+    private List<ProjectServiceReportInfo> findAllFromIndex(BoundStatement stmt) {
+        ResultSet rs = session.execute(stmt);
+        List<ProjectServiceReportInfo> projectServiceReportInfoList=new ArrayList<>();
+        if (!(rs.isExhausted())) {
+            ProjectServiceReportInfo projectServiceReportInfo = new ProjectServiceReportInfo();
+            projectServiceReportInfo = Optional.ofNullable(rs.one().getUUID("id"))
+            .map(id -> Optional.ofNullable(mapper.get(id)))
+            .get().get();
+            projectServiceReportInfoList.add(projectServiceReportInfo);
+        }
+        return projectServiceReportInfoList;
+    }
+
     public ProjectServiceReportInfo save(ProjectServiceReportInfo projectServiceReportInfo) {
         if (projectServiceReportInfo.getId() == null) {
             projectServiceReportInfo.setId(UUID.randomUUID());
         }
         mapper.save(projectServiceReportInfo);
+
+        BatchStatement batch = new BatchStatement();
+
+        batch.add(insertByDeptStmt.bind()
+        .setString("departmentname", projectServiceReportInfo.getDepartmentname())
+        .setUUID("id", projectServiceReportInfo.getId()));
+
+        session.execute(batch);
         return projectServiceReportInfo;
     }
 

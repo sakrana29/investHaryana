@@ -28,7 +28,8 @@
             "collaboration_with_foreign_country": "Collaboration With Foreign Country",
             "projectype": "Projectype",
             "sectorname": "Sectorname",
-            "size_of_industry": "Size Of Industry"
+            "size_of_industry": "Size Of Industry",
+            "cafPIN": "Caf PIN"
         }
     }
 }

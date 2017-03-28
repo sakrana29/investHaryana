@@ -17,3 +17,10 @@ CREATE TABLE IF NOT EXISTS projectServiceReportInfo (
     projectEmployment text,
     PRIMARY KEY(id)
 );
+
+CREATE TABLE IF NOT EXISTS projectServiceReportInfo_By_DepartmentName (
+id uuid,
+departmentname text,
+PRIMARY KEY(departmentname,id)
+);
+

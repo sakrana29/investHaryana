@@ -14,10 +14,9 @@ public class City_town_villageDTO implements Serializable {
     private UUID id;
 
     @NotNull
-    private UUID blockid;
-
-    @NotNull
     private String city_town_village_name;
+
+    private String blockname;
 
     public UUID getId() {
         return id;
@@ -26,19 +25,19 @@ public class City_town_villageDTO implements Serializable {
     public void setId(UUID id) {
         this.id = id;
     }
-    public UUID getBlockid() {
-        return blockid;
-    }
-
-    public void setBlockid(UUID blockid) {
-        this.blockid = blockid;
-    }
     public String getCity_town_village_name() {
         return city_town_village_name;
     }
 
     public void setCity_town_village_name(String city_town_village_name) {
         this.city_town_village_name = city_town_village_name;
+    }
+    public String getBlockname() {
+        return blockname;
+    }
+
+    public void setBlockname(String blockname) {
+        this.blockname = blockname;
     }
 
     @Override
@@ -66,8 +65,8 @@ public class City_town_villageDTO implements Serializable {
     public String toString() {
         return "City_town_villageDTO{" +
             "id=" + id +
-            ", blockid='" + blockid + "'" +
             ", city_town_village_name='" + city_town_village_name + "'" +
+            ", blockname='" + blockname + "'" +
             '}';
     }
 }

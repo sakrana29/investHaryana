@@ -104,8 +104,8 @@
                     resolve: {
                         entity: function () {
                             return {
-                                districtid: null,
                                 blockname: null,
+                                districtname: null,
                                 id: null
                             };
                         }

@@ -3,18 +3,15 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "blockid",
-            "fieldType": "UUID",
-            "fieldValidateRules": [
-                "required"
-            ]
-        },
-        {
             "fieldName": "city_town_village_name",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldName": "blockname",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313082147",

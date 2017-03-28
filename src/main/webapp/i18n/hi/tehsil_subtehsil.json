@@ -15,8 +15,8 @@
             "detail": {
                 "title": "Tehsil Subtehsil"
             },
-            "districtid": "Districtid",
-            "tehsil_subtehsilname": "Tehsil Subtehsilname"
+            "tehsil_subtehsilname": "Tehsil Subtehsilname",
+            "districtname": "Districtname"
         }
     }
 }

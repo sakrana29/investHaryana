@@ -18,7 +18,7 @@ public interface Tehsil_subtehsilService {
 
     /**
      *  Get all the tehsil_subtehsils.
-     *
+     *  
      *  @return the list of entities
      */
     List<Tehsil_subtehsilDTO> findAll();
@@ -37,6 +37,4 @@ public interface Tehsil_subtehsilService {
      *  @param id the id of the entity
      */
     void delete(String id);
-
-    List<Tehsil_subtehsilDTO> findTehsilByDistrict(String districtid);
 }

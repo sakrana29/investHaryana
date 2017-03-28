@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class StateServiceImpl implements StateService{
 
     private final Logger log = LoggerFactory.getLogger(StateServiceImpl.class);
-
+    
     private final StateRepository stateRepository;
 
     private final StateMapper stateMapper;
@@ -48,7 +48,7 @@ public class StateServiceImpl implements StateService{
 
     /**
      *  Get all the states.
-     *
+     *  
      *  @return the list of entities
      */
     @Override
@@ -85,17 +85,4 @@ public class StateServiceImpl implements StateService{
         log.debug("Request to delete State : {}", id);
         stateRepository.delete(UUID.fromString(id));
     }
-
-    @Override
-    public List<StateDTO> findstatebycountry(String countryid) {
-        log.debug("Request to get all States by countryid: {}", countryid);
-        log.debug("Request to get all States by country ");
-        List<StateDTO> result = stateRepository.findStatebycountryId(UUID.fromString(countryid)).stream()
-            .map(stateMapper::stateToStateDTO)
-            .collect(Collectors.toCollection(LinkedList::new));
-        return result;
-
-
-    }
-
 }

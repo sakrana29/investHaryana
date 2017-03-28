@@ -100,10 +100,10 @@ public class DepartmentServiceDataResource {
         {
             DepartmentServiceDataDTO departmentServiceDataDTO=new DepartmentServiceDataDTO();
             DepartmentServiceDTO departmentServiceDTO = departmentServiceDTOList.get(i);
-            DepartmentDTO dept = departmentService.findOne(departmentServiceDTO.getDepartmentid().toString());
+//            DepartmentDTO dept = departmentService.findOne(departmentServiceDTO.getDepartmentid().toString());
 
-            departmentServiceDataDTO.setDepartmentname(dept.getDepartmentname());
-            departmentServiceDataDTO.setDepartmentID(dept.getId());
+//            departmentServiceDataDTO.setDepartmentname(dept.getDepartmentname());
+//            departmentServiceDataDTO.setDepartmentID(dept.getId());
             departmentServiceDataDTO.setId(departmentServiceDTO.getId());
             departmentServiceDataDTO.setServiceName(departmentServiceDTO.getServiceName());
             departmentServiceDataDTO.setStage(departmentServiceDTO.getStage());

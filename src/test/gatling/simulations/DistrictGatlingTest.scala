@@ -68,7 +68,7 @@ class DistrictGatlingTest extends Simulation {
             .exec(http("Create new district")
             .post("/api/districts")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "stateid":null, "districtname":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "districtname":"SAMPLE_TEXT", "statename":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_district_url"))).exitHereIfFailed
             .pause(10)

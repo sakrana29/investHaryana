@@ -28,7 +28,7 @@ public class ProjectServiceReportInfoResource {
     private final Logger log = LoggerFactory.getLogger(ProjectServiceReportInfoResource.class);
 
     private static final String ENTITY_NAME = "projectServiceReportInfo";
-        
+
     private final ProjectServiceReportInfoService projectServiceReportInfoService;
 
     public ProjectServiceReportInfoResource(ProjectServiceReportInfoService projectServiceReportInfoService) {
@@ -87,6 +87,13 @@ public class ProjectServiceReportInfoResource {
     public List<ProjectServiceReportInfoDTO> getAllProjectServiceReportInfos() {
         log.debug("REST request to get all ProjectServiceReportInfos");
         return projectServiceReportInfoService.findAll();
+    }
+
+    @GetMapping("/project-service-report-infos/department/{departmentname}")
+    @Timed
+    public List<ProjectServiceReportInfoDTO> getAllProjectServiceReportInfosByDepartment(@PathVariable String departmentname) {
+        log.debug("REST request to get all ProjectServiceReportInfos by department");
+        return projectServiceReportInfoService.findAllByDepartment(departmentname);
     }
 
     /**
