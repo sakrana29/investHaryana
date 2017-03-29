@@ -1,0 +1,104 @@
+<div ng-cloak>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!--District Wise Pending Status of Stage 1 45 Days-->
+
+    <!--<div class="col-lg-3">-->
+    <!--<div class="panel panel-info">-->
+    <!--<div class="panel-heading">-->
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-xs-6">
+                    <i class="fa fa-briefcase fa-5x"></i>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <p class="announcement-heading">
+                        <button type="button" class="btn btn-primary"
+                                ng-controller="DistrictController as vm">
+                            District Wise Status<span class="badge">{{vm.districts.length}}</span>
+                        </button>
+                    </p>
+                    <p class="announcement-text">Department Services Status(CAF)
+                    <div ng-controller="DistrictController as vm">
+                        <div ng-repeat="districtname in vm.districts track by districtname.id">
+                            District :<span class="badge">{{districtname.districtname}}</span>
+                            <!--Service Description :<span class="badge">{{services.districtname}}</span>-->
+                            <!--Dept ID :<span class="badge">{{services.departmentID}}</span>-->
+                            <!--Duration :<span class="badge">{{services.duration}}</span>-->
+                            <!--Stage:<span class="badge">{{services.stage}}</span>-->
+                            <!-- total end-->
+                        </div>
+                    </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <a href="#/department-service">
+            <div class="panel-footer announcement-bottom">
+                <div class="row">
+                    <div class="col-xs-6">
+                        Expand
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <i class="fa fa-arrow-circle-right"></i>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!--Services Status Stage 1 under 45 days, Stage 2 45-60 Days-->
+
+    <!--<div class="col-lg-3">-->
+    <!--<div class="panel panel-info">-->
+    <!--<div class="panel-heading">-->
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-xs-6">
+                    <i class="fa fa-briefcase fa-5x"></i>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <p class="announcement-heading">
+                        <!--  Total no of files created through entity filetosend -->
+                        <button type="button" class="btn btn-warning"
+                                ng-controller="DepartmentServiceController as vm">
+                            Services Wise Status<span class="badge">{{vm.departmentServices.length}}</span>
+                        </button>
+                    </p>
+                    <p class="announcement-text">Department Services Status(CAF)
+                    <div ng-controller="DepartmentServiceController as vm">
+                        <div ng-repeat="services in vm.departmentServices track by services.id">
+                            Service Name :<span class="badge">{{services.serviceName}}</span>
+                            Service Description :<span class="badge">{{services.serviceDescription}}</span>
+                            Dept ID :<span class="badge">{{services.departmentID}}</span>
+                            Duration :<span class="badge">{{services.duration}}</span>
+                            Stage:<span class="badge">{{services.stage}}</span>
+                            <!-- total end-->
+                        </div>
+                    </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <a href="#/department-service">
+            <div class="panel-footer announcement-bottom">
+                <div class="row">
+                    <div class="col-xs-6">
+                        Expand
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <i class="fa fa-arrow-circle-right"></i>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+    </div>
+</div>
+
+
+</div>

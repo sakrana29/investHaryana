@@ -1,13 +1,13 @@
 <div ng-cloak>
     <div class="btn-group ">
         <button type="submit"
-                ui-sref="viewprojectdetail({status:0})"
+                ui-sref="viewprojectdetail({status:'All'})"
                 class="btn btn-info ">All Project</button>
         <button type="submit"
-                ui-sref="viewprojectdetail({status:1})"
+                ui-sref="viewprojectdetail({status:'Pending'})"
                 class="btn btn-primary ">Pending</button>
         <button type="submit"
-                ui-sref="viewprojectdetail({status:2})"
+                ui-sref="viewprojectdetail({status:'Completed'})"
                 class="btn btn-danger ">Completed        </button>
     </div>
     <div class="row" >
