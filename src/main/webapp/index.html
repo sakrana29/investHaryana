@@ -10,6 +10,10 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css content/css/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="app/layouts/navbar/layout.css">
+    <link rel="stylesheet" href="app/home/home.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="app/home/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css">
     <!-- endinject -->
@@ -22,16 +26,14 @@
     <!--[if lt IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <page-ribbon></page-ribbon>
+    <!--<page-ribbon></page-ribbon>-->
     <div ui-view="navbar" ng-cloak></div>
-    <div class="container">
-        <div class="well" ui-view="content">
+    <div class="">
+        <div class="" ui-view="content">
             <!-- Angular views -->
         </div>
 
-        <div class="footer" ng-cloak>
-            <p data-translate="footer">This is your footer</p>
-        </div>
+
     </div>
 
     <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
@@ -109,10 +111,10 @@
     <script src="app/layouts/navbar/navbar.controller.js"></script>
     <script src="app/layouts/navbar/active-menu.directive.js"></script>
     <script src="app/layouts/error/error.state.js"></script>
+    <script src="app/home/jquery.min.js"></script>
     <script src="app/home/home.state.js"></script>
     <script src="app/home/home.controller.js"></script>
-    <script src="app/dashboard/dashboard.state.js"></script>
-    <script src="app/dashboard/dashboard.controller.js"></script>
+    <script src="app/home/bootstrap.min.js"></script>
     <script src="app/entities/wwtreatmenttwo/wwtreatmenttwo-dialog.controller.js"></script>
     <script src="app/entities/wwtreatmenttwo/wwtreatmenttwo-detail.controller.js"></script>
     <script src="app/entities/wwtreatmenttwo/wwtreatmenttwo-delete-dialog.controller.js"></script>
@@ -424,6 +426,8 @@
     <script src="app/entities/approvalforms/approvalforms.state.js"></script>
     <script src="app/entities/approvalforms/approvalforms.service.js"></script>
     <script src="app/entities/approvalforms/approvalforms.controller.js"></script>
+    <script src="app/dashboard/dashboard.state.js"></script>
+    <script src="app/dashboard/dashboard.controller.js"></script>
     <script src="app/components/util/truncate-words.filter.js"></script>
     <script src="app/components/util/truncate-characters.filter.js"></script>
     <script src="app/components/util/sort-by.directive.js"></script>

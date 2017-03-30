@@ -1,3 +1,13 @@
+<header class="header-bg" style="background= hdr-bg.png">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-3 col-lg-2 col-md-2 logo"><a href="#"><img src="content/images/logo2.png" alt=""></a></div>
+            <div class="col-xs-12 col-sm-9 col-lg-10 col-md-10 text-center hdr-txt"><img src="content/images/hdr-txt.png" alt="" style="padding-top:20px;"></div>
+        </div>
+    </div>
+</header>
+
+<div class="navigation">
 <nav class="navbar navbar-default" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -8,8 +18,15 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand logo" href="#/" ng-click="vm.collapseNavbar()">
-                <img class="logo-img" src="content/images/logo-jhipster.png" alt="logo"/>
-                <span data-translate="global.title">Investhry</span> <span class="navbar-version">v{{VERSION}}</span>
+                <!--<img class="logo-img" src="content/images/logo2.png" alt="logo"/>-->
+                <!--<span data-translate="global.title">Investhry</span>-->
+                <!--<span class="navbar-version">v{{VERSION}}</span>-->
+                <span ><a href="/"><img src="content/images/haryana-logo.png" style="width:80px;height:44px;margin-top:1px;"></a></span>
+                <span>
+                    <a target="_blank" class="titlnk" href="/Account/Login"><span class="text-danger">Single Roof Clearance System</span><span class="text-danger">S W C S</span></a>
+                </span>
+
+
             </a>
         </div>
         <div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed" ng-switch="vm.isAuthenticated()">
@@ -479,3 +496,4 @@
         </div>
     </div>
 </nav>
+</div>

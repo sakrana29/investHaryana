@@ -1,41 +1,206 @@
 <div ng-cloak>
-    <div class="row">
-        <div class="col-md-4">
-            <span class="hipster img-responsive img-rounded"></span>
-        </div>
-        <div class="col-md-8">
-            <h1 data-translate="home.title">Welcome, Java Hipster!</h1>
-            <p class="lead" data-translate="home.subtitle">This is your homepage</p>
 
-            <div ng-switch="vm.isAuthenticated()">
-                <div class="alert alert-success" ng-switch-when="true" data-translate="home.logged.message" translate-values="{username: '{{vm.account.login}}'}">
-                    You are logged in as user "{{vm.account.login}}".
+        <div class="row">
+            <!---Start Carousel Section--->
+            <div id="myCarousel" class="carousel  slide" data-ride="carousel">
+                <!-- Dot Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
+                    <li data-target="#myCarousel" data-slide-to="4"></li>
+                    <li data-target="#myCarousel" data-slide-to="5"></li>
+                </ol>
+                <!-- Items -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="active item"><img src="content/images/banner-img5.png" class="img-responsive"></div>
+                    <div class="item"><img src="content/images/banner-img6.png" class="img-responsive"></div>
+                    <div class="item"><img src="content/images/banner-img7.png" class="img-responsive"></div>
+                    <div class="item"><img src="content/images/banner-img1.png" class="img-responsive"></div>
+                    <div class="item"><img src="content/images/banner-img3.png" class="img-responsive"></div>
+                    <div class="item"><img src="content/images/banner-img4.png" class="img-responsive"></div>
+                </div>
+                <!-- Navigation -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+            <!---End Carousel Section --->
+
+            <!--Start Latest Update--->
+            <div class="latest-update">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 news-hading"><h3>Latest Updates</h3></div>
+                        <div class="col-xs-12 col-sm-6 col-md-10 col-lg-10">
+
+
+                        <marquee>
+
+                            <h3><a href="/Static/AmendmentBill" class="text-danger">Draft Haryana Enterprises Promotion
+                                (Amendment) Bill 2017</a></h3>
+                        </marquee>
+                        </div>
+
+                        <!-- news scroller -->
+
+                        <!-- /news scroller -->
+                    </div>
+                </div>
+            </div>
+            <!---End Latest Update--->
+
+            <!---Start Service-cont--->
+            <div class="service-cont">
+                <div class="container">
+                    <div class="row">
+
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-center service-1">
+                            <a href="/Static/AttractiveIncentives" target="_blank" style="text-decoration:none;">
+                                <div class="circle-bg"><i class="fa fa-inr fa-2x iconinvestor"></i></div>
+                                <h4>Attractive Incentives</h4>
+
+                            </a>
+
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-center service-1">
+
+                            <a href="/Static/StageWiseClearances" target="_blank" style="text-decoration:none;">
+                                <div class="circle-bg"><i class="fa fa-list fa-2x"></i></div>
+                                <h4>Clearances under one roof</h4>
+                            </a>
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-center service-1">
+                            <a target="_blank" href="/Account/Login" style="text-decoration:none;">
+                                <div class="circle-bg"><i class="fa fa-map-marker fa-2x iconhaveland"></i></div>
+                                <h4>Single Roof Clearance System</h4>
+                            </a>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 text-center service-1">
+                            <a href="/KnowYourClearence/IntroductoryQuestions" target="_blank"
+                               style="text-decoration:none;">
+                                <div class="circle-bg">
+
+                                    <i class="fa fa-file-text-o fa-2x iconbank"></i>
+                                </div>
+
+                                <h4>Know Your Clearances</h4>
+                            </a>
+
+                        </div>
+
+                    </div>
                 </div>
 
-                <div class="alert alert-warning" ng-switch-when="false" data-translate="global.messages.info.authenticated" translate-compile>
-                    If you want to <a class="alert-link" href="" ng-click="vm.login()">sign in</a>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").
-                </div>
+            </div>
+            <!---End Service-cont--->
 
-                <div class="alert alert-warning" ng-switch-when="false" data-translate="global.messages.info.register" translate-compile>
-                    You don't have an account yet? <a class="alert-link" ui-sref="register">Register a new account</a>
+            <!---Start Preferred Investment---->
+
+            <div class="container">
+                <div class="row">
+                    <h3 class="text-center">Preferred Investment Destination</h3>
+                    <div class="col-lg-3">
+                        <div class="panel panel-success">
+                            <!--<a href="#">-->
+                            <div class="panel-heading">
+                                <div class="row text-center">
+                                    <i class="fa fa-plug icon fa-4x"></i> </br> </br>
+                                    <h2> Adequate Power Supply </h2>
+                                </div>
+                            </div>
+                            <!--</a>-->
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="panel panel-danger">
+                            <!--<a href="#">-->
+                            <div class="panel-heading">
+                                <div class="row text-center">
+                                    <i class="fa fa-plane icon fa-4x"></i> <br/> </br>
+                                    <h2>Seamless Connectivity</h2>
+                                </div>
+                            </div>
+                            <!--</a>-->
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="panel panel-info">
+                            <!--<a href="#">-->
+                            <div class="panel-heading">
+                                <div class="row text-center">
+                                    <i class="fa fa-comments icon fa-4x"></i> <br/> <br/>
+                                    <h2> Modern Social Infrastructure </h2>
+                                </div>
+                            </div>
+                            <!--</a>-->
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="panel panel-warning">
+                            <!--<a href="#">-->
+                            <div class="panel-heading">
+                                <div class="row text-center">
+                                    <i class="fa fa-graduation-cap icon fa-4x"></i> <br/> <br/>
+                                    <h2> Dynamic Human Capital </h2>
+                                </div>
+                            </div>
+                            <!--</a>-->
+                        </div>
+                    </div>
+
+                </div><!-- /.row -->
+            </div>
+
+            <!---End Preferred Investment--->
+
+
+            <!--- Start Message--->
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+                        <div class="row">
+                            <div class="welcome-txt">
+                                <h1>Message from <span>CM Haryana</span></h1>
+                                <p>“Our Enterprise Promotion Policy, 2015 is truly path breaking. It assures a New Industrial Regulation By Automatic Approvals and Delegation in Haryana so that enterprises can run in a NIRBAADH manner. It reflects our commitment to make business competitive by providing a FINE environment of Financial Incentives and No Enhancements. I am hopeful that a whole generation of PRANETAs would come up through our scheme for Professional and New Entrepreneurs' Task Assistance and lead to the long overdue VISTAAR of enterprises across the sacred land of Gita. Come, invest in Haryana. We aim to kick start Haryana's economy by achieving 8% GDP growth, generate more than 4 lakhs jobs and attract investments of one lakh crore”. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="pull-right" href="/Static/MessageCM" style="text-decoration:none;">Read more...</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                        <div class="row">
+                            <ul class="investor-box">
+                                <li>
+                                    <i class="fa fa-sign-in icon2 fa-3x"></i>
+                                    <a target="_blank" href="app/account/register/register" style="text-decoration:none;">New Investor Signup</a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-user icon2 fa-3x"></i>
+                                    <a target="_blank" href="/Account/Login" style="text-decoration:none;">Existing Investor Login</a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-user-secret icon2 fa-3x"></i>
+                                    <a target="_blank" href="/Account/Login" style="text-decoration:none;">Department Login</a>
+                                </li>
+                                <li><i class="fa fa-industry icon2 fa-4x"></i><a href="#" style="text-decoration:none;">Happening Haryana - 2016</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <p data-translate="home.question">
-                If you have any question on JHipster:
-            </p>
+            <!---End Message --->
 
-            <ul>
-                <li><a href="http://jhipster.github.io/" target="_blank" data-translate="home.link.homepage">JHipster homepage</a></li>
-                <li><a href="http://stackoverflow.com/tags/jhipster/info" target="_blank" data-translate="home.link.stackoverflow">JHipster on Stack Overflow</a></li>
-                <li><a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" data-translate="home.link.bugtracker">JHipster bug tracker</a></li>
-                <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" data-translate="home.link.chat">JHipster public chat room</a></li>
-                <li><a href="https://twitter.com/java_hipster" target="_blank"  data-translate="home.link.follow">follow @java_hipster on Twitter</a></li>
-            </ul>
 
-            <p>
-             <span data-translate="home.like">If you like JHipster, don't forget to give us a star on </span>&nbsp;<a href="https://github.com/jhipster/generator-jhipster" target="_blank" data-translate="home.github">Github</a>!
-            </p>
         </div>
-    </div>
+
 </div>
