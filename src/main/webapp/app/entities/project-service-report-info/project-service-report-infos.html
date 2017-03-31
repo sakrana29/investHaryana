@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <h2 data-translate="investhryApp.projectServiceReportInfo.home.title">Project Service Report Infos</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
@@ -78,19 +78,5 @@
                 </tr>
             </tbody>
         </table>
-
-
-        <label>Search: <input ng-model="searchText"></label>
-        <table id="searchTextResults">
-            <tr><th>Id</th><th>Project type</th></tr>
-            <tr ng-repeat="projectServiceReportInfo in vm.projectServiceReportInfos track by projectServiceReportInfo.id | filter: searchText">
-                <td><a ui-sref="project-service-report-info-detail({id:projectServiceReportInfo.id})">{{projectServiceReportInfo.id}}</a></td>
-                <td>{{projectServiceReportInfo.projectid}}</td>
-                <td>{{projectServiceReportInfo.projecttype}}</td>
-        </table>
-
     </div>
-
-
-
 </div>
