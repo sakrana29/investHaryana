@@ -47,14 +47,6 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "moudocument",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "investorpicpath",
-            "fieldType": "String"
-        },
-        {
             "fieldName": "userlogin",
             "fieldType": "String"
         },
@@ -69,6 +61,30 @@
         {
             "fieldName": "statename",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "pincode",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "phonenumber",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "mobilenumber",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "cafpin",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "createdate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "updatedate",
+            "fieldType": "ZonedDateTime"
         }
     ],
     "changelogDate": "20170313084828",

@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <h2 data-translate="investhryApp.projectsitedetail.home.title">Projectsitedetails</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
@@ -19,9 +19,7 @@
             <thead>
                 <tr>
                     <th><span data-translate="global.field.id">ID</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.projectid">Projectid</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.siteaddress">Siteaddress</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.tehsil_subtehsil">Tehsil Subtehsil</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.multyvillageinvolved">Multyvillageinvolved</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.villageinvolved">Villageinvolved</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.falls_in_aravalli">Falls In Aravalli</span></th>
@@ -46,33 +44,22 @@
                     <th><span data-translate="investhryApp.projectsitedetail.confirmitylanduse">Confirmitylanduse</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.existing_building_applicable">Existing Building Applicable</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.site_situated_in_controlled_area">Site Situated In Controlled Area</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.khasra_document">Khasra Document</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.revenu_shajra_document">Revenu Shajra Document</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.jamabandi">Jamabandi</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.nonencumbrance_certificate">Nonencumbrance Certificate</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.ownership_document">Ownership Document</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.lease_document">Lease Document</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.landagreement_document">Landagreement Document</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.sitelayoutplan">Sitelayoutplan</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.locationplan">Locationplan</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.linearstripplan">Linearstripplan</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.sitesituated_document">Sitesituated Document</span></th>
-                    <th><span data-translate="investhryApp.projectsitedetail.controlledarea_document">Controlledarea Document</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.buildingexisted">Buildingexisted</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.district">District</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.block">Block</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.city_town_village">City Town Village</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.connectingroad">Connectingroad</span></th>
                     <th><span data-translate="investhryApp.projectsitedetail.landzoneuse_type">Landzoneuse Type</span></th>
+                    <th><span data-translate="investhryApp.projectsitedetail.tehsil_subtehsil">Tehsil Subtehsil</span></th>
+                    <th><span data-translate="investhryApp.projectsitedetail.createdate">Createdate</span></th>
+                    <th><span data-translate="investhryApp.projectsitedetail.updatedate">Updatedate</span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="projectsitedetail in vm.projectsitedetails track by projectsitedetail.id">
                     <td><a ui-sref="projectsitedetail-detail({id:projectsitedetail.id})">{{projectsitedetail.id}}</a></td>
-                    <td>{{projectsitedetail.projectid}}</td>
                     <td>{{projectsitedetail.siteaddress}}</td>
-                    <td>{{projectsitedetail.tehsil_subtehsil}}</td>
                     <td>{{projectsitedetail.multyvillageinvolved}}</td>
                     <td>{{projectsitedetail.villageinvolved}}</td>
                     <td>{{projectsitedetail.falls_in_aravalli}}</td>
@@ -97,24 +84,15 @@
                     <td>{{projectsitedetail.confirmitylanduse}}</td>
                     <td>{{projectsitedetail.existing_building_applicable}}</td>
                     <td>{{projectsitedetail.site_situated_in_controlled_area}}</td>
-                    <td>{{projectsitedetail.khasra_document}}</td>
-                    <td>{{projectsitedetail.revenu_shajra_document}}</td>
-                    <td>{{projectsitedetail.jamabandi}}</td>
-                    <td>{{projectsitedetail.nonencumbrance_certificate}}</td>
-                    <td>{{projectsitedetail.ownership_document}}</td>
-                    <td>{{projectsitedetail.lease_document}}</td>
-                    <td>{{projectsitedetail.landagreement_document}}</td>
-                    <td>{{projectsitedetail.sitelayoutplan}}</td>
-                    <td>{{projectsitedetail.locationplan}}</td>
-                    <td>{{projectsitedetail.linearstripplan}}</td>
-                    <td>{{projectsitedetail.sitesituated_document}}</td>
-                    <td>{{projectsitedetail.controlledarea_document}}</td>
                     <td>{{projectsitedetail.buildingexisted}}</td>
                     <td>{{projectsitedetail.district}}</td>
                     <td>{{projectsitedetail.block}}</td>
                     <td>{{projectsitedetail.city_town_village}}</td>
                     <td>{{projectsitedetail.connectingroad}}</td>
                     <td>{{projectsitedetail.landzoneuse_type}}</td>
+                    <td>{{projectsitedetail.tehsil_subtehsil}}</td>
+                    <td>{{projectsitedetail.createdate | date:'medium'}}</td>
+                    <td>{{projectsitedetail.updatedate | date:'medium'}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

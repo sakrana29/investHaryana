@@ -3,6 +3,7 @@ package com.hartron.investharyana.domain;
 import com.datastax.driver.mapping.annotations.*;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -17,8 +18,6 @@ public class Environment_impactdetail implements Serializable {
 
     @PartitionKey
     private UUID id;
-
-    private UUID projectid;
 
     private Integer water_process;
 
@@ -36,19 +35,25 @@ public class Environment_impactdetail implements Serializable {
 
     private Integer waste_water_other;
 
-    private String waste_water_treatment;
-
-    private String document_attached;
-
-    private String other;
-
     private String source_of_water_supply;
 
     private String mode_of_disposal_for_discharge;
 
-    private String emissionname;
+    private String recycling_process;
 
-    private String wastewaterdetailid;
+    private String recycling_cooling;
+
+    private String recycling_domestic;
+
+    private String recycling_other;
+
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
+
+    private String sourcewatersupplyother;
+
+    private String modedisposalother;
 
     public UUID getId() {
         return id;
@@ -56,19 +61,6 @@ public class Environment_impactdetail implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public UUID getProjectid() {
-        return projectid;
-    }
-
-    public Environment_impactdetail projectid(UUID projectid) {
-        this.projectid = projectid;
-        return this;
-    }
-
-    public void setProjectid(UUID projectid) {
-        this.projectid = projectid;
     }
 
     public Integer getWater_process() {
@@ -175,45 +167,6 @@ public class Environment_impactdetail implements Serializable {
         this.waste_water_other = waste_water_other;
     }
 
-    public String getWaste_water_treatment() {
-        return waste_water_treatment;
-    }
-
-    public Environment_impactdetail waste_water_treatment(String waste_water_treatment) {
-        this.waste_water_treatment = waste_water_treatment;
-        return this;
-    }
-
-    public void setWaste_water_treatment(String waste_water_treatment) {
-        this.waste_water_treatment = waste_water_treatment;
-    }
-
-    public String getDocument_attached() {
-        return document_attached;
-    }
-
-    public Environment_impactdetail document_attached(String document_attached) {
-        this.document_attached = document_attached;
-        return this;
-    }
-
-    public void setDocument_attached(String document_attached) {
-        this.document_attached = document_attached;
-    }
-
-    public String getOther() {
-        return other;
-    }
-
-    public Environment_impactdetail other(String other) {
-        this.other = other;
-        return this;
-    }
-
-    public void setOther(String other) {
-        this.other = other;
-    }
-
     public String getSource_of_water_supply() {
         return source_of_water_supply;
     }
@@ -240,30 +193,108 @@ public class Environment_impactdetail implements Serializable {
         this.mode_of_disposal_for_discharge = mode_of_disposal_for_discharge;
     }
 
-    public String getEmissionname() {
-        return emissionname;
+    public String getRecycling_process() {
+        return recycling_process;
     }
 
-    public Environment_impactdetail emissionname(String emissionname) {
-        this.emissionname = emissionname;
+    public Environment_impactdetail recycling_process(String recycling_process) {
+        this.recycling_process = recycling_process;
         return this;
     }
 
-    public void setEmissionname(String emissionname) {
-        this.emissionname = emissionname;
+    public void setRecycling_process(String recycling_process) {
+        this.recycling_process = recycling_process;
     }
 
-    public String getWastewaterdetailid() {
-        return wastewaterdetailid;
+    public String getRecycling_cooling() {
+        return recycling_cooling;
     }
 
-    public Environment_impactdetail wastewaterdetailid(String wastewaterdetailid) {
-        this.wastewaterdetailid = wastewaterdetailid;
+    public Environment_impactdetail recycling_cooling(String recycling_cooling) {
+        this.recycling_cooling = recycling_cooling;
         return this;
     }
 
-    public void setWastewaterdetailid(String wastewaterdetailid) {
-        this.wastewaterdetailid = wastewaterdetailid;
+    public void setRecycling_cooling(String recycling_cooling) {
+        this.recycling_cooling = recycling_cooling;
+    }
+
+    public String getRecycling_domestic() {
+        return recycling_domestic;
+    }
+
+    public Environment_impactdetail recycling_domestic(String recycling_domestic) {
+        this.recycling_domestic = recycling_domestic;
+        return this;
+    }
+
+    public void setRecycling_domestic(String recycling_domestic) {
+        this.recycling_domestic = recycling_domestic;
+    }
+
+    public String getRecycling_other() {
+        return recycling_other;
+    }
+
+    public Environment_impactdetail recycling_other(String recycling_other) {
+        this.recycling_other = recycling_other;
+        return this;
+    }
+
+    public void setRecycling_other(String recycling_other) {
+        this.recycling_other = recycling_other;
+    }
+
+    public ZonedDateTime getCreatedate() {
+        return createdate;
+    }
+
+    public Environment_impactdetail createdate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+        return this;
+    }
+
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public Environment_impactdetail updatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+        return this;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+    }
+
+    public String getSourcewatersupplyother() {
+        return sourcewatersupplyother;
+    }
+
+    public Environment_impactdetail sourcewatersupplyother(String sourcewatersupplyother) {
+        this.sourcewatersupplyother = sourcewatersupplyother;
+        return this;
+    }
+
+    public void setSourcewatersupplyother(String sourcewatersupplyother) {
+        this.sourcewatersupplyother = sourcewatersupplyother;
+    }
+
+    public String getModedisposalother() {
+        return modedisposalother;
+    }
+
+    public Environment_impactdetail modedisposalother(String modedisposalother) {
+        this.modedisposalother = modedisposalother;
+        return this;
+    }
+
+    public void setModedisposalother(String modedisposalother) {
+        this.modedisposalother = modedisposalother;
     }
 
     @Override
@@ -290,7 +321,6 @@ public class Environment_impactdetail implements Serializable {
     public String toString() {
         return "Environment_impactdetail{" +
             "id=" + id +
-            ", projectid='" + projectid + "'" +
             ", water_process='" + water_process + "'" +
             ", water_cooling='" + water_cooling + "'" +
             ", water_domestic='" + water_domestic + "'" +
@@ -299,13 +329,16 @@ public class Environment_impactdetail implements Serializable {
             ", waste_water_cooling='" + waste_water_cooling + "'" +
             ", waste_water_domesting='" + waste_water_domesting + "'" +
             ", waste_water_other='" + waste_water_other + "'" +
-            ", waste_water_treatment='" + waste_water_treatment + "'" +
-            ", document_attached='" + document_attached + "'" +
-            ", other='" + other + "'" +
             ", source_of_water_supply='" + source_of_water_supply + "'" +
             ", mode_of_disposal_for_discharge='" + mode_of_disposal_for_discharge + "'" +
-            ", emissionname='" + emissionname + "'" +
-            ", wastewaterdetailid='" + wastewaterdetailid + "'" +
+            ", recycling_process='" + recycling_process + "'" +
+            ", recycling_cooling='" + recycling_cooling + "'" +
+            ", recycling_domestic='" + recycling_domestic + "'" +
+            ", recycling_other='" + recycling_other + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
+            ", sourcewatersupplyother='" + sourcewatersupplyother + "'" +
+            ", modedisposalother='" + modedisposalother + "'" +
             '}';
     }
 }

@@ -15,9 +15,7 @@
             "detail": {
                 "title": "Projectsitedetail"
             },
-            "projectid": "Projectid",
             "siteaddress": "Siteaddress",
-            "tehsil_subtehsil": "Tehsil Subtehsil",
             "multyvillageinvolved": "Multyvillageinvolved",
             "villageinvolved": "Villageinvolved",
             "falls_in_aravalli": "Falls In Aravalli",
@@ -42,24 +40,15 @@
             "confirmitylanduse": "Confirmitylanduse",
             "existing_building_applicable": "Existing Building Applicable",
             "site_situated_in_controlled_area": "Site Situated In Controlled Area",
-            "khasra_document": "Khasra Document",
-            "revenu_shajra_document": "Revenu Shajra Document",
-            "jamabandi": "Jamabandi",
-            "nonencumbrance_certificate": "Nonencumbrance Certificate",
-            "ownership_document": "Ownership Document",
-            "lease_document": "Lease Document",
-            "landagreement_document": "Landagreement Document",
-            "sitelayoutplan": "Sitelayoutplan",
-            "locationplan": "Locationplan",
-            "linearstripplan": "Linearstripplan",
-            "sitesituated_document": "Sitesituated Document",
-            "controlledarea_document": "Controlledarea Document",
             "buildingexisted": "Buildingexisted",
             "district": "District",
             "block": "Block",
             "city_town_village": "City Town Village",
             "connectingroad": "Connectingroad",
-            "landzoneuse_type": "Landzoneuse Type"
+            "landzoneuse_type": "Landzoneuse Type",
+            "tehsil_subtehsil": "Tehsil Subtehsil",
+            "createdate": "Createdate",
+            "updatedate": "Updatedate"
         }
     }
 }

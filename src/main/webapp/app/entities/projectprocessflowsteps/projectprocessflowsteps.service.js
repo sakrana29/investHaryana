@@ -4,9 +4,9 @@
         .module('investhryApp')
         .factory('Projectprocessflowsteps', Projectprocessflowsteps);
 
-    Projectprocessflowsteps.$inject = ['$resource'];
+    Projectprocessflowsteps.$inject = ['$resource', 'DateUtils'];
 
-    function Projectprocessflowsteps ($resource) {
+    function Projectprocessflowsteps ($resource, DateUtils) {
         var resourceUrl =  'api/projectprocessflowsteps/:id';
 
         return $resource(resourceUrl, {}, {
@@ -16,6 +16,8 @@
                 transformResponse: function (data) {
                     if (data) {
                         data = angular.fromJson(data);
+                        data.createdate = DateUtils.convertDateTimeFromServer(data.createdate);
+                        data.updatedate = DateUtils.convertDateTimeFromServer(data.updatedate);
                     }
                     return data;
                 }

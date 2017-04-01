@@ -15,11 +15,11 @@
             "detail": {
                 "title": "Term Declaration Accept"
             },
-            "projectid": "Projectid",
             "acceptance": "Acceptance",
             "applicationdate": "Applicationdate",
             "place": "Place",
-            "signature": "Signature"
+            "createdate": "Createdate",
+            "updatedate": "Updatedate"
         }
     }
 }

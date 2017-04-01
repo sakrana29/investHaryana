@@ -5,9 +5,9 @@
         .module('investhryApp')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
+    DashboardController.$inject = ['$scope', 'Principal', 'LoginService', '$state','DepartmentStats'];
 
-    function DashboardController ($scope, Principal, LoginService, $state) {
+    function DashboardController ($scope, Principal, LoginService, $state,DepartmentStats) {
         var vm = this;
 
         vm.account = null;
@@ -19,6 +19,19 @@
         });
 
         getAccount();
+
+
+        loadAll();
+
+        function loadAll() {
+            DepartmentStats.query(function(result) {
+                vm.departmentstatcollection = result;
+                console.log(vm.departmentstatcollection);
+                vm.searchQuery = null;
+            });
+        }
+
+
 
         function getAccount() {
             Principal.identity().then(function(account) {

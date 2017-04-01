@@ -7,6 +7,7 @@ import com.datastax.driver.mapping.Mapper;
 import com.datastax.driver.mapping.MappingManager;
 import org.springframework.stereotype.Repository;
 
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -39,10 +40,11 @@ public class ProjectrawmaterialRepository {
             row -> {
                 Projectrawmaterial projectrawmaterial = new Projectrawmaterial();
                 projectrawmaterial.setId(row.getUUID("id"));
-                projectrawmaterial.setProjectid(row.getUUID("projectid"));
                 projectrawmaterial.setRawmaterial(row.getString("rawmaterial"));
                 projectrawmaterial.setQuantity(row.getInt("quantity"));
                 projectrawmaterial.setUnits(row.getString("units"));
+                projectrawmaterial.setCreatedate(row.get("createdate", ZonedDateTime.class));
+                projectrawmaterial.setUpdatedate(row.get("updatedate", ZonedDateTime.class));
                 return projectrawmaterial;
             }
         ).forEach(projectrawmaterialsList::add);

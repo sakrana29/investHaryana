@@ -1,6 +1,7 @@
 package com.hartron.investharyana.service.dto;
 
 
+import java.time.ZonedDateTime;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -12,13 +13,15 @@ public class ProjectproductDTO implements Serializable {
 
     private UUID id;
 
-    private UUID projectid;
-
     private String mainproduct;
 
     private Integer quantity;
 
     private String units;
+
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
 
     public UUID getId() {
         return id;
@@ -26,13 +29,6 @@ public class ProjectproductDTO implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-    public UUID getProjectid() {
-        return projectid;
-    }
-
-    public void setProjectid(UUID projectid) {
-        this.projectid = projectid;
     }
     public String getMainproduct() {
         return mainproduct;
@@ -54,6 +50,20 @@ public class ProjectproductDTO implements Serializable {
 
     public void setUnits(String units) {
         this.units = units;
+    }
+    public ZonedDateTime getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
     }
 
     @Override
@@ -81,10 +91,11 @@ public class ProjectproductDTO implements Serializable {
     public String toString() {
         return "ProjectproductDTO{" +
             "id=" + id +
-            ", projectid='" + projectid + "'" +
             ", mainproduct='" + mainproduct + "'" +
             ", quantity='" + quantity + "'" +
             ", units='" + units + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
             '}';
     }
 }

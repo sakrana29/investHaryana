@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <h2 data-translate="investhryApp.projectdetail.home.title">Projectdetails</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
@@ -23,17 +23,15 @@
                     <th><span data-translate="investhryApp.projectdetail.niccode">Niccode</span></th>
                     <th><span data-translate="investhryApp.projectdetail.existing_regulatory_approval">Existing Regulatory Approval</span></th>
                     <th><span data-translate="investhryApp.projectdetail.edc_sif_clu_fee_paid_applicable">Edc Sif Clu Fee Paid Applicable</span></th>
-                    <th><span data-translate="investhryApp.projectdetail.detail_project_report">Detail Project Report</span></th>
-                    <th><span data-translate="investhryApp.projectdetail.approval_document">Approval Document</span></th>
-                    <th><span data-translate="investhryApp.projectdetail.edc_sif_clu_fee_paid_document">Edc Sif Clu Fee Paid Document</span></th>
-                    <th><span data-translate="investhryApp.projectdetail.investorid">Investorid</span></th>
                     <th><span data-translate="investhryApp.projectdetail.approval_application_form">Approval Application Form</span></th>
                     <th><span data-translate="investhryApp.projectdetail.category_of_project">Category Of Project</span></th>
                     <th><span data-translate="investhryApp.projectdetail.collaboration_with_foreign_country">Collaboration With Foreign Country</span></th>
                     <th><span data-translate="investhryApp.projectdetail.projectype">Projectype</span></th>
                     <th><span data-translate="investhryApp.projectdetail.sectorname">Sectorname</span></th>
                     <th><span data-translate="investhryApp.projectdetail.size_of_industry">Size Of Industry</span></th>
-                    <th><span data-translate="investhryApp.projectdetail.cafPIN">Caf PIN</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.createdate">Createdate</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.updatedate">Updatedate</span></th>
+                    <th><span data-translate="investhryApp.projectdetail.sectorother">Sectorother</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -44,17 +42,15 @@
                     <td>{{projectdetail.niccode}}</td>
                     <td>{{projectdetail.existing_regulatory_approval}}</td>
                     <td>{{projectdetail.edc_sif_clu_fee_paid_applicable}}</td>
-                    <td>{{projectdetail.detail_project_report}}</td>
-                    <td>{{projectdetail.approval_document}}</td>
-                    <td>{{projectdetail.edc_sif_clu_fee_paid_document}}</td>
-                    <td>{{projectdetail.investorid}}</td>
                     <td>{{projectdetail.approval_application_form}}</td>
                     <td>{{projectdetail.category_of_project}}</td>
                     <td>{{projectdetail.collaboration_with_foreign_country}}</td>
                     <td>{{projectdetail.projectype}}</td>
                     <td>{{projectdetail.sectorname}}</td>
                     <td>{{projectdetail.size_of_industry}}</td>
-                    <td>{{projectdetail.cafPIN}}</td>
+                    <td>{{projectdetail.createdate | date:'medium'}}</td>
+                    <td>{{projectdetail.updatedate | date:'medium'}}</td>
+                    <td>{{projectdetail.sectorother}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

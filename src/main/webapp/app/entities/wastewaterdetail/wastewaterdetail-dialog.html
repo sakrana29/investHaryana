@@ -14,12 +14,6 @@
                     ng-model="vm.wastewaterdetail.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.wastewaterdetail.projectid" for="field_projectid">Projectid</label>
-            <input type="text" class="form-control" name="projectid" id="field_projectid"
-                    ng-model="vm.wastewaterdetail.projectid"
-                    />
-        </div>
-        <div class="form-group">
             <label class="control-label" data-translate="investhryApp.wastewaterdetail.source_of_generation" for="field_source_of_generation">Source Of Generation</label>
             <input type="text" class="form-control" name="source_of_generation" id="field_source_of_generation"
                     ng-model="vm.wastewaterdetail.source_of_generation"
@@ -29,12 +23,6 @@
             <label class="control-label" data-translate="investhryApp.wastewaterdetail.quantity" for="field_quantity">Quantity</label>
             <input type="number" class="form-control" name="quantity" id="field_quantity"
                     ng-model="vm.wastewaterdetail.quantity"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.wastewaterdetail.description" for="field_description">Description</label>
-            <input type="text" class="form-control" name="description" id="field_description"
-                    ng-model="vm.wastewaterdetail.description"
                     />
         </div>
         <div class="form-group">
@@ -49,6 +37,26 @@
                     ng-model="vm.wastewaterdetail.mode_of_disposal"
                     />
         </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.wastewaterdetail.createdate" for="field_createdate">Createdate</label>
+                <div class="input-group">
+                    <input id="field_createdate" type="text" class="form-control" name="createdate" datetime-picker="{{dateformat}}" ng-model="vm.wastewaterdetail.createdate" is-open="vm.datePickerOpenStatus.createdate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('createdate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.wastewaterdetail.updatedate" for="field_updatedate">Updatedate</label>
+                <div class="input-group">
+                    <input id="field_updatedate" type="text" class="form-control" name="updatedate" datetime-picker="{{dateformat}}" ng-model="vm.wastewaterdetail.updatedate" is-open="vm.datePickerOpenStatus.updatedate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('updatedate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
 
     </div>
     <div class="modal-footer">
@@ -60,4 +68,3 @@
         </button>
     </div>
 </form>
-

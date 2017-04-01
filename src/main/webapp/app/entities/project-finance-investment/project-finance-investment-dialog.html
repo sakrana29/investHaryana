@@ -14,12 +14,6 @@
                     ng-model="vm.project_finance_investment.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.project_finance_investment.projectid" for="field_projectid">Projectid</label>
-            <input type="text" class="form-control" name="projectid" id="field_projectid"
-                    ng-model="vm.project_finance_investment.projectid"
-                    />
-        </div>
-        <div class="form-group">
             <label class="control-label" data-translate="investhryApp.project_finance_investment.land_cost" for="field_land_cost">Land Cost</label>
             <input type="number" class="form-control" name="land_cost" id="field_land_cost"
                     ng-model="vm.project_finance_investment.land_cost"
@@ -82,12 +76,6 @@
                 </div>
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.project_finance_investment.proposedproject_scheduleid" for="field_proposedproject_scheduleid">Proposedproject Scheduleid</label>
-            <input type="text" class="form-control" name="proposedproject_scheduleid" id="field_proposedproject_scheduleid"
-                    ng-model="vm.project_finance_investment.proposedproject_scheduleid"
-                    />
-        </div>
-        <div class="form-group">
             <label class="control-label" data-translate="investhryApp.project_finance_investment.fdi_country" for="field_fdi_country">Fdi Country</label>
             <input type="text" class="form-control" name="fdi_country" id="field_fdi_country"
                     ng-model="vm.project_finance_investment.fdi_country"
@@ -98,6 +86,32 @@
             <input type="text" class="form-control" name="foreign_funding_source" id="field_foreign_funding_source"
                     ng-model="vm.project_finance_investment.foreign_funding_source"
                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.project_finance_investment.totalpurposedemployment" for="field_totalpurposedemployment">Totalpurposedemployment</label>
+            <input type="number" class="form-control" name="totalpurposedemployment" id="field_totalpurposedemployment"
+                    ng-model="vm.project_finance_investment.totalpurposedemployment"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.project_finance_investment.createdate" for="field_createdate">Createdate</label>
+                <div class="input-group">
+                    <input id="field_createdate" type="text" class="form-control" name="createdate" datetime-picker="{{dateformat}}" ng-model="vm.project_finance_investment.createdate" is-open="vm.datePickerOpenStatus.createdate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('createdate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.project_finance_investment.updatedate" for="field_updatedate">Updatedate</label>
+                <div class="input-group">
+                    <input id="field_updatedate" type="text" class="form-control" name="updatedate" datetime-picker="{{dateformat}}" ng-model="vm.project_finance_investment.updatedate" is-open="vm.datePickerOpenStatus.updatedate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('updatedate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
         </div>
 
     </div>

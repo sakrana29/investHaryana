@@ -15,7 +15,6 @@
             "detail": {
                 "title": "Electricrequirement"
             },
-            "projectid": "Projectid",
             "temporaryrequired": "Temporaryrequired",
             "tem_load_existing": "Tem Load Existing",
             "tem_account_number": "Tem Account Number",
@@ -26,15 +25,15 @@
             "temp_load_demand_date": "Temp Load Demand Date",
             "regular_load_required": "Regular Load Required",
             "regular_existing_connection": "Regular Existing Connection",
-            "customertype": "Customertype",
             "regular_account_number": "Regular Account Number",
             "regular_existing_load_ifany_kw": "Regular Existing Load Ifany Kw",
             "regular_existing_load_ifany_kva": "Regular Existing Load Ifany Kva",
             "regular_new_load_demand_kw": "Regular New Load Demand Kw",
             "regular_new_load_demand_kva": "Regular New Load Demand Kva",
             "regular_load_demand_date": "Regular Load Demand Date",
-            "temporaryconnection": "Temporaryconnection",
-            "regular_connection_doc": "Regular Connection Doc"
+            "customertype": "Customertype",
+            "createdate": "Createdate",
+            "updatedate": "Updatedate"
         }
     }
 }

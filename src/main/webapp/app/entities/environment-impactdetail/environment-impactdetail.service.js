@@ -4,9 +4,9 @@
         .module('investhryApp')
         .factory('Environment_impactdetail', Environment_impactdetail);
 
-    Environment_impactdetail.$inject = ['$resource'];
+    Environment_impactdetail.$inject = ['$resource', 'DateUtils'];
 
-    function Environment_impactdetail ($resource) {
+    function Environment_impactdetail ($resource, DateUtils) {
         var resourceUrl =  'api/environment-impactdetails/:id';
 
         return $resource(resourceUrl, {}, {
@@ -16,6 +16,8 @@
                 transformResponse: function (data) {
                     if (data) {
                         data = angular.fromJson(data);
+                        data.createdate = DateUtils.convertDateTimeFromServer(data.createdate);
+                        data.updatedate = DateUtils.convertDateTimeFromServer(data.updatedate);
                     }
                     return data;
                 }

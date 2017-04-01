@@ -25,13 +25,13 @@ public class Project_phaseRepository {
 
     private PreparedStatement findAllStmt;
 
+    private PreparedStatement truncateStmt;
+
     private PreparedStatement findAllByProjectStmt;
 
     private PreparedStatement insertByProjectStmt;
 
     private PreparedStatement deleteByProjectStmt;
-
-    private PreparedStatement truncateStmt;
 
     public Project_phaseRepository(Session session) {
         this.session = session;
@@ -64,6 +64,8 @@ public class Project_phaseRepository {
                 project_phase.setProductcategory(row.getString("productcategory"));
                 project_phase.setFci(row.getString("fci"));
                 project_phase.setImplementationdate(row.get("implementationdate", ZonedDateTime.class));
+                project_phase.setCreatedate(row.get("createdate", ZonedDateTime.class));
+                project_phase.setUpdatedate(row.get("updatedate", ZonedDateTime.class));
                 return project_phase;
             }
         ).forEach(project_phasesList::add);
@@ -83,14 +85,15 @@ public class Project_phaseRepository {
         ResultSet rs = session.execute(stmt);
         List<Project_phase> project_phaseList=new ArrayList<>();
         while (!(rs.isExhausted())) {
-        Project_phase project_phase=new Project_phase();
-            project_phase=Optional.ofNullable(rs.one().getUUID("id"))
+            Project_phase project_phase=new Project_phase();
+            project_phase= Optional.ofNullable(rs.one().getUUID("id"))
                 .map(id -> Optional.ofNullable(mapper.get(id)))
                 .get().get();
             project_phaseList.add(project_phase);
         }
         return project_phaseList;
     }
+
 
     public Project_phase save(Project_phase project_phase) {
         if (project_phase.getId() == null) {
@@ -109,15 +112,15 @@ public class Project_phaseRepository {
         mapper.delete(id);
     }
 
+    public void deleteAll() {
+        BoundStatement stmt = truncateStmt.bind();
+        session.execute(stmt);
+    }
+
     public void deleteByProject(UUID projectid) {
         BatchStatement batch = new BatchStatement();
         batch.add(deleteByProjectStmt.bind()
             .setUUID("projectid", projectid));
         session.execute(batch);
-    }
-
-    public void deleteAll() {
-        BoundStatement stmt = truncateStmt.bind();
-        session.execute(stmt);
     }
 }

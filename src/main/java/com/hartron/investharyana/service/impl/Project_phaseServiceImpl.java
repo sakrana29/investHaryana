@@ -70,7 +70,6 @@ public class Project_phaseServiceImpl implements Project_phaseService{
 
         return result;
     }
-
     /**
      *  Get one project_phase by id.
      *
@@ -101,5 +100,4 @@ public class Project_phaseServiceImpl implements Project_phaseService{
         log.debug("Request to delete entry from Project_phaseByProject by projectid : {}", projectid);
         project_phaseRepository.deleteByProject(UUID.fromString(projectid));
     }
-
 }

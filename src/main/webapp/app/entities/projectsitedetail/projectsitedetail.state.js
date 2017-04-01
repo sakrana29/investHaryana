@@ -104,9 +104,7 @@
                     resolve: {
                         entity: function () {
                             return {
-                                projectid: null,
                                 siteaddress: null,
-                                tehsil_subtehsil: null,
                                 multyvillageinvolved: null,
                                 villageinvolved: null,
                                 falls_in_aravalli: null,
@@ -131,24 +129,15 @@
                                 confirmitylanduse: null,
                                 existing_building_applicable: null,
                                 site_situated_in_controlled_area: null,
-                                khasra_document: null,
-                                revenu_shajra_document: null,
-                                jamabandi: null,
-                                nonencumbrance_certificate: null,
-                                ownership_document: null,
-                                lease_document: null,
-                                landagreement_document: null,
-                                sitelayoutplan: null,
-                                locationplan: null,
-                                linearstripplan: null,
-                                sitesituated_document: null,
-                                controlledarea_document: null,
                                 buildingexisted: null,
                                 district: null,
                                 block: null,
                                 city_town_village: null,
                                 connectingroad: null,
                                 landzoneuse_type: null,
+                                tehsil_subtehsil: null,
+                                createdate: null,
+                                updatedate: null,
                                 id: null
                             };
                         }

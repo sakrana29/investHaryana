@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <h2 data-translate="investhryApp.project_phase.home.title">Project Phases</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
@@ -24,6 +24,8 @@
                     <th><span data-translate="investhryApp.project_phase.productcategory">Productcategory</span></th>
                     <th><span data-translate="investhryApp.project_phase.fci">Fci</span></th>
                     <th><span data-translate="investhryApp.project_phase.implementationdate">Implementationdate</span></th>
+                    <th><span data-translate="investhryApp.project_phase.createdate">Createdate</span></th>
+                    <th><span data-translate="investhryApp.project_phase.updatedate">Updatedate</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -35,6 +37,8 @@
                     <td>{{project_phase.productcategory}}</td>
                     <td>{{project_phase.fci}}</td>
                     <td>{{project_phase.implementationdate | date:'medium'}}</td>
+                    <td>{{project_phase.createdate | date:'medium'}}</td>
+                    <td>{{project_phase.updatedate | date:'medium'}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

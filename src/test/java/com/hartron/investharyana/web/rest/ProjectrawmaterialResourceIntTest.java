@@ -23,9 +23,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.ZoneOffset;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.UUID;
 
+import static com.hartron.investharyana.web.rest.TestUtil.sameInstant;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -40,9 +45,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = InvesthryApp.class)
 public class ProjectrawmaterialResourceIntTest extends AbstractCassandraTest {
 
-    private static final UUID DEFAULT_PROJECTID = UUID.randomUUID();
-    private static final UUID UPDATED_PROJECTID = UUID.randomUUID();
-
     private static final String DEFAULT_RAWMATERIAL = "AAAAAAAAAA";
     private static final String UPDATED_RAWMATERIAL = "BBBBBBBBBB";
 
@@ -51,6 +53,12 @@ public class ProjectrawmaterialResourceIntTest extends AbstractCassandraTest {
 
     private static final String DEFAULT_UNITS = "AAAAAAAAAA";
     private static final String UPDATED_UNITS = "BBBBBBBBBB";
+
+    private static final ZonedDateTime DEFAULT_CREATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_CREATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+
+    private static final ZonedDateTime DEFAULT_UPDATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_UPDATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
     @Autowired
     private ProjectrawmaterialRepository projectrawmaterialRepository;
@@ -92,10 +100,11 @@ public class ProjectrawmaterialResourceIntTest extends AbstractCassandraTest {
      */
     public static Projectrawmaterial createEntity() {
         Projectrawmaterial projectrawmaterial = new Projectrawmaterial()
-                .projectid(DEFAULT_PROJECTID)
                 .rawmaterial(DEFAULT_RAWMATERIAL)
                 .quantity(DEFAULT_QUANTITY)
-                .units(DEFAULT_UNITS);
+                .units(DEFAULT_UNITS)
+                .createdate(DEFAULT_CREATEDATE)
+                .updatedate(DEFAULT_UPDATEDATE);
         return projectrawmaterial;
     }
 
@@ -121,10 +130,11 @@ public class ProjectrawmaterialResourceIntTest extends AbstractCassandraTest {
         List<Projectrawmaterial> projectrawmaterialList = projectrawmaterialRepository.findAll();
         assertThat(projectrawmaterialList).hasSize(databaseSizeBeforeCreate + 1);
         Projectrawmaterial testProjectrawmaterial = projectrawmaterialList.get(projectrawmaterialList.size() - 1);
-        assertThat(testProjectrawmaterial.getProjectid()).isEqualTo(DEFAULT_PROJECTID);
         assertThat(testProjectrawmaterial.getRawmaterial()).isEqualTo(DEFAULT_RAWMATERIAL);
         assertThat(testProjectrawmaterial.getQuantity()).isEqualTo(DEFAULT_QUANTITY);
         assertThat(testProjectrawmaterial.getUnits()).isEqualTo(DEFAULT_UNITS);
+        assertThat(testProjectrawmaterial.getCreatedate()).isEqualTo(DEFAULT_CREATEDATE);
+        assertThat(testProjectrawmaterial.getUpdatedate()).isEqualTo(DEFAULT_UPDATEDATE);
     }
 
     @Test
@@ -157,10 +167,11 @@ public class ProjectrawmaterialResourceIntTest extends AbstractCassandraTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(projectrawmaterial.getId().toString())))
-            .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())))
             .andExpect(jsonPath("$.[*].rawmaterial").value(hasItem(DEFAULT_RAWMATERIAL.toString())))
             .andExpect(jsonPath("$.[*].quantity").value(hasItem(DEFAULT_QUANTITY)))
-            .andExpect(jsonPath("$.[*].units").value(hasItem(DEFAULT_UNITS.toString())));
+            .andExpect(jsonPath("$.[*].units").value(hasItem(DEFAULT_UNITS.toString())))
+            .andExpect(jsonPath("$.[*].createdate").value(hasItem(sameInstant(DEFAULT_CREATEDATE))))
+            .andExpect(jsonPath("$.[*].updatedate").value(hasItem(sameInstant(DEFAULT_UPDATEDATE))));
     }
 
     @Test
@@ -173,10 +184,11 @@ public class ProjectrawmaterialResourceIntTest extends AbstractCassandraTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(projectrawmaterial.getId().toString()))
-            .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()))
             .andExpect(jsonPath("$.rawmaterial").value(DEFAULT_RAWMATERIAL.toString()))
             .andExpect(jsonPath("$.quantity").value(DEFAULT_QUANTITY))
-            .andExpect(jsonPath("$.units").value(DEFAULT_UNITS.toString()));
+            .andExpect(jsonPath("$.units").value(DEFAULT_UNITS.toString()))
+            .andExpect(jsonPath("$.createdate").value(sameInstant(DEFAULT_CREATEDATE)))
+            .andExpect(jsonPath("$.updatedate").value(sameInstant(DEFAULT_UPDATEDATE)));
     }
 
     @Test
@@ -195,10 +207,11 @@ public class ProjectrawmaterialResourceIntTest extends AbstractCassandraTest {
         // Update the projectrawmaterial
         Projectrawmaterial updatedProjectrawmaterial = projectrawmaterialRepository.findOne(projectrawmaterial.getId());
         updatedProjectrawmaterial
-                .projectid(UPDATED_PROJECTID)
                 .rawmaterial(UPDATED_RAWMATERIAL)
                 .quantity(UPDATED_QUANTITY)
-                .units(UPDATED_UNITS);
+                .units(UPDATED_UNITS)
+                .createdate(UPDATED_CREATEDATE)
+                .updatedate(UPDATED_UPDATEDATE);
         ProjectrawmaterialDTO projectrawmaterialDTO = projectrawmaterialMapper.projectrawmaterialToProjectrawmaterialDTO(updatedProjectrawmaterial);
 
         restProjectrawmaterialMockMvc.perform(put("/api/projectrawmaterials")
@@ -210,10 +223,11 @@ public class ProjectrawmaterialResourceIntTest extends AbstractCassandraTest {
         List<Projectrawmaterial> projectrawmaterialList = projectrawmaterialRepository.findAll();
         assertThat(projectrawmaterialList).hasSize(databaseSizeBeforeUpdate);
         Projectrawmaterial testProjectrawmaterial = projectrawmaterialList.get(projectrawmaterialList.size() - 1);
-        assertThat(testProjectrawmaterial.getProjectid()).isEqualTo(UPDATED_PROJECTID);
         assertThat(testProjectrawmaterial.getRawmaterial()).isEqualTo(UPDATED_RAWMATERIAL);
         assertThat(testProjectrawmaterial.getQuantity()).isEqualTo(UPDATED_QUANTITY);
         assertThat(testProjectrawmaterial.getUnits()).isEqualTo(UPDATED_UNITS);
+        assertThat(testProjectrawmaterial.getCreatedate()).isEqualTo(UPDATED_CREATEDATE);
+        assertThat(testProjectrawmaterial.getUpdatedate()).isEqualTo(UPDATED_UPDATEDATE);
     }
 
     @Test

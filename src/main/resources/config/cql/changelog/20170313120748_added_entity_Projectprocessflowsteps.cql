@@ -1,12 +1,8 @@
 
 CREATE TABLE IF NOT EXISTS projectprocessflowsteps (
     id uuid,
-    projectid uuid,
     steps text,
+    createdate timestamp,
+    updatedate timestamp,
     PRIMARY KEY(id)
-);
-CREATE TABLE IF NOT EXISTS projectprocessflowsteps_By_projectid (
-id uuid,
-projectid uuid,
-PRIMARY KEY(projectid,id)
 );

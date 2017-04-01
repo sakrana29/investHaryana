@@ -23,10 +23,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.ZoneOffset;
+import java.time.ZoneId;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
+import static com.hartron.investharyana.web.rest.TestUtil.sameInstant;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -41,14 +46,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = InvesthryApp.class)
 public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
 
-    private static final UUID DEFAULT_PROJECTID = UUID.randomUUID();
-    private static final UUID UPDATED_PROJECTID = UUID.randomUUID();
-
     private static final String DEFAULT_SITEADDRESS = "AAAAAAAAAA";
     private static final String UPDATED_SITEADDRESS = "BBBBBBBBBB";
-
-    private static final UUID DEFAULT_TEHSIL_SUBTEHSIL = UUID.randomUUID();
-    private static final UUID UPDATED_TEHSIL_SUBTEHSIL = UUID.randomUUID();
 
     private static final Boolean DEFAULT_MULTYVILLAGEINVOLVED = false;
     private static final Boolean UPDATED_MULTYVILLAGEINVOLVED = true;
@@ -122,42 +121,6 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
     private static final Boolean DEFAULT_SITE_SITUATED_IN_CONTROLLED_AREA = false;
     private static final Boolean UPDATED_SITE_SITUATED_IN_CONTROLLED_AREA = true;
 
-    private static final String DEFAULT_KHASRA_DOCUMENT = "AAAAAAAAAA";
-    private static final String UPDATED_KHASRA_DOCUMENT = "BBBBBBBBBB";
-
-    private static final String DEFAULT_REVENU_SHAJRA_DOCUMENT = "AAAAAAAAAA";
-    private static final String UPDATED_REVENU_SHAJRA_DOCUMENT = "BBBBBBBBBB";
-
-    private static final String DEFAULT_JAMABANDI = "AAAAAAAAAA";
-    private static final String UPDATED_JAMABANDI = "BBBBBBBBBB";
-
-    private static final String DEFAULT_NONENCUMBRANCE_CERTIFICATE = "AAAAAAAAAA";
-    private static final String UPDATED_NONENCUMBRANCE_CERTIFICATE = "BBBBBBBBBB";
-
-    private static final String DEFAULT_OWNERSHIP_DOCUMENT = "AAAAAAAAAA";
-    private static final String UPDATED_OWNERSHIP_DOCUMENT = "BBBBBBBBBB";
-
-    private static final String DEFAULT_LEASE_DOCUMENT = "AAAAAAAAAA";
-    private static final String UPDATED_LEASE_DOCUMENT = "BBBBBBBBBB";
-
-    private static final String DEFAULT_LANDAGREEMENT_DOCUMENT = "AAAAAAAAAA";
-    private static final String UPDATED_LANDAGREEMENT_DOCUMENT = "BBBBBBBBBB";
-
-    private static final String DEFAULT_SITELAYOUTPLAN = "AAAAAAAAAA";
-    private static final String UPDATED_SITELAYOUTPLAN = "BBBBBBBBBB";
-
-    private static final String DEFAULT_LOCATIONPLAN = "AAAAAAAAAA";
-    private static final String UPDATED_LOCATIONPLAN = "BBBBBBBBBB";
-
-    private static final String DEFAULT_LINEARSTRIPPLAN = "AAAAAAAAAA";
-    private static final String UPDATED_LINEARSTRIPPLAN = "BBBBBBBBBB";
-
-    private static final String DEFAULT_SITESITUATED_DOCUMENT = "AAAAAAAAAA";
-    private static final String UPDATED_SITESITUATED_DOCUMENT = "BBBBBBBBBB";
-
-    private static final String DEFAULT_CONTROLLEDAREA_DOCUMENT = "AAAAAAAAAA";
-    private static final String UPDATED_CONTROLLEDAREA_DOCUMENT = "BBBBBBBBBB";
-
     private static final String DEFAULT_BUILDINGEXISTED = "AAAAAAAAAA";
     private static final String UPDATED_BUILDINGEXISTED = "BBBBBBBBBB";
 
@@ -175,6 +138,15 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
 
     private static final String DEFAULT_LANDZONEUSE_TYPE = "AAAAAAAAAA";
     private static final String UPDATED_LANDZONEUSE_TYPE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_TEHSIL_SUBTEHSIL = "AAAAAAAAAA";
+    private static final String UPDATED_TEHSIL_SUBTEHSIL = "BBBBBBBBBB";
+
+    private static final ZonedDateTime DEFAULT_CREATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_CREATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+
+    private static final ZonedDateTime DEFAULT_UPDATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_UPDATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
     @Autowired
     private ProjectsitedetailRepository projectsitedetailRepository;
@@ -216,9 +188,7 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
      */
     public static Projectsitedetail createEntity() {
         Projectsitedetail projectsitedetail = new Projectsitedetail()
-                .projectid(DEFAULT_PROJECTID)
                 .siteaddress(DEFAULT_SITEADDRESS)
-                .tehsil_subtehsil(DEFAULT_TEHSIL_SUBTEHSIL)
                 .multyvillageinvolved(DEFAULT_MULTYVILLAGEINVOLVED)
                 .villageinvolved(DEFAULT_VILLAGEINVOLVED)
                 .falls_in_aravalli(DEFAULT_FALLS_IN_ARAVALLI)
@@ -243,24 +213,15 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
                 .confirmitylanduse(DEFAULT_CONFIRMITYLANDUSE)
                 .existing_building_applicable(DEFAULT_EXISTING_BUILDING_APPLICABLE)
                 .site_situated_in_controlled_area(DEFAULT_SITE_SITUATED_IN_CONTROLLED_AREA)
-                .khasra_document(DEFAULT_KHASRA_DOCUMENT)
-                .revenu_shajra_document(DEFAULT_REVENU_SHAJRA_DOCUMENT)
-                .jamabandi(DEFAULT_JAMABANDI)
-                .nonencumbrance_certificate(DEFAULT_NONENCUMBRANCE_CERTIFICATE)
-                .ownership_document(DEFAULT_OWNERSHIP_DOCUMENT)
-                .lease_document(DEFAULT_LEASE_DOCUMENT)
-                .landagreement_document(DEFAULT_LANDAGREEMENT_DOCUMENT)
-                .sitelayoutplan(DEFAULT_SITELAYOUTPLAN)
-                .locationplan(DEFAULT_LOCATIONPLAN)
-                .linearstripplan(DEFAULT_LINEARSTRIPPLAN)
-                .sitesituated_document(DEFAULT_SITESITUATED_DOCUMENT)
-                .controlledarea_document(DEFAULT_CONTROLLEDAREA_DOCUMENT)
                 .buildingexisted(DEFAULT_BUILDINGEXISTED)
                 .district(DEFAULT_DISTRICT)
                 .block(DEFAULT_BLOCK)
                 .city_town_village(DEFAULT_CITY_TOWN_VILLAGE)
                 .connectingroad(DEFAULT_CONNECTINGROAD)
-                .landzoneuse_type(DEFAULT_LANDZONEUSE_TYPE);
+                .landzoneuse_type(DEFAULT_LANDZONEUSE_TYPE)
+                .tehsil_subtehsil(DEFAULT_TEHSIL_SUBTEHSIL)
+                .createdate(DEFAULT_CREATEDATE)
+                .updatedate(DEFAULT_UPDATEDATE);
         return projectsitedetail;
     }
 
@@ -286,9 +247,7 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
         List<Projectsitedetail> projectsitedetailList = projectsitedetailRepository.findAll();
         assertThat(projectsitedetailList).hasSize(databaseSizeBeforeCreate + 1);
         Projectsitedetail testProjectsitedetail = projectsitedetailList.get(projectsitedetailList.size() - 1);
-        assertThat(testProjectsitedetail.getProjectid()).isEqualTo(DEFAULT_PROJECTID);
         assertThat(testProjectsitedetail.getSiteaddress()).isEqualTo(DEFAULT_SITEADDRESS);
-        assertThat(testProjectsitedetail.getTehsil_subtehsil()).isEqualTo(DEFAULT_TEHSIL_SUBTEHSIL);
         assertThat(testProjectsitedetail.isMultyvillageinvolved()).isEqualTo(DEFAULT_MULTYVILLAGEINVOLVED);
         assertThat(testProjectsitedetail.getVillageinvolved()).isEqualTo(DEFAULT_VILLAGEINVOLVED);
         assertThat(testProjectsitedetail.isFalls_in_aravalli()).isEqualTo(DEFAULT_FALLS_IN_ARAVALLI);
@@ -313,24 +272,15 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectsitedetail.isConfirmitylanduse()).isEqualTo(DEFAULT_CONFIRMITYLANDUSE);
         assertThat(testProjectsitedetail.isExisting_building_applicable()).isEqualTo(DEFAULT_EXISTING_BUILDING_APPLICABLE);
         assertThat(testProjectsitedetail.isSite_situated_in_controlled_area()).isEqualTo(DEFAULT_SITE_SITUATED_IN_CONTROLLED_AREA);
-        assertThat(testProjectsitedetail.getKhasra_document()).isEqualTo(DEFAULT_KHASRA_DOCUMENT);
-        assertThat(testProjectsitedetail.getRevenu_shajra_document()).isEqualTo(DEFAULT_REVENU_SHAJRA_DOCUMENT);
-        assertThat(testProjectsitedetail.getJamabandi()).isEqualTo(DEFAULT_JAMABANDI);
-        assertThat(testProjectsitedetail.getNonencumbrance_certificate()).isEqualTo(DEFAULT_NONENCUMBRANCE_CERTIFICATE);
-        assertThat(testProjectsitedetail.getOwnership_document()).isEqualTo(DEFAULT_OWNERSHIP_DOCUMENT);
-        assertThat(testProjectsitedetail.getLease_document()).isEqualTo(DEFAULT_LEASE_DOCUMENT);
-        assertThat(testProjectsitedetail.getLandagreement_document()).isEqualTo(DEFAULT_LANDAGREEMENT_DOCUMENT);
-        assertThat(testProjectsitedetail.getSitelayoutplan()).isEqualTo(DEFAULT_SITELAYOUTPLAN);
-        assertThat(testProjectsitedetail.getLocationplan()).isEqualTo(DEFAULT_LOCATIONPLAN);
-        assertThat(testProjectsitedetail.getLinearstripplan()).isEqualTo(DEFAULT_LINEARSTRIPPLAN);
-        assertThat(testProjectsitedetail.getSitesituated_document()).isEqualTo(DEFAULT_SITESITUATED_DOCUMENT);
-        assertThat(testProjectsitedetail.getControlledarea_document()).isEqualTo(DEFAULT_CONTROLLEDAREA_DOCUMENT);
         assertThat(testProjectsitedetail.getBuildingexisted()).isEqualTo(DEFAULT_BUILDINGEXISTED);
         assertThat(testProjectsitedetail.getDistrict()).isEqualTo(DEFAULT_DISTRICT);
         assertThat(testProjectsitedetail.getBlock()).isEqualTo(DEFAULT_BLOCK);
         assertThat(testProjectsitedetail.getCity_town_village()).isEqualTo(DEFAULT_CITY_TOWN_VILLAGE);
         assertThat(testProjectsitedetail.getConnectingroad()).isEqualTo(DEFAULT_CONNECTINGROAD);
         assertThat(testProjectsitedetail.getLandzoneuse_type()).isEqualTo(DEFAULT_LANDZONEUSE_TYPE);
+        assertThat(testProjectsitedetail.getTehsil_subtehsil()).isEqualTo(DEFAULT_TEHSIL_SUBTEHSIL);
+        assertThat(testProjectsitedetail.getCreatedate()).isEqualTo(DEFAULT_CREATEDATE);
+        assertThat(testProjectsitedetail.getUpdatedate()).isEqualTo(DEFAULT_UPDATEDATE);
     }
 
     @Test
@@ -363,9 +313,7 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(projectsitedetail.getId().toString())))
-            .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())))
             .andExpect(jsonPath("$.[*].siteaddress").value(hasItem(DEFAULT_SITEADDRESS.toString())))
-            .andExpect(jsonPath("$.[*].tehsil_subtehsil").value(hasItem(DEFAULT_TEHSIL_SUBTEHSIL.toString())))
             .andExpect(jsonPath("$.[*].multyvillageinvolved").value(hasItem(DEFAULT_MULTYVILLAGEINVOLVED.booleanValue())))
             .andExpect(jsonPath("$.[*].villageinvolved").value(hasItem(DEFAULT_VILLAGEINVOLVED.toString())))
             .andExpect(jsonPath("$.[*].falls_in_aravalli").value(hasItem(DEFAULT_FALLS_IN_ARAVALLI.booleanValue())))
@@ -390,24 +338,15 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].confirmitylanduse").value(hasItem(DEFAULT_CONFIRMITYLANDUSE.booleanValue())))
             .andExpect(jsonPath("$.[*].existing_building_applicable").value(hasItem(DEFAULT_EXISTING_BUILDING_APPLICABLE.booleanValue())))
             .andExpect(jsonPath("$.[*].site_situated_in_controlled_area").value(hasItem(DEFAULT_SITE_SITUATED_IN_CONTROLLED_AREA.booleanValue())))
-            .andExpect(jsonPath("$.[*].khasra_document").value(hasItem(DEFAULT_KHASRA_DOCUMENT.toString())))
-            .andExpect(jsonPath("$.[*].revenu_shajra_document").value(hasItem(DEFAULT_REVENU_SHAJRA_DOCUMENT.toString())))
-            .andExpect(jsonPath("$.[*].jamabandi").value(hasItem(DEFAULT_JAMABANDI.toString())))
-            .andExpect(jsonPath("$.[*].nonencumbrance_certificate").value(hasItem(DEFAULT_NONENCUMBRANCE_CERTIFICATE.toString())))
-            .andExpect(jsonPath("$.[*].ownership_document").value(hasItem(DEFAULT_OWNERSHIP_DOCUMENT.toString())))
-            .andExpect(jsonPath("$.[*].lease_document").value(hasItem(DEFAULT_LEASE_DOCUMENT.toString())))
-            .andExpect(jsonPath("$.[*].landagreement_document").value(hasItem(DEFAULT_LANDAGREEMENT_DOCUMENT.toString())))
-            .andExpect(jsonPath("$.[*].sitelayoutplan").value(hasItem(DEFAULT_SITELAYOUTPLAN.toString())))
-            .andExpect(jsonPath("$.[*].locationplan").value(hasItem(DEFAULT_LOCATIONPLAN.toString())))
-            .andExpect(jsonPath("$.[*].linearstripplan").value(hasItem(DEFAULT_LINEARSTRIPPLAN.toString())))
-            .andExpect(jsonPath("$.[*].sitesituated_document").value(hasItem(DEFAULT_SITESITUATED_DOCUMENT.toString())))
-            .andExpect(jsonPath("$.[*].controlledarea_document").value(hasItem(DEFAULT_CONTROLLEDAREA_DOCUMENT.toString())))
             .andExpect(jsonPath("$.[*].buildingexisted").value(hasItem(DEFAULT_BUILDINGEXISTED.toString())))
             .andExpect(jsonPath("$.[*].district").value(hasItem(DEFAULT_DISTRICT.toString())))
             .andExpect(jsonPath("$.[*].block").value(hasItem(DEFAULT_BLOCK.toString())))
             .andExpect(jsonPath("$.[*].city_town_village").value(hasItem(DEFAULT_CITY_TOWN_VILLAGE.toString())))
             .andExpect(jsonPath("$.[*].connectingroad").value(hasItem(DEFAULT_CONNECTINGROAD.toString())))
-            .andExpect(jsonPath("$.[*].landzoneuse_type").value(hasItem(DEFAULT_LANDZONEUSE_TYPE.toString())));
+            .andExpect(jsonPath("$.[*].landzoneuse_type").value(hasItem(DEFAULT_LANDZONEUSE_TYPE.toString())))
+            .andExpect(jsonPath("$.[*].tehsil_subtehsil").value(hasItem(DEFAULT_TEHSIL_SUBTEHSIL.toString())))
+            .andExpect(jsonPath("$.[*].createdate").value(hasItem(sameInstant(DEFAULT_CREATEDATE))))
+            .andExpect(jsonPath("$.[*].updatedate").value(hasItem(sameInstant(DEFAULT_UPDATEDATE))));
     }
 
     @Test
@@ -420,9 +359,7 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(projectsitedetail.getId().toString()))
-            .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()))
             .andExpect(jsonPath("$.siteaddress").value(DEFAULT_SITEADDRESS.toString()))
-            .andExpect(jsonPath("$.tehsil_subtehsil").value(DEFAULT_TEHSIL_SUBTEHSIL.toString()))
             .andExpect(jsonPath("$.multyvillageinvolved").value(DEFAULT_MULTYVILLAGEINVOLVED.booleanValue()))
             .andExpect(jsonPath("$.villageinvolved").value(DEFAULT_VILLAGEINVOLVED.toString()))
             .andExpect(jsonPath("$.falls_in_aravalli").value(DEFAULT_FALLS_IN_ARAVALLI.booleanValue()))
@@ -447,24 +384,15 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.confirmitylanduse").value(DEFAULT_CONFIRMITYLANDUSE.booleanValue()))
             .andExpect(jsonPath("$.existing_building_applicable").value(DEFAULT_EXISTING_BUILDING_APPLICABLE.booleanValue()))
             .andExpect(jsonPath("$.site_situated_in_controlled_area").value(DEFAULT_SITE_SITUATED_IN_CONTROLLED_AREA.booleanValue()))
-            .andExpect(jsonPath("$.khasra_document").value(DEFAULT_KHASRA_DOCUMENT.toString()))
-            .andExpect(jsonPath("$.revenu_shajra_document").value(DEFAULT_REVENU_SHAJRA_DOCUMENT.toString()))
-            .andExpect(jsonPath("$.jamabandi").value(DEFAULT_JAMABANDI.toString()))
-            .andExpect(jsonPath("$.nonencumbrance_certificate").value(DEFAULT_NONENCUMBRANCE_CERTIFICATE.toString()))
-            .andExpect(jsonPath("$.ownership_document").value(DEFAULT_OWNERSHIP_DOCUMENT.toString()))
-            .andExpect(jsonPath("$.lease_document").value(DEFAULT_LEASE_DOCUMENT.toString()))
-            .andExpect(jsonPath("$.landagreement_document").value(DEFAULT_LANDAGREEMENT_DOCUMENT.toString()))
-            .andExpect(jsonPath("$.sitelayoutplan").value(DEFAULT_SITELAYOUTPLAN.toString()))
-            .andExpect(jsonPath("$.locationplan").value(DEFAULT_LOCATIONPLAN.toString()))
-            .andExpect(jsonPath("$.linearstripplan").value(DEFAULT_LINEARSTRIPPLAN.toString()))
-            .andExpect(jsonPath("$.sitesituated_document").value(DEFAULT_SITESITUATED_DOCUMENT.toString()))
-            .andExpect(jsonPath("$.controlledarea_document").value(DEFAULT_CONTROLLEDAREA_DOCUMENT.toString()))
             .andExpect(jsonPath("$.buildingexisted").value(DEFAULT_BUILDINGEXISTED.toString()))
             .andExpect(jsonPath("$.district").value(DEFAULT_DISTRICT.toString()))
             .andExpect(jsonPath("$.block").value(DEFAULT_BLOCK.toString()))
             .andExpect(jsonPath("$.city_town_village").value(DEFAULT_CITY_TOWN_VILLAGE.toString()))
             .andExpect(jsonPath("$.connectingroad").value(DEFAULT_CONNECTINGROAD.toString()))
-            .andExpect(jsonPath("$.landzoneuse_type").value(DEFAULT_LANDZONEUSE_TYPE.toString()));
+            .andExpect(jsonPath("$.landzoneuse_type").value(DEFAULT_LANDZONEUSE_TYPE.toString()))
+            .andExpect(jsonPath("$.tehsil_subtehsil").value(DEFAULT_TEHSIL_SUBTEHSIL.toString()))
+            .andExpect(jsonPath("$.createdate").value(sameInstant(DEFAULT_CREATEDATE)))
+            .andExpect(jsonPath("$.updatedate").value(sameInstant(DEFAULT_UPDATEDATE)));
     }
 
     @Test
@@ -483,9 +411,7 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
         // Update the projectsitedetail
         Projectsitedetail updatedProjectsitedetail = projectsitedetailRepository.findOne(projectsitedetail.getId());
         updatedProjectsitedetail
-                .projectid(UPDATED_PROJECTID)
                 .siteaddress(UPDATED_SITEADDRESS)
-                .tehsil_subtehsil(UPDATED_TEHSIL_SUBTEHSIL)
                 .multyvillageinvolved(UPDATED_MULTYVILLAGEINVOLVED)
                 .villageinvolved(UPDATED_VILLAGEINVOLVED)
                 .falls_in_aravalli(UPDATED_FALLS_IN_ARAVALLI)
@@ -510,24 +436,15 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
                 .confirmitylanduse(UPDATED_CONFIRMITYLANDUSE)
                 .existing_building_applicable(UPDATED_EXISTING_BUILDING_APPLICABLE)
                 .site_situated_in_controlled_area(UPDATED_SITE_SITUATED_IN_CONTROLLED_AREA)
-                .khasra_document(UPDATED_KHASRA_DOCUMENT)
-                .revenu_shajra_document(UPDATED_REVENU_SHAJRA_DOCUMENT)
-                .jamabandi(UPDATED_JAMABANDI)
-                .nonencumbrance_certificate(UPDATED_NONENCUMBRANCE_CERTIFICATE)
-                .ownership_document(UPDATED_OWNERSHIP_DOCUMENT)
-                .lease_document(UPDATED_LEASE_DOCUMENT)
-                .landagreement_document(UPDATED_LANDAGREEMENT_DOCUMENT)
-                .sitelayoutplan(UPDATED_SITELAYOUTPLAN)
-                .locationplan(UPDATED_LOCATIONPLAN)
-                .linearstripplan(UPDATED_LINEARSTRIPPLAN)
-                .sitesituated_document(UPDATED_SITESITUATED_DOCUMENT)
-                .controlledarea_document(UPDATED_CONTROLLEDAREA_DOCUMENT)
                 .buildingexisted(UPDATED_BUILDINGEXISTED)
                 .district(UPDATED_DISTRICT)
                 .block(UPDATED_BLOCK)
                 .city_town_village(UPDATED_CITY_TOWN_VILLAGE)
                 .connectingroad(UPDATED_CONNECTINGROAD)
-                .landzoneuse_type(UPDATED_LANDZONEUSE_TYPE);
+                .landzoneuse_type(UPDATED_LANDZONEUSE_TYPE)
+                .tehsil_subtehsil(UPDATED_TEHSIL_SUBTEHSIL)
+                .createdate(UPDATED_CREATEDATE)
+                .updatedate(UPDATED_UPDATEDATE);
         ProjectsitedetailDTO projectsitedetailDTO = projectsitedetailMapper.projectsitedetailToProjectsitedetailDTO(updatedProjectsitedetail);
 
         restProjectsitedetailMockMvc.perform(put("/api/projectsitedetails")
@@ -539,9 +456,7 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
         List<Projectsitedetail> projectsitedetailList = projectsitedetailRepository.findAll();
         assertThat(projectsitedetailList).hasSize(databaseSizeBeforeUpdate);
         Projectsitedetail testProjectsitedetail = projectsitedetailList.get(projectsitedetailList.size() - 1);
-        assertThat(testProjectsitedetail.getProjectid()).isEqualTo(UPDATED_PROJECTID);
         assertThat(testProjectsitedetail.getSiteaddress()).isEqualTo(UPDATED_SITEADDRESS);
-        assertThat(testProjectsitedetail.getTehsil_subtehsil()).isEqualTo(UPDATED_TEHSIL_SUBTEHSIL);
         assertThat(testProjectsitedetail.isMultyvillageinvolved()).isEqualTo(UPDATED_MULTYVILLAGEINVOLVED);
         assertThat(testProjectsitedetail.getVillageinvolved()).isEqualTo(UPDATED_VILLAGEINVOLVED);
         assertThat(testProjectsitedetail.isFalls_in_aravalli()).isEqualTo(UPDATED_FALLS_IN_ARAVALLI);
@@ -566,24 +481,15 @@ public class ProjectsitedetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectsitedetail.isConfirmitylanduse()).isEqualTo(UPDATED_CONFIRMITYLANDUSE);
         assertThat(testProjectsitedetail.isExisting_building_applicable()).isEqualTo(UPDATED_EXISTING_BUILDING_APPLICABLE);
         assertThat(testProjectsitedetail.isSite_situated_in_controlled_area()).isEqualTo(UPDATED_SITE_SITUATED_IN_CONTROLLED_AREA);
-        assertThat(testProjectsitedetail.getKhasra_document()).isEqualTo(UPDATED_KHASRA_DOCUMENT);
-        assertThat(testProjectsitedetail.getRevenu_shajra_document()).isEqualTo(UPDATED_REVENU_SHAJRA_DOCUMENT);
-        assertThat(testProjectsitedetail.getJamabandi()).isEqualTo(UPDATED_JAMABANDI);
-        assertThat(testProjectsitedetail.getNonencumbrance_certificate()).isEqualTo(UPDATED_NONENCUMBRANCE_CERTIFICATE);
-        assertThat(testProjectsitedetail.getOwnership_document()).isEqualTo(UPDATED_OWNERSHIP_DOCUMENT);
-        assertThat(testProjectsitedetail.getLease_document()).isEqualTo(UPDATED_LEASE_DOCUMENT);
-        assertThat(testProjectsitedetail.getLandagreement_document()).isEqualTo(UPDATED_LANDAGREEMENT_DOCUMENT);
-        assertThat(testProjectsitedetail.getSitelayoutplan()).isEqualTo(UPDATED_SITELAYOUTPLAN);
-        assertThat(testProjectsitedetail.getLocationplan()).isEqualTo(UPDATED_LOCATIONPLAN);
-        assertThat(testProjectsitedetail.getLinearstripplan()).isEqualTo(UPDATED_LINEARSTRIPPLAN);
-        assertThat(testProjectsitedetail.getSitesituated_document()).isEqualTo(UPDATED_SITESITUATED_DOCUMENT);
-        assertThat(testProjectsitedetail.getControlledarea_document()).isEqualTo(UPDATED_CONTROLLEDAREA_DOCUMENT);
         assertThat(testProjectsitedetail.getBuildingexisted()).isEqualTo(UPDATED_BUILDINGEXISTED);
         assertThat(testProjectsitedetail.getDistrict()).isEqualTo(UPDATED_DISTRICT);
         assertThat(testProjectsitedetail.getBlock()).isEqualTo(UPDATED_BLOCK);
         assertThat(testProjectsitedetail.getCity_town_village()).isEqualTo(UPDATED_CITY_TOWN_VILLAGE);
         assertThat(testProjectsitedetail.getConnectingroad()).isEqualTo(UPDATED_CONNECTINGROAD);
         assertThat(testProjectsitedetail.getLandzoneuse_type()).isEqualTo(UPDATED_LANDZONEUSE_TYPE);
+        assertThat(testProjectsitedetail.getTehsil_subtehsil()).isEqualTo(UPDATED_TEHSIL_SUBTEHSIL);
+        assertThat(testProjectsitedetail.getCreatedate()).isEqualTo(UPDATED_CREATEDATE);
+        assertThat(testProjectsitedetail.getUpdatedate()).isEqualTo(UPDATED_UPDATEDATE);
     }
 
     @Test

@@ -1,13 +1,9 @@
 
-<div class="container">
+<div>
     <h2><span data-translate="investhryApp.emissiondetail.detail.title">Emissiondetail</span> {{vm.emissiondetail.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row jh-entity-details">
-        <dt><span data-translate="investhryApp.emissiondetail.projectid">Projectid</span></dt>
-        <dd>
-            <span>{{vm.emissiondetail.projectid}}</span>
-        </dd>
         <dt><span data-translate="investhryApp.emissiondetail.capacity">Capacity</span></dt>
         <dd>
             <span>{{vm.emissiondetail.capacity}}</span>
@@ -23,6 +19,14 @@
         <dt><span data-translate="investhryApp.emissiondetail.air_pollution_control_device">Air Pollution Control Device</span></dt>
         <dd>
             <span>{{vm.emissiondetail.air_pollution_control_device}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.emissiondetail.createdate">Createdate</span></dt>
+        <dd>
+            <span>{{vm.emissiondetail.createdate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.emissiondetail.updatedate">Updatedate</span></dt>
+        <dd>
+            <span>{{vm.emissiondetail.updatedate | date:'medium'}}</span>
         </dd>
     </dl>
 

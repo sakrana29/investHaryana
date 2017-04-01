@@ -1,6 +1,7 @@
 package com.hartron.investharyana.service.dto;
 
 
+import java.time.ZonedDateTime;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -13,11 +14,7 @@ public class ProjectsitedetailDTO implements Serializable {
 
     private UUID id;
 
-    private UUID projectid;
-
     private String siteaddress;
-
-    private UUID tehsil_subtehsil;
 
     private Boolean multyvillageinvolved;
 
@@ -67,30 +64,6 @@ public class ProjectsitedetailDTO implements Serializable {
 
     private Boolean site_situated_in_controlled_area;
 
-    private String khasra_document;
-
-    private String revenu_shajra_document;
-
-    private String jamabandi;
-
-    private String nonencumbrance_certificate;
-
-    private String ownership_document;
-
-    private String lease_document;
-
-    private String landagreement_document;
-
-    private String sitelayoutplan;
-
-    private String locationplan;
-
-    private String linearstripplan;
-
-    private String sitesituated_document;
-
-    private String controlledarea_document;
-
     private String buildingexisted;
 
     private String district;
@@ -103,6 +76,12 @@ public class ProjectsitedetailDTO implements Serializable {
 
     private String landzoneuse_type;
 
+    private String tehsil_subtehsil;
+
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
+
     public UUID getId() {
         return id;
     }
@@ -110,26 +89,12 @@ public class ProjectsitedetailDTO implements Serializable {
     public void setId(UUID id) {
         this.id = id;
     }
-    public UUID getProjectid() {
-        return projectid;
-    }
-
-    public void setProjectid(UUID projectid) {
-        this.projectid = projectid;
-    }
     public String getSiteaddress() {
         return siteaddress;
     }
 
     public void setSiteaddress(String siteaddress) {
         this.siteaddress = siteaddress;
-    }
-    public UUID getTehsil_subtehsil() {
-        return tehsil_subtehsil;
-    }
-
-    public void setTehsil_subtehsil(UUID tehsil_subtehsil) {
-        this.tehsil_subtehsil = tehsil_subtehsil;
     }
     public Boolean getMultyvillageinvolved() {
         return multyvillageinvolved;
@@ -299,90 +264,6 @@ public class ProjectsitedetailDTO implements Serializable {
     public void setSite_situated_in_controlled_area(Boolean site_situated_in_controlled_area) {
         this.site_situated_in_controlled_area = site_situated_in_controlled_area;
     }
-    public String getKhasra_document() {
-        return khasra_document;
-    }
-
-    public void setKhasra_document(String khasra_document) {
-        this.khasra_document = khasra_document;
-    }
-    public String getRevenu_shajra_document() {
-        return revenu_shajra_document;
-    }
-
-    public void setRevenu_shajra_document(String revenu_shajra_document) {
-        this.revenu_shajra_document = revenu_shajra_document;
-    }
-    public String getJamabandi() {
-        return jamabandi;
-    }
-
-    public void setJamabandi(String jamabandi) {
-        this.jamabandi = jamabandi;
-    }
-    public String getNonencumbrance_certificate() {
-        return nonencumbrance_certificate;
-    }
-
-    public void setNonencumbrance_certificate(String nonencumbrance_certificate) {
-        this.nonencumbrance_certificate = nonencumbrance_certificate;
-    }
-    public String getOwnership_document() {
-        return ownership_document;
-    }
-
-    public void setOwnership_document(String ownership_document) {
-        this.ownership_document = ownership_document;
-    }
-    public String getLease_document() {
-        return lease_document;
-    }
-
-    public void setLease_document(String lease_document) {
-        this.lease_document = lease_document;
-    }
-    public String getLandagreement_document() {
-        return landagreement_document;
-    }
-
-    public void setLandagreement_document(String landagreement_document) {
-        this.landagreement_document = landagreement_document;
-    }
-    public String getSitelayoutplan() {
-        return sitelayoutplan;
-    }
-
-    public void setSitelayoutplan(String sitelayoutplan) {
-        this.sitelayoutplan = sitelayoutplan;
-    }
-    public String getLocationplan() {
-        return locationplan;
-    }
-
-    public void setLocationplan(String locationplan) {
-        this.locationplan = locationplan;
-    }
-    public String getLinearstripplan() {
-        return linearstripplan;
-    }
-
-    public void setLinearstripplan(String linearstripplan) {
-        this.linearstripplan = linearstripplan;
-    }
-    public String getSitesituated_document() {
-        return sitesituated_document;
-    }
-
-    public void setSitesituated_document(String sitesituated_document) {
-        this.sitesituated_document = sitesituated_document;
-    }
-    public String getControlledarea_document() {
-        return controlledarea_document;
-    }
-
-    public void setControlledarea_document(String controlledarea_document) {
-        this.controlledarea_document = controlledarea_document;
-    }
     public String getBuildingexisted() {
         return buildingexisted;
     }
@@ -425,6 +306,27 @@ public class ProjectsitedetailDTO implements Serializable {
     public void setLandzoneuse_type(String landzoneuse_type) {
         this.landzoneuse_type = landzoneuse_type;
     }
+    public String getTehsil_subtehsil() {
+        return tehsil_subtehsil;
+    }
+
+    public void setTehsil_subtehsil(String tehsil_subtehsil) {
+        this.tehsil_subtehsil = tehsil_subtehsil;
+    }
+    public ZonedDateTime getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -451,9 +353,7 @@ public class ProjectsitedetailDTO implements Serializable {
     public String toString() {
         return "ProjectsitedetailDTO{" +
             "id=" + id +
-            ", projectid='" + projectid + "'" +
             ", siteaddress='" + siteaddress + "'" +
-            ", tehsil_subtehsil='" + tehsil_subtehsil + "'" +
             ", multyvillageinvolved='" + multyvillageinvolved + "'" +
             ", villageinvolved='" + villageinvolved + "'" +
             ", falls_in_aravalli='" + falls_in_aravalli + "'" +
@@ -478,24 +378,15 @@ public class ProjectsitedetailDTO implements Serializable {
             ", confirmitylanduse='" + confirmitylanduse + "'" +
             ", existing_building_applicable='" + existing_building_applicable + "'" +
             ", site_situated_in_controlled_area='" + site_situated_in_controlled_area + "'" +
-            ", khasra_document='" + khasra_document + "'" +
-            ", revenu_shajra_document='" + revenu_shajra_document + "'" +
-            ", jamabandi='" + jamabandi + "'" +
-            ", nonencumbrance_certificate='" + nonencumbrance_certificate + "'" +
-            ", ownership_document='" + ownership_document + "'" +
-            ", lease_document='" + lease_document + "'" +
-            ", landagreement_document='" + landagreement_document + "'" +
-            ", sitelayoutplan='" + sitelayoutplan + "'" +
-            ", locationplan='" + locationplan + "'" +
-            ", linearstripplan='" + linearstripplan + "'" +
-            ", sitesituated_document='" + sitesituated_document + "'" +
-            ", controlledarea_document='" + controlledarea_document + "'" +
             ", buildingexisted='" + buildingexisted + "'" +
             ", district='" + district + "'" +
             ", block='" + block + "'" +
             ", city_town_village='" + city_town_village + "'" +
             ", connectingroad='" + connectingroad + "'" +
             ", landzoneuse_type='" + landzoneuse_type + "'" +
+            ", tehsil_subtehsil='" + tehsil_subtehsil + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
             '}';
     }
 }

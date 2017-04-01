@@ -4,9 +4,9 @@
         .module('investhryApp')
         .factory('Emissiondetail', Emissiondetail);
 
-    Emissiondetail.$inject = ['$resource'];
+    Emissiondetail.$inject = ['$resource', 'DateUtils'];
 
-    function Emissiondetail ($resource) {
+    function Emissiondetail ($resource, DateUtils) {
         var resourceUrl =  'api/emissiondetails/:id';
 
         return $resource(resourceUrl, {}, {
@@ -16,6 +16,8 @@
                 transformResponse: function (data) {
                     if (data) {
                         data = angular.fromJson(data);
+                        data.createdate = DateUtils.convertDateTimeFromServer(data.createdate);
+                        data.updatedate = DateUtils.convertDateTimeFromServer(data.updatedate);
                     }
                     return data;
                 }

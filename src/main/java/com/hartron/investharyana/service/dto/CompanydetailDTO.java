@@ -1,6 +1,7 @@
 package com.hartron.investharyana.service.dto;
 
 
+import java.time.ZonedDateTime;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -11,8 +12,6 @@ import java.util.UUID;
 public class CompanydetailDTO implements Serializable {
 
     private UUID id;
-
-    private UUID investorid;
 
     private String promoter_md_director;
 
@@ -32,21 +31,11 @@ public class CompanydetailDTO implements Serializable {
 
     private String cst_number;
 
-    private String director_md_ceo_list;
-
-    private String pancard;
-
-    private String aadharcard;
-
-    private String tin_vat_document;
-
-    private String cst_document;
-
-    private String moa_partnershipdeed;
-
-    private String registration_document;
-
     private String businessentitytype;
+
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
 
     public UUID getId() {
         return id;
@@ -54,13 +43,6 @@ public class CompanydetailDTO implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-    public UUID getInvestorid() {
-        return investorid;
-    }
-
-    public void setInvestorid(UUID investorid) {
-        this.investorid = investorid;
     }
     public String getPromoter_md_director() {
         return promoter_md_director;
@@ -125,61 +107,26 @@ public class CompanydetailDTO implements Serializable {
     public void setCst_number(String cst_number) {
         this.cst_number = cst_number;
     }
-    public String getDirector_md_ceo_list() {
-        return director_md_ceo_list;
-    }
-
-    public void setDirector_md_ceo_list(String director_md_ceo_list) {
-        this.director_md_ceo_list = director_md_ceo_list;
-    }
-    public String getPancard() {
-        return pancard;
-    }
-
-    public void setPancard(String pancard) {
-        this.pancard = pancard;
-    }
-    public String getAadharcard() {
-        return aadharcard;
-    }
-
-    public void setAadharcard(String aadharcard) {
-        this.aadharcard = aadharcard;
-    }
-    public String getTin_vat_document() {
-        return tin_vat_document;
-    }
-
-    public void setTin_vat_document(String tin_vat_document) {
-        this.tin_vat_document = tin_vat_document;
-    }
-    public String getCst_document() {
-        return cst_document;
-    }
-
-    public void setCst_document(String cst_document) {
-        this.cst_document = cst_document;
-    }
-    public String getMoa_partnershipdeed() {
-        return moa_partnershipdeed;
-    }
-
-    public void setMoa_partnershipdeed(String moa_partnershipdeed) {
-        this.moa_partnershipdeed = moa_partnershipdeed;
-    }
-    public String getRegistration_document() {
-        return registration_document;
-    }
-
-    public void setRegistration_document(String registration_document) {
-        this.registration_document = registration_document;
-    }
     public String getBusinessentitytype() {
         return businessentitytype;
     }
 
     public void setBusinessentitytype(String businessentitytype) {
         this.businessentitytype = businessentitytype;
+    }
+    public ZonedDateTime getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
     }
 
     @Override
@@ -207,7 +154,6 @@ public class CompanydetailDTO implements Serializable {
     public String toString() {
         return "CompanydetailDTO{" +
             "id=" + id +
-            ", investorid='" + investorid + "'" +
             ", promoter_md_director='" + promoter_md_director + "'" +
             ", designation='" + designation + "'" +
             ", businessentity='" + businessentity + "'" +
@@ -217,14 +163,9 @@ public class CompanydetailDTO implements Serializable {
             ", nri='" + nri + "'" +
             ", tin_vat_number='" + tin_vat_number + "'" +
             ", cst_number='" + cst_number + "'" +
-            ", director_md_ceo_list='" + director_md_ceo_list + "'" +
-            ", pancard='" + pancard + "'" +
-            ", aadharcard='" + aadharcard + "'" +
-            ", tin_vat_document='" + tin_vat_document + "'" +
-            ", cst_document='" + cst_document + "'" +
-            ", moa_partnershipdeed='" + moa_partnershipdeed + "'" +
-            ", registration_document='" + registration_document + "'" +
             ", businessentitytype='" + businessentitytype + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
             '}';
     }
 }

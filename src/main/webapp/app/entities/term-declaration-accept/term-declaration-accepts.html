@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <h2 data-translate="investhryApp.term_declaration_accept.home.title">Term Declaration Accepts</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
@@ -19,25 +19,22 @@
             <thead>
                 <tr>
                     <th><span data-translate="global.field.id">ID</span></th>
-                    <th><span data-translate="investhryApp.term_declaration_accept.projectid">Projectid</span></th>
                     <th><span data-translate="investhryApp.term_declaration_accept.acceptance">Acceptance</span></th>
                     <th><span data-translate="investhryApp.term_declaration_accept.applicationdate">Applicationdate</span></th>
                     <th><span data-translate="investhryApp.term_declaration_accept.place">Place</span></th>
-                    <th><span data-translate="investhryApp.term_declaration_accept.signature">Signature</span></th>
+                    <th><span data-translate="investhryApp.term_declaration_accept.createdate">Createdate</span></th>
+                    <th><span data-translate="investhryApp.term_declaration_accept.updatedate">Updatedate</span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="term_declaration_accept in vm.term_declaration_accepts track by term_declaration_accept.id">
                     <td><a ui-sref="term-declaration-accept-detail({id:term_declaration_accept.id})">{{term_declaration_accept.id}}</a></td>
-                    <td>{{term_declaration_accept.projectid}}</td>
                     <td>{{term_declaration_accept.acceptance}}</td>
                     <td>{{term_declaration_accept.applicationdate | date:'medium'}}</td>
                     <td>{{term_declaration_accept.place}}</td>
-                    <td>
-                        <a ng-if="term_declaration_accept.signature" ng-click="vm.openFile(term_declaration_accept.signatureContentType, term_declaration_accept.signature)" data-translate="entity.action.open">open</a>
-                        <span ng-if="term_declaration_accept.signature">{{term_declaration_accept.signatureContentType}}, {{vm.byteSize(term_declaration_accept.signature)}}</span>
-                    </td>
+                    <td>{{term_declaration_accept.createdate | date:'medium'}}</td>
+                    <td>{{term_declaration_accept.updatedate | date:'medium'}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

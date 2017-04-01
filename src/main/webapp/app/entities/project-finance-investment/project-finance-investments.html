@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <h2 data-translate="investhryApp.project_finance_investment.home.title">Project Finance Investments</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
@@ -19,7 +19,6 @@
             <thead>
                 <tr>
                     <th><span data-translate="global.field.id">ID</span></th>
-                    <th><span data-translate="investhryApp.project_finance_investment.projectid">Projectid</span></th>
                     <th><span data-translate="investhryApp.project_finance_investment.land_cost">Land Cost</span></th>
                     <th><span data-translate="investhryApp.project_finance_investment.building_cost">Building Cost</span></th>
                     <th><span data-translate="investhryApp.project_finance_investment.machinery_cost">Machinery Cost</span></th>
@@ -29,16 +28,17 @@
                     <th><span data-translate="investhryApp.project_finance_investment.fdivalue">Fdivalue</span></th>
                     <th><span data-translate="investhryApp.project_finance_investment.project_construction_start_date">Project Construction Start Date</span></th>
                     <th><span data-translate="investhryApp.project_finance_investment.commercial_activity_start_date">Commercial Activity Start Date</span></th>
-                    <th><span data-translate="investhryApp.project_finance_investment.proposedproject_scheduleid">Proposedproject Scheduleid</span></th>
                     <th><span data-translate="investhryApp.project_finance_investment.fdi_country">Fdi Country</span></th>
                     <th><span data-translate="investhryApp.project_finance_investment.foreign_funding_source">Foreign Funding Source</span></th>
+                    <th><span data-translate="investhryApp.project_finance_investment.totalpurposedemployment">Totalpurposedemployment</span></th>
+                    <th><span data-translate="investhryApp.project_finance_investment.createdate">Createdate</span></th>
+                    <th><span data-translate="investhryApp.project_finance_investment.updatedate">Updatedate</span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="project_finance_investment in vm.project_finance_investments track by project_finance_investment.id">
                     <td><a ui-sref="project-finance-investment-detail({id:project_finance_investment.id})">{{project_finance_investment.id}}</a></td>
-                    <td>{{project_finance_investment.projectid}}</td>
                     <td>{{project_finance_investment.land_cost}}</td>
                     <td>{{project_finance_investment.building_cost}}</td>
                     <td>{{project_finance_investment.machinery_cost}}</td>
@@ -48,9 +48,11 @@
                     <td>{{project_finance_investment.fdivalue}}</td>
                     <td>{{project_finance_investment.project_construction_start_date | date:'medium'}}</td>
                     <td>{{project_finance_investment.commercial_activity_start_date | date:'medium'}}</td>
-                    <td>{{project_finance_investment.proposedproject_scheduleid}}</td>
                     <td>{{project_finance_investment.fdi_country}}</td>
                     <td>{{project_finance_investment.foreign_funding_source}}</td>
+                    <td>{{project_finance_investment.totalpurposedemployment}}</td>
+                    <td>{{project_finance_investment.createdate | date:'medium'}}</td>
+                    <td>{{project_finance_investment.updatedate | date:'medium'}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

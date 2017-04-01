@@ -1,13 +1,9 @@
 
-<div class="container">
+<div>
     <h2><span data-translate="investhryApp.project_finance_investment.detail.title">Project Finance Investment</span> {{vm.project_finance_investment.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row jh-entity-details">
-        <dt><span data-translate="investhryApp.project_finance_investment.projectid">Projectid</span></dt>
-        <dd>
-            <span>{{vm.project_finance_investment.projectid}}</span>
-        </dd>
         <dt><span data-translate="investhryApp.project_finance_investment.land_cost">Land Cost</span></dt>
         <dd>
             <span>{{vm.project_finance_investment.land_cost}}</span>
@@ -44,10 +40,6 @@
         <dd>
             <span>{{vm.project_finance_investment.commercial_activity_start_date | date:'medium'}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.project_finance_investment.proposedproject_scheduleid">Proposedproject Scheduleid</span></dt>
-        <dd>
-            <span>{{vm.project_finance_investment.proposedproject_scheduleid}}</span>
-        </dd>
         <dt><span data-translate="investhryApp.project_finance_investment.fdi_country">Fdi Country</span></dt>
         <dd>
             <span>{{vm.project_finance_investment.fdi_country}}</span>
@@ -55,6 +47,18 @@
         <dt><span data-translate="investhryApp.project_finance_investment.foreign_funding_source">Foreign Funding Source</span></dt>
         <dd>
             <span>{{vm.project_finance_investment.foreign_funding_source}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.project_finance_investment.totalpurposedemployment">Totalpurposedemployment</span></dt>
+        <dd>
+            <span>{{vm.project_finance_investment.totalpurposedemployment}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.project_finance_investment.createdate">Createdate</span></dt>
+        <dd>
+            <span>{{vm.project_finance_investment.createdate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.project_finance_investment.updatedate">Updatedate</span></dt>
+        <dd>
+            <span>{{vm.project_finance_investment.updatedate | date:'medium'}}</span>
         </dd>
     </dl>
 

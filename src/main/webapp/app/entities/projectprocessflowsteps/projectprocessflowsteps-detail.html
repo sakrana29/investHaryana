@@ -1,16 +1,20 @@
 
-<div class="container">
+<div>
     <h2><span data-translate="investhryApp.projectprocessflowsteps.detail.title">Projectprocessflowsteps</span> {{vm.projectprocessflowsteps.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row jh-entity-details">
-        <dt><span data-translate="investhryApp.projectprocessflowsteps.projectid">Projectid</span></dt>
-        <dd>
-            <span>{{vm.projectprocessflowsteps.projectid}}</span>
-        </dd>
         <dt><span data-translate="investhryApp.projectprocessflowsteps.steps">Steps</span></dt>
         <dd>
             <span>{{vm.projectprocessflowsteps.steps}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectprocessflowsteps.createdate">Createdate</span></dt>
+        <dd>
+            <span>{{vm.projectprocessflowsteps.createdate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectprocessflowsteps.updatedate">Updatedate</span></dt>
+        <dd>
+            <span>{{vm.projectprocessflowsteps.updatedate | date:'medium'}}</span>
         </dd>
     </dl>
 

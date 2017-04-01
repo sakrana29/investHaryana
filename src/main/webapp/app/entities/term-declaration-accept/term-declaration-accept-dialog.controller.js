@@ -5,17 +5,15 @@
         .module('investhryApp')
         .controller('Term_declaration_acceptDialogController', Term_declaration_acceptDialogController);
 
-    Term_declaration_acceptDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'DataUtils', 'entity', 'Term_declaration_accept'];
+    Term_declaration_acceptDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Term_declaration_accept'];
 
-    function Term_declaration_acceptDialogController ($timeout, $scope, $stateParams, $uibModalInstance, DataUtils, entity, Term_declaration_accept) {
+    function Term_declaration_acceptDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Term_declaration_accept) {
         var vm = this;
 
         vm.term_declaration_accept = entity;
         vm.clear = clear;
         vm.datePickerOpenStatus = {};
         vm.openCalendar = openCalendar;
-        vm.byteSize = DataUtils.byteSize;
-        vm.openFile = DataUtils.openFile;
         vm.save = save;
 
         $timeout(function (){
@@ -46,17 +44,8 @@
         }
 
         vm.datePickerOpenStatus.applicationdate = false;
-
-        vm.setSignature = function ($file, term_declaration_accept) {
-            if ($file) {
-                DataUtils.toBase64($file, function(base64Data) {
-                    $scope.$apply(function() {
-                        term_declaration_accept.signature = base64Data;
-                        term_declaration_accept.signatureContentType = $file.type;
-                    });
-                });
-            }
-        };
+        vm.datePickerOpenStatus.createdate = false;
+        vm.datePickerOpenStatus.updatedate = false;
 
         function openCalendar (date) {
             vm.datePickerOpenStatus[date] = true;

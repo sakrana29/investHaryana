@@ -68,7 +68,7 @@ class Project_finance_investmentGatlingTest extends Simulation {
             .exec(http("Create new project_finance_investment")
             .post("/api/project-finance-investments")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "projectid":null, "land_cost":null, "building_cost":null, "machinery_cost":null, "misc_assests":null, "total_project_cost":null, "isfdi":null, "fdivalue":null, "project_construction_start_date":"2020-01-01T00:00:00.000Z", "commercial_activity_start_date":"2020-01-01T00:00:00.000Z", "proposedproject_scheduleid":null, "fdi_country":"SAMPLE_TEXT", "foreign_funding_source":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "land_cost":null, "building_cost":null, "machinery_cost":null, "misc_assests":null, "total_project_cost":null, "isfdi":null, "fdivalue":null, "project_construction_start_date":"2020-01-01T00:00:00.000Z", "commercial_activity_start_date":"2020-01-01T00:00:00.000Z", "fdi_country":"SAMPLE_TEXT", "foreign_funding_source":"SAMPLE_TEXT", "totalpurposedemployment":"0", "createdate":"2020-01-01T00:00:00.000Z", "updatedate":"2020-01-01T00:00:00.000Z"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_project_finance_investment_url"))).exitHereIfFailed
             .pause(10)

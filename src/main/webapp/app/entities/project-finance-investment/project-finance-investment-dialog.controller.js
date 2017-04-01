@@ -45,6 +45,8 @@
 
         vm.datePickerOpenStatus.project_construction_start_date = false;
         vm.datePickerOpenStatus.commercial_activity_start_date = false;
+        vm.datePickerOpenStatus.createdate = false;
+        vm.datePickerOpenStatus.updatedate = false;
 
         function openCalendar (date) {
             vm.datePickerOpenStatus[date] = true;

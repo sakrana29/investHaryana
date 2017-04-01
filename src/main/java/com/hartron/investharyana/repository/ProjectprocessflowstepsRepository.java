@@ -7,6 +7,7 @@ import com.datastax.driver.mapping.Mapper;
 import com.datastax.driver.mapping.MappingManager;
 import org.springframework.stereotype.Repository;
 
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -39,8 +40,9 @@ public class ProjectprocessflowstepsRepository {
             row -> {
                 Projectprocessflowsteps projectprocessflowsteps = new Projectprocessflowsteps();
                 projectprocessflowsteps.setId(row.getUUID("id"));
-                projectprocessflowsteps.setProjectid(row.getUUID("projectid"));
                 projectprocessflowsteps.setSteps(row.getString("steps"));
+                projectprocessflowsteps.setCreatedate(row.get("createdate", ZonedDateTime.class));
+                projectprocessflowsteps.setUpdatedate(row.get("updatedate", ZonedDateTime.class));
                 return projectprocessflowsteps;
             }
         ).forEach(projectprocessflowstepsList::add);

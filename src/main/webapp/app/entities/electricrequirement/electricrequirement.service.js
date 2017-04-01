@@ -18,6 +18,8 @@
                         data = angular.fromJson(data);
                         data.temp_load_demand_date = DateUtils.convertDateTimeFromServer(data.temp_load_demand_date);
                         data.regular_load_demand_date = DateUtils.convertDateTimeFromServer(data.regular_load_demand_date);
+                        data.createdate = DateUtils.convertDateTimeFromServer(data.createdate);
+                        data.updatedate = DateUtils.convertDateTimeFromServer(data.updatedate);
                     }
                     return data;
                 }

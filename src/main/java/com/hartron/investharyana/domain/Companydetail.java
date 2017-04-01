@@ -3,6 +3,7 @@ package com.hartron.investharyana.domain;
 import com.datastax.driver.mapping.annotations.*;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -17,8 +18,6 @@ public class Companydetail implements Serializable {
 
     @PartitionKey
     private UUID id;
-
-    private UUID investorid;
 
     private String promoter_md_director;
 
@@ -38,21 +37,11 @@ public class Companydetail implements Serializable {
 
     private String cst_number;
 
-    private String director_md_ceo_list;
-
-    private String pancard;
-
-    private String aadharcard;
-
-    private String tin_vat_document;
-
-    private String cst_document;
-
-    private String moa_partnershipdeed;
-
-    private String registration_document;
-
     private String businessentitytype;
+
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
 
     public UUID getId() {
         return id;
@@ -60,19 +49,6 @@ public class Companydetail implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public UUID getInvestorid() {
-        return investorid;
-    }
-
-    public Companydetail investorid(UUID investorid) {
-        this.investorid = investorid;
-        return this;
-    }
-
-    public void setInvestorid(UUID investorid) {
-        this.investorid = investorid;
     }
 
     public String getPromoter_md_director() {
@@ -192,97 +168,6 @@ public class Companydetail implements Serializable {
         this.cst_number = cst_number;
     }
 
-    public String getDirector_md_ceo_list() {
-        return director_md_ceo_list;
-    }
-
-    public Companydetail director_md_ceo_list(String director_md_ceo_list) {
-        this.director_md_ceo_list = director_md_ceo_list;
-        return this;
-    }
-
-    public void setDirector_md_ceo_list(String director_md_ceo_list) {
-        this.director_md_ceo_list = director_md_ceo_list;
-    }
-
-    public String getPancard() {
-        return pancard;
-    }
-
-    public Companydetail pancard(String pancard) {
-        this.pancard = pancard;
-        return this;
-    }
-
-    public void setPancard(String pancard) {
-        this.pancard = pancard;
-    }
-
-    public String getAadharcard() {
-        return aadharcard;
-    }
-
-    public Companydetail aadharcard(String aadharcard) {
-        this.aadharcard = aadharcard;
-        return this;
-    }
-
-    public void setAadharcard(String aadharcard) {
-        this.aadharcard = aadharcard;
-    }
-
-    public String getTin_vat_document() {
-        return tin_vat_document;
-    }
-
-    public Companydetail tin_vat_document(String tin_vat_document) {
-        this.tin_vat_document = tin_vat_document;
-        return this;
-    }
-
-    public void setTin_vat_document(String tin_vat_document) {
-        this.tin_vat_document = tin_vat_document;
-    }
-
-    public String getCst_document() {
-        return cst_document;
-    }
-
-    public Companydetail cst_document(String cst_document) {
-        this.cst_document = cst_document;
-        return this;
-    }
-
-    public void setCst_document(String cst_document) {
-        this.cst_document = cst_document;
-    }
-
-    public String getMoa_partnershipdeed() {
-        return moa_partnershipdeed;
-    }
-
-    public Companydetail moa_partnershipdeed(String moa_partnershipdeed) {
-        this.moa_partnershipdeed = moa_partnershipdeed;
-        return this;
-    }
-
-    public void setMoa_partnershipdeed(String moa_partnershipdeed) {
-        this.moa_partnershipdeed = moa_partnershipdeed;
-    }
-
-    public String getRegistration_document() {
-        return registration_document;
-    }
-
-    public Companydetail registration_document(String registration_document) {
-        this.registration_document = registration_document;
-        return this;
-    }
-
-    public void setRegistration_document(String registration_document) {
-        this.registration_document = registration_document;
-    }
-
     public String getBusinessentitytype() {
         return businessentitytype;
     }
@@ -294,6 +179,32 @@ public class Companydetail implements Serializable {
 
     public void setBusinessentitytype(String businessentitytype) {
         this.businessentitytype = businessentitytype;
+    }
+
+    public ZonedDateTime getCreatedate() {
+        return createdate;
+    }
+
+    public Companydetail createdate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+        return this;
+    }
+
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public Companydetail updatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+        return this;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
     }
 
     @Override
@@ -320,7 +231,6 @@ public class Companydetail implements Serializable {
     public String toString() {
         return "Companydetail{" +
             "id=" + id +
-            ", investorid='" + investorid + "'" +
             ", promoter_md_director='" + promoter_md_director + "'" +
             ", designation='" + designation + "'" +
             ", businessentity='" + businessentity + "'" +
@@ -330,14 +240,9 @@ public class Companydetail implements Serializable {
             ", nri='" + nri + "'" +
             ", tin_vat_number='" + tin_vat_number + "'" +
             ", cst_number='" + cst_number + "'" +
-            ", director_md_ceo_list='" + director_md_ceo_list + "'" +
-            ", pancard='" + pancard + "'" +
-            ", aadharcard='" + aadharcard + "'" +
-            ", tin_vat_document='" + tin_vat_document + "'" +
-            ", cst_document='" + cst_document + "'" +
-            ", moa_partnershipdeed='" + moa_partnershipdeed + "'" +
-            ", registration_document='" + registration_document + "'" +
             ", businessentitytype='" + businessentitytype + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
             '}';
     }
 }

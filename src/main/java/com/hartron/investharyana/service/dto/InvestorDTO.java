@@ -1,6 +1,7 @@
 package com.hartron.investharyana.service.dto;
 
 
+import java.time.ZonedDateTime;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -34,10 +35,6 @@ public class InvestorDTO implements Serializable {
 
     private String emailsecondary;
 
-    private String moudocument;
-
-    private String investorpicpath;
-
     private String userlogin;
 
     private String cityname;
@@ -45,6 +42,18 @@ public class InvestorDTO implements Serializable {
     private String countryname;
 
     private String statename;
+
+    private Integer pincode;
+
+    private Double phonenumber;
+
+    private Double mobilenumber;
+
+    private Double cafpin;
+
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
 
     public UUID getId() {
         return id;
@@ -130,20 +139,6 @@ public class InvestorDTO implements Serializable {
     public void setEmailsecondary(String emailsecondary) {
         this.emailsecondary = emailsecondary;
     }
-    public String getMoudocument() {
-        return moudocument;
-    }
-
-    public void setMoudocument(String moudocument) {
-        this.moudocument = moudocument;
-    }
-    public String getInvestorpicpath() {
-        return investorpicpath;
-    }
-
-    public void setInvestorpicpath(String investorpicpath) {
-        this.investorpicpath = investorpicpath;
-    }
     public String getUserlogin() {
         return userlogin;
     }
@@ -171,6 +166,48 @@ public class InvestorDTO implements Serializable {
 
     public void setStatename(String statename) {
         this.statename = statename;
+    }
+    public Integer getPincode() {
+        return pincode;
+    }
+
+    public void setPincode(Integer pincode) {
+        this.pincode = pincode;
+    }
+    public Double getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(Double phonenumber) {
+        this.phonenumber = phonenumber;
+    }
+    public Double getMobilenumber() {
+        return mobilenumber;
+    }
+
+    public void setMobilenumber(Double mobilenumber) {
+        this.mobilenumber = mobilenumber;
+    }
+    public Double getCafpin() {
+        return cafpin;
+    }
+
+    public void setCafpin(Double cafpin) {
+        this.cafpin = cafpin;
+    }
+    public ZonedDateTime getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
     }
 
     @Override
@@ -209,12 +246,16 @@ public class InvestorDTO implements Serializable {
             ", address3='" + address3 + "'" +
             ", emailprimary='" + emailprimary + "'" +
             ", emailsecondary='" + emailsecondary + "'" +
-            ", moudocument='" + moudocument + "'" +
-            ", investorpicpath='" + investorpicpath + "'" +
             ", userlogin='" + userlogin + "'" +
             ", cityname='" + cityname + "'" +
             ", countryname='" + countryname + "'" +
             ", statename='" + statename + "'" +
+            ", pincode='" + pincode + "'" +
+            ", phonenumber='" + phonenumber + "'" +
+            ", mobilenumber='" + mobilenumber + "'" +
+            ", cafpin='" + cafpin + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
             '}';
     }
 }

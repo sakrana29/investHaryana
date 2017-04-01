@@ -14,12 +14,6 @@
                     ng-model="vm.projectproduct.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.projectproduct.projectid" for="field_projectid">Projectid</label>
-            <input type="text" class="form-control" name="projectid" id="field_projectid"
-                    ng-model="vm.projectproduct.projectid"
-                    />
-        </div>
-        <div class="form-group">
             <label class="control-label" data-translate="investhryApp.projectproduct.mainproduct" for="field_mainproduct">Mainproduct</label>
             <input type="text" class="form-control" name="mainproduct" id="field_mainproduct"
                     ng-model="vm.projectproduct.mainproduct"
@@ -36,6 +30,26 @@
             <input type="text" class="form-control" name="units" id="field_units"
                     ng-model="vm.projectproduct.units"
                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectproduct.createdate" for="field_createdate">Createdate</label>
+                <div class="input-group">
+                    <input id="field_createdate" type="text" class="form-control" name="createdate" datetime-picker="{{dateformat}}" ng-model="vm.projectproduct.createdate" is-open="vm.datePickerOpenStatus.createdate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('createdate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectproduct.updatedate" for="field_updatedate">Updatedate</label>
+                <div class="input-group">
+                    <input id="field_updatedate" type="text" class="form-control" name="updatedate" datetime-picker="{{dateformat}}" ng-model="vm.projectproduct.updatedate" is-open="vm.datePickerOpenStatus.updatedate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('updatedate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
         </div>
 
     </div>

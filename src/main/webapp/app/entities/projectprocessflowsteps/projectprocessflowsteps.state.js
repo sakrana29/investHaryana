@@ -104,8 +104,9 @@
                     resolve: {
                         entity: function () {
                             return {
-                                projectid: null,
                                 steps: null,
+                                createdate: null,
+                                updatedate: null,
                                 id: null
                             };
                         }

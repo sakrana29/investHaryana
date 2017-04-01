@@ -1,4 +1,5 @@
-<div class="container">
+
+<div>
     <h2><span data-translate="investhryApp.projectdetail.detail.title">Projectdetail</span> {{vm.projectdetail.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
@@ -18,22 +19,6 @@
         <dt><span data-translate="investhryApp.projectdetail.edc_sif_clu_fee_paid_applicable">Edc Sif Clu Fee Paid Applicable</span></dt>
         <dd>
             <span>{{vm.projectdetail.edc_sif_clu_fee_paid_applicable}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.projectdetail.detail_project_report">Detail Project Report</span></dt>
-        <dd>
-            <span>{{vm.projectdetail.detail_project_report}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.projectdetail.approval_document">Approval Document</span></dt>
-        <dd>
-            <span>{{vm.projectdetail.approval_document}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.projectdetail.edc_sif_clu_fee_paid_document">Edc Sif Clu Fee Paid Document</span></dt>
-        <dd>
-            <span>{{vm.projectdetail.edc_sif_clu_fee_paid_document}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.projectdetail.investorid">Investorid</span></dt>
-        <dd>
-            <span>{{vm.projectdetail.investorid}}</span>
         </dd>
         <dt><span data-translate="investhryApp.projectdetail.approval_application_form">Approval Application Form</span></dt>
         <dd>
@@ -59,9 +44,17 @@
         <dd>
             <span>{{vm.projectdetail.size_of_industry}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.projectdetail.cafPIN">Caf PIN</span></dt>
+        <dt><span data-translate="investhryApp.projectdetail.createdate">Createdate</span></dt>
         <dd>
-            <span>{{vm.projectdetail.cafPIN}}</span>
+            <span>{{vm.projectdetail.createdate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectdetail.updatedate">Updatedate</span></dt>
+        <dd>
+            <span>{{vm.projectdetail.updatedate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectdetail.sectorother">Sectorother</span></dt>
+        <dd>
+            <span>{{vm.projectdetail.sectorother}}</span>
         </dd>
     </dl>
 

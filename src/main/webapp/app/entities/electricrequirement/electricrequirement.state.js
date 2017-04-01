@@ -104,7 +104,6 @@
                     resolve: {
                         entity: function () {
                             return {
-                                projectid: null,
                                 temporaryrequired: null,
                                 tem_load_existing: null,
                                 tem_account_number: null,
@@ -115,15 +114,15 @@
                                 temp_load_demand_date: null,
                                 regular_load_required: null,
                                 regular_existing_connection: null,
-                                customertype: null,
                                 regular_account_number: null,
                                 regular_existing_load_ifany_kw: null,
                                 regular_existing_load_ifany_kva: null,
                                 regular_new_load_demand_kw: null,
                                 regular_new_load_demand_kva: null,
                                 regular_load_demand_date: null,
-                                temporaryconnection: null,
-                                regular_connection_doc: null,
+                                customertype: null,
+                                createdate: null,
+                                updatedate: null,
                                 id: null
                             };
                         }

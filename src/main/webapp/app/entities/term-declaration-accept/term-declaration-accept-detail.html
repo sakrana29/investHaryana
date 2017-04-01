@@ -1,12 +1,9 @@
-<div class="container">
+
+<div>
     <h2><span data-translate="investhryApp.term_declaration_accept.detail.title">Term Declaration Accept</span> {{vm.term_declaration_accept.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row jh-entity-details">
-        <dt><span data-translate="investhryApp.term_declaration_accept.projectid">Projectid</span></dt>
-        <dd>
-            <span>{{vm.term_declaration_accept.projectid}}</span>
-        </dd>
         <dt><span data-translate="investhryApp.term_declaration_accept.acceptance">Acceptance</span></dt>
         <dd>
             <span>{{vm.term_declaration_accept.acceptance}}</span>
@@ -19,12 +16,13 @@
         <dd>
             <span>{{vm.term_declaration_accept.place}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.term_declaration_accept.signature">Signature</span></dt>
+        <dt><span data-translate="investhryApp.term_declaration_accept.createdate">Createdate</span></dt>
         <dd>
-            <div ng-if="vm.term_declaration_accept.signature">
-                <a ng-click="vm.openFile(vm.term_declaration_accept.signatureContentType, vm.term_declaration_accept.signature)" data-translate="entity.action.open">open</a>
-                {{vm.term_declaration_accept.signatureContentType}}, {{vm.byteSize(vm.term_declaration_accept.signature)}}
-            </div>
+            <span>{{vm.term_declaration_accept.createdate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.term_declaration_accept.updatedate">Updatedate</span></dt>
+        <dd>
+            <span>{{vm.term_declaration_accept.updatedate | date:'medium'}}</span>
         </dd>
     </dl>
 

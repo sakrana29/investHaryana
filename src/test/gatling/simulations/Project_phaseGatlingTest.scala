@@ -68,7 +68,7 @@ class Project_phaseGatlingTest extends Simulation {
             .exec(http("Create new project_phase")
             .post("/api/project-phases")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "projectid":null, "phase":"SAMPLE_TEXT", "productcategory":"SAMPLE_TEXT", "fci":"SAMPLE_TEXT", "implementationdate":"2020-01-01T00:00:00.000Z"}""")).asJSON
+            .body(StringBody("""{"id":null, "projectid":null, "phase":"SAMPLE_TEXT", "productcategory":"SAMPLE_TEXT", "fci":"SAMPLE_TEXT", "implementationdate":"2020-01-01T00:00:00.000Z", "createdate":"2020-01-01T00:00:00.000Z", "updatedate":"2020-01-01T00:00:00.000Z"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_project_phase_url"))).exitHereIfFailed
             .pause(10)

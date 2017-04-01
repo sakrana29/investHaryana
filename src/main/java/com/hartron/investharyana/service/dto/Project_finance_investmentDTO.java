@@ -14,8 +14,6 @@ public class Project_finance_investmentDTO implements Serializable {
 
     private UUID id;
 
-    private UUID projectid;
-
     private BigDecimal land_cost;
 
     private BigDecimal building_cost;
@@ -34,11 +32,15 @@ public class Project_finance_investmentDTO implements Serializable {
 
     private ZonedDateTime commercial_activity_start_date;
 
-    private UUID proposedproject_scheduleid;
-
     private String fdi_country;
 
     private String foreign_funding_source;
+
+    private Integer totalpurposedemployment;
+
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
 
     public UUID getId() {
         return id;
@@ -46,13 +48,6 @@ public class Project_finance_investmentDTO implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-    public UUID getProjectid() {
-        return projectid;
-    }
-
-    public void setProjectid(UUID projectid) {
-        this.projectid = projectid;
     }
     public BigDecimal getLand_cost() {
         return land_cost;
@@ -117,13 +112,6 @@ public class Project_finance_investmentDTO implements Serializable {
     public void setCommercial_activity_start_date(ZonedDateTime commercial_activity_start_date) {
         this.commercial_activity_start_date = commercial_activity_start_date;
     }
-    public UUID getProposedproject_scheduleid() {
-        return proposedproject_scheduleid;
-    }
-
-    public void setProposedproject_scheduleid(UUID proposedproject_scheduleid) {
-        this.proposedproject_scheduleid = proposedproject_scheduleid;
-    }
     public String getFdi_country() {
         return fdi_country;
     }
@@ -137,6 +125,27 @@ public class Project_finance_investmentDTO implements Serializable {
 
     public void setForeign_funding_source(String foreign_funding_source) {
         this.foreign_funding_source = foreign_funding_source;
+    }
+    public Integer getTotalpurposedemployment() {
+        return totalpurposedemployment;
+    }
+
+    public void setTotalpurposedemployment(Integer totalpurposedemployment) {
+        this.totalpurposedemployment = totalpurposedemployment;
+    }
+    public ZonedDateTime getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
     }
 
     @Override
@@ -164,7 +173,6 @@ public class Project_finance_investmentDTO implements Serializable {
     public String toString() {
         return "Project_finance_investmentDTO{" +
             "id=" + id +
-            ", projectid='" + projectid + "'" +
             ", land_cost='" + land_cost + "'" +
             ", building_cost='" + building_cost + "'" +
             ", machinery_cost='" + machinery_cost + "'" +
@@ -174,9 +182,11 @@ public class Project_finance_investmentDTO implements Serializable {
             ", fdivalue='" + fdivalue + "'" +
             ", project_construction_start_date='" + project_construction_start_date + "'" +
             ", commercial_activity_start_date='" + commercial_activity_start_date + "'" +
-            ", proposedproject_scheduleid='" + proposedproject_scheduleid + "'" +
             ", fdi_country='" + fdi_country + "'" +
             ", foreign_funding_source='" + foreign_funding_source + "'" +
+            ", totalpurposedemployment='" + totalpurposedemployment + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
             '}';
     }
 }

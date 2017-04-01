@@ -40,7 +40,6 @@ public class Project_finance_investmentRepository {
             row -> {
                 Project_finance_investment project_finance_investment = new Project_finance_investment();
                 project_finance_investment.setId(row.getUUID("id"));
-                project_finance_investment.setProjectid(row.getUUID("projectid"));
                 project_finance_investment.setLand_cost(row.getDecimal("land_cost"));
                 project_finance_investment.setBuilding_cost(row.getDecimal("building_cost"));
                 project_finance_investment.setMachinery_cost(row.getDecimal("machinery_cost"));
@@ -50,9 +49,11 @@ public class Project_finance_investmentRepository {
                 project_finance_investment.setFdivalue(row.getDecimal("fdivalue"));
                 project_finance_investment.setProject_construction_start_date(row.get("project_construction_start_date", ZonedDateTime.class));
                 project_finance_investment.setCommercial_activity_start_date(row.get("commercial_activity_start_date", ZonedDateTime.class));
-                project_finance_investment.setProposedproject_scheduleid(row.getUUID("proposedproject_scheduleid"));
                 project_finance_investment.setFdi_country(row.getString("fdi_country"));
                 project_finance_investment.setForeign_funding_source(row.getString("foreign_funding_source"));
+                project_finance_investment.setTotalpurposedemployment(row.getInt("totalpurposedemployment"));
+                project_finance_investment.setCreatedate(row.get("createdate", ZonedDateTime.class));
+                project_finance_investment.setUpdatedate(row.get("updatedate", ZonedDateTime.class));
                 return project_finance_investment;
             }
         ).forEach(project_finance_investmentsList::add);

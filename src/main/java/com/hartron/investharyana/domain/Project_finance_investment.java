@@ -20,8 +20,6 @@ public class Project_finance_investment implements Serializable {
     @PartitionKey
     private UUID id;
 
-    private UUID projectid;
-
     private BigDecimal land_cost;
 
     private BigDecimal building_cost;
@@ -40,11 +38,15 @@ public class Project_finance_investment implements Serializable {
 
     private ZonedDateTime commercial_activity_start_date;
 
-    private UUID proposedproject_scheduleid;
-
     private String fdi_country;
 
     private String foreign_funding_source;
+
+    private Integer totalpurposedemployment;
+
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
 
     public UUID getId() {
         return id;
@@ -52,19 +54,6 @@ public class Project_finance_investment implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public UUID getProjectid() {
-        return projectid;
-    }
-
-    public Project_finance_investment projectid(UUID projectid) {
-        this.projectid = projectid;
-        return this;
-    }
-
-    public void setProjectid(UUID projectid) {
-        this.projectid = projectid;
     }
 
     public BigDecimal getLand_cost() {
@@ -184,19 +173,6 @@ public class Project_finance_investment implements Serializable {
         this.commercial_activity_start_date = commercial_activity_start_date;
     }
 
-    public UUID getProposedproject_scheduleid() {
-        return proposedproject_scheduleid;
-    }
-
-    public Project_finance_investment proposedproject_scheduleid(UUID proposedproject_scheduleid) {
-        this.proposedproject_scheduleid = proposedproject_scheduleid;
-        return this;
-    }
-
-    public void setProposedproject_scheduleid(UUID proposedproject_scheduleid) {
-        this.proposedproject_scheduleid = proposedproject_scheduleid;
-    }
-
     public String getFdi_country() {
         return fdi_country;
     }
@@ -223,6 +199,45 @@ public class Project_finance_investment implements Serializable {
         this.foreign_funding_source = foreign_funding_source;
     }
 
+    public Integer getTotalpurposedemployment() {
+        return totalpurposedemployment;
+    }
+
+    public Project_finance_investment totalpurposedemployment(Integer totalpurposedemployment) {
+        this.totalpurposedemployment = totalpurposedemployment;
+        return this;
+    }
+
+    public void setTotalpurposedemployment(Integer totalpurposedemployment) {
+        this.totalpurposedemployment = totalpurposedemployment;
+    }
+
+    public ZonedDateTime getCreatedate() {
+        return createdate;
+    }
+
+    public Project_finance_investment createdate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+        return this;
+    }
+
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public Project_finance_investment updatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+        return this;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -247,7 +262,6 @@ public class Project_finance_investment implements Serializable {
     public String toString() {
         return "Project_finance_investment{" +
             "id=" + id +
-            ", projectid='" + projectid + "'" +
             ", land_cost='" + land_cost + "'" +
             ", building_cost='" + building_cost + "'" +
             ", machinery_cost='" + machinery_cost + "'" +
@@ -257,9 +271,11 @@ public class Project_finance_investment implements Serializable {
             ", fdivalue='" + fdivalue + "'" +
             ", project_construction_start_date='" + project_construction_start_date + "'" +
             ", commercial_activity_start_date='" + commercial_activity_start_date + "'" +
-            ", proposedproject_scheduleid='" + proposedproject_scheduleid + "'" +
             ", fdi_country='" + fdi_country + "'" +
             ", foreign_funding_source='" + foreign_funding_source + "'" +
+            ", totalpurposedemployment='" + totalpurposedemployment + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
             '}';
     }
 }

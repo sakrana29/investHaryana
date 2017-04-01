@@ -104,7 +104,6 @@
                     resolve: {
                         entity: function () {
                             return {
-                                projectid: null,
                                 land_cost: null,
                                 building_cost: null,
                                 machinery_cost: null,
@@ -114,9 +113,11 @@
                                 fdivalue: null,
                                 project_construction_start_date: null,
                                 commercial_activity_start_date: null,
-                                proposedproject_scheduleid: null,
                                 fdi_country: null,
                                 foreign_funding_source: null,
+                                totalpurposedemployment: null,
+                                createdate: null,
+                                updatedate: null,
                                 id: null
                             };
                         }

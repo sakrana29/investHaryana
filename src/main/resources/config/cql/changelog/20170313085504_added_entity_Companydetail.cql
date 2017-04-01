@@ -1,7 +1,6 @@
 
 CREATE TABLE IF NOT EXISTS companydetail (
     id uuid,
-    investorid uuid,
     promoter_md_director text,
     designation text,
     businessentity text,
@@ -11,13 +10,8 @@ CREATE TABLE IF NOT EXISTS companydetail (
     nri boolean,
     tin_vat_number text,
     cst_number text,
-    director_md_ceo_list text,
-    pancard text,
-    aadharcard text,
-    tin_vat_document text,
-    cst_document text,
-    moa_partnershipdeed text,
-    registration_document text,
     businessentitytype text,
+    createdate timestamp,
+    updatedate timestamp,
     PRIMARY KEY(id)
 );

@@ -3,10 +3,6 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "projectid",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "land_cost",
             "fieldType": "BigDecimal"
         },
@@ -43,16 +39,24 @@
             "fieldType": "ZonedDateTime"
         },
         {
-            "fieldName": "proposedproject_scheduleid",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "fdi_country",
             "fieldType": "String"
         },
         {
             "fieldName": "foreign_funding_source",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "totalpurposedemployment",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "createdate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "updatedate",
+            "fieldType": "ZonedDateTime"
         }
     ],
     "changelogDate": "20170313115519",

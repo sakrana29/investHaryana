@@ -4,9 +4,9 @@
         .module('investhryApp')
         .factory('Projectrawmaterial', Projectrawmaterial);
 
-    Projectrawmaterial.$inject = ['$resource'];
+    Projectrawmaterial.$inject = ['$resource', 'DateUtils'];
 
-    function Projectrawmaterial ($resource) {
+    function Projectrawmaterial ($resource, DateUtils) {
         var resourceUrl =  'api/projectrawmaterials/:id';
 
         return $resource(resourceUrl, {}, {
@@ -16,6 +16,8 @@
                 transformResponse: function (data) {
                     if (data) {
                         data = angular.fromJson(data);
+                        data.createdate = DateUtils.convertDateTimeFromServer(data.createdate);
+                        data.updatedate = DateUtils.convertDateTimeFromServer(data.updatedate);
                     }
                     return data;
                 }

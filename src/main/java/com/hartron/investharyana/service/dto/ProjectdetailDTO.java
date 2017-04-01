@@ -1,6 +1,7 @@
 package com.hartron.investharyana.service.dto;
 
 
+import java.time.ZonedDateTime;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -20,14 +21,6 @@ public class ProjectdetailDTO implements Serializable {
 
     private Boolean edc_sif_clu_fee_paid_applicable;
 
-    private String detail_project_report;
-
-    private String approval_document;
-
-    private String edc_sif_clu_fee_paid_document;
-
-    private UUID investorid;
-
     private String approval_application_form;
 
     private String category_of_project;
@@ -40,7 +33,11 @@ public class ProjectdetailDTO implements Serializable {
 
     private String size_of_industry;
 
-    private String cafPIN;
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
+
+    private String sectorother;
 
     public UUID getId() {
         return id;
@@ -76,34 +73,6 @@ public class ProjectdetailDTO implements Serializable {
 
     public void setEdc_sif_clu_fee_paid_applicable(Boolean edc_sif_clu_fee_paid_applicable) {
         this.edc_sif_clu_fee_paid_applicable = edc_sif_clu_fee_paid_applicable;
-    }
-    public String getDetail_project_report() {
-        return detail_project_report;
-    }
-
-    public void setDetail_project_report(String detail_project_report) {
-        this.detail_project_report = detail_project_report;
-    }
-    public String getApproval_document() {
-        return approval_document;
-    }
-
-    public void setApproval_document(String approval_document) {
-        this.approval_document = approval_document;
-    }
-    public String getEdc_sif_clu_fee_paid_document() {
-        return edc_sif_clu_fee_paid_document;
-    }
-
-    public void setEdc_sif_clu_fee_paid_document(String edc_sif_clu_fee_paid_document) {
-        this.edc_sif_clu_fee_paid_document = edc_sif_clu_fee_paid_document;
-    }
-    public UUID getInvestorid() {
-        return investorid;
-    }
-
-    public void setInvestorid(UUID investorid) {
-        this.investorid = investorid;
     }
     public String getApproval_application_form() {
         return approval_application_form;
@@ -147,12 +116,26 @@ public class ProjectdetailDTO implements Serializable {
     public void setSize_of_industry(String size_of_industry) {
         this.size_of_industry = size_of_industry;
     }
-    public String getCafPIN() {
-        return cafPIN;
+    public ZonedDateTime getCreatedate() {
+        return createdate;
     }
 
-    public void setCafPIN(String cafPIN) {
-        this.cafPIN = cafPIN;
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+    }
+    public String getSectorother() {
+        return sectorother;
+    }
+
+    public void setSectorother(String sectorother) {
+        this.sectorother = sectorother;
     }
 
     @Override
@@ -184,17 +167,15 @@ public class ProjectdetailDTO implements Serializable {
             ", niccode='" + niccode + "'" +
             ", existing_regulatory_approval='" + existing_regulatory_approval + "'" +
             ", edc_sif_clu_fee_paid_applicable='" + edc_sif_clu_fee_paid_applicable + "'" +
-            ", detail_project_report='" + detail_project_report + "'" +
-            ", approval_document='" + approval_document + "'" +
-            ", edc_sif_clu_fee_paid_document='" + edc_sif_clu_fee_paid_document + "'" +
-            ", investorid='" + investorid + "'" +
             ", approval_application_form='" + approval_application_form + "'" +
             ", category_of_project='" + category_of_project + "'" +
             ", collaboration_with_foreign_country='" + collaboration_with_foreign_country + "'" +
             ", projectype='" + projectype + "'" +
             ", sectorname='" + sectorname + "'" +
             ", size_of_industry='" + size_of_industry + "'" +
-            ", cafPIN='" + cafPIN + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
+            ", sectorother='" + sectorother + "'" +
             '}';
     }
 }

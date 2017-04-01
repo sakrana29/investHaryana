@@ -28,7 +28,6 @@ public class ProjectCompleteDetailResource {
 
 //    private static final String ENTITY_NAME = "block";
 
-
     private final InvestorService investorService;
     private final CompanydetailService companydetailService;
     private final ProjectdetailService projectdetailService;
@@ -107,22 +106,22 @@ public class ProjectCompleteDetailResource {
         }
         InvestorDTO resultInvestor = investorService.save(projectCompleteDetailDTO.getInvestorDTO());
 
-        projectCompleteDetailDTO.getCompanydetailDTO().setInvestorid(resultInvestor.getId());
+//        projectCompleteDetailDTO.getCompanydetailDTO().setInvestorid(resultInvestor.getId());
         CompanydetailDTO resultCompany = companydetailService.save(projectCompleteDetailDTO.getCompanydetailDTO());
 
-        projectCompleteDetailDTO.getProjectdetailDTO().setInvestorid(resultInvestor.getId());
+//        projectCompleteDetailDTO.getProjectdetailDTO().setInvestorid(resultInvestor.getId());
         ProjectdetailDTO resultProjectdetail = projectdetailService.save(projectCompleteDetailDTO.getProjectdetailDTO());
 
-        projectCompleteDetailDTO.getProjectsitedetailDTO().setProjectid(resultProjectdetail.getId());
+//        projectCompleteDetailDTO.getProjectsitedetailDTO().setProjectid(resultProjectdetail.getId());
         ProjectsitedetailDTO resultSiteDetail = projectsitedetailService.save(projectCompleteDetailDTO.getProjectsitedetailDTO());
 
-        projectCompleteDetailDTO.getProject_finance_investmentDTO().setProjectid(resultProjectdetail.getId());
+//        projectCompleteDetailDTO.getProject_finance_investmentDTO().setProjectid(resultProjectdetail.getId());
         Project_finance_investmentDTO resultFinance = project_finance_investmentService.save(projectCompleteDetailDTO.getProject_finance_investmentDTO());
 
         projectCompleteDetailDTO.getManufacturingdetailDTO().setProjectid(resultProjectdetail.getId());
         ManufacturingdetailDTO resultManufacturing = manufacturingdetailService.save(projectCompleteDetailDTO.getManufacturingdetailDTO());
 
-        projectCompleteDetailDTO.getElectricrequirementDTO().setProjectid(resultProjectdetail.getId());
+//        projectCompleteDetailDTO.getElectricrequirementDTO().setProjectid(resultProjectdetail.getId());
         ElectricrequirementDTO resultElectric = electricrequirementService.save(projectCompleteDetailDTO.getElectricrequirementDTO());
 
         List<Project_phaseDTO> project_phaseDTOList=projectCompleteDetailDTO.getProject_phaseDTOList();

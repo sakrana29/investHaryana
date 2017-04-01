@@ -7,6 +7,7 @@ import com.datastax.driver.mapping.Mapper;
 import com.datastax.driver.mapping.MappingManager;
 import org.springframework.stereotype.Repository;
 
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -39,10 +40,11 @@ public class ProjectproductRepository {
             row -> {
                 Projectproduct projectproduct = new Projectproduct();
                 projectproduct.setId(row.getUUID("id"));
-                projectproduct.setProjectid(row.getUUID("projectid"));
                 projectproduct.setMainproduct(row.getString("mainproduct"));
                 projectproduct.setQuantity(row.getInt("quantity"));
                 projectproduct.setUnits(row.getString("units"));
+                projectproduct.setCreatedate(row.get("createdate", ZonedDateTime.class));
+                projectproduct.setUpdatedate(row.get("updatedate", ZonedDateTime.class));
                 return projectproduct;
             }
         ).forEach(projectproductsList::add);

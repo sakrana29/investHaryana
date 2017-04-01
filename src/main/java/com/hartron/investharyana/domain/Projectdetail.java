@@ -3,6 +3,7 @@ package com.hartron.investharyana.domain;
 import com.datastax.driver.mapping.annotations.*;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -26,14 +27,6 @@ public class Projectdetail implements Serializable {
 
     private Boolean edc_sif_clu_fee_paid_applicable;
 
-    private String detail_project_report;
-
-    private String approval_document;
-
-    private String edc_sif_clu_fee_paid_document;
-
-    private UUID investorid;
-
     private String approval_application_form;
 
     private String category_of_project;
@@ -46,7 +39,11 @@ public class Projectdetail implements Serializable {
 
     private String size_of_industry;
 
-    private String cafPIN;
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
+
+    private String sectorother;
 
     public UUID getId() {
         return id;
@@ -106,58 +103,6 @@ public class Projectdetail implements Serializable {
 
     public void setEdc_sif_clu_fee_paid_applicable(Boolean edc_sif_clu_fee_paid_applicable) {
         this.edc_sif_clu_fee_paid_applicable = edc_sif_clu_fee_paid_applicable;
-    }
-
-    public String getDetail_project_report() {
-        return detail_project_report;
-    }
-
-    public Projectdetail detail_project_report(String detail_project_report) {
-        this.detail_project_report = detail_project_report;
-        return this;
-    }
-
-    public void setDetail_project_report(String detail_project_report) {
-        this.detail_project_report = detail_project_report;
-    }
-
-    public String getApproval_document() {
-        return approval_document;
-    }
-
-    public Projectdetail approval_document(String approval_document) {
-        this.approval_document = approval_document;
-        return this;
-    }
-
-    public void setApproval_document(String approval_document) {
-        this.approval_document = approval_document;
-    }
-
-    public String getEdc_sif_clu_fee_paid_document() {
-        return edc_sif_clu_fee_paid_document;
-    }
-
-    public Projectdetail edc_sif_clu_fee_paid_document(String edc_sif_clu_fee_paid_document) {
-        this.edc_sif_clu_fee_paid_document = edc_sif_clu_fee_paid_document;
-        return this;
-    }
-
-    public void setEdc_sif_clu_fee_paid_document(String edc_sif_clu_fee_paid_document) {
-        this.edc_sif_clu_fee_paid_document = edc_sif_clu_fee_paid_document;
-    }
-
-    public UUID getInvestorid() {
-        return investorid;
-    }
-
-    public Projectdetail investorid(UUID investorid) {
-        this.investorid = investorid;
-        return this;
-    }
-
-    public void setInvestorid(UUID investorid) {
-        this.investorid = investorid;
     }
 
     public String getApproval_application_form() {
@@ -238,17 +183,43 @@ public class Projectdetail implements Serializable {
         this.size_of_industry = size_of_industry;
     }
 
-    public String getCafPIN() {
-        return cafPIN;
+    public ZonedDateTime getCreatedate() {
+        return createdate;
     }
 
-    public Projectdetail cafPIN(String cafPIN) {
-        this.cafPIN = cafPIN;
+    public Projectdetail createdate(ZonedDateTime createdate) {
+        this.createdate = createdate;
         return this;
     }
 
-    public void setCafPIN(String cafPIN) {
-        this.cafPIN = cafPIN;
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public Projectdetail updatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+        return this;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+    }
+
+    public String getSectorother() {
+        return sectorother;
+    }
+
+    public Projectdetail sectorother(String sectorother) {
+        this.sectorother = sectorother;
+        return this;
+    }
+
+    public void setSectorother(String sectorother) {
+        this.sectorother = sectorother;
     }
 
     @Override
@@ -279,17 +250,15 @@ public class Projectdetail implements Serializable {
             ", niccode='" + niccode + "'" +
             ", existing_regulatory_approval='" + existing_regulatory_approval + "'" +
             ", edc_sif_clu_fee_paid_applicable='" + edc_sif_clu_fee_paid_applicable + "'" +
-            ", detail_project_report='" + detail_project_report + "'" +
-            ", approval_document='" + approval_document + "'" +
-            ", edc_sif_clu_fee_paid_document='" + edc_sif_clu_fee_paid_document + "'" +
-            ", investorid='" + investorid + "'" +
             ", approval_application_form='" + approval_application_form + "'" +
             ", category_of_project='" + category_of_project + "'" +
             ", collaboration_with_foreign_country='" + collaboration_with_foreign_country + "'" +
             ", projectype='" + projectype + "'" +
             ", sectorname='" + sectorname + "'" +
             ", size_of_industry='" + size_of_industry + "'" +
-            ", cafPIN='" + cafPIN + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
+            ", sectorother='" + sectorother + "'" +
             '}';
     }
 }

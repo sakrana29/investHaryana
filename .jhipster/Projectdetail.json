@@ -19,22 +19,6 @@
             "fieldType": "Boolean"
         },
         {
-            "fieldName": "detail_project_report",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "approval_document",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "edc_sif_clu_fee_paid_document",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "investorid",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "approval_application_form",
             "fieldType": "String"
         },
@@ -59,7 +43,15 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "cafPIN",
+            "fieldName": "createdate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "updatedate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "sectorother",
             "fieldType": "String"
         }
     ],

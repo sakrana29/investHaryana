@@ -104,11 +104,12 @@
                     resolve: {
                         entity: function () {
                             return {
-                                projectid: null,
                                 capacity: null,
                                 particulars: null,
                                 type_of_fuel: null,
                                 air_pollution_control_device: null,
+                                createdate: null,
+                                updatedate: null,
                                 id: null
                             };
                         }

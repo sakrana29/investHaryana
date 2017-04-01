@@ -3,10 +3,6 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "projectid",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "temporaryrequired",
             "fieldType": "Boolean"
         },
@@ -47,10 +43,6 @@
             "fieldType": "Boolean"
         },
         {
-            "fieldName": "customertype",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "regular_account_number",
             "fieldType": "String"
         },
@@ -75,12 +67,16 @@
             "fieldType": "ZonedDateTime"
         },
         {
-            "fieldName": "temporaryconnection",
+            "fieldName": "customertype",
             "fieldType": "String"
         },
         {
-            "fieldName": "regular_connection_doc",
-            "fieldType": "String"
+            "fieldName": "createdate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "updatedate",
+            "fieldType": "ZonedDateTime"
         }
     ],
     "changelogDate": "20170313125439",

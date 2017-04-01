@@ -3,7 +3,6 @@ package com.hartron.investharyana.service.dto;
 
 import java.time.ZonedDateTime;
 import java.io.Serializable;
-import java.nio.ByteBuffer;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -14,16 +13,15 @@ public class Term_declaration_acceptDTO implements Serializable {
 
     private UUID id;
 
-    private UUID projectid;
-
     private Boolean acceptance;
 
     private ZonedDateTime applicationdate;
 
     private String place;
 
-    private ByteBuffer signature;
-    private String signatureContentType;
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
 
     public UUID getId() {
         return id;
@@ -31,13 +29,6 @@ public class Term_declaration_acceptDTO implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-    public UUID getProjectid() {
-        return projectid;
-    }
-
-    public void setProjectid(UUID projectid) {
-        this.projectid = projectid;
     }
     public Boolean getAcceptance() {
         return acceptance;
@@ -60,20 +51,19 @@ public class Term_declaration_acceptDTO implements Serializable {
     public void setPlace(String place) {
         this.place = place;
     }
-    public ByteBuffer getSignature() {
-        return signature;
+    public ZonedDateTime getCreatedate() {
+        return createdate;
     }
 
-    public void setSignature(ByteBuffer signature) {
-        this.signature = signature;
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
     }
 
-    public String getSignatureContentType() {
-        return signatureContentType;
-    }
-
-    public void setSignatureContentType(String signatureContentType) {
-        this.signatureContentType = signatureContentType;
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
     }
 
     @Override
@@ -101,11 +91,11 @@ public class Term_declaration_acceptDTO implements Serializable {
     public String toString() {
         return "Term_declaration_acceptDTO{" +
             "id=" + id +
-            ", projectid='" + projectid + "'" +
             ", acceptance='" + acceptance + "'" +
             ", applicationdate='" + applicationdate + "'" +
             ", place='" + place + "'" +
-            ", signature='" + signature + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
             '}';
     }
 }

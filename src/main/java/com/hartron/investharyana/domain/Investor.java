@@ -3,6 +3,7 @@ package com.hartron.investharyana.domain;
 import com.datastax.driver.mapping.annotations.*;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -40,10 +41,6 @@ public class Investor implements Serializable {
 
     private String emailsecondary;
 
-    private String moudocument;
-
-    private String investorpicpath;
-
     private String userlogin;
 
     private String cityname;
@@ -51,6 +48,18 @@ public class Investor implements Serializable {
     private String countryname;
 
     private String statename;
+
+    private Integer pincode;
+
+    private Double phonenumber;
+
+    private Double mobilenumber;
+
+    private Double cafpin;
+
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
 
     public UUID getId() {
         return id;
@@ -203,32 +212,6 @@ public class Investor implements Serializable {
         this.emailsecondary = emailsecondary;
     }
 
-    public String getMoudocument() {
-        return moudocument;
-    }
-
-    public Investor moudocument(String moudocument) {
-        this.moudocument = moudocument;
-        return this;
-    }
-
-    public void setMoudocument(String moudocument) {
-        this.moudocument = moudocument;
-    }
-
-    public String getInvestorpicpath() {
-        return investorpicpath;
-    }
-
-    public Investor investorpicpath(String investorpicpath) {
-        this.investorpicpath = investorpicpath;
-        return this;
-    }
-
-    public void setInvestorpicpath(String investorpicpath) {
-        this.investorpicpath = investorpicpath;
-    }
-
     public String getUserlogin() {
         return userlogin;
     }
@@ -281,6 +264,84 @@ public class Investor implements Serializable {
         this.statename = statename;
     }
 
+    public Integer getPincode() {
+        return pincode;
+    }
+
+    public Investor pincode(Integer pincode) {
+        this.pincode = pincode;
+        return this;
+    }
+
+    public void setPincode(Integer pincode) {
+        this.pincode = pincode;
+    }
+
+    public Double getPhonenumber() {
+        return phonenumber;
+    }
+
+    public Investor phonenumber(Double phonenumber) {
+        this.phonenumber = phonenumber;
+        return this;
+    }
+
+    public void setPhonenumber(Double phonenumber) {
+        this.phonenumber = phonenumber;
+    }
+
+    public Double getMobilenumber() {
+        return mobilenumber;
+    }
+
+    public Investor mobilenumber(Double mobilenumber) {
+        this.mobilenumber = mobilenumber;
+        return this;
+    }
+
+    public void setMobilenumber(Double mobilenumber) {
+        this.mobilenumber = mobilenumber;
+    }
+
+    public Double getCafpin() {
+        return cafpin;
+    }
+
+    public Investor cafpin(Double cafpin) {
+        this.cafpin = cafpin;
+        return this;
+    }
+
+    public void setCafpin(Double cafpin) {
+        this.cafpin = cafpin;
+    }
+
+    public ZonedDateTime getCreatedate() {
+        return createdate;
+    }
+
+    public Investor createdate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+        return this;
+    }
+
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public Investor updatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+        return this;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -316,12 +377,16 @@ public class Investor implements Serializable {
             ", address3='" + address3 + "'" +
             ", emailprimary='" + emailprimary + "'" +
             ", emailsecondary='" + emailsecondary + "'" +
-            ", moudocument='" + moudocument + "'" +
-            ", investorpicpath='" + investorpicpath + "'" +
             ", userlogin='" + userlogin + "'" +
             ", cityname='" + cityname + "'" +
             ", countryname='" + countryname + "'" +
             ", statename='" + statename + "'" +
+            ", pincode='" + pincode + "'" +
+            ", phonenumber='" + phonenumber + "'" +
+            ", mobilenumber='" + mobilenumber + "'" +
+            ", cafpin='" + cafpin + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
             '}';
     }
 }

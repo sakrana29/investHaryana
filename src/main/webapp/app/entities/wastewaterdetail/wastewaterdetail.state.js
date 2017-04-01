@@ -104,12 +104,12 @@
                     resolve: {
                         entity: function () {
                             return {
-                                projectid: null,
                                 source_of_generation: null,
                                 quantity: null,
-                                description: null,
                                 naturetype: null,
                                 mode_of_disposal: null,
+                                createdate: null,
+                                updatedate: null,
                                 id: null
                             };
                         }

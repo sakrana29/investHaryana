@@ -3,10 +3,6 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "investorid",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "promoter_md_director",
             "fieldType": "String"
         },
@@ -43,36 +39,16 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "director_md_ceo_list",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "pancard",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "aadharcard",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "tin_vat_document",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "cst_document",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "moa_partnershipdeed",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "registration_document",
-            "fieldType": "String"
-        },
-        {
             "fieldName": "businessentitytype",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "createdate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "updatedate",
+            "fieldType": "ZonedDateTime"
         }
     ],
     "changelogDate": "20170313085504",

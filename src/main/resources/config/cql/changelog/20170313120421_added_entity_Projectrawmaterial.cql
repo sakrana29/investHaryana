@@ -1,14 +1,10 @@
 
 CREATE TABLE IF NOT EXISTS projectrawmaterial (
     id uuid,
-    projectid uuid,
     rawmaterial text,
     quantity int,
     units text,
+    createdate timestamp,
+    updatedate timestamp,
     PRIMARY KEY(id)
-);
-CREATE TABLE IF NOT EXISTS projectrawmaterial_by_projectid (
-id uuid,
-projectid uuid,
-PRIMARY KEY(projectid,id)
 );

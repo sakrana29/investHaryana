@@ -7,6 +7,7 @@ import com.datastax.driver.mapping.Mapper;
 import com.datastax.driver.mapping.MappingManager;
 import org.springframework.stereotype.Repository;
 
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -39,7 +40,6 @@ public class CompanydetailRepository {
             row -> {
                 Companydetail companydetail = new Companydetail();
                 companydetail.setId(row.getUUID("id"));
-                companydetail.setInvestorid(row.getUUID("investorid"));
                 companydetail.setPromoter_md_director(row.getString("promoter_md_director"));
                 companydetail.setDesignation(row.getString("designation"));
                 companydetail.setBusinessentity(row.getString("businessentity"));
@@ -49,14 +49,9 @@ public class CompanydetailRepository {
                 companydetail.setNri(row.getBool("nri"));
                 companydetail.setTin_vat_number(row.getString("tin_vat_number"));
                 companydetail.setCst_number(row.getString("cst_number"));
-                companydetail.setDirector_md_ceo_list(row.getString("director_md_ceo_list"));
-                companydetail.setPancard(row.getString("pancard"));
-                companydetail.setAadharcard(row.getString("aadharcard"));
-                companydetail.setTin_vat_document(row.getString("tin_vat_document"));
-                companydetail.setCst_document(row.getString("cst_document"));
-                companydetail.setMoa_partnershipdeed(row.getString("moa_partnershipdeed"));
-                companydetail.setRegistration_document(row.getString("registration_document"));
                 companydetail.setBusinessentitytype(row.getString("businessentitytype"));
+                companydetail.setCreatedate(row.get("createdate", ZonedDateTime.class));
+                companydetail.setUpdatedate(row.get("updatedate", ZonedDateTime.class));
                 return companydetail;
             }
         ).forEach(companydetailsList::add);

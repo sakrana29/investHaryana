@@ -104,12 +104,11 @@
                     resolve: {
                         entity: function () {
                             return {
-                                projectid: null,
                                 acceptance: null,
                                 applicationdate: null,
                                 place: null,
-                                signature: null,
-                                signatureContentType: null,
+                                createdate: null,
+                                updatedate: null,
                                 id: null
                             };
                         }

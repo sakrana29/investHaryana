@@ -15,7 +15,6 @@
             "detail": {
                 "title": "Project Finance Investment"
             },
-            "projectid": "Projectid",
             "land_cost": "Land Cost",
             "building_cost": "Building Cost",
             "machinery_cost": "Machinery Cost",
@@ -25,9 +24,11 @@
             "fdivalue": "Fdivalue",
             "project_construction_start_date": "Project Construction Start Date",
             "commercial_activity_start_date": "Commercial Activity Start Date",
-            "proposedproject_scheduleid": "Proposedproject Scheduleid",
             "fdi_country": "Fdi Country",
-            "foreign_funding_source": "Foreign Funding Source"
+            "foreign_funding_source": "Foreign Funding Source",
+            "totalpurposedemployment": "Totalpurposedemployment",
+            "createdate": "Createdate",
+            "updatedate": "Updatedate"
         }
     }
 }

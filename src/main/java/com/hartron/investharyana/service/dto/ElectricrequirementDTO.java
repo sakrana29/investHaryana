@@ -14,8 +14,6 @@ public class ElectricrequirementDTO implements Serializable {
 
     private UUID id;
 
-    private UUID projectid;
-
     private Boolean temporaryrequired;
 
     private Boolean tem_load_existing;
@@ -36,8 +34,6 @@ public class ElectricrequirementDTO implements Serializable {
 
     private Boolean regular_existing_connection;
 
-    private UUID customertype;
-
     private String regular_account_number;
 
     private BigDecimal regular_existing_load_ifany_kw;
@@ -50,9 +46,11 @@ public class ElectricrequirementDTO implements Serializable {
 
     private ZonedDateTime regular_load_demand_date;
 
-    private String temporaryconnection;
+    private String customertype;
 
-    private String regular_connection_doc;
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
 
     public UUID getId() {
         return id;
@@ -60,13 +58,6 @@ public class ElectricrequirementDTO implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-    public UUID getProjectid() {
-        return projectid;
-    }
-
-    public void setProjectid(UUID projectid) {
-        this.projectid = projectid;
     }
     public Boolean getTemporaryrequired() {
         return temporaryrequired;
@@ -138,13 +129,6 @@ public class ElectricrequirementDTO implements Serializable {
     public void setRegular_existing_connection(Boolean regular_existing_connection) {
         this.regular_existing_connection = regular_existing_connection;
     }
-    public UUID getCustomertype() {
-        return customertype;
-    }
-
-    public void setCustomertype(UUID customertype) {
-        this.customertype = customertype;
-    }
     public String getRegular_account_number() {
         return regular_account_number;
     }
@@ -187,19 +171,26 @@ public class ElectricrequirementDTO implements Serializable {
     public void setRegular_load_demand_date(ZonedDateTime regular_load_demand_date) {
         this.regular_load_demand_date = regular_load_demand_date;
     }
-    public String getTemporaryconnection() {
-        return temporaryconnection;
+    public String getCustomertype() {
+        return customertype;
     }
 
-    public void setTemporaryconnection(String temporaryconnection) {
-        this.temporaryconnection = temporaryconnection;
+    public void setCustomertype(String customertype) {
+        this.customertype = customertype;
     }
-    public String getRegular_connection_doc() {
-        return regular_connection_doc;
+    public ZonedDateTime getCreatedate() {
+        return createdate;
     }
 
-    public void setRegular_connection_doc(String regular_connection_doc) {
-        this.regular_connection_doc = regular_connection_doc;
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
     }
 
     @Override
@@ -227,7 +218,6 @@ public class ElectricrequirementDTO implements Serializable {
     public String toString() {
         return "ElectricrequirementDTO{" +
             "id=" + id +
-            ", projectid='" + projectid + "'" +
             ", temporaryrequired='" + temporaryrequired + "'" +
             ", tem_load_existing='" + tem_load_existing + "'" +
             ", tem_account_number='" + tem_account_number + "'" +
@@ -238,15 +228,15 @@ public class ElectricrequirementDTO implements Serializable {
             ", temp_load_demand_date='" + temp_load_demand_date + "'" +
             ", regular_load_required='" + regular_load_required + "'" +
             ", regular_existing_connection='" + regular_existing_connection + "'" +
-            ", customertype='" + customertype + "'" +
             ", regular_account_number='" + regular_account_number + "'" +
             ", regular_existing_load_ifany_kw='" + regular_existing_load_ifany_kw + "'" +
             ", regular_existing_load_ifany_kva='" + regular_existing_load_ifany_kva + "'" +
             ", regular_new_load_demand_kw='" + regular_new_load_demand_kw + "'" +
             ", regular_new_load_demand_kva='" + regular_new_load_demand_kva + "'" +
             ", regular_load_demand_date='" + regular_load_demand_date + "'" +
-            ", temporaryconnection='" + temporaryconnection + "'" +
-            ", regular_connection_doc='" + regular_connection_doc + "'" +
+            ", customertype='" + customertype + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
             '}';
     }
 }

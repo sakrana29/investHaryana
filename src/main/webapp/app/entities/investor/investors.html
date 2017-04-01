@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <h2 data-translate="investhryApp.investor.home.title">Investors</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
@@ -30,12 +30,16 @@
                     <th><span data-translate="investhryApp.investor.address3">Address 3</span></th>
                     <th><span data-translate="investhryApp.investor.emailprimary">Emailprimary</span></th>
                     <th><span data-translate="investhryApp.investor.emailsecondary">Emailsecondary</span></th>
-                    <th><span data-translate="investhryApp.investor.moudocument">Moudocument</span></th>
-                    <th><span data-translate="investhryApp.investor.investorpicpath">Investorpicpath</span></th>
                     <th><span data-translate="investhryApp.investor.userlogin">Userlogin</span></th>
                     <th><span data-translate="investhryApp.investor.cityname">Cityname</span></th>
                     <th><span data-translate="investhryApp.investor.countryname">Countryname</span></th>
                     <th><span data-translate="investhryApp.investor.statename">Statename</span></th>
+                    <th><span data-translate="investhryApp.investor.pincode">Pincode</span></th>
+                    <th><span data-translate="investhryApp.investor.phonenumber">Phonenumber</span></th>
+                    <th><span data-translate="investhryApp.investor.mobilenumber">Mobilenumber</span></th>
+                    <th><span data-translate="investhryApp.investor.cafpin">Cafpin</span></th>
+                    <th><span data-translate="investhryApp.investor.createdate">Createdate</span></th>
+                    <th><span data-translate="investhryApp.investor.updatedate">Updatedate</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -53,12 +57,16 @@
                     <td>{{investor.address3}}</td>
                     <td>{{investor.emailprimary}}</td>
                     <td>{{investor.emailsecondary}}</td>
-                    <td>{{investor.moudocument}}</td>
-                    <td>{{investor.investorpicpath}}</td>
                     <td>{{investor.userlogin}}</td>
                     <td>{{investor.cityname}}</td>
                     <td>{{investor.countryname}}</td>
                     <td>{{investor.statename}}</td>
+                    <td>{{investor.pincode}}</td>
+                    <td>{{investor.phonenumber}}</td>
+                    <td>{{investor.mobilenumber}}</td>
+                    <td>{{investor.cafpin}}</td>
+                    <td>{{investor.createdate | date:'medium'}}</td>
+                    <td>{{investor.updatedate | date:'medium'}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

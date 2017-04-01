@@ -7,6 +7,7 @@ import com.datastax.driver.mapping.Mapper;
 import com.datastax.driver.mapping.MappingManager;
 import org.springframework.stereotype.Repository;
 
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -50,12 +51,16 @@ public class InvestorRepository {
                 investor.setAddress3(row.getString("address3"));
                 investor.setEmailprimary(row.getString("emailprimary"));
                 investor.setEmailsecondary(row.getString("emailsecondary"));
-                investor.setMoudocument(row.getString("moudocument"));
-                investor.setInvestorpicpath(row.getString("investorpicpath"));
                 investor.setUserlogin(row.getString("userlogin"));
                 investor.setCityname(row.getString("cityname"));
                 investor.setCountryname(row.getString("countryname"));
                 investor.setStatename(row.getString("statename"));
+                investor.setPincode(row.getInt("pincode"));
+                investor.setPhonenumber(row.getDouble("phonenumber"));
+                investor.setMobilenumber(row.getDouble("mobilenumber"));
+                investor.setCafpin(row.getDouble("cafpin"));
+                investor.setCreatedate(row.get("createdate", ZonedDateTime.class));
+                investor.setUpdatedate(row.get("updatedate", ZonedDateTime.class));
                 return investor;
             }
         ).forEach(investorsList::add);

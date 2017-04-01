@@ -3,10 +3,6 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "projectid",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "source_of_generation",
             "fieldType": "String"
         },
@@ -15,16 +11,20 @@
             "fieldType": "Integer"
         },
         {
-            "fieldName": "description",
-            "fieldType": "String"
-        },
-        {
             "fieldName": "naturetype",
             "fieldType": "String"
         },
         {
             "fieldName": "mode_of_disposal",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "createdate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "updatedate",
+            "fieldType": "ZonedDateTime"
         }
     ],
     "changelogDate": "20170313122751",

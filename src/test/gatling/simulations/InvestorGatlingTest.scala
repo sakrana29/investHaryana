@@ -68,7 +68,7 @@ class InvestorGatlingTest extends Simulation {
             .exec(http("Create new investor")
             .post("/api/investors")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "mouapplicable":null, "mousignyear":"0", "mouidnumber":"SAMPLE_TEXT", "firstname":"SAMPLE_TEXT", "middlename":"SAMPLE_TEXT", "lastname":"SAMPLE_TEXT", "address1":"SAMPLE_TEXT", "address2":"SAMPLE_TEXT", "address3":"SAMPLE_TEXT", "emailprimary":"SAMPLE_TEXT", "emailsecondary":"SAMPLE_TEXT", "moudocument":"SAMPLE_TEXT", "investorpicpath":"SAMPLE_TEXT", "userlogin":"SAMPLE_TEXT", "cityname":"SAMPLE_TEXT", "countryname":"SAMPLE_TEXT", "statename":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "mouapplicable":null, "mousignyear":"0", "mouidnumber":"SAMPLE_TEXT", "firstname":"SAMPLE_TEXT", "middlename":"SAMPLE_TEXT", "lastname":"SAMPLE_TEXT", "address1":"SAMPLE_TEXT", "address2":"SAMPLE_TEXT", "address3":"SAMPLE_TEXT", "emailprimary":"SAMPLE_TEXT", "emailsecondary":"SAMPLE_TEXT", "userlogin":"SAMPLE_TEXT", "cityname":"SAMPLE_TEXT", "countryname":"SAMPLE_TEXT", "statename":"SAMPLE_TEXT", "pincode":"0", "phonenumber":null, "mobilenumber":null, "cafpin":null, "createdate":"2020-01-01T00:00:00.000Z", "updatedate":"2020-01-01T00:00:00.000Z"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_investor_url"))).exitHereIfFailed
             .pause(10)

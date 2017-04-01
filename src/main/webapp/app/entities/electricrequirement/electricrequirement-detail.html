@@ -1,13 +1,9 @@
 
-<div class="container">
+<div>
     <h2><span data-translate="investhryApp.electricrequirement.detail.title">Electricrequirement</span> {{vm.electricrequirement.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row jh-entity-details">
-        <dt><span data-translate="investhryApp.electricrequirement.projectid">Projectid</span></dt>
-        <dd>
-            <span>{{vm.electricrequirement.projectid}}</span>
-        </dd>
         <dt><span data-translate="investhryApp.electricrequirement.temporaryrequired">Temporaryrequired</span></dt>
         <dd>
             <span>{{vm.electricrequirement.temporaryrequired}}</span>
@@ -48,10 +44,6 @@
         <dd>
             <span>{{vm.electricrequirement.regular_existing_connection}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.electricrequirement.customertype">Customertype</span></dt>
-        <dd>
-            <span>{{vm.electricrequirement.customertype}}</span>
-        </dd>
         <dt><span data-translate="investhryApp.electricrequirement.regular_account_number">Regular Account Number</span></dt>
         <dd>
             <span>{{vm.electricrequirement.regular_account_number}}</span>
@@ -76,13 +68,17 @@
         <dd>
             <span>{{vm.electricrequirement.regular_load_demand_date | date:'medium'}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.electricrequirement.temporaryconnection">Temporaryconnection</span></dt>
+        <dt><span data-translate="investhryApp.electricrequirement.customertype">Customertype</span></dt>
         <dd>
-            <span>{{vm.electricrequirement.temporaryconnection}}</span>
+            <span>{{vm.electricrequirement.customertype}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.electricrequirement.regular_connection_doc">Regular Connection Doc</span></dt>
+        <dt><span data-translate="investhryApp.electricrequirement.createdate">Createdate</span></dt>
         <dd>
-            <span>{{vm.electricrequirement.regular_connection_doc}}</span>
+            <span>{{vm.electricrequirement.createdate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.electricrequirement.updatedate">Updatedate</span></dt>
+        <dd>
+            <span>{{vm.electricrequirement.updatedate | date:'medium'}}</span>
         </dd>
     </dl>
 

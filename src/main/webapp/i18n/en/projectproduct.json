@@ -15,10 +15,11 @@
             "detail": {
                 "title": "Projectproduct"
             },
-            "projectid": "Projectid",
             "mainproduct": "Mainproduct",
             "quantity": "Quantity",
-            "units": "Units"
+            "units": "Units",
+            "createdate": "Createdate",
+            "updatedate": "Updatedate"
         }
     }
 }

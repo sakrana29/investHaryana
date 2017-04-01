@@ -104,7 +104,6 @@
                     resolve: {
                         entity: function () {
                             return {
-                                projectid: null,
                                 water_process: null,
                                 water_cooling: null,
                                 water_domestic: null,
@@ -113,13 +112,16 @@
                                 waste_water_cooling: null,
                                 waste_water_domesting: null,
                                 waste_water_other: null,
-                                waste_water_treatment: null,
-                                document_attached: null,
-                                other: null,
                                 source_of_water_supply: null,
                                 mode_of_disposal_for_discharge: null,
-                                emissionname: null,
-                                wastewaterdetailid: null,
+                                recycling_process: null,
+                                recycling_cooling: null,
+                                recycling_domestic: null,
+                                recycling_other: null,
+                                createdate: null,
+                                updatedate: null,
+                                sourcewatersupplyother: null,
+                                modedisposalother: null,
                                 id: null
                             };
                         }

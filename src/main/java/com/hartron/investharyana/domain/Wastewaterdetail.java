@@ -3,6 +3,7 @@ package com.hartron.investharyana.domain;
 import com.datastax.driver.mapping.annotations.*;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -18,17 +19,17 @@ public class Wastewaterdetail implements Serializable {
     @PartitionKey
     private UUID id;
 
-    private UUID projectid;
-
     private String source_of_generation;
 
     private Integer quantity;
 
-    private String description;
-
     private String naturetype;
 
     private String mode_of_disposal;
+
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
 
     public UUID getId() {
         return id;
@@ -36,19 +37,6 @@ public class Wastewaterdetail implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public UUID getProjectid() {
-        return projectid;
-    }
-
-    public Wastewaterdetail projectid(UUID projectid) {
-        this.projectid = projectid;
-        return this;
-    }
-
-    public void setProjectid(UUID projectid) {
-        this.projectid = projectid;
     }
 
     public String getSource_of_generation() {
@@ -77,19 +65,6 @@ public class Wastewaterdetail implements Serializable {
         this.quantity = quantity;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public Wastewaterdetail description(String description) {
-        this.description = description;
-        return this;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getNaturetype() {
         return naturetype;
     }
@@ -116,6 +91,32 @@ public class Wastewaterdetail implements Serializable {
         this.mode_of_disposal = mode_of_disposal;
     }
 
+    public ZonedDateTime getCreatedate() {
+        return createdate;
+    }
+
+    public Wastewaterdetail createdate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+        return this;
+    }
+
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public Wastewaterdetail updatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+        return this;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -140,12 +141,12 @@ public class Wastewaterdetail implements Serializable {
     public String toString() {
         return "Wastewaterdetail{" +
             "id=" + id +
-            ", projectid='" + projectid + "'" +
             ", source_of_generation='" + source_of_generation + "'" +
             ", quantity='" + quantity + "'" +
-            ", description='" + description + "'" +
             ", naturetype='" + naturetype + "'" +
             ", mode_of_disposal='" + mode_of_disposal + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
             '}';
     }
 }

@@ -23,6 +23,10 @@ public class Project_phaseDTO implements Serializable {
 
     private ZonedDateTime implementationdate;
 
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
+
     public UUID getId() {
         return id;
     }
@@ -65,6 +69,20 @@ public class Project_phaseDTO implements Serializable {
     public void setImplementationdate(ZonedDateTime implementationdate) {
         this.implementationdate = implementationdate;
     }
+    public ZonedDateTime getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -96,6 +114,8 @@ public class Project_phaseDTO implements Serializable {
             ", productcategory='" + productcategory + "'" +
             ", fci='" + fci + "'" +
             ", implementationdate='" + implementationdate + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
             '}';
     }
 }

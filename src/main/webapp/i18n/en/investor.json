@@ -26,12 +26,16 @@
             "address3": "Address 3",
             "emailprimary": "Emailprimary",
             "emailsecondary": "Emailsecondary",
-            "moudocument": "Moudocument",
-            "investorpicpath": "Investorpicpath",
             "userlogin": "Userlogin",
             "cityname": "Cityname",
             "countryname": "Countryname",
-            "statename": "Statename"
+            "statename": "Statename",
+            "pincode": "Pincode",
+            "phonenumber": "Phonenumber",
+            "mobilenumber": "Mobilenumber",
+            "cafpin": "Cafpin",
+            "createdate": "Createdate",
+            "updatedate": "Updatedate"
         }
     }
 }

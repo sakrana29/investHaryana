@@ -23,9 +23,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.ZoneOffset;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.UUID;
 
+import static com.hartron.investharyana.web.rest.TestUtil.sameInstant;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -52,18 +57,6 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
     private static final Boolean DEFAULT_EDC_SIF_CLU_FEE_PAID_APPLICABLE = false;
     private static final Boolean UPDATED_EDC_SIF_CLU_FEE_PAID_APPLICABLE = true;
 
-    private static final String DEFAULT_DETAIL_PROJECT_REPORT = "AAAAAAAAAA";
-    private static final String UPDATED_DETAIL_PROJECT_REPORT = "BBBBBBBBBB";
-
-    private static final String DEFAULT_APPROVAL_DOCUMENT = "AAAAAAAAAA";
-    private static final String UPDATED_APPROVAL_DOCUMENT = "BBBBBBBBBB";
-
-    private static final String DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT = "AAAAAAAAAA";
-    private static final String UPDATED_EDC_SIF_CLU_FEE_PAID_DOCUMENT = "BBBBBBBBBB";
-
-    private static final UUID DEFAULT_INVESTORID = UUID.randomUUID();
-    private static final UUID UPDATED_INVESTORID = UUID.randomUUID();
-
     private static final String DEFAULT_APPROVAL_APPLICATION_FORM = "AAAAAAAAAA";
     private static final String UPDATED_APPROVAL_APPLICATION_FORM = "BBBBBBBBBB";
 
@@ -82,8 +75,14 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
     private static final String DEFAULT_SIZE_OF_INDUSTRY = "AAAAAAAAAA";
     private static final String UPDATED_SIZE_OF_INDUSTRY = "BBBBBBBBBB";
 
-    private static final String DEFAULT_CAF_PIN = "AAAAAAAAAA";
-    private static final String UPDATED_CAF_PIN = "BBBBBBBBBB";
+    private static final ZonedDateTime DEFAULT_CREATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_CREATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+
+    private static final ZonedDateTime DEFAULT_UPDATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_UPDATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+
+    private static final String DEFAULT_SECTOROTHER = "AAAAAAAAAA";
+    private static final String UPDATED_SECTOROTHER = "BBBBBBBBBB";
 
     @Autowired
     private ProjectdetailRepository projectdetailRepository;
@@ -129,17 +128,15 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
                 .niccode(DEFAULT_NICCODE)
                 .existing_regulatory_approval(DEFAULT_EXISTING_REGULATORY_APPROVAL)
                 .edc_sif_clu_fee_paid_applicable(DEFAULT_EDC_SIF_CLU_FEE_PAID_APPLICABLE)
-                .detail_project_report(DEFAULT_DETAIL_PROJECT_REPORT)
-                .approval_document(DEFAULT_APPROVAL_DOCUMENT)
-                .edc_sif_clu_fee_paid_document(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT)
-                .investorid(DEFAULT_INVESTORID)
                 .approval_application_form(DEFAULT_APPROVAL_APPLICATION_FORM)
                 .category_of_project(DEFAULT_CATEGORY_OF_PROJECT)
                 .collaboration_with_foreign_country(DEFAULT_COLLABORATION_WITH_FOREIGN_COUNTRY)
                 .projectype(DEFAULT_PROJECTYPE)
                 .sectorname(DEFAULT_SECTORNAME)
                 .size_of_industry(DEFAULT_SIZE_OF_INDUSTRY)
-                .cafPIN(DEFAULT_CAF_PIN);
+                .createdate(DEFAULT_CREATEDATE)
+                .updatedate(DEFAULT_UPDATEDATE)
+                .sectorother(DEFAULT_SECTOROTHER);
         return projectdetail;
     }
 
@@ -169,17 +166,15 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectdetail.getNiccode()).isEqualTo(DEFAULT_NICCODE);
         assertThat(testProjectdetail.isExisting_regulatory_approval()).isEqualTo(DEFAULT_EXISTING_REGULATORY_APPROVAL);
         assertThat(testProjectdetail.isEdc_sif_clu_fee_paid_applicable()).isEqualTo(DEFAULT_EDC_SIF_CLU_FEE_PAID_APPLICABLE);
-        assertThat(testProjectdetail.getDetail_project_report()).isEqualTo(DEFAULT_DETAIL_PROJECT_REPORT);
-        assertThat(testProjectdetail.getApproval_document()).isEqualTo(DEFAULT_APPROVAL_DOCUMENT);
-        assertThat(testProjectdetail.getEdc_sif_clu_fee_paid_document()).isEqualTo(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT);
-        assertThat(testProjectdetail.getInvestorid()).isEqualTo(DEFAULT_INVESTORID);
         assertThat(testProjectdetail.getApproval_application_form()).isEqualTo(DEFAULT_APPROVAL_APPLICATION_FORM);
         assertThat(testProjectdetail.getCategory_of_project()).isEqualTo(DEFAULT_CATEGORY_OF_PROJECT);
         assertThat(testProjectdetail.getCollaboration_with_foreign_country()).isEqualTo(DEFAULT_COLLABORATION_WITH_FOREIGN_COUNTRY);
         assertThat(testProjectdetail.getProjectype()).isEqualTo(DEFAULT_PROJECTYPE);
         assertThat(testProjectdetail.getSectorname()).isEqualTo(DEFAULT_SECTORNAME);
         assertThat(testProjectdetail.getSize_of_industry()).isEqualTo(DEFAULT_SIZE_OF_INDUSTRY);
-        assertThat(testProjectdetail.getCafPIN()).isEqualTo(DEFAULT_CAF_PIN);
+        assertThat(testProjectdetail.getCreatedate()).isEqualTo(DEFAULT_CREATEDATE);
+        assertThat(testProjectdetail.getUpdatedate()).isEqualTo(DEFAULT_UPDATEDATE);
+        assertThat(testProjectdetail.getSectorother()).isEqualTo(DEFAULT_SECTOROTHER);
     }
 
     @Test
@@ -216,17 +211,15 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].niccode").value(hasItem(DEFAULT_NICCODE.toString())))
             .andExpect(jsonPath("$.[*].existing_regulatory_approval").value(hasItem(DEFAULT_EXISTING_REGULATORY_APPROVAL.booleanValue())))
             .andExpect(jsonPath("$.[*].edc_sif_clu_fee_paid_applicable").value(hasItem(DEFAULT_EDC_SIF_CLU_FEE_PAID_APPLICABLE.booleanValue())))
-            .andExpect(jsonPath("$.[*].detail_project_report").value(hasItem(DEFAULT_DETAIL_PROJECT_REPORT.toString())))
-            .andExpect(jsonPath("$.[*].approval_document").value(hasItem(DEFAULT_APPROVAL_DOCUMENT.toString())))
-            .andExpect(jsonPath("$.[*].edc_sif_clu_fee_paid_document").value(hasItem(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT.toString())))
-            .andExpect(jsonPath("$.[*].investorid").value(hasItem(DEFAULT_INVESTORID.toString())))
             .andExpect(jsonPath("$.[*].approval_application_form").value(hasItem(DEFAULT_APPROVAL_APPLICATION_FORM.toString())))
             .andExpect(jsonPath("$.[*].category_of_project").value(hasItem(DEFAULT_CATEGORY_OF_PROJECT.toString())))
             .andExpect(jsonPath("$.[*].collaboration_with_foreign_country").value(hasItem(DEFAULT_COLLABORATION_WITH_FOREIGN_COUNTRY.toString())))
             .andExpect(jsonPath("$.[*].projectype").value(hasItem(DEFAULT_PROJECTYPE.toString())))
             .andExpect(jsonPath("$.[*].sectorname").value(hasItem(DEFAULT_SECTORNAME.toString())))
             .andExpect(jsonPath("$.[*].size_of_industry").value(hasItem(DEFAULT_SIZE_OF_INDUSTRY.toString())))
-            .andExpect(jsonPath("$.[*].cafPIN").value(hasItem(DEFAULT_CAF_PIN.toString())));
+            .andExpect(jsonPath("$.[*].createdate").value(hasItem(sameInstant(DEFAULT_CREATEDATE))))
+            .andExpect(jsonPath("$.[*].updatedate").value(hasItem(sameInstant(DEFAULT_UPDATEDATE))))
+            .andExpect(jsonPath("$.[*].sectorother").value(hasItem(DEFAULT_SECTOROTHER.toString())));
     }
 
     @Test
@@ -243,17 +236,15 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.niccode").value(DEFAULT_NICCODE.toString()))
             .andExpect(jsonPath("$.existing_regulatory_approval").value(DEFAULT_EXISTING_REGULATORY_APPROVAL.booleanValue()))
             .andExpect(jsonPath("$.edc_sif_clu_fee_paid_applicable").value(DEFAULT_EDC_SIF_CLU_FEE_PAID_APPLICABLE.booleanValue()))
-            .andExpect(jsonPath("$.detail_project_report").value(DEFAULT_DETAIL_PROJECT_REPORT.toString()))
-            .andExpect(jsonPath("$.approval_document").value(DEFAULT_APPROVAL_DOCUMENT.toString()))
-            .andExpect(jsonPath("$.edc_sif_clu_fee_paid_document").value(DEFAULT_EDC_SIF_CLU_FEE_PAID_DOCUMENT.toString()))
-            .andExpect(jsonPath("$.investorid").value(DEFAULT_INVESTORID.toString()))
             .andExpect(jsonPath("$.approval_application_form").value(DEFAULT_APPROVAL_APPLICATION_FORM.toString()))
             .andExpect(jsonPath("$.category_of_project").value(DEFAULT_CATEGORY_OF_PROJECT.toString()))
             .andExpect(jsonPath("$.collaboration_with_foreign_country").value(DEFAULT_COLLABORATION_WITH_FOREIGN_COUNTRY.toString()))
             .andExpect(jsonPath("$.projectype").value(DEFAULT_PROJECTYPE.toString()))
             .andExpect(jsonPath("$.sectorname").value(DEFAULT_SECTORNAME.toString()))
             .andExpect(jsonPath("$.size_of_industry").value(DEFAULT_SIZE_OF_INDUSTRY.toString()))
-            .andExpect(jsonPath("$.cafPIN").value(DEFAULT_CAF_PIN.toString()));
+            .andExpect(jsonPath("$.createdate").value(sameInstant(DEFAULT_CREATEDATE)))
+            .andExpect(jsonPath("$.updatedate").value(sameInstant(DEFAULT_UPDATEDATE)))
+            .andExpect(jsonPath("$.sectorother").value(DEFAULT_SECTOROTHER.toString()));
     }
 
     @Test
@@ -276,17 +267,15 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
                 .niccode(UPDATED_NICCODE)
                 .existing_regulatory_approval(UPDATED_EXISTING_REGULATORY_APPROVAL)
                 .edc_sif_clu_fee_paid_applicable(UPDATED_EDC_SIF_CLU_FEE_PAID_APPLICABLE)
-                .detail_project_report(UPDATED_DETAIL_PROJECT_REPORT)
-                .approval_document(UPDATED_APPROVAL_DOCUMENT)
-                .edc_sif_clu_fee_paid_document(UPDATED_EDC_SIF_CLU_FEE_PAID_DOCUMENT)
-                .investorid(UPDATED_INVESTORID)
                 .approval_application_form(UPDATED_APPROVAL_APPLICATION_FORM)
                 .category_of_project(UPDATED_CATEGORY_OF_PROJECT)
                 .collaboration_with_foreign_country(UPDATED_COLLABORATION_WITH_FOREIGN_COUNTRY)
                 .projectype(UPDATED_PROJECTYPE)
                 .sectorname(UPDATED_SECTORNAME)
                 .size_of_industry(UPDATED_SIZE_OF_INDUSTRY)
-                .cafPIN(UPDATED_CAF_PIN);
+                .createdate(UPDATED_CREATEDATE)
+                .updatedate(UPDATED_UPDATEDATE)
+                .sectorother(UPDATED_SECTOROTHER);
         ProjectdetailDTO projectdetailDTO = projectdetailMapper.projectdetailToProjectdetailDTO(updatedProjectdetail);
 
         restProjectdetailMockMvc.perform(put("/api/projectdetails")
@@ -302,17 +291,15 @@ public class ProjectdetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectdetail.getNiccode()).isEqualTo(UPDATED_NICCODE);
         assertThat(testProjectdetail.isExisting_regulatory_approval()).isEqualTo(UPDATED_EXISTING_REGULATORY_APPROVAL);
         assertThat(testProjectdetail.isEdc_sif_clu_fee_paid_applicable()).isEqualTo(UPDATED_EDC_SIF_CLU_FEE_PAID_APPLICABLE);
-        assertThat(testProjectdetail.getDetail_project_report()).isEqualTo(UPDATED_DETAIL_PROJECT_REPORT);
-        assertThat(testProjectdetail.getApproval_document()).isEqualTo(UPDATED_APPROVAL_DOCUMENT);
-        assertThat(testProjectdetail.getEdc_sif_clu_fee_paid_document()).isEqualTo(UPDATED_EDC_SIF_CLU_FEE_PAID_DOCUMENT);
-        assertThat(testProjectdetail.getInvestorid()).isEqualTo(UPDATED_INVESTORID);
         assertThat(testProjectdetail.getApproval_application_form()).isEqualTo(UPDATED_APPROVAL_APPLICATION_FORM);
         assertThat(testProjectdetail.getCategory_of_project()).isEqualTo(UPDATED_CATEGORY_OF_PROJECT);
         assertThat(testProjectdetail.getCollaboration_with_foreign_country()).isEqualTo(UPDATED_COLLABORATION_WITH_FOREIGN_COUNTRY);
         assertThat(testProjectdetail.getProjectype()).isEqualTo(UPDATED_PROJECTYPE);
         assertThat(testProjectdetail.getSectorname()).isEqualTo(UPDATED_SECTORNAME);
         assertThat(testProjectdetail.getSize_of_industry()).isEqualTo(UPDATED_SIZE_OF_INDUSTRY);
-        assertThat(testProjectdetail.getCafPIN()).isEqualTo(UPDATED_CAF_PIN);
+        assertThat(testProjectdetail.getCreatedate()).isEqualTo(UPDATED_CREATEDATE);
+        assertThat(testProjectdetail.getUpdatedate()).isEqualTo(UPDATED_UPDATEDATE);
+        assertThat(testProjectdetail.getSectorother()).isEqualTo(UPDATED_SECTOROTHER);
     }
 
     @Test

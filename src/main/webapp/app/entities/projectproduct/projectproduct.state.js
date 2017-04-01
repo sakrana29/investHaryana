@@ -104,10 +104,11 @@
                     resolve: {
                         entity: function () {
                             return {
-                                projectid: null,
                                 mainproduct: null,
                                 quantity: null,
                                 units: null,
+                                createdate: null,
+                                updatedate: null,
                                 id: null
                             };
                         }

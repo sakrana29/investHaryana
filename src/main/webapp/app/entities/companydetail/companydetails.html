@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <h2 data-translate="investhryApp.companydetail.home.title">Companydetails</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
@@ -19,7 +19,6 @@
             <thead>
                 <tr>
                     <th><span data-translate="global.field.id">ID</span></th>
-                    <th><span data-translate="investhryApp.companydetail.investorid">Investorid</span></th>
                     <th><span data-translate="investhryApp.companydetail.promoter_md_director">Promoter Md Director</span></th>
                     <th><span data-translate="investhryApp.companydetail.designation">Designation</span></th>
                     <th><span data-translate="investhryApp.companydetail.businessentity">Businessentity</span></th>
@@ -29,21 +28,15 @@
                     <th><span data-translate="investhryApp.companydetail.nri">Nri</span></th>
                     <th><span data-translate="investhryApp.companydetail.tin_vat_number">Tin Vat Number</span></th>
                     <th><span data-translate="investhryApp.companydetail.cst_number">Cst Number</span></th>
-                    <th><span data-translate="investhryApp.companydetail.director_md_ceo_list">Director Md Ceo List</span></th>
-                    <th><span data-translate="investhryApp.companydetail.pancard">Pancard</span></th>
-                    <th><span data-translate="investhryApp.companydetail.aadharcard">Aadharcard</span></th>
-                    <th><span data-translate="investhryApp.companydetail.tin_vat_document">Tin Vat Document</span></th>
-                    <th><span data-translate="investhryApp.companydetail.cst_document">Cst Document</span></th>
-                    <th><span data-translate="investhryApp.companydetail.moa_partnershipdeed">Moa Partnershipdeed</span></th>
-                    <th><span data-translate="investhryApp.companydetail.registration_document">Registration Document</span></th>
                     <th><span data-translate="investhryApp.companydetail.businessentitytype">Businessentitytype</span></th>
+                    <th><span data-translate="investhryApp.companydetail.createdate">Createdate</span></th>
+                    <th><span data-translate="investhryApp.companydetail.updatedate">Updatedate</span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="companydetail in vm.companydetails track by companydetail.id">
                     <td><a ui-sref="companydetail-detail({id:companydetail.id})">{{companydetail.id}}</a></td>
-                    <td>{{companydetail.investorid}}</td>
                     <td>{{companydetail.promoter_md_director}}</td>
                     <td>{{companydetail.designation}}</td>
                     <td>{{companydetail.businessentity}}</td>
@@ -53,14 +46,9 @@
                     <td>{{companydetail.nri}}</td>
                     <td>{{companydetail.tin_vat_number}}</td>
                     <td>{{companydetail.cst_number}}</td>
-                    <td>{{companydetail.director_md_ceo_list}}</td>
-                    <td>{{companydetail.pancard}}</td>
-                    <td>{{companydetail.aadharcard}}</td>
-                    <td>{{companydetail.tin_vat_document}}</td>
-                    <td>{{companydetail.cst_document}}</td>
-                    <td>{{companydetail.moa_partnershipdeed}}</td>
-                    <td>{{companydetail.registration_document}}</td>
                     <td>{{companydetail.businessentitytype}}</td>
+                    <td>{{companydetail.createdate | date:'medium'}}</td>
+                    <td>{{companydetail.updatedate | date:'medium'}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

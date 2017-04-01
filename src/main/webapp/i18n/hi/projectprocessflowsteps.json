@@ -15,8 +15,9 @@
             "detail": {
                 "title": "Projectprocessflowsteps"
             },
-            "projectid": "Projectid",
-            "steps": "Steps"
+            "steps": "Steps",
+            "createdate": "Createdate",
+            "updatedate": "Updatedate"
         }
     }
 }

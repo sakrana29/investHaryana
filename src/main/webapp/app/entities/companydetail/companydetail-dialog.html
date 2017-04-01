@@ -14,12 +14,6 @@
                     ng-model="vm.companydetail.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.companydetail.investorid" for="field_investorid">Investorid</label>
-            <input type="text" class="form-control" name="investorid" id="field_investorid"
-                    ng-model="vm.companydetail.investorid"
-                    />
-        </div>
-        <div class="form-group">
             <label class="control-label" data-translate="investhryApp.companydetail.promoter_md_director" for="field_promoter_md_director">Promoter Md Director</label>
             <input type="text" class="form-control" name="promoter_md_director" id="field_promoter_md_director"
                     ng-model="vm.companydetail.promoter_md_director"
@@ -74,52 +68,30 @@
                     />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.companydetail.director_md_ceo_list" for="field_director_md_ceo_list">Director Md Ceo List</label>
-            <input type="text" class="form-control" name="director_md_ceo_list" id="field_director_md_ceo_list"
-                    ng-model="vm.companydetail.director_md_ceo_list"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.companydetail.pancard" for="field_pancard">Pancard</label>
-            <input type="text" class="form-control" name="pancard" id="field_pancard"
-                    ng-model="vm.companydetail.pancard"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.companydetail.aadharcard" for="field_aadharcard">Aadharcard</label>
-            <input type="text" class="form-control" name="aadharcard" id="field_aadharcard"
-                    ng-model="vm.companydetail.aadharcard"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.companydetail.tin_vat_document" for="field_tin_vat_document">Tin Vat Document</label>
-            <input type="text" class="form-control" name="tin_vat_document" id="field_tin_vat_document"
-                    ng-model="vm.companydetail.tin_vat_document"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.companydetail.cst_document" for="field_cst_document">Cst Document</label>
-            <input type="text" class="form-control" name="cst_document" id="field_cst_document"
-                    ng-model="vm.companydetail.cst_document"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.companydetail.moa_partnershipdeed" for="field_moa_partnershipdeed">Moa Partnershipdeed</label>
-            <input type="text" class="form-control" name="moa_partnershipdeed" id="field_moa_partnershipdeed"
-                    ng-model="vm.companydetail.moa_partnershipdeed"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.companydetail.registration_document" for="field_registration_document">Registration Document</label>
-            <input type="text" class="form-control" name="registration_document" id="field_registration_document"
-                    ng-model="vm.companydetail.registration_document"
-                    />
-        </div>
-        <div class="form-group">
             <label class="control-label" data-translate="investhryApp.companydetail.businessentitytype" for="field_businessentitytype">Businessentitytype</label>
             <input type="text" class="form-control" name="businessentitytype" id="field_businessentitytype"
                     ng-model="vm.companydetail.businessentitytype"
                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.companydetail.createdate" for="field_createdate">Createdate</label>
+                <div class="input-group">
+                    <input id="field_createdate" type="text" class="form-control" name="createdate" datetime-picker="{{dateformat}}" ng-model="vm.companydetail.createdate" is-open="vm.datePickerOpenStatus.createdate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('createdate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.companydetail.updatedate" for="field_updatedate">Updatedate</label>
+                <div class="input-group">
+                    <input id="field_updatedate" type="text" class="form-control" name="updatedate" datetime-picker="{{dateformat}}" ng-model="vm.companydetail.updatedate" is-open="vm.datePickerOpenStatus.updatedate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('updatedate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
         </div>
 
     </div>
@@ -132,4 +104,3 @@
         </button>
     </div>
 </form>
-

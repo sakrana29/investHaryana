@@ -21,6 +21,14 @@
         {
             "fieldName": "implementationdate",
             "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "createdate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "updatedate",
+            "fieldType": "ZonedDateTime"
         }
     ],
     "changelogDate": "20170313120018",

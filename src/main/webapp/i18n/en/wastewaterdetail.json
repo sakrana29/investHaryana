@@ -15,12 +15,12 @@
             "detail": {
                 "title": "Wastewaterdetail"
             },
-            "projectid": "Projectid",
             "source_of_generation": "Source Of Generation",
             "quantity": "Quantity",
-            "description": "Description",
             "naturetype": "Naturetype",
-            "mode_of_disposal": "Mode Of Disposal"
+            "mode_of_disposal": "Mode Of Disposal",
+            "createdate": "Createdate",
+            "updatedate": "Updatedate"
         }
     }
 }

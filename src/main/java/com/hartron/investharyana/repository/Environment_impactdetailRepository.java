@@ -7,6 +7,7 @@ import com.datastax.driver.mapping.Mapper;
 import com.datastax.driver.mapping.MappingManager;
 import org.springframework.stereotype.Repository;
 
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -39,7 +40,6 @@ public class Environment_impactdetailRepository {
             row -> {
                 Environment_impactdetail environment_impactdetail = new Environment_impactdetail();
                 environment_impactdetail.setId(row.getUUID("id"));
-                environment_impactdetail.setProjectid(row.getUUID("projectid"));
                 environment_impactdetail.setWater_process(row.getInt("water_process"));
                 environment_impactdetail.setWater_cooling(row.getInt("water_cooling"));
                 environment_impactdetail.setWater_domestic(row.getInt("water_domestic"));
@@ -48,13 +48,16 @@ public class Environment_impactdetailRepository {
                 environment_impactdetail.setWaste_water_cooling(row.getInt("waste_water_cooling"));
                 environment_impactdetail.setWaste_water_domesting(row.getInt("waste_water_domesting"));
                 environment_impactdetail.setWaste_water_other(row.getInt("waste_water_other"));
-                environment_impactdetail.setWaste_water_treatment(row.getString("waste_water_treatment"));
-                environment_impactdetail.setDocument_attached(row.getString("document_attached"));
-                environment_impactdetail.setOther(row.getString("other"));
                 environment_impactdetail.setSource_of_water_supply(row.getString("source_of_water_supply"));
                 environment_impactdetail.setMode_of_disposal_for_discharge(row.getString("mode_of_disposal_for_discharge"));
-                environment_impactdetail.setEmissionname(row.getString("emissionname"));
-                environment_impactdetail.setWastewaterdetailid(row.getString("wastewaterdetailid"));
+                environment_impactdetail.setRecycling_process(row.getString("recycling_process"));
+                environment_impactdetail.setRecycling_cooling(row.getString("recycling_cooling"));
+                environment_impactdetail.setRecycling_domestic(row.getString("recycling_domestic"));
+                environment_impactdetail.setRecycling_other(row.getString("recycling_other"));
+                environment_impactdetail.setCreatedate(row.get("createdate", ZonedDateTime.class));
+                environment_impactdetail.setUpdatedate(row.get("updatedate", ZonedDateTime.class));
+                environment_impactdetail.setSourcewatersupplyother(row.getString("sourcewatersupplyother"));
+                environment_impactdetail.setModedisposalother(row.getString("modedisposalother"));
                 return environment_impactdetail;
             }
         ).forEach(environment_impactdetailsList::add);

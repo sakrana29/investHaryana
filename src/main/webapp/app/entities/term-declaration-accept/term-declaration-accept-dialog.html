@@ -14,12 +14,6 @@
                     ng-model="vm.term_declaration_accept.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.term_declaration_accept.projectid" for="field_projectid">Projectid</label>
-            <input type="text" class="form-control" name="projectid" id="field_projectid"
-                    ng-model="vm.term_declaration_accept.projectid"
-                    />
-        </div>
-        <div class="form-group">
             <label class="control-label" data-translate="investhryApp.term_declaration_accept.acceptance" for="field_acceptance">Acceptance</label>
             <input type="checkbox" class="form-control" name="acceptance" id="field_acceptance"
                     ng-model="vm.term_declaration_accept.acceptance"
@@ -41,27 +35,25 @@
                     ng-model="vm.term_declaration_accept.place"
                     />
         </div>
-        <div class="form-group" ngf-drop ngf-change="vm.setSignature($file, vm.term_declaration_accept)">
-            <label class="control-label" data-translate="investhryApp.term_declaration_accept.signature" for="field_signature">Signature</label>
-            <div>
-                <div ng-if="vm.term_declaration_accept.signature" class="help-block clearfix">
-                    <a class="pull-left" ng-click="vm.openFile(vm.term_declaration_accept.signatureContentType, vm.term_declaration_accept.signature)" data-translate="entity.action.open">open</a><br>
-                    <span class="pull-left">{{vm.term_declaration_accept.signatureContentType}}, {{vm.byteSize(vm.term_declaration_accept.signature)}}</span>
-                    <button type="button" ng-click="vm.term_declaration_accept.signature=null;vm.term_declaration_accept.signatureContentType=null;"
-                            class="btn btn-default btn-xs pull-right">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </div>
-                <button type="button" ngf-select class="btn btn-default btn-block"
-                        ngf-change="vm.setSignature($file, vm.term_declaration_accept)" data-translate="entity.action.addblob">
-                    Add blob
-                </button>
-            </div>
-            <input type="hidden" class="form-control" name="signature" id="field_signature"
-                    ng-model="vm.term_declaration_accept.signature"
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.term_declaration_accept.createdate" for="field_createdate">Createdate</label>
+                <div class="input-group">
+                    <input id="field_createdate" type="text" class="form-control" name="createdate" datetime-picker="{{dateformat}}" ng-model="vm.term_declaration_accept.createdate" is-open="vm.datePickerOpenStatus.createdate"
                     />
-            <input type="hidden" class="form-control" name="signatureContentType" id="field_signatureContentType"
-                    ng-model="vm.term_declaration_accept.signatureContentType" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('createdate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.term_declaration_accept.updatedate" for="field_updatedate">Updatedate</label>
+                <div class="input-group">
+                    <input id="field_updatedate" type="text" class="form-control" name="updatedate" datetime-picker="{{dateformat}}" ng-model="vm.term_declaration_accept.updatedate" is-open="vm.datePickerOpenStatus.updatedate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('updatedate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
         </div>
 
     </div>
@@ -74,4 +66,3 @@
         </button>
     </div>
 </form>
-

@@ -15,7 +15,6 @@
             "detail": {
                 "title": "Environment Impactdetail"
             },
-            "projectid": "Projectid",
             "water_process": "Water Process",
             "water_cooling": "Water Cooling",
             "water_domestic": "Water Domestic",
@@ -24,13 +23,16 @@
             "waste_water_cooling": "Waste Water Cooling",
             "waste_water_domesting": "Waste Water Domesting",
             "waste_water_other": "Waste Water Other",
-            "waste_water_treatment": "Waste Water Treatment",
-            "document_attached": "Document Attached",
-            "other": "Other",
             "source_of_water_supply": "Source Of Water Supply",
             "mode_of_disposal_for_discharge": "Mode Of Disposal For Discharge",
-            "emissionname": "Emissionname",
-            "wastewaterdetailid": "Wastewaterdetailid"
+            "recycling_process": "Recycling Process",
+            "recycling_cooling": "Recycling Cooling",
+            "recycling_domestic": "Recycling Domestic",
+            "recycling_other": "Recycling Other",
+            "createdate": "Createdate",
+            "updatedate": "Updatedate",
+            "sourcewatersupplyother": "Sourcewatersupplyother",
+            "modedisposalother": "Modedisposalother"
         }
     }
 }

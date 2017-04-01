@@ -1,13 +1,9 @@
 
-<div class="container">
+<div>
     <h2><span data-translate="investhryApp.environment_impactdetail.detail.title">Environment Impactdetail</span> {{vm.environment_impactdetail.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row jh-entity-details">
-        <dt><span data-translate="investhryApp.environment_impactdetail.projectid">Projectid</span></dt>
-        <dd>
-            <span>{{vm.environment_impactdetail.projectid}}</span>
-        </dd>
         <dt><span data-translate="investhryApp.environment_impactdetail.water_process">Water Process</span></dt>
         <dd>
             <span>{{vm.environment_impactdetail.water_process}}</span>
@@ -40,18 +36,6 @@
         <dd>
             <span>{{vm.environment_impactdetail.waste_water_other}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.environment_impactdetail.waste_water_treatment">Waste Water Treatment</span></dt>
-        <dd>
-            <span>{{vm.environment_impactdetail.waste_water_treatment}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.environment_impactdetail.document_attached">Document Attached</span></dt>
-        <dd>
-            <span>{{vm.environment_impactdetail.document_attached}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.environment_impactdetail.other">Other</span></dt>
-        <dd>
-            <span>{{vm.environment_impactdetail.other}}</span>
-        </dd>
         <dt><span data-translate="investhryApp.environment_impactdetail.source_of_water_supply">Source Of Water Supply</span></dt>
         <dd>
             <span>{{vm.environment_impactdetail.source_of_water_supply}}</span>
@@ -60,13 +44,37 @@
         <dd>
             <span>{{vm.environment_impactdetail.mode_of_disposal_for_discharge}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.environment_impactdetail.emissionname">Emissionname</span></dt>
+        <dt><span data-translate="investhryApp.environment_impactdetail.recycling_process">Recycling Process</span></dt>
         <dd>
-            <span>{{vm.environment_impactdetail.emissionname}}</span>
+            <span>{{vm.environment_impactdetail.recycling_process}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.environment_impactdetail.wastewaterdetailid">Wastewaterdetailid</span></dt>
+        <dt><span data-translate="investhryApp.environment_impactdetail.recycling_cooling">Recycling Cooling</span></dt>
         <dd>
-            <span>{{vm.environment_impactdetail.wastewaterdetailid}}</span>
+            <span>{{vm.environment_impactdetail.recycling_cooling}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.environment_impactdetail.recycling_domestic">Recycling Domestic</span></dt>
+        <dd>
+            <span>{{vm.environment_impactdetail.recycling_domestic}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.environment_impactdetail.recycling_other">Recycling Other</span></dt>
+        <dd>
+            <span>{{vm.environment_impactdetail.recycling_other}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.environment_impactdetail.createdate">Createdate</span></dt>
+        <dd>
+            <span>{{vm.environment_impactdetail.createdate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.environment_impactdetail.updatedate">Updatedate</span></dt>
+        <dd>
+            <span>{{vm.environment_impactdetail.updatedate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.environment_impactdetail.sourcewatersupplyother">Sourcewatersupplyother</span></dt>
+        <dd>
+            <span>{{vm.environment_impactdetail.sourcewatersupplyother}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.environment_impactdetail.modedisposalother">Modedisposalother</span></dt>
+        <dd>
+            <span>{{vm.environment_impactdetail.modedisposalother}}</span>
         </dd>
     </dl>
 

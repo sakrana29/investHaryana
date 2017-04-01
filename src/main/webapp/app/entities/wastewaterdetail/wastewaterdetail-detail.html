@@ -1,12 +1,9 @@
-<div class="container">
+
+<div>
     <h2><span data-translate="investhryApp.wastewaterdetail.detail.title">Wastewaterdetail</span> {{vm.wastewaterdetail.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row jh-entity-details">
-        <dt><span data-translate="investhryApp.wastewaterdetail.projectid">Projectid</span></dt>
-        <dd>
-            <span>{{vm.wastewaterdetail.projectid}}</span>
-        </dd>
         <dt><span data-translate="investhryApp.wastewaterdetail.source_of_generation">Source Of Generation</span></dt>
         <dd>
             <span>{{vm.wastewaterdetail.source_of_generation}}</span>
@@ -15,10 +12,6 @@
         <dd>
             <span>{{vm.wastewaterdetail.quantity}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.wastewaterdetail.description">Description</span></dt>
-        <dd>
-            <span>{{vm.wastewaterdetail.description}}</span>
-        </dd>
         <dt><span data-translate="investhryApp.wastewaterdetail.naturetype">Naturetype</span></dt>
         <dd>
             <span>{{vm.wastewaterdetail.naturetype}}</span>
@@ -26,6 +19,14 @@
         <dt><span data-translate="investhryApp.wastewaterdetail.mode_of_disposal">Mode Of Disposal</span></dt>
         <dd>
             <span>{{vm.wastewaterdetail.mode_of_disposal}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.wastewaterdetail.createdate">Createdate</span></dt>
+        <dd>
+            <span>{{vm.wastewaterdetail.createdate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.wastewaterdetail.updatedate">Updatedate</span></dt>
+        <dd>
+            <span>{{vm.wastewaterdetail.updatedate | date:'medium'}}</span>
         </dd>
     </dl>
 

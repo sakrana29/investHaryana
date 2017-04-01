@@ -109,6 +109,8 @@
                                 productcategory: null,
                                 fci: null,
                                 implementationdate: null,
+                                createdate: null,
+                                updatedate: null,
                                 id: null
                             };
                         }

@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <h2 data-translate="investhryApp.electricrequirement.home.title">Electricrequirements</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
@@ -19,7 +19,6 @@
             <thead>
                 <tr>
                     <th><span data-translate="global.field.id">ID</span></th>
-                    <th><span data-translate="investhryApp.electricrequirement.projectid">Projectid</span></th>
                     <th><span data-translate="investhryApp.electricrequirement.temporaryrequired">Temporaryrequired</span></th>
                     <th><span data-translate="investhryApp.electricrequirement.tem_load_existing">Tem Load Existing</span></th>
                     <th><span data-translate="investhryApp.electricrequirement.tem_account_number">Tem Account Number</span></th>
@@ -30,22 +29,21 @@
                     <th><span data-translate="investhryApp.electricrequirement.temp_load_demand_date">Temp Load Demand Date</span></th>
                     <th><span data-translate="investhryApp.electricrequirement.regular_load_required">Regular Load Required</span></th>
                     <th><span data-translate="investhryApp.electricrequirement.regular_existing_connection">Regular Existing Connection</span></th>
-                    <th><span data-translate="investhryApp.electricrequirement.customertype">Customertype</span></th>
                     <th><span data-translate="investhryApp.electricrequirement.regular_account_number">Regular Account Number</span></th>
                     <th><span data-translate="investhryApp.electricrequirement.regular_existing_load_ifany_kw">Regular Existing Load Ifany Kw</span></th>
                     <th><span data-translate="investhryApp.electricrequirement.regular_existing_load_ifany_kva">Regular Existing Load Ifany Kva</span></th>
                     <th><span data-translate="investhryApp.electricrequirement.regular_new_load_demand_kw">Regular New Load Demand Kw</span></th>
                     <th><span data-translate="investhryApp.electricrequirement.regular_new_load_demand_kva">Regular New Load Demand Kva</span></th>
                     <th><span data-translate="investhryApp.electricrequirement.regular_load_demand_date">Regular Load Demand Date</span></th>
-                    <th><span data-translate="investhryApp.electricrequirement.temporaryconnection">Temporaryconnection</span></th>
-                    <th><span data-translate="investhryApp.electricrequirement.regular_connection_doc">Regular Connection Doc</span></th>
+                    <th><span data-translate="investhryApp.electricrequirement.customertype">Customertype</span></th>
+                    <th><span data-translate="investhryApp.electricrequirement.createdate">Createdate</span></th>
+                    <th><span data-translate="investhryApp.electricrequirement.updatedate">Updatedate</span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="electricrequirement in vm.electricrequirements track by electricrequirement.id">
                     <td><a ui-sref="electricrequirement-detail({id:electricrequirement.id})">{{electricrequirement.id}}</a></td>
-                    <td>{{electricrequirement.projectid}}</td>
                     <td>{{electricrequirement.temporaryrequired}}</td>
                     <td>{{electricrequirement.tem_load_existing}}</td>
                     <td>{{electricrequirement.tem_account_number}}</td>
@@ -56,15 +54,15 @@
                     <td>{{electricrequirement.temp_load_demand_date | date:'medium'}}</td>
                     <td>{{electricrequirement.regular_load_required}}</td>
                     <td>{{electricrequirement.regular_existing_connection}}</td>
-                    <td>{{electricrequirement.customertype}}</td>
                     <td>{{electricrequirement.regular_account_number}}</td>
                     <td>{{electricrequirement.regular_existing_load_ifany_kw}}</td>
                     <td>{{electricrequirement.regular_existing_load_ifany_kva}}</td>
                     <td>{{electricrequirement.regular_new_load_demand_kw}}</td>
                     <td>{{electricrequirement.regular_new_load_demand_kva}}</td>
                     <td>{{electricrequirement.regular_load_demand_date | date:'medium'}}</td>
-                    <td>{{electricrequirement.temporaryconnection}}</td>
-                    <td>{{electricrequirement.regular_connection_doc}}</td>
+                    <td>{{electricrequirement.customertype}}</td>
+                    <td>{{electricrequirement.createdate | date:'medium'}}</td>
+                    <td>{{electricrequirement.updatedate | date:'medium'}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

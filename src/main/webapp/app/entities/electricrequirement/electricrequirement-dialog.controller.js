@@ -45,6 +45,8 @@
 
         vm.datePickerOpenStatus.temp_load_demand_date = false;
         vm.datePickerOpenStatus.regular_load_demand_date = false;
+        vm.datePickerOpenStatus.createdate = false;
+        vm.datePickerOpenStatus.updatedate = false;
 
         function openCalendar (date) {
             vm.datePickerOpenStatus[date] = true;

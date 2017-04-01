@@ -7,6 +7,7 @@ import com.datastax.driver.mapping.Mapper;
 import com.datastax.driver.mapping.MappingManager;
 import org.springframework.stereotype.Repository;
 
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -39,11 +40,12 @@ public class EmissiondetailRepository {
             row -> {
                 Emissiondetail emissiondetail = new Emissiondetail();
                 emissiondetail.setId(row.getUUID("id"));
-                emissiondetail.setProjectid(row.getUUID("projectid"));
                 emissiondetail.setCapacity(row.getString("capacity"));
                 emissiondetail.setParticulars(row.getString("particulars"));
                 emissiondetail.setType_of_fuel(row.getString("type_of_fuel"));
                 emissiondetail.setAir_pollution_control_device(row.getString("air_pollution_control_device"));
+                emissiondetail.setCreatedate(row.get("createdate", ZonedDateTime.class));
+                emissiondetail.setUpdatedate(row.get("updatedate", ZonedDateTime.class));
                 return emissiondetail;
             }
         ).forEach(emissiondetailsList::add);

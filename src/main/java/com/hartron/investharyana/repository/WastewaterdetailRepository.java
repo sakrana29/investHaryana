@@ -7,6 +7,7 @@ import com.datastax.driver.mapping.Mapper;
 import com.datastax.driver.mapping.MappingManager;
 import org.springframework.stereotype.Repository;
 
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -39,12 +40,12 @@ public class WastewaterdetailRepository {
             row -> {
                 Wastewaterdetail wastewaterdetail = new Wastewaterdetail();
                 wastewaterdetail.setId(row.getUUID("id"));
-                wastewaterdetail.setProjectid(row.getUUID("projectid"));
                 wastewaterdetail.setSource_of_generation(row.getString("source_of_generation"));
                 wastewaterdetail.setQuantity(row.getInt("quantity"));
-                wastewaterdetail.setDescription(row.getString("description"));
                 wastewaterdetail.setNaturetype(row.getString("naturetype"));
                 wastewaterdetail.setMode_of_disposal(row.getString("mode_of_disposal"));
+                wastewaterdetail.setCreatedate(row.get("createdate", ZonedDateTime.class));
+                wastewaterdetail.setUpdatedate(row.get("updatedate", ZonedDateTime.class));
                 return wastewaterdetail;
             }
         ).forEach(wastewaterdetailsList::add);

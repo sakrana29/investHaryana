@@ -7,6 +7,7 @@ import com.datastax.driver.mapping.Mapper;
 import com.datastax.driver.mapping.MappingManager;
 import org.springframework.stereotype.Repository;
 
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -39,9 +40,7 @@ public class ProjectsitedetailRepository {
             row -> {
                 Projectsitedetail projectsitedetail = new Projectsitedetail();
                 projectsitedetail.setId(row.getUUID("id"));
-                projectsitedetail.setProjectid(row.getUUID("projectid"));
                 projectsitedetail.setSiteaddress(row.getString("siteaddress"));
-                projectsitedetail.setTehsil_subtehsil(row.getUUID("tehsil_subtehsil"));
                 projectsitedetail.setMultyvillageinvolved(row.getBool("multyvillageinvolved"));
                 projectsitedetail.setVillageinvolved(row.getString("villageinvolved"));
                 projectsitedetail.setFalls_in_aravalli(row.getBool("falls_in_aravalli"));
@@ -66,24 +65,15 @@ public class ProjectsitedetailRepository {
                 projectsitedetail.setConfirmitylanduse(row.getBool("confirmitylanduse"));
                 projectsitedetail.setExisting_building_applicable(row.getBool("existing_building_applicable"));
                 projectsitedetail.setSite_situated_in_controlled_area(row.getBool("site_situated_in_controlled_area"));
-                projectsitedetail.setKhasra_document(row.getString("khasra_document"));
-                projectsitedetail.setRevenu_shajra_document(row.getString("revenu_shajra_document"));
-                projectsitedetail.setJamabandi(row.getString("jamabandi"));
-                projectsitedetail.setNonencumbrance_certificate(row.getString("nonencumbrance_certificate"));
-                projectsitedetail.setOwnership_document(row.getString("ownership_document"));
-                projectsitedetail.setLease_document(row.getString("lease_document"));
-                projectsitedetail.setLandagreement_document(row.getString("landagreement_document"));
-                projectsitedetail.setSitelayoutplan(row.getString("sitelayoutplan"));
-                projectsitedetail.setLocationplan(row.getString("locationplan"));
-                projectsitedetail.setLinearstripplan(row.getString("linearstripplan"));
-                projectsitedetail.setSitesituated_document(row.getString("sitesituated_document"));
-                projectsitedetail.setControlledarea_document(row.getString("controlledarea_document"));
                 projectsitedetail.setBuildingexisted(row.getString("buildingexisted"));
                 projectsitedetail.setDistrict(row.getString("district"));
                 projectsitedetail.setBlock(row.getString("block"));
                 projectsitedetail.setCity_town_village(row.getString("city_town_village"));
                 projectsitedetail.setConnectingroad(row.getString("connectingroad"));
                 projectsitedetail.setLandzoneuse_type(row.getString("landzoneuse_type"));
+                projectsitedetail.setTehsil_subtehsil(row.getString("tehsil_subtehsil"));
+                projectsitedetail.setCreatedate(row.get("createdate", ZonedDateTime.class));
+                projectsitedetail.setUpdatedate(row.get("updatedate", ZonedDateTime.class));
                 return projectsitedetail;
             }
         ).forEach(projectsitedetailsList::add);

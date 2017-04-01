@@ -19,7 +19,9 @@
             "phase": "Phase",
             "productcategory": "Productcategory",
             "fci": "Fci",
-            "implementationdate": "Implementationdate"
+            "implementationdate": "Implementationdate",
+            "createdate": "Createdate",
+            "updatedate": "Updatedate"
         }
     }
 }

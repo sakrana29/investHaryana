@@ -15,10 +15,11 @@
             "detail": {
                 "title": "Projectrawmaterial"
             },
-            "projectid": "Projectid",
             "rawmaterial": "Rawmaterial",
             "quantity": "Quantity",
-            "units": "Units"
+            "units": "Units",
+            "createdate": "Createdate",
+            "updatedate": "Updatedate"
         }
     }
 }

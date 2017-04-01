@@ -68,7 +68,7 @@ class Environment_impactdetailGatlingTest extends Simulation {
             .exec(http("Create new environment_impactdetail")
             .post("/api/environment-impactdetails")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "projectid":null, "water_process":"0", "water_cooling":"0", "water_domestic":"0", "water_other":"0", "waste_water_process":"0", "waste_water_cooling":"0", "waste_water_domesting":"0", "waste_water_other":"0", "waste_water_treatment":"SAMPLE_TEXT", "document_attached":"SAMPLE_TEXT", "other":"SAMPLE_TEXT", "source_of_water_supply":"SAMPLE_TEXT", "mode_of_disposal_for_discharge":"SAMPLE_TEXT", "emissionname":"SAMPLE_TEXT", "wastewaterdetailid":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "water_process":"0", "water_cooling":"0", "water_domestic":"0", "water_other":"0", "waste_water_process":"0", "waste_water_cooling":"0", "waste_water_domesting":"0", "waste_water_other":"0", "source_of_water_supply":"SAMPLE_TEXT", "mode_of_disposal_for_discharge":"SAMPLE_TEXT", "recycling_process":"SAMPLE_TEXT", "recycling_cooling":"SAMPLE_TEXT", "recycling_domestic":"SAMPLE_TEXT", "recycling_other":"SAMPLE_TEXT", "createdate":"2020-01-01T00:00:00.000Z", "updatedate":"2020-01-01T00:00:00.000Z", "sourcewatersupplyother":"SAMPLE_TEXT", "modedisposalother":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_environment_impactdetail_url"))).exitHereIfFailed
             .pause(10)

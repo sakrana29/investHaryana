@@ -12,11 +12,15 @@ CREATE TABLE IF NOT EXISTS investor (
     address3 text,
     emailprimary text,
     emailsecondary text,
-    moudocument text,
-    investorpicpath text,
     userlogin text,
     cityname text,
     countryname text,
     statename text,
+    pincode int,
+    phonenumber double,
+    mobilenumber double,
+    cafpin double,
+    createdate timestamp,
+    updatedate timestamp,
     PRIMARY KEY(id)
 );

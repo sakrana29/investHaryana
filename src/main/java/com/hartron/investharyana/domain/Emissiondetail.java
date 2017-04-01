@@ -3,6 +3,7 @@ package com.hartron.investharyana.domain;
 import com.datastax.driver.mapping.annotations.*;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -18,8 +19,6 @@ public class Emissiondetail implements Serializable {
     @PartitionKey
     private UUID id;
 
-    private UUID projectid;
-
     private String capacity;
 
     private String particulars;
@@ -28,25 +27,16 @@ public class Emissiondetail implements Serializable {
 
     private String air_pollution_control_device;
 
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
+
     public UUID getId() {
         return id;
     }
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public UUID getProjectid() {
-        return projectid;
-    }
-
-    public Emissiondetail projectid(UUID projectid) {
-        this.projectid = projectid;
-        return this;
-    }
-
-    public void setProjectid(UUID projectid) {
-        this.projectid = projectid;
     }
 
     public String getCapacity() {
@@ -101,6 +91,32 @@ public class Emissiondetail implements Serializable {
         this.air_pollution_control_device = air_pollution_control_device;
     }
 
+    public ZonedDateTime getCreatedate() {
+        return createdate;
+    }
+
+    public Emissiondetail createdate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+        return this;
+    }
+
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public Emissiondetail updatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+        return this;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -125,11 +141,12 @@ public class Emissiondetail implements Serializable {
     public String toString() {
         return "Emissiondetail{" +
             "id=" + id +
-            ", projectid='" + projectid + "'" +
             ", capacity='" + capacity + "'" +
             ", particulars='" + particulars + "'" +
             ", type_of_fuel='" + type_of_fuel + "'" +
             ", air_pollution_control_device='" + air_pollution_control_device + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
             '}';
     }
 }

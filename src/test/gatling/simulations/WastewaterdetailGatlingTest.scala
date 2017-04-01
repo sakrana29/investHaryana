@@ -68,7 +68,7 @@ class WastewaterdetailGatlingTest extends Simulation {
             .exec(http("Create new wastewaterdetail")
             .post("/api/wastewaterdetails")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "projectid":null, "source_of_generation":"SAMPLE_TEXT", "quantity":"0", "description":"SAMPLE_TEXT", "naturetype":"SAMPLE_TEXT", "mode_of_disposal":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "source_of_generation":"SAMPLE_TEXT", "quantity":"0", "naturetype":"SAMPLE_TEXT", "mode_of_disposal":"SAMPLE_TEXT", "createdate":"2020-01-01T00:00:00.000Z", "updatedate":"2020-01-01T00:00:00.000Z"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_wastewaterdetail_url"))).exitHereIfFailed
             .pause(10)

@@ -1,6 +1,7 @@
 package com.hartron.investharyana.service.dto;
 
 
+import java.time.ZonedDateTime;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -12,8 +13,6 @@ public class EmissiondetailDTO implements Serializable {
 
     private UUID id;
 
-    private UUID projectid;
-
     private String capacity;
 
     private String particulars;
@@ -22,19 +21,16 @@ public class EmissiondetailDTO implements Serializable {
 
     private String air_pollution_control_device;
 
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
+
     public UUID getId() {
         return id;
     }
 
     public void setId(UUID id) {
         this.id = id;
-    }
-    public UUID getProjectid() {
-        return projectid;
-    }
-
-    public void setProjectid(UUID projectid) {
-        this.projectid = projectid;
     }
     public String getCapacity() {
         return capacity;
@@ -64,6 +60,20 @@ public class EmissiondetailDTO implements Serializable {
     public void setAir_pollution_control_device(String air_pollution_control_device) {
         this.air_pollution_control_device = air_pollution_control_device;
     }
+    public ZonedDateTime getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -90,11 +100,12 @@ public class EmissiondetailDTO implements Serializable {
     public String toString() {
         return "EmissiondetailDTO{" +
             "id=" + id +
-            ", projectid='" + projectid + "'" +
             ", capacity='" + capacity + "'" +
             ", particulars='" + particulars + "'" +
             ", type_of_fuel='" + type_of_fuel + "'" +
             ", air_pollution_control_device='" + air_pollution_control_device + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
             '}';
     }
 }

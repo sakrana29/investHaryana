@@ -4,9 +4,9 @@
         .module('investhryApp')
         .factory('Wastewaterdetail', Wastewaterdetail);
 
-    Wastewaterdetail.$inject = ['$resource'];
+    Wastewaterdetail.$inject = ['$resource', 'DateUtils'];
 
-    function Wastewaterdetail ($resource) {
+    function Wastewaterdetail ($resource, DateUtils) {
         var resourceUrl =  'api/wastewaterdetails/:id';
 
         return $resource(resourceUrl, {}, {
@@ -16,6 +16,8 @@
                 transformResponse: function (data) {
                     if (data) {
                         data = angular.fromJson(data);
+                        data.createdate = DateUtils.convertDateTimeFromServer(data.createdate);
+                        data.updatedate = DateUtils.convertDateTimeFromServer(data.updatedate);
                     }
                     return data;
                 }

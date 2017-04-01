@@ -18,6 +18,8 @@
                         data = angular.fromJson(data);
                         data.project_construction_start_date = DateUtils.convertDateTimeFromServer(data.project_construction_start_date);
                         data.commercial_activity_start_date = DateUtils.convertDateTimeFromServer(data.commercial_activity_start_date);
+                        data.createdate = DateUtils.convertDateTimeFromServer(data.createdate);
+                        data.updatedate = DateUtils.convertDateTimeFromServer(data.updatedate);
                     }
                     return data;
                 }

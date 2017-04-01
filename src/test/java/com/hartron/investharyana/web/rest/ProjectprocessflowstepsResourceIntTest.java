@@ -23,9 +23,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.ZoneOffset;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.UUID;
 
+import static com.hartron.investharyana.web.rest.TestUtil.sameInstant;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -40,11 +45,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = InvesthryApp.class)
 public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTest {
 
-    private static final UUID DEFAULT_PROJECTID = UUID.randomUUID();
-    private static final UUID UPDATED_PROJECTID = UUID.randomUUID();
-
     private static final String DEFAULT_STEPS = "AAAAAAAAAA";
     private static final String UPDATED_STEPS = "BBBBBBBBBB";
+
+    private static final ZonedDateTime DEFAULT_CREATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_CREATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+
+    private static final ZonedDateTime DEFAULT_UPDATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_UPDATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
     @Autowired
     private ProjectprocessflowstepsRepository projectprocessflowstepsRepository;
@@ -86,8 +94,9 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
      */
     public static Projectprocessflowsteps createEntity() {
         Projectprocessflowsteps projectprocessflowsteps = new Projectprocessflowsteps()
-                .projectid(DEFAULT_PROJECTID)
-                .steps(DEFAULT_STEPS);
+                .steps(DEFAULT_STEPS)
+                .createdate(DEFAULT_CREATEDATE)
+                .updatedate(DEFAULT_UPDATEDATE);
         return projectprocessflowsteps;
     }
 
@@ -113,8 +122,9 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
         List<Projectprocessflowsteps> projectprocessflowstepsList = projectprocessflowstepsRepository.findAll();
         assertThat(projectprocessflowstepsList).hasSize(databaseSizeBeforeCreate + 1);
         Projectprocessflowsteps testProjectprocessflowsteps = projectprocessflowstepsList.get(projectprocessflowstepsList.size() - 1);
-        assertThat(testProjectprocessflowsteps.getProjectid()).isEqualTo(DEFAULT_PROJECTID);
         assertThat(testProjectprocessflowsteps.getSteps()).isEqualTo(DEFAULT_STEPS);
+        assertThat(testProjectprocessflowsteps.getCreatedate()).isEqualTo(DEFAULT_CREATEDATE);
+        assertThat(testProjectprocessflowsteps.getUpdatedate()).isEqualTo(DEFAULT_UPDATEDATE);
     }
 
     @Test
@@ -147,8 +157,9 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(projectprocessflowsteps.getId().toString())))
-            .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())))
-            .andExpect(jsonPath("$.[*].steps").value(hasItem(DEFAULT_STEPS.toString())));
+            .andExpect(jsonPath("$.[*].steps").value(hasItem(DEFAULT_STEPS.toString())))
+            .andExpect(jsonPath("$.[*].createdate").value(hasItem(sameInstant(DEFAULT_CREATEDATE))))
+            .andExpect(jsonPath("$.[*].updatedate").value(hasItem(sameInstant(DEFAULT_UPDATEDATE))));
     }
 
     @Test
@@ -161,8 +172,9 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(projectprocessflowsteps.getId().toString()))
-            .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()))
-            .andExpect(jsonPath("$.steps").value(DEFAULT_STEPS.toString()));
+            .andExpect(jsonPath("$.steps").value(DEFAULT_STEPS.toString()))
+            .andExpect(jsonPath("$.createdate").value(sameInstant(DEFAULT_CREATEDATE)))
+            .andExpect(jsonPath("$.updatedate").value(sameInstant(DEFAULT_UPDATEDATE)));
     }
 
     @Test
@@ -181,8 +193,9 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
         // Update the projectprocessflowsteps
         Projectprocessflowsteps updatedProjectprocessflowsteps = projectprocessflowstepsRepository.findOne(projectprocessflowsteps.getId());
         updatedProjectprocessflowsteps
-                .projectid(UPDATED_PROJECTID)
-                .steps(UPDATED_STEPS);
+                .steps(UPDATED_STEPS)
+                .createdate(UPDATED_CREATEDATE)
+                .updatedate(UPDATED_UPDATEDATE);
         ProjectprocessflowstepsDTO projectprocessflowstepsDTO = projectprocessflowstepsMapper.projectprocessflowstepsToProjectprocessflowstepsDTO(updatedProjectprocessflowsteps);
 
         restProjectprocessflowstepsMockMvc.perform(put("/api/projectprocessflowsteps")
@@ -194,8 +207,9 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
         List<Projectprocessflowsteps> projectprocessflowstepsList = projectprocessflowstepsRepository.findAll();
         assertThat(projectprocessflowstepsList).hasSize(databaseSizeBeforeUpdate);
         Projectprocessflowsteps testProjectprocessflowsteps = projectprocessflowstepsList.get(projectprocessflowstepsList.size() - 1);
-        assertThat(testProjectprocessflowsteps.getProjectid()).isEqualTo(UPDATED_PROJECTID);
         assertThat(testProjectprocessflowsteps.getSteps()).isEqualTo(UPDATED_STEPS);
+        assertThat(testProjectprocessflowsteps.getCreatedate()).isEqualTo(UPDATED_CREATEDATE);
+        assertThat(testProjectprocessflowsteps.getUpdatedate()).isEqualTo(UPDATED_UPDATEDATE);
     }
 
     @Test

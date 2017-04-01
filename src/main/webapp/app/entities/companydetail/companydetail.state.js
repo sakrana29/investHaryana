@@ -104,7 +104,6 @@
                     resolve: {
                         entity: function () {
                             return {
-                                investorid: null,
                                 promoter_md_director: null,
                                 designation: null,
                                 businessentity: null,
@@ -114,14 +113,9 @@
                                 nri: null,
                                 tin_vat_number: null,
                                 cst_number: null,
-                                director_md_ceo_list: null,
-                                pancard: null,
-                                aadharcard: null,
-                                tin_vat_document: null,
-                                cst_document: null,
-                                moa_partnershipdeed: null,
-                                registration_document: null,
                                 businessentitytype: null,
+                                createdate: null,
+                                updatedate: null,
                                 id: null
                             };
                         }

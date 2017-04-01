@@ -23,9 +23,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.ZoneOffset;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.UUID;
 
+import static com.hartron.investharyana.web.rest.TestUtil.sameInstant;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -40,23 +45,23 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = InvesthryApp.class)
 public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
 
-    private static final UUID DEFAULT_PROJECTID = UUID.randomUUID();
-    private static final UUID UPDATED_PROJECTID = UUID.randomUUID();
-
     private static final String DEFAULT_SOURCE_OF_GENERATION = "AAAAAAAAAA";
     private static final String UPDATED_SOURCE_OF_GENERATION = "BBBBBBBBBB";
 
     private static final Integer DEFAULT_QUANTITY = 1;
     private static final Integer UPDATED_QUANTITY = 2;
 
-    private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
-    private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
-
     private static final String DEFAULT_NATURETYPE = "AAAAAAAAAA";
     private static final String UPDATED_NATURETYPE = "BBBBBBBBBB";
 
     private static final String DEFAULT_MODE_OF_DISPOSAL = "AAAAAAAAAA";
     private static final String UPDATED_MODE_OF_DISPOSAL = "BBBBBBBBBB";
+
+    private static final ZonedDateTime DEFAULT_CREATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_CREATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+
+    private static final ZonedDateTime DEFAULT_UPDATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_UPDATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
     @Autowired
     private WastewaterdetailRepository wastewaterdetailRepository;
@@ -98,12 +103,12 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
      */
     public static Wastewaterdetail createEntity() {
         Wastewaterdetail wastewaterdetail = new Wastewaterdetail()
-                .projectid(DEFAULT_PROJECTID)
                 .source_of_generation(DEFAULT_SOURCE_OF_GENERATION)
                 .quantity(DEFAULT_QUANTITY)
-                .description(DEFAULT_DESCRIPTION)
                 .naturetype(DEFAULT_NATURETYPE)
-                .mode_of_disposal(DEFAULT_MODE_OF_DISPOSAL);
+                .mode_of_disposal(DEFAULT_MODE_OF_DISPOSAL)
+                .createdate(DEFAULT_CREATEDATE)
+                .updatedate(DEFAULT_UPDATEDATE);
         return wastewaterdetail;
     }
 
@@ -129,12 +134,12 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
         List<Wastewaterdetail> wastewaterdetailList = wastewaterdetailRepository.findAll();
         assertThat(wastewaterdetailList).hasSize(databaseSizeBeforeCreate + 1);
         Wastewaterdetail testWastewaterdetail = wastewaterdetailList.get(wastewaterdetailList.size() - 1);
-        assertThat(testWastewaterdetail.getProjectid()).isEqualTo(DEFAULT_PROJECTID);
         assertThat(testWastewaterdetail.getSource_of_generation()).isEqualTo(DEFAULT_SOURCE_OF_GENERATION);
         assertThat(testWastewaterdetail.getQuantity()).isEqualTo(DEFAULT_QUANTITY);
-        assertThat(testWastewaterdetail.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testWastewaterdetail.getNaturetype()).isEqualTo(DEFAULT_NATURETYPE);
         assertThat(testWastewaterdetail.getMode_of_disposal()).isEqualTo(DEFAULT_MODE_OF_DISPOSAL);
+        assertThat(testWastewaterdetail.getCreatedate()).isEqualTo(DEFAULT_CREATEDATE);
+        assertThat(testWastewaterdetail.getUpdatedate()).isEqualTo(DEFAULT_UPDATEDATE);
     }
 
     @Test
@@ -167,12 +172,12 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(wastewaterdetail.getId().toString())))
-            .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())))
             .andExpect(jsonPath("$.[*].source_of_generation").value(hasItem(DEFAULT_SOURCE_OF_GENERATION.toString())))
             .andExpect(jsonPath("$.[*].quantity").value(hasItem(DEFAULT_QUANTITY)))
-            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
             .andExpect(jsonPath("$.[*].naturetype").value(hasItem(DEFAULT_NATURETYPE.toString())))
-            .andExpect(jsonPath("$.[*].mode_of_disposal").value(hasItem(DEFAULT_MODE_OF_DISPOSAL.toString())));
+            .andExpect(jsonPath("$.[*].mode_of_disposal").value(hasItem(DEFAULT_MODE_OF_DISPOSAL.toString())))
+            .andExpect(jsonPath("$.[*].createdate").value(hasItem(sameInstant(DEFAULT_CREATEDATE))))
+            .andExpect(jsonPath("$.[*].updatedate").value(hasItem(sameInstant(DEFAULT_UPDATEDATE))));
     }
 
     @Test
@@ -185,12 +190,12 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(wastewaterdetail.getId().toString()))
-            .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()))
             .andExpect(jsonPath("$.source_of_generation").value(DEFAULT_SOURCE_OF_GENERATION.toString()))
             .andExpect(jsonPath("$.quantity").value(DEFAULT_QUANTITY))
-            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.naturetype").value(DEFAULT_NATURETYPE.toString()))
-            .andExpect(jsonPath("$.mode_of_disposal").value(DEFAULT_MODE_OF_DISPOSAL.toString()));
+            .andExpect(jsonPath("$.mode_of_disposal").value(DEFAULT_MODE_OF_DISPOSAL.toString()))
+            .andExpect(jsonPath("$.createdate").value(sameInstant(DEFAULT_CREATEDATE)))
+            .andExpect(jsonPath("$.updatedate").value(sameInstant(DEFAULT_UPDATEDATE)));
     }
 
     @Test
@@ -209,12 +214,12 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
         // Update the wastewaterdetail
         Wastewaterdetail updatedWastewaterdetail = wastewaterdetailRepository.findOne(wastewaterdetail.getId());
         updatedWastewaterdetail
-                .projectid(UPDATED_PROJECTID)
                 .source_of_generation(UPDATED_SOURCE_OF_GENERATION)
                 .quantity(UPDATED_QUANTITY)
-                .description(UPDATED_DESCRIPTION)
                 .naturetype(UPDATED_NATURETYPE)
-                .mode_of_disposal(UPDATED_MODE_OF_DISPOSAL);
+                .mode_of_disposal(UPDATED_MODE_OF_DISPOSAL)
+                .createdate(UPDATED_CREATEDATE)
+                .updatedate(UPDATED_UPDATEDATE);
         WastewaterdetailDTO wastewaterdetailDTO = wastewaterdetailMapper.wastewaterdetailToWastewaterdetailDTO(updatedWastewaterdetail);
 
         restWastewaterdetailMockMvc.perform(put("/api/wastewaterdetails")
@@ -226,12 +231,12 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
         List<Wastewaterdetail> wastewaterdetailList = wastewaterdetailRepository.findAll();
         assertThat(wastewaterdetailList).hasSize(databaseSizeBeforeUpdate);
         Wastewaterdetail testWastewaterdetail = wastewaterdetailList.get(wastewaterdetailList.size() - 1);
-        assertThat(testWastewaterdetail.getProjectid()).isEqualTo(UPDATED_PROJECTID);
         assertThat(testWastewaterdetail.getSource_of_generation()).isEqualTo(UPDATED_SOURCE_OF_GENERATION);
         assertThat(testWastewaterdetail.getQuantity()).isEqualTo(UPDATED_QUANTITY);
-        assertThat(testWastewaterdetail.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testWastewaterdetail.getNaturetype()).isEqualTo(UPDATED_NATURETYPE);
         assertThat(testWastewaterdetail.getMode_of_disposal()).isEqualTo(UPDATED_MODE_OF_DISPOSAL);
+        assertThat(testWastewaterdetail.getCreatedate()).isEqualTo(UPDATED_CREATEDATE);
+        assertThat(testWastewaterdetail.getUpdatedate()).isEqualTo(UPDATED_UPDATEDATE);
     }
 
     @Test

@@ -1,19 +1,12 @@
-<div class="container">
+
+<div>
     <h2><span data-translate="investhryApp.projectsitedetail.detail.title">Projectsitedetail</span> {{vm.projectsitedetail.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row jh-entity-details">
-        <dt><span data-translate="investhryApp.projectsitedetail.projectid">Projectid</span></dt>
-        <dd>
-            <span>{{vm.projectsitedetail.projectid}}</span>
-        </dd>
         <dt><span data-translate="investhryApp.projectsitedetail.siteaddress">Siteaddress</span></dt>
         <dd>
             <span>{{vm.projectsitedetail.siteaddress}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.projectsitedetail.tehsil_subtehsil">Tehsil Subtehsil</span></dt>
-        <dd>
-            <span>{{vm.projectsitedetail.tehsil_subtehsil}}</span>
         </dd>
         <dt><span data-translate="investhryApp.projectsitedetail.multyvillageinvolved">Multyvillageinvolved</span></dt>
         <dd>
@@ -111,54 +104,6 @@
         <dd>
             <span>{{vm.projectsitedetail.site_situated_in_controlled_area}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.projectsitedetail.khasra_document">Khasra Document</span></dt>
-        <dd>
-            <span>{{vm.projectsitedetail.khasra_document}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.projectsitedetail.revenu_shajra_document">Revenu Shajra Document</span></dt>
-        <dd>
-            <span>{{vm.projectsitedetail.revenu_shajra_document}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.projectsitedetail.jamabandi">Jamabandi</span></dt>
-        <dd>
-            <span>{{vm.projectsitedetail.jamabandi}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.projectsitedetail.nonencumbrance_certificate">Nonencumbrance Certificate</span></dt>
-        <dd>
-            <span>{{vm.projectsitedetail.nonencumbrance_certificate}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.projectsitedetail.ownership_document">Ownership Document</span></dt>
-        <dd>
-            <span>{{vm.projectsitedetail.ownership_document}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.projectsitedetail.lease_document">Lease Document</span></dt>
-        <dd>
-            <span>{{vm.projectsitedetail.lease_document}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.projectsitedetail.landagreement_document">Landagreement Document</span></dt>
-        <dd>
-            <span>{{vm.projectsitedetail.landagreement_document}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.projectsitedetail.sitelayoutplan">Sitelayoutplan</span></dt>
-        <dd>
-            <span>{{vm.projectsitedetail.sitelayoutplan}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.projectsitedetail.locationplan">Locationplan</span></dt>
-        <dd>
-            <span>{{vm.projectsitedetail.locationplan}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.projectsitedetail.linearstripplan">Linearstripplan</span></dt>
-        <dd>
-            <span>{{vm.projectsitedetail.linearstripplan}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.projectsitedetail.sitesituated_document">Sitesituated Document</span></dt>
-        <dd>
-            <span>{{vm.projectsitedetail.sitesituated_document}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.projectsitedetail.controlledarea_document">Controlledarea Document</span></dt>
-        <dd>
-            <span>{{vm.projectsitedetail.controlledarea_document}}</span>
-        </dd>
         <dt><span data-translate="investhryApp.projectsitedetail.buildingexisted">Buildingexisted</span></dt>
         <dd>
             <span>{{vm.projectsitedetail.buildingexisted}}</span>
@@ -182,6 +127,18 @@
         <dt><span data-translate="investhryApp.projectsitedetail.landzoneuse_type">Landzoneuse Type</span></dt>
         <dd>
             <span>{{vm.projectsitedetail.landzoneuse_type}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectsitedetail.tehsil_subtehsil">Tehsil Subtehsil</span></dt>
+        <dd>
+            <span>{{vm.projectsitedetail.tehsil_subtehsil}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectsitedetail.createdate">Createdate</span></dt>
+        <dd>
+            <span>{{vm.projectsitedetail.createdate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectsitedetail.updatedate">Updatedate</span></dt>
+        <dd>
+            <span>{{vm.projectsitedetail.updatedate | date:'medium'}}</span>
         </dd>
     </dl>
 

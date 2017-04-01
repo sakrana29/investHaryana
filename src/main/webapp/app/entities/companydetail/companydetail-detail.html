@@ -1,13 +1,9 @@
 
-<div class="container">
+<div>
     <h2><span data-translate="investhryApp.companydetail.detail.title">Companydetail</span> {{vm.companydetail.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row jh-entity-details">
-        <dt><span data-translate="investhryApp.companydetail.investorid">Investorid</span></dt>
-        <dd>
-            <span>{{vm.companydetail.investorid}}</span>
-        </dd>
         <dt><span data-translate="investhryApp.companydetail.promoter_md_director">Promoter Md Director</span></dt>
         <dd>
             <span>{{vm.companydetail.promoter_md_director}}</span>
@@ -44,37 +40,17 @@
         <dd>
             <span>{{vm.companydetail.cst_number}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.companydetail.director_md_ceo_list">Director Md Ceo List</span></dt>
-        <dd>
-            <span>{{vm.companydetail.director_md_ceo_list}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.companydetail.pancard">Pancard</span></dt>
-        <dd>
-            <span>{{vm.companydetail.pancard}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.companydetail.aadharcard">Aadharcard</span></dt>
-        <dd>
-            <span>{{vm.companydetail.aadharcard}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.companydetail.tin_vat_document">Tin Vat Document</span></dt>
-        <dd>
-            <span>{{vm.companydetail.tin_vat_document}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.companydetail.cst_document">Cst Document</span></dt>
-        <dd>
-            <span>{{vm.companydetail.cst_document}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.companydetail.moa_partnershipdeed">Moa Partnershipdeed</span></dt>
-        <dd>
-            <span>{{vm.companydetail.moa_partnershipdeed}}</span>
-        </dd>
-        <dt><span data-translate="investhryApp.companydetail.registration_document">Registration Document</span></dt>
-        <dd>
-            <span>{{vm.companydetail.registration_document}}</span>
-        </dd>
         <dt><span data-translate="investhryApp.companydetail.businessentitytype">Businessentitytype</span></dt>
         <dd>
             <span>{{vm.companydetail.businessentitytype}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.companydetail.createdate">Createdate</span></dt>
+        <dd>
+            <span>{{vm.companydetail.createdate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.companydetail.updatedate">Updatedate</span></dt>
+        <dd>
+            <span>{{vm.companydetail.updatedate | date:'medium'}}</span>
         </dd>
     </dl>
 

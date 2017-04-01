@@ -3,16 +3,8 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "projectid",
-            "fieldType": "UUID"
-        },
-        {
             "fieldName": "siteaddress",
             "fieldType": "String"
-        },
-        {
-            "fieldName": "tehsil_subtehsil",
-            "fieldType": "UUID"
         },
         {
             "fieldName": "multyvillageinvolved",
@@ -112,54 +104,6 @@
             "fieldType": "Boolean"
         },
         {
-            "fieldName": "khasra_document",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "revenu_shajra_document",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "jamabandi",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "nonencumbrance_certificate",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "ownership_document",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "lease_document",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "landagreement_document",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "sitelayoutplan",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "locationplan",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "linearstripplan",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "sitesituated_document",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "controlledarea_document",
-            "fieldType": "String"
-        },
-        {
             "fieldName": "buildingexisted",
             "fieldType": "String"
         },
@@ -182,6 +126,18 @@
         {
             "fieldName": "landzoneuse_type",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "tehsil_subtehsil",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "updatedate",
+            "fieldType": "ZonedDateTime"
         }
     ],
     "changelogDate": "20170313114208",

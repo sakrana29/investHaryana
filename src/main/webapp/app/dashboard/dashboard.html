@@ -1,105 +1,101 @@
-<div ng-cloak>
-    <div class="container">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container-fluid">
+    <div class="row">
 
-    <!--District Wise Pending Status of Stage 1 45 Days-->
+       <div ng-repeat="departmentstat in vm.departmentstatcollection">
 
-    <!--<div class="col-lg-3">-->
-    <!--<div class="panel panel-info">-->
-    <!--<div class="panel-heading">-->
-    <div class="panel panel-warning">
-        <div class="panel-heading">
-            <div class="row">
-                <div class="col-xs-6">
-                    <i class="fa fa-briefcase fa-5x"></i>
-                </div>
-                <div class="col-xs-6 text-right">
-                    <p class="announcement-heading">
-                        <button type="button" class="btn btn-primary"
-                                ng-controller="DistrictController as vm">
-                            District Wise Status<span class="badge">{{vm.districts.length}}</span>
-                        </button>
-                    </p>
-                    <p class="announcement-text">Department Services Status(CAF)
-                    <div ng-controller="DistrictController as vm">
-                        <div ng-repeat="districtname in vm.districts track by districtname.id">
-                            District :<span class="badge">{{districtname.districtname}}</span>
-                            <!--Service Description :<span class="badge">{{services.districtname}}</span>-->
-                            <!--Dept ID :<span class="badge">{{services.departmentID}}</span>-->
-                            <!--Duration :<span class="badge">{{services.duration}}</span>-->
-                            <!--Stage:<span class="badge">{{services.stage}}</span>-->
-                            <!-- total end-->
-                        </div>
-                    </div>
-                    </p>
-                </div>
-            </div>
+        <div class="page-heading">
+            <h1>{{departmentstat.departmentName}}</h1>
+
         </div>
 
-        <a href="#/department-service">
-            <div class="panel-footer announcement-bottom">
-                <div class="row">
-                    <div class="col-xs-6">
-                        Expand
-                    </div>
-                    <div class="col-xs-6 text-right">
-                        <i class="fa fa-arrow-circle-right"></i>
+        <div class="col-md-3">
+            <a class="info-tiles tiles-inverse has-footer" href="#">
+                <div class="tiles-heading">
+                    <div class="pull-left">Total CAF</div>
+                    <div class="pull-right">
+                        <div id="tileorders" class="sparkline-block"><canvas width="39" height="13" style="display: inline-block; width: 39px; height: 13px; vertical-align: top;"></canvas></div>
                     </div>
                 </div>
-            </div>
-        </a>
-    </div>
+                <div class="tiles-body">
+                    <div class="text-center">{{departmentstat.totalCaf}}</div>
+                </div>
 
-    <!--Services Status Stage 1 under 45 days, Stage 2 45-60 Days-->
-
-    <!--<div class="col-lg-3">-->
-    <!--<div class="panel panel-info">-->
-    <!--<div class="panel-heading">-->
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <div class="row">
-                <div class="col-xs-6">
-                    <i class="fa fa-briefcase fa-5x"></i>
-                </div>
-                <div class="col-xs-6 text-right">
-                    <p class="announcement-heading">
-                        <!--  Total no of files created through entity filetosend -->
-                        <button type="button" class="btn btn-warning"
-                                ng-controller="DepartmentServiceController as vm">
-                            Services Wise Status<span class="badge">{{vm.departmentServices.length}}</span>
-                        </button>
-                    </p>
-                    <p class="announcement-text">Department Services Status(CAF)
-                    <div ng-controller="DepartmentServiceController as vm">
-                        <div ng-repeat="services in vm.departmentServices track by services.id">
-                            Service Name :<span class="badge">{{services.serviceName}}</span>
-                            Service Description :<span class="badge">{{services.serviceDescription}}</span>
-                            Dept ID :<span class="badge">{{services.departmentID}}</span>
-                            Duration :<span class="badge">{{services.duration}}</span>
-                            Stage:<span class="badge">{{services.stage}}</span>
-                            <!-- total end-->
-                        </div>
-                    </div>
-                    </p>
-                </div>
-            </div>
+            </a>
         </div>
 
-        <a href="#/department-service">
-            <div class="panel-footer announcement-bottom">
-                <div class="row">
-                    <div class="col-xs-6">
-                        Expand
-                    </div>
-                    <div class="col-xs-6 text-right">
-                        <i class="fa fa-arrow-circle-right"></i>
+        <div class="col-md-3">
+            <a class="info-tiles tiles-green has-footer" href="#">
+                <div class="tiles-heading">
+                    <div class="pull-left">Total Pending CAF</div>
+                    <div class="pull-right">
+                        <div id="tilerevenues" class="sparkline-block"><canvas width="40" height="13" style="display: inline-block; width: 40px; height: 13px; vertical-align: top;"></canvas></div>
                     </div>
                 </div>
-            </div>
-        </a>
+                <div class="tiles-body">
+                    <div class="text-center">{{departmentstat.totalPendingCaf}}</div>
+                </div>
+
+            </a>
+        </div>
+
+        <div class="col-md-3">
+            <a class="info-tiles tiles-blue has-footer" href="#">
+                <div class="tiles-heading">
+                    <div class="pull-left">Total Stage 1</div>
+                    <div class="pull-right">
+                        <div id="tiletickets" class="sparkline-block"><canvas width="13" height="13" style="display: inline-block; width: 13px; height: 13px; vertical-align: top;"></canvas></div>
+                    </div>
+                </div>
+                <div class="tiles-body">
+                    <div class="text-center">{{departmentstat.totalStageOneCaf}}</div>
+                </div>
+
+            </a>
+        </div>
+
+        <div class="col-md-3">
+            <a class="info-tiles tiles-midnightblue has-footer" href="#">
+                <div class="tiles-heading">
+                    <div class="pull-left">Total Stage 2</div>
+                    <div class="pull-right">
+                        <div  class="sparkline-block"><canvas width="39" height="13" style="display: inline-block; width: 39px; height: 13px; vertical-align: top;"></canvas></div>
+                    </div>
+                </div>
+                <div class="tiles-body">
+                    <div class="text-center">{{departmentstat.totalStageTwoCaf}}</div>
+                </div>
+
+            </a>
+        </div>
+           <div class="col-md-3">
+               <a class="info-tiles tiles-midnightblue has-footer" href="#">
+                   <div class="tiles-heading">
+                       <div class="pull-left">Total Stage 3</div>
+                       <div class="pull-right">
+                           <div id="tilemembers" class="sparkline-block"><canvas width="39" height="13" style="display: inline-block; width: 39px; height: 13px; vertical-align: top;"></canvas></div>
+                       </div>
+                   </div>
+                   <div class="tiles-body">
+                       <div class="text-center">{{departmentstat.totalStageThreeCaf}}</div>
+                   </div>
+
+               </a>
+           </div>
+
+      </div>
 
     </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+
+        </div>
+    </div>
+
+
+
+
+
 </div>
-
-
 </div>

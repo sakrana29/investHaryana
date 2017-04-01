@@ -23,9 +23,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.ZoneOffset;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.UUID;
 
+import static com.hartron.investharyana.web.rest.TestUtil.sameInstant;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -73,12 +78,6 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
     private static final String DEFAULT_EMAILSECONDARY = "AAAAAAAAAA";
     private static final String UPDATED_EMAILSECONDARY = "BBBBBBBBBB";
 
-    private static final String DEFAULT_MOUDOCUMENT = "AAAAAAAAAA";
-    private static final String UPDATED_MOUDOCUMENT = "BBBBBBBBBB";
-
-    private static final String DEFAULT_INVESTORPICPATH = "AAAAAAAAAA";
-    private static final String UPDATED_INVESTORPICPATH = "BBBBBBBBBB";
-
     private static final String DEFAULT_USERLOGIN = "AAAAAAAAAA";
     private static final String UPDATED_USERLOGIN = "BBBBBBBBBB";
 
@@ -90,6 +89,24 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
 
     private static final String DEFAULT_STATENAME = "AAAAAAAAAA";
     private static final String UPDATED_STATENAME = "BBBBBBBBBB";
+
+    private static final Integer DEFAULT_PINCODE = 1;
+    private static final Integer UPDATED_PINCODE = 2;
+
+    private static final Double DEFAULT_PHONENUMBER = 1D;
+    private static final Double UPDATED_PHONENUMBER = 2D;
+
+    private static final Double DEFAULT_MOBILENUMBER = 1D;
+    private static final Double UPDATED_MOBILENUMBER = 2D;
+
+    private static final Double DEFAULT_CAFPIN = 1D;
+    private static final Double UPDATED_CAFPIN = 2D;
+
+    private static final ZonedDateTime DEFAULT_CREATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_CREATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+
+    private static final ZonedDateTime DEFAULT_UPDATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_UPDATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
     @Autowired
     private InvestorRepository investorRepository;
@@ -142,12 +159,16 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
                 .address3(DEFAULT_ADDRESS_3)
                 .emailprimary(DEFAULT_EMAILPRIMARY)
                 .emailsecondary(DEFAULT_EMAILSECONDARY)
-                .moudocument(DEFAULT_MOUDOCUMENT)
-                .investorpicpath(DEFAULT_INVESTORPICPATH)
                 .userlogin(DEFAULT_USERLOGIN)
                 .cityname(DEFAULT_CITYNAME)
                 .countryname(DEFAULT_COUNTRYNAME)
-                .statename(DEFAULT_STATENAME);
+                .statename(DEFAULT_STATENAME)
+                .pincode(DEFAULT_PINCODE)
+                .phonenumber(DEFAULT_PHONENUMBER)
+                .mobilenumber(DEFAULT_MOBILENUMBER)
+                .cafpin(DEFAULT_CAFPIN)
+                .createdate(DEFAULT_CREATEDATE)
+                .updatedate(DEFAULT_UPDATEDATE);
         return investor;
     }
 
@@ -184,12 +205,16 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
         assertThat(testInvestor.getAddress3()).isEqualTo(DEFAULT_ADDRESS_3);
         assertThat(testInvestor.getEmailprimary()).isEqualTo(DEFAULT_EMAILPRIMARY);
         assertThat(testInvestor.getEmailsecondary()).isEqualTo(DEFAULT_EMAILSECONDARY);
-        assertThat(testInvestor.getMoudocument()).isEqualTo(DEFAULT_MOUDOCUMENT);
-        assertThat(testInvestor.getInvestorpicpath()).isEqualTo(DEFAULT_INVESTORPICPATH);
         assertThat(testInvestor.getUserlogin()).isEqualTo(DEFAULT_USERLOGIN);
         assertThat(testInvestor.getCityname()).isEqualTo(DEFAULT_CITYNAME);
         assertThat(testInvestor.getCountryname()).isEqualTo(DEFAULT_COUNTRYNAME);
         assertThat(testInvestor.getStatename()).isEqualTo(DEFAULT_STATENAME);
+        assertThat(testInvestor.getPincode()).isEqualTo(DEFAULT_PINCODE);
+        assertThat(testInvestor.getPhonenumber()).isEqualTo(DEFAULT_PHONENUMBER);
+        assertThat(testInvestor.getMobilenumber()).isEqualTo(DEFAULT_MOBILENUMBER);
+        assertThat(testInvestor.getCafpin()).isEqualTo(DEFAULT_CAFPIN);
+        assertThat(testInvestor.getCreatedate()).isEqualTo(DEFAULT_CREATEDATE);
+        assertThat(testInvestor.getUpdatedate()).isEqualTo(DEFAULT_UPDATEDATE);
     }
 
     @Test
@@ -233,12 +258,16 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].address3").value(hasItem(DEFAULT_ADDRESS_3.toString())))
             .andExpect(jsonPath("$.[*].emailprimary").value(hasItem(DEFAULT_EMAILPRIMARY.toString())))
             .andExpect(jsonPath("$.[*].emailsecondary").value(hasItem(DEFAULT_EMAILSECONDARY.toString())))
-            .andExpect(jsonPath("$.[*].moudocument").value(hasItem(DEFAULT_MOUDOCUMENT.toString())))
-            .andExpect(jsonPath("$.[*].investorpicpath").value(hasItem(DEFAULT_INVESTORPICPATH.toString())))
             .andExpect(jsonPath("$.[*].userlogin").value(hasItem(DEFAULT_USERLOGIN.toString())))
             .andExpect(jsonPath("$.[*].cityname").value(hasItem(DEFAULT_CITYNAME.toString())))
             .andExpect(jsonPath("$.[*].countryname").value(hasItem(DEFAULT_COUNTRYNAME.toString())))
-            .andExpect(jsonPath("$.[*].statename").value(hasItem(DEFAULT_STATENAME.toString())));
+            .andExpect(jsonPath("$.[*].statename").value(hasItem(DEFAULT_STATENAME.toString())))
+            .andExpect(jsonPath("$.[*].pincode").value(hasItem(DEFAULT_PINCODE)))
+            .andExpect(jsonPath("$.[*].phonenumber").value(hasItem(DEFAULT_PHONENUMBER.doubleValue())))
+            .andExpect(jsonPath("$.[*].mobilenumber").value(hasItem(DEFAULT_MOBILENUMBER.doubleValue())))
+            .andExpect(jsonPath("$.[*].cafpin").value(hasItem(DEFAULT_CAFPIN.doubleValue())))
+            .andExpect(jsonPath("$.[*].createdate").value(hasItem(sameInstant(DEFAULT_CREATEDATE))))
+            .andExpect(jsonPath("$.[*].updatedate").value(hasItem(sameInstant(DEFAULT_UPDATEDATE))));
     }
 
     @Test
@@ -262,12 +291,16 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.address3").value(DEFAULT_ADDRESS_3.toString()))
             .andExpect(jsonPath("$.emailprimary").value(DEFAULT_EMAILPRIMARY.toString()))
             .andExpect(jsonPath("$.emailsecondary").value(DEFAULT_EMAILSECONDARY.toString()))
-            .andExpect(jsonPath("$.moudocument").value(DEFAULT_MOUDOCUMENT.toString()))
-            .andExpect(jsonPath("$.investorpicpath").value(DEFAULT_INVESTORPICPATH.toString()))
             .andExpect(jsonPath("$.userlogin").value(DEFAULT_USERLOGIN.toString()))
             .andExpect(jsonPath("$.cityname").value(DEFAULT_CITYNAME.toString()))
             .andExpect(jsonPath("$.countryname").value(DEFAULT_COUNTRYNAME.toString()))
-            .andExpect(jsonPath("$.statename").value(DEFAULT_STATENAME.toString()));
+            .andExpect(jsonPath("$.statename").value(DEFAULT_STATENAME.toString()))
+            .andExpect(jsonPath("$.pincode").value(DEFAULT_PINCODE))
+            .andExpect(jsonPath("$.phonenumber").value(DEFAULT_PHONENUMBER.doubleValue()))
+            .andExpect(jsonPath("$.mobilenumber").value(DEFAULT_MOBILENUMBER.doubleValue()))
+            .andExpect(jsonPath("$.cafpin").value(DEFAULT_CAFPIN.doubleValue()))
+            .andExpect(jsonPath("$.createdate").value(sameInstant(DEFAULT_CREATEDATE)))
+            .andExpect(jsonPath("$.updatedate").value(sameInstant(DEFAULT_UPDATEDATE)));
     }
 
     @Test
@@ -297,12 +330,16 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
                 .address3(UPDATED_ADDRESS_3)
                 .emailprimary(UPDATED_EMAILPRIMARY)
                 .emailsecondary(UPDATED_EMAILSECONDARY)
-                .moudocument(UPDATED_MOUDOCUMENT)
-                .investorpicpath(UPDATED_INVESTORPICPATH)
                 .userlogin(UPDATED_USERLOGIN)
                 .cityname(UPDATED_CITYNAME)
                 .countryname(UPDATED_COUNTRYNAME)
-                .statename(UPDATED_STATENAME);
+                .statename(UPDATED_STATENAME)
+                .pincode(UPDATED_PINCODE)
+                .phonenumber(UPDATED_PHONENUMBER)
+                .mobilenumber(UPDATED_MOBILENUMBER)
+                .cafpin(UPDATED_CAFPIN)
+                .createdate(UPDATED_CREATEDATE)
+                .updatedate(UPDATED_UPDATEDATE);
         InvestorDTO investorDTO = investorMapper.investorToInvestorDTO(updatedInvestor);
 
         restInvestorMockMvc.perform(put("/api/investors")
@@ -325,12 +362,16 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
         assertThat(testInvestor.getAddress3()).isEqualTo(UPDATED_ADDRESS_3);
         assertThat(testInvestor.getEmailprimary()).isEqualTo(UPDATED_EMAILPRIMARY);
         assertThat(testInvestor.getEmailsecondary()).isEqualTo(UPDATED_EMAILSECONDARY);
-        assertThat(testInvestor.getMoudocument()).isEqualTo(UPDATED_MOUDOCUMENT);
-        assertThat(testInvestor.getInvestorpicpath()).isEqualTo(UPDATED_INVESTORPICPATH);
         assertThat(testInvestor.getUserlogin()).isEqualTo(UPDATED_USERLOGIN);
         assertThat(testInvestor.getCityname()).isEqualTo(UPDATED_CITYNAME);
         assertThat(testInvestor.getCountryname()).isEqualTo(UPDATED_COUNTRYNAME);
         assertThat(testInvestor.getStatename()).isEqualTo(UPDATED_STATENAME);
+        assertThat(testInvestor.getPincode()).isEqualTo(UPDATED_PINCODE);
+        assertThat(testInvestor.getPhonenumber()).isEqualTo(UPDATED_PHONENUMBER);
+        assertThat(testInvestor.getMobilenumber()).isEqualTo(UPDATED_MOBILENUMBER);
+        assertThat(testInvestor.getCafpin()).isEqualTo(UPDATED_CAFPIN);
+        assertThat(testInvestor.getCreatedate()).isEqualTo(UPDATED_CREATEDATE);
+        assertThat(testInvestor.getUpdatedate()).isEqualTo(UPDATED_UPDATEDATE);
     }
 
     @Test

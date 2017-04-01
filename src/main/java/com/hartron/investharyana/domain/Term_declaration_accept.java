@@ -3,7 +3,6 @@ package com.hartron.investharyana.domain;
 import com.datastax.driver.mapping.annotations.*;
 
 import java.io.Serializable;
-import java.nio.ByteBuffer;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.UUID;
@@ -20,18 +19,15 @@ public class Term_declaration_accept implements Serializable {
     @PartitionKey
     private UUID id;
 
-    private UUID projectid;
-
     private Boolean acceptance;
 
     private ZonedDateTime applicationdate;
 
     private String place;
 
-    private ByteBuffer signature;
+    private ZonedDateTime createdate;
 
-    @Column(name = "signature_content_type")
-    private String signatureContentType;
+    private ZonedDateTime updatedate;
 
     public UUID getId() {
         return id;
@@ -39,19 +35,6 @@ public class Term_declaration_accept implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public UUID getProjectid() {
-        return projectid;
-    }
-
-    public Term_declaration_accept projectid(UUID projectid) {
-        this.projectid = projectid;
-        return this;
-    }
-
-    public void setProjectid(UUID projectid) {
-        this.projectid = projectid;
     }
 
     public Boolean isAcceptance() {
@@ -93,30 +76,30 @@ public class Term_declaration_accept implements Serializable {
         this.place = place;
     }
 
-    public ByteBuffer getSignature() {
-        return signature;
+    public ZonedDateTime getCreatedate() {
+        return createdate;
     }
 
-    public Term_declaration_accept signature(ByteBuffer signature) {
-        this.signature = signature;
+    public Term_declaration_accept createdate(ZonedDateTime createdate) {
+        this.createdate = createdate;
         return this;
     }
 
-    public void setSignature(ByteBuffer signature) {
-        this.signature = signature;
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
     }
 
-    public String getSignatureContentType() {
-        return signatureContentType;
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
     }
 
-    public Term_declaration_accept signatureContentType(String signatureContentType) {
-        this.signatureContentType = signatureContentType;
+    public Term_declaration_accept updatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
         return this;
     }
 
-    public void setSignatureContentType(String signatureContentType) {
-        this.signatureContentType = signatureContentType;
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
     }
 
     @Override
@@ -143,12 +126,11 @@ public class Term_declaration_accept implements Serializable {
     public String toString() {
         return "Term_declaration_accept{" +
             "id=" + id +
-            ", projectid='" + projectid + "'" +
             ", acceptance='" + acceptance + "'" +
             ", applicationdate='" + applicationdate + "'" +
             ", place='" + place + "'" +
-            ", signature='" + signature + "'" +
-            ", signatureContentType='" + signatureContentType + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
             '}';
     }
 }

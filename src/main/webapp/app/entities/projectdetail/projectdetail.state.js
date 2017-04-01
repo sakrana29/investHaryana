@@ -108,17 +108,15 @@
                                 niccode: null,
                                 existing_regulatory_approval: null,
                                 edc_sif_clu_fee_paid_applicable: null,
-                                detail_project_report: null,
-                                approval_document: null,
-                                edc_sif_clu_fee_paid_document: null,
-                                investorid: null,
                                 approval_application_form: null,
                                 category_of_project: null,
                                 collaboration_with_foreign_country: null,
                                 projectype: null,
                                 sectorname: null,
                                 size_of_industry: null,
-                                cafPIN: null,
+                                createdate: null,
+                                updatedate: null,
+                                sectorother: null,
                                 id: null
                             };
                         }

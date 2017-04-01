@@ -40,13 +40,11 @@ public class Term_declaration_acceptRepository {
             row -> {
                 Term_declaration_accept term_declaration_accept = new Term_declaration_accept();
                 term_declaration_accept.setId(row.getUUID("id"));
-                term_declaration_accept.setProjectid(row.getUUID("projectid"));
                 term_declaration_accept.setAcceptance(row.getBool("acceptance"));
                 term_declaration_accept.setApplicationdate(row.get("applicationdate", ZonedDateTime.class));
                 term_declaration_accept.setPlace(row.getString("place"));
-                term_declaration_accept.setSignature(row.getBytes("signature"));
-                term_declaration_accept.setSignatureContentType(row.getString("signature_content_type"));
-
+                term_declaration_accept.setCreatedate(row.get("createdate", ZonedDateTime.class));
+                term_declaration_accept.setUpdatedate(row.get("updatedate", ZonedDateTime.class));
                 return term_declaration_accept;
             }
         ).forEach(term_declaration_acceptsList::add);

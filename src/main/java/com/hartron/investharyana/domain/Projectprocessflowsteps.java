@@ -3,6 +3,7 @@ package com.hartron.investharyana.domain;
 import com.datastax.driver.mapping.annotations.*;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -18,9 +19,11 @@ public class Projectprocessflowsteps implements Serializable {
     @PartitionKey
     private UUID id;
 
-    private UUID projectid;
-
     private String steps;
+
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
 
     public UUID getId() {
         return id;
@@ -28,19 +31,6 @@ public class Projectprocessflowsteps implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public UUID getProjectid() {
-        return projectid;
-    }
-
-    public Projectprocessflowsteps projectid(UUID projectid) {
-        this.projectid = projectid;
-        return this;
-    }
-
-    public void setProjectid(UUID projectid) {
-        this.projectid = projectid;
     }
 
     public String getSteps() {
@@ -54,6 +44,32 @@ public class Projectprocessflowsteps implements Serializable {
 
     public void setSteps(String steps) {
         this.steps = steps;
+    }
+
+    public ZonedDateTime getCreatedate() {
+        return createdate;
+    }
+
+    public Projectprocessflowsteps createdate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+        return this;
+    }
+
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public Projectprocessflowsteps updatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+        return this;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
     }
 
     @Override
@@ -80,8 +96,9 @@ public class Projectprocessflowsteps implements Serializable {
     public String toString() {
         return "Projectprocessflowsteps{" +
             "id=" + id +
-            ", projectid='" + projectid + "'" +
             ", steps='" + steps + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
             '}';
     }
 }

@@ -68,7 +68,7 @@ class CompanydetailGatlingTest extends Simulation {
             .exec(http("Create new companydetail")
             .post("/api/companydetails")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "investorid":null, "promoter_md_director":"SAMPLE_TEXT", "designation":"SAMPLE_TEXT", "businessentity":"SAMPLE_TEXT", "director_promoter_md_ceo_number":"0", "pan_number":"SAMPLE_TEXT", "aadhar_number":"SAMPLE_TEXT", "nri":null, "tin_vat_number":"SAMPLE_TEXT", "cst_number":"SAMPLE_TEXT", "director_md_ceo_list":"SAMPLE_TEXT", "pancard":"SAMPLE_TEXT", "aadharcard":"SAMPLE_TEXT", "tin_vat_document":"SAMPLE_TEXT", "cst_document":"SAMPLE_TEXT", "moa_partnershipdeed":"SAMPLE_TEXT", "registration_document":"SAMPLE_TEXT", "businessentitytype":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "promoter_md_director":"SAMPLE_TEXT", "designation":"SAMPLE_TEXT", "businessentity":"SAMPLE_TEXT", "director_promoter_md_ceo_number":"0", "pan_number":"SAMPLE_TEXT", "aadhar_number":"SAMPLE_TEXT", "nri":null, "tin_vat_number":"SAMPLE_TEXT", "cst_number":"SAMPLE_TEXT", "businessentitytype":"SAMPLE_TEXT", "createdate":"2020-01-01T00:00:00.000Z", "updatedate":"2020-01-01T00:00:00.000Z"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_companydetail_url"))).exitHereIfFailed
             .pause(10)

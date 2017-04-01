@@ -3,6 +3,7 @@ package com.hartron.investharyana.domain;
 import com.datastax.driver.mapping.annotations.*;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -18,13 +19,15 @@ public class Projectrawmaterial implements Serializable {
     @PartitionKey
     private UUID id;
 
-    private UUID projectid;
-
     private String rawmaterial;
 
     private Integer quantity;
 
     private String units;
+
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
 
     public UUID getId() {
         return id;
@@ -32,19 +35,6 @@ public class Projectrawmaterial implements Serializable {
 
     public void setId(UUID id) {
         this.id = id;
-    }
-
-    public UUID getProjectid() {
-        return projectid;
-    }
-
-    public Projectrawmaterial projectid(UUID projectid) {
-        this.projectid = projectid;
-        return this;
-    }
-
-    public void setProjectid(UUID projectid) {
-        this.projectid = projectid;
     }
 
     public String getRawmaterial() {
@@ -86,6 +76,32 @@ public class Projectrawmaterial implements Serializable {
         this.units = units;
     }
 
+    public ZonedDateTime getCreatedate() {
+        return createdate;
+    }
+
+    public Projectrawmaterial createdate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+        return this;
+    }
+
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public Projectrawmaterial updatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+        return this;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -110,10 +126,11 @@ public class Projectrawmaterial implements Serializable {
     public String toString() {
         return "Projectrawmaterial{" +
             "id=" + id +
-            ", projectid='" + projectid + "'" +
             ", rawmaterial='" + rawmaterial + "'" +
             ", quantity='" + quantity + "'" +
             ", units='" + units + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
             '}';
     }
 }

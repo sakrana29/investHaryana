@@ -1,6 +1,7 @@
 package com.hartron.investharyana.service.dto;
 
 
+import java.time.ZonedDateTime;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -12,9 +13,11 @@ public class ProjectprocessflowstepsDTO implements Serializable {
 
     private UUID id;
 
-    private UUID projectid;
-
     private String steps;
+
+    private ZonedDateTime createdate;
+
+    private ZonedDateTime updatedate;
 
     public UUID getId() {
         return id;
@@ -23,19 +26,26 @@ public class ProjectprocessflowstepsDTO implements Serializable {
     public void setId(UUID id) {
         this.id = id;
     }
-    public UUID getProjectid() {
-        return projectid;
-    }
-
-    public void setProjectid(UUID projectid) {
-        this.projectid = projectid;
-    }
     public String getSteps() {
         return steps;
     }
 
     public void setSteps(String steps) {
         this.steps = steps;
+    }
+    public ZonedDateTime getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(ZonedDateTime createdate) {
+        this.createdate = createdate;
+    }
+    public ZonedDateTime getUpdatedate() {
+        return updatedate;
+    }
+
+    public void setUpdatedate(ZonedDateTime updatedate) {
+        this.updatedate = updatedate;
     }
 
     @Override
@@ -63,8 +73,9 @@ public class ProjectprocessflowstepsDTO implements Serializable {
     public String toString() {
         return "ProjectprocessflowstepsDTO{" +
             "id=" + id +
-            ", projectid='" + projectid + "'" +
             ", steps='" + steps + "'" +
+            ", createdate='" + createdate + "'" +
+            ", updatedate='" + updatedate + "'" +
             '}';
     }
 }

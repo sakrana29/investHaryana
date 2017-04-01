@@ -115,12 +115,16 @@
                                 address3: null,
                                 emailprimary: null,
                                 emailsecondary: null,
-                                moudocument: null,
-                                investorpicpath: null,
                                 userlogin: null,
                                 cityname: null,
                                 countryname: null,
                                 statename: null,
+                                pincode: null,
+                                phonenumber: null,
+                                mobilenumber: null,
+                                cafpin: null,
+                                createdate: null,
+                                updatedate: null,
                                 id: null
                             };
                         }

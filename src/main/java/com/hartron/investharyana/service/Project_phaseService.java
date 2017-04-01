@@ -40,5 +40,4 @@ public interface Project_phaseService {
     void delete(String id);
 
     void deleteByProject(String projectid);
-
 }

@@ -22,13 +22,11 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.util.Base64Utils;
 
 import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.time.ZoneOffset;
 import java.time.ZoneId;
-import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.UUID;
 
@@ -47,9 +45,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = InvesthryApp.class)
 public class Term_declaration_acceptResourceIntTest extends AbstractCassandraTest {
 
-    private static final UUID DEFAULT_PROJECTID = UUID.randomUUID();
-    private static final UUID UPDATED_PROJECTID = UUID.randomUUID();
-
     private static final Boolean DEFAULT_ACCEPTANCE = false;
     private static final Boolean UPDATED_ACCEPTANCE = true;
 
@@ -59,10 +54,11 @@ public class Term_declaration_acceptResourceIntTest extends AbstractCassandraTes
     private static final String DEFAULT_PLACE = "AAAAAAAAAA";
     private static final String UPDATED_PLACE = "BBBBBBBBBB";
 
-    private static final ByteBuffer DEFAULT_SIGNATURE = ByteBuffer.wrap(TestUtil.createByteArray(1, "0"));
-    private static final ByteBuffer UPDATED_SIGNATURE = ByteBuffer.wrap(TestUtil.createByteArray(2, "1"));
-    private static final String DEFAULT_SIGNATURE_CONTENT_TYPE = "image/jpg";
-    private static final String UPDATED_SIGNATURE_CONTENT_TYPE = "image/png";
+    private static final ZonedDateTime DEFAULT_CREATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_CREATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+
+    private static final ZonedDateTime DEFAULT_UPDATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_UPDATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
     @Autowired
     private Term_declaration_acceptRepository term_declaration_acceptRepository;
@@ -104,12 +100,11 @@ public class Term_declaration_acceptResourceIntTest extends AbstractCassandraTes
      */
     public static Term_declaration_accept createEntity() {
         Term_declaration_accept term_declaration_accept = new Term_declaration_accept()
-                .projectid(DEFAULT_PROJECTID)
                 .acceptance(DEFAULT_ACCEPTANCE)
                 .applicationdate(DEFAULT_APPLICATIONDATE)
                 .place(DEFAULT_PLACE)
-                .signature(DEFAULT_SIGNATURE)
-                .signatureContentType(DEFAULT_SIGNATURE_CONTENT_TYPE);
+                .createdate(DEFAULT_CREATEDATE)
+                .updatedate(DEFAULT_UPDATEDATE);
         return term_declaration_accept;
     }
 
@@ -135,12 +130,11 @@ public class Term_declaration_acceptResourceIntTest extends AbstractCassandraTes
         List<Term_declaration_accept> term_declaration_acceptList = term_declaration_acceptRepository.findAll();
         assertThat(term_declaration_acceptList).hasSize(databaseSizeBeforeCreate + 1);
         Term_declaration_accept testTerm_declaration_accept = term_declaration_acceptList.get(term_declaration_acceptList.size() - 1);
-        assertThat(testTerm_declaration_accept.getProjectid()).isEqualTo(DEFAULT_PROJECTID);
         assertThat(testTerm_declaration_accept.isAcceptance()).isEqualTo(DEFAULT_ACCEPTANCE);
         assertThat(testTerm_declaration_accept.getApplicationdate()).isEqualTo(DEFAULT_APPLICATIONDATE);
         assertThat(testTerm_declaration_accept.getPlace()).isEqualTo(DEFAULT_PLACE);
-        assertThat(testTerm_declaration_accept.getSignature()).isEqualTo(DEFAULT_SIGNATURE);
-        assertThat(testTerm_declaration_accept.getSignatureContentType()).isEqualTo(DEFAULT_SIGNATURE_CONTENT_TYPE);
+        assertThat(testTerm_declaration_accept.getCreatedate()).isEqualTo(DEFAULT_CREATEDATE);
+        assertThat(testTerm_declaration_accept.getUpdatedate()).isEqualTo(DEFAULT_UPDATEDATE);
     }
 
     @Test
@@ -173,12 +167,11 @@ public class Term_declaration_acceptResourceIntTest extends AbstractCassandraTes
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(term_declaration_accept.getId().toString())))
-            .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())))
             .andExpect(jsonPath("$.[*].acceptance").value(hasItem(DEFAULT_ACCEPTANCE.booleanValue())))
             .andExpect(jsonPath("$.[*].applicationdate").value(hasItem(sameInstant(DEFAULT_APPLICATIONDATE))))
             .andExpect(jsonPath("$.[*].place").value(hasItem(DEFAULT_PLACE.toString())))
-            .andExpect(jsonPath("$.[*].signatureContentType").value(hasItem(DEFAULT_SIGNATURE_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].signature").value(hasItem(Base64Utils.encodeToString(DEFAULT_SIGNATURE.array()))));
+            .andExpect(jsonPath("$.[*].createdate").value(hasItem(sameInstant(DEFAULT_CREATEDATE))))
+            .andExpect(jsonPath("$.[*].updatedate").value(hasItem(sameInstant(DEFAULT_UPDATEDATE))));
     }
 
     @Test
@@ -191,12 +184,11 @@ public class Term_declaration_acceptResourceIntTest extends AbstractCassandraTes
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(term_declaration_accept.getId().toString()))
-            .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()))
             .andExpect(jsonPath("$.acceptance").value(DEFAULT_ACCEPTANCE.booleanValue()))
             .andExpect(jsonPath("$.applicationdate").value(sameInstant(DEFAULT_APPLICATIONDATE)))
             .andExpect(jsonPath("$.place").value(DEFAULT_PLACE.toString()))
-            .andExpect(jsonPath("$.signatureContentType").value(DEFAULT_SIGNATURE_CONTENT_TYPE))
-            .andExpect(jsonPath("$.signature").value(Base64Utils.encodeToString(DEFAULT_SIGNATURE.array())));
+            .andExpect(jsonPath("$.createdate").value(sameInstant(DEFAULT_CREATEDATE)))
+            .andExpect(jsonPath("$.updatedate").value(sameInstant(DEFAULT_UPDATEDATE)));
     }
 
     @Test
@@ -215,12 +207,11 @@ public class Term_declaration_acceptResourceIntTest extends AbstractCassandraTes
         // Update the term_declaration_accept
         Term_declaration_accept updatedTerm_declaration_accept = term_declaration_acceptRepository.findOne(term_declaration_accept.getId());
         updatedTerm_declaration_accept
-                .projectid(UPDATED_PROJECTID)
                 .acceptance(UPDATED_ACCEPTANCE)
                 .applicationdate(UPDATED_APPLICATIONDATE)
                 .place(UPDATED_PLACE)
-                .signature(UPDATED_SIGNATURE)
-                .signatureContentType(UPDATED_SIGNATURE_CONTENT_TYPE);
+                .createdate(UPDATED_CREATEDATE)
+                .updatedate(UPDATED_UPDATEDATE);
         Term_declaration_acceptDTO term_declaration_acceptDTO = term_declaration_acceptMapper.term_declaration_acceptToTerm_declaration_acceptDTO(updatedTerm_declaration_accept);
 
         restTerm_declaration_acceptMockMvc.perform(put("/api/term-declaration-accepts")
@@ -232,12 +223,11 @@ public class Term_declaration_acceptResourceIntTest extends AbstractCassandraTes
         List<Term_declaration_accept> term_declaration_acceptList = term_declaration_acceptRepository.findAll();
         assertThat(term_declaration_acceptList).hasSize(databaseSizeBeforeUpdate);
         Term_declaration_accept testTerm_declaration_accept = term_declaration_acceptList.get(term_declaration_acceptList.size() - 1);
-        assertThat(testTerm_declaration_accept.getProjectid()).isEqualTo(UPDATED_PROJECTID);
         assertThat(testTerm_declaration_accept.isAcceptance()).isEqualTo(UPDATED_ACCEPTANCE);
         assertThat(testTerm_declaration_accept.getApplicationdate()).isEqualTo(UPDATED_APPLICATIONDATE);
         assertThat(testTerm_declaration_accept.getPlace()).isEqualTo(UPDATED_PLACE);
-        assertThat(testTerm_declaration_accept.getSignature()).isEqualTo(UPDATED_SIGNATURE);
-        assertThat(testTerm_declaration_accept.getSignatureContentType()).isEqualTo(UPDATED_SIGNATURE_CONTENT_TYPE);
+        assertThat(testTerm_declaration_accept.getCreatedate()).isEqualTo(UPDATED_CREATEDATE);
+        assertThat(testTerm_declaration_accept.getUpdatedate()).isEqualTo(UPDATED_UPDATEDATE);
     }
 
     @Test
