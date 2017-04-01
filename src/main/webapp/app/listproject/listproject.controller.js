@@ -5,9 +5,9 @@
         .module('investhryApp')
         .controller('listprojectController', listprojectController);
 
-    listprojectController.$inject = ['$scope','$state', 'Projectcompletedetail','Projectcompletedetaildata'];
+    listprojectController.$inject = ['$scope','$state', 'Projectlist'];
 
-    function listprojectController($scope, $state, Projectcompletedetail,Projectcompletedetaildata) {
+    function listprojectController($scope, $state, Projectlist) {
         var vm = this;
         vm.projectcompletedetail=[];
 
@@ -15,8 +15,8 @@
 
         function loadAll() {
 
-            Projectcompletedetail.query(function(result){
-                vm.projectcompletedetail=result;
+            Projectlist.query(function(result){
+                vm.projectlist=result;
 //                console.log(vm.projectcompletedetail[0].projectdetailDTO);
             });
 

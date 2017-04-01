@@ -17,31 +17,25 @@
             <thead>
             <tr class="headerGrid">
                 <!--<th>Project Identification No.(PIN)</th>-->
-                <th>Project Purpose</th>
+                <th>CAF Pin</th>
                 <th>Investor Name</th>
-                <th>Promotor/MD/Director</th>
-                <th>Size of Industry</th>
-                <th>Project Category</th>
+                <th>Project Type</th>
                 <th>Total Project Cost</th>
+                <th>Proposed Employement</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat = "prdtl in vm.projectcompletedetail track by prdtl.projectdetailDTO.id">
+            <tr ng-repeat = "prdtl in vm.projectlist track by prdtl.projectid">
                 <!--<td >{{vm.projectcompletedetail.investorDTO.firstname}}</td>-->
                 <!--{{prdtl.projectdetailDTO.id}}-->
-                <td >{{prdtl.projectdetailDTO.projectpurpose}}</td>
-                <td >{{prdtl.investorDTO.firstname}}</td>
-                <td >{{prdtl.companydetailDTO.promoter_md_director}}</td>
-                <td >{{prdtl.projectdetailDTO.size_of_industry}}</td>
-                <td >{{prdtl.projectdetailDTO.category_of_project}}</td>
-                <td >{{prdtl.project_finance_investmentDTO.total_project_cost}}</td>
-                <!--<td >{{prdt.category_of_project}}</td>-->
-                <!--<td >{{prdt.projectype}}</td>-->
-                <!--<td >{{prdt.sectorid}}</td>-->
-                <!--<td >{{prdt.size_of_industry}}</td>-->
+                <td >{{prdtl.cafpin}}</td>
+                <td >{{prdtl.investorName}}</td>
+                <td >{{prdtl.projectType}}</td>
+                <td >{{prdtl.projectTotalCost}}</td>
+                <td >{{prdtl.totalEmployement}}</td>
                 <td class="action verticalalign">
-                    <button type="submit" ui-sref="projectdetailjist({id:prdtl.projectdetailDTO.id})"
+                    <button type="submit" ui-sref="projectdetailjist({id:prdtl.projectid})"
                             class="btn btn-info ">Details</button>
                 </td>
             </tr>
