@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 /**
  * REST controller for managing Dashboard Department CAF.
@@ -35,7 +36,6 @@ public class DepartmentStatsResource {
 
     public DepartmentStatsResource(ProjectServiceReportInfoService projectServiceReportInfoService) {
         this.projectServiceReportInfoService = projectServiceReportInfoService;
-
     }
 
     @GetMapping("/departmentstatscollection")
@@ -52,9 +52,10 @@ public class DepartmentStatsResource {
         ProjectServiceReportInfoDTO projectServiceReportInfoDTO = new ProjectServiceReportInfoDTO();
 
         projectServiceReportInfoDTOList   = projectServiceReportInfoService.findAll();
-
         List<UUID> projectidlist;
+        List<ProjectServiceReportInfoDTO> filteredArticleList= projectServiceReportInfoDTOList.stream().filter(article -> article.getStatus().contains("Pending")).collect(Collectors.toList());
 
+//        List<ProjectServiceReportInfoDTO> fil= projectServiceReportInfoDTOList.stream().filter(article -> article.getStatus().contains("Pending")).collect(Collectors.toList());
 //        for(int reportinfordto=0;i<projectServiceReportInfoDTOList.size(); reportinfordto++) {
 //            projectServiceReportInfoDTO = projectServiceReportInfoDTOList.get(reportinfordto);
 //
@@ -62,11 +63,7 @@ public class DepartmentStatsResource {
 //            {
 //                projectidlistprojectServiceReportInfoDTO.getProjectid();
 //            }
-
 //        }
-
-
-
 
         departmentStatsDTO.setDepartmentName("HAFED");
         departmentStatsDTO.setTotalCaf("89");

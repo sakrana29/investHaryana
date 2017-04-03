@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "filetesting" : {
+            "home": {
+                "title": "Filetestings",
+                "createLabel": "नया Filetesting बनाएँ",
+                "createOrEditLabel": "Filetesting बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Filetesting [identifier: {{ param }}] तैयार है",
+            "updated": "एक Filetesting [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Filetesting [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Filetesting [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Filetesting"
+            },
+            "filename": "Filename"
+        }
+    }
+}
