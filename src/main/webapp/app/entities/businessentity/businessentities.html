@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <h2 data-translate="investhryApp.businessentity.home.title">Businessentities</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
@@ -17,39 +17,39 @@
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
-                <tr>
-                    <th><span data-translate="global.field.id">ID</span></th>
-                    <th><span data-translate="investhryApp.businessentity.businessentitytype">Businessentitytype</span></th>
-                    <th></th>
-                </tr>
+            <tr>
+                <th><span data-translate="global.field.id">ID</span></th>
+                <th><span data-translate="investhryApp.businessentity.businessentitytype">Businessentitytype</span></th>
+                <th></th>
+            </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="businessentity in vm.businessentities track by businessentity.id">
-                    <td><a ui-sref="businessentity-detail({id:businessentity.id})">{{businessentity.id}}</a></td>
-                    <td>{{businessentity.businessentitytype}}</td>
-                    <td class="text-right">
-                        <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="businessentity-detail({id:businessentity.id})"
-                                    class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="businessentity.edit({id:businessentity.id})"
-                                    class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="businessentity.delete({id:businessentity.id})"
-                                    class="btn btn-danger btn-sm">
-                                <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+            <tr ng-repeat="businessentity in vm.businessentities track by businessentity.id">
+                <td><a ui-sref="businessentity-detail({id:businessentity.id})">{{businessentity.id}}</a></td>
+                <td>{{businessentity.businessentitytype}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                ui-sref="businessentity-detail({id:businessentity.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="businessentity.edit({id:businessentity.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="businessentity.delete({id:businessentity.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>

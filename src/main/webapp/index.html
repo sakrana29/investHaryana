@@ -16,21 +16,39 @@
     <!-- endbuild -->
     <!-- build:css content/css/main.css -->
     <link rel="stylesheet" href="content/css/main.css">
+    <link rel="stylesheet" href="app/layouts/navbar/navbar.css">
+    <link rel="stylesheet" href="app/home/home.css">
+    <link rel="stylesheet" href="app/components/login/login.css">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- endbuild -->
 </head>
 <body ng-app="investhryApp" ng-strict-di>
     <!--[if lt IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <page-ribbon></page-ribbon>
+    <!--<page-ribbon></page-ribbon>-->
     <div ui-view="navbar" ng-cloak></div>
-    <div class="container">
-        <div class="well" ui-view="content">
+    <div class="">
+        <div class="" ui-view="content">
             <!-- Angular views -->
         </div>
 
         <div class="footer" ng-cloak>
-            <p data-translate="footer">This is your footer</p>
+
+            <div class="container">
+                <ul class="footer-links text-center">
+                    <li><a href="/" title=" home">Home</a></li>
+                    <li><a href="/Static/Introduction" title="Overview">Overview</a></li>
+                    <li><a href="/FAQ/ListFaqs" title="FAQs">FAQs</a></li>
+                    <li><a href="/Static/Helpline" title="FAQs">Helpline</a></li>
+                    <li><a href="/Static/ContactUs">Contact Us</a></li>
+                </ul>
+                <hr class="footer-line">
+                <div class="copyright text-center" style="float:left;">Copyright © 2017 </div>
+                <div class="copyright text-center" style="float:right;">All Rights Reserved. </div>
+            </div>
+
         </div>
     </div>
 
@@ -111,8 +129,7 @@
     <script src="app/layouts/error/error.state.js"></script>
     <script src="app/home/home.state.js"></script>
     <script src="app/home/home.controller.js"></script>
-    <script src="app/dashboard/dashboard.state.js"></script>
-    <script src="app/dashboard/dashboard.controller.js"></script>
+    <script src="app/home/bootstrap.min.js"></script>
     <script src="app/entities/wwtreatmenttwo/wwtreatmenttwo-dialog.controller.js"></script>
     <script src="app/entities/wwtreatmenttwo/wwtreatmenttwo-detail.controller.js"></script>
     <script src="app/entities/wwtreatmenttwo/wwtreatmenttwo-delete-dialog.controller.js"></script>
@@ -424,6 +441,8 @@
     <script src="app/entities/approvalforms/approvalforms.state.js"></script>
     <script src="app/entities/approvalforms/approvalforms.service.js"></script>
     <script src="app/entities/approvalforms/approvalforms.controller.js"></script>
+    <script src="app/dashboard/dashboard.state.js"></script>
+    <script src="app/dashboard/dashboard.controller.js"></script>
     <script src="app/components/util/truncate-words.filter.js"></script>
     <script src="app/components/util/truncate-characters.filter.js"></script>
     <script src="app/components/util/sort-by.directive.js"></script>
