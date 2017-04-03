@@ -18,7 +18,7 @@ public interface ProjectrawmaterialService {
 
     /**
      *  Get all the projectrawmaterials.
-     *  
+     *
      *  @return the list of entities
      */
     List<ProjectrawmaterialDTO> findAll();
@@ -37,4 +37,7 @@ public interface ProjectrawmaterialService {
      *  @param id the id of the entity
      */
     void delete(String id);
+
+    List<ProjectrawmaterialDTO> findAllByProjectid(String projectid);
+    void deleteByProject(String projectid);
 }

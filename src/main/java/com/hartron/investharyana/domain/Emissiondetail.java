@@ -31,6 +31,8 @@ public class Emissiondetail implements Serializable {
 
     private ZonedDateTime updatedate;
 
+    private UUID projectid;
+
     public UUID getId() {
         return id;
     }
@@ -117,6 +119,19 @@ public class Emissiondetail implements Serializable {
         this.updatedate = updatedate;
     }
 
+    public UUID getProjectid() {
+        return projectid;
+    }
+
+    public Emissiondetail projectid(UUID projectid) {
+        this.projectid = projectid;
+        return this;
+    }
+
+    public void setProjectid(UUID projectid) {
+        this.projectid = projectid;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -147,6 +162,7 @@ public class Emissiondetail implements Serializable {
             ", air_pollution_control_device='" + air_pollution_control_device + "'" +
             ", createdate='" + createdate + "'" +
             ", updatedate='" + updatedate + "'" +
+            ", projectid='" + projectid + "'" +
             '}';
     }
 }

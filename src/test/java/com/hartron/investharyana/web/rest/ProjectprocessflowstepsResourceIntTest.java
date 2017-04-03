@@ -54,6 +54,9 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
     private static final ZonedDateTime DEFAULT_UPDATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_UPDATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
+    private static final UUID DEFAULT_PROJECTID = UUID.randomUUID();
+    private static final UUID UPDATED_PROJECTID = UUID.randomUUID();
+
     @Autowired
     private ProjectprocessflowstepsRepository projectprocessflowstepsRepository;
 
@@ -96,7 +99,8 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
         Projectprocessflowsteps projectprocessflowsteps = new Projectprocessflowsteps()
                 .steps(DEFAULT_STEPS)
                 .createdate(DEFAULT_CREATEDATE)
-                .updatedate(DEFAULT_UPDATEDATE);
+                .updatedate(DEFAULT_UPDATEDATE)
+                .projectid(DEFAULT_PROJECTID);
         return projectprocessflowsteps;
     }
 
@@ -125,6 +129,7 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
         assertThat(testProjectprocessflowsteps.getSteps()).isEqualTo(DEFAULT_STEPS);
         assertThat(testProjectprocessflowsteps.getCreatedate()).isEqualTo(DEFAULT_CREATEDATE);
         assertThat(testProjectprocessflowsteps.getUpdatedate()).isEqualTo(DEFAULT_UPDATEDATE);
+        assertThat(testProjectprocessflowsteps.getProjectid()).isEqualTo(DEFAULT_PROJECTID);
     }
 
     @Test
@@ -159,7 +164,8 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
             .andExpect(jsonPath("$.[*].id").value(hasItem(projectprocessflowsteps.getId().toString())))
             .andExpect(jsonPath("$.[*].steps").value(hasItem(DEFAULT_STEPS.toString())))
             .andExpect(jsonPath("$.[*].createdate").value(hasItem(sameInstant(DEFAULT_CREATEDATE))))
-            .andExpect(jsonPath("$.[*].updatedate").value(hasItem(sameInstant(DEFAULT_UPDATEDATE))));
+            .andExpect(jsonPath("$.[*].updatedate").value(hasItem(sameInstant(DEFAULT_UPDATEDATE))))
+            .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())));
     }
 
     @Test
@@ -174,7 +180,8 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
             .andExpect(jsonPath("$.id").value(projectprocessflowsteps.getId().toString()))
             .andExpect(jsonPath("$.steps").value(DEFAULT_STEPS.toString()))
             .andExpect(jsonPath("$.createdate").value(sameInstant(DEFAULT_CREATEDATE)))
-            .andExpect(jsonPath("$.updatedate").value(sameInstant(DEFAULT_UPDATEDATE)));
+            .andExpect(jsonPath("$.updatedate").value(sameInstant(DEFAULT_UPDATEDATE)))
+            .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()));
     }
 
     @Test
@@ -195,7 +202,8 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
         updatedProjectprocessflowsteps
                 .steps(UPDATED_STEPS)
                 .createdate(UPDATED_CREATEDATE)
-                .updatedate(UPDATED_UPDATEDATE);
+                .updatedate(UPDATED_UPDATEDATE)
+                .projectid(UPDATED_PROJECTID);
         ProjectprocessflowstepsDTO projectprocessflowstepsDTO = projectprocessflowstepsMapper.projectprocessflowstepsToProjectprocessflowstepsDTO(updatedProjectprocessflowsteps);
 
         restProjectprocessflowstepsMockMvc.perform(put("/api/projectprocessflowsteps")
@@ -210,6 +218,7 @@ public class ProjectprocessflowstepsResourceIntTest extends AbstractCassandraTes
         assertThat(testProjectprocessflowsteps.getSteps()).isEqualTo(UPDATED_STEPS);
         assertThat(testProjectprocessflowsteps.getCreatedate()).isEqualTo(UPDATED_CREATEDATE);
         assertThat(testProjectprocessflowsteps.getUpdatedate()).isEqualTo(UPDATED_UPDATEDATE);
+        assertThat(testProjectprocessflowsteps.getProjectid()).isEqualTo(UPDATED_PROJECTID);
     }
 
     @Test

@@ -25,6 +25,10 @@
         {
             "fieldName": "updatedate",
             "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "projectid",
+            "fieldType": "UUID"
         }
     ],
     "changelogDate": "20170313122751",

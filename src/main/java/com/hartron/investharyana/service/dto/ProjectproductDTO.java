@@ -23,6 +23,8 @@ public class ProjectproductDTO implements Serializable {
 
     private ZonedDateTime updatedate;
 
+    private UUID projectid;
+
     public UUID getId() {
         return id;
     }
@@ -65,6 +67,13 @@ public class ProjectproductDTO implements Serializable {
     public void setUpdatedate(ZonedDateTime updatedate) {
         this.updatedate = updatedate;
     }
+    public UUID getProjectid() {
+        return projectid;
+    }
+
+    public void setProjectid(UUID projectid) {
+        this.projectid = projectid;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -96,6 +105,7 @@ public class ProjectproductDTO implements Serializable {
             ", units='" + units + "'" +
             ", createdate='" + createdate + "'" +
             ", updatedate='" + updatedate + "'" +
+            ", projectid='" + projectid + "'" +
             '}';
     }
 }

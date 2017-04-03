@@ -850,6 +850,7 @@
                                         <div class="form-group">
 
                                             <!--<label><input type="checkbox" name="ismouapplicable" ng-model="vm.investor.mouapplicable"> Applicable </label>
+                                            <!--<label><input type="checkbox" name="ismouapplicable" ng-model="vm.investor.mouapplicable"> Applicable </label>
                                              <input type="text" class="form-control" ng-model="vm.investor.mouidnumber" id="mouid" placeholder="Mou ID" data-dpmaxz-eid="20">-->
 
                                             <label for="rawmaterial" class="col-lg-6 control-label">Raw Material</label>
@@ -1028,9 +1029,7 @@
                             <hr/>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h3 class="alert alert-success"
-                                        style="font-size:17px; font-weight:bold; width:100%;">Environment Impact
-                                        Data</h3>
+                                    <h3 class="alert alert-success" style="font-size:17px; font-weight:bold; width:100%;">Environment Impact Data</h3>
                                 </div>
                             </div>
                             <div id="divEnvironment">
@@ -1043,12 +1042,6 @@
                                     <div class="col-md-12">
                                         <label class="control-label col-md-2">Source of Water Supply</label>
                                         <div class="col-lg-3">
-                                            <!--<select class="form-control">-->
-                                            <!--<option value="">Select Source of Water Supply</option>-->
-                                            <!--<option ng-repeat="swater in vm.watersource" value="{{swater.id }}">-->
-                                            <!--{{swater.watersupplysourcetype}}-->
-                                            <!--</option>-->
-                                            <!--</select>-->
                                             <select required class="form-control"
                                                     ng-model="vm.environmentimpactdetail.selectedWatersource"
                                                     ng-options="watersupplysource.watersupplysourcetype for watersupplysource in vm.watersupplysources"

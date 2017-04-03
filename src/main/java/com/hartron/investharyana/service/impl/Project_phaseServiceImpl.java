@@ -61,15 +61,6 @@ public class Project_phaseServiceImpl implements Project_phaseService{
         return result;
     }
 
-    @Override
-    public List<Project_phaseDTO> findAllByProjectid(String projectid) {
-        log.debug("Request to get all Project_phases by projectid");
-        List<Project_phaseDTO> result = project_phaseRepository.findAllByProjectid(UUID.fromString(projectid)).stream()
-            .map(project_phaseMapper::project_phaseToProject_phaseDTO)
-            .collect(Collectors.toCollection(LinkedList::new));
-
-        return result;
-    }
     /**
      *  Get one project_phase by id.
      *
@@ -93,6 +84,16 @@ public class Project_phaseServiceImpl implements Project_phaseService{
     public void delete(String id) {
         log.debug("Request to delete Project_phase : {}", id);
         project_phaseRepository.delete(UUID.fromString(id));
+    }
+
+    @Override
+    public List<Project_phaseDTO> findAllByProjectid(String projectid) {
+        log.debug("Request to get all Project_phases by projectid");
+        List<Project_phaseDTO> result = project_phaseRepository.findAllByProjectid(UUID.fromString(projectid)).stream()
+            .map(project_phaseMapper::project_phaseToProject_phaseDTO)
+            .collect(Collectors.toCollection(LinkedList::new));
+
+        return result;
     }
 
     @Override

@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class WastewaterdetailServiceImpl implements WastewaterdetailService{
 
     private final Logger log = LoggerFactory.getLogger(WastewaterdetailServiceImpl.class);
-    
+
     private final WastewaterdetailRepository wastewaterdetailRepository;
 
     private final WastewaterdetailMapper wastewaterdetailMapper;
@@ -48,7 +48,7 @@ public class WastewaterdetailServiceImpl implements WastewaterdetailService{
 
     /**
      *  Get all the wastewaterdetails.
-     *  
+     *
      *  @return the list of entities
      */
     @Override
@@ -84,5 +84,21 @@ public class WastewaterdetailServiceImpl implements WastewaterdetailService{
     public void delete(String id) {
         log.debug("Request to delete Wastewaterdetail : {}", id);
         wastewaterdetailRepository.delete(UUID.fromString(id));
+    }
+
+    @Override
+    public List<WastewaterdetailDTO> findAllByProjectid(String projectid) {
+        log.debug("Request to get all wastewaterdetail by projectid");
+        List<WastewaterdetailDTO> result = wastewaterdetailRepository.findAllByProjectid(UUID.fromString(projectid)).stream()
+            .map(wastewaterdetailMapper::wastewaterdetailToWastewaterdetailDTO)
+            .collect(Collectors.toCollection(LinkedList::new));
+
+        return result;
+    }
+
+    @Override
+    public void deleteByProject(String projectid) {
+        log.debug("Request to delete entry from wastewaterdetail by projectid : {}", projectid);
+        wastewaterdetailRepository.deleteByProject(UUID.fromString(projectid));
     }
 }

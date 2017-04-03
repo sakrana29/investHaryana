@@ -110,6 +110,7 @@
                                 mode_of_disposal: null,
                                 createdate: null,
                                 updatedate: null,
+                                projectid: null,
                                 id: null
                             };
                         }

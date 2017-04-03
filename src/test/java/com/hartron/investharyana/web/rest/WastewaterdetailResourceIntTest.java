@@ -63,6 +63,9 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
     private static final ZonedDateTime DEFAULT_UPDATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_UPDATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
+    private static final UUID DEFAULT_PROJECTID = UUID.randomUUID();
+    private static final UUID UPDATED_PROJECTID = UUID.randomUUID();
+
     @Autowired
     private WastewaterdetailRepository wastewaterdetailRepository;
 
@@ -108,7 +111,8 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
                 .naturetype(DEFAULT_NATURETYPE)
                 .mode_of_disposal(DEFAULT_MODE_OF_DISPOSAL)
                 .createdate(DEFAULT_CREATEDATE)
-                .updatedate(DEFAULT_UPDATEDATE);
+                .updatedate(DEFAULT_UPDATEDATE)
+                .projectid(DEFAULT_PROJECTID);
         return wastewaterdetail;
     }
 
@@ -140,6 +144,7 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testWastewaterdetail.getMode_of_disposal()).isEqualTo(DEFAULT_MODE_OF_DISPOSAL);
         assertThat(testWastewaterdetail.getCreatedate()).isEqualTo(DEFAULT_CREATEDATE);
         assertThat(testWastewaterdetail.getUpdatedate()).isEqualTo(DEFAULT_UPDATEDATE);
+        assertThat(testWastewaterdetail.getProjectid()).isEqualTo(DEFAULT_PROJECTID);
     }
 
     @Test
@@ -177,7 +182,8 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].naturetype").value(hasItem(DEFAULT_NATURETYPE.toString())))
             .andExpect(jsonPath("$.[*].mode_of_disposal").value(hasItem(DEFAULT_MODE_OF_DISPOSAL.toString())))
             .andExpect(jsonPath("$.[*].createdate").value(hasItem(sameInstant(DEFAULT_CREATEDATE))))
-            .andExpect(jsonPath("$.[*].updatedate").value(hasItem(sameInstant(DEFAULT_UPDATEDATE))));
+            .andExpect(jsonPath("$.[*].updatedate").value(hasItem(sameInstant(DEFAULT_UPDATEDATE))))
+            .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())));
     }
 
     @Test
@@ -195,7 +201,8 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.naturetype").value(DEFAULT_NATURETYPE.toString()))
             .andExpect(jsonPath("$.mode_of_disposal").value(DEFAULT_MODE_OF_DISPOSAL.toString()))
             .andExpect(jsonPath("$.createdate").value(sameInstant(DEFAULT_CREATEDATE)))
-            .andExpect(jsonPath("$.updatedate").value(sameInstant(DEFAULT_UPDATEDATE)));
+            .andExpect(jsonPath("$.updatedate").value(sameInstant(DEFAULT_UPDATEDATE)))
+            .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()));
     }
 
     @Test
@@ -219,7 +226,8 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
                 .naturetype(UPDATED_NATURETYPE)
                 .mode_of_disposal(UPDATED_MODE_OF_DISPOSAL)
                 .createdate(UPDATED_CREATEDATE)
-                .updatedate(UPDATED_UPDATEDATE);
+                .updatedate(UPDATED_UPDATEDATE)
+                .projectid(UPDATED_PROJECTID);
         WastewaterdetailDTO wastewaterdetailDTO = wastewaterdetailMapper.wastewaterdetailToWastewaterdetailDTO(updatedWastewaterdetail);
 
         restWastewaterdetailMockMvc.perform(put("/api/wastewaterdetails")
@@ -237,6 +245,7 @@ public class WastewaterdetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testWastewaterdetail.getMode_of_disposal()).isEqualTo(UPDATED_MODE_OF_DISPOSAL);
         assertThat(testWastewaterdetail.getCreatedate()).isEqualTo(UPDATED_CREATEDATE);
         assertThat(testWastewaterdetail.getUpdatedate()).isEqualTo(UPDATED_UPDATEDATE);
+        assertThat(testWastewaterdetail.getProjectid()).isEqualTo(UPDATED_PROJECTID);
     }
 
     @Test

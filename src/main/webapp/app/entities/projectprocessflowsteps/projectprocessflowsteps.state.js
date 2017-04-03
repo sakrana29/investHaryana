@@ -107,6 +107,7 @@
                                 steps: null,
                                 createdate: null,
                                 updatedate: null,
+                                projectid: null,
                                 id: null
                             };
                         }

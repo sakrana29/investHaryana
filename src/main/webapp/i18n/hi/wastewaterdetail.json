@@ -20,7 +20,8 @@
             "naturetype": "Naturetype",
             "mode_of_disposal": "Mode Of Disposal",
             "createdate": "Createdate",
-            "updatedate": "Updatedate"
+            "updatedate": "Updatedate",
+            "projectid": "Projectid"
         }
     }
 }

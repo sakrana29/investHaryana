@@ -110,6 +110,7 @@
                                 air_pollution_control_device: null,
                                 createdate: null,
                                 updatedate: null,
+                                projectid: null,
                                 id: null
                             };
                         }

@@ -162,9 +162,18 @@
             vm.CompleteProjectDetail.projectsitedetailDTO=vm.projectsitedetail;
             vm.CompleteProjectDetail.project_finance_investmentDTO=vm.project_finance_investment;
             vm.CompleteProjectDetail.manufacturingdetailDTO=vm.manufacturingdetail;
+            vm.CompleteProjectDetail.environment_impactdetailDTO={};
             vm.CompleteProjectDetail.electricrequirementDTO=vm.electricrequirement;
             vm.CompleteProjectDetail.projectdetailcombinecodesDTO =vm.projectcombinecodes;
             vm.CompleteProjectDetail.project_phaseDTOList=vm.completeprojectphasedata;
+
+            vm.CompleteProjectDetail.projectrawmaterialDTOList=[];
+            vm.CompleteProjectDetail.projectproductDTOList=[];
+            vm.CompleteProjectDetail.projectprocessflowstepsDTOList=[];
+            vm.CompleteProjectDetail.emissiondetailDTOList=[];
+            vm.CompleteProjectDetail.wastewaterdetailDTOList=[];
+
+//            vm.project_rawmaterial;
 
             Projectcompletedetail.save(vm.CompleteProjectDetail,onSaveCompleteProjectSuccess,onSaveCompleteProjectError)
         }

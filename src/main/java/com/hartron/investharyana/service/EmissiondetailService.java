@@ -18,7 +18,7 @@ public interface EmissiondetailService {
 
     /**
      *  Get all the emissiondetails.
-     *  
+     *
      *  @return the list of entities
      */
     List<EmissiondetailDTO> findAll();
@@ -37,4 +37,7 @@ public interface EmissiondetailService {
      *  @param id the id of the entity
      */
     void delete(String id);
+
+    List<EmissiondetailDTO> findAllByProjectid(String projectid);
+    void deleteByProject(String projectid);
 }

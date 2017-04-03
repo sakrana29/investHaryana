@@ -31,6 +31,8 @@ public class Wastewaterdetail implements Serializable {
 
     private ZonedDateTime updatedate;
 
+    private UUID projectid;
+
     public UUID getId() {
         return id;
     }
@@ -117,6 +119,19 @@ public class Wastewaterdetail implements Serializable {
         this.updatedate = updatedate;
     }
 
+    public UUID getProjectid() {
+        return projectid;
+    }
+
+    public Wastewaterdetail projectid(UUID projectid) {
+        this.projectid = projectid;
+        return this;
+    }
+
+    public void setProjectid(UUID projectid) {
+        this.projectid = projectid;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -147,6 +162,7 @@ public class Wastewaterdetail implements Serializable {
             ", mode_of_disposal='" + mode_of_disposal + "'" +
             ", createdate='" + createdate + "'" +
             ", updatedate='" + updatedate + "'" +
+            ", projectid='" + projectid + "'" +
             '}';
     }
 }

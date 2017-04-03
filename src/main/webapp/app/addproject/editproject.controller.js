@@ -156,9 +156,17 @@
             vm.CompleteProjectDetail.projectsitedetailDTO=vm.projectsitedetail;
             vm.CompleteProjectDetail.project_finance_investmentDTO=vm.project_finance_investment;
             vm.CompleteProjectDetail.manufacturingdetailDTO=vm.manufacturing_detail;
+            vm.CompleteProjectDetail.environment_impactdetailDTO={};
             vm.CompleteProjectDetail.electricrequirementDTO=vm.electricrequirement;
             vm.CompleteProjectDetail.projectdetailcombinecodesDTO =vm.projectcombinecodes;
+
             vm.CompleteProjectDetail.project_phaseDTOList=vm.completeprojectphasedata;
+            vm.CompleteProjectDetail.projectrawmaterialDTOList=[];
+            vm.CompleteProjectDetail.projectproductDTOList=[];
+            vm.CompleteProjectDetail.projectprocessflowstepsDTOList=[];
+            vm.CompleteProjectDetail.emissiondetailDTOList=[];
+            vm.CompleteProjectDetail.wastewaterdetailDTOList=[];
+
             Projectcompletedetail.update(vm.CompleteProjectDetail,onUpdateCompleteProjectSuccess,onUpdateCompleteProjectError)
         }
         function onUpdateCompleteProjectSuccess (resultCompleteProject) {

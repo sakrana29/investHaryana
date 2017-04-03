@@ -25,6 +25,8 @@ public class Projectprocessflowsteps implements Serializable {
 
     private ZonedDateTime updatedate;
 
+    private UUID projectid;
+
     public UUID getId() {
         return id;
     }
@@ -72,6 +74,19 @@ public class Projectprocessflowsteps implements Serializable {
         this.updatedate = updatedate;
     }
 
+    public UUID getProjectid() {
+        return projectid;
+    }
+
+    public Projectprocessflowsteps projectid(UUID projectid) {
+        this.projectid = projectid;
+        return this;
+    }
+
+    public void setProjectid(UUID projectid) {
+        this.projectid = projectid;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -99,6 +114,7 @@ public class Projectprocessflowsteps implements Serializable {
             ", steps='" + steps + "'" +
             ", createdate='" + createdate + "'" +
             ", updatedate='" + updatedate + "'" +
+            ", projectid='" + projectid + "'" +
             '}';
     }
 }

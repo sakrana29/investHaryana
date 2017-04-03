@@ -63,6 +63,9 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
     private static final ZonedDateTime DEFAULT_UPDATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_UPDATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
+    private static final UUID DEFAULT_PROJECTID = UUID.randomUUID();
+    private static final UUID UPDATED_PROJECTID = UUID.randomUUID();
+
     @Autowired
     private EmissiondetailRepository emissiondetailRepository;
 
@@ -108,7 +111,8 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
                 .type_of_fuel(DEFAULT_TYPE_OF_FUEL)
                 .air_pollution_control_device(DEFAULT_AIR_POLLUTION_CONTROL_DEVICE)
                 .createdate(DEFAULT_CREATEDATE)
-                .updatedate(DEFAULT_UPDATEDATE);
+                .updatedate(DEFAULT_UPDATEDATE)
+                .projectid(DEFAULT_PROJECTID);
         return emissiondetail;
     }
 
@@ -140,6 +144,7 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testEmissiondetail.getAir_pollution_control_device()).isEqualTo(DEFAULT_AIR_POLLUTION_CONTROL_DEVICE);
         assertThat(testEmissiondetail.getCreatedate()).isEqualTo(DEFAULT_CREATEDATE);
         assertThat(testEmissiondetail.getUpdatedate()).isEqualTo(DEFAULT_UPDATEDATE);
+        assertThat(testEmissiondetail.getProjectid()).isEqualTo(DEFAULT_PROJECTID);
     }
 
     @Test
@@ -177,7 +182,8 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].type_of_fuel").value(hasItem(DEFAULT_TYPE_OF_FUEL.toString())))
             .andExpect(jsonPath("$.[*].air_pollution_control_device").value(hasItem(DEFAULT_AIR_POLLUTION_CONTROL_DEVICE.toString())))
             .andExpect(jsonPath("$.[*].createdate").value(hasItem(sameInstant(DEFAULT_CREATEDATE))))
-            .andExpect(jsonPath("$.[*].updatedate").value(hasItem(sameInstant(DEFAULT_UPDATEDATE))));
+            .andExpect(jsonPath("$.[*].updatedate").value(hasItem(sameInstant(DEFAULT_UPDATEDATE))))
+            .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())));
     }
 
     @Test
@@ -195,7 +201,8 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.type_of_fuel").value(DEFAULT_TYPE_OF_FUEL.toString()))
             .andExpect(jsonPath("$.air_pollution_control_device").value(DEFAULT_AIR_POLLUTION_CONTROL_DEVICE.toString()))
             .andExpect(jsonPath("$.createdate").value(sameInstant(DEFAULT_CREATEDATE)))
-            .andExpect(jsonPath("$.updatedate").value(sameInstant(DEFAULT_UPDATEDATE)));
+            .andExpect(jsonPath("$.updatedate").value(sameInstant(DEFAULT_UPDATEDATE)))
+            .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()));
     }
 
     @Test
@@ -219,7 +226,8 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
                 .type_of_fuel(UPDATED_TYPE_OF_FUEL)
                 .air_pollution_control_device(UPDATED_AIR_POLLUTION_CONTROL_DEVICE)
                 .createdate(UPDATED_CREATEDATE)
-                .updatedate(UPDATED_UPDATEDATE);
+                .updatedate(UPDATED_UPDATEDATE)
+                .projectid(UPDATED_PROJECTID);
         EmissiondetailDTO emissiondetailDTO = emissiondetailMapper.emissiondetailToEmissiondetailDTO(updatedEmissiondetail);
 
         restEmissiondetailMockMvc.perform(put("/api/emissiondetails")
@@ -237,6 +245,7 @@ public class EmissiondetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testEmissiondetail.getAir_pollution_control_device()).isEqualTo(UPDATED_AIR_POLLUTION_CONTROL_DEVICE);
         assertThat(testEmissiondetail.getCreatedate()).isEqualTo(UPDATED_CREATEDATE);
         assertThat(testEmissiondetail.getUpdatedate()).isEqualTo(UPDATED_UPDATEDATE);
+        assertThat(testEmissiondetail.getProjectid()).isEqualTo(UPDATED_PROJECTID);
     }
 
     @Test

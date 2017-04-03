@@ -60,6 +60,9 @@ public class ProjectproductResourceIntTest extends AbstractCassandraTest {
     private static final ZonedDateTime DEFAULT_UPDATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_UPDATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
+    private static final UUID DEFAULT_PROJECTID = UUID.randomUUID();
+    private static final UUID UPDATED_PROJECTID = UUID.randomUUID();
+
     @Autowired
     private ProjectproductRepository projectproductRepository;
 
@@ -104,7 +107,8 @@ public class ProjectproductResourceIntTest extends AbstractCassandraTest {
                 .quantity(DEFAULT_QUANTITY)
                 .units(DEFAULT_UNITS)
                 .createdate(DEFAULT_CREATEDATE)
-                .updatedate(DEFAULT_UPDATEDATE);
+                .updatedate(DEFAULT_UPDATEDATE)
+                .projectid(DEFAULT_PROJECTID);
         return projectproduct;
     }
 
@@ -135,6 +139,7 @@ public class ProjectproductResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectproduct.getUnits()).isEqualTo(DEFAULT_UNITS);
         assertThat(testProjectproduct.getCreatedate()).isEqualTo(DEFAULT_CREATEDATE);
         assertThat(testProjectproduct.getUpdatedate()).isEqualTo(DEFAULT_UPDATEDATE);
+        assertThat(testProjectproduct.getProjectid()).isEqualTo(DEFAULT_PROJECTID);
     }
 
     @Test
@@ -171,7 +176,8 @@ public class ProjectproductResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].quantity").value(hasItem(DEFAULT_QUANTITY)))
             .andExpect(jsonPath("$.[*].units").value(hasItem(DEFAULT_UNITS.toString())))
             .andExpect(jsonPath("$.[*].createdate").value(hasItem(sameInstant(DEFAULT_CREATEDATE))))
-            .andExpect(jsonPath("$.[*].updatedate").value(hasItem(sameInstant(DEFAULT_UPDATEDATE))));
+            .andExpect(jsonPath("$.[*].updatedate").value(hasItem(sameInstant(DEFAULT_UPDATEDATE))))
+            .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())));
     }
 
     @Test
@@ -188,7 +194,8 @@ public class ProjectproductResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.quantity").value(DEFAULT_QUANTITY))
             .andExpect(jsonPath("$.units").value(DEFAULT_UNITS.toString()))
             .andExpect(jsonPath("$.createdate").value(sameInstant(DEFAULT_CREATEDATE)))
-            .andExpect(jsonPath("$.updatedate").value(sameInstant(DEFAULT_UPDATEDATE)));
+            .andExpect(jsonPath("$.updatedate").value(sameInstant(DEFAULT_UPDATEDATE)))
+            .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()));
     }
 
     @Test
@@ -211,7 +218,8 @@ public class ProjectproductResourceIntTest extends AbstractCassandraTest {
                 .quantity(UPDATED_QUANTITY)
                 .units(UPDATED_UNITS)
                 .createdate(UPDATED_CREATEDATE)
-                .updatedate(UPDATED_UPDATEDATE);
+                .updatedate(UPDATED_UPDATEDATE)
+                .projectid(UPDATED_PROJECTID);
         ProjectproductDTO projectproductDTO = projectproductMapper.projectproductToProjectproductDTO(updatedProjectproduct);
 
         restProjectproductMockMvc.perform(put("/api/projectproducts")
@@ -228,6 +236,7 @@ public class ProjectproductResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectproduct.getUnits()).isEqualTo(UPDATED_UNITS);
         assertThat(testProjectproduct.getCreatedate()).isEqualTo(UPDATED_CREATEDATE);
         assertThat(testProjectproduct.getUpdatedate()).isEqualTo(UPDATED_UPDATEDATE);
+        assertThat(testProjectproduct.getProjectid()).isEqualTo(UPDATED_PROJECTID);
     }
 
     @Test

@@ -7,5 +7,11 @@ CREATE TABLE IF NOT EXISTS emissiondetail (
     air_pollution_control_device text,
     createdate timestamp,
     updatedate timestamp,
+    projectid uuid,
     PRIMARY KEY(id)
+);
+CREATE TABLE IF NOT EXISTS emissiondetail_by_projectid (
+projectid uuid,
+id uuid,
+PRIMARY KEY(projectid,id)
 );

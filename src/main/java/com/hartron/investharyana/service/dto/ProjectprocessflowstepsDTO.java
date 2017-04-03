@@ -19,6 +19,8 @@ public class ProjectprocessflowstepsDTO implements Serializable {
 
     private ZonedDateTime updatedate;
 
+    private UUID projectid;
+
     public UUID getId() {
         return id;
     }
@@ -46,6 +48,13 @@ public class ProjectprocessflowstepsDTO implements Serializable {
 
     public void setUpdatedate(ZonedDateTime updatedate) {
         this.updatedate = updatedate;
+    }
+    public UUID getProjectid() {
+        return projectid;
+    }
+
+    public void setProjectid(UUID projectid) {
+        this.projectid = projectid;
     }
 
     @Override
@@ -76,6 +85,7 @@ public class ProjectprocessflowstepsDTO implements Serializable {
             ", steps='" + steps + "'" +
             ", createdate='" + createdate + "'" +
             ", updatedate='" + updatedate + "'" +
+            ", projectid='" + projectid + "'" +
             '}';
     }
 }

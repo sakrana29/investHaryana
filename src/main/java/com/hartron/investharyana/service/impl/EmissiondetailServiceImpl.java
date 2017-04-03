@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class EmissiondetailServiceImpl implements EmissiondetailService{
 
     private final Logger log = LoggerFactory.getLogger(EmissiondetailServiceImpl.class);
-    
+
     private final EmissiondetailRepository emissiondetailRepository;
 
     private final EmissiondetailMapper emissiondetailMapper;
@@ -48,7 +48,7 @@ public class EmissiondetailServiceImpl implements EmissiondetailService{
 
     /**
      *  Get all the emissiondetails.
-     *  
+     *
      *  @return the list of entities
      */
     @Override
@@ -85,4 +85,21 @@ public class EmissiondetailServiceImpl implements EmissiondetailService{
         log.debug("Request to delete Emissiondetail : {}", id);
         emissiondetailRepository.delete(UUID.fromString(id));
     }
+
+    @Override
+    public List<EmissiondetailDTO> findAllByProjectid(String projectid) {
+        log.debug("Request to get all emission detail by projectid");
+        List<EmissiondetailDTO> result = emissiondetailRepository.findAllByProjectid(UUID.fromString(projectid)).stream()
+            .map(emissiondetailMapper::emissiondetailToEmissiondetailDTO)
+            .collect(Collectors.toCollection(LinkedList::new));
+
+        return result;
+    }
+
+    @Override
+    public void deleteByProject(String projectid) {
+        log.debug("Request to delete entry from emissiondetail by projectid : {}", projectid);
+        emissiondetailRepository.deleteByProject(UUID.fromString(projectid));
+    }
+
 }

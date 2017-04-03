@@ -18,7 +18,7 @@ public interface ProjectproductService {
 
     /**
      *  Get all the projectproducts.
-     *  
+     *
      *  @return the list of entities
      */
     List<ProjectproductDTO> findAll();
@@ -37,4 +37,7 @@ public interface ProjectproductService {
      *  @param id the id of the entity
      */
     void delete(String id);
+
+    List<ProjectproductDTO> findAllByProjectid(String projectid);
+    void deleteByProject(String projectid);
 }

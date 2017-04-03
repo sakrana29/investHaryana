@@ -18,7 +18,7 @@ public interface WastewaterdetailService {
 
     /**
      *  Get all the wastewaterdetails.
-     *  
+     *
      *  @return the list of entities
      */
     List<WastewaterdetailDTO> findAll();
@@ -37,4 +37,7 @@ public interface WastewaterdetailService {
      *  @param id the id of the entity
      */
     void delete(String id);
+
+    List<WastewaterdetailDTO> findAllByProjectid(String projectid);
+    void deleteByProject(String projectid);
 }

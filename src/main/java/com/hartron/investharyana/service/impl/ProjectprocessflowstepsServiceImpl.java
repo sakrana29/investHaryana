@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class ProjectprocessflowstepsServiceImpl implements ProjectprocessflowstepsService{
 
     private final Logger log = LoggerFactory.getLogger(ProjectprocessflowstepsServiceImpl.class);
-    
+
     private final ProjectprocessflowstepsRepository projectprocessflowstepsRepository;
 
     private final ProjectprocessflowstepsMapper projectprocessflowstepsMapper;
@@ -48,7 +48,7 @@ public class ProjectprocessflowstepsServiceImpl implements Projectprocessflowste
 
     /**
      *  Get all the projectprocessflowsteps.
-     *  
+     *
      *  @return the list of entities
      */
     @Override
@@ -85,4 +85,21 @@ public class ProjectprocessflowstepsServiceImpl implements Projectprocessflowste
         log.debug("Request to delete Projectprocessflowsteps : {}", id);
         projectprocessflowstepsRepository.delete(UUID.fromString(id));
     }
+
+    @Override
+    public List<ProjectprocessflowstepsDTO> findAllByProjectid(String projectid) {
+        log.debug("Request to get all projectprocess by projectid");
+        List<ProjectprocessflowstepsDTO> result = projectprocessflowstepsRepository.findAllByProjectid(UUID.fromString(projectid)).stream()
+            .map(projectprocessflowstepsMapper::projectprocessflowstepsToProjectprocessflowstepsDTO)
+            .collect(Collectors.toCollection(LinkedList::new));
+
+        return result;
+    }
+
+    @Override
+    public void deleteByProject(String projectid) {
+        log.debug("Request to delete entry from projectprocess by projectid : {}", projectid);
+        projectprocessflowstepsRepository.deleteByProject(UUID.fromString(projectid));
+    }
+
 }

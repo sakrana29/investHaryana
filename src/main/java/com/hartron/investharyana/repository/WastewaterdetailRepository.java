@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -26,11 +27,30 @@ public class WastewaterdetailRepository {
 
     private PreparedStatement truncateStmt;
 
+    private PreparedStatement findAllByProjectStmt;
+
+    private PreparedStatement insertByProjectStmt;
+
+    private PreparedStatement deleteByProjectStmt;
+
     public WastewaterdetailRepository(Session session) {
         this.session = session;
         this.mapper = new MappingManager(session).mapper(Wastewaterdetail.class);
         this.findAllStmt = session.prepare("SELECT * FROM wastewaterdetail");
         this.truncateStmt = session.prepare("TRUNCATE wastewaterdetail");
+
+        this.findAllByProjectStmt = session.prepare(
+            "SELECT id " +
+                "FROM wastewaterdetail_by_projectid " +
+                "WHERE projectid = :projectid");
+
+        this.insertByProjectStmt = session.prepare(
+            "INSERT INTO wastewaterdetail_by_projectid (projectid, id) " +
+                "VALUES (:projectid, :id)");
+
+        this.deleteByProjectStmt = session.prepare(
+            "DELETE FROM wastewaterdetail_by_projectid " +
+                "WHERE projectid = :projectid");
     }
 
     public List<Wastewaterdetail> findAll() {
@@ -46,6 +66,7 @@ public class WastewaterdetailRepository {
                 wastewaterdetail.setMode_of_disposal(row.getString("mode_of_disposal"));
                 wastewaterdetail.setCreatedate(row.get("createdate", ZonedDateTime.class));
                 wastewaterdetail.setUpdatedate(row.get("updatedate", ZonedDateTime.class));
+                wastewaterdetail.setProjectid(row.getUUID("projectid"));
                 return wastewaterdetail;
             }
         ).forEach(wastewaterdetailsList::add);
@@ -56,11 +77,35 @@ public class WastewaterdetailRepository {
         return mapper.get(id);
     }
 
+    public List<Wastewaterdetail> findAllByProjectid(UUID projectid) {
+        BoundStatement stmt = findAllByProjectStmt.bind();
+        stmt.setUUID("projectid", projectid);
+        return findAllFromIndex(stmt);
+    }
+    private List<Wastewaterdetail> findAllFromIndex(BoundStatement stmt) {
+        ResultSet rs = session.execute(stmt);
+        List<Wastewaterdetail> wastewaterdetailList=new ArrayList<>();
+        while (!(rs.isExhausted())) {
+            Wastewaterdetail wastewaterdetail=new Wastewaterdetail();
+            wastewaterdetail= Optional.ofNullable(rs.one().getUUID("id"))
+                .map(id -> Optional.ofNullable(mapper.get(id)))
+                .get().get();
+            wastewaterdetailList.add(wastewaterdetail);
+        }
+        return wastewaterdetailList;
+    }
+
     public Wastewaterdetail save(Wastewaterdetail wastewaterdetail) {
         if (wastewaterdetail.getId() == null) {
             wastewaterdetail.setId(UUID.randomUUID());
         }
-        mapper.save(wastewaterdetail);
+        BatchStatement batch = new BatchStatement();
+        batch.add(mapper.saveQuery(wastewaterdetail));
+        batch.add(insertByProjectStmt.bind()
+            .setUUID("projectid", wastewaterdetail.getProjectid())
+            .setUUID("id", wastewaterdetail.getId()));
+        session.execute(batch);
+
         return wastewaterdetail;
     }
 
@@ -71,5 +116,11 @@ public class WastewaterdetailRepository {
     public void deleteAll() {
         BoundStatement stmt = truncateStmt.bind();
         session.execute(stmt);
+    }
+    public void deleteByProject(UUID projectid) {
+        BatchStatement batch = new BatchStatement();
+        batch.add(deleteByProjectStmt.bind()
+            .setUUID("projectid", projectid));
+        session.execute(batch);
     }
 }

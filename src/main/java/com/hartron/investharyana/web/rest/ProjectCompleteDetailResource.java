@@ -34,20 +34,33 @@ public class ProjectCompleteDetailResource {
     private final ProjectsitedetailService projectsitedetailService;
     private final Project_finance_investmentService project_finance_investmentService;
     private final ManufacturingdetailService manufacturingdetailService;
+    private final Environment_impactdetailService environment_impactdetailService;
     private final ElectricrequirementService electricrequirementService;
     private final ProjectdetailcombinecodesService projectdetailcombinecodesService;
     private final Project_phaseService project_phaseService;
+    private final ProjectrawmaterialService projectrawmaterialService;
+    private final ProjectproductService projectproductService;
+    private final ProjectprocessflowstepsService projectprocessflowstepsService;
+    private final EmissiondetailService emissiondetailService;
+    private final WastewaterdetailService wastewaterdetailService;
 
-    public ProjectCompleteDetailResource(InvestorService investorService, CompanydetailService companydetailService, ProjectdetailService projectdetailService, ProjectsitedetailService projectsitedetailService, Project_finance_investmentService project_finance_investmentService, ManufacturingdetailService manufacturingdetailService, ElectricrequirementService electricrequirementService, ProjectdetailcombinecodesService projectdetailcombinecodesService, Project_phaseService project_phaseService) {
+
+    public ProjectCompleteDetailResource(InvestorService investorService, CompanydetailService companydetailService, ProjectdetailService projectdetailService, ProjectsitedetailService projectsitedetailService, Project_finance_investmentService project_finance_investmentService, ManufacturingdetailService manufacturingdetailService, Environment_impactdetailService environment_impactdetailService, ElectricrequirementService electricrequirementService, ProjectdetailcombinecodesService projectdetailcombinecodesService, Project_phaseService project_phaseService, ProjectrawmaterialService projectrawmaterialService, ProjectproductService projectproductService, ProjectprocessflowstepsService projectprocessflowstepsService, EmissiondetailService emissiondetailService, WastewaterdetailService wastewaterdetailService) {
         this.investorService = investorService;
         this.companydetailService = companydetailService;
         this.projectdetailService = projectdetailService;
         this.projectsitedetailService = projectsitedetailService;
         this.project_finance_investmentService = project_finance_investmentService;
         this.manufacturingdetailService = manufacturingdetailService;
+        this.environment_impactdetailService = environment_impactdetailService;
         this.electricrequirementService = electricrequirementService;
         this.projectdetailcombinecodesService = projectdetailcombinecodesService;
         this.project_phaseService = project_phaseService;
+        this.projectrawmaterialService = projectrawmaterialService;
+        this.projectproductService = projectproductService;
+        this.projectprocessflowstepsService = projectprocessflowstepsService;
+        this.emissiondetailService = emissiondetailService;
+        this.wastewaterdetailService = wastewaterdetailService;
     }
 
     @GetMapping("/CompleteProjectDetail")
@@ -71,6 +84,11 @@ public class ProjectCompleteDetailResource {
             completeprojectdto.setManufacturingdetailDTO(manufacturingdetailService.findOne(projectdetailcombinecodesDTOlist.get(i).getManufacturingid().toString()));
             completeprojectdto.setElectricrequirementDTO(electricrequirementService.findOne(projectdetailcombinecodesDTOlist.get(i).getElectricityrequirementid().toString()));
             completeprojectdto.setProject_phaseDTOList(project_phaseService.findAllByProjectid(projectdetailcombinecodesDTOlist.get(i).getId().toString()));
+            completeprojectdto.setProjectrawmaterialDTOList(projectrawmaterialService.findAllByProjectid(projectdetailcombinecodesDTOlist.get(i).getId().toString()));
+            completeprojectdto.setProjectproductDTOList(projectproductService.findAllByProjectid(projectdetailcombinecodesDTOlist.get(i).getId().toString()));
+            completeprojectdto.setProjectprocessflowstepsDTOList(projectprocessflowstepsService.findAllByProjectid(projectdetailcombinecodesDTOlist.get(i).getId().toString()));
+            completeprojectdto.setEmissiondetailDTOList(emissiondetailService.findAllByProjectid(projectdetailcombinecodesDTOlist.get(i).getId().toString()));
+            completeprojectdto.setWastewaterdetailDTOList(wastewaterdetailService.findAllByProjectid(projectdetailcombinecodesDTOlist.get(i).getId().toString()));
             completeprojectdtolist.add(completeprojectdto);
         }
         return completeprojectdtolist;
@@ -84,14 +102,21 @@ public class ProjectCompleteDetailResource {
 
         ProjectdetailcombinecodesDTO projectdetailcombinecodesDTO=projectdetailcombinecodesService.findOne(id);
         ProjectCompleteDetailDTO completeprojectdto=new ProjectCompleteDetailDTO();
+
         completeprojectdto.setProjectdetailDTO(projectdetailService.findOne(projectdetailcombinecodesDTO.getId().toString()));
         completeprojectdto.setInvestorDTO(investorService.findOne(projectdetailcombinecodesDTO.getInvestorid().toString()));
         completeprojectdto.setCompanydetailDTO(companydetailService.findOne(projectdetailcombinecodesDTO.getCompanydetailid().toString()));
         completeprojectdto.setProjectsitedetailDTO(projectsitedetailService.findOne(projectdetailcombinecodesDTO.getProjectsitedetailid().toString()));
         completeprojectdto.setProject_finance_investmentDTO(project_finance_investmentService.findOne(projectdetailcombinecodesDTO.getProjectfinanceid().toString()));
-        completeprojectdto.setProject_phaseDTOList(project_phaseService.findAllByProjectid(id));
         completeprojectdto.setManufacturingdetailDTO(manufacturingdetailService.findOne(projectdetailcombinecodesDTO.getManufacturingid().toString()));
         completeprojectdto.setElectricrequirementDTO(electricrequirementService.findOne(projectdetailcombinecodesDTO.getElectricityrequirementid().toString()));
+
+        completeprojectdto.setProject_phaseDTOList(project_phaseService.findAllByProjectid(id));
+        completeprojectdto.setProjectrawmaterialDTOList(projectrawmaterialService.findAllByProjectid(id));
+        completeprojectdto.setProjectproductDTOList(projectproductService.findAllByProjectid(id));
+        completeprojectdto.setProjectprocessflowstepsDTOList(projectprocessflowstepsService.findAllByProjectid(id));
+        completeprojectdto.setEmissiondetailDTOList(emissiondetailService.findAllByProjectid(id));
+        completeprojectdto.setWastewaterdetailDTOList(wastewaterdetailService.findAllByProjectid(id));
 
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(completeprojectdto));
         //return projectdetailcombinecodesDTO;
@@ -105,32 +130,20 @@ public class ProjectCompleteDetailResource {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("Complete Project Detail", "idexists", "A new Project cannot already have an ID")).body(null);
         }
         InvestorDTO resultInvestor = investorService.save(projectCompleteDetailDTO.getInvestorDTO());
-
-//        projectCompleteDetailDTO.getCompanydetailDTO().setInvestorid(resultInvestor.getId());
         CompanydetailDTO resultCompany = companydetailService.save(projectCompleteDetailDTO.getCompanydetailDTO());
-
-//        projectCompleteDetailDTO.getProjectdetailDTO().setInvestorid(resultInvestor.getId());
         ProjectdetailDTO resultProjectdetail = projectdetailService.save(projectCompleteDetailDTO.getProjectdetailDTO());
-
-//        projectCompleteDetailDTO.getProjectsitedetailDTO().setProjectid(resultProjectdetail.getId());
         ProjectsitedetailDTO resultSiteDetail = projectsitedetailService.save(projectCompleteDetailDTO.getProjectsitedetailDTO());
-
-//        projectCompleteDetailDTO.getProject_finance_investmentDTO().setProjectid(resultProjectdetail.getId());
         Project_finance_investmentDTO resultFinance = project_finance_investmentService.save(projectCompleteDetailDTO.getProject_finance_investmentDTO());
 
         projectCompleteDetailDTO.getManufacturingdetailDTO().setProjectid(resultProjectdetail.getId());
         ManufacturingdetailDTO resultManufacturing = manufacturingdetailService.save(projectCompleteDetailDTO.getManufacturingdetailDTO());
 
-//        projectCompleteDetailDTO.getElectricrequirementDTO().setProjectid(resultProjectdetail.getId());
+//        projectCompleteDetailDTO.getEnvironment_impactdetailDTO().set(resultProjectdetail.getId());
+        Environment_impactdetailDTO resultEnvironmentImpact=environment_impactdetailService.save(projectCompleteDetailDTO.getEnvironment_impactdetailDTO());
+
         ElectricrequirementDTO resultElectric = electricrequirementService.save(projectCompleteDetailDTO.getElectricrequirementDTO());
 
-        List<Project_phaseDTO> project_phaseDTOList=projectCompleteDetailDTO.getProject_phaseDTOList();
-        for(int i=0;i<project_phaseDTOList.size();i++)
-        {
-            project_phaseDTOList.get(i).setProjectid(resultProjectdetail.getId());
-            Project_phaseDTO project_phaseDTO=project_phaseDTOList.get(i);
-            project_phaseService.save(project_phaseDTO);
-        }
+        saveInnerEntities(projectCompleteDetailDTO, resultProjectdetail);
 
         projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setInvestorid(resultInvestor.getId());
         projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setId(resultProjectdetail.getId());
@@ -139,14 +152,72 @@ public class ProjectCompleteDetailResource {
         projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setElectricityrequirementid(resultElectric.getId());
         projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setProjectfinanceid(resultFinance.getId());
         projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setManufacturingid(resultManufacturing.getId());
+        projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setEnvironmentimpactdetailid(resultEnvironmentImpact.getId());
+
         ProjectdetailcombinecodesDTO resultCombineCodes = projectdetailcombinecodesService.save(projectCompleteDetailDTO.getProjectdetailcombinecodesDTO());
-
-        System.out.print(projectCompleteDetailDTO);
-
 
         return ResponseEntity.created(new URI("/api/CompleteProjectDetail/" + resultProjectdetail.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("CompleteProjectDetail", resultProjectdetail.getId().toString()))
             .body(projectCompleteDetailDTO);
+    }
+
+    private void saveInnerEntities(@Valid @RequestBody ProjectCompleteDetailDTO projectCompleteDetailDTO, ProjectdetailDTO resultProjectdetail) {
+
+        List<Project_phaseDTO> project_phaseDTOList=projectCompleteDetailDTO.getProject_phaseDTOList();
+        if(project_phaseDTOList.size()!=0)
+        {
+            for(int i=0;i<project_phaseDTOList.size();i++)
+            {
+                project_phaseDTOList.get(i).setProjectid(resultProjectdetail.getId());
+                Project_phaseDTO project_phaseDTO=project_phaseDTOList.get(i);
+                project_phaseService.save(project_phaseDTO);
+            }
+        }
+
+        List<ProjectrawmaterialDTO> projectrawmaterialDTOList=projectCompleteDetailDTO.getProjectrawmaterialDTOList();
+        if(projectrawmaterialDTOList.size()!=0) {
+            for (int i = 0; i < projectrawmaterialDTOList.size(); i++) {
+                projectrawmaterialDTOList.get(i).setProjectid(resultProjectdetail.getId());
+                ProjectrawmaterialDTO projectrawmaterialDTO = projectrawmaterialDTOList.get(i);
+                projectrawmaterialService.save(projectrawmaterialDTO);
+            }
+        }
+
+        List<ProjectproductDTO> projectproductDTOList=projectCompleteDetailDTO.getProjectproductDTOList();
+        if(projectproductDTOList.size()!=0) {
+            for (int i = 0; i < projectproductDTOList.size(); i++) {
+                projectproductDTOList.get(i).setProjectid(resultProjectdetail.getId());
+                ProjectproductDTO projectproductDTO = projectproductDTOList.get(i);
+                projectproductService.save(projectproductDTO);
+            }
+        }
+
+        List<ProjectprocessflowstepsDTO> projectprocessflowstepsDTOList=projectCompleteDetailDTO.getProjectprocessflowstepsDTOList();
+        if(projectprocessflowstepsDTOList.size()!=0) {
+            for (int i = 0; i < projectprocessflowstepsDTOList.size(); i++) {
+                projectprocessflowstepsDTOList.get(i).setProjectid(resultProjectdetail.getId());
+                ProjectprocessflowstepsDTO projectprocessflowstepsDTO = projectprocessflowstepsDTOList.get(i);
+                projectprocessflowstepsService.save(projectprocessflowstepsDTO);
+            }
+        }
+
+        List<EmissiondetailDTO> emissiondetailDTOList = projectCompleteDetailDTO.getEmissiondetailDTOList();
+        if(emissiondetailDTOList.size()!=0) {
+            for (int i = 0; i < emissiondetailDTOList.size(); i++) {
+                emissiondetailDTOList.get(i).setProjectid(resultProjectdetail.getId());
+                EmissiondetailDTO emissiondetailDTO = emissiondetailDTOList.get(i);
+                emissiondetailService.save(emissiondetailDTO);
+            }
+        }
+
+        List<WastewaterdetailDTO> wastewaterdetailDTOList=projectCompleteDetailDTO.getWastewaterdetailDTOList();
+        if(wastewaterdetailDTOList.size()!=0) {
+            for (int i = 0; i < wastewaterdetailDTOList.size(); i++) {
+                wastewaterdetailDTOList.get(i).setProjectid(resultProjectdetail.getId());
+                WastewaterdetailDTO wastewaterdetailDTO = wastewaterdetailDTOList.get(i);
+                wastewaterdetailService.save(wastewaterdetailDTO);
+            }
+        }
     }
 
     @PutMapping("/CompleteProjectDetail")
@@ -156,27 +227,20 @@ public class ProjectCompleteDetailResource {
         if (projectCompleteDetailDTO.getProjectdetailDTO().getId() == null) {
             return createProjectCompleteDetail(projectCompleteDetailDTO);
         }
-//        ProjectdetailDTO result = projectdetailService.save(projectCompleteDetailDTO);
         InvestorDTO resultInvestor = investorService.save(projectCompleteDetailDTO.getInvestorDTO());
-
-//        projectCompleteDetailDTO.getCompanydetailDTO().setInvestorid(resultInvestor.getId());
         CompanydetailDTO resultCompany = companydetailService.save(projectCompleteDetailDTO.getCompanydetailDTO());
-
-//        projectCompleteDetailDTO.getProjectdetailDTO().setInvestorid(resultInvestor.getId());
         ProjectdetailDTO resultProjectdetail = projectdetailService.save(projectCompleteDetailDTO.getProjectdetailDTO());
-
-//        projectCompleteDetailDTO.getProjectsitedetailDTO().setProjectid(resultProjectdetail.getId());
         ProjectsitedetailDTO resultSiteDetail = projectsitedetailService.save(projectCompleteDetailDTO.getProjectsitedetailDTO());
-
-//        projectCompleteDetailDTO.getProject_finance_investmentDTO().setProjectid(resultProjectdetail.getId());
         Project_finance_investmentDTO resultFinance = project_finance_investmentService.save(projectCompleteDetailDTO.getProject_finance_investmentDTO());
-
-//        projectCompleteDetailDTO.getManufacturingdetailDTO().setProjectid(resultProjectdetail.getId());
         ManufacturingdetailDTO resultManufacturing = manufacturingdetailService.save(projectCompleteDetailDTO.getManufacturingdetailDTO());
-
-//        projectCompleteDetailDTO.getElectricrequirementDTO().setProjectid(resultProjectdetail.getId());
         ElectricrequirementDTO resultElectric = electricrequirementService.save(projectCompleteDetailDTO.getElectricrequirementDTO());
+        updateInnerEntities(projectCompleteDetailDTO, resultProjectdetail);
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert("Complete Project Detail", projectCompleteDetailDTO.getProjectdetailDTO().getId().toString()))
+            .body(projectCompleteDetailDTO);
+    }
 
+    private void updateInnerEntities(@RequestBody ProjectCompleteDetailDTO projectCompleteDetailDTO, ProjectdetailDTO resultProjectdetail) {
         List<Project_phaseDTO> project_phaseDTOList=project_phaseService.findAllByProjectid(projectCompleteDetailDTO.getProjectdetailDTO().getId().toString());
         for(int i=0;i<project_phaseDTOList.size();i++)
         {
@@ -190,11 +254,71 @@ public class ProjectCompleteDetailResource {
             project_phaseService.save(project_phaseDTOList.get(i));
         }
 
-        return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert("Complete Project Detail", projectCompleteDetailDTO.getProjectdetailDTO().getId().toString()))
-            .body(projectCompleteDetailDTO);
-    }
+        List<ProjectrawmaterialDTO> projectrawmaterialDTOList=projectrawmaterialService.findAllByProjectid(projectCompleteDetailDTO.getProjectdetailDTO().getId().toString());
+        for(int i=0;i<projectrawmaterialDTOList.size();i++)
+        {
+            projectrawmaterialService.delete(projectrawmaterialDTOList.get(i).getId().toString());
+            projectrawmaterialService.deleteByProject(projectrawmaterialDTOList.get(i).getProjectid().toString());
+        }
+        projectrawmaterialDTOList=projectCompleteDetailDTO.getProjectrawmaterialDTOList();
+        for(int i=0;i<projectrawmaterialDTOList.size();i++)
+        {
+            projectrawmaterialDTOList.get(i).setProjectid(resultProjectdetail.getId());
+            projectrawmaterialService.save(projectrawmaterialDTOList.get(i));
+        }
 
+        List<ProjectproductDTO> projectproductDTOList=projectproductService.findAllByProjectid(projectCompleteDetailDTO.getProjectdetailDTO().getId().toString());
+        for(int i=0;i<projectproductDTOList.size();i++)
+        {
+            projectproductService.delete(projectproductDTOList.get(i).getId().toString());
+            projectproductService.deleteByProject(projectproductDTOList.get(i).getProjectid().toString());
+        }
+        projectproductDTOList=projectCompleteDetailDTO.getProjectproductDTOList();
+        for(int i=0;i<projectproductDTOList.size();i++)
+        {
+            projectproductDTOList.get(i).setProjectid(resultProjectdetail.getId());
+            projectproductService.save(projectproductDTOList.get(i));
+        }
+
+        List<ProjectprocessflowstepsDTO> projectprocessflowstepsDTOList=projectprocessflowstepsService.findAllByProjectid(projectCompleteDetailDTO.getProjectdetailDTO().getId().toString());
+        for(int i=0;i<projectprocessflowstepsDTOList.size();i++)
+        {
+            projectprocessflowstepsService.delete(projectprocessflowstepsDTOList.get(i).getId().toString());
+            projectprocessflowstepsService.deleteByProject(projectprocessflowstepsDTOList.get(i).getProjectid().toString());
+        }
+        projectprocessflowstepsDTOList=projectCompleteDetailDTO.getProjectprocessflowstepsDTOList();
+        for(int i=0;i<projectprocessflowstepsDTOList.size();i++)
+        {
+            projectprocessflowstepsDTOList.get(i).setProjectid(resultProjectdetail.getId());
+            projectprocessflowstepsService.save(projectprocessflowstepsDTOList.get(i));
+        }
+
+        List<EmissiondetailDTO> emissiondetailDTOList=emissiondetailService.findAllByProjectid(projectCompleteDetailDTO.getProjectdetailDTO().getId().toString());
+        for(int i=0;i<emissiondetailDTOList.size();i++)
+        {
+            emissiondetailService.delete(emissiondetailDTOList.get(i).getId().toString());
+            emissiondetailService.deleteByProject(emissiondetailDTOList.get(i).getProjectid().toString());
+        }
+        emissiondetailDTOList=projectCompleteDetailDTO.getEmissiondetailDTOList();
+        for(int i=0;i<emissiondetailDTOList.size();i++)
+        {
+            emissiondetailDTOList.get(i).setProjectid(resultProjectdetail.getId());
+            emissiondetailService.save(emissiondetailDTOList.get(i));
+        }
+
+        List<WastewaterdetailDTO> wastewaterdetailDTOList=wastewaterdetailService.findAllByProjectid(projectCompleteDetailDTO.getProjectdetailDTO().getId().toString());
+        for(int i=0;i<wastewaterdetailDTOList.size();i++)
+        {
+            wastewaterdetailService.delete(wastewaterdetailDTOList.get(i).getId().toString());
+            wastewaterdetailService.deleteByProject(wastewaterdetailDTOList.get(i).getProjectid().toString());
+        }
+        wastewaterdetailDTOList=projectCompleteDetailDTO.getWastewaterdetailDTOList();
+        for(int i=0;i<wastewaterdetailDTOList.size();i++)
+        {
+            wastewaterdetailDTOList.get(i).setProjectid(resultProjectdetail.getId());
+            wastewaterdetailService.save(wastewaterdetailDTOList.get(i));
+        }
+    }
 
 
     /**

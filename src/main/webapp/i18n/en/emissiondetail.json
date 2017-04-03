@@ -20,7 +20,8 @@
             "type_of_fuel": "Type Of Fuel",
             "air_pollution_control_device": "Air Pollution Control Device",
             "createdate": "Createdate",
-            "updatedate": "Updatedate"
+            "updatedate": "Updatedate",
+            "projectid": "Projectid"
         }
     }
 }

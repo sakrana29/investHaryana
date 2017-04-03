@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class ProjectrawmaterialServiceImpl implements ProjectrawmaterialService{
 
     private final Logger log = LoggerFactory.getLogger(ProjectrawmaterialServiceImpl.class);
-    
+
     private final ProjectrawmaterialRepository projectrawmaterialRepository;
 
     private final ProjectrawmaterialMapper projectrawmaterialMapper;
@@ -48,7 +48,7 @@ public class ProjectrawmaterialServiceImpl implements ProjectrawmaterialService{
 
     /**
      *  Get all the projectrawmaterials.
-     *  
+     *
      *  @return the list of entities
      */
     @Override
@@ -84,5 +84,21 @@ public class ProjectrawmaterialServiceImpl implements ProjectrawmaterialService{
     public void delete(String id) {
         log.debug("Request to delete Projectrawmaterial : {}", id);
         projectrawmaterialRepository.delete(UUID.fromString(id));
+    }
+
+    @Override
+    public List<ProjectrawmaterialDTO> findAllByProjectid(String projectid) {
+        log.debug("Request to get all projectrawmaterial by projectid");
+        List<ProjectrawmaterialDTO> result = projectrawmaterialRepository.findAllByProjectid(UUID.fromString(projectid)).stream()
+            .map(projectrawmaterialMapper::projectrawmaterialToProjectrawmaterialDTO)
+            .collect(Collectors.toCollection(LinkedList::new));
+
+        return result;
+    }
+
+    @Override
+    public void deleteByProject(String projectid) {
+        log.debug("Request to delete entry from projectrawmaterial by projectid : {}", projectid);
+        projectrawmaterialRepository.deleteByProject(UUID.fromString(projectid));
     }
 }

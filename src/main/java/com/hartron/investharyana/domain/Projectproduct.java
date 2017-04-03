@@ -29,6 +29,8 @@ public class Projectproduct implements Serializable {
 
     private ZonedDateTime updatedate;
 
+    private UUID projectid;
+
     public UUID getId() {
         return id;
     }
@@ -102,6 +104,19 @@ public class Projectproduct implements Serializable {
         this.updatedate = updatedate;
     }
 
+    public UUID getProjectid() {
+        return projectid;
+    }
+
+    public Projectproduct projectid(UUID projectid) {
+        this.projectid = projectid;
+        return this;
+    }
+
+    public void setProjectid(UUID projectid) {
+        this.projectid = projectid;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -131,6 +146,7 @@ public class Projectproduct implements Serializable {
             ", units='" + units + "'" +
             ", createdate='" + createdate + "'" +
             ", updatedate='" + updatedate + "'" +
+            ", projectid='" + projectid + "'" +
             '}';
     }
 }

@@ -19,9 +19,15 @@ public class ProjectCompleteDetailDTO implements Serializable {
     private Project_finance_investmentDTO project_finance_investmentDTO;
     private ManufacturingdetailDTO manufacturingdetailDTO;
     private ElectricrequirementDTO electricrequirementDTO;
+    private Environment_impactdetailDTO environment_impactdetailDTO;
     private ProjectdetailcombinecodesDTO projectdetailcombinecodesDTO;
 
     private List<Project_phaseDTO> project_phaseDTOList;
+    private List<ProjectrawmaterialDTO> projectrawmaterialDTOList;
+    private List<ProjectproductDTO> projectproductDTOList;
+    private List<ProjectprocessflowstepsDTO> projectprocessflowstepsDTOList;
+    private List<EmissiondetailDTO> emissiondetailDTOList;
+    private List<WastewaterdetailDTO> wastewaterdetailDTOList;
 
     public List<Project_phaseDTO> getProject_phaseDTOList() {
         return project_phaseDTOList;
@@ -87,4 +93,51 @@ public class ProjectCompleteDetailDTO implements Serializable {
     }
 
 
+    public List<ProjectrawmaterialDTO> getProjectrawmaterialDTOList() {
+        return projectrawmaterialDTOList;
+    }
+
+    public void setProjectrawmaterialDTOList(List<ProjectrawmaterialDTO> projectrawmaterialDTOList) {
+        this.projectrawmaterialDTOList = projectrawmaterialDTOList;
+    }
+
+    public List<ProjectproductDTO> getProjectproductDTOList() {
+        return projectproductDTOList;
+    }
+
+    public void setProjectproductDTOList(List<ProjectproductDTO> projectproductDTOList) {
+        this.projectproductDTOList = projectproductDTOList;
+    }
+
+    public List<ProjectprocessflowstepsDTO> getProjectprocessflowstepsDTOList() {
+        return projectprocessflowstepsDTOList;
+    }
+
+    public void setProjectprocessflowstepsDTOList(List<ProjectprocessflowstepsDTO> projectprocessflowstepsDTOList) {
+        this.projectprocessflowstepsDTOList = projectprocessflowstepsDTOList;
+    }
+
+    public List<EmissiondetailDTO> getEmissiondetailDTOList() {
+        return emissiondetailDTOList;
+    }
+
+    public void setEmissiondetailDTOList(List<EmissiondetailDTO> emissiondetailDTOList) {
+        this.emissiondetailDTOList = emissiondetailDTOList;
+    }
+
+    public List<WastewaterdetailDTO> getWastewaterdetailDTOList() {
+        return wastewaterdetailDTOList;
+    }
+
+    public void setWastewaterdetailDTOList(List<WastewaterdetailDTO> wastewaterdetailDTOList) {
+        this.wastewaterdetailDTOList = wastewaterdetailDTOList;
+    }
+
+    public Environment_impactdetailDTO getEnvironment_impactdetailDTO() {
+        return environment_impactdetailDTO;
+    }
+
+    public void setEnvironment_impactdetailDTO(Environment_impactdetailDTO environment_impactdetailDTO) {
+        this.environment_impactdetailDTO = environment_impactdetailDTO;
+    }
 }

@@ -18,7 +18,7 @@ public interface ProjectprocessflowstepsService {
 
     /**
      *  Get all the projectprocessflowsteps.
-     *  
+     *
      *  @return the list of entities
      */
     List<ProjectprocessflowstepsDTO> findAll();
@@ -37,4 +37,7 @@ public interface ProjectprocessflowstepsService {
      *  @param id the id of the entity
      */
     void delete(String id);
+
+    List<ProjectprocessflowstepsDTO> findAllByProjectid(String projectid);
+    void deleteByProject(String projectid);
 }
