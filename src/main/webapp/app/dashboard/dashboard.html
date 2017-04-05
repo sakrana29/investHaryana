@@ -1,97 +1,174 @@
 <div class="container-fluid">
-    <div class="row">
+    <!--<div class="row">-->
 
-       <div ng-repeat="departmentstat in vm.departmentstatcollection">
+       <!--<div ng-repeat="departmentstat in vm.departmentstatcollection">-->
+
+        <!--<div class="page-heading">-->
+            <!--<h1>{{departmentstat.departmentName}}</h1>-->
+        <!--</div>-->
+
+        <!--<div class="col-md-3">-->
+            <!--<a class="info-tiles tiles-inverse has-footer" href="#">-->
+                <!--<div class="tiles-heading">-->
+                    <!--<div class="pull-left">Total CAF</div>-->
+                    <!--<div class="pull-right">-->
+                        <!--<div id="tileorders" class="sparkline-block"><canvas width="39" height="13" style="display: inline-block; width: 39px; height: 13px; vertical-align: top;"></canvas></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="tiles-body">-->
+                    <!--<div class="text-center">{{departmentstat.totalCaf}}</div>-->
+                <!--</div>-->
+            <!--</a>-->
+        <!--</div>-->
+
+        <!--<div class="col-md-3">-->
+            <!--<a class="info-tiles tiles-green has-footer" href="#">-->
+                <!--<div class="tiles-heading">-->
+                    <!--<div class="pull-left">Total Pending CAF</div>-->
+                    <!--<div class="pull-right">-->
+                        <!--<div id="tilerevenues" class="sparkline-block"><canvas width="40" height="13" style="display: inline-block; width: 40px; height: 13px; vertical-align: top;"></canvas></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="tiles-body">-->
+                    <!--<div class="text-center">{{departmentstat.totalPendingCaf}}</div>-->
+                <!--</div>-->
+            <!--</a>-->
+        <!--</div>-->
+
+        <!--<div class="col-md-3">-->
+            <!--<a class="info-tiles tiles-blue has-footer" href="#">-->
+                <!--<div class="tiles-heading">-->
+                    <!--<div class="pull-left">Total Stage 1</div>-->
+                    <!--<div class="pull-right">-->
+                        <!--<div id="tiletickets" class="sparkline-block"><canvas width="13" height="13" style="display: inline-block; width: 13px; height: 13px; vertical-align: top;"></canvas></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="tiles-body">-->
+                    <!--<div class="text-center">{{departmentstat.totalStageOneCaf}}</div>-->
+                <!--</div>-->
+            <!--</a>-->
+        <!--</div>-->
+
+        <!--<div class="col-md-3">-->
+            <!--<a class="info-tiles tiles-midnightblue has-footer" href="#">-->
+                <!--<div class="tiles-heading">-->
+                    <!--<div class="pull-left">Total Stage 2</div>-->
+                    <!--<div class="pull-right">-->
+                        <!--<div  class="sparkline-block"><canvas width="39" height="13" style="display: inline-block; width: 39px; height: 13px; vertical-align: top;"></canvas></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="tiles-body">-->
+                    <!--<div class="text-center">{{departmentstat.totalStageTwoCaf}}</div>-->
+                <!--</div>-->
+            <!--</a>-->
+        <!--</div>-->
+           <!--<div class="col-md-3">-->
+               <!--<a class="info-tiles tiles-midnightblue has-footer" href="#">-->
+                   <!--<div class="tiles-heading">-->
+                       <!--<div class="pull-left">Total Stage 3</div>-->
+                       <!--<div class="pull-right">-->
+                           <!--<div id="tilemembers" class="sparkline-block"><canvas width="39" height="13" style="display: inline-block; width: 39px; height: 13px; vertical-align: top;"></canvas></div>-->
+                       <!--</div>-->
+                   <!--</div>-->
+                   <!--<div class="tiles-body">-->
+                       <!--<div class="text-center">{{departmentstat.totalStageThreeCaf}}</div>-->
+                   <!--</div>-->
+
+               <!--</a>-->
+           <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+
+    <div class="row">
 
         <div class="page-heading">
-            <h1>{{departmentstat.departmentName}}</h1>
-
+            <h1>Dashboard</h1>
         </div>
-
-        <div class="col-md-3">
-            <a class="info-tiles tiles-inverse has-footer" href="#">
-                <div class="tiles-heading">
-                    <div class="pull-left">Total CAF</div>
-                    <div class="pull-right">
-                        <div id="tileorders" class="sparkline-block"><canvas width="39" height="13" style="display: inline-block; width: 39px; height: 13px; vertical-align: top;"></canvas></div>
+        <div ng-repeat="departmentstat in vm.departmentstatcollection">
+            <div class="col-md-3">
+                <a class="info-tiles tiles-midnightblue has-footer" href="">
+                    <div class="tiles-heading">
+                        <div class="pull-left">Department : {{departmentstat.departmentName}}</div><br>
+                        <div class="pull-right">Total CAF : {{departmentstat.totalCaf}}</div><br>
+                        <div class="pull-right">Pending CAF : {{departmentstat.totalPendingCaf}}</div><br>
+                        <div class="pull-right">Stage 1 CAF : {{departmentstat.totalStageOneCaf}}</div><br>
+                        <div class="pull-right">Stage 2 CAF : {{departmentstat.totalStageTwoCaf}}</div><br>
+                        <div class="pull-right">Stage 3 CAF : {{departmentstat.totalStageThreeCaf}}</div>
+                        <!--<div class="pull-right">-->
+                            <!--<div id="tileorders" class="sparkline-block"><canvas width="39" height="13" style="display: inline-block; width: 39px; height: 13px; vertical-align: top;"></canvas></div>-->
+                        <!--</div>-->
                     </div>
-                </div>
-                <div class="tiles-body">
-                    <div class="text-center">{{departmentstat.totalCaf}}</div>
-                </div>
-
-            </a>
-        </div>
-
-        <div class="col-md-3">
-            <a class="info-tiles tiles-green has-footer" href="#">
-                <div class="tiles-heading">
-                    <div class="pull-left">Total Pending CAF</div>
-                    <div class="pull-right">
-                        <div id="tilerevenues" class="sparkline-block"><canvas width="40" height="13" style="display: inline-block; width: 40px; height: 13px; vertical-align: top;"></canvas></div>
+                    <div class="tiles-body">
+                        <div class="text-center"></div>
                     </div>
-                </div>
-                <div class="tiles-body">
-                    <div class="text-center">{{departmentstat.totalPendingCaf}}</div>
-                </div>
+                </a>
+            </div>
 
-            </a>
+            <!--<div class="col-md-3">-->
+                <!--<a class="info-tiles tiles-green has-footer" href="#">-->
+                    <!--<div class="tiles-heading">-->
+                        <!--<div class="pull-left">Total Pending CAF</div>-->
+                        <!--<div class="pull-right">-->
+                            <!--<div id="tilerevenues" class="sparkline-block"><canvas width="40" height="13" style="display: inline-block; width: 40px; height: 13px; vertical-align: top;"></canvas></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="tiles-body">-->
+                        <!--<div class="text-center">{{departmentstat.totalPendingCaf}}</div>-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+            <!--<div class="col-md-3">-->
+                <!--<a class="info-tiles tiles-blue has-footer" href="#">-->
+                    <!--<div class="tiles-heading">-->
+                        <!--<div class="pull-left">Total Stage 1</div>-->
+                        <!--<div class="pull-right">-->
+                            <!--<div id="tiletickets" class="sparkline-block"><canvas width="13" height="13" style="display: inline-block; width: 13px; height: 13px; vertical-align: top;"></canvas></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="tiles-body">-->
+                        <!--<div class="text-center">{{departmentstat.totalStageOneCaf}}</div>-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+            <!--<div class="col-md-3">-->
+                <!--<a class="info-tiles tiles-midnightblue has-footer" href="#">-->
+                    <!--<div class="tiles-heading">-->
+                        <!--<div class="pull-left">Total Stage 2</div>-->
+                        <!--<div class="pull-right">-->
+                            <!--<div  class="sparkline-block"><canvas width="39" height="13" style="display: inline-block; width: 39px; height: 13px; vertical-align: top;"></canvas></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="tiles-body">-->
+                        <!--<div class="text-center">{{departmentstat.totalStageTwoCaf}}</div>-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-md-3">-->
+                <!--<a class="info-tiles tiles-midnightblue has-footer" href="#">-->
+                    <!--<div class="tiles-heading">-->
+                        <!--<div class="pull-left">Total Stage 3</div>-->
+                        <!--<div class="pull-right">-->
+                            <!--<div id="tilemembers" class="sparkline-block"><canvas width="39" height="13" style="display: inline-block; width: 39px; height: 13px; vertical-align: top;"></canvas></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="tiles-body">-->
+                        <!--<div class="text-center">{{departmentstat.totalStageThreeCaf}}</div>-->
+                    <!--</div>-->
+
+                <!--</a>-->
+            <!--</div>-->
         </div>
-
-        <div class="col-md-3">
-            <a class="info-tiles tiles-blue has-footer" href="#">
-                <div class="tiles-heading">
-                    <div class="pull-left">Total Stage 1</div>
-                    <div class="pull-right">
-                        <div id="tiletickets" class="sparkline-block"><canvas width="13" height="13" style="display: inline-block; width: 13px; height: 13px; vertical-align: top;"></canvas></div>
-                    </div>
-                </div>
-                <div class="tiles-body">
-                    <div class="text-center">{{departmentstat.totalStageOneCaf}}</div>
-                </div>
-
-            </a>
-        </div>
-
-        <div class="col-md-3">
-            <a class="info-tiles tiles-midnightblue has-footer" href="#">
-                <div class="tiles-heading">
-                    <div class="pull-left">Total Stage 2</div>
-                    <div class="pull-right">
-                        <div  class="sparkline-block"><canvas width="39" height="13" style="display: inline-block; width: 39px; height: 13px; vertical-align: top;"></canvas></div>
-                    </div>
-                </div>
-                <div class="tiles-body">
-                    <div class="text-center">{{departmentstat.totalStageTwoCaf}}</div>
-                </div>
-
-            </a>
-        </div>
-           <div class="col-md-3">
-               <a class="info-tiles tiles-midnightblue has-footer" href="#">
-                   <div class="tiles-heading">
-                       <div class="pull-left">Total Stage 3</div>
-                       <div class="pull-right">
-                           <div id="tilemembers" class="sparkline-block"><canvas width="39" height="13" style="display: inline-block; width: 39px; height: 13px; vertical-align: top;"></canvas></div>
-                       </div>
-                   </div>
-                   <div class="tiles-body">
-                       <div class="text-center">{{departmentstat.totalStageThreeCaf}}</div>
-                   </div>
-
-               </a>
-           </div>
-
-      </div>
-
     </div>
 
 
-    <div class="row">
-        <div class="col-md-12">
+    <!--<div class="row">-->
+        <!--<div class="col-md-12">-->
 
-        </div>
-    </div>
+        <!--</div>-->
+    <!--</div>-->
 
 
 
