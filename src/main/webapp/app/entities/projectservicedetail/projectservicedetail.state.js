@@ -106,12 +106,16 @@
                             return {
                                 projectid: null,
                                 serviceid: null,
-                                userlogin: null,
-                                servicerequired: null,
-                                servicestatus: null,
-                                assigndate: null,
-                                servicefee: null,
-                                remarks: null,
+                                departmentname: null,
+                                servicename: null,
+                                isrequired: null,
+                                markrequiredondate: null,
+                                markrequiredby: null,
+                                isassigned: null,
+                                markassignedby: null,
+                                feerequired: null,
+                                status: null,
+                                comment: null,
                                 id: null
                             };
                         }

@@ -17,17 +17,25 @@ public class ProjectservicedetailDTO implements Serializable {
 
     private UUID serviceid;
 
-    private String userlogin;
+    private String departmentname;
 
-    private Boolean servicerequired;
+    private String servicename;
 
-    private String servicestatus;
+    private Boolean isrequired;
 
-    private ZonedDateTime assigndate;
+    private ZonedDateTime markrequiredondate;
 
-    private Double servicefee;
+    private String markrequiredby;
 
-    private String remarks;
+    private Boolean isassigned;
+
+    private String markassignedby;
+
+    private Integer feerequired;
+
+    private String status;
+
+    private String comment;
 
     public UUID getId() {
         return id;
@@ -50,47 +58,75 @@ public class ProjectservicedetailDTO implements Serializable {
     public void setServiceid(UUID serviceid) {
         this.serviceid = serviceid;
     }
-    public String getUserlogin() {
-        return userlogin;
+    public String getDepartmentname() {
+        return departmentname;
     }
 
-    public void setUserlogin(String userlogin) {
-        this.userlogin = userlogin;
+    public void setDepartmentname(String departmentname) {
+        this.departmentname = departmentname;
     }
-    public Boolean getServicerequired() {
-        return servicerequired;
-    }
-
-    public void setServicerequired(Boolean servicerequired) {
-        this.servicerequired = servicerequired;
-    }
-    public String getServicestatus() {
-        return servicestatus;
+    public String getServicename() {
+        return servicename;
     }
 
-    public void setServicestatus(String servicestatus) {
-        this.servicestatus = servicestatus;
+    public void setServicename(String servicename) {
+        this.servicename = servicename;
     }
-    public ZonedDateTime getAssigndate() {
-        return assigndate;
-    }
-
-    public void setAssigndate(ZonedDateTime assigndate) {
-        this.assigndate = assigndate;
-    }
-    public Double getServicefee() {
-        return servicefee;
+    public Boolean getIsrequired() {
+        return isrequired;
     }
 
-    public void setServicefee(Double servicefee) {
-        this.servicefee = servicefee;
+    public void setIsrequired(Boolean isrequired) {
+        this.isrequired = isrequired;
     }
-    public String getRemarks() {
-        return remarks;
+    public ZonedDateTime getMarkrequiredondate() {
+        return markrequiredondate;
     }
 
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
+    public void setMarkrequiredondate(ZonedDateTime markrequiredondate) {
+        this.markrequiredondate = markrequiredondate;
+    }
+    public String getMarkrequiredby() {
+        return markrequiredby;
+    }
+
+    public void setMarkrequiredby(String markrequiredby) {
+        this.markrequiredby = markrequiredby;
+    }
+    public Boolean getIsassigned() {
+        return isassigned;
+    }
+
+    public void setIsassigned(Boolean isassigned) {
+        this.isassigned = isassigned;
+    }
+    public String getMarkassignedby() {
+        return markassignedby;
+    }
+
+    public void setMarkassignedby(String markassignedby) {
+        this.markassignedby = markassignedby;
+    }
+    public Integer getFeerequired() {
+        return feerequired;
+    }
+
+    public void setFeerequired(Integer feerequired) {
+        this.feerequired = feerequired;
+    }
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     @Override
@@ -120,12 +156,16 @@ public class ProjectservicedetailDTO implements Serializable {
             "id=" + id +
             ", projectid='" + projectid + "'" +
             ", serviceid='" + serviceid + "'" +
-            ", userlogin='" + userlogin + "'" +
-            ", servicerequired='" + servicerequired + "'" +
-            ", servicestatus='" + servicestatus + "'" +
-            ", assigndate='" + assigndate + "'" +
-            ", servicefee='" + servicefee + "'" +
-            ", remarks='" + remarks + "'" +
+            ", departmentname='" + departmentname + "'" +
+            ", servicename='" + servicename + "'" +
+            ", isrequired='" + isrequired + "'" +
+            ", markrequiredondate='" + markrequiredondate + "'" +
+            ", markrequiredby='" + markrequiredby + "'" +
+            ", isassigned='" + isassigned + "'" +
+            ", markassignedby='" + markassignedby + "'" +
+            ", feerequired='" + feerequired + "'" +
+            ", status='" + status + "'" +
+            ", comment='" + comment + "'" +
             '}';
     }
 }

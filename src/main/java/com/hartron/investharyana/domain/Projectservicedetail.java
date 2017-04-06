@@ -23,17 +23,25 @@ public class Projectservicedetail implements Serializable {
 
     private UUID serviceid;
 
-    private String userlogin;
+    private String departmentname;
 
-    private Boolean servicerequired;
+    private String servicename;
 
-    private String servicestatus;
+    private Boolean isrequired;
 
-    private ZonedDateTime assigndate;
+    private ZonedDateTime markrequiredondate;
 
-    private Double servicefee;
+    private String markrequiredby;
 
-    private String remarks;
+    private Boolean isassigned;
+
+    private String markassignedby;
+
+    private Integer feerequired;
+
+    private String status;
+
+    private String comment;
 
     public UUID getId() {
         return id;
@@ -69,82 +77,134 @@ public class Projectservicedetail implements Serializable {
         this.serviceid = serviceid;
     }
 
-    public String getUserlogin() {
-        return userlogin;
+    public String getDepartmentname() {
+        return departmentname;
     }
 
-    public Projectservicedetail userlogin(String userlogin) {
-        this.userlogin = userlogin;
+    public Projectservicedetail departmentname(String departmentname) {
+        this.departmentname = departmentname;
         return this;
     }
 
-    public void setUserlogin(String userlogin) {
-        this.userlogin = userlogin;
+    public void setDepartmentname(String departmentname) {
+        this.departmentname = departmentname;
     }
 
-    public Boolean isServicerequired() {
-        return servicerequired;
+    public String getServicename() {
+        return servicename;
     }
 
-    public Projectservicedetail servicerequired(Boolean servicerequired) {
-        this.servicerequired = servicerequired;
+    public Projectservicedetail servicename(String servicename) {
+        this.servicename = servicename;
         return this;
     }
 
-    public void setServicerequired(Boolean servicerequired) {
-        this.servicerequired = servicerequired;
+    public void setServicename(String servicename) {
+        this.servicename = servicename;
     }
 
-    public String getServicestatus() {
-        return servicestatus;
+    public Boolean isIsrequired() {
+        return isrequired;
     }
 
-    public Projectservicedetail servicestatus(String servicestatus) {
-        this.servicestatus = servicestatus;
+    public Projectservicedetail isrequired(Boolean isrequired) {
+        this.isrequired = isrequired;
         return this;
     }
 
-    public void setServicestatus(String servicestatus) {
-        this.servicestatus = servicestatus;
+    public void setIsrequired(Boolean isrequired) {
+        this.isrequired = isrequired;
     }
 
-    public ZonedDateTime getAssigndate() {
-        return assigndate;
+    public ZonedDateTime getMarkrequiredondate() {
+        return markrequiredondate;
     }
 
-    public Projectservicedetail assigndate(ZonedDateTime assigndate) {
-        this.assigndate = assigndate;
+    public Projectservicedetail markrequiredondate(ZonedDateTime markrequiredondate) {
+        this.markrequiredondate = markrequiredondate;
         return this;
     }
 
-    public void setAssigndate(ZonedDateTime assigndate) {
-        this.assigndate = assigndate;
+    public void setMarkrequiredondate(ZonedDateTime markrequiredondate) {
+        this.markrequiredondate = markrequiredondate;
     }
 
-    public Double getServicefee() {
-        return servicefee;
+    public String getMarkrequiredby() {
+        return markrequiredby;
     }
 
-    public Projectservicedetail servicefee(Double servicefee) {
-        this.servicefee = servicefee;
+    public Projectservicedetail markrequiredby(String markrequiredby) {
+        this.markrequiredby = markrequiredby;
         return this;
     }
 
-    public void setServicefee(Double servicefee) {
-        this.servicefee = servicefee;
+    public void setMarkrequiredby(String markrequiredby) {
+        this.markrequiredby = markrequiredby;
     }
 
-    public String getRemarks() {
-        return remarks;
+    public Boolean isIsassigned() {
+        return isassigned;
     }
 
-    public Projectservicedetail remarks(String remarks) {
-        this.remarks = remarks;
+    public Projectservicedetail isassigned(Boolean isassigned) {
+        this.isassigned = isassigned;
         return this;
     }
 
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
+    public void setIsassigned(Boolean isassigned) {
+        this.isassigned = isassigned;
+    }
+
+    public String getMarkassignedby() {
+        return markassignedby;
+    }
+
+    public Projectservicedetail markassignedby(String markassignedby) {
+        this.markassignedby = markassignedby;
+        return this;
+    }
+
+    public void setMarkassignedby(String markassignedby) {
+        this.markassignedby = markassignedby;
+    }
+
+    public Integer getFeerequired() {
+        return feerequired;
+    }
+
+    public Projectservicedetail feerequired(Integer feerequired) {
+        this.feerequired = feerequired;
+        return this;
+    }
+
+    public void setFeerequired(Integer feerequired) {
+        this.feerequired = feerequired;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public Projectservicedetail status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public Projectservicedetail comment(String comment) {
+        this.comment = comment;
+        return this;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     @Override
@@ -173,12 +233,16 @@ public class Projectservicedetail implements Serializable {
             "id=" + id +
             ", projectid='" + projectid + "'" +
             ", serviceid='" + serviceid + "'" +
-            ", userlogin='" + userlogin + "'" +
-            ", servicerequired='" + servicerequired + "'" +
-            ", servicestatus='" + servicestatus + "'" +
-            ", assigndate='" + assigndate + "'" +
-            ", servicefee='" + servicefee + "'" +
-            ", remarks='" + remarks + "'" +
+            ", departmentname='" + departmentname + "'" +
+            ", servicename='" + servicename + "'" +
+            ", isrequired='" + isrequired + "'" +
+            ", markrequiredondate='" + markrequiredondate + "'" +
+            ", markrequiredby='" + markrequiredby + "'" +
+            ", isassigned='" + isassigned + "'" +
+            ", markassignedby='" + markassignedby + "'" +
+            ", feerequired='" + feerequired + "'" +
+            ", status='" + status + "'" +
+            ", comment='" + comment + "'" +
             '}';
     }
 }

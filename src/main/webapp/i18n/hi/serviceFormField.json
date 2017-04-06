@@ -17,7 +17,8 @@
             },
             "fieldName": "Field Name",
             "fieldType": "Field Type",
-            "serviceID": "Service ID"
+            "serviceID": "Service ID",
+            "option": "Option"
         }
     }
 }

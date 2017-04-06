@@ -109,6 +109,7 @@
                                 duration: null,
                                 stage: null,
                                 departmentname: null,
+                                departmentid: null,
                                 id: null
                             };
                         }

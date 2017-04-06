@@ -51,23 +51,35 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
     private static final UUID DEFAULT_SERVICEID = UUID.randomUUID();
     private static final UUID UPDATED_SERVICEID = UUID.randomUUID();
 
-    private static final String DEFAULT_USERLOGIN = "AAAAAAAAAA";
-    private static final String UPDATED_USERLOGIN = "BBBBBBBBBB";
+    private static final String DEFAULT_DEPARTMENTNAME = "AAAAAAAAAA";
+    private static final String UPDATED_DEPARTMENTNAME = "BBBBBBBBBB";
 
-    private static final Boolean DEFAULT_SERVICEREQUIRED = false;
-    private static final Boolean UPDATED_SERVICEREQUIRED = true;
+    private static final String DEFAULT_SERVICENAME = "AAAAAAAAAA";
+    private static final String UPDATED_SERVICENAME = "BBBBBBBBBB";
 
-    private static final String DEFAULT_SERVICESTATUS = "AAAAAAAAAA";
-    private static final String UPDATED_SERVICESTATUS = "BBBBBBBBBB";
+    private static final Boolean DEFAULT_ISREQUIRED = false;
+    private static final Boolean UPDATED_ISREQUIRED = true;
 
-    private static final ZonedDateTime DEFAULT_ASSIGNDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
-    private static final ZonedDateTime UPDATED_ASSIGNDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private static final ZonedDateTime DEFAULT_MARKREQUIREDONDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_MARKREQUIREDONDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
-    private static final Double DEFAULT_SERVICEFEE = 1D;
-    private static final Double UPDATED_SERVICEFEE = 2D;
+    private static final String DEFAULT_MARKREQUIREDBY = "AAAAAAAAAA";
+    private static final String UPDATED_MARKREQUIREDBY = "BBBBBBBBBB";
 
-    private static final String DEFAULT_REMARKS = "AAAAAAAAAA";
-    private static final String UPDATED_REMARKS = "BBBBBBBBBB";
+    private static final Boolean DEFAULT_ISASSIGNED = false;
+    private static final Boolean UPDATED_ISASSIGNED = true;
+
+    private static final String DEFAULT_MARKASSIGNEDBY = "AAAAAAAAAA";
+    private static final String UPDATED_MARKASSIGNEDBY = "BBBBBBBBBB";
+
+    private static final Integer DEFAULT_FEEREQUIRED = 1;
+    private static final Integer UPDATED_FEEREQUIRED = 2;
+
+    private static final String DEFAULT_STATUS = "AAAAAAAAAA";
+    private static final String UPDATED_STATUS = "BBBBBBBBBB";
+
+    private static final String DEFAULT_COMMENT = "AAAAAAAAAA";
+    private static final String UPDATED_COMMENT = "BBBBBBBBBB";
 
     @Autowired
     private ProjectservicedetailRepository projectservicedetailRepository;
@@ -111,12 +123,16 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
         Projectservicedetail projectservicedetail = new Projectservicedetail()
                 .projectid(DEFAULT_PROJECTID)
                 .serviceid(DEFAULT_SERVICEID)
-                .userlogin(DEFAULT_USERLOGIN)
-                .servicerequired(DEFAULT_SERVICEREQUIRED)
-                .servicestatus(DEFAULT_SERVICESTATUS)
-                .assigndate(DEFAULT_ASSIGNDATE)
-                .servicefee(DEFAULT_SERVICEFEE)
-                .remarks(DEFAULT_REMARKS);
+                .departmentname(DEFAULT_DEPARTMENTNAME)
+                .servicename(DEFAULT_SERVICENAME)
+                .isrequired(DEFAULT_ISREQUIRED)
+                .markrequiredondate(DEFAULT_MARKREQUIREDONDATE)
+                .markrequiredby(DEFAULT_MARKREQUIREDBY)
+                .isassigned(DEFAULT_ISASSIGNED)
+                .markassignedby(DEFAULT_MARKASSIGNEDBY)
+                .feerequired(DEFAULT_FEEREQUIRED)
+                .status(DEFAULT_STATUS)
+                .comment(DEFAULT_COMMENT);
         return projectservicedetail;
     }
 
@@ -144,12 +160,16 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
         Projectservicedetail testProjectservicedetail = projectservicedetailList.get(projectservicedetailList.size() - 1);
         assertThat(testProjectservicedetail.getProjectid()).isEqualTo(DEFAULT_PROJECTID);
         assertThat(testProjectservicedetail.getServiceid()).isEqualTo(DEFAULT_SERVICEID);
-        assertThat(testProjectservicedetail.getUserlogin()).isEqualTo(DEFAULT_USERLOGIN);
-        assertThat(testProjectservicedetail.isServicerequired()).isEqualTo(DEFAULT_SERVICEREQUIRED);
-        assertThat(testProjectservicedetail.getServicestatus()).isEqualTo(DEFAULT_SERVICESTATUS);
-        assertThat(testProjectservicedetail.getAssigndate()).isEqualTo(DEFAULT_ASSIGNDATE);
-        assertThat(testProjectservicedetail.getServicefee()).isEqualTo(DEFAULT_SERVICEFEE);
-        assertThat(testProjectservicedetail.getRemarks()).isEqualTo(DEFAULT_REMARKS);
+        assertThat(testProjectservicedetail.getDepartmentname()).isEqualTo(DEFAULT_DEPARTMENTNAME);
+        assertThat(testProjectservicedetail.getServicename()).isEqualTo(DEFAULT_SERVICENAME);
+        assertThat(testProjectservicedetail.isIsrequired()).isEqualTo(DEFAULT_ISREQUIRED);
+        assertThat(testProjectservicedetail.getMarkrequiredondate()).isEqualTo(DEFAULT_MARKREQUIREDONDATE);
+        assertThat(testProjectservicedetail.getMarkrequiredby()).isEqualTo(DEFAULT_MARKREQUIREDBY);
+        assertThat(testProjectservicedetail.isIsassigned()).isEqualTo(DEFAULT_ISASSIGNED);
+        assertThat(testProjectservicedetail.getMarkassignedby()).isEqualTo(DEFAULT_MARKASSIGNEDBY);
+        assertThat(testProjectservicedetail.getFeerequired()).isEqualTo(DEFAULT_FEEREQUIRED);
+        assertThat(testProjectservicedetail.getStatus()).isEqualTo(DEFAULT_STATUS);
+        assertThat(testProjectservicedetail.getComment()).isEqualTo(DEFAULT_COMMENT);
     }
 
     @Test
@@ -184,12 +204,16 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(projectservicedetail.getId().toString())))
             .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())))
             .andExpect(jsonPath("$.[*].serviceid").value(hasItem(DEFAULT_SERVICEID.toString())))
-            .andExpect(jsonPath("$.[*].userlogin").value(hasItem(DEFAULT_USERLOGIN.toString())))
-            .andExpect(jsonPath("$.[*].servicerequired").value(hasItem(DEFAULT_SERVICEREQUIRED.booleanValue())))
-            .andExpect(jsonPath("$.[*].servicestatus").value(hasItem(DEFAULT_SERVICESTATUS.toString())))
-            .andExpect(jsonPath("$.[*].assigndate").value(hasItem(sameInstant(DEFAULT_ASSIGNDATE))))
-            .andExpect(jsonPath("$.[*].servicefee").value(hasItem(DEFAULT_SERVICEFEE.doubleValue())))
-            .andExpect(jsonPath("$.[*].remarks").value(hasItem(DEFAULT_REMARKS.toString())));
+            .andExpect(jsonPath("$.[*].departmentname").value(hasItem(DEFAULT_DEPARTMENTNAME.toString())))
+            .andExpect(jsonPath("$.[*].servicename").value(hasItem(DEFAULT_SERVICENAME.toString())))
+            .andExpect(jsonPath("$.[*].isrequired").value(hasItem(DEFAULT_ISREQUIRED.booleanValue())))
+            .andExpect(jsonPath("$.[*].markrequiredondate").value(hasItem(sameInstant(DEFAULT_MARKREQUIREDONDATE))))
+            .andExpect(jsonPath("$.[*].markrequiredby").value(hasItem(DEFAULT_MARKREQUIREDBY.toString())))
+            .andExpect(jsonPath("$.[*].isassigned").value(hasItem(DEFAULT_ISASSIGNED.booleanValue())))
+            .andExpect(jsonPath("$.[*].markassignedby").value(hasItem(DEFAULT_MARKASSIGNEDBY.toString())))
+            .andExpect(jsonPath("$.[*].feerequired").value(hasItem(DEFAULT_FEEREQUIRED)))
+            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())))
+            .andExpect(jsonPath("$.[*].comment").value(hasItem(DEFAULT_COMMENT.toString())));
     }
 
     @Test
@@ -204,12 +228,16 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.id").value(projectservicedetail.getId().toString()))
             .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()))
             .andExpect(jsonPath("$.serviceid").value(DEFAULT_SERVICEID.toString()))
-            .andExpect(jsonPath("$.userlogin").value(DEFAULT_USERLOGIN.toString()))
-            .andExpect(jsonPath("$.servicerequired").value(DEFAULT_SERVICEREQUIRED.booleanValue()))
-            .andExpect(jsonPath("$.servicestatus").value(DEFAULT_SERVICESTATUS.toString()))
-            .andExpect(jsonPath("$.assigndate").value(sameInstant(DEFAULT_ASSIGNDATE)))
-            .andExpect(jsonPath("$.servicefee").value(DEFAULT_SERVICEFEE.doubleValue()))
-            .andExpect(jsonPath("$.remarks").value(DEFAULT_REMARKS.toString()));
+            .andExpect(jsonPath("$.departmentname").value(DEFAULT_DEPARTMENTNAME.toString()))
+            .andExpect(jsonPath("$.servicename").value(DEFAULT_SERVICENAME.toString()))
+            .andExpect(jsonPath("$.isrequired").value(DEFAULT_ISREQUIRED.booleanValue()))
+            .andExpect(jsonPath("$.markrequiredondate").value(sameInstant(DEFAULT_MARKREQUIREDONDATE)))
+            .andExpect(jsonPath("$.markrequiredby").value(DEFAULT_MARKREQUIREDBY.toString()))
+            .andExpect(jsonPath("$.isassigned").value(DEFAULT_ISASSIGNED.booleanValue()))
+            .andExpect(jsonPath("$.markassignedby").value(DEFAULT_MARKASSIGNEDBY.toString()))
+            .andExpect(jsonPath("$.feerequired").value(DEFAULT_FEEREQUIRED))
+            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()))
+            .andExpect(jsonPath("$.comment").value(DEFAULT_COMMENT.toString()));
     }
 
     @Test
@@ -230,12 +258,16 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
         updatedProjectservicedetail
                 .projectid(UPDATED_PROJECTID)
                 .serviceid(UPDATED_SERVICEID)
-                .userlogin(UPDATED_USERLOGIN)
-                .servicerequired(UPDATED_SERVICEREQUIRED)
-                .servicestatus(UPDATED_SERVICESTATUS)
-                .assigndate(UPDATED_ASSIGNDATE)
-                .servicefee(UPDATED_SERVICEFEE)
-                .remarks(UPDATED_REMARKS);
+                .departmentname(UPDATED_DEPARTMENTNAME)
+                .servicename(UPDATED_SERVICENAME)
+                .isrequired(UPDATED_ISREQUIRED)
+                .markrequiredondate(UPDATED_MARKREQUIREDONDATE)
+                .markrequiredby(UPDATED_MARKREQUIREDBY)
+                .isassigned(UPDATED_ISASSIGNED)
+                .markassignedby(UPDATED_MARKASSIGNEDBY)
+                .feerequired(UPDATED_FEEREQUIRED)
+                .status(UPDATED_STATUS)
+                .comment(UPDATED_COMMENT);
         ProjectservicedetailDTO projectservicedetailDTO = projectservicedetailMapper.projectservicedetailToProjectservicedetailDTO(updatedProjectservicedetail);
 
         restProjectservicedetailMockMvc.perform(put("/api/projectservicedetails")
@@ -249,12 +281,16 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
         Projectservicedetail testProjectservicedetail = projectservicedetailList.get(projectservicedetailList.size() - 1);
         assertThat(testProjectservicedetail.getProjectid()).isEqualTo(UPDATED_PROJECTID);
         assertThat(testProjectservicedetail.getServiceid()).isEqualTo(UPDATED_SERVICEID);
-        assertThat(testProjectservicedetail.getUserlogin()).isEqualTo(UPDATED_USERLOGIN);
-        assertThat(testProjectservicedetail.isServicerequired()).isEqualTo(UPDATED_SERVICEREQUIRED);
-        assertThat(testProjectservicedetail.getServicestatus()).isEqualTo(UPDATED_SERVICESTATUS);
-        assertThat(testProjectservicedetail.getAssigndate()).isEqualTo(UPDATED_ASSIGNDATE);
-        assertThat(testProjectservicedetail.getServicefee()).isEqualTo(UPDATED_SERVICEFEE);
-        assertThat(testProjectservicedetail.getRemarks()).isEqualTo(UPDATED_REMARKS);
+        assertThat(testProjectservicedetail.getDepartmentname()).isEqualTo(UPDATED_DEPARTMENTNAME);
+        assertThat(testProjectservicedetail.getServicename()).isEqualTo(UPDATED_SERVICENAME);
+        assertThat(testProjectservicedetail.isIsrequired()).isEqualTo(UPDATED_ISREQUIRED);
+        assertThat(testProjectservicedetail.getMarkrequiredondate()).isEqualTo(UPDATED_MARKREQUIREDONDATE);
+        assertThat(testProjectservicedetail.getMarkrequiredby()).isEqualTo(UPDATED_MARKREQUIREDBY);
+        assertThat(testProjectservicedetail.isIsassigned()).isEqualTo(UPDATED_ISASSIGNED);
+        assertThat(testProjectservicedetail.getMarkassignedby()).isEqualTo(UPDATED_MARKASSIGNEDBY);
+        assertThat(testProjectservicedetail.getFeerequired()).isEqualTo(UPDATED_FEEREQUIRED);
+        assertThat(testProjectservicedetail.getStatus()).isEqualTo(UPDATED_STATUS);
+        assertThat(testProjectservicedetail.getComment()).isEqualTo(UPDATED_COMMENT);
     }
 
     @Test

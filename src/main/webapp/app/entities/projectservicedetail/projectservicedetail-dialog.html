@@ -26,43 +26,67 @@
                     />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.projectservicedetail.userlogin" for="field_userlogin">Userlogin</label>
-            <input type="text" class="form-control" name="userlogin" id="field_userlogin"
-                    ng-model="vm.projectservicedetail.userlogin"
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.departmentname" for="field_departmentname">Departmentname</label>
+            <input type="text" class="form-control" name="departmentname" id="field_departmentname"
+                    ng-model="vm.projectservicedetail.departmentname"
                     />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.projectservicedetail.servicerequired" for="field_servicerequired">Servicerequired</label>
-            <input type="checkbox" class="form-control" name="servicerequired" id="field_servicerequired"
-                    ng-model="vm.projectservicedetail.servicerequired"
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.servicename" for="field_servicename">Servicename</label>
+            <input type="text" class="form-control" name="servicename" id="field_servicename"
+                    ng-model="vm.projectservicedetail.servicename"
                     />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.projectservicedetail.servicestatus" for="field_servicestatus">Servicestatus</label>
-            <input type="text" class="form-control" name="servicestatus" id="field_servicestatus"
-                    ng-model="vm.projectservicedetail.servicestatus"
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.isrequired" for="field_isrequired">Isrequired</label>
+            <input type="checkbox" class="form-control" name="isrequired" id="field_isrequired"
+                    ng-model="vm.projectservicedetail.isrequired"
                     />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.projectservicedetail.assigndate" for="field_assigndate">Assigndate</label>
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.markrequiredondate" for="field_markrequiredondate">Markrequiredondate</label>
                 <div class="input-group">
-                    <input id="field_assigndate" type="text" class="form-control" name="assigndate" datetime-picker="{{dateformat}}" ng-model="vm.projectservicedetail.assigndate" is-open="vm.datePickerOpenStatus.assigndate"
+                    <input id="field_markrequiredondate" type="text" class="form-control" name="markrequiredondate" datetime-picker="{{dateformat}}" ng-model="vm.projectservicedetail.markrequiredondate" is-open="vm.datePickerOpenStatus.markrequiredondate"
                     />
                     <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('assigndate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('markrequiredondate')"><i class="glyphicon glyphicon-calendar"></i></button>
                     </span>
                 </div>
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.projectservicedetail.servicefee" for="field_servicefee">Servicefee</label>
-            <input type="number" class="form-control" name="servicefee" id="field_servicefee"
-                    ng-model="vm.projectservicedetail.servicefee"
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.markrequiredby" for="field_markrequiredby">Markrequiredby</label>
+            <input type="text" class="form-control" name="markrequiredby" id="field_markrequiredby"
+                    ng-model="vm.projectservicedetail.markrequiredby"
                     />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.projectservicedetail.remarks" for="field_remarks">Remarks</label>
-            <input type="text" class="form-control" name="remarks" id="field_remarks"
-                    ng-model="vm.projectservicedetail.remarks"
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.isassigned" for="field_isassigned">Isassigned</label>
+            <input type="checkbox" class="form-control" name="isassigned" id="field_isassigned"
+                    ng-model="vm.projectservicedetail.isassigned"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.markassignedby" for="field_markassignedby">Markassignedby</label>
+            <input type="text" class="form-control" name="markassignedby" id="field_markassignedby"
+                    ng-model="vm.projectservicedetail.markassignedby"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.feerequired" for="field_feerequired">Feerequired</label>
+            <input type="number" class="form-control" name="feerequired" id="field_feerequired"
+                    ng-model="vm.projectservicedetail.feerequired"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.status" for="field_status">Status</label>
+            <input type="text" class="form-control" name="status" id="field_status"
+                    ng-model="vm.projectservicedetail.status"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.comment" for="field_comment">Comment</label>
+            <input type="text" class="form-control" name="comment" id="field_comment"
+                    ng-model="vm.projectservicedetail.comment"
                     />
         </div>
 

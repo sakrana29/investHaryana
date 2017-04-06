@@ -68,7 +68,7 @@ class ServiceFormFieldGatlingTest extends Simulation {
             .exec(http("Create new serviceFormField")
             .post("/api/service-form-fields")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "fieldName":"SAMPLE_TEXT", "fieldType":"SAMPLE_TEXT", "serviceID":null}""")).asJSON
+            .body(StringBody("""{"id":null, "fieldName":"SAMPLE_TEXT", "fieldType":"SAMPLE_TEXT", "serviceID":null, "option":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_serviceFormField_url"))).exitHereIfFailed
             .pause(10)

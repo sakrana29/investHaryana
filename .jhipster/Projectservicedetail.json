@@ -11,27 +11,43 @@
             "fieldType": "UUID"
         },
         {
-            "fieldName": "userlogin",
+            "fieldName": "departmentname",
             "fieldType": "String"
         },
         {
-            "fieldName": "servicerequired",
+            "fieldName": "servicename",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isrequired",
             "fieldType": "Boolean"
         },
         {
-            "fieldName": "servicestatus",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "assigndate",
+            "fieldName": "markrequiredondate",
             "fieldType": "ZonedDateTime"
         },
         {
-            "fieldName": "servicefee",
-            "fieldType": "Double"
+            "fieldName": "markrequiredby",
+            "fieldType": "String"
         },
         {
-            "fieldName": "remarks",
+            "fieldName": "isassigned",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "markassignedby",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "feerequired",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "comment",
             "fieldType": "String"
         }
     ],

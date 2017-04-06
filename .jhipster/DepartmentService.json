@@ -27,6 +27,10 @@
         {
             "fieldName": "departmentname",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "departmentid",
+            "fieldType": "UUID"
         }
     ],
     "changelogDate": "20170311171701",

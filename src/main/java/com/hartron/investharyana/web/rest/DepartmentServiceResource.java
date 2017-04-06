@@ -29,7 +29,7 @@ public class DepartmentServiceResource {
     private final Logger log = LoggerFactory.getLogger(DepartmentServiceResource.class);
 
     private static final String ENTITY_NAME = "departmentService";
-        
+
     private final DepartmentServiceService departmentServiceService;
 
     public DepartmentServiceResource(DepartmentServiceService departmentServiceService) {
@@ -88,6 +88,13 @@ public class DepartmentServiceResource {
     public List<DepartmentServiceDTO> getAllDepartmentServices() {
         log.debug("REST request to get all DepartmentServices");
         return departmentServiceService.findAll();
+    }
+
+    @GetMapping("/department-services/department/{deptid}")
+    @Timed
+    public List<DepartmentServiceDTO> getAllDepartmentServicesByDepartment(@PathVariable String deptid) {
+        log.debug("REST request to get DepartmentServices : {}", deptid);
+        return departmentServiceService.findServiceByDepartment(deptid);
     }
 
     /**

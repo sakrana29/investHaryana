@@ -31,6 +31,8 @@ public class DepartmentService implements Serializable {
 
     private String departmentname;
 
+    private UUID departmentid;
+
     public UUID getId() {
         return id;
     }
@@ -104,6 +106,19 @@ public class DepartmentService implements Serializable {
         this.departmentname = departmentname;
     }
 
+    public UUID getDepartmentid() {
+        return departmentid;
+    }
+
+    public DepartmentService departmentid(UUID departmentid) {
+        this.departmentid = departmentid;
+        return this;
+    }
+
+    public void setDepartmentid(UUID departmentid) {
+        this.departmentid = departmentid;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -133,6 +148,7 @@ public class DepartmentService implements Serializable {
             ", duration='" + duration + "'" +
             ", stage='" + stage + "'" +
             ", departmentname='" + departmentname + "'" +
+            ", departmentid='" + departmentid + "'" +
             '}';
     }
 }

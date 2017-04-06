@@ -18,7 +18,7 @@ public interface ProjectservicedetailService {
 
     /**
      *  Get all the projectservicedetails.
-     *  
+     *
      *  @return the list of entities
      */
     List<ProjectservicedetailDTO> findAll();
@@ -30,6 +30,8 @@ public interface ProjectservicedetailService {
      *  @return the entity
      */
     ProjectservicedetailDTO findOne(String id);
+
+    List<ProjectservicedetailDTO> findByProject(String projectid);
 
     /**
      *  Delete the "id" projectservicedetail.

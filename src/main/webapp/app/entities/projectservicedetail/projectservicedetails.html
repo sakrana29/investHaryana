@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <h2 data-translate="investhryApp.projectservicedetail.home.title">Projectservicedetails</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
@@ -21,12 +21,16 @@
                     <th><span data-translate="global.field.id">ID</span></th>
                     <th><span data-translate="investhryApp.projectservicedetail.projectid">Projectid</span></th>
                     <th><span data-translate="investhryApp.projectservicedetail.serviceid">Serviceid</span></th>
-                    <th><span data-translate="investhryApp.projectservicedetail.userlogin">Userlogin</span></th>
-                    <th><span data-translate="investhryApp.projectservicedetail.servicerequired">Servicerequired</span></th>
-                    <th><span data-translate="investhryApp.projectservicedetail.servicestatus">Servicestatus</span></th>
-                    <th><span data-translate="investhryApp.projectservicedetail.assigndate">Assigndate</span></th>
-                    <th><span data-translate="investhryApp.projectservicedetail.servicefee">Servicefee</span></th>
-                    <th><span data-translate="investhryApp.projectservicedetail.remarks">Remarks</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.departmentname">Departmentname</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.servicename">Servicename</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.isrequired">Isrequired</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.markrequiredondate">Markrequiredondate</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.markrequiredby">Markrequiredby</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.isassigned">Isassigned</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.markassignedby">Markassignedby</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.feerequired">Feerequired</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.status">Status</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.comment">Comment</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -35,12 +39,16 @@
                     <td><a ui-sref="projectservicedetail-detail({id:projectservicedetail.id})">{{projectservicedetail.id}}</a></td>
                     <td>{{projectservicedetail.projectid}}</td>
                     <td>{{projectservicedetail.serviceid}}</td>
-                    <td>{{projectservicedetail.userlogin}}</td>
-                    <td>{{projectservicedetail.servicerequired}}</td>
-                    <td>{{projectservicedetail.servicestatus}}</td>
-                    <td>{{projectservicedetail.assigndate | date:'medium'}}</td>
-                    <td>{{projectservicedetail.servicefee}}</td>
-                    <td>{{projectservicedetail.remarks}}</td>
+                    <td>{{projectservicedetail.departmentname}}</td>
+                    <td>{{projectservicedetail.servicename}}</td>
+                    <td>{{projectservicedetail.isrequired}}</td>
+                    <td>{{projectservicedetail.markrequiredondate | date:'medium'}}</td>
+                    <td>{{projectservicedetail.markrequiredby}}</td>
+                    <td>{{projectservicedetail.isassigned}}</td>
+                    <td>{{projectservicedetail.markassignedby}}</td>
+                    <td>{{projectservicedetail.feerequired}}</td>
+                    <td>{{projectservicedetail.status}}</td>
+                    <td>{{projectservicedetail.comment}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

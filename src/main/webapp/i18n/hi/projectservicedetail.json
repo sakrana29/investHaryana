@@ -17,12 +17,16 @@
             },
             "projectid": "Projectid",
             "serviceid": "Serviceid",
-            "userlogin": "Userlogin",
-            "servicerequired": "Servicerequired",
-            "servicestatus": "Servicestatus",
-            "assigndate": "Assigndate",
-            "servicefee": "Servicefee",
-            "remarks": "Remarks"
+            "departmentname": "Departmentname",
+            "servicename": "Servicename",
+            "isrequired": "Isrequired",
+            "markrequiredondate": "Markrequiredondate",
+            "markrequiredby": "Markrequiredby",
+            "isassigned": "Isassigned",
+            "markassignedby": "Markassignedby",
+            "feerequired": "Feerequired",
+            "status": "Status",
+            "comment": "Comment"
         }
     }
 }

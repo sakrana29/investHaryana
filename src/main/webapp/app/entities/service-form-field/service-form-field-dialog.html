@@ -14,19 +14,6 @@
                     ng-model="vm.serviceFormField.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_serviceID">Department</label>
-            <select ng-model="vm.serviceFormField.serviceID" class="form-control" required name="serviceID" id="field_serviceID" ng-controller = "serviceformController">
-                <option value="">Select Department Service</option>
-                <option ng-repeat = "student in students" value="{{student.id }}">{{student.serviceName}}</option>
-            </select>
-            <div ng-show="editForm.serviceID.$invalid">
-                <p class="help-block"
-                   ng-show="editForm.serviceID.$error.required" data-translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="control-label" data-translate="investhryApp.serviceFormField.fieldName" for="field_fieldName">Field Name</label>
             <input type="text" class="form-control" name="fieldName" id="field_fieldName"
                     ng-model="vm.serviceFormField.fieldName"
@@ -50,6 +37,24 @@
                 </p>
             </div>
         </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.serviceFormField.serviceID" for="field_serviceID">Service ID</label>
+            <input type="text" class="form-control" name="serviceID" id="field_serviceID"
+                    ng-model="vm.serviceFormField.serviceID"
+                    required/>
+            <div ng-show="editForm.serviceID.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.serviceID.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.serviceFormField.option" for="field_option">Option</label>
+            <input type="text" class="form-control" name="option" id="field_option"
+                    ng-model="vm.serviceFormField.option"
+                    />
+        </div>
 
     </div>
     <div class="modal-footer">
@@ -61,4 +66,3 @@
         </button>
     </div>
 </form>
-

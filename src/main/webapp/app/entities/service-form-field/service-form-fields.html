@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <h2 data-translate="investhryApp.serviceFormField.home.title">Service Form Fields</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
@@ -6,8 +6,8 @@
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="service-form-field.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span  >
-                        Create new Service Form
+                    <span  data-translate="investhryApp.serviceFormField.home.createLabel">
+                        Create new Service Form Field
                     </span>
                 </button>
             </div>
@@ -22,6 +22,7 @@
                     <th><span data-translate="investhryApp.serviceFormField.fieldName">Field Name</span></th>
                     <th><span data-translate="investhryApp.serviceFormField.fieldType">Field Type</span></th>
                     <th><span data-translate="investhryApp.serviceFormField.serviceID">Service ID</span></th>
+                    <th><span data-translate="investhryApp.serviceFormField.option">Option</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -31,6 +32,7 @@
                     <td>{{serviceFormField.fieldName}}</td>
                     <td>{{serviceFormField.fieldType}}</td>
                     <td>{{serviceFormField.serviceID}}</td>
+                    <td>{{serviceFormField.option}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

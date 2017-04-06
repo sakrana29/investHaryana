@@ -26,8 +26,6 @@
         function clear () {
             $uibModalInstance.dismiss('cancel');
         }
-
-
         function save () {
             vm.isSaving = true;
             vm.Projectservicedetail.serviceid =srvid;
@@ -37,7 +35,6 @@
             vm.Projectservicedetail.userlogin = vm.account.login;
             vm.Projectservicedetail.assigndate = new Date();
             Projectservicedetail.save(vm.Projectservicedetail, onSaveSuccess, onSaveError);
-
         }
 
         function onSaveSuccess (result) {

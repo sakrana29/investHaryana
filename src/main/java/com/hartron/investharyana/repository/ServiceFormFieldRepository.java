@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -24,10 +23,6 @@ public class ServiceFormFieldRepository {
 
     private PreparedStatement findAllStmt;
 
-    private PreparedStatement findServiceFormFieldsByServiceStmt;
-
-    private PreparedStatement insertByServiceStmt;
-
     private PreparedStatement truncateStmt;
 
     public ServiceFormFieldRepository(Session session) {
@@ -35,15 +30,6 @@ public class ServiceFormFieldRepository {
         this.mapper = new MappingManager(session).mapper(ServiceFormField.class);
         this.findAllStmt = session.prepare("SELECT * FROM serviceFormField");
         this.truncateStmt = session.prepare("TRUNCATE serviceFormField");
-
-        findServiceFormFieldsByServiceStmt = session.prepare(
-            "SELECT id " +
-                "FROM serviceFormField_by_service " +
-                "WHERE serviceID = :serviceID");
-
-        insertByServiceStmt = session.prepare(
-            "INSERT INTO serviceFormField_by_service (serviceID, id) " +
-                "VALUES (:serviceID, :id)");
     }
 
     public List<ServiceFormField> findAll() {
@@ -56,6 +42,7 @@ public class ServiceFormFieldRepository {
                 serviceFormField.setFieldName(row.getString("fieldName"));
                 serviceFormField.setFieldType(row.getString("fieldType"));
                 serviceFormField.setServiceID(row.getUUID("serviceID"));
+                serviceFormField.setOption(row.getString("option"));
                 return serviceFormField;
             }
         ).forEach(serviceFormFieldsList::add);
@@ -67,17 +54,10 @@ public class ServiceFormFieldRepository {
     }
 
     public ServiceFormField save(ServiceFormField serviceFormField) {
-        UUID serviceFormFieldId= UUID.randomUUID();
         if (serviceFormField.getId() == null) {
-            serviceFormField.setId(serviceFormFieldId);
+            serviceFormField.setId(UUID.randomUUID());
         }
         mapper.save(serviceFormField);
-
-        BatchStatement batch = new BatchStatement();
-        batch.add(insertByServiceStmt.bind()
-            .setUUID("serviceID", serviceFormField.getServiceID())
-            .setUUID("id", serviceFormField.getId()));
-        session.execute(batch);
         return serviceFormField;
     }
 
@@ -88,26 +68,5 @@ public class ServiceFormFieldRepository {
     public void deleteAll() {
         BoundStatement stmt = truncateStmt.bind();
         session.execute(stmt);
-    }
-
-    public List<ServiceFormField> findServiceFormFieldsByService(UUID serviceid) {
-        BoundStatement stmt = findServiceFormFieldsByServiceStmt.bind();
-        stmt.setUUID("serviceID", serviceid);
-        return findServiceFormFieldsFromIndex(stmt);
-    }
-
-    private List<ServiceFormField> findServiceFormFieldsFromIndex(BoundStatement stmt) {
-        ResultSet rs = session.execute(stmt);
-        List<ServiceFormField> ServiceFormFieldList=new ArrayList<>();
-
-        while(!(rs.isExhausted())){
-            ServiceFormField service=new ServiceFormField();
-            service=(Optional.ofNullable(rs.one().getUUID("id"))
-                .map(id -> Optional.ofNullable(mapper.get(id)))
-                .get()).get();
-            ServiceFormFieldList.add(service);
-        }
-        return ServiceFormFieldList;
-
     }
 }

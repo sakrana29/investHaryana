@@ -28,6 +28,8 @@ public class ServiceFormField implements Serializable {
     @NotNull
     private UUID serviceID;
 
+    private String option;
+
     public UUID getId() {
         return id;
     }
@@ -75,6 +77,19 @@ public class ServiceFormField implements Serializable {
         this.serviceID = serviceID;
     }
 
+    public String getOption() {
+        return option;
+    }
+
+    public ServiceFormField option(String option) {
+        this.option = option;
+        return this;
+    }
+
+    public void setOption(String option) {
+        this.option = option;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -102,6 +117,7 @@ public class ServiceFormField implements Serializable {
             ", fieldName='" + fieldName + "'" +
             ", fieldType='" + fieldType + "'" +
             ", serviceID='" + serviceID + "'" +
+            ", option='" + option + "'" +
             '}';
     }
 }
