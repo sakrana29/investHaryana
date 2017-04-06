@@ -1,46 +1,3 @@
-.circle-bg {
-    background: rgba(0, 0, 0, 0) url(../home/cricle-bg.png) no-repeat scroll center top;
-    border-radius: 50%;
-    color: #822dcb;
-    font-size: 1.6em;
-    height: 98px;
-    margin: auto;
-    padding-top: 25px;
-    width: 98px;
-}
-.service-cont {
-    background: #2dcb74 none repeat scroll 0 0;
-    padding-top: 20px;
-    padding-bottom: 40px;
-}
-.latest-update {
-    background: rgba(29, 158, 87, 0.63) none repeat scroll 0 0;
-    box-shadow: 2px 2px 2px #888888;
-
-}
-.investor-box {
-    border: 1px solid #c5c5c5;
-    float: right;
-    list-style: outside none none;
-    margin: 0 3px 0 0;
-    padding: 0;
-    width: 94%;
-}
-
-style.css:493
-.investor-box {
-    background: #e5e4e2;
-}
-.investor-box li a {
-    color: #646463;
-    font-family: Calibri;
-    font-size: 28px;
-    font-weight: normal;
-    list-style: outside none none;
-    margin: 0;
-    padding: 7px 0 7px 30px;
-    text-transform: uppercase;
-}
 .row h3 {
     font-family: Calibri;
     font-size: 24px;
@@ -129,5 +86,61 @@ style.css:493
     font-size: 35px!important;
 }
 
+.circle-bg {
+    background: rgba(0, 0, 0, 0) url(../home/cricle-bg.png) no-repeat scroll center top;
+    border-radius: 50%;
+    color: #822dcb;
+    font-size: 1.6em;
+    height: 98px;
+    margin: auto;
+    padding-top: 25px;
+    width: 98px;
+}
+.service-cont {
+    background: #2dcb74 none repeat scroll 0 0;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+.latest-update {
+    background: rgba(29, 158, 87, 0.63) none repeat scroll 0 0;
+    box-shadow: 2px 2px 2px #888888;
 
+}
 
+.footer {
+    background: #2e3643 none repeat scroll 0 0;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+.footer-links {
+    list-style: outside none none;
+    margin: 0;
+    padding: 8px 0 0;
+}
+
+.footer-links li {
+    display: inline;
+    text-align: center;
+    list-style: none;
+    margin: 0px;
+    padding: 0 10px;
+}
+
+.footer-links li a {
+    font-family: Calibri;
+    font-size: 16px;
+    color: #969ba4;
+    text-transform: uppercase;
+    display: inline;
+    text-align: center;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.copyright {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #969ba4;
+}
