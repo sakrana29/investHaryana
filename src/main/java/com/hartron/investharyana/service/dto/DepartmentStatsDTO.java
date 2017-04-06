@@ -17,6 +17,10 @@ public class DepartmentStatsDTO implements Serializable {
     private String totalStageTwoCaf;
     private String totalStageThreeCaf;
 
+    private String elcc;
+    private String dlcc;
+
+
 
     public String getDepartmentName() {
         return departmentName;
@@ -64,5 +68,21 @@ public class DepartmentStatsDTO implements Serializable {
 
     public void setTotalStageThreeCaf(String totalStageThreeCaf) {
         this.totalStageThreeCaf = totalStageThreeCaf;
+    }
+
+    public String getElcc() {
+        return elcc;
+    }
+
+    public void setElcc(String elcc) {
+        this.elcc = elcc;
+    }
+
+    public String getDlcc() {
+        return dlcc;
+    }
+
+    public void setDlcc(String dlcc) {
+        this.dlcc = dlcc;
     }
 }

@@ -1,25 +1,16 @@
 package com.hartron.investharyana.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import com.hartron.investharyana.service.ApprovalformsService;
+import com.hartron.investharyana.service.DepartmentService;
 import com.hartron.investharyana.service.ProjectServiceReportInfoService;
-import com.hartron.investharyana.service.dto.ApprovalformsDTO;
+import com.hartron.investharyana.service.dto.DepartmentDTO;
 import com.hartron.investharyana.service.dto.DepartmentStatsDTO;
 import com.hartron.investharyana.service.dto.ProjectServiceReportInfoDTO;
-import com.hartron.investharyana.web.rest.util.HeaderUtil;
-import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -34,8 +25,11 @@ public class DepartmentStatsResource {
 
     private final ProjectServiceReportInfoService projectServiceReportInfoService;
 
-    public DepartmentStatsResource(ProjectServiceReportInfoService projectServiceReportInfoService) {
+    private final DepartmentService departmentService;
+
+    public DepartmentStatsResource(ProjectServiceReportInfoService projectServiceReportInfoService, DepartmentService departmentService) {
         this.projectServiceReportInfoService = projectServiceReportInfoService;
+        this.departmentService = departmentService;
     }
 
     @GetMapping("/departmentstatscollection")
@@ -45,70 +39,140 @@ public class DepartmentStatsResource {
 
 
 
+        List<DepartmentDTO> departmentDTOS= new ArrayList<>();
+        departmentDTOS = departmentService.findAll();
+
+
+
         List<DepartmentStatsDTO> departmentStatsDTOList=new ArrayList<>();
-
         List<ProjectServiceReportInfoDTO> projectServiceReportInfoDTOList = new ArrayList<>();
-
         ProjectServiceReportInfoDTO projectServiceReportInfoDTO = new ProjectServiceReportInfoDTO();
-
         projectServiceReportInfoDTOList   = projectServiceReportInfoService.findAll();
-        List<UUID> projectidlist;
-        List<ProjectServiceReportInfoDTO> filteredArticleList= projectServiceReportInfoDTOList.stream().filter(article -> article.getStatus().contains("Pending")).collect(Collectors.toList());
 
-//        List<ProjectServiceReportInfoDTO> fil= projectServiceReportInfoDTOList.stream().filter(article -> article.getStatus().contains("Pending")).collect(Collectors.toList());
-//        for(int reportinfordto=0;i<projectServiceReportInfoDTOList.size(); reportinfordto++) {
-//            projectServiceReportInfoDTO = projectServiceReportInfoDTOList.get(reportinfordto);
-//
-//            if("Hafed" == projectServiceReportInfoDTO.getDepartmentname())
-//            {
-//                projectidlistprojectServiceReportInfoDTO.getProjectid();
-//            }
-//        }
+            List<String> departNameList=new ArrayList<>();
+            List<UUID> projectidList= new ArrayList<>();
 
-        DepartmentStatsDTO departmentStatsDTO=new DepartmentStatsDTO();
-        departmentStatsDTO.setDepartmentName("HAFED");
-        departmentStatsDTO.setTotalCaf("89");
-        departmentStatsDTO.setTotalPendingCaf("65");
-        departmentStatsDTO.setTotalStageOneCaf("28");
-        departmentStatsDTO.setTotalStageTwoCaf("12");
-        departmentStatsDTO.setTotalStageThreeCaf("17");
-        departmentStatsDTOList.add(departmentStatsDTO);
+            for(int i=0;i < projectServiceReportInfoDTOList.size();i++)
+            {
+                String departNameLocal;
+                UUID projectidLocal;
+                ProjectServiceReportInfoDTO projectServiceReportInfoDTO1= projectServiceReportInfoDTOList.get(i);
+                departNameLocal= projectServiceReportInfoDTO1.getDepartmentname();
+                projectidLocal          = projectServiceReportInfoDTO1.getProjectid();
 
-        DepartmentStatsDTO departmentStatsDTO1=new DepartmentStatsDTO();
-        departmentStatsDTO1.setDepartmentName("Higher Education");
-        departmentStatsDTO1.setTotalCaf("40");
-        departmentStatsDTO1.setTotalPendingCaf("16");
-        departmentStatsDTO1.setTotalStageOneCaf("34");
-        departmentStatsDTO1.setTotalStageTwoCaf("17");
-        departmentStatsDTO1.setTotalStageThreeCaf("60");
-        departmentStatsDTOList.add(departmentStatsDTO1);
+               if(!(departNameList.contains(departNameLocal)))
+                {
+                    departNameList.add(departNameLocal);
+                }
 
-        DepartmentStatsDTO departmentStatsDTO2=new DepartmentStatsDTO();
-        departmentStatsDTO2.setDepartmentName("HSAMV");
-        departmentStatsDTO2.setTotalCaf("12");
-        departmentStatsDTO2.setTotalPendingCaf("7");
-        departmentStatsDTO2.setTotalStageOneCaf("3");
-        departmentStatsDTO2.setTotalStageTwoCaf("1");
-        departmentStatsDTO2.setTotalStageThreeCaf("3");
-        departmentStatsDTOList.add(departmentStatsDTO2);
+                if(!(projectidList.contains(projectidLocal)))
+                {
+                    projectidList.add(projectidLocal);
 
-        DepartmentStatsDTO departmentStatsDTO3=new DepartmentStatsDTO();
-        departmentStatsDTO3.setDepartmentName("Food & Supplies");
-        departmentStatsDTO3.setTotalCaf("76");
-        departmentStatsDTO3.setTotalPendingCaf("65");
-        departmentStatsDTO3.setTotalStageOneCaf("28");
-        departmentStatsDTO3.setTotalStageTwoCaf("11");
-        departmentStatsDTO3.setTotalStageThreeCaf("19");
-        departmentStatsDTOList.add(departmentStatsDTO3);
+                }
 
-        DepartmentStatsDTO departmentStatsDTO4=new DepartmentStatsDTO();
-        departmentStatsDTO4.setDepartmentName("Food & Supplies");
-        departmentStatsDTO4.setTotalCaf("76");
-        departmentStatsDTO4.setTotalPendingCaf("65");
-        departmentStatsDTO4.setTotalStageOneCaf("28");
-        departmentStatsDTO4.setTotalStageTwoCaf("11");
-        departmentStatsDTO4.setTotalStageThreeCaf("19");
-        departmentStatsDTOList.add(departmentStatsDTO4);
+            }
+
+            System.out.println(departNameList);
+            System.out.println(projectidList);
+
+
+        Integer countElcc=0;
+        Integer countDlcc=0;
+
+        for(int deptNameL=0;deptNameL < departNameList.size();deptNameL++)
+            {
+                Integer totalcaf=0;
+                Integer stageone=0;
+                Integer stagetwo=0;
+                Integer stagethree=0;
+                Integer pendings=0;
+                Double totalInvest=0.0;
+
+                countElcc=0;
+                countDlcc=0;
+
+                DepartmentStatsDTO departmentStatsDTO=new DepartmentStatsDTO();
+
+                String departNameLocal = departNameList.get(deptNameL);
+                for(int projidL=0;projidL < projectidList.size();projidL++)
+                {
+                    String projectid = projectidList.get(projidL).toString();
+                    totalInvest=0.0;
+
+                    List<ProjectServiceReportInfoDTO> filteredArticleList= projectServiceReportInfoDTOList.stream().filter(article -> article.getDepartmentname().contains(departNameLocal)).filter(article -> article.getProjectid().toString().contains(projectid)) .collect(Collectors.toList());
+
+                    if(filteredArticleList.size()>0)
+                    {
+                        totalcaf++;
+                    }
+
+                    if(filteredArticleList.size()>0) {
+                        ProjectServiceReportInfoDTO projectServiceReportInfoDTO1 = filteredArticleList.get(0);
+                        totalInvest = totalInvest + projectServiceReportInfoDTO1.getProjectInvestment();
+
+                        if (totalInvest >= 10000000.0) {
+                            countElcc++;
+                        }
+                        if (totalInvest < 10000000.0) {
+                            countDlcc++;
+                        }
+                    }
+
+
+                    List<ProjectServiceReportInfoDTO> filteredArticleListStageOne= projectServiceReportInfoDTOList.stream().filter(article -> article.getDepartmentname().contains(departNameLocal)).filter(article -> article.getProjectid().toString().contains(projectid)).filter(article -> article.getStage().contains("StageI")) .collect(Collectors.toList());
+
+                    if(filteredArticleListStageOne.size()>0)
+                    {
+                        stageone++;
+                    }
+
+                    List<ProjectServiceReportInfoDTO> filteredArticleListStageTwo= projectServiceReportInfoDTOList.stream().filter(article -> article.getDepartmentname().contains(departNameLocal)).filter(article -> article.getProjectid().toString().contains(projectid)).filter(article -> article.getStage().contains("Stage-II")) .collect(Collectors.toList());
+
+                    if(filteredArticleListStageTwo.size()>0)
+                    {
+                        stagetwo++;
+                    }
+
+
+                    List<ProjectServiceReportInfoDTO> filteredArticleListStageThree= projectServiceReportInfoDTOList.stream().filter(article -> article.getDepartmentname().contains(departNameLocal)).filter(article -> article.getProjectid().toString().contains(projectid)).filter(article -> article.getStage().contains("Stage-III")) .collect(Collectors.toList());
+
+                    if(filteredArticleListStageThree.size()>0)
+                    {
+                        stagethree++;
+                    }
+
+
+                    List<ProjectServiceReportInfoDTO> filteredArticleListStatus= projectServiceReportInfoDTOList.stream().filter(article -> article.getDepartmentname().contains(departNameLocal)).filter(article -> article.getProjectid().toString().contains(projectid)).filter(article -> article.getStatus().contains("Pending")) .collect(Collectors.toList());
+
+                    if(filteredArticleListStatus.size()>0)
+                    {
+                        pendings++;
+                    }
+
+
+
+                }
+                System.out.println(totalcaf);
+
+                departmentStatsDTO.setDepartmentName(departNameList.get(deptNameL));
+                departmentStatsDTO.setTotalCaf(totalcaf.toString());
+                departmentStatsDTO.setTotalPendingCaf(pendings.toString());
+                departmentStatsDTO.setTotalStageOneCaf(stageone.toString());
+                departmentStatsDTO.setTotalStageTwoCaf(stagetwo.toString());
+                departmentStatsDTO.setTotalStageThreeCaf(stagethree.toString());
+                departmentStatsDTO.setElcc(countElcc.toString());
+                departmentStatsDTO.setDlcc(countDlcc.toString());
+
+                departmentStatsDTOList.add(departmentStatsDTO);
+
+            }
+
+
+
+
+
+
 
         return departmentStatsDTOList;
     }

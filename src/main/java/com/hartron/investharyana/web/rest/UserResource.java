@@ -148,6 +148,21 @@ public class UserResource {
     }
 
     /**
+     * GET  /users : get all users.
+     *
+     * @param email the login of the user to find
+     * @return the ResponseEntity with status 200 (OK) and with body all users
+     * @throws URISyntaxException if the pagination headers couldn't be generated
+     */
+    @GetMapping("/users/{parameters}")
+    @Timed
+    public ResponseEntity<List<UserDTO>> getAllUsersByEmail(@RequestParam(value = "email", required = true) String email)
+        throws URISyntaxException {
+        final List<UserDTO> userDTOs = userService.getAllManagedUsers();
+        return new ResponseEntity<>(userDTOs, HttpStatus.OK);
+    }
+
+    /**
      * GET  /users/:login : get the "login" user.
      *
      * @param login the login of the user to find
