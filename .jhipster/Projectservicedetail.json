@@ -11,28 +11,64 @@
             "fieldType": "UUID"
         },
         {
-            "fieldName": "userlogin",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "servicerequired",
+            "fieldName": "isRequired",
             "fieldType": "Boolean"
         },
         {
-            "fieldName": "servicestatus",
-            "fieldType": "String"
-        },
-        {
-            "fieldName": "assigndate",
+            "fieldName": "requireMarkedOnDate",
             "fieldType": "ZonedDateTime"
         },
         {
-            "fieldName": "servicefee",
-            "fieldType": "Double"
+            "fieldName": "requireMarkedBy",
+            "fieldType": "String"
         },
         {
-            "fieldName": "remarks",
+            "fieldName": "isAssigned",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "assigOnDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "assignBy",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "formFilledStatus",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isPaymentMade",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isPaymentVerified",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "formFilledOnDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "formFilledBy",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "paymentMadeOnDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "latestComments",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "serviceFee",
+            "fieldType": "BigDecimal"
         }
     ],
     "changelogDate": "20170325092523",

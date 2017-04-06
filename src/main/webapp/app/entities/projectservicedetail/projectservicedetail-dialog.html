@@ -26,43 +26,109 @@
                     />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.projectservicedetail.userlogin" for="field_userlogin">Userlogin</label>
-            <input type="text" class="form-control" name="userlogin" id="field_userlogin"
-                    ng-model="vm.projectservicedetail.userlogin"
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.isRequired" for="field_isRequired">Is Required</label>
+            <input type="checkbox" class="form-control" name="isRequired" id="field_isRequired"
+                    ng-model="vm.projectservicedetail.isRequired"
                     />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.projectservicedetail.servicerequired" for="field_servicerequired">Servicerequired</label>
-            <input type="checkbox" class="form-control" name="servicerequired" id="field_servicerequired"
-                    ng-model="vm.projectservicedetail.servicerequired"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.projectservicedetail.servicestatus" for="field_servicestatus">Servicestatus</label>
-            <input type="text" class="form-control" name="servicestatus" id="field_servicestatus"
-                    ng-model="vm.projectservicedetail.servicestatus"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.projectservicedetail.assigndate" for="field_assigndate">Assigndate</label>
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.requireMarkedOnDate" for="field_requireMarkedOnDate">Require Marked On Date</label>
                 <div class="input-group">
-                    <input id="field_assigndate" type="text" class="form-control" name="assigndate" datetime-picker="{{dateformat}}" ng-model="vm.projectservicedetail.assigndate" is-open="vm.datePickerOpenStatus.assigndate"
+                    <input id="field_requireMarkedOnDate" type="text" class="form-control" name="requireMarkedOnDate" datetime-picker="{{dateformat}}" ng-model="vm.projectservicedetail.requireMarkedOnDate" is-open="vm.datePickerOpenStatus.requireMarkedOnDate"
                     />
                     <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('assigndate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('requireMarkedOnDate')"><i class="glyphicon glyphicon-calendar"></i></button>
                     </span>
                 </div>
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.projectservicedetail.servicefee" for="field_servicefee">Servicefee</label>
-            <input type="number" class="form-control" name="servicefee" id="field_servicefee"
-                    ng-model="vm.projectservicedetail.servicefee"
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.requireMarkedBy" for="field_requireMarkedBy">Require Marked By</label>
+            <input type="text" class="form-control" name="requireMarkedBy" id="field_requireMarkedBy"
+                    ng-model="vm.projectservicedetail.requireMarkedBy"
                     />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.projectservicedetail.remarks" for="field_remarks">Remarks</label>
-            <input type="text" class="form-control" name="remarks" id="field_remarks"
-                    ng-model="vm.projectservicedetail.remarks"
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.isAssigned" for="field_isAssigned">Is Assigned</label>
+            <input type="checkbox" class="form-control" name="isAssigned" id="field_isAssigned"
+                    ng-model="vm.projectservicedetail.isAssigned"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.assigOnDate" for="field_assigOnDate">Assig On Date</label>
+                <div class="input-group">
+                    <input id="field_assigOnDate" type="text" class="form-control" name="assigOnDate" datetime-picker="{{dateformat}}" ng-model="vm.projectservicedetail.assigOnDate" is-open="vm.datePickerOpenStatus.assigOnDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('assigOnDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.assignBy" for="field_assignBy">Assign By</label>
+            <input type="text" class="form-control" name="assignBy" id="field_assignBy"
+                    ng-model="vm.projectservicedetail.assignBy"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.formFilledStatus" for="field_formFilledStatus">Form Filled Status</label>
+            <input type="checkbox" class="form-control" name="formFilledStatus" id="field_formFilledStatus"
+                    ng-model="vm.projectservicedetail.formFilledStatus"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.isPaymentMade" for="field_isPaymentMade">Is Payment Made</label>
+            <input type="checkbox" class="form-control" name="isPaymentMade" id="field_isPaymentMade"
+                    ng-model="vm.projectservicedetail.isPaymentMade"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.isPaymentVerified" for="field_isPaymentVerified">Is Payment Verified</label>
+            <input type="checkbox" class="form-control" name="isPaymentVerified" id="field_isPaymentVerified"
+                    ng-model="vm.projectservicedetail.isPaymentVerified"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.formFilledOnDate" for="field_formFilledOnDate">Form Filled On Date</label>
+                <div class="input-group">
+                    <input id="field_formFilledOnDate" type="text" class="form-control" name="formFilledOnDate" datetime-picker="{{dateformat}}" ng-model="vm.projectservicedetail.formFilledOnDate" is-open="vm.datePickerOpenStatus.formFilledOnDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('formFilledOnDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.formFilledBy" for="field_formFilledBy">Form Filled By</label>
+            <input type="text" class="form-control" name="formFilledBy" id="field_formFilledBy"
+                    ng-model="vm.projectservicedetail.formFilledBy"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.paymentMadeOnDate" for="field_paymentMadeOnDate">Payment Made On Date</label>
+                <div class="input-group">
+                    <input id="field_paymentMadeOnDate" type="text" class="form-control" name="paymentMadeOnDate" datetime-picker="{{dateformat}}" ng-model="vm.projectservicedetail.paymentMadeOnDate" is-open="vm.datePickerOpenStatus.paymentMadeOnDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('paymentMadeOnDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.status" for="field_status">Status</label>
+            <input type="text" class="form-control" name="status" id="field_status"
+                    ng-model="vm.projectservicedetail.status"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.latestComments" for="field_latestComments">Latest Comments</label>
+            <input type="text" class="form-control" name="latestComments" id="field_latestComments"
+                    ng-model="vm.projectservicedetail.latestComments"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectservicedetail.serviceFee" for="field_serviceFee">Service Fee</label>
+            <input type="number" class="form-control" name="serviceFee" id="field_serviceFee"
+                    ng-model="vm.projectservicedetail.serviceFee"
                     />
         </div>
 

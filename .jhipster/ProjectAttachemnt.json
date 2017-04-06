@@ -1,0 +1,27 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "fileName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fileExtension",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "serverFileName",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170406160156",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "project_attachemnt",
+    "pagination": "no"
+}

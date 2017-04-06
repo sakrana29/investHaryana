@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span data-translate="investhryApp.projectServicePaymentDetails.detail.title">Project Service Payment Details</span> {{vm.projectServicePaymentDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="investhryApp.projectServicePaymentDetails.projectid">Projectid</span></dt>
+        <dd>
+            <span>{{vm.projectServicePaymentDetails.projectid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServicePaymentDetails.serviceid">Serviceid</span></dt>
+        <dd>
+            <span>{{vm.projectServicePaymentDetails.serviceid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServicePaymentDetails.paymentMade">Payment Made</span></dt>
+        <dd>
+            <span>{{vm.projectServicePaymentDetails.paymentMade}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServicePaymentDetails.paymentMadeBy">Payment Made By</span></dt>
+        <dd>
+            <span>{{vm.projectServicePaymentDetails.paymentMadeBy}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServicePaymentDetails.paymentDate">Payment Date</span></dt>
+        <dd>
+            <span>{{vm.projectServicePaymentDetails.paymentDate | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="project-service-payment-details-detail.edit({id:vm.projectServicePaymentDetails.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

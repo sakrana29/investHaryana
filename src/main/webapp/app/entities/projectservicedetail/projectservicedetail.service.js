@@ -16,7 +16,10 @@
                 transformResponse: function (data) {
                     if (data) {
                         data = angular.fromJson(data);
-                        data.assigndate = DateUtils.convertDateTimeFromServer(data.assigndate);
+                        data.requireMarkedOnDate = DateUtils.convertDateTimeFromServer(data.requireMarkedOnDate);
+                        data.assigOnDate = DateUtils.convertDateTimeFromServer(data.assigOnDate);
+                        data.formFilledOnDate = DateUtils.convertDateTimeFromServer(data.formFilledOnDate);
+                        data.paymentMadeOnDate = DateUtils.convertDateTimeFromServer(data.paymentMadeOnDate);
                     }
                     return data;
                 }

@@ -1,0 +1,25 @@
+{
+    "investhryApp": {
+        "projectServicePaymentDetails" : {
+            "home": {
+                "title": "ProjectServicePaymentDetails",
+                "createLabel": "नया Project Service Payment Details बनाएँ",
+                "createOrEditLabel": "Project Service Payment Details बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Project Service Payment Details [identifier: {{ param }}] तैयार है",
+            "updated": "एक Project Service Payment Details [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Project Service Payment Details [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Project Service Payment Details [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Project Service Payment Details"
+            },
+            "projectid": "Projectid",
+            "serviceid": "Serviceid",
+            "paymentMade": "Payment Made",
+            "paymentMadeBy": "Payment Made By",
+            "paymentDate": "Payment Date"
+        }
+    }
+}

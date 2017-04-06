@@ -1,0 +1,64 @@
+<div>
+    <h2 data-translate="investhryApp.projectServicePaymentDetails.home.title">Project Service Payment Details</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="project-service-payment-details.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="investhryApp.projectServicePaymentDetails.home.createLabel">
+                        Create new Project Service Payment Details
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="investhryApp.projectServicePaymentDetails.projectid">Projectid</span></th>
+                    <th><span data-translate="investhryApp.projectServicePaymentDetails.serviceid">Serviceid</span></th>
+                    <th><span data-translate="investhryApp.projectServicePaymentDetails.paymentMade">Payment Made</span></th>
+                    <th><span data-translate="investhryApp.projectServicePaymentDetails.paymentMadeBy">Payment Made By</span></th>
+                    <th><span data-translate="investhryApp.projectServicePaymentDetails.paymentDate">Payment Date</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="projectServicePaymentDetails in vm.projectServicePaymentDetails track by projectServicePaymentDetails.id">
+                    <td><a ui-sref="project-service-payment-details-detail({id:projectServicePaymentDetails.id})">{{projectServicePaymentDetails.id}}</a></td>
+                    <td>{{projectServicePaymentDetails.projectid}}</td>
+                    <td>{{projectServicePaymentDetails.serviceid}}</td>
+                    <td>{{projectServicePaymentDetails.paymentMade}}</td>
+                    <td>{{projectServicePaymentDetails.paymentMadeBy}}</td>
+                    <td>{{projectServicePaymentDetails.paymentDate | date:'medium'}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="project-service-payment-details-detail({id:projectServicePaymentDetails.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="project-service-payment-details.edit({id:projectServicePaymentDetails.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="project-service-payment-details.delete({id:projectServicePaymentDetails.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

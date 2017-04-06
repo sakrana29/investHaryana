@@ -22,6 +22,14 @@
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldName": "fieldTypeOption",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fieldRenderingOrder",
+            "fieldType": "Integer"
         }
     ],
     "changelogDate": "20170311172741",

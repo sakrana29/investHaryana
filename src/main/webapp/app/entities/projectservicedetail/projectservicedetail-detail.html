@@ -1,4 +1,5 @@
-<div class="container">
+
+<div>
     <h2><span data-translate="investhryApp.projectservicedetail.detail.title">Projectservicedetail</span> {{vm.projectservicedetail.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
@@ -11,29 +12,65 @@
         <dd>
             <span>{{vm.projectservicedetail.serviceid}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.projectservicedetail.userlogin">Userlogin</span></dt>
+        <dt><span data-translate="investhryApp.projectservicedetail.isRequired">Is Required</span></dt>
         <dd>
-            <span>{{vm.projectservicedetail.userlogin}}</span>
+            <span>{{vm.projectservicedetail.isRequired}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.projectservicedetail.servicerequired">Servicerequired</span></dt>
+        <dt><span data-translate="investhryApp.projectservicedetail.requireMarkedOnDate">Require Marked On Date</span></dt>
         <dd>
-            <span>{{vm.projectservicedetail.servicerequired}}</span>
+            <span>{{vm.projectservicedetail.requireMarkedOnDate | date:'medium'}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.projectservicedetail.servicestatus">Servicestatus</span></dt>
+        <dt><span data-translate="investhryApp.projectservicedetail.requireMarkedBy">Require Marked By</span></dt>
         <dd>
-            <span>{{vm.projectservicedetail.servicestatus}}</span>
+            <span>{{vm.projectservicedetail.requireMarkedBy}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.projectservicedetail.assigndate">Assigndate</span></dt>
+        <dt><span data-translate="investhryApp.projectservicedetail.isAssigned">Is Assigned</span></dt>
         <dd>
-            <span>{{vm.projectservicedetail.assigndate | date:'medium'}}</span>
+            <span>{{vm.projectservicedetail.isAssigned}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.projectservicedetail.servicefee">Servicefee</span></dt>
+        <dt><span data-translate="investhryApp.projectservicedetail.assigOnDate">Assig On Date</span></dt>
         <dd>
-            <span>{{vm.projectservicedetail.servicefee}}</span>
+            <span>{{vm.projectservicedetail.assigOnDate | date:'medium'}}</span>
         </dd>
-        <dt><span data-translate="investhryApp.projectservicedetail.remarks">Remarks</span></dt>
+        <dt><span data-translate="investhryApp.projectservicedetail.assignBy">Assign By</span></dt>
         <dd>
-            <span>{{vm.projectservicedetail.remarks}}</span>
+            <span>{{vm.projectservicedetail.assignBy}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectservicedetail.formFilledStatus">Form Filled Status</span></dt>
+        <dd>
+            <span>{{vm.projectservicedetail.formFilledStatus}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectservicedetail.isPaymentMade">Is Payment Made</span></dt>
+        <dd>
+            <span>{{vm.projectservicedetail.isPaymentMade}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectservicedetail.isPaymentVerified">Is Payment Verified</span></dt>
+        <dd>
+            <span>{{vm.projectservicedetail.isPaymentVerified}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectservicedetail.formFilledOnDate">Form Filled On Date</span></dt>
+        <dd>
+            <span>{{vm.projectservicedetail.formFilledOnDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectservicedetail.formFilledBy">Form Filled By</span></dt>
+        <dd>
+            <span>{{vm.projectservicedetail.formFilledBy}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectservicedetail.paymentMadeOnDate">Payment Made On Date</span></dt>
+        <dd>
+            <span>{{vm.projectservicedetail.paymentMadeOnDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectservicedetail.status">Status</span></dt>
+        <dd>
+            <span>{{vm.projectservicedetail.status}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectservicedetail.latestComments">Latest Comments</span></dt>
+        <dd>
+            <span>{{vm.projectservicedetail.latestComments}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectservicedetail.serviceFee">Service Fee</span></dt>
+        <dd>
+            <span>{{vm.projectservicedetail.serviceFee}}</span>
         </dd>
     </dl>
 

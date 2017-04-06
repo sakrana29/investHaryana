@@ -27,6 +27,7 @@ import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.time.ZoneOffset;
 import java.time.ZoneId;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -51,23 +52,50 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
     private static final UUID DEFAULT_SERVICEID = UUID.randomUUID();
     private static final UUID UPDATED_SERVICEID = UUID.randomUUID();
 
-    private static final String DEFAULT_USERLOGIN = "AAAAAAAAAA";
-    private static final String UPDATED_USERLOGIN = "BBBBBBBBBB";
+    private static final Boolean DEFAULT_IS_REQUIRED = false;
+    private static final Boolean UPDATED_IS_REQUIRED = true;
 
-    private static final Boolean DEFAULT_SERVICEREQUIRED = false;
-    private static final Boolean UPDATED_SERVICEREQUIRED = true;
+    private static final ZonedDateTime DEFAULT_REQUIRE_MARKED_ON_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_REQUIRE_MARKED_ON_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
-    private static final String DEFAULT_SERVICESTATUS = "AAAAAAAAAA";
-    private static final String UPDATED_SERVICESTATUS = "BBBBBBBBBB";
+    private static final String DEFAULT_REQUIRE_MARKED_BY = "AAAAAAAAAA";
+    private static final String UPDATED_REQUIRE_MARKED_BY = "BBBBBBBBBB";
 
-    private static final ZonedDateTime DEFAULT_ASSIGNDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
-    private static final ZonedDateTime UPDATED_ASSIGNDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private static final Boolean DEFAULT_IS_ASSIGNED = false;
+    private static final Boolean UPDATED_IS_ASSIGNED = true;
 
-    private static final Double DEFAULT_SERVICEFEE = 1D;
-    private static final Double UPDATED_SERVICEFEE = 2D;
+    private static final ZonedDateTime DEFAULT_ASSIG_ON_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_ASSIG_ON_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
-    private static final String DEFAULT_REMARKS = "AAAAAAAAAA";
-    private static final String UPDATED_REMARKS = "BBBBBBBBBB";
+    private static final String DEFAULT_ASSIGN_BY = "AAAAAAAAAA";
+    private static final String UPDATED_ASSIGN_BY = "BBBBBBBBBB";
+
+    private static final Boolean DEFAULT_FORM_FILLED_STATUS = false;
+    private static final Boolean UPDATED_FORM_FILLED_STATUS = true;
+
+    private static final Boolean DEFAULT_IS_PAYMENT_MADE = false;
+    private static final Boolean UPDATED_IS_PAYMENT_MADE = true;
+
+    private static final Boolean DEFAULT_IS_PAYMENT_VERIFIED = false;
+    private static final Boolean UPDATED_IS_PAYMENT_VERIFIED = true;
+
+    private static final ZonedDateTime DEFAULT_FORM_FILLED_ON_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_FORM_FILLED_ON_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+
+    private static final String DEFAULT_FORM_FILLED_BY = "AAAAAAAAAA";
+    private static final String UPDATED_FORM_FILLED_BY = "BBBBBBBBBB";
+
+    private static final ZonedDateTime DEFAULT_PAYMENT_MADE_ON_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_PAYMENT_MADE_ON_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+
+    private static final String DEFAULT_STATUS = "AAAAAAAAAA";
+    private static final String UPDATED_STATUS = "BBBBBBBBBB";
+
+    private static final String DEFAULT_LATEST_COMMENTS = "AAAAAAAAAA";
+    private static final String UPDATED_LATEST_COMMENTS = "BBBBBBBBBB";
+
+    private static final BigDecimal DEFAULT_SERVICE_FEE = new BigDecimal(1);
+    private static final BigDecimal UPDATED_SERVICE_FEE = new BigDecimal(2);
 
     @Autowired
     private ProjectservicedetailRepository projectservicedetailRepository;
@@ -111,12 +139,21 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
         Projectservicedetail projectservicedetail = new Projectservicedetail()
                 .projectid(DEFAULT_PROJECTID)
                 .serviceid(DEFAULT_SERVICEID)
-                .userlogin(DEFAULT_USERLOGIN)
-                .servicerequired(DEFAULT_SERVICEREQUIRED)
-                .servicestatus(DEFAULT_SERVICESTATUS)
-                .assigndate(DEFAULT_ASSIGNDATE)
-                .servicefee(DEFAULT_SERVICEFEE)
-                .remarks(DEFAULT_REMARKS);
+                .isRequired(DEFAULT_IS_REQUIRED)
+                .requireMarkedOnDate(DEFAULT_REQUIRE_MARKED_ON_DATE)
+                .requireMarkedBy(DEFAULT_REQUIRE_MARKED_BY)
+                .isAssigned(DEFAULT_IS_ASSIGNED)
+                .assigOnDate(DEFAULT_ASSIG_ON_DATE)
+                .assignBy(DEFAULT_ASSIGN_BY)
+                .formFilledStatus(DEFAULT_FORM_FILLED_STATUS)
+                .isPaymentMade(DEFAULT_IS_PAYMENT_MADE)
+                .isPaymentVerified(DEFAULT_IS_PAYMENT_VERIFIED)
+                .formFilledOnDate(DEFAULT_FORM_FILLED_ON_DATE)
+                .formFilledBy(DEFAULT_FORM_FILLED_BY)
+                .paymentMadeOnDate(DEFAULT_PAYMENT_MADE_ON_DATE)
+                .status(DEFAULT_STATUS)
+                .latestComments(DEFAULT_LATEST_COMMENTS)
+                .serviceFee(DEFAULT_SERVICE_FEE);
         return projectservicedetail;
     }
 
@@ -144,12 +181,21 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
         Projectservicedetail testProjectservicedetail = projectservicedetailList.get(projectservicedetailList.size() - 1);
         assertThat(testProjectservicedetail.getProjectid()).isEqualTo(DEFAULT_PROJECTID);
         assertThat(testProjectservicedetail.getServiceid()).isEqualTo(DEFAULT_SERVICEID);
-        assertThat(testProjectservicedetail.getUserlogin()).isEqualTo(DEFAULT_USERLOGIN);
-        assertThat(testProjectservicedetail.isServicerequired()).isEqualTo(DEFAULT_SERVICEREQUIRED);
-        assertThat(testProjectservicedetail.getServicestatus()).isEqualTo(DEFAULT_SERVICESTATUS);
-        assertThat(testProjectservicedetail.getAssigndate()).isEqualTo(DEFAULT_ASSIGNDATE);
-        assertThat(testProjectservicedetail.getServicefee()).isEqualTo(DEFAULT_SERVICEFEE);
-        assertThat(testProjectservicedetail.getRemarks()).isEqualTo(DEFAULT_REMARKS);
+        assertThat(testProjectservicedetail.isIsRequired()).isEqualTo(DEFAULT_IS_REQUIRED);
+        assertThat(testProjectservicedetail.getRequireMarkedOnDate()).isEqualTo(DEFAULT_REQUIRE_MARKED_ON_DATE);
+        assertThat(testProjectservicedetail.getRequireMarkedBy()).isEqualTo(DEFAULT_REQUIRE_MARKED_BY);
+        assertThat(testProjectservicedetail.isIsAssigned()).isEqualTo(DEFAULT_IS_ASSIGNED);
+        assertThat(testProjectservicedetail.getAssigOnDate()).isEqualTo(DEFAULT_ASSIG_ON_DATE);
+        assertThat(testProjectservicedetail.getAssignBy()).isEqualTo(DEFAULT_ASSIGN_BY);
+        assertThat(testProjectservicedetail.isFormFilledStatus()).isEqualTo(DEFAULT_FORM_FILLED_STATUS);
+        assertThat(testProjectservicedetail.isIsPaymentMade()).isEqualTo(DEFAULT_IS_PAYMENT_MADE);
+        assertThat(testProjectservicedetail.isIsPaymentVerified()).isEqualTo(DEFAULT_IS_PAYMENT_VERIFIED);
+        assertThat(testProjectservicedetail.getFormFilledOnDate()).isEqualTo(DEFAULT_FORM_FILLED_ON_DATE);
+        assertThat(testProjectservicedetail.getFormFilledBy()).isEqualTo(DEFAULT_FORM_FILLED_BY);
+        assertThat(testProjectservicedetail.getPaymentMadeOnDate()).isEqualTo(DEFAULT_PAYMENT_MADE_ON_DATE);
+        assertThat(testProjectservicedetail.getStatus()).isEqualTo(DEFAULT_STATUS);
+        assertThat(testProjectservicedetail.getLatestComments()).isEqualTo(DEFAULT_LATEST_COMMENTS);
+        assertThat(testProjectservicedetail.getServiceFee()).isEqualTo(DEFAULT_SERVICE_FEE);
     }
 
     @Test
@@ -184,12 +230,21 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(projectservicedetail.getId().toString())))
             .andExpect(jsonPath("$.[*].projectid").value(hasItem(DEFAULT_PROJECTID.toString())))
             .andExpect(jsonPath("$.[*].serviceid").value(hasItem(DEFAULT_SERVICEID.toString())))
-            .andExpect(jsonPath("$.[*].userlogin").value(hasItem(DEFAULT_USERLOGIN.toString())))
-            .andExpect(jsonPath("$.[*].servicerequired").value(hasItem(DEFAULT_SERVICEREQUIRED.booleanValue())))
-            .andExpect(jsonPath("$.[*].servicestatus").value(hasItem(DEFAULT_SERVICESTATUS.toString())))
-            .andExpect(jsonPath("$.[*].assigndate").value(hasItem(sameInstant(DEFAULT_ASSIGNDATE))))
-            .andExpect(jsonPath("$.[*].servicefee").value(hasItem(DEFAULT_SERVICEFEE.doubleValue())))
-            .andExpect(jsonPath("$.[*].remarks").value(hasItem(DEFAULT_REMARKS.toString())));
+            .andExpect(jsonPath("$.[*].isRequired").value(hasItem(DEFAULT_IS_REQUIRED.booleanValue())))
+            .andExpect(jsonPath("$.[*].requireMarkedOnDate").value(hasItem(sameInstant(DEFAULT_REQUIRE_MARKED_ON_DATE))))
+            .andExpect(jsonPath("$.[*].requireMarkedBy").value(hasItem(DEFAULT_REQUIRE_MARKED_BY.toString())))
+            .andExpect(jsonPath("$.[*].isAssigned").value(hasItem(DEFAULT_IS_ASSIGNED.booleanValue())))
+            .andExpect(jsonPath("$.[*].assigOnDate").value(hasItem(sameInstant(DEFAULT_ASSIG_ON_DATE))))
+            .andExpect(jsonPath("$.[*].assignBy").value(hasItem(DEFAULT_ASSIGN_BY.toString())))
+            .andExpect(jsonPath("$.[*].formFilledStatus").value(hasItem(DEFAULT_FORM_FILLED_STATUS.booleanValue())))
+            .andExpect(jsonPath("$.[*].isPaymentMade").value(hasItem(DEFAULT_IS_PAYMENT_MADE.booleanValue())))
+            .andExpect(jsonPath("$.[*].isPaymentVerified").value(hasItem(DEFAULT_IS_PAYMENT_VERIFIED.booleanValue())))
+            .andExpect(jsonPath("$.[*].formFilledOnDate").value(hasItem(sameInstant(DEFAULT_FORM_FILLED_ON_DATE))))
+            .andExpect(jsonPath("$.[*].formFilledBy").value(hasItem(DEFAULT_FORM_FILLED_BY.toString())))
+            .andExpect(jsonPath("$.[*].paymentMadeOnDate").value(hasItem(sameInstant(DEFAULT_PAYMENT_MADE_ON_DATE))))
+            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())))
+            .andExpect(jsonPath("$.[*].latestComments").value(hasItem(DEFAULT_LATEST_COMMENTS.toString())))
+            .andExpect(jsonPath("$.[*].serviceFee").value(hasItem(DEFAULT_SERVICE_FEE.intValue())));
     }
 
     @Test
@@ -204,12 +259,21 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.id").value(projectservicedetail.getId().toString()))
             .andExpect(jsonPath("$.projectid").value(DEFAULT_PROJECTID.toString()))
             .andExpect(jsonPath("$.serviceid").value(DEFAULT_SERVICEID.toString()))
-            .andExpect(jsonPath("$.userlogin").value(DEFAULT_USERLOGIN.toString()))
-            .andExpect(jsonPath("$.servicerequired").value(DEFAULT_SERVICEREQUIRED.booleanValue()))
-            .andExpect(jsonPath("$.servicestatus").value(DEFAULT_SERVICESTATUS.toString()))
-            .andExpect(jsonPath("$.assigndate").value(sameInstant(DEFAULT_ASSIGNDATE)))
-            .andExpect(jsonPath("$.servicefee").value(DEFAULT_SERVICEFEE.doubleValue()))
-            .andExpect(jsonPath("$.remarks").value(DEFAULT_REMARKS.toString()));
+            .andExpect(jsonPath("$.isRequired").value(DEFAULT_IS_REQUIRED.booleanValue()))
+            .andExpect(jsonPath("$.requireMarkedOnDate").value(sameInstant(DEFAULT_REQUIRE_MARKED_ON_DATE)))
+            .andExpect(jsonPath("$.requireMarkedBy").value(DEFAULT_REQUIRE_MARKED_BY.toString()))
+            .andExpect(jsonPath("$.isAssigned").value(DEFAULT_IS_ASSIGNED.booleanValue()))
+            .andExpect(jsonPath("$.assigOnDate").value(sameInstant(DEFAULT_ASSIG_ON_DATE)))
+            .andExpect(jsonPath("$.assignBy").value(DEFAULT_ASSIGN_BY.toString()))
+            .andExpect(jsonPath("$.formFilledStatus").value(DEFAULT_FORM_FILLED_STATUS.booleanValue()))
+            .andExpect(jsonPath("$.isPaymentMade").value(DEFAULT_IS_PAYMENT_MADE.booleanValue()))
+            .andExpect(jsonPath("$.isPaymentVerified").value(DEFAULT_IS_PAYMENT_VERIFIED.booleanValue()))
+            .andExpect(jsonPath("$.formFilledOnDate").value(sameInstant(DEFAULT_FORM_FILLED_ON_DATE)))
+            .andExpect(jsonPath("$.formFilledBy").value(DEFAULT_FORM_FILLED_BY.toString()))
+            .andExpect(jsonPath("$.paymentMadeOnDate").value(sameInstant(DEFAULT_PAYMENT_MADE_ON_DATE)))
+            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()))
+            .andExpect(jsonPath("$.latestComments").value(DEFAULT_LATEST_COMMENTS.toString()))
+            .andExpect(jsonPath("$.serviceFee").value(DEFAULT_SERVICE_FEE.intValue()));
     }
 
     @Test
@@ -230,12 +294,21 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
         updatedProjectservicedetail
                 .projectid(UPDATED_PROJECTID)
                 .serviceid(UPDATED_SERVICEID)
-                .userlogin(UPDATED_USERLOGIN)
-                .servicerequired(UPDATED_SERVICEREQUIRED)
-                .servicestatus(UPDATED_SERVICESTATUS)
-                .assigndate(UPDATED_ASSIGNDATE)
-                .servicefee(UPDATED_SERVICEFEE)
-                .remarks(UPDATED_REMARKS);
+                .isRequired(UPDATED_IS_REQUIRED)
+                .requireMarkedOnDate(UPDATED_REQUIRE_MARKED_ON_DATE)
+                .requireMarkedBy(UPDATED_REQUIRE_MARKED_BY)
+                .isAssigned(UPDATED_IS_ASSIGNED)
+                .assigOnDate(UPDATED_ASSIG_ON_DATE)
+                .assignBy(UPDATED_ASSIGN_BY)
+                .formFilledStatus(UPDATED_FORM_FILLED_STATUS)
+                .isPaymentMade(UPDATED_IS_PAYMENT_MADE)
+                .isPaymentVerified(UPDATED_IS_PAYMENT_VERIFIED)
+                .formFilledOnDate(UPDATED_FORM_FILLED_ON_DATE)
+                .formFilledBy(UPDATED_FORM_FILLED_BY)
+                .paymentMadeOnDate(UPDATED_PAYMENT_MADE_ON_DATE)
+                .status(UPDATED_STATUS)
+                .latestComments(UPDATED_LATEST_COMMENTS)
+                .serviceFee(UPDATED_SERVICE_FEE);
         ProjectservicedetailDTO projectservicedetailDTO = projectservicedetailMapper.projectservicedetailToProjectservicedetailDTO(updatedProjectservicedetail);
 
         restProjectservicedetailMockMvc.perform(put("/api/projectservicedetails")
@@ -249,12 +322,21 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
         Projectservicedetail testProjectservicedetail = projectservicedetailList.get(projectservicedetailList.size() - 1);
         assertThat(testProjectservicedetail.getProjectid()).isEqualTo(UPDATED_PROJECTID);
         assertThat(testProjectservicedetail.getServiceid()).isEqualTo(UPDATED_SERVICEID);
-        assertThat(testProjectservicedetail.getUserlogin()).isEqualTo(UPDATED_USERLOGIN);
-        assertThat(testProjectservicedetail.isServicerequired()).isEqualTo(UPDATED_SERVICEREQUIRED);
-        assertThat(testProjectservicedetail.getServicestatus()).isEqualTo(UPDATED_SERVICESTATUS);
-        assertThat(testProjectservicedetail.getAssigndate()).isEqualTo(UPDATED_ASSIGNDATE);
-        assertThat(testProjectservicedetail.getServicefee()).isEqualTo(UPDATED_SERVICEFEE);
-        assertThat(testProjectservicedetail.getRemarks()).isEqualTo(UPDATED_REMARKS);
+        assertThat(testProjectservicedetail.isIsRequired()).isEqualTo(UPDATED_IS_REQUIRED);
+        assertThat(testProjectservicedetail.getRequireMarkedOnDate()).isEqualTo(UPDATED_REQUIRE_MARKED_ON_DATE);
+        assertThat(testProjectservicedetail.getRequireMarkedBy()).isEqualTo(UPDATED_REQUIRE_MARKED_BY);
+        assertThat(testProjectservicedetail.isIsAssigned()).isEqualTo(UPDATED_IS_ASSIGNED);
+        assertThat(testProjectservicedetail.getAssigOnDate()).isEqualTo(UPDATED_ASSIG_ON_DATE);
+        assertThat(testProjectservicedetail.getAssignBy()).isEqualTo(UPDATED_ASSIGN_BY);
+        assertThat(testProjectservicedetail.isFormFilledStatus()).isEqualTo(UPDATED_FORM_FILLED_STATUS);
+        assertThat(testProjectservicedetail.isIsPaymentMade()).isEqualTo(UPDATED_IS_PAYMENT_MADE);
+        assertThat(testProjectservicedetail.isIsPaymentVerified()).isEqualTo(UPDATED_IS_PAYMENT_VERIFIED);
+        assertThat(testProjectservicedetail.getFormFilledOnDate()).isEqualTo(UPDATED_FORM_FILLED_ON_DATE);
+        assertThat(testProjectservicedetail.getFormFilledBy()).isEqualTo(UPDATED_FORM_FILLED_BY);
+        assertThat(testProjectservicedetail.getPaymentMadeOnDate()).isEqualTo(UPDATED_PAYMENT_MADE_ON_DATE);
+        assertThat(testProjectservicedetail.getStatus()).isEqualTo(UPDATED_STATUS);
+        assertThat(testProjectservicedetail.getLatestComments()).isEqualTo(UPDATED_LATEST_COMMENTS);
+        assertThat(testProjectservicedetail.getServiceFee()).isEqualTo(UPDATED_SERVICE_FEE);
     }
 
     @Test

@@ -3,6 +3,7 @@ package com.hartron.investharyana.service.dto;
 
 import java.time.ZonedDateTime;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -17,17 +18,35 @@ public class ProjectservicedetailDTO implements Serializable {
 
     private UUID serviceid;
 
-    private String userlogin;
+    private Boolean isRequired;
 
-    private Boolean servicerequired;
+    private ZonedDateTime requireMarkedOnDate;
 
-    private String servicestatus;
+    private String requireMarkedBy;
 
-    private ZonedDateTime assigndate;
+    private Boolean isAssigned;
 
-    private Double servicefee;
+    private ZonedDateTime assigOnDate;
 
-    private String remarks;
+    private String assignBy;
+
+    private Boolean formFilledStatus;
+
+    private Boolean isPaymentMade;
+
+    private Boolean isPaymentVerified;
+
+    private ZonedDateTime formFilledOnDate;
+
+    private String formFilledBy;
+
+    private ZonedDateTime paymentMadeOnDate;
+
+    private String status;
+
+    private String latestComments;
+
+    private BigDecimal serviceFee;
 
     public UUID getId() {
         return id;
@@ -50,47 +69,110 @@ public class ProjectservicedetailDTO implements Serializable {
     public void setServiceid(UUID serviceid) {
         this.serviceid = serviceid;
     }
-    public String getUserlogin() {
-        return userlogin;
+    public Boolean getIsRequired() {
+        return isRequired;
     }
 
-    public void setUserlogin(String userlogin) {
-        this.userlogin = userlogin;
+    public void setIsRequired(Boolean isRequired) {
+        this.isRequired = isRequired;
     }
-    public Boolean getServicerequired() {
-        return servicerequired;
-    }
-
-    public void setServicerequired(Boolean servicerequired) {
-        this.servicerequired = servicerequired;
-    }
-    public String getServicestatus() {
-        return servicestatus;
+    public ZonedDateTime getRequireMarkedOnDate() {
+        return requireMarkedOnDate;
     }
 
-    public void setServicestatus(String servicestatus) {
-        this.servicestatus = servicestatus;
+    public void setRequireMarkedOnDate(ZonedDateTime requireMarkedOnDate) {
+        this.requireMarkedOnDate = requireMarkedOnDate;
     }
-    public ZonedDateTime getAssigndate() {
-        return assigndate;
-    }
-
-    public void setAssigndate(ZonedDateTime assigndate) {
-        this.assigndate = assigndate;
-    }
-    public Double getServicefee() {
-        return servicefee;
+    public String getRequireMarkedBy() {
+        return requireMarkedBy;
     }
 
-    public void setServicefee(Double servicefee) {
-        this.servicefee = servicefee;
+    public void setRequireMarkedBy(String requireMarkedBy) {
+        this.requireMarkedBy = requireMarkedBy;
     }
-    public String getRemarks() {
-        return remarks;
+    public Boolean getIsAssigned() {
+        return isAssigned;
     }
 
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
+    public void setIsAssigned(Boolean isAssigned) {
+        this.isAssigned = isAssigned;
+    }
+    public ZonedDateTime getAssigOnDate() {
+        return assigOnDate;
+    }
+
+    public void setAssigOnDate(ZonedDateTime assigOnDate) {
+        this.assigOnDate = assigOnDate;
+    }
+    public String getAssignBy() {
+        return assignBy;
+    }
+
+    public void setAssignBy(String assignBy) {
+        this.assignBy = assignBy;
+    }
+    public Boolean getFormFilledStatus() {
+        return formFilledStatus;
+    }
+
+    public void setFormFilledStatus(Boolean formFilledStatus) {
+        this.formFilledStatus = formFilledStatus;
+    }
+    public Boolean getIsPaymentMade() {
+        return isPaymentMade;
+    }
+
+    public void setIsPaymentMade(Boolean isPaymentMade) {
+        this.isPaymentMade = isPaymentMade;
+    }
+    public Boolean getIsPaymentVerified() {
+        return isPaymentVerified;
+    }
+
+    public void setIsPaymentVerified(Boolean isPaymentVerified) {
+        this.isPaymentVerified = isPaymentVerified;
+    }
+    public ZonedDateTime getFormFilledOnDate() {
+        return formFilledOnDate;
+    }
+
+    public void setFormFilledOnDate(ZonedDateTime formFilledOnDate) {
+        this.formFilledOnDate = formFilledOnDate;
+    }
+    public String getFormFilledBy() {
+        return formFilledBy;
+    }
+
+    public void setFormFilledBy(String formFilledBy) {
+        this.formFilledBy = formFilledBy;
+    }
+    public ZonedDateTime getPaymentMadeOnDate() {
+        return paymentMadeOnDate;
+    }
+
+    public void setPaymentMadeOnDate(ZonedDateTime paymentMadeOnDate) {
+        this.paymentMadeOnDate = paymentMadeOnDate;
+    }
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    public String getLatestComments() {
+        return latestComments;
+    }
+
+    public void setLatestComments(String latestComments) {
+        this.latestComments = latestComments;
+    }
+    public BigDecimal getServiceFee() {
+        return serviceFee;
+    }
+
+    public void setServiceFee(BigDecimal serviceFee) {
+        this.serviceFee = serviceFee;
     }
 
     @Override
@@ -120,12 +202,21 @@ public class ProjectservicedetailDTO implements Serializable {
             "id=" + id +
             ", projectid='" + projectid + "'" +
             ", serviceid='" + serviceid + "'" +
-            ", userlogin='" + userlogin + "'" +
-            ", servicerequired='" + servicerequired + "'" +
-            ", servicestatus='" + servicestatus + "'" +
-            ", assigndate='" + assigndate + "'" +
-            ", servicefee='" + servicefee + "'" +
-            ", remarks='" + remarks + "'" +
+            ", isRequired='" + isRequired + "'" +
+            ", requireMarkedOnDate='" + requireMarkedOnDate + "'" +
+            ", requireMarkedBy='" + requireMarkedBy + "'" +
+            ", isAssigned='" + isAssigned + "'" +
+            ", assigOnDate='" + assigOnDate + "'" +
+            ", assignBy='" + assignBy + "'" +
+            ", formFilledStatus='" + formFilledStatus + "'" +
+            ", isPaymentMade='" + isPaymentMade + "'" +
+            ", isPaymentVerified='" + isPaymentVerified + "'" +
+            ", formFilledOnDate='" + formFilledOnDate + "'" +
+            ", formFilledBy='" + formFilledBy + "'" +
+            ", paymentMadeOnDate='" + paymentMadeOnDate + "'" +
+            ", status='" + status + "'" +
+            ", latestComments='" + latestComments + "'" +
+            ", serviceFee='" + serviceFee + "'" +
             '}';
     }
 }

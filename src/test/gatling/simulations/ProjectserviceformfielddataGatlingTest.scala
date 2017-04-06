@@ -68,7 +68,7 @@ class ProjectserviceformfielddataGatlingTest extends Simulation {
             .exec(http("Create new projectserviceformfielddata")
             .post("/api/projectserviceformfielddata")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "serviceid":null, "formfieldvalue":"SAMPLE_TEXT", "projectserviceformfieldvalue":null, "projectid":null}""")).asJSON
+            .body(StringBody("""{"id":null, "serviceid":null, "formfieldvalue":"SAMPLE_TEXT", "projectid":null, "formfieldName":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_projectserviceformfielddata_url"))).exitHereIfFailed
             .pause(10)

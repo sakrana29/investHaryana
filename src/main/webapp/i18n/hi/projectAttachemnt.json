@@ -1,0 +1,24 @@
+{
+    "investhryApp": {
+        "projectAttachemnt" : {
+            "home": {
+                "title": "ProjectAttachemnts",
+                "createLabel": "नया Project Attachemnt बनाएँ",
+                "createOrEditLabel": "Project Attachemnt बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Project Attachemnt [identifier: {{ param }}] तैयार है",
+            "updated": "एक Project Attachemnt [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Project Attachemnt [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Project Attachemnt [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Project Attachemnt"
+            },
+            "fileName": "File Name",
+            "description": "Description",
+            "fileExtension": "File Extension",
+            "serverFileName": "Server File Name"
+        }
+    }
+}

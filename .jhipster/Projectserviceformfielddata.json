@@ -14,18 +14,15 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "projectserviceformfieldvalue",
+            "fieldName": "projectid",
             "fieldType": "UUID",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
-            "fieldName": "projectid",
-            "fieldType": "UUID",
-            "fieldValidateRules": [
-                "required"
-            ]
+            "fieldName": "formfieldName",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170328025841",

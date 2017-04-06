@@ -1,0 +1,24 @@
+{
+    "investhryApp": {
+        "projectAttachemnt" : {
+            "home": {
+                "title": "Project Attachemnts",
+                "createLabel": "Create a new Project Attachemnt",
+                "createOrEditLabel": "Create or edit a Project Attachemnt"
+            },
+            "created": "A new Project Attachemnt is created with identifier {{ param }}",
+            "updated": "A Project Attachemnt is updated with identifier {{ param }}",
+            "deleted": "A Project Attachemnt is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Project Attachemnt {{ id }}?"
+            },
+            "detail": {
+                "title": "Project Attachemnt"
+            },
+            "fileName": "File Name",
+            "description": "Description",
+            "fileExtension": "File Extension",
+            "serverFileName": "Server File Name"
+        }
+    }
+}

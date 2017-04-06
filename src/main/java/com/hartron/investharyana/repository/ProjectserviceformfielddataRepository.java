@@ -41,8 +41,8 @@ public class ProjectserviceformfielddataRepository {
                 projectserviceformfielddata.setId(row.getUUID("id"));
                 projectserviceformfielddata.setServiceid(row.getUUID("serviceid"));
                 projectserviceformfielddata.setFormfieldvalue(row.getString("formfieldvalue"));
-                projectserviceformfielddata.setProjectserviceformfieldvalue(row.getUUID("projectserviceformfieldvalue"));
                 projectserviceformfielddata.setProjectid(row.getUUID("projectid"));
+                projectserviceformfielddata.setFormfieldName(row.getString("formfieldName"));
                 return projectserviceformfielddata;
             }
         ).forEach(projectserviceformfielddataList::add);

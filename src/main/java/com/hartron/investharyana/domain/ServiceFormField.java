@@ -28,6 +28,10 @@ public class ServiceFormField implements Serializable {
     @NotNull
     private UUID serviceID;
 
+    private String fieldTypeOption;
+
+    private Integer fieldRenderingOrder;
+
     public UUID getId() {
         return id;
     }
@@ -75,6 +79,32 @@ public class ServiceFormField implements Serializable {
         this.serviceID = serviceID;
     }
 
+    public String getFieldTypeOption() {
+        return fieldTypeOption;
+    }
+
+    public ServiceFormField fieldTypeOption(String fieldTypeOption) {
+        this.fieldTypeOption = fieldTypeOption;
+        return this;
+    }
+
+    public void setFieldTypeOption(String fieldTypeOption) {
+        this.fieldTypeOption = fieldTypeOption;
+    }
+
+    public Integer getFieldRenderingOrder() {
+        return fieldRenderingOrder;
+    }
+
+    public ServiceFormField fieldRenderingOrder(Integer fieldRenderingOrder) {
+        this.fieldRenderingOrder = fieldRenderingOrder;
+        return this;
+    }
+
+    public void setFieldRenderingOrder(Integer fieldRenderingOrder) {
+        this.fieldRenderingOrder = fieldRenderingOrder;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -102,6 +132,8 @@ public class ServiceFormField implements Serializable {
             ", fieldName='" + fieldName + "'" +
             ", fieldType='" + fieldType + "'" +
             ", serviceID='" + serviceID + "'" +
+            ", fieldTypeOption='" + fieldTypeOption + "'" +
+            ", fieldRenderingOrder='" + fieldRenderingOrder + "'" +
             '}';
     }
 }

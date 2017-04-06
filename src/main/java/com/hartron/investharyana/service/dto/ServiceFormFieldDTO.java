@@ -22,6 +22,10 @@ public class ServiceFormFieldDTO implements Serializable {
     @NotNull
     private UUID serviceID;
 
+    private String fieldTypeOption;
+
+    private Integer fieldRenderingOrder;
+
     public UUID getId() {
         return id;
     }
@@ -49,6 +53,20 @@ public class ServiceFormFieldDTO implements Serializable {
 
     public void setServiceID(UUID serviceID) {
         this.serviceID = serviceID;
+    }
+    public String getFieldTypeOption() {
+        return fieldTypeOption;
+    }
+
+    public void setFieldTypeOption(String fieldTypeOption) {
+        this.fieldTypeOption = fieldTypeOption;
+    }
+    public Integer getFieldRenderingOrder() {
+        return fieldRenderingOrder;
+    }
+
+    public void setFieldRenderingOrder(Integer fieldRenderingOrder) {
+        this.fieldRenderingOrder = fieldRenderingOrder;
     }
 
     @Override
@@ -79,6 +97,8 @@ public class ServiceFormFieldDTO implements Serializable {
             ", fieldName='" + fieldName + "'" +
             ", fieldType='" + fieldType + "'" +
             ", serviceID='" + serviceID + "'" +
+            ", fieldTypeOption='" + fieldTypeOption + "'" +
+            ", fieldRenderingOrder='" + fieldRenderingOrder + "'" +
             '}';
     }
 }

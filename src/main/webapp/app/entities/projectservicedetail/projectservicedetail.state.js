@@ -106,12 +106,21 @@
                             return {
                                 projectid: null,
                                 serviceid: null,
-                                userlogin: null,
-                                servicerequired: null,
-                                servicestatus: null,
-                                assigndate: null,
-                                servicefee: null,
-                                remarks: null,
+                                isRequired: null,
+                                requireMarkedOnDate: null,
+                                requireMarkedBy: null,
+                                isAssigned: null,
+                                assigOnDate: null,
+                                assignBy: null,
+                                formFilledStatus: null,
+                                isPaymentMade: null,
+                                isPaymentVerified: null,
+                                formFilledOnDate: null,
+                                formFilledBy: null,
+                                paymentMadeOnDate: null,
+                                status: null,
+                                latestComments: null,
+                                serviceFee: null,
                                 id: null
                             };
                         }

@@ -29,7 +29,7 @@ public class ServiceFormFieldResource {
     private final Logger log = LoggerFactory.getLogger(ServiceFormFieldResource.class);
 
     private static final String ENTITY_NAME = "serviceFormField";
-
+        
     private final ServiceFormFieldService serviceFormFieldService;
 
     public ServiceFormFieldResource(ServiceFormFieldService serviceFormFieldService) {
@@ -88,18 +88,6 @@ public class ServiceFormFieldResource {
     public List<ServiceFormFieldDTO> getAllServiceFormFields() {
         log.debug("REST request to get all ServiceFormFields");
         return serviceFormFieldService.findAll();
-    }
-
-    /**
-     * GET  /service-form-fields : get all the serviceFormFields by Deptid.
-     *
-     * @return the ResponseEntity with status 200 (OK) and the list of serviceFormFields in body
-     */
-    @GetMapping("/service-form-fields/Service/{serviceid}")
-    @Timed
-    public List<ServiceFormFieldDTO> getAllServiceFormFieldsByServiceId(String serviceid) {
-        log.debug("REST request to get all ServiceFormFields by Serviceid");
-        return serviceFormFieldService.findServiceFormFieldsByServiceId(serviceid);
     }
 
     /**

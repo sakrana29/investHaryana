@@ -3,6 +3,7 @@ package com.hartron.investharyana.domain;
 import com.datastax.driver.mapping.annotations.*;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.UUID;
@@ -23,17 +24,35 @@ public class Projectservicedetail implements Serializable {
 
     private UUID serviceid;
 
-    private String userlogin;
+    private Boolean isRequired;
 
-    private Boolean servicerequired;
+    private ZonedDateTime requireMarkedOnDate;
 
-    private String servicestatus;
+    private String requireMarkedBy;
 
-    private ZonedDateTime assigndate;
+    private Boolean isAssigned;
 
-    private Double servicefee;
+    private ZonedDateTime assigOnDate;
 
-    private String remarks;
+    private String assignBy;
+
+    private Boolean formFilledStatus;
+
+    private Boolean isPaymentMade;
+
+    private Boolean isPaymentVerified;
+
+    private ZonedDateTime formFilledOnDate;
+
+    private String formFilledBy;
+
+    private ZonedDateTime paymentMadeOnDate;
+
+    private String status;
+
+    private String latestComments;
+
+    private BigDecimal serviceFee;
 
     public UUID getId() {
         return id;
@@ -69,82 +88,199 @@ public class Projectservicedetail implements Serializable {
         this.serviceid = serviceid;
     }
 
-    public String getUserlogin() {
-        return userlogin;
+    public Boolean isIsRequired() {
+        return isRequired;
     }
 
-    public Projectservicedetail userlogin(String userlogin) {
-        this.userlogin = userlogin;
+    public Projectservicedetail isRequired(Boolean isRequired) {
+        this.isRequired = isRequired;
         return this;
     }
 
-    public void setUserlogin(String userlogin) {
-        this.userlogin = userlogin;
+    public void setIsRequired(Boolean isRequired) {
+        this.isRequired = isRequired;
     }
 
-    public Boolean isServicerequired() {
-        return servicerequired;
+    public ZonedDateTime getRequireMarkedOnDate() {
+        return requireMarkedOnDate;
     }
 
-    public Projectservicedetail servicerequired(Boolean servicerequired) {
-        this.servicerequired = servicerequired;
+    public Projectservicedetail requireMarkedOnDate(ZonedDateTime requireMarkedOnDate) {
+        this.requireMarkedOnDate = requireMarkedOnDate;
         return this;
     }
 
-    public void setServicerequired(Boolean servicerequired) {
-        this.servicerequired = servicerequired;
+    public void setRequireMarkedOnDate(ZonedDateTime requireMarkedOnDate) {
+        this.requireMarkedOnDate = requireMarkedOnDate;
     }
 
-    public String getServicestatus() {
-        return servicestatus;
+    public String getRequireMarkedBy() {
+        return requireMarkedBy;
     }
 
-    public Projectservicedetail servicestatus(String servicestatus) {
-        this.servicestatus = servicestatus;
+    public Projectservicedetail requireMarkedBy(String requireMarkedBy) {
+        this.requireMarkedBy = requireMarkedBy;
         return this;
     }
 
-    public void setServicestatus(String servicestatus) {
-        this.servicestatus = servicestatus;
+    public void setRequireMarkedBy(String requireMarkedBy) {
+        this.requireMarkedBy = requireMarkedBy;
     }
 
-    public ZonedDateTime getAssigndate() {
-        return assigndate;
+    public Boolean isIsAssigned() {
+        return isAssigned;
     }
 
-    public Projectservicedetail assigndate(ZonedDateTime assigndate) {
-        this.assigndate = assigndate;
+    public Projectservicedetail isAssigned(Boolean isAssigned) {
+        this.isAssigned = isAssigned;
         return this;
     }
 
-    public void setAssigndate(ZonedDateTime assigndate) {
-        this.assigndate = assigndate;
+    public void setIsAssigned(Boolean isAssigned) {
+        this.isAssigned = isAssigned;
     }
 
-    public Double getServicefee() {
-        return servicefee;
+    public ZonedDateTime getAssigOnDate() {
+        return assigOnDate;
     }
 
-    public Projectservicedetail servicefee(Double servicefee) {
-        this.servicefee = servicefee;
+    public Projectservicedetail assigOnDate(ZonedDateTime assigOnDate) {
+        this.assigOnDate = assigOnDate;
         return this;
     }
 
-    public void setServicefee(Double servicefee) {
-        this.servicefee = servicefee;
+    public void setAssigOnDate(ZonedDateTime assigOnDate) {
+        this.assigOnDate = assigOnDate;
     }
 
-    public String getRemarks() {
-        return remarks;
+    public String getAssignBy() {
+        return assignBy;
     }
 
-    public Projectservicedetail remarks(String remarks) {
-        this.remarks = remarks;
+    public Projectservicedetail assignBy(String assignBy) {
+        this.assignBy = assignBy;
         return this;
     }
 
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
+    public void setAssignBy(String assignBy) {
+        this.assignBy = assignBy;
+    }
+
+    public Boolean isFormFilledStatus() {
+        return formFilledStatus;
+    }
+
+    public Projectservicedetail formFilledStatus(Boolean formFilledStatus) {
+        this.formFilledStatus = formFilledStatus;
+        return this;
+    }
+
+    public void setFormFilledStatus(Boolean formFilledStatus) {
+        this.formFilledStatus = formFilledStatus;
+    }
+
+    public Boolean isIsPaymentMade() {
+        return isPaymentMade;
+    }
+
+    public Projectservicedetail isPaymentMade(Boolean isPaymentMade) {
+        this.isPaymentMade = isPaymentMade;
+        return this;
+    }
+
+    public void setIsPaymentMade(Boolean isPaymentMade) {
+        this.isPaymentMade = isPaymentMade;
+    }
+
+    public Boolean isIsPaymentVerified() {
+        return isPaymentVerified;
+    }
+
+    public Projectservicedetail isPaymentVerified(Boolean isPaymentVerified) {
+        this.isPaymentVerified = isPaymentVerified;
+        return this;
+    }
+
+    public void setIsPaymentVerified(Boolean isPaymentVerified) {
+        this.isPaymentVerified = isPaymentVerified;
+    }
+
+    public ZonedDateTime getFormFilledOnDate() {
+        return formFilledOnDate;
+    }
+
+    public Projectservicedetail formFilledOnDate(ZonedDateTime formFilledOnDate) {
+        this.formFilledOnDate = formFilledOnDate;
+        return this;
+    }
+
+    public void setFormFilledOnDate(ZonedDateTime formFilledOnDate) {
+        this.formFilledOnDate = formFilledOnDate;
+    }
+
+    public String getFormFilledBy() {
+        return formFilledBy;
+    }
+
+    public Projectservicedetail formFilledBy(String formFilledBy) {
+        this.formFilledBy = formFilledBy;
+        return this;
+    }
+
+    public void setFormFilledBy(String formFilledBy) {
+        this.formFilledBy = formFilledBy;
+    }
+
+    public ZonedDateTime getPaymentMadeOnDate() {
+        return paymentMadeOnDate;
+    }
+
+    public Projectservicedetail paymentMadeOnDate(ZonedDateTime paymentMadeOnDate) {
+        this.paymentMadeOnDate = paymentMadeOnDate;
+        return this;
+    }
+
+    public void setPaymentMadeOnDate(ZonedDateTime paymentMadeOnDate) {
+        this.paymentMadeOnDate = paymentMadeOnDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public Projectservicedetail status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getLatestComments() {
+        return latestComments;
+    }
+
+    public Projectservicedetail latestComments(String latestComments) {
+        this.latestComments = latestComments;
+        return this;
+    }
+
+    public void setLatestComments(String latestComments) {
+        this.latestComments = latestComments;
+    }
+
+    public BigDecimal getServiceFee() {
+        return serviceFee;
+    }
+
+    public Projectservicedetail serviceFee(BigDecimal serviceFee) {
+        this.serviceFee = serviceFee;
+        return this;
+    }
+
+    public void setServiceFee(BigDecimal serviceFee) {
+        this.serviceFee = serviceFee;
     }
 
     @Override
@@ -173,12 +309,21 @@ public class Projectservicedetail implements Serializable {
             "id=" + id +
             ", projectid='" + projectid + "'" +
             ", serviceid='" + serviceid + "'" +
-            ", userlogin='" + userlogin + "'" +
-            ", servicerequired='" + servicerequired + "'" +
-            ", servicestatus='" + servicestatus + "'" +
-            ", assigndate='" + assigndate + "'" +
-            ", servicefee='" + servicefee + "'" +
-            ", remarks='" + remarks + "'" +
+            ", isRequired='" + isRequired + "'" +
+            ", requireMarkedOnDate='" + requireMarkedOnDate + "'" +
+            ", requireMarkedBy='" + requireMarkedBy + "'" +
+            ", isAssigned='" + isAssigned + "'" +
+            ", assigOnDate='" + assigOnDate + "'" +
+            ", assignBy='" + assignBy + "'" +
+            ", formFilledStatus='" + formFilledStatus + "'" +
+            ", isPaymentMade='" + isPaymentMade + "'" +
+            ", isPaymentVerified='" + isPaymentVerified + "'" +
+            ", formFilledOnDate='" + formFilledOnDate + "'" +
+            ", formFilledBy='" + formFilledBy + "'" +
+            ", paymentMadeOnDate='" + paymentMadeOnDate + "'" +
+            ", status='" + status + "'" +
+            ", latestComments='" + latestComments + "'" +
+            ", serviceFee='" + serviceFee + "'" +
             '}';
     }
 }

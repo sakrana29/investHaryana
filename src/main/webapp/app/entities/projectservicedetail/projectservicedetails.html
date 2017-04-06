@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <h2 data-translate="investhryApp.projectservicedetail.home.title">Projectservicedetails</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
@@ -21,12 +21,21 @@
                     <th><span data-translate="global.field.id">ID</span></th>
                     <th><span data-translate="investhryApp.projectservicedetail.projectid">Projectid</span></th>
                     <th><span data-translate="investhryApp.projectservicedetail.serviceid">Serviceid</span></th>
-                    <th><span data-translate="investhryApp.projectservicedetail.userlogin">Userlogin</span></th>
-                    <th><span data-translate="investhryApp.projectservicedetail.servicerequired">Servicerequired</span></th>
-                    <th><span data-translate="investhryApp.projectservicedetail.servicestatus">Servicestatus</span></th>
-                    <th><span data-translate="investhryApp.projectservicedetail.assigndate">Assigndate</span></th>
-                    <th><span data-translate="investhryApp.projectservicedetail.servicefee">Servicefee</span></th>
-                    <th><span data-translate="investhryApp.projectservicedetail.remarks">Remarks</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.isRequired">Is Required</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.requireMarkedOnDate">Require Marked On Date</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.requireMarkedBy">Require Marked By</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.isAssigned">Is Assigned</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.assigOnDate">Assig On Date</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.assignBy">Assign By</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.formFilledStatus">Form Filled Status</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.isPaymentMade">Is Payment Made</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.isPaymentVerified">Is Payment Verified</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.formFilledOnDate">Form Filled On Date</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.formFilledBy">Form Filled By</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.paymentMadeOnDate">Payment Made On Date</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.status">Status</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.latestComments">Latest Comments</span></th>
+                    <th><span data-translate="investhryApp.projectservicedetail.serviceFee">Service Fee</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -35,12 +44,21 @@
                     <td><a ui-sref="projectservicedetail-detail({id:projectservicedetail.id})">{{projectservicedetail.id}}</a></td>
                     <td>{{projectservicedetail.projectid}}</td>
                     <td>{{projectservicedetail.serviceid}}</td>
-                    <td>{{projectservicedetail.userlogin}}</td>
-                    <td>{{projectservicedetail.servicerequired}}</td>
-                    <td>{{projectservicedetail.servicestatus}}</td>
-                    <td>{{projectservicedetail.assigndate | date:'medium'}}</td>
-                    <td>{{projectservicedetail.servicefee}}</td>
-                    <td>{{projectservicedetail.remarks}}</td>
+                    <td>{{projectservicedetail.isRequired}}</td>
+                    <td>{{projectservicedetail.requireMarkedOnDate | date:'medium'}}</td>
+                    <td>{{projectservicedetail.requireMarkedBy}}</td>
+                    <td>{{projectservicedetail.isAssigned}}</td>
+                    <td>{{projectservicedetail.assigOnDate | date:'medium'}}</td>
+                    <td>{{projectservicedetail.assignBy}}</td>
+                    <td>{{projectservicedetail.formFilledStatus}}</td>
+                    <td>{{projectservicedetail.isPaymentMade}}</td>
+                    <td>{{projectservicedetail.isPaymentVerified}}</td>
+                    <td>{{projectservicedetail.formFilledOnDate | date:'medium'}}</td>
+                    <td>{{projectservicedetail.formFilledBy}}</td>
+                    <td>{{projectservicedetail.paymentMadeOnDate | date:'medium'}}</td>
+                    <td>{{projectservicedetail.status}}</td>
+                    <td>{{projectservicedetail.latestComments}}</td>
+                    <td>{{projectservicedetail.serviceFee}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

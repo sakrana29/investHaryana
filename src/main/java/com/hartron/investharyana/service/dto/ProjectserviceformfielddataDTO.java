@@ -19,10 +19,9 @@ public class ProjectserviceformfielddataDTO implements Serializable {
     private String formfieldvalue;
 
     @NotNull
-    private UUID projectserviceformfieldvalue;
-
-    @NotNull
     private UUID projectid;
+
+    private String formfieldName;
 
     public UUID getId() {
         return id;
@@ -45,19 +44,19 @@ public class ProjectserviceformfielddataDTO implements Serializable {
     public void setFormfieldvalue(String formfieldvalue) {
         this.formfieldvalue = formfieldvalue;
     }
-    public UUID getProjectserviceformfieldvalue() {
-        return projectserviceformfieldvalue;
-    }
-
-    public void setProjectserviceformfieldvalue(UUID projectserviceformfieldvalue) {
-        this.projectserviceformfieldvalue = projectserviceformfieldvalue;
-    }
     public UUID getProjectid() {
         return projectid;
     }
 
     public void setProjectid(UUID projectid) {
         this.projectid = projectid;
+    }
+    public String getFormfieldName() {
+        return formfieldName;
+    }
+
+    public void setFormfieldName(String formfieldName) {
+        this.formfieldName = formfieldName;
     }
 
     @Override
@@ -87,8 +86,8 @@ public class ProjectserviceformfielddataDTO implements Serializable {
             "id=" + id +
             ", serviceid='" + serviceid + "'" +
             ", formfieldvalue='" + formfieldvalue + "'" +
-            ", projectserviceformfieldvalue='" + projectserviceformfieldvalue + "'" +
             ", projectid='" + projectid + "'" +
+            ", formfieldName='" + formfieldName + "'" +
             '}';
     }
 }

@@ -17,12 +17,21 @@
             },
             "projectid": "Projectid",
             "serviceid": "Serviceid",
-            "userlogin": "Userlogin",
-            "servicerequired": "Servicerequired",
-            "servicestatus": "Servicestatus",
-            "assigndate": "Assigndate",
-            "servicefee": "Servicefee",
-            "remarks": "Remarks"
+            "isRequired": "Is Required",
+            "requireMarkedOnDate": "Require Marked On Date",
+            "requireMarkedBy": "Require Marked By",
+            "isAssigned": "Is Assigned",
+            "assigOnDate": "Assig On Date",
+            "assignBy": "Assign By",
+            "formFilledStatus": "Form Filled Status",
+            "isPaymentMade": "Is Payment Made",
+            "isPaymentVerified": "Is Payment Verified",
+            "formFilledOnDate": "Form Filled On Date",
+            "formFilledBy": "Form Filled By",
+            "paymentMadeOnDate": "Payment Made On Date",
+            "status": "Status",
+            "latestComments": "Latest Comments",
+            "serviceFee": "Service Fee"
         }
     }
 }

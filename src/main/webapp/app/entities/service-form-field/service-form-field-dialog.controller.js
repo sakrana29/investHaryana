@@ -5,9 +5,9 @@
         .module('investhryApp')
         .controller('ServiceFormFieldDialogController', ServiceFormFieldDialogController);
 
-    ServiceFormFieldDialogController.$inject = ['$timeout', '$scope', '$state', 'entity', 'ServiceFormField'];
+    ServiceFormFieldDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'ServiceFormField'];
 
-    function ServiceFormFieldDialogController ($timeout, $scope, $state, entity, ServiceFormField) {
+    function ServiceFormFieldDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, ServiceFormField) {
         var vm = this;
 
         vm.serviceFormField = entity;
@@ -19,7 +19,7 @@
         });
 
         function clear () {
-           $state.go('service-form-field', {}, { reload: 'service-form-field' });
+            $uibModalInstance.dismiss('cancel');
         }
 
         function save () {
@@ -33,7 +33,7 @@
 
         function onSaveSuccess (result) {
             $scope.$emit('investhryApp:serviceFormFieldUpdate', result);
-            $state.go('service-form-field', {}, { reload: 'service-form-field' });
+            $uibModalInstance.close(result);
             vm.isSaving = false;
         }
 

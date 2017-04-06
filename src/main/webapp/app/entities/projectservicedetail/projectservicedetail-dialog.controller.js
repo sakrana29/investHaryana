@@ -43,7 +43,10 @@
             vm.isSaving = false;
         }
 
-        vm.datePickerOpenStatus.assigndate = false;
+        vm.datePickerOpenStatus.requireMarkedOnDate = false;
+        vm.datePickerOpenStatus.assigOnDate = false;
+        vm.datePickerOpenStatus.formFilledOnDate = false;
+        vm.datePickerOpenStatus.paymentMadeOnDate = false;
 
         function openCalendar (date) {
             vm.datePickerOpenStatus[date] = true;

@@ -49,6 +49,12 @@ public class ServiceFormFieldResourceIntTest extends AbstractCassandraTest {
     private static final UUID DEFAULT_SERVICE_ID = UUID.randomUUID();
     private static final UUID UPDATED_SERVICE_ID = UUID.randomUUID();
 
+    private static final String DEFAULT_FIELD_TYPE_OPTION = "AAAAAAAAAA";
+    private static final String UPDATED_FIELD_TYPE_OPTION = "BBBBBBBBBB";
+
+    private static final Integer DEFAULT_FIELD_RENDERING_ORDER = 1;
+    private static final Integer UPDATED_FIELD_RENDERING_ORDER = 2;
+
     @Autowired
     private ServiceFormFieldRepository serviceFormFieldRepository;
 
@@ -91,7 +97,9 @@ public class ServiceFormFieldResourceIntTest extends AbstractCassandraTest {
         ServiceFormField serviceFormField = new ServiceFormField()
                 .fieldName(DEFAULT_FIELD_NAME)
                 .fieldType(DEFAULT_FIELD_TYPE)
-                .serviceID(DEFAULT_SERVICE_ID);
+                .serviceID(DEFAULT_SERVICE_ID)
+                .fieldTypeOption(DEFAULT_FIELD_TYPE_OPTION)
+                .fieldRenderingOrder(DEFAULT_FIELD_RENDERING_ORDER);
         return serviceFormField;
     }
 
@@ -120,6 +128,8 @@ public class ServiceFormFieldResourceIntTest extends AbstractCassandraTest {
         assertThat(testServiceFormField.getFieldName()).isEqualTo(DEFAULT_FIELD_NAME);
         assertThat(testServiceFormField.getFieldType()).isEqualTo(DEFAULT_FIELD_TYPE);
         assertThat(testServiceFormField.getServiceID()).isEqualTo(DEFAULT_SERVICE_ID);
+        assertThat(testServiceFormField.getFieldTypeOption()).isEqualTo(DEFAULT_FIELD_TYPE_OPTION);
+        assertThat(testServiceFormField.getFieldRenderingOrder()).isEqualTo(DEFAULT_FIELD_RENDERING_ORDER);
     }
 
     @Test
@@ -208,7 +218,9 @@ public class ServiceFormFieldResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(serviceFormField.getId().toString())))
             .andExpect(jsonPath("$.[*].fieldName").value(hasItem(DEFAULT_FIELD_NAME.toString())))
             .andExpect(jsonPath("$.[*].fieldType").value(hasItem(DEFAULT_FIELD_TYPE.toString())))
-            .andExpect(jsonPath("$.[*].serviceID").value(hasItem(DEFAULT_SERVICE_ID.toString())));
+            .andExpect(jsonPath("$.[*].serviceID").value(hasItem(DEFAULT_SERVICE_ID.toString())))
+            .andExpect(jsonPath("$.[*].fieldTypeOption").value(hasItem(DEFAULT_FIELD_TYPE_OPTION.toString())))
+            .andExpect(jsonPath("$.[*].fieldRenderingOrder").value(hasItem(DEFAULT_FIELD_RENDERING_ORDER)));
     }
 
     @Test
@@ -223,7 +235,9 @@ public class ServiceFormFieldResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.id").value(serviceFormField.getId().toString()))
             .andExpect(jsonPath("$.fieldName").value(DEFAULT_FIELD_NAME.toString()))
             .andExpect(jsonPath("$.fieldType").value(DEFAULT_FIELD_TYPE.toString()))
-            .andExpect(jsonPath("$.serviceID").value(DEFAULT_SERVICE_ID.toString()));
+            .andExpect(jsonPath("$.serviceID").value(DEFAULT_SERVICE_ID.toString()))
+            .andExpect(jsonPath("$.fieldTypeOption").value(DEFAULT_FIELD_TYPE_OPTION.toString()))
+            .andExpect(jsonPath("$.fieldRenderingOrder").value(DEFAULT_FIELD_RENDERING_ORDER));
     }
 
     @Test
@@ -244,7 +258,9 @@ public class ServiceFormFieldResourceIntTest extends AbstractCassandraTest {
         updatedServiceFormField
                 .fieldName(UPDATED_FIELD_NAME)
                 .fieldType(UPDATED_FIELD_TYPE)
-                .serviceID(UPDATED_SERVICE_ID);
+                .serviceID(UPDATED_SERVICE_ID)
+                .fieldTypeOption(UPDATED_FIELD_TYPE_OPTION)
+                .fieldRenderingOrder(UPDATED_FIELD_RENDERING_ORDER);
         ServiceFormFieldDTO serviceFormFieldDTO = serviceFormFieldMapper.serviceFormFieldToServiceFormFieldDTO(updatedServiceFormField);
 
         restServiceFormFieldMockMvc.perform(put("/api/service-form-fields")
@@ -259,6 +275,8 @@ public class ServiceFormFieldResourceIntTest extends AbstractCassandraTest {
         assertThat(testServiceFormField.getFieldName()).isEqualTo(UPDATED_FIELD_NAME);
         assertThat(testServiceFormField.getFieldType()).isEqualTo(UPDATED_FIELD_TYPE);
         assertThat(testServiceFormField.getServiceID()).isEqualTo(UPDATED_SERVICE_ID);
+        assertThat(testServiceFormField.getFieldTypeOption()).isEqualTo(UPDATED_FIELD_TYPE_OPTION);
+        assertThat(testServiceFormField.getFieldRenderingOrder()).isEqualTo(UPDATED_FIELD_RENDERING_ORDER);
     }
 
     @Test

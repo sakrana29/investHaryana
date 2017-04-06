@@ -32,18 +32,6 @@
                     />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="investhryApp.projectserviceformfielddata.projectserviceformfieldvalue" for="field_projectserviceformfieldvalue">Projectserviceformfieldvalue</label>
-            <input type="text" class="form-control" name="projectserviceformfieldvalue" id="field_projectserviceformfieldvalue"
-                    ng-model="vm.projectserviceformfielddata.projectserviceformfieldvalue"
-                    required/>
-            <div ng-show="editForm.projectserviceformfieldvalue.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.projectserviceformfieldvalue.$error.required" data-translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="control-label" data-translate="investhryApp.projectserviceformfielddata.projectid" for="field_projectid">Projectid</label>
             <input type="text" class="form-control" name="projectid" id="field_projectid"
                     ng-model="vm.projectserviceformfielddata.projectid"
@@ -54,6 +42,12 @@
                     This field is required.
                 </p>
             </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="investhryApp.projectserviceformfielddata.formfieldName" for="field_formfieldName">Formfield Name</label>
+            <input type="text" class="form-control" name="formfieldName" id="field_formfieldName"
+                    ng-model="vm.projectserviceformfielddata.formfieldName"
+                    />
         </div>
 
     </div>

@@ -106,8 +106,8 @@
                             return {
                                 serviceid: null,
                                 formfieldvalue: null,
-                                projectserviceformfieldvalue: null,
                                 projectid: null,
+                                formfieldName: null,
                                 id: null
                             };
                         }

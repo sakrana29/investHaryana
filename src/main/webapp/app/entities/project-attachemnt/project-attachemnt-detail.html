@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="investhryApp.projectAttachemnt.detail.title">Project Attachemnt</span> {{vm.projectAttachemnt.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="investhryApp.projectAttachemnt.fileName">File Name</span></dt>
+        <dd>
+            <span>{{vm.projectAttachemnt.fileName}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectAttachemnt.description">Description</span></dt>
+        <dd>
+            <span>{{vm.projectAttachemnt.description}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectAttachemnt.fileExtension">File Extension</span></dt>
+        <dd>
+            <span>{{vm.projectAttachemnt.fileExtension}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectAttachemnt.serverFileName">Server File Name</span></dt>
+        <dd>
+            <span>{{vm.projectAttachemnt.serverFileName}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="project-attachemnt-detail.edit({id:vm.projectAttachemnt.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -25,10 +25,9 @@ public class Projectserviceformfielddata implements Serializable {
     private String formfieldvalue;
 
     @NotNull
-    private UUID projectserviceformfieldvalue;
-
-    @NotNull
     private UUID projectid;
+
+    private String formfieldName;
 
     public UUID getId() {
         return id;
@@ -64,19 +63,6 @@ public class Projectserviceformfielddata implements Serializable {
         this.formfieldvalue = formfieldvalue;
     }
 
-    public UUID getProjectserviceformfieldvalue() {
-        return projectserviceformfieldvalue;
-    }
-
-    public Projectserviceformfielddata projectserviceformfieldvalue(UUID projectserviceformfieldvalue) {
-        this.projectserviceformfieldvalue = projectserviceformfieldvalue;
-        return this;
-    }
-
-    public void setProjectserviceformfieldvalue(UUID projectserviceformfieldvalue) {
-        this.projectserviceformfieldvalue = projectserviceformfieldvalue;
-    }
-
     public UUID getProjectid() {
         return projectid;
     }
@@ -88,6 +74,19 @@ public class Projectserviceformfielddata implements Serializable {
 
     public void setProjectid(UUID projectid) {
         this.projectid = projectid;
+    }
+
+    public String getFormfieldName() {
+        return formfieldName;
+    }
+
+    public Projectserviceformfielddata formfieldName(String formfieldName) {
+        this.formfieldName = formfieldName;
+        return this;
+    }
+
+    public void setFormfieldName(String formfieldName) {
+        this.formfieldName = formfieldName;
     }
 
     @Override
@@ -116,8 +115,8 @@ public class Projectserviceformfielddata implements Serializable {
             "id=" + id +
             ", serviceid='" + serviceid + "'" +
             ", formfieldvalue='" + formfieldvalue + "'" +
-            ", projectserviceformfieldvalue='" + projectserviceformfieldvalue + "'" +
             ", projectid='" + projectid + "'" +
+            ", formfieldName='" + formfieldName + "'" +
             '}';
     }
 }

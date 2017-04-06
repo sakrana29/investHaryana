@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span data-translate="investhryApp.projectServiceLog.detail.title">Project Service Log</span> {{vm.projectServiceLog.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="investhryApp.projectServiceLog.projectid">Projectid</span></dt>
+        <dd>
+            <span>{{vm.projectServiceLog.projectid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServiceLog.serviceid">Serviceid</span></dt>
+        <dd>
+            <span>{{vm.projectServiceLog.serviceid}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServiceLog.comments">Comments</span></dt>
+        <dd>
+            <span>{{vm.projectServiceLog.comments}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServiceLog.commentDate">Comment Date</span></dt>
+        <dd>
+            <span>{{vm.projectServiceLog.commentDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="investhryApp.projectServiceLog.commentByUserLogin">Comment By User Login</span></dt>
+        <dd>
+            <span>{{vm.projectServiceLog.commentByUserLogin}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="project-service-log-detail.edit({id:vm.projectServiceLog.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

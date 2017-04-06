@@ -68,7 +68,7 @@ class ProjectservicedetailGatlingTest extends Simulation {
             .exec(http("Create new projectservicedetail")
             .post("/api/projectservicedetails")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "projectid":null, "serviceid":null, "userlogin":"SAMPLE_TEXT", "servicerequired":null, "servicestatus":"SAMPLE_TEXT", "assigndate":"2020-01-01T00:00:00.000Z", "servicefee":null, "remarks":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "projectid":null, "serviceid":null, "isRequired":null, "requireMarkedOnDate":"2020-01-01T00:00:00.000Z", "requireMarkedBy":"SAMPLE_TEXT", "isAssigned":null, "assigOnDate":"2020-01-01T00:00:00.000Z", "assignBy":"SAMPLE_TEXT", "formFilledStatus":null, "isPaymentMade":null, "isPaymentVerified":null, "formFilledOnDate":"2020-01-01T00:00:00.000Z", "formFilledBy":"SAMPLE_TEXT", "paymentMadeOnDate":"2020-01-01T00:00:00.000Z", "status":"SAMPLE_TEXT", "latestComments":"SAMPLE_TEXT", "serviceFee":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_projectservicedetail_url"))).exitHereIfFailed
             .pause(10)

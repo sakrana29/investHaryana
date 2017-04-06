@@ -42,12 +42,21 @@ public class ProjectservicedetailRepository {
                 projectservicedetail.setId(row.getUUID("id"));
                 projectservicedetail.setProjectid(row.getUUID("projectid"));
                 projectservicedetail.setServiceid(row.getUUID("serviceid"));
-                projectservicedetail.setUserlogin(row.getString("userlogin"));
-                projectservicedetail.setServicerequired(row.getBool("servicerequired"));
-                projectservicedetail.setServicestatus(row.getString("servicestatus"));
-                projectservicedetail.setAssigndate(row.get("assigndate", ZonedDateTime.class));
-                projectservicedetail.setServicefee(row.getDouble("servicefee"));
-                projectservicedetail.setRemarks(row.getString("remarks"));
+                projectservicedetail.setIsRequired(row.getBool("isRequired"));
+                projectservicedetail.setRequireMarkedOnDate(row.get("requireMarkedOnDate", ZonedDateTime.class));
+                projectservicedetail.setRequireMarkedBy(row.getString("requireMarkedBy"));
+                projectservicedetail.setIsAssigned(row.getBool("isAssigned"));
+                projectservicedetail.setAssigOnDate(row.get("assigOnDate", ZonedDateTime.class));
+                projectservicedetail.setAssignBy(row.getString("assignBy"));
+                projectservicedetail.setFormFilledStatus(row.getBool("formFilledStatus"));
+                projectservicedetail.setIsPaymentMade(row.getBool("isPaymentMade"));
+                projectservicedetail.setIsPaymentVerified(row.getBool("isPaymentVerified"));
+                projectservicedetail.setFormFilledOnDate(row.get("formFilledOnDate", ZonedDateTime.class));
+                projectservicedetail.setFormFilledBy(row.getString("formFilledBy"));
+                projectservicedetail.setPaymentMadeOnDate(row.get("paymentMadeOnDate", ZonedDateTime.class));
+                projectservicedetail.setStatus(row.getString("status"));
+                projectservicedetail.setLatestComments(row.getString("latestComments"));
+                projectservicedetail.setServiceFee(row.getDecimal("serviceFee"));
                 return projectservicedetail;
             }
         ).forEach(projectservicedetailsList::add);

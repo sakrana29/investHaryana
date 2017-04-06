@@ -4,12 +4,7 @@ CREATE TABLE IF NOT EXISTS serviceFormField (
     fieldName text,
     fieldType text,
     serviceID uuid,
+    fieldTypeOption text,
+    fieldRenderingOrder int,
     PRIMARY KEY(id)
 );
-
-CREATE TABLE IF NOT EXISTS serviceFormField_by_service (
-serviceID uuid,
-id uuid,
-PRIMARY KEY(serviceID, id)
-);
-

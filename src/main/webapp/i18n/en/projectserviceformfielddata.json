@@ -17,8 +17,8 @@
             },
             "serviceid": "Serviceid",
             "formfieldvalue": "Formfieldvalue",
-            "projectserviceformfieldvalue": "Projectserviceformfieldvalue",
-            "projectid": "Projectid"
+            "projectid": "Projectid",
+            "formfieldName": "Formfield Name"
         }
     }
 }
