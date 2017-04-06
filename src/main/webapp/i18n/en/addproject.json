@@ -1,7 +1,13 @@
 {
     "addproject": {
         "home":{
-            "title": "addproject"
+            "title": "addproject",
+            "projectPurpose":"Project Purpose",
+            "investorName":"Investor Name",
+            "promotorMdDirector":"Promotor/MD/Director",
+            "sizeOfIndustry":"Size of Industry",
+            "projectCategory":"Project Category",
+            "totalProjectCost":"Total Project Cost"
         }
 
 

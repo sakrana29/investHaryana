@@ -1,7 +1,13 @@
 {
     "addproject": {
         "home":{
-            "title": "प्रोजेक्ट जोडें"
+            "title": "प्रोजेक्ट जोडें",
+            "projectPurpose":"प्रोजेक्ट उद्देश्य",
+            "investorName":"निवेशक नाम",
+            "promotorMdDirector":"समर्थक/प्रबंध निदेशक/निदेशक",
+            "sizeOfIndustry":"उद्योग का आकार",
+            "projectCategory":"प्रोजेक्ट वर्ग",
+            "totalProjectCost":"कुल प्रोजेक्ट कीमत"
         }
 
 
