@@ -159,16 +159,6 @@
                                  id: null
                              };
                          },
-                         manufacturing_detail: function () {
-                             return {
-                                 projectid: null,
-                                 projectrawmaterialid: null,
-                                 productid: null,
-                                 processid: null,
-                                 manufacturing_flow_document: null,
-                                 id: null
-                             };
-                         },
                          manufacturingdetail: function() {
                              return {
                                  projectid: null,
@@ -179,17 +169,17 @@
                                  id: null
                              };
                           },
-
                           projectrawmaterial: function () {
                               return {
-                                  projectid: null,
                                   rawmaterial: null,
                                   quantity: null,
                                   units: null,
+                                  createdate: null,
+                                  updatedate: null,
+                                  projectid: null,
                                   id: null
                               };
                           },
-
                           projectproduct: function () {
                               return {
                                   projectid: null,
@@ -199,7 +189,6 @@
                                   id: null
                               };
                           },
-
                           projectprocessflowstep: function () {
                               return {
                                   projectid: null,
@@ -207,11 +196,8 @@
                                   id: null
                               };
                           },
-
                           environmentimpactdetail: function () {
                               return {
-                                  projectid: null,
-                                  source_of_water_supply: null,
                                   water_process: null,
                                   water_cooling: null,
                                   water_domestic: null,
@@ -220,12 +206,16 @@
                                   waste_water_cooling: null,
                                   waste_water_domesting: null,
                                   waste_water_other: null,
-                                  waste_water_treatment: null,
+                                  source_of_water_supply: null,
                                   mode_of_disposal_for_discharge: null,
-                                  emissionid: null,
-                                  wastewaterdetailid: null,
-                                  document_attached: null,
-                                  other: null,
+                                  recycling_process: null,
+                                  recycling_cooling: null,
+                                  recycling_domestic: null,
+                                  recycling_other: null,
+                                  createdate: null,
+                                  updatedate: null,
+                                  sourcewatersupplyother: null,
+                                  modedisposalother: null,
                                   id: null
                               };
                           },

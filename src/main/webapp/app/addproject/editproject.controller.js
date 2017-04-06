@@ -41,50 +41,181 @@
         vm.projectrawmaterialdata=[];
         vm.addProject_rawmaterialData=addProject_rawmaterialData;
         function addProject_rawmaterialData(){
-          vm.project_rawmaterial.selectedUnit=vm.project_rawmaterial.selectedUnit.unittypes;
-          vm.projectrawmaterialdata.push(vm.project_rawmaterial);
-          vm.project_rawmaterial={};
-        }
+            if(angular.isDefined(vm.project_rawmaterial.selectedUnit))
+            {
+                console.log(vm.project_rawmaterial.selectedUnit.unittypes);
+                vm.project_rawmaterial.units=vm.project_rawmaterial.selectedUnit.unittypes;
+                console.log(vm.project_rawmaterial.units);
+            }
+            else
+            {
+                vm.project_rawmaterial.units="";
+            }
 
-         vm.projectmainproductdata=[];
-         vm.addProject_mainproductData=addProject_mainproductData;
-         function addProject_mainproductData(){
-         vm.project_mainproduct.selectedUnit=vm.project_mainproduct.selectedUnit.unittypes;
-         vm.projectmainproductdata.push(vm.project_mainproduct);
-         //reinstantiate your $scope.formVariable so that your form is empty
-         vm.project_mainproduct={};
+           vm.projectrawmaterialdata.push(vm.project_rawmaterial);
+                         //reinstantiate your $scope.formVariable so that your form is empty
+           vm.project_rawmaterial={};
          }
 
-        vm.projectprocessflowstepdata=[];
-        vm.addProject_processflowstepData=addProject_processflowstepData;
+         vm.removeRawRow = function(rawmaterial){
+           var index = -1;
+           var comArr =eval(vm.projectrawmaterialdata);
+
+           for( var i = 0; i < comArr.length; i++ ) {
+               if( comArr[i].rawmaterial=== rawmaterial) {
+                   index = i;
+                   break;
+               }
+           }
+           vm.projectrawmaterialdata.splice( index, 1 );
+         };
+
+         // Start main product
+         vm.projectmainproductdata=[];
+         vm.addProject_mainproductData=addProject_mainproductData;
+
+          function addProject_mainproductData(){
+              if(angular.isDefined(vm.product.selectedUnit))
+              {
+                   vm.product.units=vm.product.selectedUnit.unittypes;
+              }
+              else
+              {
+                 vm.product.units="";
+              }
+              vm.projectmainproductdata.push(vm.product);
+              //reinstantiate your $scope.formVariable so that your form is empty
+              vm.product={};
+          }
+          vm.removeMainRow = function(mainproduct){
+              var index = -1;
+              var comArr =eval(vm.projectmainproductdata);
+
+              for( var i = 0; i < comArr.length; i++ ) {
+                  if(comArr[i].mainproduct=== mainproduct) {
+                      index = i;
+                      break;
+                  }
+              }
+              vm.projectmainproductdata.splice( index, 1 );
+           };
+
+    //End main product
+
+         vm.projectprocessflowstepdata=[];
+         vm.addProject_processflowstepData=addProject_processflowstepData;
          function addProject_processflowstepData(){
-         vm.projectprocessflowstepdata.push(vm.projectprocessflowstep);
-         //reinstantiate your $scope.formVariable so that your form is empty
-         vm.projectprocessflowstep={};
-        }
+             vm.projectprocessflowstepdata.push(vm.projectprocessflowstep);
+             //reinstantiate your $scope.formVariable so that your form is empty
+             vm.projectprocessflowstep={};
+         }
+          vm.removeStepRow = function(steps){
+              var index = -1;
+              var comArr =eval(vm.projectprocessflowstepdata);
 
-       vm.emissiondetaildata=[];
-       vm.addProject_emissiondetailData=addProject_emissiondetailData;
-        function addProject_emissiondetailData() {
-        vm.emissiondetail.selectedParticular=vm.emissiondetail.selectedParticular.particulars;
-        vm.emissiondetail.selectedTypeoffuel=vm.emissiondetail.selectedTypeoffuel.typeoffuel;
-        vm.emissiondetail.selectedAirpollutioncontroldevice=vm.emissiondetail.selectedAirpollutioncontroldevice.airpollutioncontroldevice;
-         vm.emissiondetaildata.push(vm.emissiondetail);
-         //reinstantiate your $scope.formVariable so that your form is empty
-         vm.emissiondetail={};
-        }
+              for( var i = 0; i < comArr.length; i++ ) {
+                  if( comArr[i].steps=== steps) {
+                      index = i;
+                      break;
+                  }
+              }
+              vm.projectprocessflowstepdata.splice( index, 1 );
+          };
 
-       vm.wastewaterdetaildata=[];
-       vm.addProject_wastewaterdetailData=addProject_wastewaterdetailData;
-       function addProject_wastewaterdetailData(){
-       vm.wastewaterdetail.selectedNaturetype=vm.wastewaterdetail.selectedNaturetype.naturetype;
-       vm.wastewaterdetail.selectedModeofdisposal=vm.wastewaterdetail.selectedModeofdisposal.disposal_for_discharge;
-       vm.wastewaterdetaildata.push(vm.wastewaterdetail);
-                //reinstantiate your $scope.formVariable so that your form is empty
-       vm.wastewaterdetail={};
-       }
+          // Start emission detail
+            vm.emissiondetaildata=[];
+            vm.addProject_emissiondetailData=addProject_emissiondetailData;
+            function addProject_emissiondetailData() {
+                if(angular.isDefined(vm.emissiondetail.selectedParticular))
+                 {
+                 vm.emissiondetail.particulars=vm.emissiondetail.selectedParticular.particulars;
+                 }
+                else
+                 {
+                vm.emissiondetail.particulars="";
+                 }
+
+                 if(angular.isDefined(vm.emissiondetail.selectedTypeoffuel))
+                  {
+                     vm.emissiondetail.type_of_fuel=vm.emissiondetail.selectedTypeoffuel.typeoffuel;
+                  }
+                 else
+                  {
+                    vm.emissiondetail.type_of_fuel="";
+                  }
+
+                 if(angular.isDefined(vm.emissiondetail.selectedAirpollutioncontroldevice))
+                  {
+                   vm.emissiondetail.air_pollution_control_device=vm.emissiondetail.selectedAirpollutioncontroldevice.airpollutioncontroldevice;
+                   }
+                 else
+                  {
+                 vm.emissiondetail.air_pollution_control_device="";
+                  }
+
+                            vm.emissiondetaildata.push(vm.emissiondetail);
+                             //reinstantiate your $scope.formVariable so that your form is empty
+                            vm.emissiondetail={};
+            }
+
+               vm.removeEmissionRow = function(selectedParticular){
+                     var index = -1;
+                     var comArr =eval(vm.emissiondetaildata);
+
+                     for( var i = 0; i < comArr.length; i++ ) {
+                         if( comArr[i].selectedParticular=== selectedParticular) {
+                             index = i;
+                             break;
+                         }
+                     }
+                     vm.emissiondetaildata.splice( index, 1 );
+                 };
+
+                // End emission detail
+
+                // Start waste water detail
+
+                   vm.wastewaterdetaildata=[];
+                   vm.addProject_wastewaterdetailData=addProject_wastewaterdetailData;
+                   function addProject_wastewaterdetailData(){
+                        if(angular.isDefined(vm.wastewaterdetail.selectedNaturetype))
+                             {
+                         vm.wastewaterdetail.naturetype=vm.wastewaterdetail.selectedNaturetype.naturetype;
+                         console.log(vm.wastewaterdetail.selectedNaturetype.naturetype);
+                             }
+                         else
+                           {
+                          vm.wastewaterdetail.naturetype="";
+                            }
+
+                         if(angular.isDefined(vm.wastewaterdetail.selectedModeofdisposal))
+                         {
+                           vm.wastewaterdetail.mode_of_disposal=vm.wastewaterdetail.selectedModeofdisposal.disposal_for_discharge
+                            }
+                         else
+                           {
+                         vm.wastewaterdetail.mode_of_disposal="";
+                            }
+                       vm.wastewaterdetaildata.push(vm.wastewaterdetail);
+                       vm.wastewaterdetail={};
+                   }
+                       vm.removeSourceRow = function(source_of_generation){
+                            var index = -1;
+                            var comArr =eval(vm.wastewaterdetaildata);
+
+                            for( var i = 0; i < comArr.length; i++ ) {
+                                if( comArr[i].source_of_generation=== source_of_generation) {
+                                    index = i;
+                                    break;
+                                }
+                            }
+                        vm.wastewaterdetaildata.splice( index, 1 );
+                                                };
+
+         //End waste water
 
         vm.CompleteProjectDetail=entity;
+        console.log(vm.CompleteProjectDetail);
 
         vm.investor=vm.CompleteProjectDetail.investorDTO;
         vm.companydetail=vm.CompleteProjectDetail.companydetailDTO;
@@ -92,9 +223,18 @@
         vm.projectsitedetail=vm.CompleteProjectDetail.projectsitedetailDTO;
         vm.project_finance_investment=vm.CompleteProjectDetail.project_finance_investmentDTO;
         vm.manufacturing_detail=vm.CompleteProjectDetail.manufacturingdetailDTO;
+
+        vm.environmentimpactdetail=vm.CompleteProjectDetail.environment_impactdetailDTO;
+        console.log(vm.environmentimpactdetail);
         vm.electricrequirement=vm.CompleteProjectDetail.electricrequirementDTO;
         vm.projectcombinecodes=vm.CompleteProjectDetail.projectdetailcombinecodesDTO ;
         vm.completeprojectphasedata=vm.CompleteProjectDetail.project_phaseDTOList;
+        vm.projectrawmaterialdata=vm.CompleteProjectDetail.projectrawmaterialDTOList;
+        vm.projectmainproductdata=vm.CompleteProjectDetail.projectproductDTOList;
+        vm.projectprocessflowstepdata=vm.CompleteProjectDetail.projectprocessflowstepsDTOList;
+        vm.emissiondetaildata=vm.CompleteProjectDetail.emissiondetailDTOList;
+        vm.wastewaterdetaildata=vm.CompleteProjectDetail.wastewaterdetailDTOList;
+
 //        console.log(vm.completeprojectphasedata);
         vm.account = null;
         vm.isAuthenticated = null;
@@ -143,6 +283,17 @@
                 vm.project_finance_investment.fdi_country=vm.project_finance_investment.selectedcountryid.countryname;
             if (angular.isDefined(vm.foreignfundingresources.selectedforeignfundingresourceid))
                 vm.project_finance_investment.foreign_funding_source= vm.foreignfundingresources.selectedforeignfundingresourceid.foreignfundingtypes;
+
+            if (angular.isDefined(vm.environmentimpactdetail.selectedWatersource))
+                vm.environmentimpactdetail.source_of_water_supply=vm.environmentimpactdetail.selectedWatersource.watersupplysourcetype;
+            if (angular.isDefined(vm.environmentimpactdetail.selectedTreatmentone))
+                vm.environmentimpactdetail.recycling_process= vm.environmentimpactdetail.selectedTreatmentone.treatment1;
+            if (angular.isDefined(vm.environmentimpactdetail.selectedTreatmenttwo))
+                vm.environmentimpactdetail.recycling_cooling=vm.environmentimpactdetail.selectedTreatmenttwo.treatment2;
+            if (angular.isDefined(vm.environmentimpactdetail.selectedTreatmentthree))
+                vm.environmentimpactdetail.recycling_domestic= vm.environmentimpactdetail.selectedTreatmentthree.treatment3;
+            if (angular.isDefined(vm.environmentimpactdetail.selectedDischarge))
+                vm.environmentimpactdetail.mode_of_disposal_for_discharge= vm.environmentimpactdetail.selectedDischarge.disposal_for_discharge;
         }
 
         function saveCompleteProjectDetail($scope)
@@ -156,16 +307,17 @@
             vm.CompleteProjectDetail.projectsitedetailDTO=vm.projectsitedetail;
             vm.CompleteProjectDetail.project_finance_investmentDTO=vm.project_finance_investment;
             vm.CompleteProjectDetail.manufacturingdetailDTO=vm.manufacturing_detail;
-            vm.CompleteProjectDetail.environment_impactdetailDTO={};
+            vm.CompleteProjectDetail.environment_impactdetailDTO=vm.environmentimpactdetail;
+            console.log(vm.CompleteProjectDetail.environment_impactdetailDTO);
             vm.CompleteProjectDetail.electricrequirementDTO=vm.electricrequirement;
             vm.CompleteProjectDetail.projectdetailcombinecodesDTO =vm.projectcombinecodes;
 
             vm.CompleteProjectDetail.project_phaseDTOList=vm.completeprojectphasedata;
-            vm.CompleteProjectDetail.projectrawmaterialDTOList=[];
-            vm.CompleteProjectDetail.projectproductDTOList=[];
-            vm.CompleteProjectDetail.projectprocessflowstepsDTOList=[];
-            vm.CompleteProjectDetail.emissiondetailDTOList=[];
-            vm.CompleteProjectDetail.wastewaterdetailDTOList=[];
+            vm.CompleteProjectDetail.projectrawmaterialDTOList=vm.projectrawmaterialdata;
+            vm.CompleteProjectDetail.projectproductDTOList=vm.projectmainproductdata;
+            vm.CompleteProjectDetail.projectprocessflowstepsDTOList=vm.projectprocessflowstepdata;
+            vm.CompleteProjectDetail.emissiondetailDTOList=vm.emissiondetaildata;
+            vm.CompleteProjectDetail.wastewaterdetailDTOList=vm.wastewaterdetaildata;
 
             Projectcompletedetail.update(vm.CompleteProjectDetail,onUpdateCompleteProjectSuccess,onUpdateCompleteProjectError)
         }
