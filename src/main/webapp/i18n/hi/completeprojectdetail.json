@@ -1,0 +1,20 @@
+{
+    "investhryApp": {
+        "completeprojectdetail" : {
+            "Country": {
+                "title": "completeprojectdetail",
+                "createLabel": "Complete Project Detail",
+                "createOrEditLabel": "Complete Project Detail"
+            },
+            "created": "A new Complete Project is created with identifier {{ param }}",
+            "updated": "A Complete Project is updated with identifier {{ param }}",
+            "deleted": "A Complete Project is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Complete Project {{ id }}?"
+            },
+            "detail": {
+                "title": "completeprojectdetail"
+            }
+        }
+    }
+}

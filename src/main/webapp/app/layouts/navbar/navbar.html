@@ -1,12 +1,3 @@
-<header class="header-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-3 col-lg-2 col-md-2 logo"><a href="#"><img src="content/images/logo2.png" alt=""></a></div>
-            <div class="col-xs-12 col-sm-9 col-lg-10 col-md-10 text-center hdr-txt"><img src="content/images/hdr-txt.png" alt="" style="padding-top:20px;"></div>
-        </div>
-    </div>
-</header>
-
 <div class="navigation">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container">
@@ -21,7 +12,15 @@
                 <!--<img class="logo-img" src="content/images/logo-jhipster.png" alt="logo"/>-->
                 <!--<span data-translate="global.title">Investhry</span>-->
                 <!--<span class="navbar-version">v{{VERSION}}</span>-->
+                <span ><a href="/"><img src="content/images/haryana-logo.png" style="width:80px;height:44px;margin-top:1px;"></a></span>
+                <span>
+                    <a target="_blank" class="titlnk" href="/Account/Login"><span class="text-danger">Single Roof Clearance System</span>
+                        <!--<span class="text-danger">S W C S</span>-->
+                    </a>
+                </span>
             </a>
+
+
         </div>
         <div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed" ng-switch="vm.isAuthenticated()">
             <ul class="nav navbar-nav navbar-right">
@@ -37,20 +36,20 @@
                 <li ui-sref-active="active" has-authority="ROLE_USER">
                     <a ui-sref="listproject" ng-click="vm.collapseNavbar()">
                         <span class="glyphicon glyphicon-home"></span>
-                        <span class="hidden-sm" data-translate="">Add Project</span>
+                        <span class="hidden-sm" data-translate="global.menu.addproject">Add Project</span>
                     </a>
                 </li>
                 <li ui-sref-active="active" has-authority="ROLE_USER">
                     <a ui-sref="viewprojectdetail" ng-click="vm.collapseNavbar()">
                         <span class="glyphicon glyphicon-home"></span>
-                        <span class="hidden-sm" data-translate="">View Project</span>
+                        <span class="hidden-sm" data-translate="global.menu.viewproject">View Project</span>
                     </a>
                 </li>
 
                 <li ui-sref-active="active" has-authority="ROLE_USER">
                     <a ui-sref="dashboard" ng-click="vm.collapseNavbar()">
                         <span class="glyphicon glyphicon-briefcase"></span>
-                        <span class="hidden-sm" data-translate="">Dashboard</span>
+                        <span class="hidden-sm" data-translate="global.menu.dashboard">Dashboard</span>
                     </a>
                 </li>
 
