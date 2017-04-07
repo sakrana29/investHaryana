@@ -41,5 +41,16 @@
 //                console.log(vm.projectcompletedetail[0].projectdetailDTO);
             });
         }
+        //
+
+         loadByPending();
+
+         function loadByPending(){
+            Projectlist.query({Pending: "Pending Status"}, function(data){
+                console.log(data);
+            });
+        }
+        //
+
     }
 })();

@@ -1,21 +1,23 @@
 package com.hartron.investharyana.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import com.hartron.investharyana.service.*;
+import com.hartron.investharyana.service.InvestorService;
+import com.hartron.investharyana.service.Project_finance_investmentService;
+import com.hartron.investharyana.service.ProjectdetailService;
+import com.hartron.investharyana.service.ProjectdetailcombinecodesService;
 import com.hartron.investharyana.service.dto.*;
-import com.hartron.investharyana.web.rest.util.HeaderUtil;
-import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * REST controller for managing Project List.
@@ -66,4 +68,21 @@ public class ProjectListResource {
         }
         return listofProjectsDTOList;
     }
+
+    @GetMapping("/ProjectList/{parametersPending}")
+    @Timed
+    public ResponseEntity<List<ProjectdetailcombinecodesDTO>> getAllPending(@RequestParam(value = "Pending", required = true) String Pending)
+        throws URISyntaxException {
+              final List<ProjectdetailcombinecodesDTO> pendingDTOs = projectdetailcombinecodesService.findAll();
+       return new ResponseEntity<>(pendingDTOs, HttpStatus.OK);
+    }
+
+    @GetMapping("/ProjectList/{parametersCompleted}")
+    @Timed
+    public ResponseEntity<List<Project_finance_investmentDTO>> getAllComplted(@RequestParam(value = "Completed", required = true) String Completed)
+        throws URISyntaxException {
+            final List<Project_finance_investmentDTO> completedDTOs = project_finance_investmentService.findAll();
+        return new ResponseEntity<>(completedDTOs, HttpStatus.OK);
+    }
+
 }
