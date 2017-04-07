@@ -3,11 +3,11 @@
 
     angular
         .module('investhryApp')
-        .controller('assignServiceController', assignServiceController);
+        .controller('serviceClearanceActionController', serviceClearanceActionController);
 
-    assignServiceController.$inject = ['$timeout', '$scope',  '$stateParams','$state', 'Projectcompletedetail', 'Auth', 'Principal', 'DepartmentService', 'Projectservicedetail'];
+    serviceClearanceActionController.$inject = ['$timeout', '$scope',  '$stateParams','$state', 'Projectcompletedetail', 'Auth', 'Principal', 'DepartmentService', 'Projectservicedetail'];
 
-    function assignServiceController ($timeout, $scope, $stateParams, $state, Projectcompletedetail, Auth, Principal, DepartmentService, Projectservicedetail) {
+    function serviceClearanceActionController ($timeout, $scope, $stateParams, $state, Projectcompletedetail, Auth, Principal, DepartmentService, Projectservicedetail) {
         var vm = this;
 
         loadDepartmentServices();

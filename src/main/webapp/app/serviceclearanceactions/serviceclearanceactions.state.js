@@ -9,16 +9,16 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
-        .state('assignService', {
+        .state('serviceclearanceaction', {
             parent: 'app',
-            url: '/assignService/{id}',
+            url: '/serviceclearanceaction/{id}',
             data: {
                 authorities: []
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/assignService/assignServices.html',
-                    controller: 'assignServiceController',
+                    templateUrl: 'app/serviceclearanceactions/serviceclearanceactions.html',
+                    controller: 'serviceClearanceActionController',
                     controllerAs: 'vm'
                 }
             },

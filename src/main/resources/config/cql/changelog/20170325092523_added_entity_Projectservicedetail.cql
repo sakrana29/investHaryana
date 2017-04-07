@@ -20,3 +20,8 @@ CREATE TABLE IF NOT EXISTS projectservicedetail (
     serviceFee decimal,
     PRIMARY KEY(id)
 );
+CREATE TABLE IF NOT EXISTS projectservicedetail_by_projectid (
+projectid uuid,
+id uuid,
+PRIMARY KEY(projectid,id)
+);

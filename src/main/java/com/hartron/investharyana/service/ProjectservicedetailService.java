@@ -18,7 +18,7 @@ public interface ProjectservicedetailService {
 
     /**
      *  Get all the projectservicedetails.
-     *  
+     *
      *  @return the list of entities
      */
     List<ProjectservicedetailDTO> findAll();
@@ -37,4 +37,7 @@ public interface ProjectservicedetailService {
      *  @param id the id of the entity
      */
     void delete(String id);
+
+    List<ProjectservicedetailDTO> findAllByProjectid(String projectid);
+    void deleteByProject(String projectid);
 }
