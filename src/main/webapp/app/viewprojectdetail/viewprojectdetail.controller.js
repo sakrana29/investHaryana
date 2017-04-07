@@ -35,7 +35,6 @@
         loadAll();
 
         function loadAll() {
-
             Projectlist.query(function(result){
                 vm.projectlist=result;
 //                console.log(vm.projectcompletedetail[0].projectdetailDTO);

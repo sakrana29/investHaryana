@@ -18,6 +18,11 @@ CREATE TABLE IF NOT EXISTS projectservicedetail (
     status text,
     latestComments text,
     serviceFee decimal,
+    departmentName text,
+    serviceName text,
+    serviceStage text,
+    isDimmed boolean,
+    serviceDuration int,
     PRIMARY KEY(id)
 );
 CREATE TABLE IF NOT EXISTS projectservicedetail_by_projectid (

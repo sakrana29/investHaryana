@@ -31,7 +31,12 @@
             "paymentMadeOnDate": "Payment Made On Date",
             "status": "Status",
             "latestComments": "Latest Comments",
-            "serviceFee": "Service Fee"
+            "serviceFee": "Service Fee",
+            "departmentName": "Department Name",
+            "serviceName": "Service Name",
+            "serviceStage": "Service Stage",
+            "isDimmed": "Is Dimmed",
+            "serviceDuration": "Service Duration"
         }
     }
 }

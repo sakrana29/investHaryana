@@ -26,8 +26,15 @@
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
                     $translatePartialLoader.addPart('home');
                     return $translate.refresh();
+                }],
+//                entity: ['$stateParams', 'ProjectservicedetailbyProjectid', function($stateParams,ProjectservicedetailbyProjectid) {
+//                    return ProjectservicedetailbyProjectid.get({id : $stateParams.id}).$promise;
+//                }]
+                projectid: ['$stateParams',function($stateParams) {
+                    return $stateParams.id;
                 }]
             }
+
         })
 
 //        .state('projectServiceDetails-fee', {

@@ -54,6 +54,16 @@ public class Projectservicedetail implements Serializable {
 
     private BigDecimal serviceFee;
 
+    private String departmentName;
+
+    private String serviceName;
+
+    private String serviceStage;
+
+    private Boolean isDimmed;
+
+    private Integer serviceDuration;
+
     public UUID getId() {
         return id;
     }
@@ -283,6 +293,71 @@ public class Projectservicedetail implements Serializable {
         this.serviceFee = serviceFee;
     }
 
+    public String getDepartmentName() {
+        return departmentName;
+    }
+
+    public Projectservicedetail departmentName(String departmentName) {
+        this.departmentName = departmentName;
+        return this;
+    }
+
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
+    }
+
+    public String getServiceName() {
+        return serviceName;
+    }
+
+    public Projectservicedetail serviceName(String serviceName) {
+        this.serviceName = serviceName;
+        return this;
+    }
+
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
+
+    public String getServiceStage() {
+        return serviceStage;
+    }
+
+    public Projectservicedetail serviceStage(String serviceStage) {
+        this.serviceStage = serviceStage;
+        return this;
+    }
+
+    public void setServiceStage(String serviceStage) {
+        this.serviceStage = serviceStage;
+    }
+
+    public Boolean isIsDimmed() {
+        return isDimmed;
+    }
+
+    public Projectservicedetail isDimmed(Boolean isDimmed) {
+        this.isDimmed = isDimmed;
+        return this;
+    }
+
+    public void setIsDimmed(Boolean isDimmed) {
+        this.isDimmed = isDimmed;
+    }
+
+    public Integer getServiceDuration() {
+        return serviceDuration;
+    }
+
+    public Projectservicedetail serviceDuration(Integer serviceDuration) {
+        this.serviceDuration = serviceDuration;
+        return this;
+    }
+
+    public void setServiceDuration(Integer serviceDuration) {
+        this.serviceDuration = serviceDuration;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -324,6 +399,11 @@ public class Projectservicedetail implements Serializable {
             ", status='" + status + "'" +
             ", latestComments='" + latestComments + "'" +
             ", serviceFee='" + serviceFee + "'" +
+            ", departmentName='" + departmentName + "'" +
+            ", serviceName='" + serviceName + "'" +
+            ", serviceStage='" + serviceStage + "'" +
+            ", isDimmed='" + isDimmed + "'" +
+            ", serviceDuration='" + serviceDuration + "'" +
             '}';
     }
 }

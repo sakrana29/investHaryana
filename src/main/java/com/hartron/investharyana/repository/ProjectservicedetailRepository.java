@@ -38,7 +38,6 @@ public class ProjectservicedetailRepository {
         this.mapper = new MappingManager(session).mapper(Projectservicedetail.class);
         this.findAllStmt = session.prepare("SELECT * FROM projectservicedetail");
         this.truncateStmt = session.prepare("TRUNCATE projectservicedetail");
-
         this.findAllByProjectStmt = session.prepare(
             "SELECT id " +
                 "FROM projectservicedetail_by_projectid " +
@@ -77,6 +76,11 @@ public class ProjectservicedetailRepository {
                 projectservicedetail.setStatus(row.getString("status"));
                 projectservicedetail.setLatestComments(row.getString("latestComments"));
                 projectservicedetail.setServiceFee(row.getDecimal("serviceFee"));
+                projectservicedetail.setDepartmentName(row.getString("departmentName"));
+                projectservicedetail.setServiceName(row.getString("serviceName"));
+                projectservicedetail.setServiceStage(row.getString("serviceStage"));
+                projectservicedetail.setIsDimmed(row.getBool("isDimmed"));
+                projectservicedetail.setServiceDuration(row.getInt("serviceDuration"));
                 return projectservicedetail;
             }
         ).forEach(projectservicedetailsList::add);
@@ -86,6 +90,7 @@ public class ProjectservicedetailRepository {
     public Projectservicedetail findOne(UUID id) {
         return mapper.get(id);
     }
+
 
     public List<Projectservicedetail> findAllByProjectid(UUID projectid) {
         BoundStatement stmt = findAllByProjectStmt.bind();

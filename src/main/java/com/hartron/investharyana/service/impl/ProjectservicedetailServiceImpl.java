@@ -88,11 +88,11 @@ public class ProjectservicedetailServiceImpl implements ProjectservicedetailServ
 
     @Override
     public List<ProjectservicedetailDTO> findAllByProjectid(String projectid) {
-    log.debug("Request to get all projectprocess by projectid");
-    List<ProjectservicedetailDTO> result = projectservicedetailRepository.findAllByProjectid(UUID.fromString(projectid)).stream()
-        .map(projectservicedetailMapper::projectservicedetailToProjectservicedetailDTO)
-        .collect(Collectors.toCollection(LinkedList::new));
-    return result;
+        log.debug("Request to get all projectprocess by projectid");
+        List<ProjectservicedetailDTO> result = projectservicedetailRepository.findAllByProjectid(UUID.fromString(projectid)).stream()
+            .map(projectservicedetailMapper::projectservicedetailToProjectservicedetailDTO)
+            .collect(Collectors.toCollection(LinkedList::new));
+        return result;
     }
 
     @Override

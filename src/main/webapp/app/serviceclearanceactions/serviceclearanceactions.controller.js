@@ -5,22 +5,29 @@
         .module('investhryApp')
         .controller('serviceClearanceActionController', serviceClearanceActionController);
 
-    serviceClearanceActionController.$inject = ['$timeout', '$scope',  '$stateParams','$state', 'Projectcompletedetail', 'Auth', 'Principal', 'DepartmentService', 'Projectservicedetail'];
+    serviceClearanceActionController.$inject = ['$timeout', '$scope','projectid', '$stateParams','$state', 'Projectcompletedetail', 'Auth', 'Principal', 'DepartmentService', 'Projectservicedetail','ProjectservicedetailbyProject'];
 
-    function serviceClearanceActionController ($timeout, $scope, $stateParams, $state, Projectcompletedetail, Auth, Principal, DepartmentService, Projectservicedetail) {
+    function serviceClearanceActionController ($timeout, $scope, projectid, $stateParams, $state, Projectcompletedetail, Auth, Principal, DepartmentService, Projectservicedetail,ProjectservicedetailbyProject) {
         var vm = this;
+        vm.projectid=projectid;
 
-        loadDepartmentServices();
-
-        function loadDepartmentServices() {
-            DepartmentService.query(function(result) {
-                vm.departmentServices = result;
-                vm.searchQuery = null;
-            });
+        loadProjectServices();
+        function loadProjectServices() {
+            vm.projectservicelist= ProjectservicedetailbyProject.query({id:vm.projectid});
+            console.log(vm.projectservicelist);
         }
 
-       Principal.identity().then(function(account) {
-               vm.account = account;
-               });
+        Principal.identity().then(function(account) {
+        vm.account = account;
+        });
+
+        vm.markRequired=markRequired;
+        function markRequired(serviceid,projectid)
+        {
+            alert(serviceid);
+            alert(projectid);
+        }
+
+
     }
 })();

@@ -58,11 +58,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="departmentService in vm.departmentServices track by departmentService.id">
+            <tr ng-repeat="projectservice in vm.projectservicelist">
 
-                <td><labed>{{departmentService.departmentname}}</labed></td>
-                <td><label></label><label ng-model="vm.departmentService.serviceName">{{departmentService.serviceName}}</label></td>
-                <td><label>{{departmentService.stage}}</label></td>
+                <td><labed>{{projectservice.departmentName}}</labed></td>
+                <td><label></label><label ng-model="vm.departmentService.serviceName">{{projectservice.serviceName}}</label></td>
+                <td><label>{{projectservice.serviceStage}}</label></td>
                 <td class="text-right">
                     <!--<button type="submit" ng-show="departmentService.isrequired == false" class="btn btn-info btn-sm" ng-click="vm.save(departmentService.serviceid)"><span class="hidden-sm-down" data-translate="Required"></span>-->
                     <!--</button>-->
@@ -71,20 +71,20 @@
                             <!--class="btn btn-info btn-sm" ng-show="departmentService.isassigned == false">-->
                             <!--<span class="hidden-sm-down" data-translate="Assign"></span>-->
                     <!--</button>-->
-                    <button type="submit" ui-sref="serviceForm-fillform({serviceid:departmentService.serviceid, projectid:vm.CompleteProjectDetail.projectdetailDTO.id})" class="btn btn-info btn-sm">Required</button>
-                    <button type="submit" ui-sref="serviceForm-fillform({serviceid:departmentService.serviceid, projectid:vm.CompleteProjectDetail.projectdetailDTO.id})" class="btn btn-info btn-sm">Reject</button>
-                    <button type="submit" ui-sref="serviceForm-fillform({serviceid:departmentService.serviceid, projectid:vm.CompleteProjectDetail.projectdetailDTO.id})" class="btn btn-info btn-sm">Assign</button>
-                    <button type="submit" ui-sref="serviceForm-fillform({serviceid:departmentService.serviceid, projectid:vm.CompleteProjectDetail.projectdetailDTO.id})" class="btn btn-info btn-sm">Fill Form</button>
-                    <button type="submit" ui-sref="serviceForm-fillform({serviceid:departmentService.serviceid, projectid:vm.CompleteProjectDetail.projectdetailDTO.id})" class="btn btn-info btn-sm">Pay Fee</button>
-                    <button type="submit" ui-sref="serviceForm-fillform({serviceid:departmentService.serviceid, projectid:vm.CompleteProjectDetail.projectdetailDTO.id})" class="btn btn-info btn-sm">Verify Payment</button>
-                    <button type="submit" ui-sref="serviceForm-fillform({serviceid:departmentService.serviceid, projectid:vm.CompleteProjectDetail.projectdetailDTO.id})" class="btn btn-info btn-sm">Clearance</button>
-                    <button type="submit" ui-sref="serviceForm-fillform({serviceid:departmentService.serviceid, projectid:vm.CompleteProjectDetail.projectdetailDTO.id})" class="btn btn-info btn-sm">Dimmed Clearance</button>
+                    <button type="submit" ng-show="projectservice.isRequired==false" ng-click="vm.markRequired(projectservice.serviceid,vm.projectid)" class="btn btn-info btn-sm">Required</button>
+                    <button type="submit" ng-show="(projectservice.status!='Rejected') && (projectservice.isRequired==true)" ui-sref="serviceForm-fillform({serviceid:projectservice.serviceid, projectid:vm.projectid})" class="btn btn-info btn-sm">Reject</button>
+                    <button type="submit" ng-show="(projectservice.isAssigned==false) && (projectservice.isRequired==true) && (projectservice.status!='Rejected')" ui-sref="serviceForm-fillform({serviceid:projectservice.serviceid, projectid:vm.projectid})" class="btn btn-info btn-sm">Assign</button>
+                    <button type="submit" ng-show="(projectservice.isAssigned==true) && (projectservice.formFilledStatus==false) && (projectservice.status=='Pending')" ui-sref="serviceForm-fillform({serviceid:projectservice.serviceid, projectid:vm.projectid})" class="btn btn-info btn-sm">Fill Form</button>
+                    <button type="submit" ng-show="(projectservice.isAssigned==true) && (projectservice.isPaymentMade==false) && (projectservice.status=='Pending')" ui-sref="serviceForm-fillform({serviceid:projectservice.serviceid, projectid:vm.projectid})" class="btn btn-info btn-sm">Pay Fee</button>
+                    <button type="submit" ng-show="(projectservice.isPaymentMade==true) && (projectservice.status=='Pending')" ui-sref="serviceForm-fillform({serviceid:projectservice.serviceid, projectid:vm.projectid})" class="btn btn-info btn-sm">Verify Payment</button>
+                    <button type="submit" ng-show="(projectservice.isPaymentVerified==true) && (projectservice.formFilledStatus==true) && (projectservice.status=='Pending')" ui-sref="serviceForm-fillform({serviceid:projectservice.serviceid, projectid:vm.projectid})" class="btn btn-info btn-sm">Clearance</button>
+                    <button type="submit" ng-show="(isDimmed) && (projectservice.isAssigned==true) && (projectservice.status=='Pending')" ui-sref="serviceForm-fillform({serviceid:projectservice.serviceid, projectid:vm.projectid})" class="btn btn-info btn-sm">Dimmed Clearance</button>
 
                     <!--<button type="submit" ui-sref="serviceForm-fillform({serviceid:departmentService.serviceid, projectid:vm.CompleteProjectDetail.projectdetailDTO.id})" class="btn btn-info btn-sm">Fill Form</button>-->
 
                     <!--<button type="submit" ui-sref="serviceFeeController-fee({serviceid:departmentService.id, projectid:vm.CompleteProjectDetail.projectdetailDTO.id})"-->
                             <!--class="btn btn-info btn-sm">-->
-                        <!--<span class="hidden-sm-down" data-translate="Pay Fee"></span>-->
+                    <!--<span class="hidden-sm-down" data-translate="Pay Fee"></span>-->
                     <!--</button>-->
                     <!--<button type="submit"-->
                             <!--ui-sref="assignservicetoproject-clearance({serviceid:departmentService.id,projectid:vm.CompleteProjectDetail.projectdetailDTO.id})"-->

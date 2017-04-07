@@ -89,12 +89,6 @@ public class ProjectservicedetailResource {
         return projectservicedetailService.findAll();
     }
 
-    @GetMapping("/projectservicedetails/project/{projectid}")
-    @Timed
-    public List<ProjectservicedetailDTO> getAllProjectservicedetailsByProjectid(@PathVariable String projectid) {
-        log.debug("REST request to get all Projectservicedetails");
-        return projectservicedetailService.findAllByProjectid(projectid);
-    }
     /**
      * GET  /projectservicedetails/:id : get the "id" projectservicedetail.
      *
@@ -123,4 +117,10 @@ public class ProjectservicedetailResource {
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
 
+    @GetMapping("/projectservicedetails/project/{projectid}")
+    @Timed
+    public List<ProjectservicedetailDTO> getAllProjectservicedetailsByProjectid(@PathVariable String projectid) {
+        log.debug("REST request to get all Projectservicedetails");
+        return projectservicedetailService.findAllByProjectid(projectid);
+    }
 }

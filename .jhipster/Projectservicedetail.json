@@ -69,6 +69,26 @@
         {
             "fieldName": "serviceFee",
             "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "departmentName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "serviceName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "serviceStage",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isDimmed",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "serviceDuration",
+            "fieldType": "Integer"
         }
     ],
     "changelogDate": "20170325092523",

@@ -48,6 +48,16 @@ public class ProjectservicedetailDTO implements Serializable {
 
     private BigDecimal serviceFee;
 
+    private String departmentName;
+
+    private String serviceName;
+
+    private String serviceStage;
+
+    private Boolean isDimmed;
+
+    private Integer serviceDuration;
+
     public UUID getId() {
         return id;
     }
@@ -174,6 +184,41 @@ public class ProjectservicedetailDTO implements Serializable {
     public void setServiceFee(BigDecimal serviceFee) {
         this.serviceFee = serviceFee;
     }
+    public String getDepartmentName() {
+        return departmentName;
+    }
+
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
+    }
+    public String getServiceName() {
+        return serviceName;
+    }
+
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
+    public String getServiceStage() {
+        return serviceStage;
+    }
+
+    public void setServiceStage(String serviceStage) {
+        this.serviceStage = serviceStage;
+    }
+    public Boolean getIsDimmed() {
+        return isDimmed;
+    }
+
+    public void setIsDimmed(Boolean isDimmed) {
+        this.isDimmed = isDimmed;
+    }
+    public Integer getServiceDuration() {
+        return serviceDuration;
+    }
+
+    public void setServiceDuration(Integer serviceDuration) {
+        this.serviceDuration = serviceDuration;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -217,6 +262,11 @@ public class ProjectservicedetailDTO implements Serializable {
             ", status='" + status + "'" +
             ", latestComments='" + latestComments + "'" +
             ", serviceFee='" + serviceFee + "'" +
+            ", departmentName='" + departmentName + "'" +
+            ", serviceName='" + serviceName + "'" +
+            ", serviceStage='" + serviceStage + "'" +
+            ", isDimmed='" + isDimmed + "'" +
+            ", serviceDuration='" + serviceDuration + "'" +
             '}';
     }
 }

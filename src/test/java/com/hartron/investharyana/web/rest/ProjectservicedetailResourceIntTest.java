@@ -97,6 +97,21 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
     private static final BigDecimal DEFAULT_SERVICE_FEE = new BigDecimal(1);
     private static final BigDecimal UPDATED_SERVICE_FEE = new BigDecimal(2);
 
+    private static final String DEFAULT_DEPARTMENT_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_DEPARTMENT_NAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_SERVICE_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_SERVICE_NAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_SERVICE_STAGE = "AAAAAAAAAA";
+    private static final String UPDATED_SERVICE_STAGE = "BBBBBBBBBB";
+
+    private static final Boolean DEFAULT_IS_DIMMED = false;
+    private static final Boolean UPDATED_IS_DIMMED = true;
+
+    private static final Integer DEFAULT_SERVICE_DURATION = 1;
+    private static final Integer UPDATED_SERVICE_DURATION = 2;
+
     @Autowired
     private ProjectservicedetailRepository projectservicedetailRepository;
 
@@ -153,7 +168,12 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
                 .paymentMadeOnDate(DEFAULT_PAYMENT_MADE_ON_DATE)
                 .status(DEFAULT_STATUS)
                 .latestComments(DEFAULT_LATEST_COMMENTS)
-                .serviceFee(DEFAULT_SERVICE_FEE);
+                .serviceFee(DEFAULT_SERVICE_FEE)
+                .departmentName(DEFAULT_DEPARTMENT_NAME)
+                .serviceName(DEFAULT_SERVICE_NAME)
+                .serviceStage(DEFAULT_SERVICE_STAGE)
+                .isDimmed(DEFAULT_IS_DIMMED)
+                .serviceDuration(DEFAULT_SERVICE_DURATION);
         return projectservicedetail;
     }
 
@@ -196,6 +216,11 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectservicedetail.getStatus()).isEqualTo(DEFAULT_STATUS);
         assertThat(testProjectservicedetail.getLatestComments()).isEqualTo(DEFAULT_LATEST_COMMENTS);
         assertThat(testProjectservicedetail.getServiceFee()).isEqualTo(DEFAULT_SERVICE_FEE);
+        assertThat(testProjectservicedetail.getDepartmentName()).isEqualTo(DEFAULT_DEPARTMENT_NAME);
+        assertThat(testProjectservicedetail.getServiceName()).isEqualTo(DEFAULT_SERVICE_NAME);
+        assertThat(testProjectservicedetail.getServiceStage()).isEqualTo(DEFAULT_SERVICE_STAGE);
+        assertThat(testProjectservicedetail.isIsDimmed()).isEqualTo(DEFAULT_IS_DIMMED);
+        assertThat(testProjectservicedetail.getServiceDuration()).isEqualTo(DEFAULT_SERVICE_DURATION);
     }
 
     @Test
@@ -244,7 +269,12 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].paymentMadeOnDate").value(hasItem(sameInstant(DEFAULT_PAYMENT_MADE_ON_DATE))))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())))
             .andExpect(jsonPath("$.[*].latestComments").value(hasItem(DEFAULT_LATEST_COMMENTS.toString())))
-            .andExpect(jsonPath("$.[*].serviceFee").value(hasItem(DEFAULT_SERVICE_FEE.intValue())));
+            .andExpect(jsonPath("$.[*].serviceFee").value(hasItem(DEFAULT_SERVICE_FEE.intValue())))
+            .andExpect(jsonPath("$.[*].departmentName").value(hasItem(DEFAULT_DEPARTMENT_NAME.toString())))
+            .andExpect(jsonPath("$.[*].serviceName").value(hasItem(DEFAULT_SERVICE_NAME.toString())))
+            .andExpect(jsonPath("$.[*].serviceStage").value(hasItem(DEFAULT_SERVICE_STAGE.toString())))
+            .andExpect(jsonPath("$.[*].isDimmed").value(hasItem(DEFAULT_IS_DIMMED.booleanValue())))
+            .andExpect(jsonPath("$.[*].serviceDuration").value(hasItem(DEFAULT_SERVICE_DURATION)));
     }
 
     @Test
@@ -273,7 +303,12 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.paymentMadeOnDate").value(sameInstant(DEFAULT_PAYMENT_MADE_ON_DATE)))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()))
             .andExpect(jsonPath("$.latestComments").value(DEFAULT_LATEST_COMMENTS.toString()))
-            .andExpect(jsonPath("$.serviceFee").value(DEFAULT_SERVICE_FEE.intValue()));
+            .andExpect(jsonPath("$.serviceFee").value(DEFAULT_SERVICE_FEE.intValue()))
+            .andExpect(jsonPath("$.departmentName").value(DEFAULT_DEPARTMENT_NAME.toString()))
+            .andExpect(jsonPath("$.serviceName").value(DEFAULT_SERVICE_NAME.toString()))
+            .andExpect(jsonPath("$.serviceStage").value(DEFAULT_SERVICE_STAGE.toString()))
+            .andExpect(jsonPath("$.isDimmed").value(DEFAULT_IS_DIMMED.booleanValue()))
+            .andExpect(jsonPath("$.serviceDuration").value(DEFAULT_SERVICE_DURATION));
     }
 
     @Test
@@ -308,7 +343,12 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
                 .paymentMadeOnDate(UPDATED_PAYMENT_MADE_ON_DATE)
                 .status(UPDATED_STATUS)
                 .latestComments(UPDATED_LATEST_COMMENTS)
-                .serviceFee(UPDATED_SERVICE_FEE);
+                .serviceFee(UPDATED_SERVICE_FEE)
+                .departmentName(UPDATED_DEPARTMENT_NAME)
+                .serviceName(UPDATED_SERVICE_NAME)
+                .serviceStage(UPDATED_SERVICE_STAGE)
+                .isDimmed(UPDATED_IS_DIMMED)
+                .serviceDuration(UPDATED_SERVICE_DURATION);
         ProjectservicedetailDTO projectservicedetailDTO = projectservicedetailMapper.projectservicedetailToProjectservicedetailDTO(updatedProjectservicedetail);
 
         restProjectservicedetailMockMvc.perform(put("/api/projectservicedetails")
@@ -337,6 +377,11 @@ public class ProjectservicedetailResourceIntTest extends AbstractCassandraTest {
         assertThat(testProjectservicedetail.getStatus()).isEqualTo(UPDATED_STATUS);
         assertThat(testProjectservicedetail.getLatestComments()).isEqualTo(UPDATED_LATEST_COMMENTS);
         assertThat(testProjectservicedetail.getServiceFee()).isEqualTo(UPDATED_SERVICE_FEE);
+        assertThat(testProjectservicedetail.getDepartmentName()).isEqualTo(UPDATED_DEPARTMENT_NAME);
+        assertThat(testProjectservicedetail.getServiceName()).isEqualTo(UPDATED_SERVICE_NAME);
+        assertThat(testProjectservicedetail.getServiceStage()).isEqualTo(UPDATED_SERVICE_STAGE);
+        assertThat(testProjectservicedetail.isIsDimmed()).isEqualTo(UPDATED_IS_DIMMED);
+        assertThat(testProjectservicedetail.getServiceDuration()).isEqualTo(UPDATED_SERVICE_DURATION);
     }
 
     @Test

@@ -121,6 +121,11 @@
                                 status: null,
                                 latestComments: null,
                                 serviceFee: null,
+                                departmentName: null,
+                                serviceName: null,
+                                serviceStage: null,
+                                isDimmed: null,
+                                serviceDuration: null,
                                 id: null
                             };
                         }
