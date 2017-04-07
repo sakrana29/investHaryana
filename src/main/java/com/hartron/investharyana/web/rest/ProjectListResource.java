@@ -1,10 +1,7 @@
 package com.hartron.investharyana.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import com.hartron.investharyana.service.InvestorService;
-import com.hartron.investharyana.service.Project_finance_investmentService;
-import com.hartron.investharyana.service.ProjectdetailService;
-import com.hartron.investharyana.service.ProjectdetailcombinecodesService;
+import com.hartron.investharyana.service.*;
 import com.hartron.investharyana.service.dto.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,13 +31,15 @@ public class ProjectListResource {
     private final ProjectdetailService projectdetailService;
     private final Project_finance_investmentService project_finance_investmentService;
     private final ProjectdetailcombinecodesService projectdetailcombinecodesService;
+    private final ProjectServiceReportInfoService projectServiceReportInfoService;
 
 
-    public ProjectListResource(InvestorService investorService, ProjectdetailService projectdetailService, Project_finance_investmentService project_finance_investmentService,  ProjectdetailcombinecodesService projectdetailcombinecodesService) {
+    public ProjectListResource(InvestorService investorService, ProjectdetailService projectdetailService, Project_finance_investmentService project_finance_investmentService, ProjectdetailcombinecodesService projectdetailcombinecodesService, ProjectServiceReportInfoService projectServiceReportInfoService) {
         this.investorService = investorService;
         this.projectdetailService = projectdetailService;
         this.project_finance_investmentService = project_finance_investmentService;
         this.projectdetailcombinecodesService = projectdetailcombinecodesService;
+        this.projectServiceReportInfoService = projectServiceReportInfoService;
     }
 
     @GetMapping("/ProjectList")
@@ -71,18 +70,20 @@ public class ProjectListResource {
 
     @GetMapping("/ProjectList/{parametersPending}")
     @Timed
-    public ResponseEntity<List<ProjectdetailcombinecodesDTO>> getAllPending(@RequestParam(value = "Pending", required = true) String Pending)
+    public ResponseEntity<List<ProjectServiceReportInfoDTO>> getAllPending(@RequestParam(value = "Pending", required = true) String Pending)
         throws URISyntaxException {
-              final List<ProjectdetailcombinecodesDTO> pendingDTOs = projectdetailcombinecodesService.findAll();
-       return new ResponseEntity<>(pendingDTOs, HttpStatus.OK);
+        final List<ProjectServiceReportInfoDTO> pendingDTOs = projectServiceReportInfoService.findAll();
+        return new ResponseEntity<>(pendingDTOs, HttpStatus.OK);
     }
 
     @GetMapping("/ProjectList/{parametersCompleted}")
     @Timed
-    public ResponseEntity<List<Project_finance_investmentDTO>> getAllComplted(@RequestParam(value = "Completed", required = true) String Completed)
+    public ResponseEntity<List<ProjectdetailcombinecodesDTO>> getAllCompleted(@RequestParam(value = "Completed", required = true) String Completed)
         throws URISyntaxException {
-            final List<Project_finance_investmentDTO> completedDTOs = project_finance_investmentService.findAll();
+            final List<ProjectdetailcombinecodesDTO> completedDTOs = projectdetailcombinecodesService.findAll();
         return new ResponseEntity<>(completedDTOs, HttpStatus.OK);
     }
+
+
 
 }

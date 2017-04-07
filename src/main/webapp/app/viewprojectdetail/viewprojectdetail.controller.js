@@ -46,8 +46,18 @@
          loadByPending();
 
          function loadByPending(){
-            Projectlist.query({Pending: "Pending Status"}, function(data){
-                console.log(data);
+            Projectlist.query({Pending: "Pending Status"}, function(result){
+                console.log(result);
+                vm.projectlist=result;
+            });
+        }
+
+        loadByCompleted();
+
+         function loadByCompleted(){
+            Projectlist.query({Completed: "Completed Status"}, function(result){
+                console.log(result);
+                vm.projectlist=result;
             });
         }
         //
