@@ -1,6 +1,7 @@
 package com.hartron.investharyana.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.hartron.investharyana.security.SecurityUtils;
 import com.hartron.investharyana.service.ProjectServiceLogService;
 import com.hartron.investharyana.web.rest.util.HeaderUtil;
 import com.hartron.investharyana.service.dto.ProjectServiceLogDTO;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.ZonedDateTime;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -28,7 +30,7 @@ public class ProjectServiceLogResource {
     private final Logger log = LoggerFactory.getLogger(ProjectServiceLogResource.class);
 
     private static final String ENTITY_NAME = "projectServiceLog";
-        
+
     private final ProjectServiceLogService projectServiceLogService;
 
     public ProjectServiceLogResource(ProjectServiceLogService projectServiceLogService) {
@@ -49,6 +51,8 @@ public class ProjectServiceLogResource {
         if (projectServiceLogDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new projectServiceLog cannot already have an ID")).body(null);
         }
+        projectServiceLogDTO.setCommentByUserLogin(SecurityUtils.getCurrentUserLogin());
+        projectServiceLogDTO.setCommentDate(ZonedDateTime.now());
         ProjectServiceLogDTO result = projectServiceLogService.save(projectServiceLogDTO);
         return ResponseEntity.created(new URI("/api/project-service-logs/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))

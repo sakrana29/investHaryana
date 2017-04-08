@@ -118,7 +118,7 @@
         })
         .state('wwtreatmentthree.edit', {
             parent: 'wwtreatmentthree',
-            url: '/{id}/edit',
+            url: '{id}/edit',
             data: {
                 authorities: ['ROLE_USER']
             },

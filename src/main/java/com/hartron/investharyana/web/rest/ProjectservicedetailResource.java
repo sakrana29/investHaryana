@@ -1,6 +1,7 @@
 package com.hartron.investharyana.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.hartron.investharyana.security.SecurityUtils;
 import com.hartron.investharyana.service.ProjectservicedetailService;
 import com.hartron.investharyana.web.rest.util.HeaderUtil;
 import com.hartron.investharyana.service.dto.ProjectservicedetailDTO;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.ZonedDateTime;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -49,6 +51,8 @@ public class ProjectservicedetailResource {
         if (projectservicedetailDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new projectservicedetail cannot already have an ID")).body(null);
         }
+        projectservicedetailDTO.setRequireMarkedOnDate(ZonedDateTime.now());
+        projectservicedetailDTO.setRequireMarkedBy(SecurityUtils.getCurrentUserLogin());
         ProjectservicedetailDTO result = projectservicedetailService.save(projectservicedetailDTO);
         return ResponseEntity.created(new URI("/api/projectservicedetails/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))

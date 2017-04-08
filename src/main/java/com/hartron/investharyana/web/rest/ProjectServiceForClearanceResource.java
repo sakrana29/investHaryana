@@ -61,9 +61,8 @@ public class ProjectServiceForClearanceResource {
                 boolean flag=false;
                 for(int projectcounter=0;projectcounter<projectservicedetailDTOList.size();projectcounter++)
                 {
-                    if(projectservicedetailDTOList.get(projectcounter).getServiceid() == departmentServiceDTOList.get(projectcounter).getId())
+                    if(projectservicedetailDTOList.get(projectcounter).getServiceid().equals(departmentServiceDTOList.get(counterService).getId()))
                     {
-//                        boolean isdimmed= projectservicedetailDTOList.get(projectcounter).getIsDimmed();
                         if(projectservicedetailDTOList.get(projectcounter).getAssigOnDate() != null)
                         {
                             ZonedDateTime assignDate = projectservicedetailDTOList.get(projectcounter).getAssigOnDate();
@@ -84,23 +83,28 @@ public class ProjectServiceForClearanceResource {
                 }
                 if(flag==false)
                 {
-                    ProjectservicedetailDTO ProjectservicedetailDTO=new ProjectservicedetailDTO();
-                    ProjectservicedetailDTO.setProjectid(UUID.fromString(id));
-                    ProjectservicedetailDTO.setServiceid(departmentServiceDTOList.get(counterService).getId());
-                    ProjectservicedetailDTO.setServiceName(departmentServiceDTOList.get(counterService).getServiceName());
-                    ProjectservicedetailDTO.setDepartmentName(departmentServiceDTOList.get(counterService).getDepartmentname());
-                    ProjectservicedetailDTO.setServiceStage(departmentServiceDTOList.get(counterService).getStage());
-                    ProjectservicedetailDTO.setServiceDuration(departmentServiceDTOList.get(counterService).getDuration());
-                    ProjectservicedetailDTO.setStatus("Pending");
-                    ProjectservicedetailDTO.setIsRequired(false);
-                    ProjectservicedetailDTO.setIsAssigned(false);
-                    ProjectservicedetailDTO.setFormFilledStatus(false);
-                    ProjectservicedetailDTO.setIsPaymentMade(false);
-                    ProjectservicedetailDTO.setIsPaymentVerified(false);
-                    ProjectservicedetailDTO.setIsDimmed(false);
+                    ProjectservicedetailDTO ProjectservicedetailDTO = getDefaultProjectServiceObject(id, departmentServiceDTOList, counterService);
                     projectServiceClearanceList.add(ProjectservicedetailDTO);
                 }
             }
         return projectServiceClearanceList;
+    }
+
+    private ProjectservicedetailDTO getDefaultProjectServiceObject(@PathVariable String id, List<DepartmentServiceDTO> departmentServiceDTOList, int counterService) {
+        ProjectservicedetailDTO ProjectservicedetailDTO=new ProjectservicedetailDTO();
+        ProjectservicedetailDTO.setProjectid(UUID.fromString(id));
+        ProjectservicedetailDTO.setServiceid(departmentServiceDTOList.get(counterService).getId());
+        ProjectservicedetailDTO.setServiceName(departmentServiceDTOList.get(counterService).getServiceName());
+        ProjectservicedetailDTO.setDepartmentName(departmentServiceDTOList.get(counterService).getDepartmentname());
+        ProjectservicedetailDTO.setServiceStage(departmentServiceDTOList.get(counterService).getStage());
+        ProjectservicedetailDTO.setServiceDuration(departmentServiceDTOList.get(counterService).getDuration());
+        ProjectservicedetailDTO.setStatus("Pending");
+        ProjectservicedetailDTO.setIsRequired(false);
+        ProjectservicedetailDTO.setIsAssigned(false);
+        ProjectservicedetailDTO.setFormFilledStatus(false);
+        ProjectservicedetailDTO.setIsPaymentMade(false);
+        ProjectservicedetailDTO.setIsPaymentVerified(false);
+        ProjectservicedetailDTO.setIsDimmed(false);
+        return ProjectservicedetailDTO;
     }
 }

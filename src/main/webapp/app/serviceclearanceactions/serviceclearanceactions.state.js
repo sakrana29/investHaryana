@@ -27,10 +27,9 @@
                     $translatePartialLoader.addPart('home');
                     return $translate.refresh();
                 }],
-                projectid: ['$stateParams',function($stateParams) {
-                    return $stateParams.id;
+                projectservicelist: ['$stateParams','ProjectservicedetailbyProject', function($stateParams,ProjectservicedetailbyProject) {
+                    return ProjectservicedetailbyProject.query({id : $stateParams.id}).$promise;
                 }]
-
             }
         })
         .state('assignservice', {
@@ -78,7 +77,7 @@
                                   id: null
                               };
                           },
-                        projectServiceLog: function () {
+                          projectServiceLog: function () {
                               return {
                                   projectid: null,
                                   serviceid: null,
@@ -88,6 +87,9 @@
                                   id: null
                               };
                           },
+                          projectService: ['$stateParams', function($stateParams) {
+                              return $stateParams.projectService;
+                          }],
                         translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
                             $translatePartialLoader.addPart('home');
                             return $translate.refresh();
@@ -308,8 +310,8 @@
             }]
         })
   .state('comment-dialog', {
-              parent: 'app',
-              url: '/comment',
+              parent: 'serviceclearanceaction',
+              url: '/comment/{projectService:json}',
               data: {
                   authorities: ['ROLE_USER']
               },
@@ -352,7 +354,6 @@
                   });
               }]
           })
-
           .state('reject-dialog', {
                 parent: 'app',
                 url: '/reject',
