@@ -33,8 +33,8 @@
             }
         })
         .state('assignservice', {
-            parent: 'app',
-            url: '/assignservice',
+            parent: 'serviceclearanceaction',
+            url: '/assignservice/{projectService:json}',
             data: {
                 authorities: ['ROLE_USER']
             },
@@ -46,28 +46,6 @@
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
-                        projectservicedetail: function () {
-                            return {
-                                projectid: null,
-                                serviceid: null,
-                                isRequired: null,
-                                requireMarkedOnDate: null,
-                                requireMarkedBy: null,
-                                isAssigned: null,
-                                assigOnDate: null,
-                                assignBy: null,
-                                formFilledStatus: null,
-                                isPaymentMade: null,
-                                isPaymentVerified: null,
-                                formFilledOnDate: null,
-                                formFilledBy: null,
-                                paymentMadeOnDate: null,
-                                status: null,
-                                latestComments: null,
-                                serviceFee: null,
-                                id: null
-                            };
-                        },
                         projectAttachemnt: function () {
                               return {
                                   fileName: null,
@@ -87,9 +65,6 @@
                                   id: null
                               };
                           },
-                          projectService: ['$stateParams', function($stateParams) {
-                              return $stateParams.projectService;
-                          }],
                         translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
                             $translatePartialLoader.addPart('home');
                             return $translate.refresh();
@@ -104,8 +79,8 @@
         })
 
     .state('serviceForm-fillform', {
-        parent: 'app',
-        url: '/fillform',
+        parent: 'serviceclearanceaction',
+        url: '/fillform/{projectService:json}',
         data: {
             authorities: ['ROLE_USER']
         },
@@ -117,12 +92,34 @@
                 backdrop: 'static',
                 size: 'lg',
                 resolve: {
-                    entity: function () {
+                    projectServiceFormFieldData: function () {
                         return {
-                            countryname: null,
+                            serviceid: null,
+                            formfieldvalue: null,
+                            projectid: null,
+                            formfieldName: null,
                             id: null
                         };
                     },
+                    projectAttachemnt: function () {
+                          return {
+                              fileName: null,
+                              description: null,
+                              fileExtension: null,
+                              serverFileName: null,
+                              id: null
+                          };
+                      },
+                      projectServiceLog: function () {
+                          return {
+                              projectid: null,
+                              serviceid: null,
+                              comments: null,
+                              commentDate: null,
+                              commentByUserLogin: null,
+                              id: null
+                          };
+                      },
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
                         $translatePartialLoader.addPart('home');
                         return $translate.refresh();
@@ -136,9 +133,9 @@
         }]
     })
 
-  .state('servicePayment', {
-          parent: 'app',
-          url: '/payFee',
+    .state('servicePayment', {
+          parent: 'serviceclearanceaction',
+          url: '/payFee/{projectService:json}',
           data: {
               authorities: ['ROLE_USER']
           },
@@ -150,28 +147,35 @@
                   backdrop: 'static',
                   size: 'lg',
                   resolve: {
-                      entity: function () {
+                      projectServicePayment: function () {
                           return {
                               projectid: null,
                               serviceid: null,
-                              isRequired: null,
-                              requireMarkedOnDate: null,
-                              requireMarkedBy: null,
-                              isAssigned: null,
-                              assigOnDate: null,
-                              assignBy: null,
-                              formFilledStatus: null,
-                              isPaymentMade: null,
-                              isPaymentVerified: null,
-                              formFilledOnDate: null,
-                              formFilledBy: null,
-                              paymentMadeOnDate: null,
-                              status: null,
-                              latestComments: null,
-                              serviceFee: null,
+                              paymentMade: null,
+                              paymentMadeBy: null,
+                              paymentDate: null,
                               id: null
                           };
                       },
+                      projectAttachemnt: function () {
+                            return {
+                                fileName: null,
+                                description: null,
+                                fileExtension: null,
+                                serverFileName: null,
+                                id: null
+                            };
+                        },
+                        projectServiceLog: function () {
+                            return {
+                                projectid: null,
+                                serviceid: null,
+                                comments: null,
+                                commentDate: null,
+                                commentByUserLogin: null,
+                                id: null
+                            };
+                        },
                       translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
                           $translatePartialLoader.addPart('home');
                           return $translate.refresh();
@@ -186,8 +190,8 @@
       })
 
   .state('verifyPayment', {
-            parent: 'app',
-            url: '/verify',
+            parent: 'serviceclearanceaction',
+            url: '/verify/{projectService:json}',
             data: {
                 authorities: ['ROLE_USER']
             },
@@ -199,12 +203,6 @@
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
-//                        entity: function () {
-//                            return {
-//                                countryname: null,
-//                                id: null
-//                            };
-//                        },
                         translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
                             $translatePartialLoader.addPart('home');
                             return $translate.refresh();
@@ -220,8 +218,8 @@
 
 
   .state('serviceClearance-action', {
-          parent: 'app',
-          url: '/action',
+          parent: 'serviceclearanceaction',
+          url: '/clear/{projectService:json}',
           data: {
               authorities: ['ROLE_USER']
           },
@@ -265,7 +263,7 @@
           }]
       })
   .state('deemedClearance', {
-            parent: 'app',
+            parent: 'serviceclearanceaction',
             url: '/deemed',
             data: {
                 authorities: ['ROLE_USER']
@@ -309,7 +307,7 @@
                 });
             }]
         })
-  .state('comment-dialog', {
+        .state('comment-dialog', {
               parent: 'serviceclearanceaction',
               url: '/comment/{projectService:json}',
               data: {
@@ -355,8 +353,8 @@
               }]
           })
           .state('reject-dialog', {
-                parent: 'app',
-                url: '/reject',
+                parent: 'serviceclearanceaction',
+                url: '/reject/{projectService:json}',
                 data: {
                     authorities: ['ROLE_USER']
                 },
@@ -399,6 +397,5 @@
                     });
                 }]
             })
-
     }
 })();

@@ -1,18 +1,21 @@
-(function() {
+(function(){
     'use strict';
 
     angular
         .module('investhryApp')
         .controller('assignServiceDialogController', assignServiceDialogController);
 
-    assignServiceDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'projectservicedetail', 'projectAttachemnt', 'ProjectServiceLog', 'ProjectAttachemnt', 'FileManagement', 'Projectservicedetail'];
-    function assignServiceDialogController ($timeout, $scope, $stateParams, $uibModalInstance, projectservicedetail, projectAttachemnt, ProjectServiceLog, ProjectAttachemnt, FileManagement, Projectservicedetail) {
+    assignServiceDialogController.$inject = ['$timeout','$scope','$stateParams','$uibModalInstance','projectAttachemnt','projectServiceLog','ProjectAttachemnt','ProjectServiceLog','FileManagement','Projectservicedetail'];
+    function assignServiceDialogController ($timeout, $scope, $stateParams, $uibModalInstance, projectAttachemnt, projectServiceLog, ProjectAttachemnt, ProjectServiceLog, FileManagement, Projectservicedetail) {
         var vm = this;
-        vm.projectservicedetail = projectservicedetail;
-        vm.projectServiceLog = ProjectServiceLog;
+        vm.projectServiceLog = projectServiceLog;
         vm.projectAttachemnt = projectAttachemnt;
+        vm.projectService = $stateParams.projectService;
+
+        var projectAttachmentResultObject=null;
+
         vm.clear = clear;
-        vm.saveAll = saveAll;
+        vm.assignService = assignService;
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
@@ -22,30 +25,76 @@
             $uibModalInstance.dismiss('cancel');
         }
 
-        function saveAll(){
-           updateProjectServiceDetail();
-           saveComments();
-           saveFile();
-           saveFileRecord();
+        function assignService(){
+            vm.projectServiceLog.projectid=vm.projectService.projectid;
+            vm.projectServiceLog.serviceid=vm.projectService.serviceid;
+            ProjectServiceLog.save(vm.projectServiceLog,onServiceLogSaveSuccess,onServiceLogSaveError);
+        }
+        function onServiceLogSaveSuccess(result)
+        {
+            alert('servicelogsaved');
+            $scope.$emit('investhryApp:projectServiceLogUpdate', result);
+            vm.projectService.isAssigned=true;
+            vm.projectService.latestComments=vm.projectServiceLog.comments;
+            vm.projectService.serviceFee=vm.projectservicedetail.serviceFee;
+            Projectservicedetail.update(vm.projectService,onUpdateProjectServiceSuccess,onUpdateProjectServiceError);
+        }
+        function onUpdateProjectServiceSuccess(result)
+        {
+            alert('projectservicedetail saved');
+            $scope.$emit('investhryApp:projectservicedetailUpdate', result);
+            if(angular.isDefined(vm.projectAttachemnt.file)){
+                saveProjectAttachment();
+            }
+            else
+            {
+                $uibModalInstance.close(result);
+                vm.isSaving = false;
+            }
+        }
+        function onUpdateProjectServiceError()
+        {
+            alert('project service not saved');
+            vm.isSaving = false;
+        }
+        function onServiceLogSaveError()
+        {
+            alert('Servicelog not saved');
+            vm.isSaving = false;
+        }
+        function saveProjectAttachment()
+        {
+            var file=vm.projectAttachemnt.file;
+            vm.projectAttachemnt.fileName=file.name;
+            vm.projectAttachemnt.description="Service Assign Attachment";
+            vm.projectAttachemnt.fileExtension =file.type;
+            ProjectAttachemnt.save(vm.projectAttachemnt,onSaveProjectAttachmentSuccess,onSaveProjectAttachmentError);
+        }
+        function onSaveProjectAttachmentSuccess(result)
+        {
+            projectAttachmentResultObject=result;
+            $scope.$emit('investhryApp:projectAttachemntUpdate', result);
 
+            var filename = result.id;
+            var file =vm.projectAttachemnt.file;
+            FileManagement.saveFile(file,filename);
+            ProjectAttachemnt.update(projectAttachmentResultObject,onUpdateProjectAttachmentSuccess,onUpdateProjectAttachmentError);
+        }
+        function onSaveProjectAttachmentError()
+        {
+            alert('project attachment not saved');
+            vm.isSaving = false;
         }
 
-        function updateProjectServiceDetail(){
-        alert('updateProjectServiceDetail');
+        function onUpdateProjectAttachmentSuccess(result)
+        {
+            alert('file attachment updated');
+            $uibModalInstance.close(result);
         }
-
-        function saveComments(){
-        alert('saveComments');
-
-        }
-
-        function saveFile(){
-        alert('saveFile');
-
-        }
-
-        function saveFileRecord(){
-        alert('saveFileRecord');
+        function onUpdateProjectAttachmentError()
+        {
+            alert('file attachment not updated');
+            vm.isSaving = false;
         }
     }
 })();

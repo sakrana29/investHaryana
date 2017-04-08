@@ -2,12 +2,12 @@
     'use strict';
     angular
         .module('investhryApp')
-        .factory('assignServiceDialog', assignServiceDialog);
+        .factory('ProjectServicePaymentDetailsByProjectAndService', ProjectServicePaymentDetailsByProjectAndService);
 
-    assignServiceDialog.$inject = ['$resource'];
+    ProjectServicePaymentDetailsByProjectAndService.$inject = ['$resource', 'DateUtils'];
 
-    function assignServiceDialog ($resource) {
-        var resourceUrl =  'api/countries/:id';
+    function ProjectServicePaymentDetailsByProjectAndService ($resource, DateUtils) {
+        var resourceUrl =  'api/project-service-payment/projectandservice/:projectid/:serviceid';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
@@ -16,6 +16,7 @@
                 transformResponse: function (data) {
                     if (data) {
                         data = angular.fromJson(data);
+                        data.paymentDate = DateUtils.convertDateTimeFromServer(data.paymentDate);
                     }
                     return data;
                 }

@@ -1,6 +1,7 @@
 package com.hartron.investharyana.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.hartron.investharyana.security.SecurityUtils;
 import com.hartron.investharyana.service.ProjectServicePaymentDetailsService;
 import com.hartron.investharyana.web.rest.util.HeaderUtil;
 import com.hartron.investharyana.service.dto.ProjectServicePaymentDetailsDTO;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.ZonedDateTime;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -28,7 +30,7 @@ public class ProjectServicePaymentDetailsResource {
     private final Logger log = LoggerFactory.getLogger(ProjectServicePaymentDetailsResource.class);
 
     private static final String ENTITY_NAME = "projectServicePaymentDetails";
-        
+
     private final ProjectServicePaymentDetailsService projectServicePaymentDetailsService;
 
     public ProjectServicePaymentDetailsResource(ProjectServicePaymentDetailsService projectServicePaymentDetailsService) {
@@ -49,6 +51,8 @@ public class ProjectServicePaymentDetailsResource {
         if (projectServicePaymentDetailsDTO.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new projectServicePaymentDetails cannot already have an ID")).body(null);
         }
+        projectServicePaymentDetailsDTO.setPaymentDate(ZonedDateTime.now());
+        projectServicePaymentDetailsDTO.setPaymentMadeBy(SecurityUtils.getCurrentUserLogin());
         ProjectServicePaymentDetailsDTO result = projectServicePaymentDetailsService.save(projectServicePaymentDetailsDTO);
         return ResponseEntity.created(new URI("/api/project-service-payment-details/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
@@ -115,6 +119,13 @@ public class ProjectServicePaymentDetailsResource {
         log.debug("REST request to delete ProjectServicePaymentDetails : {}", id);
         projectServicePaymentDetailsService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+
+    @GetMapping("/project-service-payment/projectandservice/{projectid}/{serviceid}")
+    @Timed
+    public List<ProjectServicePaymentDetailsDTO> getAllProjectServicePaymentDetailsByProjectAndServiceid(@PathVariable String projectid,@PathVariable String serviceid) {
+        log.debug("REST request to get all ProjectServicePaymentDetails");
+        return projectServicePaymentDetailsService.findAllByProjectAndServiceid(projectid,serviceid);
     }
 
 }

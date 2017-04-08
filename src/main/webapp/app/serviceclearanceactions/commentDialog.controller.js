@@ -5,7 +5,7 @@
         .module('investhryApp')
         .controller('commentDialogController', commentDialogController);
 
-    commentDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'projectAttachemnt', 'projectServiceLog', 'ProjectAttachemnt', 'ProjectServiceLog','FileManagement','Projectservicedetail'];
+    commentDialogController.$inject = ['$timeout','$scope','$stateParams','$uibModalInstance','projectAttachemnt','projectServiceLog','ProjectAttachemnt','ProjectServiceLog','FileManagement','Projectservicedetail'];
     function commentDialogController ($timeout, $scope, $stateParams, $uibModalInstance, projectAttachemnt, projectServiceLog, ProjectAttachemnt, ProjectServiceLog, FileManagement, Projectservicedetail) {
         var vm = this;
         vm.projectServiceLog = projectServiceLog;
@@ -14,7 +14,7 @@
         var projectAttachmentResultObject=null;
 
         vm.clear = clear;
-        vm.saveProjectServiceLog = saveProjectServiceLog;
+        vm.saveComments = saveComments;
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
@@ -24,7 +24,7 @@
             $uibModalInstance.dismiss('cancel');
         }
 
-        function saveProjectServiceLog(){
+        function saveComments(){
             vm.projectServiceLog.projectid=vm.projectService.projectid;
             vm.projectServiceLog.serviceid=vm.projectService.serviceid;
             ProjectServiceLog.save(vm.projectServiceLog,onServiceLogSaveSuccess,onServiceLogSaveError);
@@ -34,9 +34,9 @@
             alert('servicelogsaved');
             $scope.$emit('investhryApp:projectServiceLogUpdate', result);
             vm.projectService.latestComments=vm.projectServiceLog.comments;
-            Projectservicedetail.update(vm.projectService,onSaveProjectServiceSuccess,onSaveProjectServiceError);
+            Projectservicedetail.update(vm.projectService,onUpdateProjectServiceSuccess,onUpdateProjectServiceError);
         }
-        function onSaveProjectServiceSuccess(result)
+        function onUpdateProjectServiceSuccess(result)
         {
             alert('projectservicedetail saved');
             $scope.$emit('investhryApp:projectservicedetailUpdate', result);
@@ -49,7 +49,7 @@
                 vm.isSaving = false;
             }
         }
-        function onSaveProjectServiceError()
+        function onUpdateProjectServiceError()
         {
             alert('project service not saved');
             vm.isSaving = false;

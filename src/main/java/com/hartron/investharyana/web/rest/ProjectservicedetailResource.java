@@ -75,6 +75,15 @@ public class ProjectservicedetailResource {
         if (projectservicedetailDTO.getId() == null) {
             return createProjectservicedetail(projectservicedetailDTO);
         }
+        if(projectservicedetailDTO.getIsAssigned()==true)
+        {
+            ProjectservicedetailDTO projectservicedetailDTO1= projectservicedetailService.findOne(projectservicedetailDTO.getId().toString());
+            if(projectservicedetailDTO1.getIsAssigned()==false)
+            {
+                projectservicedetailDTO.setAssigOnDate(ZonedDateTime.now());
+                projectservicedetailDTO.setAssignBy(SecurityUtils.getCurrentUserLogin());
+            }
+        }
         ProjectservicedetailDTO result = projectservicedetailService.save(projectservicedetailDTO);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, projectservicedetailDTO.getId().toString()))

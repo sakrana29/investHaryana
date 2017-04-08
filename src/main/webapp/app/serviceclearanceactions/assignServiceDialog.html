@@ -9,8 +9,8 @@
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group">
-            <label class="control-label" data-translate="" for="field_countryname">Fee Amount</label>
-            <input type="text" class="form-control" name="countryname" id="field_countryname" ng-model="vm.projectservicedetail.serviceFee" required/>
+            <label class="control-label" data-translate="" >Fee Amount</label>
+            <input type="text" class="form-control" ng-model="vm.projectservicedetail.serviceFee" required/>
         </div>
 
         <div class="form-group">
@@ -20,7 +20,7 @@
 
         <div class="form-group">
             <label class="control-label" data-translate="" >Attachment</label>
-            <input type="file" class="form-control input"  file-Model="vm.projectAttachemnt">
+            <input type="file" class="form-control input"  file-Model="vm.projectAttachemnt.file">
         </div>
 
 
@@ -29,7 +29,7 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="">Cancel</span>
         </button>
-        <button type="submit" class="btn btn-primary" ng-click="vm.saveAll()">
+        <button type="submit" class="btn btn-primary" ng-click="vm.assignService()">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="">Save</span>
         </button>
     </div>
