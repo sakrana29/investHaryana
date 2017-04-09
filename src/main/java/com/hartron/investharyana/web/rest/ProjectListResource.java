@@ -63,7 +63,7 @@ public class ProjectListResource {
 //        }
 //        return listofProjectsDTOList;
 //    }
-//
+
 
 //    @GetMapping("/ProjectList/{parametersPending}")
 //    @Timed
@@ -93,7 +93,7 @@ public class ProjectListResource {
 //        return new ResponseEntity<>(pendingDTOs, HttpStatus.OK);
 //    }
 
-    @GetMapping("/ProjectList{Pending}")
+    @GetMapping("/ProjectList{parametersPending}")
     @Timed
     public List<ListofProjectsDTO> getAllPending() {
         log.debug("REST request to get complete Pending List");
