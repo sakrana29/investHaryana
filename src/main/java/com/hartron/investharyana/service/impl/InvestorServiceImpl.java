@@ -1,8 +1,8 @@
 package com.hartron.investharyana.service.impl;
 
-import com.hartron.investharyana.service.InvestorService;
 import com.hartron.investharyana.domain.Investor;
 import com.hartron.investharyana.repository.InvestorRepository;
+import com.hartron.investharyana.service.InvestorService;
 import com.hartron.investharyana.service.dto.InvestorDTO;
 import com.hartron.investharyana.service.mapper.InvestorMapper;
 import org.slf4j.Logger;
@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class InvestorServiceImpl implements InvestorService{
 
     private final Logger log = LoggerFactory.getLogger(InvestorServiceImpl.class);
-    
+
     private final InvestorRepository investorRepository;
 
     private final InvestorMapper investorMapper;
@@ -48,7 +48,7 @@ public class InvestorServiceImpl implements InvestorService{
 
     /**
      *  Get all the investors.
-     *  
+     *
      *  @return the list of entities
      */
     @Override
@@ -85,4 +85,15 @@ public class InvestorServiceImpl implements InvestorService{
         log.debug("Request to delete Investor : {}", id);
         investorRepository.delete(UUID.fromString(id));
     }
+
+    @Override
+    public List<InvestorDTO> findAllByCafpin(String cafpin) {
+        log.debug("Request to get all investors by cafpin");
+        List<InvestorDTO> result = investorRepository.findAllByCafpin(Double.valueOf(cafpin)).stream()
+            .map(investorMapper::investorToInvestorDTO)
+            .collect(Collectors.toCollection(LinkedList::new));
+
+        return result;
+    }
+
 }

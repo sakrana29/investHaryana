@@ -5,9 +5,9 @@
         .module('investhryApp')
         .controller('viewprojectdetailController', addprojectController);
 
-    addprojectController.$inject = ['$scope', 'Principal', 'LoginService', '$state','Projectlist'];
+    addprojectController.$inject = ['$scope', 'Principal', 'LoginService', '$state', 'Projectlist', 'Pendingprojectlist'];
 
-    function addprojectController ($scope, Principal, LoginService, $state,Projectlist) {
+    function addprojectController ($scope, Principal, LoginService, $state, Projectlist, Pendingprojectlist) {
         var vm = this;
 
         vm.account = null;
@@ -41,25 +41,25 @@
 //                console.log(vm.projectcompletedetail[0].projectdetailDTO);
             });
         }
-        //
+
 
          loadByPending();
 
          function loadByPending(){
-            Projectlist.query({Pending: "Pending Status"}, function(result){
-                console.log(result);
-                vm.projectlist=result;
+            Pendingprojectlist.query({Pending: "Pending Status"}, function(data){
+                console.log(data);
+                vm.projectpending=data;
             });
         }
 
-        loadByCompleted();
-
-         function loadByCompleted(){
-            Projectlist.query({Completed: "Completed Status"}, function(result){
-                console.log(result);
-                vm.projectlist=result;
-            });
-        }
+//        loadByCompleted();
+//
+//         function loadByCompleted(){
+//            Pendingprojectlist.query({Completed: "Completed Status"}, function(result){
+//                console.log(result);
+//                vm.projectcompleted=result;
+//            });
+//        }
         //
 
     }
