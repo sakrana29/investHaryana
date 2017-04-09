@@ -71,12 +71,12 @@
         }
         function onSaveProjectAttachmentSuccess(result)
         {
-            projectAttachmentResultObject=result;
             $scope.$emit('investhryApp:projectAttachemntUpdate', result);
-
             var filename = result.id;
             var file =vm.projectAttachemnt.file;
             FileManagement.saveFile(file,filename);
+            projectAttachmentResultObject=result;
+            projectAttachmentResultObject.serverFileName=result.id;
             ProjectAttachemnt.update(projectAttachmentResultObject,onUpdateProjectAttachmentSuccess,onUpdateProjectAttachmentError);
         }
         function onSaveProjectAttachmentError()

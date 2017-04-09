@@ -5,9 +5,9 @@
         .module('investhryApp')
         .controller('DepartmentServiceDialogController', DepartmentServiceDialogController);
 
-    DepartmentServiceDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'DepartmentService'];
+    DepartmentServiceDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'DepartmentService','Department'];
 
-    function DepartmentServiceDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, DepartmentService) {
+    function DepartmentServiceDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, DepartmentService,Department) {
         var vm = this;
 
         vm.departmentService = entity;
@@ -22,8 +22,17 @@
             $uibModalInstance.dismiss('cancel');
         }
 
+        loadAllDepartments();
+        function loadAllDepartments() {
+            Department.query(function(result) {
+                vm.departments = result;
+                vm.searchQuery = null;
+            });
+        }
+
         function save () {
             vm.isSaving = true;
+            vm.departmentService.departmentname=vm.departmentService.selectedDepartment.departmentname;
             if (vm.departmentService.id !== null) {
                 DepartmentService.update(vm.departmentService, onSaveSuccess, onSaveError);
             } else {

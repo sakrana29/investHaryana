@@ -26,9 +26,6 @@
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
                     $translatePartialLoader.addPart('home');
                     return $translate.refresh();
-                }],
-                projectservicelist: ['$stateParams','ProjectservicedetailbyProject', function($stateParams,ProjectservicedetailbyProject) {
-                    return ProjectservicedetailbyProject.query({id : $stateParams.id}).$promise;
                 }]
             }
         })
@@ -132,7 +129,6 @@
             });
         }]
     })
-
     .state('servicePayment', {
           parent: 'serviceclearanceaction',
           url: '/payFee/{projectService:json}',
@@ -189,7 +185,7 @@
           }]
       })
 
-  .state('verifyPayment', {
+    .state('verifyPayment', {
             parent: 'serviceclearanceaction',
             url: '/verify/{projectService:json}',
             data: {

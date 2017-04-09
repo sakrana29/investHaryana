@@ -5,11 +5,16 @@
         .module('investhryApp')
         .controller('serviceClearanceActionController', serviceClearanceActionController);
 
-    serviceClearanceActionController.$inject = ['$timeout', '$scope','projectservicelist', '$stateParams','$state', 'Projectcompletedetail', 'Auth', 'Principal', 'DepartmentService', 'Projectservicedetail','ProjectservicedetailbyProject'];
+    serviceClearanceActionController.$inject = ['$timeout', '$scope', '$stateParams','$state', 'Projectcompletedetail', 'Auth', 'Principal', 'DepartmentService', 'Projectservicedetail','ProjectservicedetailbyProject'];
 
-    function serviceClearanceActionController ($timeout, $scope, projectservicelist, $stateParams, $state, Projectcompletedetail, Auth, Principal, DepartmentService, Projectservicedetail,ProjectservicedetailbyProject) {
+    function serviceClearanceActionController ($timeout, $scope, $stateParams, $state, Projectcompletedetail, Auth, Principal, DepartmentService, Projectservicedetail,ProjectservicedetailbyProject) {
         var vm = this;
-        vm.projectservicelist=projectservicelist;
+
+        loadProjectServices();
+        function loadProjectServices()
+        {
+            vm.projectservicelist=ProjectservicedetailbyProject.query({id : $stateParams.id});
+        }
 
         Principal.identity().then(function(account) {
         vm.account = account;
@@ -23,13 +28,11 @@
         }
         function onMarkSuccess()
         {
-
+            loadProjectServices();
         }
         function onMarkError()
         {
 
         }
-
-
     }
 })();

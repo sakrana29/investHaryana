@@ -84,6 +84,23 @@ public class ProjectservicedetailResource {
                 projectservicedetailDTO.setAssignBy(SecurityUtils.getCurrentUserLogin());
             }
         }
+        if(projectservicedetailDTO.getFormFilledStatus()==true)
+        {
+            ProjectservicedetailDTO projectservicedetailDTO1= projectservicedetailService.findOne(projectservicedetailDTO.getId().toString());
+            if(projectservicedetailDTO1.getFormFilledStatus()==false)
+            {
+                projectservicedetailDTO.setFormFilledOnDate(ZonedDateTime.now());
+                projectservicedetailDTO.setFormFilledBy(SecurityUtils.getCurrentUserLogin());
+            }
+        }
+        if(projectservicedetailDTO.getIsPaymentMade()==true)
+        {
+            ProjectservicedetailDTO projectservicedetailDTO1= projectservicedetailService.findOne(projectservicedetailDTO.getId().toString());
+            if(projectservicedetailDTO1.getIsPaymentMade()==false)
+            {
+                projectservicedetailDTO.setPaymentMadeOnDate(ZonedDateTime.now());
+            }
+        }
         ProjectservicedetailDTO result = projectservicedetailService.save(projectservicedetailDTO);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, projectservicedetailDTO.getId().toString()))

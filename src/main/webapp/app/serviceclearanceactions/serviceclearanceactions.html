@@ -65,8 +65,8 @@
                 <td>{{projectservice.serviceStage}}</td>
                 <td class="text-left">
                     <button type="submit" ng-show="projectservice.isRequired==false" ng-click="vm.markRequired(projectservice)" class="btn btn-info btn-sm">Required</button>
-                    <button type="submit" ui-sref="reject-dialog({projectService:projectservice})" ng-show="(projectservice.status!='Rejected') && (projectservice.isRequired==true)" class="btn btn-info btn-sm">Reject</button>
-                    <button type="submit" ui-sref="comment-dialog({projectService:projectservice})" class="btn btn-info btn-sm">Comment</button>
+                    <button type="submit" ui-sref="reject-dialog({projectService:projectservice})" ng-show="(projectservice.status=='Pending') && (projectservice.isRequired==true)" class="btn btn-info btn-sm">Reject</button>
+                    <button type="submit" ui-sref="comment-dialog({projectService:projectservice})" ng-show="(projectservice.isRequired==true)" class="btn btn-info btn-sm">Comment</button>
                     <button type="submit" ui-sref="assignservice({projectService:projectservice})" ng-show="(projectservice.isAssigned==false) && (projectservice.isRequired==true) && (projectservice.status!='Rejected')" class="btn btn-info btn-sm">Assign</button>
                     <button type="submit" ui-sref="serviceForm-fillform({projectService:projectservice})" ng-show="(projectservice.isAssigned==true) && (projectservice.formFilledStatus==false) && (projectservice.status=='Pending')" class="btn btn-info btn-sm">Fill Form</button>
                     <button type="submit" ui-sref="servicePayment({projectService:projectservice})" ng-show="(projectservice.isAssigned==true) && (projectservice.isPaymentMade==false) && (projectservice.status=='Pending')"  class="btn btn-info btn-sm">Pay Fee</button>
