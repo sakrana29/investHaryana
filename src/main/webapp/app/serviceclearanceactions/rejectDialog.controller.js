@@ -32,7 +32,7 @@
         }
         function onServiceLogSaveSuccess(result)
         {
-            alert('servicelogsaved');
+//            alert('servicelogsaved');
             $scope.$emit('investhryApp:projectServiceLogUpdate', result);
             vm.projectService.latestComments=vm.projectServiceLog.comments
             vm.projectService.status="Rejected";
@@ -40,7 +40,7 @@
         }
         function onUpdateProjectServiceSuccess(result)
         {
-            alert('projectservicedetail saved');
+//            alert('projectservicedetail saved');
             $scope.$emit('investhryApp:projectservicedetailUpdate', result);
             if(angular.isDefined(vm.projectAttachemnt.file)){
                 saveProjectAttachment();
@@ -53,12 +53,12 @@
         }
         function onUpdateProjectServiceError()
         {
-            alert('project service not saved');
+//            alert('project service not saved');
             vm.isSaving = false;
         }
         function onServiceLogSaveError()
         {
-            alert('Servicelog not saved');
+//            alert('Servicelog not saved');
             vm.isSaving = false;
         }
         function saveProjectAttachment()
@@ -81,18 +81,18 @@
         }
         function onSaveProjectAttachmentError()
         {
-            alert('project attachment not saved');
+//            alert('project attachment not saved');
             vm.isSaving = false;
         }
 
         function onUpdateProjectAttachmentSuccess(result)
         {
-            alert('file attachment updated');
+//            alert('file attachment updated');
             $uibModalInstance.close(result);
         }
         function onUpdateProjectAttachmentError()
         {
-            alert('file attachment not updated');
+//            alert('file attachment not updated');
             vm.isSaving = false;
         }
     }

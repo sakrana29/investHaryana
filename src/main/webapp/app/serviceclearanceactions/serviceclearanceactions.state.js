@@ -260,7 +260,7 @@
       })
   .state('deemedClearance', {
             parent: 'serviceclearanceaction',
-            url: '/deemed',
+            url: '/deemed/{projectService:json}',
             data: {
                 authorities: ['ROLE_USER']
             },

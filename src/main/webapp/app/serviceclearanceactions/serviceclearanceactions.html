@@ -73,6 +73,9 @@
                     <button type="submit" ui-sref="verifyPayment({projectService:projectservice})" ng-show="(projectservice.isPaymentMade==true) && (projectservice.isPaymentVerified==false) && (projectservice.status=='Pending')" class="btn btn-info btn-sm">Verify Payment</button>
                     <button type="submit" ui-sref="serviceClearance-action({projectService:projectservice})" ng-show="(projectservice.isPaymentVerified==true) && (projectservice.formFilledStatus==true) && (projectservice.status=='Pending')" class="btn btn-info btn-sm">Clearance</button>
                     <button type="submit" ui-sref="deemedClearance({projectService:projectservice})" ng-show="(projectservice.isDimmed) && (projectservice.isAssigned==true) && (projectservice.status=='Pending')" class="btn btn-info btn-sm">Dimmed Clearance</button>
+                    <label ng-show="(projectservice.status=='Rejected')">Service Rejected</label>
+                    <label ng-show="(projectservice.status=='Cleared')">Service Cleared</label>
+                    <label ng-show="(projectservice.status=='Deemed Cleared')">Service Deemed Cleared</label>
                 </td>
             </tr>
             </tbody>

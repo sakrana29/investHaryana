@@ -69,8 +69,7 @@ public class ProjectServiceForClearanceResource {
                             LocalDate assignedOn=assignDate.toLocalDate();
                             LocalDate today=LocalDate.now();
                             int days= ((int) assignedOn.until(today, ChronoUnit.DAYS));
-                            System.out.print(days);
-                            if(days>projectservicedetailDTOList.get(projectcounter).getServiceDuration())
+                            if(days>=projectservicedetailDTOList.get(projectcounter).getServiceDuration())
                             projectservicedetailDTOList.get(projectcounter).setIsDimmed(true);
                         }
                         else
