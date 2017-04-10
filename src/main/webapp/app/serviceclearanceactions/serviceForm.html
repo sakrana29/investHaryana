@@ -1,10 +1,11 @@
 
 <form name="myForm" role="form">
 
-    <div class="modal-header">
-       <h4 class="modal-title" id="myBlockLabel">Fill Service Form</h4>
+        <div class="panel panel-primary">
+        <div class="panel-heading">
+       <h3 class="panel-title" id="myBlockLabel">Fill Service Form</h3>
     </div>
-
+        </div>
     <div class="modal-body" ng-show="vm.serviceFormFields">
         <div ng-repeat="field in vm.serviceFormFields" class="form-horizontal">
             <ng-form name="form">
