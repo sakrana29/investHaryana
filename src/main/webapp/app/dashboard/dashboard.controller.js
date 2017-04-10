@@ -28,8 +28,29 @@
                 vm.departmentstatcollection = result;
                 console.log(vm.departmentstatcollection);
                 vm.searchQuery = null;
+                var totalCaf=0;
+                var totalElcc=0;
+                var totalDlcc=0;
+
+
+
+                for(var deptcaf=0;deptcaf<result.length;deptcaf++)
+                {
+                  totalCaf= totalCaf + parseInt(result[deptcaf].totalCaf);
+                  totalElcc= totalElcc + parseInt(result[deptcaf].elcc);
+                  totalDlcc= totalDlcc + parseInt(result[deptcaf].dlcc);
+
+                 }
+                    vm.totalCafValue=totalCaf;
+                    vm.totalElccValue=totalElcc;
+                    vm.totalDlccValue=totalDlcc;
+
+
             });
         }
+
+
+
 
 
 

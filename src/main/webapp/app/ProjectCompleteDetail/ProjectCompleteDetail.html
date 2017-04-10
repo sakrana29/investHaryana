@@ -436,29 +436,41 @@
     <div class="panel-body">
         <table class="table table-striped table-hover ">
             <tbody>
-            <tr>
+            <tr ng-repeat="projectrawmaterial in vm.projectrawmaterial">
                 <th class="col-md-2">Raw Material</th>
+                <td class="col-md-2">{{projectrawmaterial.rawmaterial}}</td>
+
                 <th class="col-md-2">Quantity</th>
+                <td class="col-md-2">{{projectrawmaterial.quantity}}</td>
+
                 <th class="col-md-2">Units</th>
+                <td class="col-md-2">{{projectrawmaterial.units}}</td>
+
             </tr>
-            <tr ng-repeat="x in vm.projectrawmaterial">
-                <td class="col-md-2">{{x.projectrawmaterial.rawmaterial}}</td>
-                <td class="col-md-2">{{x.projectrawmaterial.quantity}}</td>
-                <td class="col-md-2">{{x.projectrawmaterial.units}}</td>
-            </tr>
-            <tr>
+            <!--<tr ng-repeat="x in vm.projectrawmaterial">-->
+                <!--<td class="col-md-2">{{x.projectrawmaterial.rawmaterial}}</td>-->
+                <!--<td class="col-md-2">{{x.projectrawmaterial.quantity}}</td>-->
+                <!--<td class="col-md-2">{{x.projectrawmaterial.units}}</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <tr ng-repeat="projectproduct in vm.projectproduct">
                 <th class="col-md-2">Main Product</th>
+                <td class="col-md-2">{{projectproduct.mainproduct}}</td>
+
                 <th class="col-md-2">Quantity</th>
+                <td class="col-md-2">{{projectproduct.quantity}}</td>
+
                 <th class="col-md-2">Units</th>
+                <td class="col-md-2">{{projectproduct.units}}</td>
             </tr>
-            <tr ng-repeat="x in vm.projectproduct">
-                <td class="col-md-2">{{x.projectproduct.mainproduct}}</td>
-                <td class="col-md-2">{{x.projectproduct.quantity}}</td>
-                <td class="col-md-2">{{x.projectproduct.units}}</td>
-            </tr>
-            <tr>
+            <!--<tr ng-repeat="x in vm.projectproduct">-->
+                <!--<td class="col-md-2">{{x.projectproduct.mainproduct}}</td>-->
+                <!--<td class="col-md-2">{{x.projectproduct.quantity}}</td>-->
+                <!--<td class="col-md-2">{{x.projectproduct.units}}</td>-->
+            <!--</tr>-->
+            <tr ng-repeat="projectprocessflowstep in vm.projectprocessflowsteps">
                 <th class="col-md-2">Add Process</th>
-                <td class="col-md-2">{{vm.projectprocessflowstep.steps}}</td>
+                <td class="col-md-2">{{projectprocessflowstep.steps}}</td>
             </tr>
             </tbody>
         </table>
