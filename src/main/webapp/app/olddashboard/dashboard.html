@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="page-heading">
+        <h2>Department-wise CAF Detail</h2>
+    </div>
+
+    <div class="row">
+        <div ng-repeat="departmentstat in vm.departmentstatcollection">
+
+            <div class="col-lg-3 col-sm-5">
+                <div class="circle-tile">
+                    <div class="circle-tile-heading dark-blue">
+                        <i class="fa fa-tasks fa-fw fa-3x"></i>
+                    </div>
+
+                    <div class="circle-tile-content dark-blue">
+                        <div class="circle-tile-description text-faded">
+
+                            <div class="col-md-12">
+                                <div class="tiles-heading">
+                                    <center><b>{{departmentstat.departmentName}}</b></center>
+                                    <br>
+                                </div>
+                                <div class="tiles-body">
+                                    <div class="col-md-8">
+                                        <div class="pull-left">
+                                            Total CAF : <br>
+                                            Total ELCC : <br>
+                                            Total DLCC : <br>
+                                            Pending CAF : <br>
+                                            Stage 1 CAF : <br>
+                                            Stage 2 CAF : <br>
+                                            Stage 3 CAF :
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        {{departmentstat.totalCaf}}<br>
+                                        {{departmentstat.elcc}}<br>
+                                        {{departmentstat.dlcc}}<br>
+                                        {{departmentstat.totalPendingCaf}}<br>
+                                        {{departmentstat.totalStageOneCaf}}<br>
+                                        {{departmentstat.totalStageTwoCaf}}<br>
+                                        {{departmentstat.totalStageThreeCaf}}
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- container-1 END-->
+</div>
