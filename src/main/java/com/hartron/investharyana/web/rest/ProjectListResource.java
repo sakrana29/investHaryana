@@ -93,19 +93,59 @@ public class ProjectListResource {
 //        return new ResponseEntity<>(pendingDTOs, HttpStatus.OK);
 //    }
 
-    @GetMapping("/ProjectList{parametersPending}")
+
+//    @GetMapping("/ProjectList{parametersPending}")
+//    @Timed
+//    public List<ListofProjectsDTO> getAllPending() {
+//        log.debug("REST request to get complete Pending List");
+//        List<ListofProjectsDTO> listofProjectsDTOList = new ArrayList<>();
+//        List<ProjectdetailcombinecodesDTO> projectdetailcombinecodesDTOList = projectdetailcombinecodesService.findAll();
+//
+//        for (int projectlistcount = 0; projectlistcount < projectdetailcombinecodesDTOList.size(); projectlistcount++) {
+//            InvestorDTO investorDTO = investorService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getInvestorid().toString());
+//
+//            if(investorDTO.getCafpin() == null) {
+//
+//                ProjectdetailDTO projectdetailDTO = projectdetailService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getId().toString());
+//                Project_finance_investmentDTO project_finance_investmentDTO = project_finance_investmentService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getProjectfinanceid().toString());
+//                ListofProjectsDTO listofProjectsDTO = new ListofProjectsDTO();
+//                listofProjectsDTO.setProjectid(projectdetailDTO.getId().toString());
+//                listofProjectsDTO.setCAFPin(investorDTO.getCafpin());
+//                listofProjectsDTO.setInvestorName(investorDTO.getFirstname());
+//                listofProjectsDTO.setProjectTotalCost(project_finance_investmentDTO.getTotal_project_cost());
+//                listofProjectsDTO.setProjectType(projectdetailDTO.getProjectype());
+//                listofProjectsDTO.setTotalEmployement(project_finance_investmentDTO.getTotalpurposedemployment());
+//
+//                listofProjectsDTOList.add(listofProjectsDTO);
+//
+//            }
+//        }
+//        return listofProjectsDTOList;
+//    }
+
+
+//    @GetMapping("/ProjectList/{parametersCompleted}")
+//    @Timed
+//    public ResponseEntity<List<ProjectdetailcombinecodesDTO>> getAllCompleted(@RequestParam(value = "Completed", required = true) String Completed)
+//        throws URISyntaxException {
+//            final List<ProjectdetailcombinecodesDTO> completedDTOs = projectdetailcombinecodesService.findAll();
+//        return new ResponseEntity<>(completedDTOs, HttpStatus.OK);
+//    }
+
+    @GetMapping("/ProjectList{parametersCompleted}")
     @Timed
-    public List<ListofProjectsDTO> getAllPending() {
-        log.debug("REST request to get complete Pending List");
+    public List<ListofProjectsDTO> getAllCompleted() {
+        log.debug("REST request to get Completed List");
         List<ListofProjectsDTO> listofProjectsDTOList = new ArrayList<>();
         List<ProjectdetailcombinecodesDTO> projectdetailcombinecodesDTOList = projectdetailcombinecodesService.findAll();
 
         for (int projectlistcount = 0; projectlistcount < projectdetailcombinecodesDTOList.size(); projectlistcount++) {
             InvestorDTO investorDTO = investorService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getInvestorid().toString());
-            if(investorDTO.getCafpin() == null) {
+
+            if(!(investorDTO.getCafpin() == null )) {
+
                 ProjectdetailDTO projectdetailDTO = projectdetailService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getId().toString());
                 Project_finance_investmentDTO project_finance_investmentDTO = project_finance_investmentService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getProjectfinanceid().toString());
-
                 ListofProjectsDTO listofProjectsDTO = new ListofProjectsDTO();
                 listofProjectsDTO.setProjectid(projectdetailDTO.getId().toString());
                 listofProjectsDTO.setCAFPin(investorDTO.getCafpin());
@@ -120,16 +160,6 @@ public class ProjectListResource {
         }
         return listofProjectsDTOList;
     }
-
-
-//    @GetMapping("/ProjectList/{parametersCompleted}")
-//    @Timed
-//    public ResponseEntity<List<ProjectdetailcombinecodesDTO>> getAllCompleted(@RequestParam(value = "Completed", required = true) String Completed)
-//        throws URISyntaxException {
-//            final List<ProjectdetailcombinecodesDTO> completedDTOs = projectdetailcombinecodesService.findAll();
-//        return new ResponseEntity<>(completedDTOs, HttpStatus.OK);
-//    }
-
 
 
 

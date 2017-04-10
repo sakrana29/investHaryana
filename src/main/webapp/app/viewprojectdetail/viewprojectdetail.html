@@ -4,15 +4,15 @@
     <div class="btn-group ">
         <button type="submit"
                 ui-sref="viewprojectdetail({status:'All'})"
-                class="btn btn-info ">All Project</button>
+                class="btn btn-info" onsubmit="loadAll()">All Project</button>
         <button type="submit"
                 ui-sref="viewprojectdetail({status:'Pending'})"
-                class="btn btn-primary ">Pending</button>
+                class="btn btn-primary" onsubmit="loadByPending()">Pending</button>
         <button type="submit"
                 ui-sref="viewprojectdetail({status:'Completed'})"
-                class="btn btn-danger ">Completed</button>
+                class="btn btn-danger" onsubmit="loadByCompleted()">Completed</button>
     </div>
-    <div class="row" >
+    <div class="row">
         <table class="table table-striped table-hover ">
             <thead>
             <tr class="headerGrid">
@@ -38,15 +38,29 @@
                             <!--class="btn btn-info ">Details</button>-->
                 <!--</td>-->
             <!--</tr>-->
-            <tr ng-repeat = "pending in vm.projectpending track by pending.projectid">
 
-                <td >{{pending.cafpin}}</td>
-                <td >{{pending.investorName}}</td>
-                <td >{{pending.projectType}}</td>
-                <td >{{pending.projectTotalCost}}</td>
-                <td >{{pending.totalEmployement}}</td>
+            <!--<tr ng-repeat = "pending in vm.projectpending track by pending.projectid">-->
+
+                <!--<td >{{pending.cafpin}}</td>-->
+                <!--<td >{{pending.investorName}}</td>-->
+                <!--<td >{{pending.projectType}}</td>-->
+                <!--<td >{{pending.projectTotalCost}}</td>-->
+                <!--<td >{{pending.totalEmployement}}</td>-->
+                <!--<td class="action verticalalign">-->
+                    <!--<button type="submit" ui-sref="projectdetailjist({id:pending.projectid})"-->
+                            <!--class="btn btn-info ">Details</button>-->
+                <!--</td>-->
+            <!--</tr>-->
+
+            <tr ng-repeat = "completed in vm.projectcompleted track by completed.projectid">
+
+                <td >{{completed.cafpin}}</td>
+                <td >{{completed.investorName}}</td>
+                <td >{{completed.projectType}}</td>
+                <td >{{completed.projectTotalCost}}</td>
+                <td >{{completed.totalEmployement}}</td>
                 <td class="action verticalalign">
-                    <button type="submit" ui-sref="projectdetailjist({id:pending.projectid})"
+                    <button type="submit" ui-sref="projectdetailjist({id:completed.projectid})"
                             class="btn btn-info ">Details</button>
                 </td>
             </tr>

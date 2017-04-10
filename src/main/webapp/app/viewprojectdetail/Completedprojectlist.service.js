@@ -2,12 +2,12 @@
     'use strict';
     angular
         .module('investhryApp')
-        .factory('Pendingprojectlist', Pendingprojectlist);
+        .factory('Completedprojectlist', Completedprojectlist);
 
-    Pendingprojectlist.$inject = ['$resource'];
+    Completedprojectlist.$inject = ['$resource'];
 
-    function Pendingprojectlist ($resource) {
-        var resourceUrl =  '/api/ProjectList/:parametersPending';
+    function Completedprojectlist ($resource) {
+        var resourceUrl =  '/api/ProjectList/:parametersCompleted';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
