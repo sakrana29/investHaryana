@@ -427,8 +427,6 @@
     </div>
 </div>
 
-
-
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">MANUFACTURING DETAILS</h3>
@@ -488,17 +486,29 @@
                     <th class="col-md-2">Source of Water Supply(Raw Water Effluent Details)</th>
                     <td class="col-md-2">{{vm.environmentimpactdetail.source_of_water_supply}}</td>
                 </tr>
-                <tr>
+
+
+
+                <tr ng-repeat="environmentimpactdetail in vm.environmentimpactdetail">
                     <th class="col-md-1">Particulars(Raw Water Effluent Details)</th>
+
                     <th class="col-md-1">Process</th>
+                    <td class="col-md-1">{{environmentimpactdetail.water_process}}</td>
                     <th class="col-md-1">Cooling</th>
+                    <td class="col-md-1">{{environmentimpactdetail.water_cooling}}</td>
                     <th class="col-md-1">Domestic</th>
+                    <td class="col-md-1">{{environmentimpactdetail.water_domestic}}</td>
                     <th class="col-md-1">Other</th>
+                    <td class="col-md-1">{{environmentimpactdetail.water_other}}</td>
                 </tr>
-                <tr>
+                <tr ng-repeat="environmentimpactdetail in vm.environmentimpactdetail">
                     <td class="col-md-1 ">Water Usage (in m3 per day)*</td>
-                    <td class="col-md-1">{{vm.environmentimpactdetail.water_process}}</td>
-                    <td class="col-md-1">{{vm.environmentimpactdetail.water_cooling}}</td>
+                    <td class="col-md-1">{{environmentimpactdetail.water_process}}</td>
+
+
+                    <td class="col-md-1">{{water_cooling}}</td>
+                    <td class="col-md-1">{{environmentimpactdetail.water_cooling}}</td>
+
                     <td class="col-md-1">{{vm.environmentimpactdetail.water_domestic}}</td>
                     <td class="col-md-1">{{vm.environmentimpactdetail.water_other}}</td>
                 </tr>

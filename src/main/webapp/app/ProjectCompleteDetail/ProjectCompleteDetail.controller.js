@@ -28,7 +28,7 @@
         vm.projectrawmaterial=vm.CompleteProjectDetail.projectrawmaterialDTOList;
         vm.projectproduct=vm.CompleteProjectDetail.projectproductDTOList;
         vm.projectprocessflowsteps=vm.CompleteProjectDetail.projectprocessflowstepsDTOList;
-
+        vm.environmentimpactdetail=vm.CompleteProjectDetail.environment_impactdetailDTO;
 
         $scope.$on('authenticationSuccess', function() {
             getAccount();
