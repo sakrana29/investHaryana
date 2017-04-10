@@ -28,7 +28,10 @@
             "finalAction": "Final Action",
             "finalActionDate": "Final Action Date",
             "projectInvestment": "Project Investment",
-            "projectEmployment": "Project Employment"
+            "projectEmployment": "Project Employment",
+            "proposedprojectarea": "Proposedprojectarea",
+            "confirmitylanduse": "Confirmitylanduse",
+            "landzoneusetype": "Landzoneusetype"
         }
     }
 }

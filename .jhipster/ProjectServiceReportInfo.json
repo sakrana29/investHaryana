@@ -57,6 +57,18 @@
         {
             "fieldName": "projectEmployment",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "proposedprojectarea",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "confirmitylanduse",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "landzoneusetype",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170328155423",

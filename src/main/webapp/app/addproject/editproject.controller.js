@@ -296,11 +296,15 @@
                 vm.environmentimpactdetail.mode_of_disposal_for_discharge= vm.environmentimpactdetail.selectedDischarge.disposal_for_discharge;
         }
 
-        function saveCompleteProjectDetail($scope)
+        function saveCompleteProjectDetail(flag)
         {
             vm.isSaving = true;
             checkDropDowns();
 
+            if(flag=='Final')
+            {
+                vm.investor.cafpin=1;
+            }
             vm.CompleteProjectDetail.investorDTO=vm.investor;
             vm.CompleteProjectDetail.companydetailDTO=vm.companydetail;
             vm.CompleteProjectDetail.projectdetailDTO=vm.projectdetail;

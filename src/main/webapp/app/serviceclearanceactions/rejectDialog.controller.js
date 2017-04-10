@@ -5,13 +5,13 @@
         .module('investhryApp')
         .controller('rejectDialogController', rejectDialogController);
 
-    rejectDialogController.$inject = ['$timeout','$scope','$stateParams','$uibModalInstance','projectAttachemnt','projectServiceLog','ProjectAttachemnt','ProjectServiceLog','FileManagement','Projectservicedetail'];
-    function rejectDialogController ($timeout, $scope, $stateParams, $uibModalInstance, projectAttachemnt, projectServiceLog, ProjectAttachemnt, ProjectServiceLog, FileManagement, Projectservicedetail) {
+    rejectDialogController.$inject = ['$timeout','$scope','$stateParams','$uibModalInstance','projectAttachemnt','projectServiceLog','ProjectAttachemnt','ProjectServiceLog','FileManagement','Projectservicedetail','ProjectServiceReportInfoForClearance'];
+    function rejectDialogController ($timeout, $scope, $stateParams, $uibModalInstance, projectAttachemnt, projectServiceLog, ProjectAttachemnt, ProjectServiceLog, FileManagement, Projectservicedetail,ProjectServiceReportInfoForClearance) {
         var vm = this;
         vm.projectServiceLog = projectServiceLog;
         vm.projectAttachemnt = projectAttachemnt;
         vm.projectService = $stateParams.projectService;
-
+        vm.projectservicereportinfo = ProjectServiceReportInfoForClearance.get({projectid:vm.projectService.projectid,department:vm.projectService.departmentName,service:vm.projectService.serviceName});
         var projectAttachmentResultObject=null;
 
         vm.clear = clear;
@@ -42,6 +42,13 @@
         {
 //            alert('projectservicedetail saved');
             $scope.$emit('investhryApp:projectservicedetailUpdate', result);
+
+            vm.projectservicereportinfo.status='Rejected';
+            ProjectServiceReportInfoForClearance.update(vm.projectservicereportinfo,onUpdateProjectServiceReportInfoSuccess,onUpdateProjectServiceReportInfoError);
+        }
+        function onUpdateProjectServiceReportInfoSuccess(result)
+        {
+            $scope.$emit('investhryApp:projectServiceReportInfoUpdate', result);
             if(angular.isDefined(vm.projectAttachemnt.file)){
                 saveProjectAttachment();
             }
@@ -84,11 +91,15 @@
 //            alert('project attachment not saved');
             vm.isSaving = false;
         }
-
         function onUpdateProjectAttachmentSuccess(result)
         {
-//            alert('file attachment updated');
             $uibModalInstance.close(result);
+            vm.isSaving = false;
+        }
+
+        function onUpdateProjectServiceReportInfoError()
+        {
+            vm.isSaving = false;
         }
         function onUpdateProjectAttachmentError()
         {

@@ -68,7 +68,7 @@ class ProjectServiceReportInfoGatlingTest extends Simulation {
             .exec(http("Create new projectServiceReportInfo")
             .post("/api/project-service-report-infos")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "projectid":null, "projecttype":"SAMPLE_TEXT", "departmentname":"SAMPLE_TEXT", "servicename":"SAMPLE_TEXT", "assignDate":"2020-01-01T00:00:00.000Z", "requireDate":"2020-01-01T00:00:00.000Z", "status":"SAMPLE_TEXT", "stage":"SAMPLE_TEXT", "investorName":"SAMPLE_TEXT", "cafPin":"SAMPLE_TEXT", "finalAction":"SAMPLE_TEXT", "finalActionDate":"2020-01-01T00:00:00.000Z", "projectInvestment":null, "projectEmployment":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "projectid":null, "projecttype":"SAMPLE_TEXT", "departmentname":"SAMPLE_TEXT", "servicename":"SAMPLE_TEXT", "assignDate":"2020-01-01T00:00:00.000Z", "requireDate":"2020-01-01T00:00:00.000Z", "status":"SAMPLE_TEXT", "stage":"SAMPLE_TEXT", "investorName":"SAMPLE_TEXT", "cafPin":"SAMPLE_TEXT", "finalAction":"SAMPLE_TEXT", "finalActionDate":"2020-01-01T00:00:00.000Z", "projectInvestment":null, "projectEmployment":"SAMPLE_TEXT", "proposedprojectarea":"SAMPLE_TEXT", "confirmitylanduse":null, "landzoneusetype":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_projectServiceReportInfo_url"))).exitHereIfFailed
             .pause(10)

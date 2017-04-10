@@ -41,6 +41,12 @@ public class ProjectServiceReportInfoDTO implements Serializable {
 
     private String projectEmployment;
 
+    private String proposedprojectarea;
+
+    private Boolean confirmitylanduse;
+
+    private String landzoneusetype;
+
     public UUID getId() {
         return id;
     }
@@ -146,6 +152,27 @@ public class ProjectServiceReportInfoDTO implements Serializable {
     public void setProjectEmployment(String projectEmployment) {
         this.projectEmployment = projectEmployment;
     }
+    public String getProposedprojectarea() {
+        return proposedprojectarea;
+    }
+
+    public void setProposedprojectarea(String proposedprojectarea) {
+        this.proposedprojectarea = proposedprojectarea;
+    }
+    public Boolean getConfirmitylanduse() {
+        return confirmitylanduse;
+    }
+
+    public void setConfirmitylanduse(Boolean confirmitylanduse) {
+        this.confirmitylanduse = confirmitylanduse;
+    }
+    public String getLandzoneusetype() {
+        return landzoneusetype;
+    }
+
+    public void setLandzoneusetype(String landzoneusetype) {
+        this.landzoneusetype = landzoneusetype;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -186,6 +213,9 @@ public class ProjectServiceReportInfoDTO implements Serializable {
             ", finalActionDate='" + finalActionDate + "'" +
             ", projectInvestment='" + projectInvestment + "'" +
             ", projectEmployment='" + projectEmployment + "'" +
+            ", proposedprojectarea='" + proposedprojectarea + "'" +
+            ", confirmitylanduse='" + confirmitylanduse + "'" +
+            ", landzoneusetype='" + landzoneusetype + "'" +
             '}';
     }
 }

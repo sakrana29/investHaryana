@@ -87,6 +87,15 @@ public class ProjectServiceReportInfoResourceIntTest extends AbstractCassandraTe
     private static final String DEFAULT_PROJECT_EMPLOYMENT = "AAAAAAAAAA";
     private static final String UPDATED_PROJECT_EMPLOYMENT = "BBBBBBBBBB";
 
+    private static final String DEFAULT_PROPOSEDPROJECTAREA = "AAAAAAAAAA";
+    private static final String UPDATED_PROPOSEDPROJECTAREA = "BBBBBBBBBB";
+
+    private static final Boolean DEFAULT_CONFIRMITYLANDUSE = false;
+    private static final Boolean UPDATED_CONFIRMITYLANDUSE = true;
+
+    private static final String DEFAULT_LANDZONEUSETYPE = "AAAAAAAAAA";
+    private static final String UPDATED_LANDZONEUSETYPE = "BBBBBBBBBB";
+
     @Autowired
     private ProjectServiceReportInfoRepository projectServiceReportInfoRepository;
 
@@ -140,7 +149,10 @@ public class ProjectServiceReportInfoResourceIntTest extends AbstractCassandraTe
                 .finalAction(DEFAULT_FINAL_ACTION)
                 .finalActionDate(DEFAULT_FINAL_ACTION_DATE)
                 .projectInvestment(DEFAULT_PROJECT_INVESTMENT)
-                .projectEmployment(DEFAULT_PROJECT_EMPLOYMENT);
+                .projectEmployment(DEFAULT_PROJECT_EMPLOYMENT)
+                .proposedprojectarea(DEFAULT_PROPOSEDPROJECTAREA)
+                .confirmitylanduse(DEFAULT_CONFIRMITYLANDUSE)
+                .landzoneusetype(DEFAULT_LANDZONEUSETYPE);
         return projectServiceReportInfo;
     }
 
@@ -180,6 +192,9 @@ public class ProjectServiceReportInfoResourceIntTest extends AbstractCassandraTe
         assertThat(testProjectServiceReportInfo.getFinalActionDate()).isEqualTo(DEFAULT_FINAL_ACTION_DATE);
         assertThat(testProjectServiceReportInfo.getProjectInvestment()).isEqualTo(DEFAULT_PROJECT_INVESTMENT);
         assertThat(testProjectServiceReportInfo.getProjectEmployment()).isEqualTo(DEFAULT_PROJECT_EMPLOYMENT);
+        assertThat(testProjectServiceReportInfo.getProposedprojectarea()).isEqualTo(DEFAULT_PROPOSEDPROJECTAREA);
+        assertThat(testProjectServiceReportInfo.isConfirmitylanduse()).isEqualTo(DEFAULT_CONFIRMITYLANDUSE);
+        assertThat(testProjectServiceReportInfo.getLandzoneusetype()).isEqualTo(DEFAULT_LANDZONEUSETYPE);
     }
 
     @Test
@@ -225,7 +240,10 @@ public class ProjectServiceReportInfoResourceIntTest extends AbstractCassandraTe
             .andExpect(jsonPath("$.[*].finalAction").value(hasItem(DEFAULT_FINAL_ACTION.toString())))
             .andExpect(jsonPath("$.[*].finalActionDate").value(hasItem(sameInstant(DEFAULT_FINAL_ACTION_DATE))))
             .andExpect(jsonPath("$.[*].projectInvestment").value(hasItem(DEFAULT_PROJECT_INVESTMENT.doubleValue())))
-            .andExpect(jsonPath("$.[*].projectEmployment").value(hasItem(DEFAULT_PROJECT_EMPLOYMENT.toString())));
+            .andExpect(jsonPath("$.[*].projectEmployment").value(hasItem(DEFAULT_PROJECT_EMPLOYMENT.toString())))
+            .andExpect(jsonPath("$.[*].proposedprojectarea").value(hasItem(DEFAULT_PROPOSEDPROJECTAREA.toString())))
+            .andExpect(jsonPath("$.[*].confirmitylanduse").value(hasItem(DEFAULT_CONFIRMITYLANDUSE.booleanValue())))
+            .andExpect(jsonPath("$.[*].landzoneusetype").value(hasItem(DEFAULT_LANDZONEUSETYPE.toString())));
     }
 
     @Test
@@ -251,7 +269,10 @@ public class ProjectServiceReportInfoResourceIntTest extends AbstractCassandraTe
             .andExpect(jsonPath("$.finalAction").value(DEFAULT_FINAL_ACTION.toString()))
             .andExpect(jsonPath("$.finalActionDate").value(sameInstant(DEFAULT_FINAL_ACTION_DATE)))
             .andExpect(jsonPath("$.projectInvestment").value(DEFAULT_PROJECT_INVESTMENT.doubleValue()))
-            .andExpect(jsonPath("$.projectEmployment").value(DEFAULT_PROJECT_EMPLOYMENT.toString()));
+            .andExpect(jsonPath("$.projectEmployment").value(DEFAULT_PROJECT_EMPLOYMENT.toString()))
+            .andExpect(jsonPath("$.proposedprojectarea").value(DEFAULT_PROPOSEDPROJECTAREA.toString()))
+            .andExpect(jsonPath("$.confirmitylanduse").value(DEFAULT_CONFIRMITYLANDUSE.booleanValue()))
+            .andExpect(jsonPath("$.landzoneusetype").value(DEFAULT_LANDZONEUSETYPE.toString()));
     }
 
     @Test
@@ -283,7 +304,10 @@ public class ProjectServiceReportInfoResourceIntTest extends AbstractCassandraTe
                 .finalAction(UPDATED_FINAL_ACTION)
                 .finalActionDate(UPDATED_FINAL_ACTION_DATE)
                 .projectInvestment(UPDATED_PROJECT_INVESTMENT)
-                .projectEmployment(UPDATED_PROJECT_EMPLOYMENT);
+                .projectEmployment(UPDATED_PROJECT_EMPLOYMENT)
+                .proposedprojectarea(UPDATED_PROPOSEDPROJECTAREA)
+                .confirmitylanduse(UPDATED_CONFIRMITYLANDUSE)
+                .landzoneusetype(UPDATED_LANDZONEUSETYPE);
         ProjectServiceReportInfoDTO projectServiceReportInfoDTO = projectServiceReportInfoMapper.projectServiceReportInfoToProjectServiceReportInfoDTO(updatedProjectServiceReportInfo);
 
         restProjectServiceReportInfoMockMvc.perform(put("/api/project-service-report-infos")
@@ -309,6 +333,9 @@ public class ProjectServiceReportInfoResourceIntTest extends AbstractCassandraTe
         assertThat(testProjectServiceReportInfo.getFinalActionDate()).isEqualTo(UPDATED_FINAL_ACTION_DATE);
         assertThat(testProjectServiceReportInfo.getProjectInvestment()).isEqualTo(UPDATED_PROJECT_INVESTMENT);
         assertThat(testProjectServiceReportInfo.getProjectEmployment()).isEqualTo(UPDATED_PROJECT_EMPLOYMENT);
+        assertThat(testProjectServiceReportInfo.getProposedprojectarea()).isEqualTo(UPDATED_PROPOSEDPROJECTAREA);
+        assertThat(testProjectServiceReportInfo.isConfirmitylanduse()).isEqualTo(UPDATED_CONFIRMITYLANDUSE);
+        assertThat(testProjectServiceReportInfo.getLandzoneusetype()).isEqualTo(UPDATED_LANDZONEUSETYPE);
     }
 
     @Test

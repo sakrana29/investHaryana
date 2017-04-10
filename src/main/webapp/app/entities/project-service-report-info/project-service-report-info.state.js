@@ -118,6 +118,9 @@
                                 finalActionDate: null,
                                 projectInvestment: null,
                                 projectEmployment: null,
+                                proposedprojectarea: null,
+                                confirmitylanduse: null,
+                                landzoneusetype: null,
                                 id: null
                             };
                         }

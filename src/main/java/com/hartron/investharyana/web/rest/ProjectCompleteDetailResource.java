@@ -130,6 +130,15 @@ public class ProjectCompleteDetailResource {
         if (projectCompleteDetailDTO.getProjectdetailDTO().getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("Complete Project Detail", "idexists", "A new Project cannot already have an ID")).body(null);
         }
+
+        if(projectCompleteDetailDTO.getInvestorDTO().getCafpin()!=null){
+        if(projectCompleteDetailDTO.getInvestorDTO().getCafpin()==1)
+        {
+            Double cafpin=1001.00;
+            projectCompleteDetailDTO.getInvestorDTO().setCafpin(cafpin);
+        }
+        }
+
         InvestorDTO resultInvestor = investorService.save(projectCompleteDetailDTO.getInvestorDTO());
         CompanydetailDTO resultCompany = companydetailService.save(projectCompleteDetailDTO.getCompanydetailDTO());
         ProjectdetailDTO resultProjectdetail = projectdetailService.save(projectCompleteDetailDTO.getProjectdetailDTO());
@@ -228,6 +237,17 @@ public class ProjectCompleteDetailResource {
         if (projectCompleteDetailDTO.getProjectdetailDTO().getId() == null) {
             return createProjectCompleteDetail(projectCompleteDetailDTO);
         }
+
+        if(projectCompleteDetailDTO.getInvestorDTO().getCafpin()!=null)
+        {
+            if(projectCompleteDetailDTO.getInvestorDTO().getCafpin()==1)
+            {
+                Double cafpin=1001.00;
+                projectCompleteDetailDTO.getInvestorDTO().setCafpin(cafpin);
+            }
+        }
+
+        System.out.println(projectCompleteDetailDTO.getInvestorDTO());
         InvestorDTO resultInvestor = investorService.save(projectCompleteDetailDTO.getInvestorDTO());
         CompanydetailDTO resultCompany = companydetailService.save(projectCompleteDetailDTO.getCompanydetailDTO());
         ProjectdetailDTO resultProjectdetail = projectdetailService.save(projectCompleteDetailDTO.getProjectdetailDTO());

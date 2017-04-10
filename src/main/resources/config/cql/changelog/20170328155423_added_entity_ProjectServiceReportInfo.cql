@@ -15,9 +15,11 @@ CREATE TABLE IF NOT EXISTS projectServiceReportInfo (
     finalActionDate timestamp,
     projectInvestment double,
     projectEmployment text,
+    proposedprojectarea text,
+    confirmitylanduse boolean,
+    landzoneusetype text,
     PRIMARY KEY(id)
 );
-
 CREATE TABLE IF NOT EXISTS projectServiceReportInfo_By_DepartmentName (
 id uuid,
 departmentname text,
@@ -31,4 +33,3 @@ servicename text,
 id uuid,
 PRIMARY KEY(projectid, departmentname, servicename, id)
 );
-

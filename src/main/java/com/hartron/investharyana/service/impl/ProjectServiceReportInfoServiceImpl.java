@@ -61,6 +61,33 @@ public class ProjectServiceReportInfoServiceImpl implements ProjectServiceReport
         return result;
     }
 
+    /**
+     *  Get one projectServiceReportInfo by id.
+     *
+     *  @param id the id of the entity
+     *  @return the entity
+     */
+    @Override
+    public ProjectServiceReportInfoDTO findOne(String id) {
+        log.debug("Request to get ProjectServiceReportInfo : {}", id);
+        ProjectServiceReportInfo projectServiceReportInfo = projectServiceReportInfoRepository.findOne(UUID.fromString(id));
+        ProjectServiceReportInfoDTO projectServiceReportInfoDTO = projectServiceReportInfoMapper.projectServiceReportInfoToProjectServiceReportInfoDTO(projectServiceReportInfo);
+        return projectServiceReportInfoDTO;
+    }
+
+    /**
+     *  Delete the  projectServiceReportInfo by id.
+     *
+     *  @param id the id of the entity
+     */
+    @Override
+    public void delete(String id) {
+        log.debug("Request to delete ProjectServiceReportInfo : {}", id);
+        ProjectServiceReportInfo projectServiceReportInfo =  projectServiceReportInfoRepository.findOne(UUID.fromString(id));
+        if(projectServiceReportInfo!=null)
+            projectServiceReportInfoRepository.delete(projectServiceReportInfo);
+    }
+
     @Override
     public List<ProjectServiceReportInfoDTO> findAllByDepartment(String departmentname) {
         log.debug("Request to get all ProjectServiceReportInfos by department");
@@ -77,31 +104,5 @@ public class ProjectServiceReportInfoServiceImpl implements ProjectServiceReport
         ProjectServiceReportInfo projectServiceReportInfo = projectServiceReportInfoRepository.findOneByProjectDepartmentService(UUID.fromString(projectid),departmentname,servicename);
         ProjectServiceReportInfoDTO projectServiceReportInfoDTO = projectServiceReportInfoMapper.projectServiceReportInfoToProjectServiceReportInfoDTO(projectServiceReportInfo);
         return projectServiceReportInfoDTO;
-    }
-
-    /**
-     *  Get one projectServiceReportInfo by id.
-     *
-     *  @param id the id of the entity
-     *  @return the entity
-     */
-    @Override
-    public ProjectServiceReportInfoDTO findOne(String id) {
-        log.debug("Request to get ProjectServiceReportInfo : {}", id);
-        ProjectServiceReportInfo projectServiceReportInfo = projectServiceReportInfoRepository.findOne(UUID.fromString(id));
-        ProjectServiceReportInfoDTO projectServiceReportInfoDTO = projectServiceReportInfoMapper.projectServiceReportInfoToProjectServiceReportInfoDTO(projectServiceReportInfo);
-        return projectServiceReportInfoDTO;
-    }
-
-
-    /**
-     *  Delete the  projectServiceReportInfo by id.
-     *
-     *  @param id the id of the entity
-     */
-    @Override
-    public void delete(String id) {
-        log.debug("Request to delete ProjectServiceReportInfo : {}", id);
-        projectServiceReportInfoRepository.delete(UUID.fromString(id));
     }
 }

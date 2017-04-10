@@ -292,11 +292,14 @@
 
         }
 
-        function saveCompleteProjectDetail()
+        function saveCompleteProjectDetail(flag)
         {
             vm.isSaving = true;
             checkDropDowns();
-
+            if(flag=='Final')
+            {
+                vm.investor.cafpin=1;
+            }
             vm.CompleteProjectDetail.investorDTO=vm.investor;
             vm.CompleteProjectDetail.companydetailDTO=vm.companydetail;
             vm.CompleteProjectDetail.projectdetailDTO=vm.projectdetail;
@@ -307,7 +310,6 @@
             vm.CompleteProjectDetail.electricrequirementDTO=vm.electricrequirement;
             vm.CompleteProjectDetail.projectdetailcombinecodesDTO =vm.projectcombinecodes;
             vm.CompleteProjectDetail.project_phaseDTOList=vm.completeprojectphasedata;
-
             vm.CompleteProjectDetail.projectrawmaterialDTOList=vm.projectrawmaterialdata;
 
 //            console.log(vm.CompleteProjectDetail.projectrawmaterialDTOList);
@@ -318,7 +320,6 @@
             vm.CompleteProjectDetail.wastewaterdetailDTOList= vm.wastewaterdetaildata;
 
 //            vm.project_rawmaterial;
-
             Projectcompletedetail.save(vm.CompleteProjectDetail,onSaveCompleteProjectSuccess,onSaveCompleteProjectError)
         }
         function onSaveCompleteProjectSuccess (resultCompleteProject) {

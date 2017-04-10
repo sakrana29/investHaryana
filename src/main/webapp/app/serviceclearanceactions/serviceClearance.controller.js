@@ -5,13 +5,13 @@
         .module('investhryApp')
         .controller('serviceClearanceController', serviceClearanceController);
 
-    serviceClearanceController.$inject = ['$timeout','$scope','$stateParams','$uibModalInstance','projectAttachemnt','projectServiceLog','ProjectAttachemnt','ProjectServiceLog','FileManagement','Projectservicedetail'];
-    function serviceClearanceController ($timeout, $scope, $stateParams, $uibModalInstance, projectAttachemnt, projectServiceLog, ProjectAttachemnt, ProjectServiceLog, FileManagement, Projectservicedetail) {
+    serviceClearanceController.$inject = ['$timeout','$scope','$stateParams','$uibModalInstance','projectAttachemnt','projectServiceLog','ProjectAttachemnt','ProjectServiceLog','FileManagement','Projectservicedetail','ProjectServiceReportInfoForClearance'];
+    function serviceClearanceController ($timeout, $scope, $stateParams, $uibModalInstance, projectAttachemnt, projectServiceLog, ProjectAttachemnt, ProjectServiceLog, FileManagement, Projectservicedetail,ProjectServiceReportInfoForClearance) {
         var vm = this;
         vm.projectServiceLog = projectServiceLog;
         vm.projectAttachemnt = projectAttachemnt;
         vm.projectService = $stateParams.projectService;
-
+        vm.projectservicereportinfo = ProjectServiceReportInfoForClearance.get({projectid:vm.projectService.projectid,department:vm.projectService.departmentName,service:vm.projectService.serviceName});
         var projectAttachmentResultObject=null;
 
         vm.clear = clear;
@@ -25,7 +25,7 @@
             $uibModalInstance.dismiss('cancel');
         }
 
-        function clearService(){
+        function clearService (){
             vm.projectServiceLog.projectid=vm.projectService.projectid;
             vm.projectServiceLog.serviceid=vm.projectService.serviceid;
             ProjectServiceLog.save(vm.projectServiceLog,onServiceLogSaveSuccess,onServiceLogSaveError);
@@ -34,14 +34,20 @@
         {
 //            alert('servicelogsaved');
             $scope.$emit('investhryApp:projectServiceLogUpdate', result);
-            vm.projectService.latestComments=vm.projectServiceLog.comments;
-            vm.projectService.status='Cleared';
+            vm.projectService.latestComments=vm.projectServiceLog.comments
+            vm.projectService.status="Cleared";
             Projectservicedetail.update(vm.projectService,onUpdateProjectServiceSuccess,onUpdateProjectServiceError);
         }
         function onUpdateProjectServiceSuccess(result)
         {
 //            alert('projectservicedetail saved');
             $scope.$emit('investhryApp:projectservicedetailUpdate', result);
+            vm.projectservicereportinfo.status='Cleared';
+            ProjectServiceReportInfoForClearance.update(vm.projectservicereportinfo,onUpdateProjectServiceReportInfoSuccess,onUpdateProjectServiceReportInfoError);
+        }
+        function onUpdateProjectServiceReportInfoSuccess(result)
+        {
+            $scope.$emit('investhryApp:projectServiceReportInfoUpdate', result);
             if(angular.isDefined(vm.projectAttachemnt.file)){
                 saveProjectAttachment();
             }
@@ -65,7 +71,7 @@
         {
             var file=vm.projectAttachemnt.file;
             vm.projectAttachemnt.fileName=file.name;
-            vm.projectAttachemnt.description="Service Clearance Attachment";
+            vm.projectAttachemnt.description="Clearance Attachment";
             vm.projectAttachemnt.fileExtension =file.type;
             ProjectAttachemnt.save(vm.projectAttachemnt,onSaveProjectAttachmentSuccess,onSaveProjectAttachmentError);
         }
@@ -84,11 +90,15 @@
 //            alert('project attachment not saved');
             vm.isSaving = false;
         }
-
         function onUpdateProjectAttachmentSuccess(result)
         {
-//            alert('file attachment updated');
             $uibModalInstance.close(result);
+            vm.isSaving = false;
+        }
+
+        function onUpdateProjectServiceReportInfoError()
+        {
+            vm.isSaving = false;
         }
         function onUpdateProjectAttachmentError()
         {

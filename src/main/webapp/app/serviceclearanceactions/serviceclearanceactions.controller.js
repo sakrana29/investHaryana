@@ -5,9 +5,9 @@
         .module('investhryApp')
         .controller('serviceClearanceActionController', serviceClearanceActionController);
 
-    serviceClearanceActionController.$inject = ['$timeout', '$scope', '$stateParams','$state','projectServiceReportInfo', 'Projectcompletedetail', 'Auth', 'Principal', 'DepartmentService', 'Projectservicedetail','ProjectservicedetailbyProject','ProjectServiceReportInfo'];
+    serviceClearanceActionController.$inject = ['$timeout', '$scope', '$stateParams','$state','projectServiceReportInfo', 'Projectcompletedetail', 'Auth', 'Principal', 'DepartmentService', 'Projectservicedetail','ProjectservicedetailbyProject','ProjectServiceReportInfoForClearance'];
 
-    function serviceClearanceActionController ($timeout, $scope, $stateParams, $state, projectServiceReportInfo, Projectcompletedetail, Auth, Principal, DepartmentService, Projectservicedetail,ProjectservicedetailbyProject,ProjectServiceReportInfo) {
+    function serviceClearanceActionController ($timeout, $scope, $stateParams, $state, projectServiceReportInfo, Projectcompletedetail, Auth, Principal, DepartmentService, Projectservicedetail,ProjectservicedetailbyProject,ProjectServiceReportInfoForClearance) {
         var vm = this;
         vm.projectServiceReportInfo=projectServiceReportInfo;
 
@@ -36,7 +36,7 @@
             vm.projectServiceReportInfo.requireDate=result.requireMarkedOnDate;
             vm.projectServiceReportInfo.status=result.status;
             vm.projectServiceReportInfo.stage=result.serviceStage;
-            ProjectServiceReportInfo.save(vm.projectServiceReportInfo, onSaveSuccess, onSaveError);
+            ProjectServiceReportInfoForClearance.save(vm.projectServiceReportInfo, onSaveSuccess, onSaveError);
             loadProjectServices();
         }
         function onSaveSuccess(result)

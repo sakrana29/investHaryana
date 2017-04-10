@@ -6,7 +6,6 @@ import com.datastax.driver.core.*;
 import com.datastax.driver.mapping.Mapper;
 import com.datastax.driver.mapping.MappingManager;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.StringUtils;
 
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -94,6 +93,9 @@ public class ProjectServiceReportInfoRepository {
                 projectServiceReportInfo.setFinalActionDate(row.get("finalActionDate", ZonedDateTime.class));
                 projectServiceReportInfo.setProjectInvestment(row.getDouble("projectInvestment"));
                 projectServiceReportInfo.setProjectEmployment(row.getString("projectEmployment"));
+                projectServiceReportInfo.setProposedprojectarea(row.getString("proposedprojectarea"));
+                projectServiceReportInfo.setConfirmitylanduse(row.getBool("confirmitylanduse"));
+                projectServiceReportInfo.setLandzoneusetype(row.getString("landzoneusetype"));
                 return projectServiceReportInfo;
             }
         ).forEach(projectServiceReportInfosList::add);
@@ -115,8 +117,8 @@ public class ProjectServiceReportInfoRepository {
         if (!(rs.isExhausted())) {
             ProjectServiceReportInfo projectServiceReportInfo = new ProjectServiceReportInfo();
             projectServiceReportInfo = Optional.ofNullable(rs.one().getUUID("id"))
-            .map(id -> Optional.ofNullable(mapper.get(id)))
-            .get().get();
+                .map(id -> Optional.ofNullable(mapper.get(id)))
+                .get().get();
             projectServiceReportInfoList.add(projectServiceReportInfo);
         }
         return projectServiceReportInfoList;
@@ -134,7 +136,7 @@ public class ProjectServiceReportInfoRepository {
         if (rs.isExhausted()) {
             return Optional.empty();
         }
-        return Optional.ofNullable(rs.one().getString("id"))
+        return Optional.ofNullable(rs.one().getUUID("id"))
             .map(id -> Optional.ofNullable(mapper.get(id)))
             .get();
     }
@@ -148,21 +150,23 @@ public class ProjectServiceReportInfoRepository {
         BatchStatement batch = new BatchStatement();
 
         batch.add(insertByDeptStmt.bind()
-        .setString("departmentname", projectServiceReportInfo.getDepartmentname())
-        .setUUID("id", projectServiceReportInfo.getId()));
+            .setString("departmentname", projectServiceReportInfo.getDepartmentname())
+            .setUUID("id", projectServiceReportInfo.getId()));
 
         batch.add(insertByProjectDeptServiceStmt.bind()
-        .setString("departmentname", projectServiceReportInfo.getDepartmentname())
-        .setUUID("projectid", projectServiceReportInfo.getProjectid())
-        .setString("servicename", projectServiceReportInfo.getServicename())
-        .setUUID("id", projectServiceReportInfo.getId()));
+            .setString("departmentname", projectServiceReportInfo.getDepartmentname())
+            .setUUID("projectid", projectServiceReportInfo.getProjectid())
+            .setString("servicename", projectServiceReportInfo.getServicename())
+            .setUUID("id", projectServiceReportInfo.getId()));
 
         session.execute(batch);
         return projectServiceReportInfo;
     }
 
-    public void delete(UUID id) {
-        mapper.delete(id);
+    public void delete(ProjectServiceReportInfo projectServiceReportInfo) {
+        mapper.delete(projectServiceReportInfo.getId());
+        deleteByProject(projectServiceReportInfo.getDepartmentname());
+        deleteByProjectDepartmentService(projectServiceReportInfo.getProjectid(),projectServiceReportInfo.getDepartmentname(),projectServiceReportInfo.getServicename());
     }
 
     public void deleteAll() {

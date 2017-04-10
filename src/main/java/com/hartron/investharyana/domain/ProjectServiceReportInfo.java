@@ -47,6 +47,12 @@ public class ProjectServiceReportInfo implements Serializable {
 
     private String projectEmployment;
 
+    private String proposedprojectarea;
+
+    private Boolean confirmitylanduse;
+
+    private String landzoneusetype;
+
     public UUID getId() {
         return id;
     }
@@ -237,6 +243,45 @@ public class ProjectServiceReportInfo implements Serializable {
         this.projectEmployment = projectEmployment;
     }
 
+    public String getProposedprojectarea() {
+        return proposedprojectarea;
+    }
+
+    public ProjectServiceReportInfo proposedprojectarea(String proposedprojectarea) {
+        this.proposedprojectarea = proposedprojectarea;
+        return this;
+    }
+
+    public void setProposedprojectarea(String proposedprojectarea) {
+        this.proposedprojectarea = proposedprojectarea;
+    }
+
+    public Boolean isConfirmitylanduse() {
+        return confirmitylanduse;
+    }
+
+    public ProjectServiceReportInfo confirmitylanduse(Boolean confirmitylanduse) {
+        this.confirmitylanduse = confirmitylanduse;
+        return this;
+    }
+
+    public void setConfirmitylanduse(Boolean confirmitylanduse) {
+        this.confirmitylanduse = confirmitylanduse;
+    }
+
+    public String getLandzoneusetype() {
+        return landzoneusetype;
+    }
+
+    public ProjectServiceReportInfo landzoneusetype(String landzoneusetype) {
+        this.landzoneusetype = landzoneusetype;
+        return this;
+    }
+
+    public void setLandzoneusetype(String landzoneusetype) {
+        this.landzoneusetype = landzoneusetype;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -275,6 +320,9 @@ public class ProjectServiceReportInfo implements Serializable {
             ", finalActionDate='" + finalActionDate + "'" +
             ", projectInvestment='" + projectInvestment + "'" +
             ", projectEmployment='" + projectEmployment + "'" +
+            ", proposedprojectarea='" + proposedprojectarea + "'" +
+            ", confirmitylanduse='" + confirmitylanduse + "'" +
+            ", landzoneusetype='" + landzoneusetype + "'" +
             '}';
     }
 }

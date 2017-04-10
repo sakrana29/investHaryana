@@ -5,13 +5,13 @@
         .module('investhryApp')
         .controller('assignServiceDialogController', assignServiceDialogController);
 
-    assignServiceDialogController.$inject = ['$timeout','$scope','$stateParams','$uibModalInstance','projectAttachemnt','projectServiceLog','ProjectAttachemnt','ProjectServiceLog','FileManagement','Projectservicedetail'];
-    function assignServiceDialogController ($timeout, $scope, $stateParams, $uibModalInstance, projectAttachemnt, projectServiceLog, ProjectAttachemnt, ProjectServiceLog, FileManagement, Projectservicedetail) {
+    assignServiceDialogController.$inject = ['$timeout','$scope','$stateParams','$uibModalInstance','projectAttachemnt','projectServiceLog','ProjectAttachemnt','ProjectServiceLog','FileManagement','Projectservicedetail','ProjectServiceReportInfoForClearance'];
+    function assignServiceDialogController ($timeout, $scope, $stateParams, $uibModalInstance, projectAttachemnt, projectServiceLog, ProjectAttachemnt, ProjectServiceLog, FileManagement, Projectservicedetail,ProjectServiceReportInfoForClearance) {
         var vm = this;
         vm.projectServiceLog = projectServiceLog;
         vm.projectAttachemnt = projectAttachemnt;
         vm.projectService = $stateParams.projectService;
-
+        vm.projectservicereportinfo = ProjectServiceReportInfoForClearance.get({projectid:vm.projectService.projectid,department:vm.projectService.departmentName,service:vm.projectService.serviceName});
         var projectAttachmentResultObject=null;
 
         vm.clear = clear;
@@ -43,6 +43,12 @@
         {
 //            alert('projectservicedetail saved');
             $scope.$emit('investhryApp:projectservicedetailUpdate', result);
+            vm.projectservicereportinfo.assignDate=result.assigOnDate;
+            ProjectServiceReportInfoForClearance.update(vm.projectservicereportinfo,onUpdateProjectServiceReportInfoSuccess,onUpdateProjectServiceReportInfoError);
+        }
+        function onUpdateProjectServiceReportInfoSuccess(result)
+        {
+            $scope.$emit('investhryApp:projectServiceReportInfoUpdate', result);
             if(angular.isDefined(vm.projectAttachemnt.file)){
                 saveProjectAttachment();
             }
@@ -51,6 +57,10 @@
                 $uibModalInstance.close(result);
                 vm.isSaving = false;
             }
+        }
+        function onUpdateProjectServiceReportInfoError()
+        {
+            vm.isSaving = false;
         }
         function onUpdateProjectServiceError()
         {
