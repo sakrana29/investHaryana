@@ -34,7 +34,6 @@
         vm.removeRow = function(phase){
             var index = -1;
             var comArr =eval(vm.completeprojectphasedata);
-
             for( var i = 0; i < comArr.length; i++ ) {
                 if( comArr[i].phase=== phase) {
                     index = i;
