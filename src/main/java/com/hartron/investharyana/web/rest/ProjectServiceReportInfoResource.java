@@ -2,6 +2,10 @@ package com.hartron.investharyana.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.hartron.investharyana.service.ProjectServiceReportInfoService;
+import com.hartron.investharyana.service.Project_finance_investmentService;
+import com.hartron.investharyana.service.ProjectdetailcombinecodesService;
+import com.hartron.investharyana.service.dto.Project_finance_investmentDTO;
+import com.hartron.investharyana.service.dto.ProjectdetailcombinecodesDTO;
 import com.hartron.investharyana.web.rest.util.HeaderUtil;
 import com.hartron.investharyana.service.dto.ProjectServiceReportInfoDTO;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -12,11 +16,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 /**
  * REST controller for managing ProjectServiceReportInfo.
@@ -107,6 +108,14 @@ public class ProjectServiceReportInfoResource {
     public ResponseEntity<ProjectServiceReportInfoDTO> getProjectServiceReportInfo(@PathVariable String id) {
         log.debug("REST request to get ProjectServiceReportInfo : {}", id);
         ProjectServiceReportInfoDTO projectServiceReportInfoDTO = projectServiceReportInfoService.findOne(id);
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(projectServiceReportInfoDTO));
+    }
+
+    @GetMapping("/project-service-report-infos/projectdepartmentservice/{projectid}/{department}/{service}")
+    @Timed
+    public ResponseEntity<ProjectServiceReportInfoDTO> getProjectServiceReportInfoByProjectDepartmentService(@PathVariable String projectid,@PathVariable String department,@PathVariable String service) {
+        log.debug("REST request to get ProjectServiceReportInfo : {}", projectid,department,service);
+        ProjectServiceReportInfoDTO projectServiceReportInfoDTO = projectServiceReportInfoService.findByProjectDepartmentService(projectid,department,service);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(projectServiceReportInfoDTO));
     }
 

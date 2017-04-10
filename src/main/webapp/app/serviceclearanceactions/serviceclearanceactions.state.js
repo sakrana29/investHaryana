@@ -23,6 +23,25 @@
                 }
             },
             resolve: {
+                projectServiceReportInfo: function () {
+                    return {
+                        projectid: null,
+                        projecttype: null,
+                        departmentname: null,
+                        servicename: null,
+                        assignDate: null,
+                        requireDate: null,
+                        status: null,
+                        stage: null,
+                        investorName: null,
+                        cafPin: null,
+                        finalAction: null,
+                        finalActionDate: null,
+                        projectInvestment: null,
+                        projectEmployment: null,
+                        id: null
+                    };
+                },
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
                     $translatePartialLoader.addPart('home');
                     return $translate.refresh();

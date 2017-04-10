@@ -5,10 +5,11 @@
         .module('investhryApp')
         .controller('serviceClearanceActionController', serviceClearanceActionController);
 
-    serviceClearanceActionController.$inject = ['$timeout', '$scope', '$stateParams','$state', 'Projectcompletedetail', 'Auth', 'Principal', 'DepartmentService', 'Projectservicedetail','ProjectservicedetailbyProject'];
+    serviceClearanceActionController.$inject = ['$timeout', '$scope', '$stateParams','$state','projectServiceReportInfo', 'Projectcompletedetail', 'Auth', 'Principal', 'DepartmentService', 'Projectservicedetail','ProjectservicedetailbyProject','ProjectServiceReportInfo'];
 
-    function serviceClearanceActionController ($timeout, $scope, $stateParams, $state, Projectcompletedetail, Auth, Principal, DepartmentService, Projectservicedetail,ProjectservicedetailbyProject) {
+    function serviceClearanceActionController ($timeout, $scope, $stateParams, $state, projectServiceReportInfo, Projectcompletedetail, Auth, Principal, DepartmentService, Projectservicedetail,ProjectservicedetailbyProject,ProjectServiceReportInfo) {
         var vm = this;
+        vm.projectServiceReportInfo=projectServiceReportInfo;
 
         loadProjectServices();
         function loadProjectServices()
@@ -26,13 +27,27 @@
             projectservice.isRequired=true;
             Projectservicedetail.save(projectservice,onMarkSuccess,onMarkError);
         }
-        function onMarkSuccess()
+        function onMarkSuccess(result)
         {
+            $scope.$emit('investhryApp:projectservicedetailUpdate', result);
+            vm.projectServiceReportInfo.projectid=result.projectid;
+            vm.projectServiceReportInfo.departmentname=result.departmentName;
+            vm.projectServiceReportInfo.servicename=result.serviceName;
+            vm.projectServiceReportInfo.requireDate=result.requireMarkedOnDate;
+            vm.projectServiceReportInfo.status=result.status;
+            vm.projectServiceReportInfo.stage=result.serviceStage;
+            ProjectServiceReportInfo.save(vm.projectServiceReportInfo, onSaveSuccess, onSaveError);
             loadProjectServices();
+        }
+        function onSaveSuccess(result)
+        {
+            $scope.$emit('investhryApp:projectServiceReportInfoUpdate', result);
         }
         function onMarkError()
         {
 
         }
+        function onSaveError()
+        {}
     }
 })();

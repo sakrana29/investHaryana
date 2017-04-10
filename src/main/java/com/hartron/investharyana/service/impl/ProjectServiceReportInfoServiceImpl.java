@@ -71,6 +71,14 @@ public class ProjectServiceReportInfoServiceImpl implements ProjectServiceReport
         return result;
     }
 
+    @Override
+    public ProjectServiceReportInfoDTO findByProjectDepartmentService(String projectid, String departmentname, String servicename) {
+        log.debug("Request to get ProjectServiceReportInfo by ProjectDepartmentService : {}", projectid,departmentname,servicename);
+        ProjectServiceReportInfo projectServiceReportInfo = projectServiceReportInfoRepository.findOneByProjectDepartmentService(UUID.fromString(projectid),departmentname,servicename);
+        ProjectServiceReportInfoDTO projectServiceReportInfoDTO = projectServiceReportInfoMapper.projectServiceReportInfoToProjectServiceReportInfoDTO(projectServiceReportInfo);
+        return projectServiceReportInfoDTO;
+    }
+
     /**
      *  Get one projectServiceReportInfo by id.
      *
@@ -84,6 +92,7 @@ public class ProjectServiceReportInfoServiceImpl implements ProjectServiceReport
         ProjectServiceReportInfoDTO projectServiceReportInfoDTO = projectServiceReportInfoMapper.projectServiceReportInfoToProjectServiceReportInfoDTO(projectServiceReportInfo);
         return projectServiceReportInfoDTO;
     }
+
 
     /**
      *  Delete the  projectServiceReportInfo by id.

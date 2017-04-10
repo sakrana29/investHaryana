@@ -25,6 +25,8 @@ public interface ProjectServiceReportInfoService {
 
     List<ProjectServiceReportInfoDTO> findAllByDepartment(String departmentname);
 
+    ProjectServiceReportInfoDTO findByProjectDepartmentService(String projectid, String departmentname,String servicename);
+
     /**
      *  Get the "id" projectServiceReportInfo.
      *

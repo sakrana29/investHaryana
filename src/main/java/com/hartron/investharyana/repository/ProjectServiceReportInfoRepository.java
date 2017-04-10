@@ -32,6 +32,14 @@ public class ProjectServiceReportInfoRepository {
 
     private PreparedStatement insertByDeptStmt;
 
+    private PreparedStatement deleteByDepartmentStmt;
+
+    private PreparedStatement findByProjectDeptServiceStmt;
+
+    private PreparedStatement insertByProjectDeptServiceStmt;
+
+    private PreparedStatement deleteByProjectDeptServiceStmt;
+
     public ProjectServiceReportInfoRepository(Session session) {
         this.session = session;
         this.mapper = new MappingManager(session).mapper(ProjectServiceReportInfo.class);
@@ -46,6 +54,23 @@ public class ProjectServiceReportInfoRepository {
         insertByDeptStmt = session.prepare(
             "INSERT INTO projectServiceReportInfo_By_DepartmentName (departmentname, id) " +
                 "VALUES (:departmentname, :id)");
+
+        this.deleteByDepartmentStmt = session.prepare(
+            "DELETE FROM projectServiceReportInfo_By_DepartmentName " +
+                "WHERE departmentname = :departmentname");
+
+        this.findByProjectDeptServiceStmt = session.prepare(
+            "SELECT id " +
+                "FROM projectServiceReportByProjectDeptService " +
+                "WHERE projectid = :projectid and departmentname = :departmentname and servicename = :servicename");
+
+        insertByProjectDeptServiceStmt = session.prepare(
+            "INSERT INTO projectServiceReportByProjectDeptService (projectid, departmentname, servicename, id) " +
+                "VALUES (:projectid, :departmentname, :servicename, :id)");
+
+        this.deleteByProjectDeptServiceStmt = session.prepare(
+            "DELETE FROM projectServiceReportByProjectDeptService " +
+                "WHERE projectid = :projectid and departmentname = :departmentname and servicename = :servicename");
     }
 
     public List<ProjectServiceReportInfo> findAll() {
@@ -97,6 +122,23 @@ public class ProjectServiceReportInfoRepository {
         return projectServiceReportInfoList;
     }
 
+    public ProjectServiceReportInfo findOneByProjectDepartmentService(UUID projectid,String department,String service) {
+        BoundStatement stmt = findByProjectDeptServiceStmt.bind();
+        stmt.setUUID("projectid", projectid);
+        stmt.setString("departmentname", department);
+        stmt.setString("servicename", service);
+        return findOneFromIndex(stmt).get();
+    }
+    private Optional<ProjectServiceReportInfo> findOneFromIndex(BoundStatement stmt) {
+        ResultSet rs = session.execute(stmt);
+        if (rs.isExhausted()) {
+            return Optional.empty();
+        }
+        return Optional.ofNullable(rs.one().getString("id"))
+            .map(id -> Optional.ofNullable(mapper.get(id)))
+            .get();
+    }
+
     public ProjectServiceReportInfo save(ProjectServiceReportInfo projectServiceReportInfo) {
         if (projectServiceReportInfo.getId() == null) {
             projectServiceReportInfo.setId(UUID.randomUUID());
@@ -107,6 +149,12 @@ public class ProjectServiceReportInfoRepository {
 
         batch.add(insertByDeptStmt.bind()
         .setString("departmentname", projectServiceReportInfo.getDepartmentname())
+        .setUUID("id", projectServiceReportInfo.getId()));
+
+        batch.add(insertByProjectDeptServiceStmt.bind()
+        .setString("departmentname", projectServiceReportInfo.getDepartmentname())
+        .setUUID("projectid", projectServiceReportInfo.getProjectid())
+        .setString("servicename", projectServiceReportInfo.getServicename())
         .setUUID("id", projectServiceReportInfo.getId()));
 
         session.execute(batch);
@@ -120,5 +168,21 @@ public class ProjectServiceReportInfoRepository {
     public void deleteAll() {
         BoundStatement stmt = truncateStmt.bind();
         session.execute(stmt);
+    }
+
+    public void deleteByProject(String departmentname) {
+        BatchStatement batch = new BatchStatement();
+        batch.add(deleteByDepartmentStmt.bind()
+            .setString("departmentname", departmentname));
+        session.execute(batch);
+    }
+
+    public void deleteByProjectDepartmentService(UUID projectid,String departmentname, String servicename) {
+        BatchStatement batch = new BatchStatement();
+        batch.add(deleteByProjectDeptServiceStmt.bind()
+            .setUUID("projectid", projectid)
+            .setString("departmentname", departmentname)
+            .setString("servicename", servicename));
+        session.execute(batch);
     }
 }

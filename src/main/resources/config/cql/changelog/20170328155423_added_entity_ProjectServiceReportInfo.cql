@@ -24,3 +24,11 @@ departmentname text,
 PRIMARY KEY(departmentname,id)
 );
 
+CREATE TABLE IF NOT EXISTS projectServiceReportByProjectDeptService (
+projectid uuid,
+departmentname text,
+servicename text,
+id uuid,
+PRIMARY KEY(projectid, departmentname, servicename, id)
+);
+
