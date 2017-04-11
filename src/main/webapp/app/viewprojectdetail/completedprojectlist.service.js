@@ -7,7 +7,7 @@
     Completedprojectlist.$inject = ['$resource'];
 
     function Completedprojectlist ($resource) {
-        var resourceUrl =  '/api/ProjectList/:parametersCompleted';
+        var resourceUrl =  '/api/Projectcompleted/:parametersCompleted';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},

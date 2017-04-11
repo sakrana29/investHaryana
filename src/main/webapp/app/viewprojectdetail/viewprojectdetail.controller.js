@@ -5,15 +5,16 @@
         .module('investhryApp')
         .controller('viewprojectdetailController', addprojectController);
 
-    addprojectController.$inject = ['$scope', 'Principal', 'LoginService', '$state', 'Projectlist', 'Pendingprojectlist', 'Completedprojectlist'];
+    addprojectController.$inject = ['$scope', 'Principal', 'LoginService', '$state', 'Projectlist','Pendingprojectlist','Completedprojectlist'];
 
-    function addprojectController ($scope, Principal, LoginService, $state, Projectlist, Pendingprojectlist, Completedprojectlist) {
+    function addprojectController ($scope, Principal, LoginService, $state, Projectlist,Pendingprojectlist,Completedprojectlist) {
         var vm = this;
 
         vm.account = null;
         vm.isAuthenticated = null;
         vm.login = LoginService.open;
         vm.register = register;
+
         $scope.$on('authenticationSuccess', function() {
             getAccount();
         });
@@ -30,36 +31,35 @@
             $state.go('register');
         }
 
-//        vm.projectcompletedetail=[];
-//
-//        loadAll();
-//
-//        function loadAll() {
-//
-//            Projectlist.query(function(result){
-//                vm.projectlist=result;
-////                console.log(vm.projectcompletedetail[0].projectdetailDTO);
-//            });
-//        }
-//
-//
-//         loadByPending();
-//
-//         function loadByPending(){
-//            Pendingprojectlist.query({Pending: "Pending Status"}, function(data){
-//                console.log(data);
-//                vm.projectpending=data;
-//            });
-//        }
+        vm.projectcompletedetail=[];
 
-        loadByCompleted();
 
-         function loadByCompleted(){
-            Completedprojectlist.query({Completed: "Completed Status"}, function(data){
-                console.log(data);
-                vm.projectcompleted=data;
-            });
-        }
+         loadAll();
+
+         function loadAll() {
+
+             Projectlist.query(function(result){
+             vm.projectlist=result;
+             });
+         }
+
+         vm.loadPending=loadPending;
+            function loadPending(){
+            //alert('Pending List');
+            Pendingprojectlist.query({cafpin: "Pending"}, function(data){
+                 console.log(data);
+                 vm.projectlist=data;
+             });
+         }
+
+         vm.loadCompleted=loadCompleted;
+            function loadCompleted(){
+           // alert('Completed List')
+            Completedprojectlist.query({cafpin: "292929"}, function(data){
+            console.log(data);
+            vm.projectlist=data;
+             });
+          }
 
 
     }

@@ -7,7 +7,7 @@
     Pendingprojectlist.$inject = ['$resource'];
 
     function Pendingprojectlist ($resource) {
-        var resourceUrl =  '/api/ProjectList/:parametersPending';
+        var resourceUrl =  '/api/Projectpending/:parametersPending';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
