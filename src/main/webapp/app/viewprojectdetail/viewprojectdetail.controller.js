@@ -35,7 +35,7 @@
 
 
          loadAll();
-
+         vm.loadAll=loadAll;
          function loadAll() {
 
              Projectlist.query(function(result){
