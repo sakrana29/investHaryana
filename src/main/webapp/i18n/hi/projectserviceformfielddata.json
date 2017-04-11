@@ -18,7 +18,11 @@
             "serviceid": "Serviceid",
             "formfieldvalue": "Formfieldvalue",
             "projectid": "Projectid",
-            "formfieldName": "Formfield Name"
+            "formfieldName": "Formfield Name",
+            "serviceformfieldid": "Serviceformfieldid",
+            "formfieldtype": "Formfieldtype",
+            "formfieldOrder": "Formfield Order",
+            "formtypeOption": "Formtype Option"
         }
     }
 }

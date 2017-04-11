@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class ProjectserviceformfielddataServiceImpl implements ProjectserviceformfielddataService{
 
     private final Logger log = LoggerFactory.getLogger(ProjectserviceformfielddataServiceImpl.class);
-    
+
     private final ProjectserviceformfielddataRepository projectserviceformfielddataRepository;
 
     private final ProjectserviceformfielddataMapper projectserviceformfielddataMapper;
@@ -48,7 +48,7 @@ public class ProjectserviceformfielddataServiceImpl implements Projectservicefor
 
     /**
      *  Get all the projectserviceformfielddata.
-     *  
+     *
      *  @return the list of entities
      */
     @Override
@@ -84,5 +84,13 @@ public class ProjectserviceformfielddataServiceImpl implements Projectservicefor
     public void delete(String id) {
         log.debug("Request to delete Projectserviceformfielddata : {}", id);
         projectserviceformfielddataRepository.delete(UUID.fromString(id));
+    }
+    @Override
+    public List<ProjectserviceformfielddataDTO> findAllByProjectid(String projectid) {
+        log.debug("Request to get all serviceformfield by serviceid : {}", projectid);
+        List<ProjectserviceformfielddataDTO> result = projectserviceformfielddataRepository.findAllByProjectid(UUID.fromString(projectid)).stream()
+            .map(projectserviceformfielddataMapper::projectserviceformfielddataToProjectserviceformfielddataDTO)
+            .collect(Collectors.toCollection(LinkedList::new));
+        return result;
     }
 }

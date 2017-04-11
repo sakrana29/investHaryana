@@ -29,7 +29,7 @@ public class ProjectserviceformfielddataResource {
     private final Logger log = LoggerFactory.getLogger(ProjectserviceformfielddataResource.class);
 
     private static final String ENTITY_NAME = "projectserviceformfielddata";
-        
+
     private final ProjectserviceformfielddataService projectserviceformfielddataService;
 
     public ProjectserviceformfielddataResource(ProjectserviceformfielddataService projectserviceformfielddataService) {
@@ -116,6 +116,12 @@ public class ProjectserviceformfielddataResource {
         log.debug("REST request to delete Projectserviceformfielddata : {}", id);
         projectserviceformfielddataService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+    @GetMapping("/projectserviceformfielddata/project/{projectid}")
+    @Timed
+    public List<ProjectserviceformfielddataDTO> getAllserviceFormFieldByProjectid(@PathVariable String projectid) {
+        log.debug("REST request to get all Projectservicedetails");
+        return projectserviceformfielddataService.findAllByProjectid(projectid);
     }
 
 }

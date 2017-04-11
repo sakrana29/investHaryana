@@ -5,8 +5,8 @@
         .module('investhryApp')
         .controller('serviceFormController', serviceFormController);
 
-    serviceFormController.$inject = ['$timeout','$scope','$stateParams','$uibModalInstance','projectServiceFormFieldData','projectAttachemnt','projectServiceLog','ProjectAttachemnt','ProjectServiceLog','FileManagement','Projectservicedetail','Projectserviceformfielddata'];
-    function serviceFormController ($timeout, $scope, $stateParams, $uibModalInstance,projectServiceFormFieldData, projectAttachemnt, projectServiceLog, ProjectAttachemnt, ProjectServiceLog, FileManagement, Projectservicedetail, Projectserviceformfielddata) {
+    serviceFormController.$inject = ['$timeout','$scope','$stateParams','$uibModalInstance','projectServiceFormFieldData','projectAttachemnt','projectServiceLog','ProjectAttachemnt','ProjectServiceLog','FileManagement','Projectservicedetail','Projectserviceformfielddata','serviceFormFieldDataCollection'];
+    function serviceFormController ($timeout, $scope, $stateParams, $uibModalInstance,projectServiceFormFieldData, projectAttachemnt, projectServiceLog, ProjectAttachemnt, ProjectServiceLog, FileManagement, Projectservicedetail, Projectserviceformfielddata,serviceFormFieldDataCollection) {
         var vm = this;
         vm.projectServiceLog = projectServiceLog;
         vm.projectAttachemnt = projectAttachemnt;
@@ -14,8 +14,9 @@
         vm.projectService = $stateParams.projectService;
         var projectAttachmentResultObject=null;
 
+
         vm.clear = clear;
-        vm.saveServiceForm = saveServiceForm;
+        vm.saveFormFieldData = saveFormFieldData;
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
@@ -25,28 +26,44 @@
             $uibModalInstance.dismiss('cancel');
         }
 
-        function saveServiceForm(){
-            vm.projectServiceFormFieldData.projectid=vm.projectService.projectid;
-            vm.projectServiceFormFieldData.serviceid=vm.projectService.serviceid;
-            Projectserviceformfielddata.save(vm.projectServiceFormFieldData,onServiceFormFieldDataSaveSuccess,onServiceFormFieldDataSaveError);
+        loadServiceFormFields();
+        function loadServiceFormFields() {
+            vm.serviceFormFieldData= serviceFormFieldDataCollection.query({serviceid:vm.projectService.serviceid, projectid:vm.projectService.projectid});
+            console.log(vm.serviceFormFieldData);
         }
-        function onServiceFormFieldDataSaveSuccess(result)
-        {
-//            alert('service form field saved');
-            $scope.$emit('investhryApp:projectServicePaymentDetailsUpdate', result);
+
+        function saveFormFieldData() {
+//                alert('helelo');
+                var vmlength = vm.serviceFormFieldData.length;
+//                alert(vmlength);
+                for(var i= 0; i<vmlength;i++)
+                {
+                    var data = vm.serviceFormFieldData[i];
+                    vm.isSaving = true;
+                    data.projectid = vm.projectService.projectid;
+                    if (data.id !== null) {
+                        Projectserviceformfielddata.update(data, onSaveServiceFormFieldDataSuccess, onSaveServiceFormFieldDataError);
+                    } else {
+                        Projectserviceformfielddata.save(data, onSaveServiceFormFieldDataSuccess, onSaveServiceFormFieldDataError);
+                    }
+                    if(i === (vmlength-1))
+                    {
+                        saveProjectServiceLog();
+                    }
+                }
+        }
+        function onSaveServiceFormFieldDataSuccess(result)
+        {}
+        function onSaveServiceFormFieldDataError()
+        {}
+        function saveProjectServiceLog(result){
+            $scope.$emit('investhryApp:projectserviceformfielddataUpdate', result);
             vm.projectServiceLog.projectid=vm.projectService.projectid;
             vm.projectServiceLog.serviceid=vm.projectService.serviceid;
             ProjectServiceLog.save(vm.projectServiceLog,onServiceLogSaveSuccess,onServiceLogSaveError);
         }
-        function onServiceFormFieldDataSaveError()
-        {
-//            alert('service payment not saved');
-            vm.isSaving = false;
-        }
-
         function onServiceLogSaveSuccess(result)
         {
-//            alert('servicelogsaved');
             $scope.$emit('investhryApp:projectServiceLogUpdate', result);
             vm.projectService.latestComments=vm.projectServiceLog.comments;
             vm.projectService.formFilledStatus=true;
@@ -61,17 +78,20 @@
             }
             else
             {
+                alert('no file');
                 $uibModalInstance.close(result);
                 vm.isSaving = false;
             }
         }
         function onUpdateProjectServiceError()
         {
+        alert('project service');
 //            alert('project service not saved');
             vm.isSaving = false;
         }
         function onServiceLogSaveError()
         {
+            alert('service log');
 //            alert('Servicelog not saved');
             vm.isSaving = false;
         }
@@ -95,6 +115,7 @@
         }
         function onSaveProjectAttachmentError()
         {
+        alert('attachment error');
 //            alert('project attachment not saved');
             vm.isSaving = false;
         }
@@ -106,6 +127,7 @@
         }
         function onUpdateProjectAttachmentError()
         {
+            alert('attachment update error');
 //            alert('file attachment not updated');
             vm.isSaving = false;
         }

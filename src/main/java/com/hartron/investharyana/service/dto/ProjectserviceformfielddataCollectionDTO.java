@@ -1,7 +1,7 @@
 package com.hartron.investharyana.service.dto;
 
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -9,7 +9,7 @@ import java.util.UUID;
 /**
  * A DTO for the Projectserviceformfielddata entity.
  */
-public class ProjectserviceformfielddataDTO implements Serializable {
+public class ProjectserviceformfielddataCollectionDTO implements Serializable {
 
     private UUID id;
 
@@ -93,41 +93,5 @@ public class ProjectserviceformfielddataDTO implements Serializable {
 
     public void setFormtypeOption(String formtypeOption) {
         this.formtypeOption = formtypeOption;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        ProjectserviceformfielddataDTO projectserviceformfielddataDTO = (ProjectserviceformfielddataDTO) o;
-
-        if ( ! Objects.equals(id, projectserviceformfielddataDTO.id)) { return false; }
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
-
-    @Override
-    public String toString() {
-        return "ProjectserviceformfielddataDTO{" +
-            "id=" + id +
-            ", serviceid='" + serviceid + "'" +
-            ", formfieldvalue='" + formfieldvalue + "'" +
-            ", projectid='" + projectid + "'" +
-            ", formfieldName='" + formfieldName + "'" +
-            ", serviceformfieldid='" + serviceformfieldid + "'" +
-            ", formfieldtype='" + formfieldtype + "'" +
-            ", formfieldOrder='" + formfieldOrder + "'" +
-            ", formtypeOption='" + formtypeOption + "'" +
-            '}';
     }
 }

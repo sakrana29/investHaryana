@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class ServiceFormFieldServiceImpl implements ServiceFormFieldService{
 
     private final Logger log = LoggerFactory.getLogger(ServiceFormFieldServiceImpl.class);
-    
+
     private final ServiceFormFieldRepository serviceFormFieldRepository;
 
     private final ServiceFormFieldMapper serviceFormFieldMapper;
@@ -48,7 +48,7 @@ public class ServiceFormFieldServiceImpl implements ServiceFormFieldService{
 
     /**
      *  Get all the serviceFormFields.
-     *  
+     *
      *  @return the list of entities
      */
     @Override
@@ -84,5 +84,13 @@ public class ServiceFormFieldServiceImpl implements ServiceFormFieldService{
     public void delete(String id) {
         log.debug("Request to delete ServiceFormField : {}", id);
         serviceFormFieldRepository.delete(UUID.fromString(id));
+    }
+    @Override
+    public List<ServiceFormFieldDTO> findAllByServiceid(String serviceid) {
+        log.debug("Request to get all serviceformfield by serviceid : {}", serviceid);
+        List<ServiceFormFieldDTO> result = serviceFormFieldRepository.findAllByServiceid(UUID.fromString(serviceid)).stream()
+            .map(serviceFormFieldMapper::serviceFormFieldToServiceFormFieldDTO)
+            .collect(Collectors.toCollection(LinkedList::new));
+        return result;
     }
 }

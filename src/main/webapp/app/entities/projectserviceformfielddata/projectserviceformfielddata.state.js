@@ -108,6 +108,10 @@
                                 formfieldvalue: null,
                                 projectid: null,
                                 formfieldName: null,
+                                serviceformfieldid: null,
+                                formfieldtype: null,
+                                formfieldOrder: null,
+                                formtypeOption: null,
                                 id: null
                             };
                         }

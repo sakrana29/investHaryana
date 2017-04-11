@@ -29,6 +29,14 @@ public class Projectserviceformfielddata implements Serializable {
 
     private String formfieldName;
 
+    private UUID serviceformfieldid;
+
+    private String formfieldtype;
+
+    private Integer formfieldOrder;
+
+    private String formtypeOption;
+
     public UUID getId() {
         return id;
     }
@@ -89,6 +97,58 @@ public class Projectserviceformfielddata implements Serializable {
         this.formfieldName = formfieldName;
     }
 
+    public UUID getServiceformfieldid() {
+        return serviceformfieldid;
+    }
+
+    public Projectserviceformfielddata serviceformfieldid(UUID serviceformfieldid) {
+        this.serviceformfieldid = serviceformfieldid;
+        return this;
+    }
+
+    public void setServiceformfieldid(UUID serviceformfieldid) {
+        this.serviceformfieldid = serviceformfieldid;
+    }
+
+    public String getFormfieldtype() {
+        return formfieldtype;
+    }
+
+    public Projectserviceformfielddata formfieldtype(String formfieldtype) {
+        this.formfieldtype = formfieldtype;
+        return this;
+    }
+
+    public void setFormfieldtype(String formfieldtype) {
+        this.formfieldtype = formfieldtype;
+    }
+
+    public Integer getFormfieldOrder() {
+        return formfieldOrder;
+    }
+
+    public Projectserviceformfielddata formfieldOrder(Integer formfieldOrder) {
+        this.formfieldOrder = formfieldOrder;
+        return this;
+    }
+
+    public void setFormfieldOrder(Integer formfieldOrder) {
+        this.formfieldOrder = formfieldOrder;
+    }
+
+    public String getFormtypeOption() {
+        return formtypeOption;
+    }
+
+    public Projectserviceformfielddata formtypeOption(String formtypeOption) {
+        this.formtypeOption = formtypeOption;
+        return this;
+    }
+
+    public void setFormtypeOption(String formtypeOption) {
+        this.formtypeOption = formtypeOption;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -117,6 +177,10 @@ public class Projectserviceformfielddata implements Serializable {
             ", formfieldvalue='" + formfieldvalue + "'" +
             ", projectid='" + projectid + "'" +
             ", formfieldName='" + formfieldName + "'" +
+            ", serviceformfieldid='" + serviceformfieldid + "'" +
+            ", formfieldtype='" + formfieldtype + "'" +
+            ", formfieldOrder='" + formfieldOrder + "'" +
+            ", formtypeOption='" + formtypeOption + "'" +
             '}';
     }
 }
