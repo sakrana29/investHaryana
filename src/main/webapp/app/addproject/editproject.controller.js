@@ -215,21 +215,49 @@
          //End waste water
 
         vm.CompleteProjectDetail=entity;
-        console.log(vm.CompleteProjectDetail);
-
         vm.investor=vm.CompleteProjectDetail.investorDTO;
-        vm.companydetail=vm.CompleteProjectDetail.companydetailDTO;
-        vm.projectdetail=vm.CompleteProjectDetail.projectdetailDTO;
-        vm.projectsitedetail=vm.CompleteProjectDetail.projectsitedetailDTO;
-        vm.project_finance_investment=vm.CompleteProjectDetail.project_finance_investmentDTO;
-        vm.manufacturing_detail=vm.CompleteProjectDetail.manufacturingdetailDTO;
+        vm.investor.selectedCountry=vm.investor.countryname;
+//        console.log(vm.investor.selectedCountry);
+        vm.investor.selectedState=vm.investor.statename;
+        vm.investor.selectedCity=vm.investor.cityname;
 
+
+        vm.companydetail=vm.CompleteProjectDetail.companydetailDTO;
+        vm.companydetail.selectedBusiness=vm.companydetailbusinessentitytype
+
+        vm.projectdetail=vm.CompleteProjectDetail.projectdetailDTO;
+        vm.projectdetail.selectedSector=vm.projectdetail.sectorname;
+        vm.projectdetail.selectedSizeOfIndustry=vm.projectdetail.size_of_industry;
+        vm.projectdetail.selectedProjectType=vm.projectdetail.projectype;
+        vm.projectdetail.selectedProjectCategory=vm.projectdetail.category_of_project;
+        vm.projectdetail.selectedCountry=vm.projectdetail.collaboration_with_foreign_country;
+        vm.projectdetail.selectedApprovalForm=vm.projectdetail.approval_application_form;
+
+        vm.projectsitedetail=vm.CompleteProjectDetail.projectsitedetailDTO;
+        vm.projectsitedetail.selectedDistrict=vm.projectsitedetail.district;
+        vm.projectsitedetail.selectedBlock=vm.projectsitedetail.block;
+        vm.projectsitedetail.selectedCityTownVillage=vm.projectsitedetail.city_town_village;
+        vm.projectsitedetail.selectedConnectingRoad=vm.projectsitedetail.connectingroad;
+        vm.projectsitedetail.selectedLandZoneUseType=vm.projectsitedetail.landzoneuse_type;
+        vm.projectsitedetail.buildingexisted=vm.projectsitedetail.buildingexisted;
+
+        vm.project_finance_investment=vm.CompleteProjectDetail.project_finance_investmentDTO;
+        vm.project_finance_investment.selectedcountryid=vm.project_finance_investment.fdi_country;
+        vm.project_finance_investment.selectedforeignfundingresourceid=vm.project_finance_investment.foreign_funding_source;
+
+        vm.manufacturing_detail=vm.CompleteProjectDetail.manufacturingdetailDTO;
         vm.environmentimpactdetail=vm.CompleteProjectDetail.environment_impactdetailDTO;
-        console.log(vm.environmentimpactdetail);
+        vm.environmentimpactdetail.selectedWatersource= vm.environmentimpactdetail.source_of_water_supply;
+        vm.environmentimpactdetail.selectedTreatmentone= vm.environmentimpactdetail.recycling_process;
+        vm.environmentimpactdetail.selectedTreatmenttwo= vm.environmentimpactdetail.recycling_cooling;
+        vm.environmentimpactdetail.selectedTreatmentthree= vm.environmentimpactdetail.recycling_domestic;
+        vm.environmentimpactdetail.selectedDischarge= vm.environmentimpactdetail.mode_of_disposal_for_discharge;
+
         vm.electricrequirement=vm.CompleteProjectDetail.electricrequirementDTO;
         vm.projectcombinecodes=vm.CompleteProjectDetail.projectdetailcombinecodesDTO ;
         vm.completeprojectphasedata=vm.CompleteProjectDetail.project_phaseDTOList;
         vm.projectrawmaterialdata=vm.CompleteProjectDetail.projectrawmaterialDTOList;
+        console.log(vm.projectrawmaterialdata);
         vm.projectmainproductdata=vm.CompleteProjectDetail.projectproductDTOList;
         vm.projectprocessflowstepdata=vm.CompleteProjectDetail.projectprocessflowstepsDTOList;
         vm.emissiondetaildata=vm.CompleteProjectDetail.emissiondetailDTOList;
@@ -247,6 +275,7 @@
         {
             if (angular.isDefined(vm.investor.selectedCountry))
                 vm.investor.countryname=vm.investor.selectedCountry.countryname;
+
             if (angular.isDefined(vm.investor.selectedState))
                 vm.investor.statename=vm.investor.selectedState.statename;
             if (angular.isDefined(vm.investor.selectedCity))
@@ -298,6 +327,7 @@
 
         function saveCompleteProjectDetail($scope)
         {
+
             vm.isSaving = true;
             checkDropDowns();
 

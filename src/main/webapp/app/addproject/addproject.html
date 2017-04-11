@@ -70,11 +70,13 @@
                                 </div>
 
 
-                                <div class="form-group">
+                                <div class="form-group" >
                                     <label class="col-lg-2 control-label">Country</label>
                                     <div class="col-lg-3">
                                         <select required class="form-control" ng-model="vm.investor.selectedCountry"
                                                 ng-options="country.countryname for country in vm.countries">
+                                            <option value="">{{vm.investor.selectedCountry}}</option>
+
                                         </select>
                                     </div>
                                 </div>
@@ -84,6 +86,7 @@
                                     <div class="col-lg-3">
                                         <select class="form-control" ng-model="vm.investor.selectedState"
                                                 ng-options="state.statename for state in vm.states">
+                                            <option value="">{{vm.investor.selectedState}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -93,6 +96,7 @@
                                     <div class="col-lg-3">
                                         <select class="form-control" ng-model="vm.investor.selectedCity"
                                                 ng-options="city.city_town_village_name for city in vm.city_town_villages">
+                                            <option value="">{{vm.investor.selectedCity}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -176,6 +180,7 @@
                                     <div class="col-lg-3">
                                         <select class="form-control" ng-model="vm.companydetail.selectedBusiness"
                                                 ng-options="business.businessentitytype for business in vm.businessentities">
+                                       <option value="">{{vm.companydetail.selectedBusiness}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -264,6 +269,7 @@
                                     <div class="col-lg-3">
                                         <select class="form-control" ng-model="vm.projectdetail.selectedSector"
                                                 ng-options="sector.sectortype for sector in vm.sectors">
+                                            <option value="">{{vm.projectdetail.selectedSector}}</option>
                                         </select>
                                     </div>
 
@@ -281,6 +287,7 @@
                                     <div class="col-lg-3">
                                         <select class="form-control" ng-model="vm.projectdetail.selectedSizeOfIndustry"
                                                 ng-options="si.sizeofindustry for si in vm.industrysizes">
+                                            <option value="">{{vm.projectdetail.selectedSizeOfIndustry}}</option>
                                         </select>
                                     </div>
 
@@ -289,7 +296,7 @@
                                     <div class="col-lg-3">
                                         <select class="form-control" ng-model="vm.projectdetail.selectedProjectType"
                                                 ng-options="projecttype.projectypes for projecttype in vm.projectypes">
-
+                                            <option value="">{{vm.projectdetail.selectedProjectType}}</option>
                                         </select>
                                     </div>
 
@@ -309,8 +316,8 @@
                                     <div class="col-lg-3">
                                         <select class="form-control" ng-model="vm.projectdetail.selectedProjectCategory"
                                                 ng-options="projectcategory.categorytype for projectcategory in vm.projectcategories">
-
-                                        </select>
+                                            <option value="">{{vm.projectdetail.selectedProjectCategory}}</option>
+                                            </select>
                                     </div>
                                 </div>
 
@@ -319,6 +326,7 @@
                                     <div class="col-lg-3">
                                         <select class="form-control" ng-model="vm.projectdetail.selectedCountry"
                                                 ng-options="country.countryname for country in vm.countries">
+                                            <option value="">{{vm.projectdetail.selectedCountry}}</option>
                                         </select>
                                     </div>
 
@@ -335,7 +343,9 @@
                                     <div class="col-lg-3">
                                         <select class="form-control" ng-model="vm.projectdetail.selectedApprovalForm"
                                                 ng-options="approvalform.existingapprovalforms for approvalform in vm.approvalforms">
+                                            <option value="">{{vm.projectdetail.selectedApprovalForm}}</option>
                                         </select>
+
                                     </div>
 
                                     <!--<div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file" ng-model="vm.projectdetail.approval_document" /></div>-->
@@ -384,6 +394,7 @@
                                         <select class="form-control" id="district"
                                                 ng-model="vm.projectsitedetail.selectedDistrict"
                                                 ng-options="district.districtname for district in vm.districts">
+                                            <option value="">{{vm.projectsitedetail.selectedDistrict}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -394,6 +405,7 @@
                                         <select class="form-control" id="block"
                                                 ng-model="vm.projectsitedetail.selectedBlock"
                                                 ng-options="block.blockname for block in vm.blocks">
+                                            <option value="">{{vm.projectsitedetail.selectedBlock}}</option>
                                         </select>
                                     </div>
 
@@ -403,6 +415,7 @@
                                         <select class="form-control"
                                                 ng-model="vm.projectsitedetail.selectedCityTownVillage"
                                                 ng-options="city.city_town_village_name for city in vm.city_town_villages">
+                                            <option value="">{{vm.projectsitedetail.selectedCityTownVillage}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -596,7 +609,7 @@
                                         <select class="form-control"
                                                 ng-model="vm.projectsitedetail.selectedConnectingRoad"
                                                 ng-options="connectingraodtype.connectingraodtype for connectingraodtype in vm.connectingroads">
-
+                                            <option value="">{{vm.projectsitedetail.selectedConnectingRoad}}</option>
                                         </select>
                                     </div>
 
@@ -627,6 +640,7 @@
                                         <select class="form-control"
                                                 ng-model="vm.projectsitedetail.selectedLandZoneUseType"
                                                 ng-options="landzoneclassificationtype.landzoneclassificationtype for landzoneclassificationtype in vm.landusezoneclassifications">
+                                            <option value="">{{vm.projectsitedetail.selectedLandZoneUseType}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -644,6 +658,7 @@
                                     <div class="col-lg-3">
                                         <select type="text" class="form-control" id="buildingexisting"
                                                 ng-model="vm.projectsitedetail.buildingexisted" data-dpmaxz-eid="20">
+                                            <option value="">{{vm.projectsitedetail.buildingexisted}}</option>
                                             <option>Before</option>
                                             <option>After</option>
                                         </select>
@@ -751,6 +766,7 @@
                                         <select class="form-control"
                                                 ng-model="vm.project_finance_investment.selectedcountryid"
                                                 ng-options="country.countryname for country in vm.countries">
+                                            <option value="">{{vm.project_finance_investment.selectedcountryid}}</option>
                                         </select>
                                     </div>
 
@@ -762,6 +778,7 @@
                                         <select class="form-control"
                                                 ng-model="vm.foreignfundingresources.selectedforeignfundingresourceid"
                                                 ng-options="foreignfundingresource.foreignfundingtypes for foreignfundingresource in vm.foreignfundingresources">
+                                            <option value="">{{vm.project_finance_investment.selectedforeignfundingresourceid}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -1108,6 +1125,7 @@
                                                         ng-options="watersupplysource.watersupplysourcetype for watersupplysource in vm.watersupplysources"
                                                         placeholder="Select Source of Water Supply"
                                                         data-dpmaxz-eid="20">
+                                                    <option value="">{{vm.environmentimpactdetail.selectedWatersource}}</option>
                                                 </select>
 
                                             </div>
@@ -1222,8 +1240,9 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Waste Water Treatment<span style="color:red">*</span><br><span
-                                                    class="cafSubHeadings">*Enclosed Attachment for details</span></td>
+                                                <td>Waste Water Treatment<span style="color:red">*</span><br>
+                                                    <!--<span class="cafSubHeadings">*Enclosed Attachment for details</span>-->
+                                                </td>
                                                 <td>
                                                     <table>
                                                         <tbody>
@@ -1242,6 +1261,7 @@
                                                                         ng-options="treatmentone.treatment1 for treatmentone in vm.treatment1"
                                                                         data-dpmaxz-eid="20"
                                                                         placeholder="Select Waste water treatment One">
+                                                                    <option value="">{{vm.environmentimpactdetail.selectedTreatmentone}}</option>
                                                                 </select>
                                                             </td>
 
@@ -1294,6 +1314,7 @@
                                                             ng-options="treatmenttwo.treatment2 for treatmenttwo in vm.treatment2"
                                                             data-dpmaxz-eid="20"
                                                             placeholder="Select Waste water treatment Two">
+                                                        <option value="">{{vm.environmentimpactdetail.selectedTreatmenttwo}}</option>
                                                     </select>
 
                                                     <!--<select class="form-control">-->
@@ -1324,6 +1345,7 @@
                                                             ng-options="treatmentthree.treatment3 for treatmentthree in vm.treatment3"
                                                             data-dpmaxz-eid="20"
                                                             placeholder="Select Waste water treatment Three">
+                                                        <option value="">{{vm.environmentimpactdetail.selectedTreatmentthree}}</option>
                                                     </select>
                                                     <!--<select class="form-control">-->
                                                     <!--<option value="">Select Waste water treatment3</option>-->
@@ -1388,6 +1410,7 @@
                                                         ng-model="vm.environmentimpactdetail.selectedDischarge"
                                                         ng-options="discharge.disposal_for_discharge for discharge in vm.modeofdisposalfor_discharge"
                                                         data-dpmaxz-eid="20" placeholder="Select Waste water treatment">
+                                                    <option value="">{{vm.environmentimpactdetail.selectedDischarge}}</option>
                                                 </select>
                                                 <!--<select class="form-control">-->
                                                 <!--<option value="">Select Waste water treatment</option>-->
