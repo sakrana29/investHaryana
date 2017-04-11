@@ -1,721 +1,733 @@
 <div class="container">
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title">INVESTOR DETAIL</h3>
-    </div>
-    <div class="panel-body">
-        <table class="table table-striped table-hover">
-            <tbody>
-            <tr>
-                <th class="col-md-2">Mou Applicable</th>
-                <td class="col-md-2">{{vm.investor.mouapplicable}}</td>
-                <th class="col-md-2">Mou Signyear</th>
-                <td class="col-md-2">{{vm.investor.mousignyear}}</td>
-            </tr>
-            <tr>
-                <th class="col-md-2">MOU detail</th>
-                <td class="col-md-2">{{vm.investor.mouidnumber}}</td>
-                <!--<th class="col-md-1">Investor Photo</th>
-                <td class="col-md-1">{{vm.investor.investorpicpath}}</td>-->
-                <th class="col-md-1">Investor Name</th>
-                <td class="col-md-1">{{vm.investor.firstname}} {{vm.investor.middlename}} {{vm.investor.lastname}} </td>
-            </tr>
-            <tr>
-                <th class="col-md-1">Country</th>
-                <td class="col-md-1">{{vm.investor.countryname}}</td>
-                <th class="col-md-2">State</th>
-                <td class="col-md-2">{{vm.investor.statename}}</td>
-            </tr>
-            <tr>
-                <th class="col-md-2">City</th>
-                <td class="col-md-2">{{vm.investor.cityname}}</td>
-                <th class="col-md-2">Address</th>
-                <td class="col-md-2">{{vm.investor.address1}} {{vm.investor.address2}} {{vm.investor.address3}}</td>
-            </tr>
-            <tr>
-                <th class="col-md-2">Email</th>
-                <td class="col-md-2">{{vm.investor.emailprimary}} {{vm.investor.emailsecondary}}</td>
-                <td class="col-md-4"></td>
-                <td class="col-md-3"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title"> Company Details</h3>
-    </div>
-
-    <div class="panel-body">
-        <table class="table table-striped table-hover ">
-            <tbody>
-            <tr>
-                <th class="col-md-3">Promoter/MD/Director  </th>
-                <td class="col-md-3">{{vm.companydetail.promoter_md_director}}</td>
-                <th class="col-md-3">Business Entity Type</th>
-                <td class="col-md-3">{{vm.companydetail.businessentitytype}}</td>
-            </tr>
-            <tr>
-                <th class="col-md-3">Business Entity (M/s)</th>
-                <td class="col-md-3">{{vm.companydetail.businessentity}}</td>
-                <th class="col-md-3">No. of Directors/ Promoters /MDs /CEO</th>
-                <td class="col-md-3">{{vm.companydetail.director_promoter_md_ceo_number}}</td>
-            </tr>
-            </tbody>
-        </table>
-        <table class="table table-striped table-hover ">
-            <tbody>
-            <tr>
-                <th class="col-md-3">Pan Number</th>
-                <td class="col-md-3">
-                    <span>{{vm.companydetail.pan_number}}</span>
-                </td>
-                <th class="col-md-3">Aadhar Number</th>
-                <td class="col-md-3">{{vm.companydetail.aadhar_number}}</td>
-            </tr>
-            <tr>
-                <th class="col-md-3">Applicant is NRI</th>
-                <td class="col-md-3">
-                    <span>{{vm.companydetail.nri}}</span>
-                </td>
-                <th class="col-md-3">Cst Number</th>
-                <td class="col-md-3">
-                    <span>{{vm.companydetail.cst_number}}</span>
-                </td>
-            </tr>
-            <tr>
-                <th class="col-md-3">Tin/Vat Number</th>
-                <td class="col-md-3">
-                    <span>{{vm.companydetail.tin_vat_number}}</span>
-                </td>
-                <th class="col-md-3"></th>
-                <td class="col-md-3">
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-
-
-
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title">PROJECT DETAIL</h3>
-    </div>
-
-    <div class="panel-body">
-        <table class="table table-striped table-hover ">
-            <tbody><tr>
-
-                <th class="col-md-4 bold">Sector  </th>
-                <td class="col-md-3">{{vm.projectdetail.sectorname}}</td>
-
-            </tr>
-            <tr>
-
-                <th class="col-md-4 bold">Project Purpose</th>
-                <td class="col-md-3">
-                    {{vm.projectdetail.projectpurpose}}
-                </td>
-                <td class="col-md-4"></td>
-            </tr>
-            <tr>
-
-                <th class="col-md-4 bold">Approval Application Form</th>
-                <td class="col-md-3">
-                    {{vm.projectdetail.approval_application_form}}                    </td>
-                <td class="col-md-4"></td>
-            </tr>
-            <tr>
-
-                <th class="col-md-4 bold">Size of Industry</th>
-                <td class="col-md-3">{{vm.projectdetail.size_of_industry}}</td>
-                <td class="col-md-4"></td>
-            </tr>
-            <tr>
-
-                <th class="col-md-4 bold">Project Type</th>
-                <td class="col-md-3">{{vm.projectdetail.projectype}}</td>
-                <td class="col-md-4"></td>
-            </tr>
-            <tr>
-
-                <th class="col-md-4 bold">NIC Code</th>
-                <td class="col-md-3">
-                    <span>{{vm.projectdetail.niccode}}</span>
-                </td>
-
-                <td class="col-md-4"></td>
-            </tr>
-            <tr>
-
-                <th class="col-md-4 bold">Category of Project</th>
-                <td class="col-md-3">{{vm.projectdetail.category_of_project}}</td>
-                <td class="col-md-4"></td>
-            </tr>
-            <tr>
-
-                <th class="col-md-4 bold">Foreign Country</th>
-                <td class="col-md-3">
-                    <span>{{vm.projectdetail.collaboration_with_foreign_country}}</span>
-                </td>
-                <td class="col-md-4"></td>
-            </tr>
-            <!--<tr>
-                <th class="col-md-4 bold">Detailed Project Report (DPR)</th>
-                <td class="col-md-3">
-                    <span>{{vm.projectdetail.detail_project_report}}</span>
-                </td>
-                <td class="col-md-4"></td>
-            </tr>-->
-            <tr>
-
-                <th class="col-md-4 bold">Any Existing Regulatory Approval Granted</th>
-                <td class="col-md-3">
-                    <span>{{vm.projectdetail.existing_regulatory_approval}}</span>
-                </td>
-                <td class="col-md-4">
-                </td>
-            </tr>
-            <tr>
-
-                <th class="col-md-4 bold">Detail of EDC / SIF / CLU / License-Fee Paid</th>
-                <td class="col-md-3">
-                    <span>{{vm.projectdetail.edc_sif_clu_fee_paid_applicable}}</span>
-                </td>
-                <td class="col-md-4">
-                    <span>{{vm.projectdetail.edc_sif_clu_fee_paid_document}}</span>
-
-                </td>
-            </tr>
-
-            </tbody>
-
-        </table>
-    </div>
-</div>
-
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title">PROJECT SITE DETAIL</h3>
-    </div>
-    <div class="panel-body">
-
-        <!-- Project Site Detail by Meena-->
-        <table class="table table-striped table-hover ">
-            <tbody>
-            <tr>
-                <th class="col-sm-3">Site Address</th>
-                <td>{{vm.projectsitedetail.siteaddress}}</td>
-                <th class="col-sm-3">District</th>
-                <td>{{vm.projectsitedetail.district}}</td>
-            </tr>
-
-            <tr >
-                <th class="col-sm-3">Block</th>
-                <td>{{vm.projectsitedetail.block}}</td>
-                <th class="col-sm-3"> City/Town/Village</th>
-                <td>{{vm.projectsitedetail.city_town_village}}</td>
-            </tr>
-
-            <tr>
-                <th class="col-sm-3">Multi-Village Involved</th>
-                <td>{{vm.projectsitedetail.multyvillageinvolved}}</td>
-                <th class="col-sm-3">Village Involved</th>
-                <td>{{vm.projectsitedetail.villageinvolved}}</td>
-
-            </tr>
-
-            <tr>
-                <th class="col-sm-3">If site falls in Gurgaon or Mewat district, whether
-                    land falls under Aravalli Notification Act</th>
-                <td>{{vm.projectsitedetail.falls_in_aravalli}}</td>
-                <th></th>
-                <td></td>
-
-            </tr>
-            <tr>
-                <th class="col-sm-3"> Is Land Procured</th>
-                <td>{{vm.projectsitedetail.islandprocured}}</td>
-                <th class="col-sm-3">Is Land Allocated By HSIID</th>
-                <td>{{vm.projectsitedetail.allotedbyhsiidc}}</td>
-
-            </tr><tr>
-                <th class="col-sm-3">Estate</th>
-                <td>{{vm.projectsitedetail.estate}}</td>
-                <th class="col-sm-3">Cluster</th>
-                <td>{{vm.projectsitedetail.cluster}}</td>
-
-            </tr>
-            <tr>
-                <th class="col-sm-3">Phase</th>
-                <td>{{vm.projectsitedetail.phase}}</td>
-                <th class="col-sm-3">Sector</th>
-                <td>{{vm.projectsitedetail.sector}}</td>
-
-            </tr>
-            <tr>
-                <th class="col-sm-3">Plot No.</th>
-                <td>{{vm.projectsitedetail.plotno}}</td>
-                <th class="col-sm-3">Hadbast No.</th>
-                <td>{{vm.projectsitedetail.hadbastno}}</td>
-
-            </tr>
-
-            <tr>
-                <th class="col-sm-3">Lies Under MC</th>
-                <td>{{vm.projectsitedetail.liesunder_mc}}</td>
-                <th class="col-sm-3">Distance Under MC</th>
-                <td>{{vm.projectsitedetail.distance_from_mc}}</td>
-
-            </tr>
-
-            <tr>
-                <th class="col-sm-3">Site is located in Urban Area </th>
-                <td>{{vm.projectsitedetail.islocated_in_urban}}</td>
-                <th></th>
-                <td></td>
-
-            </tr>
-
-            <tr>
-                <th class="col-sm-3">Total Proposed Project Area </th>
-                <td>{{vm.projectsitedetail.totalproposedprojectarea}}</td>
-                <th class="col-sm-3">Proposed Built up Area </th>
-                <td>{{vm.projectsitedetail.proposedbuilt_up_area}}</td>
-
-            </tr>
-            <tr>
-                <th class="col-sm-3">Certified Ownership</th>
-                <td>{{vm.projectsitedetail.certifiedownership}}</td>
-                <th></th>
-                <td></td>
-
-            </tr>
-
-            <tr>
-                <th class="col-sm-3">Lease Applicable </th>
-                <td>{{vm.projectsitedetail.leaseapplicable}}</td>
-                <th class="col-sm-3">Land Agreement Applicable </th>
-                <td>{{vm.projectsitedetail.landagreementapplicable}}</td>
-
-            </tr>
-
-            <tr>
-                <th class="col-sm-3">Connecting Road</th>
-                <td>{{vm.projectsitedetail.connectingroad}}</td>
-                <th></th>
-                <td></td>
-
-            </tr>
-
-            <tr>
-                <th class="col-sm-3">Intersection Distance </th>
-                <td>{{vm.projectsitedetail.intersectiondistance}}</td>
-                <th class="col-sm-3">Raiway Distance</th>
-                <td>{{vm.projectsitedetail.railwaydistance}}</td>
-
-
-            </tr>
-
-
-            <tr>
-                <th class="col-sm-3">Confirmity of Land Used </th>
-                <td>{{vm.projectsitedetail.confirmitylanduse}}</td>
-                <th class="col-sm-3">Land Zone Use Type</th>
-                <td>{{vm.projectsitedetail.landzoneuse_type}}</td>
-
-            </tr>
-
-            <tr>
-                <th class="col-sm-3">Building Existed </th>
-                <td>{{vm.projectsitedetail.buildingexisted}}</td>
-                <th class="col-sm-3">Existing Building Applicable</th>
-                <td>{{vm.projectsitedetail.existing_building_applicable}}</td>
-            </tr>
-
-            <tr>
-                <th class="col-sm-3">Site Situated in Controlled Area </th>
-                <td>{{vm.projectsitedetail.site_situated_in_controlled_area}}</td>
-                <th></th>
-                <td></td>
-            </tr>
-
-
-            </tbody>
-        </table>
-        <!--By Meena --->
-    </div>
-</div>
-
-
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title">CAPITAL INVESTMENT DETAIL</h3>
-    </div>
-    <div class="panel-body">
-        <table class="table table-striped table-hover ">
-            <tbody>
-            <tr>
-                <th class="col-md-2">Land Cost</th>
-                <td class="col-md-2">{{vm.project_finance_investment.land_cost}}</td>
-                <th class="col-md-2">Building Cost</th>
-                <td class="col-md-2">{{vm.project_finance_investment.building_cost}}</td>
-            </tr>
-            <tr>
-                <th class ="col-md-1">Plant & Machinery Cost </th>
-                <td class ="col-md-1">{{vm.project_finance_investment.machinery_cost}}</td>
-                <th class ="col-md-1">Cost of Miscellaneous Assets</th>
-                <td class ="col-md-1">{{vm.project_finance_investment.misc_assests}}</td>
-            </tr>
-            <tr>
-                <th class ="col-md-1">Total Project Cost</th>
-                <td class ="col-md-1">{{vm.project_finance_investment.total_project_cost}}</td>
-                <th class ="col-md-1">FDI, If applicable</th>
-                <td class ="col-md-1">{{vm.project_finance_investment.isfdi}}</td>
-            </tr>
-            <tr>
-                <th class ="col-md-1">FDI Value</th>
-                <td class ="col-md-1">{{vm.project_finance_investment.fdivalue}}</td>
-                <th class ="col-md-1">If FDI, name of the country</th>
-                <td class ="col-md-1">{{vm.project_finance_investment.fdi_country}}</td>
-            </tr>
-            <tr>
-                <th class ="col-md-1">Foreign Funding Resources</th>
-                <td class ="col-md-1">{{vm.project_finance_investment.foreign_funding_source}}</td>
-                <th class ="col-md-1">Start of Project Construction</th>
-                <td class ="col-md-1">{{vm.project_finance_investment.project_construction_start_date}}</td>
-            </tr>
-            <th class ="col-md-1">Start of Commercial Activity</th>
-            <td class ="col-md-1">{{vm.project_finance_investment.commercial_activity_start_date}}</td>
-            <td class="col-md-4"></td>
-            <td class="col-md-3"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
-
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h3 class="panel-title">PHASE-WISE IMPLEMENTATION / FCI DETAILS</h3>
+            <h3 class="panel-title">INVESTOR DETAIL</h3>
         </div>
         <div class="panel-body">
             <table class="table table-striped table-hover">
                 <tbody>
                 <tr>
-                    <th class ="col-md-1">Phase</th>
-                    <th class ="col-md-1">Product category</th>
-                    <th class ="col-md-1">FCI</th>
-                    <th class ="col-md-1">Implementation Date</th>
+                    <th class="col-md-2">Mou Applicable</th>
+                    <td class="col-md-2">{{vm.investor.mouapplicable}}</td>
+                    <th class="col-md-2">Mou Signyear</th>
+                    <td class="col-md-2">{{vm.investor.mousignyear}}</td>
                 </tr>
-                <tr ng-repeat="x in vm.project_phase">
-                    <td class ="col-md-1">{{x.phase}}</td>
-                    <td class ="col-md-1">{{x.productcategory}}</td>
-                    <td class ="col-md-1">{{x.fci}}</td>
-                    <td class ="col-md-1">{{x.implementationdate}}</td>
+                <tr>
+                    <th class="col-md-2">MOU detail</th>
+                    <td class="col-md-2">{{vm.investor.mouidnumber}}</td>
+                    <!--<th class="col-md-1">Investor Photo</th>
+                    <td class="col-md-1">{{vm.investor.investorpicpath}}</td>-->
+                    <th class="col-md-1">Investor Name</th>
+                    <td class="col-md-1">{{vm.investor.firstname}} {{vm.investor.middlename}} {{vm.investor.lastname}}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="col-md-1">Country</th>
+                    <td class="col-md-1">{{vm.investor.countryname}}</td>
+                    <th class="col-md-2">State</th>
+                    <td class="col-md-2">{{vm.investor.statename}}</td>
+                </tr>
+                <tr>
+                    <th class="col-md-2">City</th>
+                    <td class="col-md-2">{{vm.investor.cityname}}</td>
+                    <th class="col-md-2">Address</th>
+                    <td class="col-md-2">{{vm.investor.address1}} {{vm.investor.address2}} {{vm.investor.address3}}</td>
+                </tr>
+                <tr>
+                    <th class="col-md-2">Email</th>
+                    <td class="col-md-2">{{vm.investor.emailprimary}} {{vm.investor.emailsecondary}}</td>
+                    <td class="col-md-4"></td>
+                    <td class="col-md-3"></td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
-</div>
 
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title">MANUFACTURING DETAILS</h3>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title"> Company Details</h3>
+        </div>
+
+        <div class="panel-body">
+            <table class="table table-striped table-hover ">
+                <tbody>
+                <tr>
+                    <th class="col-md-3">Promoter/MD/Director</th>
+                    <td class="col-md-3">{{vm.companydetail.promoter_md_director}}</td>
+                    <th class="col-md-3">Business Entity Type</th>
+                    <td class="col-md-3">{{vm.companydetail.businessentitytype}}</td>
+                </tr>
+                <tr>
+                    <th class="col-md-3">Business Entity (M/s)</th>
+                    <td class="col-md-3">{{vm.companydetail.businessentity}}</td>
+                    <th class="col-md-3">No. of Directors/ Promoters /MDs /CEO</th>
+                    <td class="col-md-3">{{vm.companydetail.director_promoter_md_ceo_number}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <table class="table table-striped table-hover ">
+                <tbody>
+                <tr>
+                    <th class="col-md-3">Pan Number</th>
+                    <td class="col-md-3">
+                        <span>{{vm.companydetail.pan_number}}</span>
+                    </td>
+                    <th class="col-md-3">Aadhar Number</th>
+                    <td class="col-md-3">{{vm.companydetail.aadhar_number}}</td>
+                </tr>
+                <tr>
+                    <th class="col-md-3">Applicant is NRI</th>
+                    <td class="col-md-3">
+                        <span>{{vm.companydetail.nri}}</span>
+                    </td>
+                    <th class="col-md-3">Cst Number</th>
+                    <td class="col-md-3">
+                        <span>{{vm.companydetail.cst_number}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="col-md-3">Tin/Vat Number</th>
+                    <td class="col-md-3">
+                        <span>{{vm.companydetail.tin_vat_number}}</span>
+                    </td>
+                    <th class="col-md-3"></th>
+                    <td class="col-md-3">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div class="panel-body">
-        <table class="table table-striped table-hover ">
-            <tbody>
-            <tr ng-repeat="projectrawmaterial in vm.projectrawmaterial">
-                <th class="col-md-2">Raw Material</th>
-                <td class="col-md-2">{{projectrawmaterial.rawmaterial}}</td>
 
-                <th class="col-md-2">Quantity</th>
-                <td class="col-md-2">{{projectrawmaterial.quantity}}</td>
 
-                <th class="col-md-2">Units</th>
-                <td class="col-md-2">{{projectrawmaterial.units}}</td>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">PROJECT DETAIL</h3>
+        </div>
 
-            </tr>
-            <!--<tr ng-repeat="x in vm.projectrawmaterial">-->
+        <div class="panel-body">
+            <table class="table table-striped table-hover ">
+                <tbody>
+                <tr>
+
+                    <th class="col-md-4 bold">Sector</th>
+                    <td class="col-md-3">{{vm.projectdetail.sectorname}}</td>
+
+                </tr>
+                <tr>
+
+                    <th class="col-md-4 bold">Project Purpose</th>
+                    <td class="col-md-3">
+                        {{vm.projectdetail.projectpurpose}}
+                    </td>
+                    <td class="col-md-4"></td>
+                </tr>
+                <tr>
+
+                    <th class="col-md-4 bold">Approval Application Form</th>
+                    <td class="col-md-3">
+                        {{vm.projectdetail.approval_application_form}}
+                    </td>
+                    <td class="col-md-4"></td>
+                </tr>
+                <tr>
+
+                    <th class="col-md-4 bold">Size of Industry</th>
+                    <td class="col-md-3">{{vm.projectdetail.size_of_industry}}</td>
+                    <td class="col-md-4"></td>
+                </tr>
+                <tr>
+
+                    <th class="col-md-4 bold">Project Type</th>
+                    <td class="col-md-3">{{vm.projectdetail.projectype}}</td>
+                    <td class="col-md-4"></td>
+                </tr>
+                <tr>
+
+                    <th class="col-md-4 bold">NIC Code</th>
+                    <td class="col-md-3">
+                        <span>{{vm.projectdetail.niccode}}</span>
+                    </td>
+
+                    <td class="col-md-4"></td>
+                </tr>
+                <tr>
+
+                    <th class="col-md-4 bold">Category of Project</th>
+                    <td class="col-md-3">{{vm.projectdetail.category_of_project}}</td>
+                    <td class="col-md-4"></td>
+                </tr>
+                <tr>
+
+                    <th class="col-md-4 bold">Foreign Country</th>
+                    <td class="col-md-3">
+                        <span>{{vm.projectdetail.collaboration_with_foreign_country}}</span>
+                    </td>
+                    <td class="col-md-4"></td>
+                </tr>
+                <!--<tr>
+                    <th class="col-md-4 bold">Detailed Project Report (DPR)</th>
+                    <td class="col-md-3">
+                        <span>{{vm.projectdetail.detail_project_report}}</span>
+                    </td>
+                    <td class="col-md-4"></td>
+                </tr>-->
+                <tr>
+
+                    <th class="col-md-4 bold">Any Existing Regulatory Approval Granted</th>
+                    <td class="col-md-3">
+                        <span>{{vm.projectdetail.existing_regulatory_approval}}</span>
+                    </td>
+                    <td class="col-md-4">
+                    </td>
+                </tr>
+                <tr>
+
+                    <th class="col-md-4 bold">Detail of EDC / SIF / CLU / License-Fee Paid</th>
+                    <td class="col-md-3">
+                        <span>{{vm.projectdetail.edc_sif_clu_fee_paid_applicable}}</span>
+                    </td>
+                    <td class="col-md-4">
+                        <span>{{vm.projectdetail.edc_sif_clu_fee_paid_document}}</span>
+
+                    </td>
+                </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">PROJECT SITE DETAIL</h3>
+        </div>
+        <div class="panel-body">
+
+            <!-- Project Site Detail by Meena-->
+            <table class="table table-striped table-hover ">
+                <tbody>
+                <tr>
+                    <th class="col-sm-3">Site Address</th>
+                    <td>{{vm.projectsitedetail.siteaddress}}</td>
+                    <th class="col-sm-3">District</th>
+                    <td>{{vm.projectsitedetail.district}}</td>
+                </tr>
+
+                <tr>
+                    <th class="col-sm-3">Block</th>
+                    <td>{{vm.projectsitedetail.block}}</td>
+                    <th class="col-sm-3"> City/Town/Village</th>
+                    <td>{{vm.projectsitedetail.city_town_village}}</td>
+                </tr>
+
+                <tr>
+                    <th class="col-sm-3">Multi-Village Involved</th>
+                    <td>{{vm.projectsitedetail.multyvillageinvolved}}</td>
+                    <th class="col-sm-3">Village Involved</th>
+                    <td>{{vm.projectsitedetail.villageinvolved}}</td>
+
+                </tr>
+
+                <tr>
+                    <th class="col-sm-3">If site falls in Gurgaon or Mewat district, whether
+                        land falls under Aravalli Notification Act
+                    </th>
+                    <td>{{vm.projectsitedetail.falls_in_aravalli}}</td>
+                    <th></th>
+                    <td></td>
+
+                </tr>
+                <tr>
+                    <th class="col-sm-3"> Is Land Procured</th>
+                    <td>{{vm.projectsitedetail.islandprocured}}</td>
+                    <th class="col-sm-3">Is Land Allocated By HSIID</th>
+                    <td>{{vm.projectsitedetail.allotedbyhsiidc}}</td>
+
+                </tr>
+                <tr>
+                    <th class="col-sm-3">Estate</th>
+                    <td>{{vm.projectsitedetail.estate}}</td>
+                    <th class="col-sm-3">Cluster</th>
+                    <td>{{vm.projectsitedetail.cluster}}</td>
+
+                </tr>
+                <tr>
+                    <th class="col-sm-3">Phase</th>
+                    <td>{{vm.projectsitedetail.phase}}</td>
+                    <th class="col-sm-3">Sector</th>
+                    <td>{{vm.projectsitedetail.sector}}</td>
+
+                </tr>
+                <tr>
+                    <th class="col-sm-3">Plot No.</th>
+                    <td>{{vm.projectsitedetail.plotno}}</td>
+                    <th class="col-sm-3">Hadbast No.</th>
+                    <td>{{vm.projectsitedetail.hadbastno}}</td>
+
+                </tr>
+
+                <tr>
+                    <th class="col-sm-3">Lies Under MC</th>
+                    <td>{{vm.projectsitedetail.liesunder_mc}}</td>
+                    <th class="col-sm-3">Distance Under MC</th>
+                    <td>{{vm.projectsitedetail.distance_from_mc}}</td>
+
+                </tr>
+
+                <tr>
+                    <th class="col-sm-3">Site is located in Urban Area</th>
+                    <td>{{vm.projectsitedetail.islocated_in_urban}}</td>
+                    <th></th>
+                    <td></td>
+
+                </tr>
+
+                <tr>
+                    <th class="col-sm-3">Total Proposed Project Area</th>
+                    <td>{{vm.projectsitedetail.totalproposedprojectarea}}</td>
+                    <th class="col-sm-3">Proposed Built up Area</th>
+                    <td>{{vm.projectsitedetail.proposedbuilt_up_area}}</td>
+
+                </tr>
+                <tr>
+                    <th class="col-sm-3">Certified Ownership</th>
+                    <td>{{vm.projectsitedetail.certifiedownership}}</td>
+                    <th></th>
+                    <td></td>
+
+                </tr>
+
+                <tr>
+                    <th class="col-sm-3">Lease Applicable</th>
+                    <td>{{vm.projectsitedetail.leaseapplicable}}</td>
+                    <th class="col-sm-3">Land Agreement Applicable</th>
+                    <td>{{vm.projectsitedetail.landagreementapplicable}}</td>
+
+                </tr>
+
+                <tr>
+                    <th class="col-sm-3">Connecting Road</th>
+                    <td>{{vm.projectsitedetail.connectingroad}}</td>
+                    <th></th>
+                    <td></td>
+
+                </tr>
+
+                <tr>
+                    <th class="col-sm-3">Intersection Distance</th>
+                    <td>{{vm.projectsitedetail.intersectiondistance}}</td>
+                    <th class="col-sm-3">Raiway Distance</th>
+                    <td>{{vm.projectsitedetail.railwaydistance}}</td>
+
+
+                </tr>
+
+
+                <tr>
+                    <th class="col-sm-3">Confirmity of Land Used</th>
+                    <td>{{vm.projectsitedetail.confirmitylanduse}}</td>
+                    <th class="col-sm-3">Land Zone Use Type</th>
+                    <td>{{vm.projectsitedetail.landzoneuse_type}}</td>
+
+                </tr>
+
+                <tr>
+                    <th class="col-sm-3">Building Existed</th>
+                    <td>{{vm.projectsitedetail.buildingexisted}}</td>
+                    <th class="col-sm-3">Existing Building Applicable</th>
+                    <td>{{vm.projectsitedetail.existing_building_applicable}}</td>
+                </tr>
+
+                <tr>
+                    <th class="col-sm-3">Site Situated in Controlled Area</th>
+                    <td>{{vm.projectsitedetail.site_situated_in_controlled_area}}</td>
+                    <th></th>
+                    <td></td>
+                </tr>
+
+
+                </tbody>
+            </table>
+            <!--By Meena --->
+        </div>
+    </div>
+
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">CAPITAL INVESTMENT DETAIL</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped table-hover ">
+                <tbody>
+                <tr>
+                    <th class="col-md-2">Land Cost</th>
+                    <td class="col-md-2">{{vm.project_finance_investment.land_cost}}</td>
+                    <th class="col-md-2">Building Cost</th>
+                    <td class="col-md-2">{{vm.project_finance_investment.building_cost}}</td>
+                </tr>
+                <tr>
+                    <th class="col-md-1">Plant & Machinery Cost</th>
+                    <td class="col-md-1">{{vm.project_finance_investment.machinery_cost}}</td>
+                    <th class="col-md-1">Cost of Miscellaneous Assets</th>
+                    <td class="col-md-1">{{vm.project_finance_investment.misc_assests}}</td>
+                </tr>
+                <tr>
+                    <th class="col-md-1">Total Project Cost</th>
+                    <td class="col-md-1">{{vm.project_finance_investment.total_project_cost}}</td>
+                    <th class="col-md-1">FDI, If applicable</th>
+                    <td class="col-md-1">{{vm.project_finance_investment.isfdi}}</td>
+                </tr>
+                <tr>
+                    <th class="col-md-1">FDI Value</th>
+                    <td class="col-md-1">{{vm.project_finance_investment.fdivalue}}</td>
+                    <th class="col-md-1">If FDI, name of the country</th>
+                    <td class="col-md-1">{{vm.project_finance_investment.fdi_country}}</td>
+                </tr>
+                <tr>
+                    <th class="col-md-1">Foreign Funding Resources</th>
+                    <td class="col-md-1">{{vm.project_finance_investment.foreign_funding_source}}</td>
+                    <th class="col-md-1">Start of Project Construction</th>
+                    <td class="col-md-1">{{vm.project_finance_investment.project_construction_start_date}}</td>
+                </tr>
+                <th class="col-md-1">Start of Commercial Activity</th>
+                <td class="col-md-1">{{vm.project_finance_investment.commercial_activity_start_date}}</td>
+                <td class="col-md-4"></td>
+                <td class="col-md-3"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">PHASE-WISE IMPLEMENTATION / FCI DETAILS</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped table-hover">
+                    <tbody>
+                    <tr>
+                        <th class="col-md-1">Phase</th>
+                        <th class="col-md-1">Product category</th>
+                        <th class="col-md-1">FCI</th>
+                        <th class="col-md-1">Implementation Date</th>
+                    </tr>
+                    <tr ng-repeat="x in vm.project_phase">
+                        <td class="col-md-1">{{x.phase}}</td>
+                        <td class="col-md-1">{{x.productcategory}}</td>
+                        <td class="col-md-1">{{x.fci}}</td>
+                        <td class="col-md-1">{{x.implementationdate}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">MANUFACTURING DETAILS</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped table-hover ">
+                <tbody>
+                <tr ng-repeat="projectrawmaterial in vm.projectrawmaterial">
+                    <th class="col-md-2">Raw Material</th>
+                    <td class="col-md-2">{{projectrawmaterial.rawmaterial}}</td>
+
+                    <th class="col-md-2">Quantity</th>
+                    <td class="col-md-2">{{projectrawmaterial.quantity}}</td>
+
+                    <th class="col-md-2">Units</th>
+                    <td class="col-md-2">{{projectrawmaterial.units}}</td>
+
+                </tr>
+                <!--<tr ng-repeat="x in vm.projectrawmaterial">-->
                 <!--<td class="col-md-2">{{x.projectrawmaterial.rawmaterial}}</td>-->
                 <!--<td class="col-md-2">{{x.projectrawmaterial.quantity}}</td>-->
                 <!--<td class="col-md-2">{{x.projectrawmaterial.units}}</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-            <tr ng-repeat="projectproduct in vm.projectproduct">
-                <th class="col-md-2">Main Product</th>
-                <td class="col-md-2">{{projectproduct.mainproduct}}</td>
+                <!--</tr>-->
+                <!--<tr>-->
+                <tr ng-repeat="projectproduct in vm.projectproduct">
+                    <th class="col-md-2">Main Product</th>
+                    <td class="col-md-2">{{projectproduct.mainproduct}}</td>
 
-                <th class="col-md-2">Quantity</th>
-                <td class="col-md-2">{{projectproduct.quantity}}</td>
+                    <th class="col-md-2">Quantity</th>
+                    <td class="col-md-2">{{projectproduct.quantity}}</td>
 
-                <th class="col-md-2">Units</th>
-                <td class="col-md-2">{{projectproduct.units}}</td>
-            </tr>
-            <!--<tr ng-repeat="x in vm.projectproduct">-->
+                    <th class="col-md-2">Units</th>
+                    <td class="col-md-2">{{projectproduct.units}}</td>
+                </tr>
+                <!--<tr ng-repeat="x in vm.projectproduct">-->
                 <!--<td class="col-md-2">{{x.projectproduct.mainproduct}}</td>-->
                 <!--<td class="col-md-2">{{x.projectproduct.quantity}}</td>-->
                 <!--<td class="col-md-2">{{x.projectproduct.units}}</td>-->
-            <!--</tr>-->
-            <tr ng-repeat="projectprocessflowstep in vm.projectprocessflowsteps">
-                <th class="col-md-2">Add Process</th>
-                <td class="col-md-2">{{projectprocessflowstep.steps}}</td>
-            </tr>
-            </tbody>
-        </table>
+                <!--</tr>-->
+                <tr ng-repeat="projectprocessflowstep in vm.projectprocessflowsteps">
+                    <th class="col-md-2">Add Process</th>
+                    <td class="col-md-2">{{projectprocessflowstep.steps}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">ENVIRONMENT IMPACT DETAILS</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped table-hover">
+                    <tbody>
+                    <tr>
+
+                        <th class="col-md-2">Source of Water Supply(Raw Water Effluent Details)</th>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.source_of_water_supply}}</td>
+                    </tr>
+                    <tr>
+                        <th class="col-md-2">Particulars(Raw Water Effluent Details)</th>
+                        <th class="col-md-2">water_process</th>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.water_process}}</td>
+                        <th class="col-md-2">water_cooling</th>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.water_cooling}}</td>
+                        <th class="col-md-2">water_domestic</th>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.water_domestic}}</td>
+                        <th class="col-md-2">water_other</th>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.water_other}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-2 ">Water Usage (in m3 per day)*</td>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.water_process}}</td>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.water_cooling}}</td>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.water_domestic}}</td>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.water_other}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-2">Waste Water Generation (in m3 per day)*</td>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.waste_water_process}}</td>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.waste_water_cooling}}</td>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.waste_water_domesting}}</td>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.waste_water_other}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-2">Waste Water Treatment*</td>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.waste_water_cooling}}</td>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.waste_water_domesting}}</td>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.waste_water_cooling}}</td>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.waste_water_other}}</td>
+                    </tr>
+
+                    <tr>
+                        <th class="col-md-2">Mode of disposal for Discharge</th>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.mode_of_disposal_for_discharge}}</td>
+                    </tr>
+
+                    <!--<tr>-->
+                    <!--<th class="col-md-2">Source of Water Supply</th>-->
+                    <!--<td class="col-md-2">{{vm.environmentimpactdetail.source_of_water_supply}}</td>-->
+                    <!--</tr>-->
+                    <!--<tr >-->
+                    <!--<th class="col-md-2">Particulars(Emission Data/Type)</th>-->
+                    <!--<th class="col-md-2">Capacity</th>-->
+                    <!--<th class="col-md-2">(Ton Per Hour/KVA or Mega Watt)</th>-->
+                    <!--<th class="col-md-2">Type of Fuel</th>-->
+                    <!--<th class="col-md-2">Air Pollution Control Device</th>-->
+
+                    <!--</tr>-->
+                    <tr ng-repeat=" emissiondetail in vm.emissiondetail">
+                        <th class="col-md-2">particulars</th>
+                        <td class="col-md-2">{{emissiondetail.particulars}}</td>
+
+                        <th class="col-md-2">capacity</th>
+                        <td class="col-md-2">{{emissiondetail.capacity}}</td>
+                        <th class="col-md-2">type_of_fuel</th>
+                        <td class="col-md-2">{{emissiondetail.type_of_fuel}}</td>
+
+                        <th class="col-md-2">air_pollution_control_device</th>
+                        <td class="col-md-2">{{emissiondetail.air_pollution_control_device}}</td>
+
+                    </tr>
+                    <tr ng-repeat=" wastewaterdetail in vm.wastewaterdetail">>
+                        <th class="col-md-2">Source of Generation(Solid Waste Generation Details)</th>
+                        <td class="col-md-2">{{wastewaterdetail.source_of_generation}}</td>
+                        <th class="col-md-2">Nature/Type</th>
+                        <td class="col-md-2">{{wastewaterdetail.naturetype}}</td>
+
+                        <th class="col-md-2">Quantity (Tons per Day)</th>
+                        <td class="col-md-2">{{wastewaterdetail.quantity}}</td>
+                        <th class="col-md-2">Mode of Disposal</th>
+                        <td class="col-md-2">{{wastewaterdetail.mode_of_disposal}}</td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
 
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h3 class="panel-title">ENVIRONMENT IMPACT DETAILS</h3>
+            <h3 class="panel-title"><b>Electric Power Requirements</b></h3>
         </div>
         <div class="panel-body">
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover ">
+                <tr>
+                    <tbody>
+                    <tr>
+                        <td class="col-md-4"><b>Temporary Connection</b></td>
+                        <td class="col-md-3"></td>
+                        <td class="col-md-4"></td>
+                        <td class="col-md-3"></td>
+                    </tr>
+                    <tr>
+                        <!-- <td class="col-md-4">View Existing Bill</td>
+                         <td class="col-md-3">{{vm.electricrequirement.temporaryconnection}}</td>-->
+
+                        <td class="col-md-4">Load Required</td>
+                        <td class="col-md-3">{{vm.electricrequirement.temporaryrequired}}</td>
+                        <td class="col-md-4">Power Company</td>
+                        <td class="col-md-3">UHBVN</td>
+                    </tr>
+                    <tr>
+
+
+                        <td class="col-md-4">Existing Connection</td>
+                        <td class="col-md-3">{{vm.electricrequirement.tem_load_existing}}</td>
+                        <td class="col-md-4">Account Number</td>
+                        <td class="col-md-3">{{vm.electricrequirement.tem_account_number}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">Existing Load Demand(in KW)</td>
+                        <td class="col-md-3">{{vm.electricrequirement.temp_existing_load_demand_kw}}</td>
+                        <td class="col-md-4">Existing Load Demand(in KVA)</td>
+                        <td class="col-md-3">{{vm.electricrequirement.temp_existing_load_demand_kva}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">New Load Demand (in KW)</td>
+                        <td class="col-md-3">{{vm.electricrequirement.temp_new_load_demand_kw}}</td>
+                        <td class="col-md-4">New Load Demand (in KVA)</td>
+                        <td class="col-md-3">{{vm.electricrequirement.temp_new_load_demand_kva}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">Demand Date</td>
+                        <td class="col-md-3">{{vm.electricrequirement.temp_load_demand_date}}</td>
+                        <td class="col-md-4"></td>
+                        <td class="col-md-3"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4"><b>Regular Connection</b></td>
+                        <td class="col-md-3"></td>
+                        <td class="col-md-4"></td>
+                        <td class="col-md-3"></td>
+                    </tr>
+                    <tr>
+                        <!--<td class="col-md-4">View Existing Bill</td>
+                        <td class="col-md-3">{{vm.electricrequirement.regular_connection_doc}}</td>-->
+                        <td class="col-md-4">Load Required</td>
+                        <td class="col-md-3">{{vm.electricrequirement.regular_load_required}}</td>
+                        <td class="col-md-4">Power Company</td>
+                        <td class="col-md-3">UHBVN</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">Existing Connection</td>
+                        <td class="col-md-3">{{vm.electricrequirement.regular_existing_connection}}</td>
+                        <!-- <td class="col-md-4">Customer Type</td>
+                        <td class="col-md-3">{{vm.electricrequirement.selectedCustomerType}}</td>-->
+                        <td class="col-md-4">Account Number</td>
+                        <td class="col-md-3">{{vm.electricrequirement.regular_account_number}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">Existing Load (in KW)</td>
+                        <td class="col-md-3">{{vm.electricrequirement.regular_existing_load_ifany_kw}}</td>
+                        <td class="col-md-4">Existing Load (in KVA)</td>
+                        <td class="col-md-3">{{vm.electricrequirement.regular_existing_load_ifany_kva}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">New Load (in KW)</td>
+                        <td class="col-md-3">{{vm.electricrequirement.regular_new_load_demand_kw}}</td>
+                        <td class="col-md-4">New Load (in KVA)</td>
+                        <td class="col-md-3">{{vm.electricrequirement.regular_new_load_demand_kva}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">Demand Date</td>
+                        <td class="col-md-3">{{vm.electricrequirement.regular_load_demand_date}}</td>
+                        <td class="col-md-4"></td>
+                        <td class="col-md-3"></td>
+                    </tr>
+                    </tbody>
+
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Terms and Conditions</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped table-hover ">
                 <tbody>
                 <tr>
-                    <th class="col-md-2">Source of Water Supply(Raw Water Effluent Details)</th>
-                    <td class="col-md-2">{{vm.environmentimpactdetail.source_of_water_supply}}</td>
-                </tr>
-
-
-
-                <tr ng-repeat="environmentimpactdetail in vm.environmentimpactdetail">
-                    <th class="col-md-1">Particulars(Raw Water Effluent Details)</th>
-
-                    <th class="col-md-1">Process</th>
-                    <td class="col-md-1">{{environmentimpactdetail.water_process}}</td>
-                    <th class="col-md-1">Cooling</th>
-                    <td class="col-md-1">{{environmentimpactdetail.water_cooling}}</td>
-                    <th class="col-md-1">Domestic</th>
-                    <td class="col-md-1">{{environmentimpactdetail.water_domestic}}</td>
-                    <th class="col-md-1">Other</th>
-                    <td class="col-md-1">{{environmentimpactdetail.water_other}}</td>
-                </tr>
-                <tr ng-repeat="environmentimpactdetail in vm.environmentimpactdetail">
-                    <td class="col-md-1 ">Water Usage (in m3 per day)*</td>
-                    <td class="col-md-1">{{environmentimpactdetail.water_process}}</td>
-
-
-                    <td class="col-md-1">{{water_cooling}}</td>
-                    <td class="col-md-1">{{environmentimpactdetail.water_cooling}}</td>
-
-                    <td class="col-md-1">{{vm.environmentimpactdetail.water_domestic}}</td>
-                    <td class="col-md-1">{{vm.environmentimpactdetail.water_other}}</td>
+                    <td style="width:10px;">
+                        &nbsp;
+                    </td>
+                    <td>
+                        <ol>
+                            <li style="padding:10px;">I/We <b>(Name)</b>, Proprietor/Partner/Director of (Company)</b>,
+                                hereby undertake that all the information furnished above is true and correct to the
+                                best of my/our knowledge and belief. No part of the information is false and nothing has
+                                been concealed therein.
+                            </li>
+                            <li style="padding:10px;">All the required attachments have been completely and legibly
+                                attached to this form.
+                            </li>
+                        </ol>
+                    </td>
                 </tr>
                 <tr>
-                    <td class="col-md-1">Waste Water Generation (in m3 per day)*</td>
-                    <td class="col-md-1">{{vm.environmentimpactdetail.waste_water_process}}</td>
-                    <td class="col-md-1">{{vm.environmentimpactdetail.waste_water_cooling}}</td>
-                    <td class="col-md-1">{{vm.environmentimpactdetail.waste_water_domesting}}</td>
-                    <td class="col-md-1">{{vm.environmentimpactdetail.waste_water_other}}</td>
-                </tr>
-                <tr>
-                    <td class="col-md-1">Waste Water Treatment*</td>
-                    <td class="col-md-1">{{vm.treatment1.treatment1}}</td>
-                    <td class="col-md-1">{{vm.treatment2.treatment2}}</td>
-                    <td class="col-md-1">{{vm.treatment3.treatment3}}</td>
-                    <td class="col-md-1">{{vm.environmentimpactdetail.other}}</td>
-                </tr>
+                    <td style="width:10px;">
+                        &nbsp;
+                    </td>
+                    <td>
 
-                <tr>
-                    <th class="col-md-2">Mode of disposal for Discharge</th>
-                    <td class="col-md-2">{{vm.modeofdisposalfor_discharge.disposal_for_discharge}}</td>
+                        <input checked="checked" id="chkAccept" disabled="disabled" style="outline: 2px solid;"
+                               autocomplete="off" autocompletetype="Disable" type="checkbox">
+                        I Accept Terms and Conditions
+                    </td>
                 </tr>
-
+                </tbody>
+            </table>
+            <table class="table table-striped table-hover ">
+                <tbody>
                 <tr>
-                    <th class="col-md-2">Source of Water Supply</th>
-                    <td class="col-md-2">{{vm.environmentimpactdetail.source_of_water_supply}}</td>
-                </tr>
-                <tr>
-                    <th class="col-md-2">Particulars(Emission Data/Type)</th>
-                    <th class="col-md-2">Capacity</th>
-                    <th class="col-md-2">(Ton Per Hour/KVA or Mega Watt)</th>
-                    <th class="col-md-2">Type of Fuel</th>
-                    <th class="col-md-2">Air Pollution Control Device</th>
-
-                </tr>
-                <tr ng-repeat="x in vm.emissiondetail">
-                    <td class="col-md-2">{{x.emissiondetail.particulars}}</td>
-                    <td class="col-md-2">{{x.emissiondetail.capacity}}</td>
-                    <td class="col-md-2">{{x.emissiondetail.type_of_fuel}}</td>
-                    <td class="col-md-2">{{x.emissiondetail.air_pollution_control_device}}</td>
+                    <td class="col-md-3 bold" style="border-top-left-radius:8px;">
+                        Application Date:
+                    </td>
+                    <td class="col-md-3" style="text-align:center;border-top-right-radius:8px;">
+                        <img src="" width="160px" height="70px"></td>
                 </tr>
                 <tr>
-                    <th class="col-md-2">Source of Generation(Solid Waste Generation Details)</th>
-                    <th class="col-md-2">Nature/Type</th>
-                    <th class="col-md-2">Quantity (Tons per Day)</th>
-                    <th class="col-md-2">Mode of Disposal</th>
+                    <td class="col-md-3 bold">
+                        Place:
+                    </td>
+                    <td class="col-md-3 bold">
+                        <div class="col-md-4"></div>
+                        <div class="pull-left col-md-8">
+                            Applicant Name:
+                        </div>
+                    </td>
                 </tr>
-                <tr>
-                    <td class="col-md-2">{{vm.wastewaterdetail.source_of_generation}}</td>
-                    <td class="col-md-2">{{vm.wastewaterdetail.naturetype}}</td>
-                    <td class="col-md-2">{{vm.wastewaterdetail.quantity}}</td>
-                    <td class="col-md-2">{{vm.wastewaterdetail.mode_of_disposal}}</td>
-                </tr>
-
                 </tbody>
             </table>
         </div>
     </div>
-</div>
-
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title"><b>Electric Power Requirements</b></h3>
-    </div>
-    <div class="panel-body">
-        <table class="table table-striped table-hover ">
-            <tr>
-                <tbody>
-                <tr>
-                    <td class="col-md-4"><b>Temporary Connection</b></td>
-                    <td class="col-md-3"></td>
-                    <td class="col-md-4"></td>
-                    <td class="col-md-3"></td>
-                </tr>
-                <tr>
-                    <!-- <td class="col-md-4">View Existing Bill</td>
-                     <td class="col-md-3">{{vm.electricrequirement.temporaryconnection}}</td>-->
-
-                    <td class="col-md-4">Load Required</td>
-                    <td class="col-md-3">{{vm.electricrequirement.temporaryrequired}}</td>
-                    <td class="col-md-4">Power Company</td>
-                    <td class="col-md-3">UHBVN</td>
-                </tr>
-                <tr>
-
-
-                    <td class="col-md-4">Existing Connection</td>
-                    <td class="col-md-3">{{vm.electricrequirement.tem_load_existing}}</td>
-                    <td class="col-md-4">Account Number</td>
-                    <td class="col-md-3">{{vm.electricrequirement.tem_account_number}}</td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">Existing Load Demand(in KW)</td>
-                    <td class="col-md-3">{{vm.electricrequirement.temp_existing_load_demand_kw}}</td>
-                    <td class="col-md-4">Existing Load Demand(in KVA)</td>
-                    <td class="col-md-3">{{vm.electricrequirement.temp_existing_load_demand_kva}}</td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">New Load Demand (in KW)</td>
-                    <td class="col-md-3">{{vm.electricrequirement.temp_new_load_demand_kw}}</td>
-                    <td class="col-md-4">New Load Demand (in KVA)</td>
-                    <td class="col-md-3">{{vm.electricrequirement.temp_new_load_demand_kva}}</td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">Demand Date</td>
-                    <td class="col-md-3">{{vm.electricrequirement.temp_load_demand_date}}</td>
-                    <td class="col-md-4"></td>
-                    <td class="col-md-3"></td>
-                </tr>
-                <tr>
-                    <td class="col-md-4"><b>Regular Connection</b></td>
-                    <td class="col-md-3"></td>
-                    <td class="col-md-4"></td>
-                    <td class="col-md-3"></td>
-                </tr>
-                <tr>
-                    <!--<td class="col-md-4">View Existing Bill</td>
-                    <td class="col-md-3">{{vm.electricrequirement.regular_connection_doc}}</td>-->
-                    <td class="col-md-4">Load Required</td>
-                    <td class="col-md-3">{{vm.electricrequirement.regular_load_required}}</td>
-                    <td class="col-md-4">Power Company</td>
-                    <td class="col-md-3">UHBVN</td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">Existing Connection</td>
-                    <td class="col-md-3">{{vm.electricrequirement.regular_existing_connection}}</td>
-                    <!-- <td class="col-md-4">Customer Type</td>
-                    <td class="col-md-3">{{vm.electricrequirement.selectedCustomerType}}</td>-->
-                    <td class="col-md-4">Account Number</td>
-                    <td class="col-md-3">{{vm.electricrequirement.regular_account_number}}</td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">Existing Load (in KW)</td>
-                    <td class="col-md-3">{{vm.electricrequirement.regular_existing_load_ifany_kw}}</td>
-                    <td class="col-md-4">Existing Load (in KVA)</td>
-                    <td class="col-md-3">{{vm.electricrequirement.regular_existing_load_ifany_kva}}</td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">New Load (in KW)</td>
-                    <td class="col-md-3">{{vm.electricrequirement.regular_new_load_demand_kw}}</td>
-                    <td class="col-md-4">New Load (in KVA)</td>
-                    <td class="col-md-3">{{vm.electricrequirement.regular_new_load_demand_kva}}</td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">Demand Date</td>
-                    <td class="col-md-3">{{vm.electricrequirement.regular_load_demand_date}}</td>
-                    <td class="col-md-4"></td>
-                    <td class="col-md-3"></td>
-                </tr>
-                </tbody>
-
-            </tr>
-
-        </table>
-    </div>
-</div>
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title">Terms and Conditions</h3>
-    </div>
-    <div class="panel-body">
-        <table class="table table-striped table-hover ">
-            <tbody><tr>
-                <td style="width:10px;">
-                    &nbsp;
-                </td>
-                <td>
-                    <ol>
-                        <li style="padding:10px;">I/We <b>(Name)</b>, Proprietor/Partner/Director of (Company)</b>, hereby undertake that all the information furnished above is true and correct to the best of my/our knowledge and belief. No part of the information is false and nothing has been concealed therein.</li>
-                        <li style="padding:10px;">All the required attachments have been completely and legibly attached to this form.</li>
-                    </ol>
-                </td>
-            </tr>
-            <tr>
-                <td style="width:10px;">
-                    &nbsp;
-                </td>
-                <td>
-
-                    <input checked="checked" id="chkAccept" disabled="disabled" style="outline: 2px solid;" autocomplete="off" autocompletetype="Disable" type="checkbox">
-                    I Accept Terms and Conditions
-                </td>
-            </tr>
-            </tbody></table>
-        <table class="table table-striped table-hover ">
-            <tbody><tr>
-                <td class="col-md-3 bold" style="border-top-left-radius:8px;">
-                    Application Date:
-                </td>
-                <td class="col-md-3" style="text-align:center;border-top-right-radius:8px;">
-                    <img src="" width="160px" height="70px"></td>
-            </tr>
-            <tr>
-                <td class="col-md-3 bold">
-                    Place:
-                </td>
-                <td class="col-md-3 bold">
-                    <div class="col-md-4"></div>
-                    <div class="pull-left col-md-8">
-                        Applicant Name:
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
 </div>
