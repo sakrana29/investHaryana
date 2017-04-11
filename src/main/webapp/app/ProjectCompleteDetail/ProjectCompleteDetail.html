@@ -489,37 +489,37 @@
                         <th class="col-md-2">Source of Water Supply(Raw Water Effluent Details)</th>
                         <td class="col-md-2">{{vm.environmentimpactdetail.source_of_water_supply}}</td>
                     </tr>
+                    <!--<tr>-->
+                        <th class="col-md-2">Particulars</th>
+                        <th class="col-md-2">Process</th>
+                        <th class="col-md-2">Cooling</th>
+                        <th class="col-md-2">Domestic</th>
+                        <th class="col-md-2">other</th>
+                        <!--<td class="col-md-2">{{vm.environmentimpactdetail.water_process}}</td>-->
+                        <!--<td class="col-md-2">{{vm.environmentimpactdetail.water_cooling}}</td>-->
+                        <!--<td class="col-md-2">{{vm.environmentimpactdetail.water_domestic}}</td>-->
+                        <!--<td class="col-md-2">{{vm.environmentimpactdetail.water_other}}</td>-->
+                    <!--</tr>-->
                     <tr>
-                        <th class="col-md-2">Particulars(Raw Water Effluent Details)</th>
-                        <th class="col-md-2">water_process</th>
+                        <th class="col-md-2 ">Water Usage (in m3 per day)*</th>
                         <td class="col-md-2">{{vm.environmentimpactdetail.water_process}}</td>
-                        <th class="col-md-2">water_cooling</th>
                         <td class="col-md-2">{{vm.environmentimpactdetail.water_cooling}}</td>
-                        <th class="col-md-2">water_domestic</th>
                         <td class="col-md-2">{{vm.environmentimpactdetail.water_domestic}}</td>
-                        <th class="col-md-2">water_other</th>
                         <td class="col-md-2">{{vm.environmentimpactdetail.water_other}}</td>
                     </tr>
                     <tr>
-                        <td class="col-md-2 ">Water Usage (in m3 per day)*</td>
-                        <td class="col-md-2">{{vm.environmentimpactdetail.water_process}}</td>
-                        <td class="col-md-2">{{vm.environmentimpactdetail.water_cooling}}</td>
-                        <td class="col-md-2">{{vm.environmentimpactdetail.water_domestic}}</td>
-                        <td class="col-md-2">{{vm.environmentimpactdetail.water_other}}</td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2">Waste Water Generation (in m3 per day)*</td>
+                        <th class="col-md-2">Waste Water Generation (in m3 per day)*</th>
                         <td class="col-md-2">{{vm.environmentimpactdetail.waste_water_process}}</td>
                         <td class="col-md-2">{{vm.environmentimpactdetail.waste_water_cooling}}</td>
                         <td class="col-md-2">{{vm.environmentimpactdetail.waste_water_domesting}}</td>
                         <td class="col-md-2">{{vm.environmentimpactdetail.waste_water_other}}</td>
                     </tr>
                     <tr>
-                        <td class="col-md-2">Waste Water Treatment*</td>
-                        <td class="col-md-2">{{vm.environmentimpactdetail.waste_water_cooling}}</td>
-                        <td class="col-md-2">{{vm.environmentimpactdetail.waste_water_domesting}}</td>
-                        <td class="col-md-2">{{vm.environmentimpactdetail.waste_water_cooling}}</td>
-                        <td class="col-md-2">{{vm.environmentimpactdetail.waste_water_other}}</td>
+                        <th class="col-md-2">Waste Water Treatment*</th>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.recycling_cooling}}</td>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.recycling_domestic}}</td>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.recycling_process}}</td>
+                        <td class="col-md-2">{{vm.environmentimpactdetail.recycling_other}}</td>
                     </tr>
 
                     <tr>
@@ -552,7 +552,7 @@
                         <td class="col-md-2">{{emissiondetail.air_pollution_control_device}}</td>
 
                     </tr>
-                    <tr ng-repeat=" wastewaterdetail in vm.wastewaterdetail">>
+                    <tr ng-repeat=" wastewaterdetail in vm.wastewaterdetail">
                         <th class="col-md-2">Source of Generation(Solid Waste Generation Details)</th>
                         <td class="col-md-2">{{wastewaterdetail.source_of_generation}}</td>
                         <th class="col-md-2">Nature/Type</th>
