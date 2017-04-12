@@ -1,21 +1,15 @@
 package com.hartron.investharyana.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.hartron.investharyana.domain.Projectsitedetail;
 import com.hartron.investharyana.service.*;
 import com.hartron.investharyana.service.dto.*;
-import com.hartron.investharyana.web.rest.util.HeaderUtil;
-import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * REST controller for managing Project List.
@@ -32,13 +26,15 @@ public class ProjectListResource {
     private final ProjectdetailService projectdetailService;
     private final Project_finance_investmentService project_finance_investmentService;
     private final ProjectdetailcombinecodesService projectdetailcombinecodesService;
+    private final ProjectsitedetailService projectsitedetailService;
 
-
-    public ProjectListResource(InvestorService investorService, ProjectdetailService projectdetailService, Project_finance_investmentService project_finance_investmentService,  ProjectdetailcombinecodesService projectdetailcombinecodesService) {
+    public ProjectListResource(InvestorService investorService, ProjectdetailService projectdetailService, Project_finance_investmentService project_finance_investmentService, ProjectdetailcombinecodesService projectdetailcombinecodesService, ProjectsitedetailService projectsitedetailService) {
         this.investorService = investorService;
         this.projectdetailService = projectdetailService;
         this.project_finance_investmentService = project_finance_investmentService;
         this.projectdetailcombinecodesService = projectdetailcombinecodesService;
+        this.projectsitedetailService = projectsitedetailService;
+
     }
 
     @GetMapping("/ProjectList")
@@ -54,6 +50,12 @@ public class ProjectListResource {
             ProjectdetailDTO projectdetailDTO= projectdetailService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getId().toString());
             Project_finance_investmentDTO project_finance_investmentDTO= project_finance_investmentService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getProjectfinanceid().toString());
 
+
+
+            ProjectsitedetailDTO projectsitedetailDTO = projectsitedetailService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getProjectsitedetailid().toString());
+
+
+
             ListofProjectsDTO listofProjectsDTO=new ListofProjectsDTO();
             listofProjectsDTO.setProjectid(projectdetailDTO.getId().toString());
             listofProjectsDTO.setCAFPin(investorDTO.getCafpin());
@@ -61,6 +63,21 @@ public class ProjectListResource {
             listofProjectsDTO.setProjectTotalCost(project_finance_investmentDTO.getTotal_project_cost());
             listofProjectsDTO.setProjectType(projectdetailDTO.getProjectype());
             listofProjectsDTO.setTotalEmployement(project_finance_investmentDTO.getTotalpurposedemployment());
+
+         //pk
+            listofProjectsDTO.setMouYear(investorDTO.getMousignyear());
+            listofProjectsDTO.setApplicationDate(investorDTO.getCreatedate());
+            listofProjectsDTO.setSectorName(projectdetailDTO.getSectorname());
+
+            listofProjectsDTO.setSectorName(projectdetailDTO.getSectorname());
+
+            listofProjectsDTO.setSiteaddress(projectsitedetailDTO.getSiteaddress());
+            listofProjectsDTO.setBlock(projectsitedetailDTO.getBlock());
+            listofProjectsDTO.setDistrict(projectsitedetailDTO.getDistrict());
+
+//            System.out.println(listofProjectsDTO);
+
+
 
             listofProjectsDTOList.add(listofProjectsDTO);
         }

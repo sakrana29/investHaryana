@@ -28,7 +28,8 @@
                 <td >{{prdtl.projectTotalCost}}</td>
                 <td >{{prdtl.totalEmployement}}</td>
                 <td class="action verticalalign">
-                    <button type="submit" ui-sref="projectdetailjist({id:prdtl.projectid})"
+                    <!--<button type="submit" ui-sref="projectdetailjist({id:prdtl.projectid})"-->
+                    <button type="submit" ui-sref="projectdetailjist({prdtlObject:prdtl})"
                             class="btn btn-info ">Details</button>
                     </td>
             </tr>

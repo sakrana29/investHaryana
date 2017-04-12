@@ -16,6 +16,8 @@
         vm.register = register;
         vm.CompleteProjectDetail=entity;
 
+
+
         vm.investor=vm.CompleteProjectDetail.investorDTO;
         vm.companydetail=vm.CompleteProjectDetail.companydetailDTO;
         vm.projectdetail=vm.CompleteProjectDetail.projectdetailDTO;
