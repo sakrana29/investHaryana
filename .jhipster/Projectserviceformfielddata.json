@@ -23,6 +23,22 @@
         {
             "fieldName": "formfieldName",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "serviceformfieldid",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "formfieldtype",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "formfieldOrder",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "formtypeOption",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170328025841",

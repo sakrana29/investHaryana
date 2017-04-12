@@ -18,7 +18,7 @@ public interface ProjectserviceformfielddataService {
 
     /**
      *  Get all the projectserviceformfielddata.
-     *  
+     *
      *  @return the list of entities
      */
     List<ProjectserviceformfielddataDTO> findAll();
@@ -37,4 +37,6 @@ public interface ProjectserviceformfielddataService {
      *  @param id the id of the entity
      */
     void delete(String id);
+
+    List<ProjectserviceformfielddataDTO> findAllByProjectid(String projectid);
 }

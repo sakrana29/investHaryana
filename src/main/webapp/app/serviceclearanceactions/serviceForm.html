@@ -5,57 +5,25 @@
        <h4 class="modal-title" id="myBlockLabel">Fill Service Form</h4>
     </div>
 
-    <div class="modal-body" ng-show="vm.serviceFormFields">
-        <div ng-repeat="field in vm.serviceFormFields" class="form-horizontal">
+    <div class="modal-body">
+        <div ng-repeat="field in vm.serviceFormFieldData | orderBy:'field.formfieldOrder'" class="form-horizontal">
             <ng-form name="form">
                 <!-- TEXT FIELDS -->
-                <div ng-if="field.fieldType=='text'" class="form-group">
-                    <label class="col-sm-2 control-label">{{field.fieldName}}</label>
+                <div ng-if="field.formfieldtype=='text'" class="form-group">
+                    <label class="col-sm-2 control-label">{{field.formfieldName}}</label>
                     <div class="col-sm-6">
-                        <input type="{{ field.fieldType }}" id="{{field.id}}" ng-model="vm.data.id"  class="form-control" required/>
+                        <input type="{{ field.fieldType }}" id="{{field.id}}" ng-model="field.formfieldvalue"  class="form-control" required/>
 
-                    </div>
-                </div>
-                <!-- EMAIL FIELDS -->
-                <div ng-if="field.type=='email'" class="form-group">
-                    <label class="col-sm-2 control-label">{{field.fieldName}}</label>
-                    <div class="col-sm-6">
-                        <input type="{{ field.type }}" dynamic-name="field.id" ng-model="field.id" class="form-control" required/>
-                        <span data-ng-show=" {{'form.'+field.name+'.$dirty && form.'+field.name+'.$error.required'}}">Required!</span>
-                        <span data-ng-show=" {{'form.'+field.name+'.$dirty && form.'+field.name+'.$error.email'}}">Not email!</span>
                     </div>
                 </div>
 
                 <!-- SELECT FIELDS -->
-                <div ng-if="field.fieldType=='select'" class="form-group" >
-                    <label class="col-sm-2 control-label">{{field.fieldName}}</label>
+                <div ng-if="field.formfieldtype=='select'" class="form-group" >
+                    <label class="col-sm-2 control-label">{{field.formfieldName}}</label>
                     <div class="col-sm-6">
-                        <select data-ng-model="vm.data" dynamic-name="field.id" ng-options="x for x in field.option.split(',') " class="form-control" ng-required="true">
-                            <option value="">-- Choose Month --</option>
+                        <select ng-model="field.formfieldvalue" dynamic-name="field.id" ng-options="x for x in field.formtypeOption.split(',') " class="form-control" ng-required="true">
+                            <option value="">-- Select --</option>
                         </select>
-                    </div>
-                </div>
-                <!-- RADIO FIELDS -->
-                <div ng-if="field.fieldType=='radio'" class="form-group">
-                    <label class="col-sm-2 control-label">{{field.fieldName}}</label>
-                    <div class="col-sm-6">
-                        <div class="radio-inline" ng-repeat="radiovalue in field.option.split(',')" >
-                            <label>
-                                <input type="radio" data-ng-model="vm.radiovalue"  name="taskGroup"  id="{{radiovalue}}" value="{{radiovalue}}">{{radiovalue}}
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <!-- CHECKBOX FIELDS -->
-                <div ng-if="field.fieldType=='checkbox'" class="form-group" >
-                    <label class="col-sm-2 control-label">{{field.fieldName}}</label>
-                    <div class="col-sm-6">
-                        <div class="checkbox-inline" ng-repeat="checkboxvalue in field.option.split(',')" >
-                            <label>
-                                <input type="checkbox" data-ng-model="vm.data.selected"  name="taskGroup"  id="{{checkboxvalue}}" value="{{checkboxvalue}}" >{{checkboxvalue}}
-                            </label>
-                        </div>
-
                     </div>
                 </div>
             </ng-form>
@@ -78,7 +46,7 @@
 
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">Clear</button>
-        <button type="submit" class="btn btn-primary" ng-click="vm.saveServiceForm()">
+        <button type="submit" class="btn btn-primary" ng-click="vm.saveFormFieldData()">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="">Save</span>
         </button>
     </div>
