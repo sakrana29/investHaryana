@@ -413,15 +413,19 @@
                     <tbody>
                     <tr>
                         <th class="col-md-1">Phase</th>
+                        <td class="col-md-1">{{vm.project_phase.phase}}</td>
                         <th class="col-md-1">Product category</th>
+                        <td class="col-md-1">{{vm.project_phase.productcategory}}</td>
                         <th class="col-md-1">FCI</th>
+                        <td class="col-md-1">{{vm.project_phase.fci}}</td>
                         <th class="col-md-1">Implementation Date</th>
+                        <td class="col-md-1">{{vm.project_phase.implementationdate}}</td>
                     </tr>
-                    <tr ng-repeat="x in vm.project_phase">
-                        <td class="col-md-1">{{x.phase}}</td>
-                        <td class="col-md-1">{{x.productcategory}}</td>
-                        <td class="col-md-1">{{x.fci}}</td>
-                        <td class="col-md-1">{{x.implementationdate}}</td>
+                    <!--<tr ng-repeat="x in vm.project_phase">-->
+                        <!--<td class="col-md-1">{{x.phase}}</td>-->
+                        <!--<td class="col-md-1">{{x.productcategory}}</td>-->
+                        <!--<td class="col-md-1">{{x.fci}}</td>-->
+                        <!--<td class="col-md-1">{{x.implementationdate}}</td>-->
                     </tr>
                     </tbody>
                 </table>
