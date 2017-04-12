@@ -37,12 +37,8 @@ public class DepartmentStatsResource {
     public List<DepartmentStatsDTO> getAllDepartmentStats() {
         log.debug("REST request to get all DepartmentStats");
 
-
-
         List<DepartmentDTO> departmentDTOS= new ArrayList<>();
         departmentDTOS = departmentService.findAll();
-
-
 
         List<DepartmentStatsDTO> departmentStatsDTOList=new ArrayList<>();
         List<ProjectServiceReportInfoDTO> projectServiceReportInfoDTOList = new ArrayList<>();
@@ -68,9 +64,7 @@ public class DepartmentStatsResource {
                 if(!(projectidList.contains(projectidLocal)))
                 {
                     projectidList.add(projectidLocal);
-
                 }
-
             }
 
             System.out.println(departNameList);
@@ -149,9 +143,6 @@ public class DepartmentStatsResource {
                     {
                         pendings++;
                     }
-
-
-
                 }
                 System.out.println(totalcaf);
 
@@ -167,12 +158,6 @@ public class DepartmentStatsResource {
                 departmentStatsDTOList.add(departmentStatsDTO);
 
             }
-
-
-
-
-
-
 
         return departmentStatsDTOList;
     }

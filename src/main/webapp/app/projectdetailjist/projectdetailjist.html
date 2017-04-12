@@ -8,27 +8,31 @@
         <div class="panel-body">
             <table class="table table-striped table-hover ">
                 <tbody>
-                <tr>
-                    <th>Application For</th>
-                    <td></td>
-                    <th>Sector</th>
-                    <td></td>
+
+                  <tr>
+                    <th class="col-md-3">Application For</th>
+                    <td class="col-md-3">Regulatory Approvals & Services</td>
+                    <th class="col-md-3">Sector</th>
+                    <td class="col-md-3">{{vm.investorsummarydetails.sectorName}}</td>
                 </tr><tr>
-                    <th>PIN</th>
-                    <td></td>
-                    <th>ApplicationDate</th>
-                    <td></td>
+                    <th class="col-md-3">CAF PIN </th>
+                    <td class="col-md-3">{{vm.investorsummarydetails.cafpin}}</td>
+                    <th class="col-md-3">ApplicationDate </th>
+                    <td class="col-md-3">{{vm.investorsummarydetails.applicationDate}}</td>
                 </tr><tr>
-                    <th>Business Entity</th>
-                    <td></td>
-                    <th>Site Detail</th>
-                    <td></td>
+
+                    <th class="col-md-3">Business Entity </th>
+                    <td class="col-md-3">{{vm.investorsummarydetails.buisnessEntity}}</td>
+                    <th class="col-md-3">Site Detail </th>
+                    <td class="col-md-3">{{vm.investorsummarydetails.siteaddress}},{{vm.investorsummarydetails.district}},{{vm.investorsummarydetails.block}}</td>
+                      <!--<td class="col-md-2">{{vm.investorsummarydetails.district}}</td>-->
+                      <!--<td class="col-md-2">{{vm.investorsummarydetails.block}}</td>-->
                 </tr><tr>
-                    <th>Project Cost</th>
-                    <td></td>
-                    <th>MOU (Year):
-                    </th>
-                    <td></td>
+
+                    <th class="col-md-2">Project Cost </th>
+                    <td class="col-md-2">{{vm.investorsummarydetails.projectTotalCost}}</td>
+                    <th class="col-md-2">MOU (Year) </th>
+                    <td class="col-md-2">{{vm.investorsummarydetails.mouYear}}</td>
                 </tr>
                 </tbody>
             </table>
@@ -54,13 +58,13 @@
                     <td>Project Submitted</td>
                     <td>
                        <button type="submit"
-                                    ui-sref="projectedit({id:vm.selectedprojectdetail.projectdetailDTO.id})"
+                                    ui-sref="projectedit({id:vm.investorsummarydetails.projectid})"
                                     class="btn btn-info btn-sm">Edit Form</button>
                        <button type="submit"
-                                ui-sref="ProjectCompleteDetailState({id:vm.selectedprojectdetail.projectdetailDTO.id})"
+                                ui-sref="ProjectCompleteDetailState({id:vm.investorsummarydetails.projectid})"
                                 class="btn btn-info btn-sm">View Form</button>
                        <button type="submit"
-                                    ui-sref="serviceclearanceaction({id:vm.selectedprojectdetail.projectdetailDTO.id})"
+                                    ui-sref="serviceclearanceaction({id:vm.investorsummarydetails.projectid})"
                                     class="btn btn-danger btn-sm">Service Clearance</button>
 
                     </td>

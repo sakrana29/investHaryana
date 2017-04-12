@@ -417,11 +417,17 @@
                         <th class="col-md-1">FCI</th>
                         <th class="col-md-1">Implementation Date</th>
                     </tr>
-                    <tr ng-repeat="x in vm.project_phase">
-                        <td class="col-md-1">{{x.phase}}</td>
-                        <td class="col-md-1">{{x.productcategory}}</td>
-                        <td class="col-md-1">{{x.fci}}</td>
-                        <td class="col-md-1">{{x.implementationdate}}</td>
+                    <tr ng-repeat="project_phase in vm.project_phase">
+                        <td class="col-md-1">{{project_phase.fci}}</td>
+                        <td class="col-md-1">{{project_phase.productcategory}}</td>
+                        <td class="col-md-1">{{project_phase.phase}}</td>
+                        <td class="col-md-1">{{project_phase.implementationdate}}</td>
+                    </tr>
+                    <!--<tr ng-repeat="x in vm.project_phase">-->
+                        <!--<td class="col-md-1">{{x.phase}}</td>-->
+                        <!--<td class="col-md-1">{{x.productcategory}}</td>-->
+                        <!--<td class="col-md-1">{{x.fci}}</td>-->
+                        <!--<td class="col-md-1">{{x.implementationdate}}</td>-->
                     </tr>
                     </tbody>
                 </table>

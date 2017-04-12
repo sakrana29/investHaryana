@@ -14,7 +14,6 @@
         vm.projectService = $stateParams.projectService;
         var projectAttachmentResultObject=null;
 
-
         vm.clear = clear;
         vm.saveFormFieldData = saveFormFieldData;
 

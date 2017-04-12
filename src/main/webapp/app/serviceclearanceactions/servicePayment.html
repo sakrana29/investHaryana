@@ -1,4 +1,4 @@
-<form name="editForm" role="form">
+<form name="editForm" role="form" method="post" action="https://test.payu.in/_payment">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
@@ -23,24 +23,18 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="">Cancel</span>
-        </button>
-        <form id="payu-payment-form" method="post" action="https://secure.payu.com/api/v2_1/orders">
-            <input type="hidden" name="continueUrl" value="http://shop.url/continue">
-            <input type="hidden" name="currencyCode" value="INR" >
-            <input type="hidden" name="customerIp" value="123.123.123.123" >
-            <input type="hidden" name="description" value="Order description" >
-            <input type="hidden" name="merchantPosId" value="145227" >
-            <input type="hidden" name="notifyUrl" value="http://shop.url/notify" >
-            <input type="hidden" name="products[0].name" value="Product 1" >
-            <input type="hidden" name="products[0].quantity" value="1" >
-            <input type="hidden" name="products[0].unitPrice" value="1000" >
-            <input type="hidden" name="totalAmount" value="1000" >
-            <input type="hidden" name="OpenPayu-Signature" value="sender=145227;algorithm=SHA-256;signature=bc94a8026d6032b5e216be112a5fb7544e66e23e68d44b4283ff495bdb3983a8">
-            <button type="submit" id="abc" formtarget="_blank" >Pay with PayU</button>
-        </form>
+        <input type="hidden" name="firstname" value="Vikas Kumar" />
+        <input type="hidden" name="lastname" value="" />
+        <input type="hidden" name="surl" value="https://www.google.com" />
+        <input type="hidden" name="phone" value="9999999999" />
+        <input type="hidden" name="key" value="gtKFFx" />
+        <input type="hidden" name="hash" value ="71e4aabf11214e6d35abd97c3b29982a61151ec8bf4974fa0842bfa4c4a1a2341a64995dff4745910b11749962cd5d1575082c31e82837cd5998e49460d95549" />
+        <input type="hidden" name="curl" value="http://www.google.com" />
+        <input type="hidden" name="furl" value="https:/www.yahoo.in" />
+        <input type="hidden" name="txnid" value="PLS-10061-199999" />
+        <input type="hidden" name="productinfo" value="Service Fee" />
+        <input type="hidden" name="amount" value="600.00" />
+        <input type="hidden" name="email" value="vikaskumarsre@gmail.com" />
+        <button type= "submit" id="payubutton" formtarget="_blank"></button>
     </div>
 </form>
-
-
