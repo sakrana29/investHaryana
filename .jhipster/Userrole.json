@@ -1,0 +1,18 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "userrole",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170410103029",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "userrole",
+    "pagination": "no"
+}

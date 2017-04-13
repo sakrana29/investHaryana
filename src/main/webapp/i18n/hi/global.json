@@ -64,6 +64,7 @@
                 "projectAttachemnt": "Project Attachemnt",
                 "projectServiceLog": "Project Service Log",
                 "projectServicePaymentDetails": "Project Service Payment Details",
+                "userrole": "Userrole",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,21 @@
+{
+    "investhryApp": {
+        "userrole" : {
+            "home": {
+                "title": "Userroles",
+                "createLabel": "Create a new Userrole",
+                "createOrEditLabel": "Create or edit a Userrole"
+            },
+            "created": "A new Userrole is created with identifier {{ param }}",
+            "updated": "A Userrole is updated with identifier {{ param }}",
+            "deleted": "A Userrole is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Userrole {{ id }}?"
+            },
+            "detail": {
+                "title": "Userrole"
+            },
+            "userrole": "Userrole"
+        }
+    }
+}

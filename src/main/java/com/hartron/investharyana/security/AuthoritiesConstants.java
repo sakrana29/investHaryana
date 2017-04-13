@@ -14,6 +14,7 @@ public final class AuthoritiesConstants {
     public static final String DESK_OFFICER = "ROLE_DESK_OFFICER";
     public static final String NODAL_OFFICER = "ROLE_NODAL_OFFICER";
     public static final String ACCOUNT_OFFICER = "ROLE_ACCOUNT_OFFICER";
+    public static final String FIELD_OFFICER = "ROLE_FIELD_OFFICER";
 
 
     private AuthoritiesConstants() {
