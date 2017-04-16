@@ -99,14 +99,14 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
     private static final Double DEFAULT_MOBILENUMBER = 1D;
     private static final Double UPDATED_MOBILENUMBER = 2D;
 
-    private static final Double DEFAULT_CAFPIN = 1D;
-    private static final Double UPDATED_CAFPIN = 2D;
-
     private static final ZonedDateTime DEFAULT_CREATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_CREATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
     private static final ZonedDateTime DEFAULT_UPDATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_UPDATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+
+    private static final String DEFAULT_CAFPIN = "AAAAAAAAAA";
+    private static final String UPDATED_CAFPIN = "BBBBBBBBBB";
 
     @Autowired
     private InvestorRepository investorRepository;
@@ -166,9 +166,9 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
                 .pincode(DEFAULT_PINCODE)
                 .phonenumber(DEFAULT_PHONENUMBER)
                 .mobilenumber(DEFAULT_MOBILENUMBER)
-                .cafpin(DEFAULT_CAFPIN)
                 .createdate(DEFAULT_CREATEDATE)
-                .updatedate(DEFAULT_UPDATEDATE);
+                .updatedate(DEFAULT_UPDATEDATE)
+                .cafpin(DEFAULT_CAFPIN);
         return investor;
     }
 
@@ -212,9 +212,9 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
         assertThat(testInvestor.getPincode()).isEqualTo(DEFAULT_PINCODE);
         assertThat(testInvestor.getPhonenumber()).isEqualTo(DEFAULT_PHONENUMBER);
         assertThat(testInvestor.getMobilenumber()).isEqualTo(DEFAULT_MOBILENUMBER);
-        assertThat(testInvestor.getCafpin()).isEqualTo(DEFAULT_CAFPIN);
         assertThat(testInvestor.getCreatedate()).isEqualTo(DEFAULT_CREATEDATE);
         assertThat(testInvestor.getUpdatedate()).isEqualTo(DEFAULT_UPDATEDATE);
+        assertThat(testInvestor.getCafpin()).isEqualTo(DEFAULT_CAFPIN);
     }
 
     @Test
@@ -265,9 +265,9 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].pincode").value(hasItem(DEFAULT_PINCODE)))
             .andExpect(jsonPath("$.[*].phonenumber").value(hasItem(DEFAULT_PHONENUMBER.doubleValue())))
             .andExpect(jsonPath("$.[*].mobilenumber").value(hasItem(DEFAULT_MOBILENUMBER.doubleValue())))
-            .andExpect(jsonPath("$.[*].cafpin").value(hasItem(DEFAULT_CAFPIN.doubleValue())))
             .andExpect(jsonPath("$.[*].createdate").value(hasItem(sameInstant(DEFAULT_CREATEDATE))))
-            .andExpect(jsonPath("$.[*].updatedate").value(hasItem(sameInstant(DEFAULT_UPDATEDATE))));
+            .andExpect(jsonPath("$.[*].updatedate").value(hasItem(sameInstant(DEFAULT_UPDATEDATE))))
+            .andExpect(jsonPath("$.[*].cafpin").value(hasItem(DEFAULT_CAFPIN.toString())));
     }
 
     @Test
@@ -298,9 +298,9 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.pincode").value(DEFAULT_PINCODE))
             .andExpect(jsonPath("$.phonenumber").value(DEFAULT_PHONENUMBER.doubleValue()))
             .andExpect(jsonPath("$.mobilenumber").value(DEFAULT_MOBILENUMBER.doubleValue()))
-            .andExpect(jsonPath("$.cafpin").value(DEFAULT_CAFPIN.doubleValue()))
             .andExpect(jsonPath("$.createdate").value(sameInstant(DEFAULT_CREATEDATE)))
-            .andExpect(jsonPath("$.updatedate").value(sameInstant(DEFAULT_UPDATEDATE)));
+            .andExpect(jsonPath("$.updatedate").value(sameInstant(DEFAULT_UPDATEDATE)))
+            .andExpect(jsonPath("$.cafpin").value(DEFAULT_CAFPIN.toString()));
     }
 
     @Test
@@ -337,9 +337,9 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
                 .pincode(UPDATED_PINCODE)
                 .phonenumber(UPDATED_PHONENUMBER)
                 .mobilenumber(UPDATED_MOBILENUMBER)
-                .cafpin(UPDATED_CAFPIN)
                 .createdate(UPDATED_CREATEDATE)
-                .updatedate(UPDATED_UPDATEDATE);
+                .updatedate(UPDATED_UPDATEDATE)
+                .cafpin(UPDATED_CAFPIN);
         InvestorDTO investorDTO = investorMapper.investorToInvestorDTO(updatedInvestor);
 
         restInvestorMockMvc.perform(put("/api/investors")
@@ -369,9 +369,9 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
         assertThat(testInvestor.getPincode()).isEqualTo(UPDATED_PINCODE);
         assertThat(testInvestor.getPhonenumber()).isEqualTo(UPDATED_PHONENUMBER);
         assertThat(testInvestor.getMobilenumber()).isEqualTo(UPDATED_MOBILENUMBER);
-        assertThat(testInvestor.getCafpin()).isEqualTo(UPDATED_CAFPIN);
         assertThat(testInvestor.getCreatedate()).isEqualTo(UPDATED_CREATEDATE);
         assertThat(testInvestor.getUpdatedate()).isEqualTo(UPDATED_UPDATEDATE);
+        assertThat(testInvestor.getCafpin()).isEqualTo(UPDATED_CAFPIN);
     }
 
     @Test

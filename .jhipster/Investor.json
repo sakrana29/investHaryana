@@ -75,16 +75,16 @@
             "fieldType": "Double"
         },
         {
-            "fieldName": "cafpin",
-            "fieldType": "Double"
-        },
-        {
             "fieldName": "createdate",
             "fieldType": "ZonedDateTime"
         },
         {
             "fieldName": "updatedate",
             "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "cafpin",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170313084828",

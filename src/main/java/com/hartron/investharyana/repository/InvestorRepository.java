@@ -58,9 +58,9 @@ public class InvestorRepository {
                 investor.setPincode(row.getInt("pincode"));
                 investor.setPhonenumber(row.getDouble("phonenumber"));
                 investor.setMobilenumber(row.getDouble("mobilenumber"));
-                investor.setCafpin(row.getDouble("cafpin"));
                 investor.setCreatedate(row.get("createdate", ZonedDateTime.class));
                 investor.setUpdatedate(row.get("updatedate", ZonedDateTime.class));
+                investor.setCafpin(row.getString("cafpin"));
                 return investor;
             }
         ).forEach(investorsList::add);

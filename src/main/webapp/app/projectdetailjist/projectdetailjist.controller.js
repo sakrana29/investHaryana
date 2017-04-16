@@ -42,7 +42,6 @@
 
 
         vm.investorsummarydetails= $stateParams.prdtlObject;
-        console.log(vm.investorsummarydetails);
 
     }
 

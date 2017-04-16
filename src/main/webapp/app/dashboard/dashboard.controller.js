@@ -26,7 +26,6 @@
         function loadAll() {
             DepartmentStats.query(function(result) {
                 vm.departmentstatcollection = result;
-                console.log(vm.departmentstatcollection);
                 vm.searchQuery = null;
                 var totalCaf=0;
                 var totalElcc=0;

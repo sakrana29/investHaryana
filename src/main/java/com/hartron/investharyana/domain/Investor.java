@@ -55,11 +55,11 @@ public class Investor implements Serializable {
 
     private Double mobilenumber;
 
-    private Double cafpin;
-
     private ZonedDateTime createdate;
 
     private ZonedDateTime updatedate;
+
+    private String cafpin;
 
     public UUID getId() {
         return id;
@@ -303,19 +303,6 @@ public class Investor implements Serializable {
         this.mobilenumber = mobilenumber;
     }
 
-    public Double getCafpin() {
-        return cafpin;
-    }
-
-    public Investor cafpin(Double cafpin) {
-        this.cafpin = cafpin;
-        return this;
-    }
-
-    public void setCafpin(Double cafpin) {
-        this.cafpin = cafpin;
-    }
-
     public ZonedDateTime getCreatedate() {
         return createdate;
     }
@@ -340,6 +327,19 @@ public class Investor implements Serializable {
 
     public void setUpdatedate(ZonedDateTime updatedate) {
         this.updatedate = updatedate;
+    }
+
+    public String getCafpin() {
+        return cafpin;
+    }
+
+    public Investor cafpin(String cafpin) {
+        this.cafpin = cafpin;
+        return this;
+    }
+
+    public void setCafpin(String cafpin) {
+        this.cafpin = cafpin;
     }
 
     @Override
@@ -384,9 +384,9 @@ public class Investor implements Serializable {
             ", pincode='" + pincode + "'" +
             ", phonenumber='" + phonenumber + "'" +
             ", mobilenumber='" + mobilenumber + "'" +
-            ", cafpin='" + cafpin + "'" +
             ", createdate='" + createdate + "'" +
             ", updatedate='" + updatedate + "'" +
+            ", cafpin='" + cafpin + "'" +
             '}';
     }
 }

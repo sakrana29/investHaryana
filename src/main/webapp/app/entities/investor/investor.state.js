@@ -122,9 +122,9 @@
                                 pincode: null,
                                 phonenumber: null,
                                 mobilenumber: null,
-                                cafpin: null,
                                 createdate: null,
                                 updatedate: null,
+                                cafpin: null,
                                 id: null
                             };
                         }

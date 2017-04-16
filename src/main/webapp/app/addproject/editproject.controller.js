@@ -303,7 +303,11 @@
 
             if(flag=='Final')
             {
-                vm.investor.cafpin=1;
+                if(vm.investor.cafpin !== null)
+                {
+                    if(vm.investor.cafpin.length !== 10)
+                    {vm.investor.cafpin=1;}
+                }
             }
             vm.CompleteProjectDetail.investorDTO=vm.investor;
             vm.CompleteProjectDetail.companydetailDTO=vm.companydetail;

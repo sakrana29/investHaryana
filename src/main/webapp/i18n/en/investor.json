@@ -33,9 +33,9 @@
             "pincode": "Pincode",
             "phonenumber": "Phonenumber",
             "mobilenumber": "Mobilenumber",
-            "cafpin": "Cafpin",
             "createdate": "Createdate",
-            "updatedate": "Updatedate"
+            "updatedate": "Updatedate",
+            "cafpin": "Cafpin"
         }
     }
 }

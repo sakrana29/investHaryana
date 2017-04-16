@@ -13,7 +13,7 @@ import java.util.UUID;
  */
 public class ListofProjectsDTO implements Serializable {
 
-    private Double CAFPin;
+    private String CAFPin;
     private String InvestorName;
     private String ProjectType;
     private BigDecimal ProjectTotalCost;
@@ -34,13 +34,7 @@ public class ListofProjectsDTO implements Serializable {
 
 
 
-    public Double getCAFPin() {
-        return CAFPin;
-    }
 
-    public void setCAFPin(Double CAFPin) {
-        this.CAFPin = CAFPin;
-    }
 
     public String getInvestorName() {
         return InvestorName;
@@ -136,5 +130,13 @@ public class ListofProjectsDTO implements Serializable {
 
     public void setBlock(String block) {
         this.block = block;
+    }
+
+    public String getCAFPin() {
+        return CAFPin;
+    }
+
+    public void setCAFPin(String CAFPin) {
+        this.CAFPin = CAFPin;
     }
 }

@@ -1,10 +1,12 @@
 package com.hartron.investharyana.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.hartron.investharyana.domain.Investor;
 import com.hartron.investharyana.service.*;
 import com.hartron.investharyana.service.dto.*;
 import com.hartron.investharyana.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * REST controller for managing Block.
@@ -43,7 +46,6 @@ public class ProjectCompleteDetailResource {
     private final ProjectprocessflowstepsService projectprocessflowstepsService;
     private final EmissiondetailService emissiondetailService;
     private final WastewaterdetailService wastewaterdetailService;
-
 
     public ProjectCompleteDetailResource(InvestorService investorService, CompanydetailService companydetailService, ProjectdetailService projectdetailService, ProjectsitedetailService projectsitedetailService, Project_finance_investmentService project_finance_investmentService, ManufacturingdetailService manufacturingdetailService, Environment_impactdetailService environment_impactdetailService, ElectricrequirementService electricrequirementService, ProjectdetailcombinecodesService projectdetailcombinecodesService, Project_phaseService project_phaseService, ProjectrawmaterialService projectrawmaterialService, ProjectproductService projectproductService, ProjectprocessflowstepsService projectprocessflowstepsService, EmissiondetailService emissiondetailService, WastewaterdetailService wastewaterdetailService) {
         this.investorService = investorService;
@@ -131,14 +133,31 @@ public class ProjectCompleteDetailResource {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("Complete Project Detail", "idexists", "A new Project cannot already have an ID")).body(null);
         }
 
-        if(projectCompleteDetailDTO.getInvestorDTO().getCafpin()!=null){
-        if(projectCompleteDetailDTO.getInvestorDTO().getCafpin()==1)
+        if(projectCompleteDetailDTO.getInvestorDTO().getCafpin()!=null)
         {
-            Double cafpin=1001.00;
-            projectCompleteDetailDTO.getInvestorDTO().setCafpin(cafpin);
-        }
-        }
+            if(projectCompleteDetailDTO.getInvestorDTO().getCafpin().equals("1"))
+            {
+                boolean flag=false;
+                String finalCAFPin="";
+                while(flag==false)
+                {
+                    String tempcafpin= RandomStringUtils.randomNumeric(10);
+                    List<InvestorDTO> investorDTOList= investorService.findAll();
+                    List<InvestorDTO> filteredArticleList= investorDTOList.stream().filter(article -> article.getCafpin().equals(tempcafpin)).collect(Collectors.toList());
 
+                    if(filteredArticleList.size()==0)
+                    {
+                        flag=true;
+                        finalCAFPin=tempcafpin;
+                    }
+                }
+                projectCompleteDetailDTO.getInvestorDTO().setCafpin(finalCAFPin);
+            }
+        }
+        else
+            projectCompleteDetailDTO.getInvestorDTO().setCafpin("");
+
+        System.out.println(projectCompleteDetailDTO.getInvestorDTO());
         InvestorDTO resultInvestor = investorService.save(projectCompleteDetailDTO.getInvestorDTO());
         CompanydetailDTO resultCompany = companydetailService.save(projectCompleteDetailDTO.getCompanydetailDTO());
         ProjectdetailDTO resultProjectdetail = projectdetailService.save(projectCompleteDetailDTO.getProjectdetailDTO());
@@ -240,14 +259,26 @@ public class ProjectCompleteDetailResource {
 
         if(projectCompleteDetailDTO.getInvestorDTO().getCafpin()!=null)
         {
-            if(projectCompleteDetailDTO.getInvestorDTO().getCafpin()==1)
+            if(projectCompleteDetailDTO.getInvestorDTO().getCafpin().equals("1"))
             {
-                Double cafpin=1001.00;
-                projectCompleteDetailDTO.getInvestorDTO().setCafpin(cafpin);
+                boolean flag=false;
+                String finalCAFPin="";
+                while(flag==false)
+                {
+                    String tempcafpin= RandomStringUtils.randomNumeric(10);
+                    List<InvestorDTO> investorDTOList= investorService.findAll();
+                    List<InvestorDTO> filteredArticleList= investorDTOList.stream().filter(article -> article.getCafpin().equals(tempcafpin)).collect(Collectors.toList());
+
+                    if(filteredArticleList.size()==0)
+                    {
+                        flag=true;
+                        finalCAFPin=tempcafpin;
+                    }
+                }
+                projectCompleteDetailDTO.getInvestorDTO().setCafpin(finalCAFPin);
             }
         }
 
-        System.out.println(projectCompleteDetailDTO.getInvestorDTO());
         InvestorDTO resultInvestor = investorService.save(projectCompleteDetailDTO.getInvestorDTO());
         CompanydetailDTO resultCompany = companydetailService.save(projectCompleteDetailDTO.getCompanydetailDTO());
         ProjectdetailDTO resultProjectdetail = projectdetailService.save(projectCompleteDetailDTO.getProjectdetailDTO());

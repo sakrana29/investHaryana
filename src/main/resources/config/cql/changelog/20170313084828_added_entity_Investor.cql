@@ -19,8 +19,8 @@ CREATE TABLE IF NOT EXISTS investor (
     pincode int,
     phonenumber double,
     mobilenumber double,
-    cafpin double,
     createdate timestamp,
     updatedate timestamp,
+    cafpin text,
     PRIMARY KEY(id)
 );
