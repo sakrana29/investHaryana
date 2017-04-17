@@ -19,7 +19,9 @@
             "serviceid": "Serviceid",
             "paymentMade": "Payment Made",
             "paymentMadeBy": "Payment Made By",
-            "paymentDate": "Payment Date"
+            "paymentDate": "Payment Date",
+            "transactionId": "Transaction Id",
+            "paymentResponse": "Payment Response"
         }
     }
 }

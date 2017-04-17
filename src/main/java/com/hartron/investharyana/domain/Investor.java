@@ -49,17 +49,17 @@ public class Investor implements Serializable {
 
     private String statename;
 
-    private Integer pincode;
-
-    private Double phonenumber;
-
-    private Double mobilenumber;
-
     private ZonedDateTime createdate;
 
     private ZonedDateTime updatedate;
 
     private String cafpin;
+
+    private String pincode;
+
+    private String phonenumber;
+
+    private String mobilenumber;
 
     public UUID getId() {
         return id;
@@ -264,45 +264,6 @@ public class Investor implements Serializable {
         this.statename = statename;
     }
 
-    public Integer getPincode() {
-        return pincode;
-    }
-
-    public Investor pincode(Integer pincode) {
-        this.pincode = pincode;
-        return this;
-    }
-
-    public void setPincode(Integer pincode) {
-        this.pincode = pincode;
-    }
-
-    public Double getPhonenumber() {
-        return phonenumber;
-    }
-
-    public Investor phonenumber(Double phonenumber) {
-        this.phonenumber = phonenumber;
-        return this;
-    }
-
-    public void setPhonenumber(Double phonenumber) {
-        this.phonenumber = phonenumber;
-    }
-
-    public Double getMobilenumber() {
-        return mobilenumber;
-    }
-
-    public Investor mobilenumber(Double mobilenumber) {
-        this.mobilenumber = mobilenumber;
-        return this;
-    }
-
-    public void setMobilenumber(Double mobilenumber) {
-        this.mobilenumber = mobilenumber;
-    }
-
     public ZonedDateTime getCreatedate() {
         return createdate;
     }
@@ -340,6 +301,45 @@ public class Investor implements Serializable {
 
     public void setCafpin(String cafpin) {
         this.cafpin = cafpin;
+    }
+
+    public String getPincode() {
+        return pincode;
+    }
+
+    public Investor pincode(String pincode) {
+        this.pincode = pincode;
+        return this;
+    }
+
+    public void setPincode(String pincode) {
+        this.pincode = pincode;
+    }
+
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    public Investor phonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
+        return this;
+    }
+
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
+    }
+
+    public String getMobilenumber() {
+        return mobilenumber;
+    }
+
+    public Investor mobilenumber(String mobilenumber) {
+        this.mobilenumber = mobilenumber;
+        return this;
+    }
+
+    public void setMobilenumber(String mobilenumber) {
+        this.mobilenumber = mobilenumber;
     }
 
     @Override
@@ -381,12 +381,12 @@ public class Investor implements Serializable {
             ", cityname='" + cityname + "'" +
             ", countryname='" + countryname + "'" +
             ", statename='" + statename + "'" +
-            ", pincode='" + pincode + "'" +
-            ", phonenumber='" + phonenumber + "'" +
-            ", mobilenumber='" + mobilenumber + "'" +
             ", createdate='" + createdate + "'" +
             ", updatedate='" + updatedate + "'" +
             ", cafpin='" + cafpin + "'" +
+            ", pincode='" + pincode + "'" +
+            ", phonenumber='" + phonenumber + "'" +
+            ", mobilenumber='" + mobilenumber + "'" +
             '}';
     }
 }

@@ -11,6 +11,7 @@
         var vm = this;
 
         vm.block = entity;
+        console.log(vm.block);
         vm.clear = clear;
         vm.save = save;
 

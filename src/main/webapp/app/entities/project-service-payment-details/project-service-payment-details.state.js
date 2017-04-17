@@ -109,6 +109,8 @@
                                 paymentMade: null,
                                 paymentMadeBy: null,
                                 paymentDate: null,
+                                transactionId: null,
+                                paymentResponse: null,
                                 id: null
                             };
                         }

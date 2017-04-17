@@ -30,6 +30,10 @@ public class ProjectServicePaymentDetails implements Serializable {
 
     private ZonedDateTime paymentDate;
 
+    private String transactionId;
+
+    private String paymentResponse;
+
     public UUID getId() {
         return id;
     }
@@ -103,6 +107,32 @@ public class ProjectServicePaymentDetails implements Serializable {
         this.paymentDate = paymentDate;
     }
 
+    public String getTransactionId() {
+        return transactionId;
+    }
+
+    public ProjectServicePaymentDetails transactionId(String transactionId) {
+        this.transactionId = transactionId;
+        return this;
+    }
+
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
+    }
+
+    public String getPaymentResponse() {
+        return paymentResponse;
+    }
+
+    public ProjectServicePaymentDetails paymentResponse(String paymentResponse) {
+        this.paymentResponse = paymentResponse;
+        return this;
+    }
+
+    public void setPaymentResponse(String paymentResponse) {
+        this.paymentResponse = paymentResponse;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -132,6 +162,8 @@ public class ProjectServicePaymentDetails implements Serializable {
             ", paymentMade='" + paymentMade + "'" +
             ", paymentMadeBy='" + paymentMadeBy + "'" +
             ", paymentDate='" + paymentDate + "'" +
+            ", transactionId='" + transactionId + "'" +
+            ", paymentResponse='" + paymentResponse + "'" +
             '}';
     }
 }

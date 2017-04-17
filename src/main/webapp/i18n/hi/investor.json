@@ -30,12 +30,12 @@
             "cityname": "Cityname",
             "countryname": "Countryname",
             "statename": "Statename",
-            "pincode": "Pincode",
-            "phonenumber": "Phonenumber",
-            "mobilenumber": "Mobilenumber",
             "createdate": "Createdate",
             "updatedate": "Updatedate",
-            "cafpin": "Cafpin"
+            "cafpin": "Cafpin",
+            "pincode": "Pincode",
+            "phonenumber": "Phonenumber",
+            "mobilenumber": "Mobilenumber"
         }
     }
 }

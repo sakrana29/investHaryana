@@ -68,7 +68,7 @@ class ProjectServicePaymentDetailsGatlingTest extends Simulation {
             .exec(http("Create new projectServicePaymentDetails")
             .post("/api/project-service-payment-details")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "projectid":null, "serviceid":null, "paymentMade":null, "paymentMadeBy":"SAMPLE_TEXT", "paymentDate":"2020-01-01T00:00:00.000Z"}""")).asJSON
+            .body(StringBody("""{"id":null, "projectid":null, "serviceid":null, "paymentMade":null, "paymentMadeBy":"SAMPLE_TEXT", "paymentDate":"2020-01-01T00:00:00.000Z", "transactionId":"SAMPLE_TEXT", "paymentResponse":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_projectServicePaymentDetails_url"))).exitHereIfFailed
             .pause(10)

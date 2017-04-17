@@ -63,18 +63,6 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "pincode",
-            "fieldType": "Integer"
-        },
-        {
-            "fieldName": "phonenumber",
-            "fieldType": "Double"
-        },
-        {
-            "fieldName": "mobilenumber",
-            "fieldType": "Double"
-        },
-        {
             "fieldName": "createdate",
             "fieldType": "ZonedDateTime"
         },
@@ -84,6 +72,18 @@
         },
         {
             "fieldName": "cafpin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pincode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phonenumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mobilenumber",
             "fieldType": "String"
         }
     ],

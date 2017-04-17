@@ -61,6 +61,12 @@ public class ProjectServicePaymentDetailsResourceIntTest extends AbstractCassand
     private static final ZonedDateTime DEFAULT_PAYMENT_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_PAYMENT_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
+    private static final String DEFAULT_TRANSACTION_ID = "AAAAAAAAAA";
+    private static final String UPDATED_TRANSACTION_ID = "BBBBBBBBBB";
+
+    private static final String DEFAULT_PAYMENT_RESPONSE = "AAAAAAAAAA";
+    private static final String UPDATED_PAYMENT_RESPONSE = "BBBBBBBBBB";
+
     @Autowired
     private ProjectServicePaymentDetailsRepository projectServicePaymentDetailsRepository;
 
@@ -105,7 +111,9 @@ public class ProjectServicePaymentDetailsResourceIntTest extends AbstractCassand
                 .serviceid(DEFAULT_SERVICEID)
                 .paymentMade(DEFAULT_PAYMENT_MADE)
                 .paymentMadeBy(DEFAULT_PAYMENT_MADE_BY)
-                .paymentDate(DEFAULT_PAYMENT_DATE);
+                .paymentDate(DEFAULT_PAYMENT_DATE)
+                .transactionId(DEFAULT_TRANSACTION_ID)
+                .paymentResponse(DEFAULT_PAYMENT_RESPONSE);
         return projectServicePaymentDetails;
     }
 
@@ -136,6 +144,8 @@ public class ProjectServicePaymentDetailsResourceIntTest extends AbstractCassand
         assertThat(testProjectServicePaymentDetails.getPaymentMade()).isEqualTo(DEFAULT_PAYMENT_MADE);
         assertThat(testProjectServicePaymentDetails.getPaymentMadeBy()).isEqualTo(DEFAULT_PAYMENT_MADE_BY);
         assertThat(testProjectServicePaymentDetails.getPaymentDate()).isEqualTo(DEFAULT_PAYMENT_DATE);
+        assertThat(testProjectServicePaymentDetails.getTransactionId()).isEqualTo(DEFAULT_TRANSACTION_ID);
+        assertThat(testProjectServicePaymentDetails.getPaymentResponse()).isEqualTo(DEFAULT_PAYMENT_RESPONSE);
     }
 
     @Test
@@ -172,7 +182,9 @@ public class ProjectServicePaymentDetailsResourceIntTest extends AbstractCassand
             .andExpect(jsonPath("$.[*].serviceid").value(hasItem(DEFAULT_SERVICEID.toString())))
             .andExpect(jsonPath("$.[*].paymentMade").value(hasItem(DEFAULT_PAYMENT_MADE.intValue())))
             .andExpect(jsonPath("$.[*].paymentMadeBy").value(hasItem(DEFAULT_PAYMENT_MADE_BY.toString())))
-            .andExpect(jsonPath("$.[*].paymentDate").value(hasItem(sameInstant(DEFAULT_PAYMENT_DATE))));
+            .andExpect(jsonPath("$.[*].paymentDate").value(hasItem(sameInstant(DEFAULT_PAYMENT_DATE))))
+            .andExpect(jsonPath("$.[*].transactionId").value(hasItem(DEFAULT_TRANSACTION_ID.toString())))
+            .andExpect(jsonPath("$.[*].paymentResponse").value(hasItem(DEFAULT_PAYMENT_RESPONSE.toString())));
     }
 
     @Test
@@ -189,7 +201,9 @@ public class ProjectServicePaymentDetailsResourceIntTest extends AbstractCassand
             .andExpect(jsonPath("$.serviceid").value(DEFAULT_SERVICEID.toString()))
             .andExpect(jsonPath("$.paymentMade").value(DEFAULT_PAYMENT_MADE.intValue()))
             .andExpect(jsonPath("$.paymentMadeBy").value(DEFAULT_PAYMENT_MADE_BY.toString()))
-            .andExpect(jsonPath("$.paymentDate").value(sameInstant(DEFAULT_PAYMENT_DATE)));
+            .andExpect(jsonPath("$.paymentDate").value(sameInstant(DEFAULT_PAYMENT_DATE)))
+            .andExpect(jsonPath("$.transactionId").value(DEFAULT_TRANSACTION_ID.toString()))
+            .andExpect(jsonPath("$.paymentResponse").value(DEFAULT_PAYMENT_RESPONSE.toString()));
     }
 
     @Test
@@ -212,7 +226,9 @@ public class ProjectServicePaymentDetailsResourceIntTest extends AbstractCassand
                 .serviceid(UPDATED_SERVICEID)
                 .paymentMade(UPDATED_PAYMENT_MADE)
                 .paymentMadeBy(UPDATED_PAYMENT_MADE_BY)
-                .paymentDate(UPDATED_PAYMENT_DATE);
+                .paymentDate(UPDATED_PAYMENT_DATE)
+                .transactionId(UPDATED_TRANSACTION_ID)
+                .paymentResponse(UPDATED_PAYMENT_RESPONSE);
         ProjectServicePaymentDetailsDTO projectServicePaymentDetailsDTO = projectServicePaymentDetailsMapper.projectServicePaymentDetailsToProjectServicePaymentDetailsDTO(updatedProjectServicePaymentDetails);
 
         restProjectServicePaymentDetailsMockMvc.perform(put("/api/project-service-payment-details")
@@ -229,6 +245,8 @@ public class ProjectServicePaymentDetailsResourceIntTest extends AbstractCassand
         assertThat(testProjectServicePaymentDetails.getPaymentMade()).isEqualTo(UPDATED_PAYMENT_MADE);
         assertThat(testProjectServicePaymentDetails.getPaymentMadeBy()).isEqualTo(UPDATED_PAYMENT_MADE_BY);
         assertThat(testProjectServicePaymentDetails.getPaymentDate()).isEqualTo(UPDATED_PAYMENT_DATE);
+        assertThat(testProjectServicePaymentDetails.getTransactionId()).isEqualTo(UPDATED_TRANSACTION_ID);
+        assertThat(testProjectServicePaymentDetails.getPaymentResponse()).isEqualTo(UPDATED_PAYMENT_RESPONSE);
     }
 
     @Test

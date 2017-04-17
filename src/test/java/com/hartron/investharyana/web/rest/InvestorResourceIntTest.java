@@ -90,15 +90,6 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
     private static final String DEFAULT_STATENAME = "AAAAAAAAAA";
     private static final String UPDATED_STATENAME = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_PINCODE = 1;
-    private static final Integer UPDATED_PINCODE = 2;
-
-    private static final Double DEFAULT_PHONENUMBER = 1D;
-    private static final Double UPDATED_PHONENUMBER = 2D;
-
-    private static final Double DEFAULT_MOBILENUMBER = 1D;
-    private static final Double UPDATED_MOBILENUMBER = 2D;
-
     private static final ZonedDateTime DEFAULT_CREATEDATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_CREATEDATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
@@ -107,6 +98,15 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
 
     private static final String DEFAULT_CAFPIN = "AAAAAAAAAA";
     private static final String UPDATED_CAFPIN = "BBBBBBBBBB";
+
+    private static final String DEFAULT_PINCODE = "AAAAAAAAAA";
+    private static final String UPDATED_PINCODE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_PHONENUMBER = "AAAAAAAAAA";
+    private static final String UPDATED_PHONENUMBER = "BBBBBBBBBB";
+
+    private static final String DEFAULT_MOBILENUMBER = "AAAAAAAAAA";
+    private static final String UPDATED_MOBILENUMBER = "BBBBBBBBBB";
 
     @Autowired
     private InvestorRepository investorRepository;
@@ -163,12 +163,12 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
                 .cityname(DEFAULT_CITYNAME)
                 .countryname(DEFAULT_COUNTRYNAME)
                 .statename(DEFAULT_STATENAME)
-                .pincode(DEFAULT_PINCODE)
-                .phonenumber(DEFAULT_PHONENUMBER)
-                .mobilenumber(DEFAULT_MOBILENUMBER)
                 .createdate(DEFAULT_CREATEDATE)
                 .updatedate(DEFAULT_UPDATEDATE)
-                .cafpin(DEFAULT_CAFPIN);
+                .cafpin(DEFAULT_CAFPIN)
+                .pincode(DEFAULT_PINCODE)
+                .phonenumber(DEFAULT_PHONENUMBER)
+                .mobilenumber(DEFAULT_MOBILENUMBER);
         return investor;
     }
 
@@ -209,12 +209,12 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
         assertThat(testInvestor.getCityname()).isEqualTo(DEFAULT_CITYNAME);
         assertThat(testInvestor.getCountryname()).isEqualTo(DEFAULT_COUNTRYNAME);
         assertThat(testInvestor.getStatename()).isEqualTo(DEFAULT_STATENAME);
-        assertThat(testInvestor.getPincode()).isEqualTo(DEFAULT_PINCODE);
-        assertThat(testInvestor.getPhonenumber()).isEqualTo(DEFAULT_PHONENUMBER);
-        assertThat(testInvestor.getMobilenumber()).isEqualTo(DEFAULT_MOBILENUMBER);
         assertThat(testInvestor.getCreatedate()).isEqualTo(DEFAULT_CREATEDATE);
         assertThat(testInvestor.getUpdatedate()).isEqualTo(DEFAULT_UPDATEDATE);
         assertThat(testInvestor.getCafpin()).isEqualTo(DEFAULT_CAFPIN);
+        assertThat(testInvestor.getPincode()).isEqualTo(DEFAULT_PINCODE);
+        assertThat(testInvestor.getPhonenumber()).isEqualTo(DEFAULT_PHONENUMBER);
+        assertThat(testInvestor.getMobilenumber()).isEqualTo(DEFAULT_MOBILENUMBER);
     }
 
     @Test
@@ -262,12 +262,12 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.[*].cityname").value(hasItem(DEFAULT_CITYNAME.toString())))
             .andExpect(jsonPath("$.[*].countryname").value(hasItem(DEFAULT_COUNTRYNAME.toString())))
             .andExpect(jsonPath("$.[*].statename").value(hasItem(DEFAULT_STATENAME.toString())))
-            .andExpect(jsonPath("$.[*].pincode").value(hasItem(DEFAULT_PINCODE)))
-            .andExpect(jsonPath("$.[*].phonenumber").value(hasItem(DEFAULT_PHONENUMBER.doubleValue())))
-            .andExpect(jsonPath("$.[*].mobilenumber").value(hasItem(DEFAULT_MOBILENUMBER.doubleValue())))
             .andExpect(jsonPath("$.[*].createdate").value(hasItem(sameInstant(DEFAULT_CREATEDATE))))
             .andExpect(jsonPath("$.[*].updatedate").value(hasItem(sameInstant(DEFAULT_UPDATEDATE))))
-            .andExpect(jsonPath("$.[*].cafpin").value(hasItem(DEFAULT_CAFPIN.toString())));
+            .andExpect(jsonPath("$.[*].cafpin").value(hasItem(DEFAULT_CAFPIN.toString())))
+            .andExpect(jsonPath("$.[*].pincode").value(hasItem(DEFAULT_PINCODE.toString())))
+            .andExpect(jsonPath("$.[*].phonenumber").value(hasItem(DEFAULT_PHONENUMBER.toString())))
+            .andExpect(jsonPath("$.[*].mobilenumber").value(hasItem(DEFAULT_MOBILENUMBER.toString())));
     }
 
     @Test
@@ -295,12 +295,12 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
             .andExpect(jsonPath("$.cityname").value(DEFAULT_CITYNAME.toString()))
             .andExpect(jsonPath("$.countryname").value(DEFAULT_COUNTRYNAME.toString()))
             .andExpect(jsonPath("$.statename").value(DEFAULT_STATENAME.toString()))
-            .andExpect(jsonPath("$.pincode").value(DEFAULT_PINCODE))
-            .andExpect(jsonPath("$.phonenumber").value(DEFAULT_PHONENUMBER.doubleValue()))
-            .andExpect(jsonPath("$.mobilenumber").value(DEFAULT_MOBILENUMBER.doubleValue()))
             .andExpect(jsonPath("$.createdate").value(sameInstant(DEFAULT_CREATEDATE)))
             .andExpect(jsonPath("$.updatedate").value(sameInstant(DEFAULT_UPDATEDATE)))
-            .andExpect(jsonPath("$.cafpin").value(DEFAULT_CAFPIN.toString()));
+            .andExpect(jsonPath("$.cafpin").value(DEFAULT_CAFPIN.toString()))
+            .andExpect(jsonPath("$.pincode").value(DEFAULT_PINCODE.toString()))
+            .andExpect(jsonPath("$.phonenumber").value(DEFAULT_PHONENUMBER.toString()))
+            .andExpect(jsonPath("$.mobilenumber").value(DEFAULT_MOBILENUMBER.toString()));
     }
 
     @Test
@@ -334,12 +334,12 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
                 .cityname(UPDATED_CITYNAME)
                 .countryname(UPDATED_COUNTRYNAME)
                 .statename(UPDATED_STATENAME)
-                .pincode(UPDATED_PINCODE)
-                .phonenumber(UPDATED_PHONENUMBER)
-                .mobilenumber(UPDATED_MOBILENUMBER)
                 .createdate(UPDATED_CREATEDATE)
                 .updatedate(UPDATED_UPDATEDATE)
-                .cafpin(UPDATED_CAFPIN);
+                .cafpin(UPDATED_CAFPIN)
+                .pincode(UPDATED_PINCODE)
+                .phonenumber(UPDATED_PHONENUMBER)
+                .mobilenumber(UPDATED_MOBILENUMBER);
         InvestorDTO investorDTO = investorMapper.investorToInvestorDTO(updatedInvestor);
 
         restInvestorMockMvc.perform(put("/api/investors")
@@ -366,12 +366,12 @@ public class InvestorResourceIntTest extends AbstractCassandraTest {
         assertThat(testInvestor.getCityname()).isEqualTo(UPDATED_CITYNAME);
         assertThat(testInvestor.getCountryname()).isEqualTo(UPDATED_COUNTRYNAME);
         assertThat(testInvestor.getStatename()).isEqualTo(UPDATED_STATENAME);
-        assertThat(testInvestor.getPincode()).isEqualTo(UPDATED_PINCODE);
-        assertThat(testInvestor.getPhonenumber()).isEqualTo(UPDATED_PHONENUMBER);
-        assertThat(testInvestor.getMobilenumber()).isEqualTo(UPDATED_MOBILENUMBER);
         assertThat(testInvestor.getCreatedate()).isEqualTo(UPDATED_CREATEDATE);
         assertThat(testInvestor.getUpdatedate()).isEqualTo(UPDATED_UPDATEDATE);
         assertThat(testInvestor.getCafpin()).isEqualTo(UPDATED_CAFPIN);
+        assertThat(testInvestor.getPincode()).isEqualTo(UPDATED_PINCODE);
+        assertThat(testInvestor.getPhonenumber()).isEqualTo(UPDATED_PHONENUMBER);
+        assertThat(testInvestor.getMobilenumber()).isEqualTo(UPDATED_MOBILENUMBER);
     }
 
     @Test

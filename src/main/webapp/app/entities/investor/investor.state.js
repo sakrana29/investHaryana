@@ -119,12 +119,12 @@
                                 cityname: null,
                                 countryname: null,
                                 statename: null,
-                                pincode: null,
-                                phonenumber: null,
-                                mobilenumber: null,
                                 createdate: null,
                                 updatedate: null,
                                 cafpin: null,
+                                pincode: null,
+                                phonenumber: null,
+                                mobilenumber: null,
                                 id: null
                             };
                         }

@@ -21,6 +21,14 @@
         {
             "fieldName": "paymentDate",
             "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "transactionId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "paymentResponse",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170406160537",

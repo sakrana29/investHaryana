@@ -24,6 +24,10 @@ public class ProjectServicePaymentDetailsDTO implements Serializable {
 
     private ZonedDateTime paymentDate;
 
+    private String transactionId;
+
+    private String paymentResponse;
+
     public UUID getId() {
         return id;
     }
@@ -66,6 +70,20 @@ public class ProjectServicePaymentDetailsDTO implements Serializable {
     public void setPaymentDate(ZonedDateTime paymentDate) {
         this.paymentDate = paymentDate;
     }
+    public String getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
+    }
+    public String getPaymentResponse() {
+        return paymentResponse;
+    }
+
+    public void setPaymentResponse(String paymentResponse) {
+        this.paymentResponse = paymentResponse;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -97,6 +115,8 @@ public class ProjectServicePaymentDetailsDTO implements Serializable {
             ", paymentMade='" + paymentMade + "'" +
             ", paymentMadeBy='" + paymentMadeBy + "'" +
             ", paymentDate='" + paymentDate + "'" +
+            ", transactionId='" + transactionId + "'" +
+            ", paymentResponse='" + paymentResponse + "'" +
             '}';
     }
 }

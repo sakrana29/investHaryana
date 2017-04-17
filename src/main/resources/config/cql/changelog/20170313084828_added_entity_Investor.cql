@@ -16,11 +16,11 @@ CREATE TABLE IF NOT EXISTS investor (
     cityname text,
     countryname text,
     statename text,
-    pincode int,
-    phonenumber double,
-    mobilenumber double,
     createdate timestamp,
     updatedate timestamp,
     cafpin text,
+    pincode text,
+    phonenumber text,
+    mobilenumber text,
     PRIMARY KEY(id)
 );

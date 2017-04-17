@@ -5,14 +5,16 @@
         .module('investhryApp')
         .controller('servicePaymentController', servicePaymentController);
 
-    servicePaymentController.$inject = ['$timeout','$scope','$stateParams','$uibModalInstance','projectServicePayment','projectAttachemnt','projectServiceLog','ProjectAttachemnt','ProjectServiceLog','FileManagement','Projectservicedetail','ProjectServicePaymentDetails'];
-    function servicePaymentController ($timeout, $scope, $stateParams, $uibModalInstance,projectServicePayment, projectAttachemnt, projectServiceLog, ProjectAttachemnt, ProjectServiceLog, FileManagement, Projectservicedetail, ProjectServicePaymentDetails) {
+    servicePaymentController.$inject = ['$timeout','$scope','$stateParams','$uibModalInstance','paymentparameters','projectServicePayment','projectAttachemnt','projectServiceLog','ProjectAttachemnt','ProjectServiceLog','FileManagement','Projectservicedetail','ProjectServicePaymentDetails','Payment'];
+    function servicePaymentController ($timeout, $scope, $stateParams, $uibModalInstance,paymentparameters,projectServicePayment, projectAttachemnt, projectServiceLog, ProjectAttachemnt, ProjectServiceLog, FileManagement, Projectservicedetail, ProjectServicePaymentDetails,Payment) {
         var vm = this;
         vm.projectServiceLog = projectServiceLog;
         vm.projectAttachemnt = projectAttachemnt;
         vm.projectServicePayment=projectServicePayment;
         vm.projectService = $stateParams.projectService;
         vm.projectServicePayment.paymentMade=vm.projectService.serviceFee;
+        vm.paymentparameters = paymentparameters;
+
         var projectAttachmentResultObject=null;
 
         vm.clear = clear;

@@ -55,12 +55,12 @@ public class InvestorRepository {
                 investor.setCityname(row.getString("cityname"));
                 investor.setCountryname(row.getString("countryname"));
                 investor.setStatename(row.getString("statename"));
-                investor.setPincode(row.getInt("pincode"));
-                investor.setPhonenumber(row.getDouble("phonenumber"));
-                investor.setMobilenumber(row.getDouble("mobilenumber"));
                 investor.setCreatedate(row.get("createdate", ZonedDateTime.class));
                 investor.setUpdatedate(row.get("updatedate", ZonedDateTime.class));
                 investor.setCafpin(row.getString("cafpin"));
+                investor.setPincode(row.getString("pincode"));
+                investor.setPhonenumber(row.getString("phonenumber"));
+                investor.setMobilenumber(row.getString("mobilenumber"));
                 return investor;
             }
         ).forEach(investorsList::add);

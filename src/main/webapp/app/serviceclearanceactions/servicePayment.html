@@ -23,18 +23,16 @@
         </div>
     </div>
     <div class="modal-footer">
-        <input type="hidden" name="firstname" value="Vikas Kumar" />
-        <input type="hidden" name="lastname" value="" />
-        <input type="hidden" name="surl" value="https://www.google.com" />
-        <input type="hidden" name="phone" value="9999999999" />
-        <input type="hidden" name="key" value="gtKFFx" />
-        <input type="hidden" name="hash" value ="71e4aabf11214e6d35abd97c3b29982a61151ec8bf4974fa0842bfa4c4a1a2341a64995dff4745910b11749962cd5d1575082c31e82837cd5998e49460d95549" />
-        <input type="hidden" name="curl" value="http://www.google.com" />
-        <input type="hidden" name="furl" value="https:/www.yahoo.in" />
-        <input type="hidden" name="txnid" value="PLS-10061-199999" />
-        <input type="hidden" name="productinfo" value="Service Fee" />
-        <input type="hidden" name="amount" value="600.00" />
-        <input type="hidden" name="email" value="vikaskumarsre@gmail.com" />
+        <input type="hidden" name="firstname" value="{{vm.paymentparameters.firstname}}" />
+        <input type="hidden" name="surl" value="{{vm.paymentparameters.surl}}" />
+        <input type="hidden" name="phone" value="{{vm.paymentparameters.phone}}" />
+        <input type="hidden" name="key" value="{{vm.paymentparameters.key}}" />
+        <input type="hidden" name="hash" value ="{{vm.paymentparameters.hash}}" />
+        <input type="hidden" name="furl" value="{{vm.paymentparameters.furl}}" />
+        <input type="hidden" name="txnid" value="{{vm.paymentparameters.txnid}}" />
+        <input type="hidden" name="productinfo" value="{{vm.paymentparameters.productinfo}}" />
+        <input type="hidden" name="amount" value="{{vm.paymentparameters.amount}}" />
+        <input type="hidden" name="email" value="{{vm.paymentparameters.email}}" />
         <button type= "submit" id="payubutton" formtarget="_blank"></button>
     </div>
 </form>
