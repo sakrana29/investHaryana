@@ -27,13 +27,27 @@
                     <td class="col-md-3">{{vm.investorsummarydetails.siteaddress}},{{vm.investorsummarydetails.district}},{{vm.investorsummarydetails.block}}</td>
                       <!--<td class="col-md-2">{{vm.investorsummarydetails.district}}</td>-->
                       <!--<td class="col-md-2">{{vm.investorsummarydetails.block}}</td>-->
-                </tr><tr>
-
-                    <th class="col-md-2">Project Cost </th>
-                    <td class="col-md-2">{{vm.investorsummarydetails.projectTotalCost}}</td>
-                    <th class="col-md-2">MOU (Year) </th>
-                    <td class="col-md-2">{{vm.investorsummarydetails.mouYear}}</td>
                 </tr>
+                  <tr>
+
+                    <th class="col-md-3">Project Cost </th>
+                    <td class="col-md-3">{{vm.investorsummarydetails.projectTotalCost}}</td>
+                    <th class="col-md-3">MOU (Year) </th>
+                    <td class="col-md-3">{{vm.investorsummarydetails.mouYear}}</td>
+                </tr>
+                  <tr>
+
+                      <th class="col-md-3"></th>
+                      <td class="col-md-3"></td>
+                      <th class="col-md-3"></th>
+                      <td class="col-md-3">
+                          <button type="submit" ng-show="(vm.investorsummarydetails.cafpin=='' || vm.investorsummarydetails.cafpin==null)"
+                                                   ui-sref="projectedit({id:vm.investorsummarydetails.projectid})"
+                                                   class="btn btn-info btn-sm">Edit Form</button>
+                          <button type="submit"
+                                  ui-sref="ProjectCompleteDetailState({id:vm.investorsummarydetails.projectid})"
+                                  class="btn btn-info btn-sm">View Form</button></td>
+                  </tr>
                 </tbody>
             </table>
         </div>
@@ -57,13 +71,8 @@
                     <td>CAF</td>
                     <td>Project Submitted</td>
                     <td>
-                       <button type="submit" ng-show="(vm.investorsummarydetails.cafpin=='')"
-                                    ui-sref="projectedit({id:vm.investorsummarydetails.projectid})"
-                                    class="btn btn-info btn-sm">Edit Form</button>
-                       <button type="submit"
-                                ui-sref="ProjectCompleteDetailState({id:vm.investorsummarydetails.projectid})"
-                                class="btn btn-info btn-sm">View Form</button>
-                       <button type="submit"
+
+                       <button type="submit" ng-show="(vm.investorsummarydetails.cafpin!='' && vm.investorsummarydetails.cafpin!=null)"
                                     ui-sref="serviceclearanceaction({id:vm.investorsummarydetails.projectid})"
                                     class="btn btn-danger btn-sm">Service Clearance</button>
 
@@ -74,16 +83,16 @@
         </div>
     </div>
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <button type="submit"
-                    ui-sref="completeprojectdetail({id:project.id})"
-                    class="btn btn-info btn-sm">Total pending at department(s) : 0</button>
-            <button type="submit"
-                    ui-sref="completeprojectdetail({id:project.id})"
-                    class="btn btn-primary btn-sm">Total replied by department(s) : 0</button>
-        </div>
-    </div>
+    <!--<div class="panel panel-primary">-->
+        <!--<div class="panel-heading">-->
+            <!--<button type="submit"-->
+                    <!--ui-sref="completeprojectdetail({id:project.id})"-->
+                    <!--class="btn btn-info btn-sm">Total pending at department(s) : 0</button>-->
+            <!--<button type="submit"-->
+                    <!--ui-sref="completeprojectdetail({id:project.id})"-->
+                    <!--class="btn btn-primary btn-sm">Total replied by department(s) : 0</button>-->
+        <!--</div>-->
+    <!--</div>-->
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">Department Log</h3>
