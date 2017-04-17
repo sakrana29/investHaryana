@@ -191,9 +191,9 @@
                                 id: null
                             };
                         },
-                        paymentparameters: ['Payment', function(Payment) {
-                            return Payment.get({projectid : $stateParams.projectService.projectid,amount : $stateParams.projectService.serviceFee}).$promise;
-                        }],
+//                        paymentparameters: ['Payment', function(Payment) {
+//                            return Payment.get({projectid : $stateParams.projectService.projectid,amount : $stateParams.projectService.serviceFee}).$promise;
+//                        }],
                       translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
                           $translatePartialLoader.addPart('home');
                           return $translate.refresh();

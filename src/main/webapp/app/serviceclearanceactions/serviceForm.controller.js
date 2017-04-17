@@ -77,7 +77,7 @@
             }
             else
             {
-                alert('no file');
+//                alert('no file');
                 $uibModalInstance.close(result);
                 vm.isSaving = false;
             }

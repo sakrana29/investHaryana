@@ -26,6 +26,7 @@
 
         function loadAllPayments() {
             vm.projectServicePaymentDetails=ProjectServicePaymentDetailsByProjectAndService.query({projectid: vm.projectService.projectid,serviceid: vm.projectService.serviceid});
+            console.log(vm.projectServicePaymentDetails);
         }
 
         function verifyPayment(){

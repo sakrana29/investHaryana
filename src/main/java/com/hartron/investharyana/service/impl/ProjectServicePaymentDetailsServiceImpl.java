@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 public class ProjectServicePaymentDetailsServiceImpl implements ProjectServicePaymentDetailsService{
 
     private final Logger log = LoggerFactory.getLogger(ProjectServicePaymentDetailsServiceImpl.class);
-    
+
     private final ProjectServicePaymentDetailsRepository projectServicePaymentDetailsRepository;
 
     private final ProjectServicePaymentDetailsMapper projectServicePaymentDetailsMapper;
@@ -48,7 +48,7 @@ public class ProjectServicePaymentDetailsServiceImpl implements ProjectServicePa
 
     /**
      *  Get all the projectServicePaymentDetails.
-     *  
+     *
      *  @return the list of entities
      */
     @Override
@@ -83,6 +83,16 @@ public class ProjectServicePaymentDetailsServiceImpl implements ProjectServicePa
     @Override
     public void delete(String id) {
         log.debug("Request to delete ProjectServicePaymentDetails : {}", id);
-        projectServicePaymentDetailsRepository.delete(UUID.fromString(id));
+        ProjectServicePaymentDetails projectServicePaymentDetails= projectServicePaymentDetailsRepository.findOne(UUID.fromString(id));
+        if(projectServicePaymentDetails != null)
+            projectServicePaymentDetailsRepository.delete(projectServicePaymentDetails);
+    }
+    @Override
+    public List<ProjectServicePaymentDetailsDTO> findAllByProjectAndServiceid(String projectid,String serviceid) {
+        log.debug("Request to get all ProjectServicePaymentDetails by projectid and serviceid");
+        List<ProjectServicePaymentDetailsDTO> result = projectServicePaymentDetailsRepository.findAllByProjectAndServiceid(UUID.fromString(projectid),UUID.fromString(serviceid)).stream()
+            .map(projectServicePaymentDetailsMapper::projectServicePaymentDetailsToProjectServicePaymentDetailsDTO)
+            .collect(Collectors.toCollection(LinkedList::new));
+        return result;
     }
 }

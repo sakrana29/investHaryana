@@ -20,6 +20,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.security.MessageDigest;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -76,7 +77,10 @@ public class PaymentResource {
         {
             String temptxnid = RandomStringUtils.randomAlphanumeric(8);
             List<ProjectServicePaymentDetailsDTO> projectServicePaymentDetailsDTOList= projectServicePaymentDetailsService.findAll();
-            List<ProjectServicePaymentDetailsDTO> filteredArticleList= projectServicePaymentDetailsDTOList.stream().filter(article -> article.getTransactionId().equals(temptxnid)).collect(Collectors.toList());
+            List<ProjectServicePaymentDetailsDTO> filteredArticleList=new ArrayList<>();
+            if(projectServicePaymentDetailsDTOList.size()>0)
+                filteredArticleList = projectServicePaymentDetailsDTOList.stream().filter(article -> article.getTransactionId().equals(temptxnid)).collect(Collectors.toList());
+
             if(filteredArticleList.size()==0)
             {
                 flag=true;

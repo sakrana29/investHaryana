@@ -1,4 +1,5 @@
-<form name="editForm" role="form" method="post" action="https://test.payu.in/_payment">
+<!--<form name="editForm" role="form" method="post" action="https://test.payu.in/_payment">-->
+<form name="editForm" role="form" >
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
@@ -23,16 +24,16 @@
         </div>
     </div>
     <div class="modal-footer">
-        <input type="hidden" name="firstname" value="{{vm.paymentparameters.firstname}}" />
-        <input type="hidden" name="surl" value="{{vm.paymentparameters.surl}}" />
-        <input type="hidden" name="phone" value="{{vm.paymentparameters.phone}}" />
-        <input type="hidden" name="key" value="{{vm.paymentparameters.key}}" />
-        <input type="hidden" name="hash" value ="{{vm.paymentparameters.hash}}" />
-        <input type="hidden" name="furl" value="{{vm.paymentparameters.furl}}" />
-        <input type="hidden" name="txnid" value="{{vm.paymentparameters.txnid}}" />
-        <input type="hidden" name="productinfo" value="{{vm.paymentparameters.productinfo}}" />
-        <input type="hidden" name="amount" value="{{vm.paymentparameters.amount}}" />
-        <input type="hidden" name="email" value="{{vm.paymentparameters.email}}" />
-        <button type= "submit" id="payubutton" formtarget="_blank"></button>
+        <!--<input type="hidden" name="firstname" value="{{vm.paymentparameters.firstname}}" />-->
+        <!--<input type="hidden" name="surl" value="{{vm.paymentparameters.surl}}" />-->
+        <!--<input type="hidden" name="phone" value="{{vm.paymentparameters.phone}}" />-->
+        <!--<input type="hidden" name="key" value="{{vm.paymentparameters.key}}" />-->
+        <!--<input type="hidden" name="hash" value ="{{vm.paymentparameters.hash}}" />-->
+        <!--<input type="hidden" name="furl" value="{{vm.paymentparameters.furl}}" />-->
+        <!--<input type="hidden" name="txnid" value="{{vm.paymentparameters.txnid}}" />-->
+        <!--<input type="hidden" name="productinfo" value="{{vm.paymentparameters.productinfo}}" />-->
+        <!--<input type="hidden" name="amount" value="{{vm.paymentparameters.amount}}" />-->
+        <!--<input type="hidden" name="email" value="{{vm.paymentparameters.email}}" />-->
+        <button type= "submit" id="payubutton" formtarget="_blank" ng-click="vm.makePayment()"></button>
     </div>
 </form>
