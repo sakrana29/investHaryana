@@ -99,27 +99,56 @@
 
                                 <div class="form-group">
                                     <label for="address1" class="col-lg-2 control-label">Address</label>
-                                    <div class="col-lg-3">
-                                    <textarea class="form-control" rows="3" id="address1" Placeholder="Address 1"
+                                    <div class="col-lg-2">
+                                    <textarea class="form-control" rows="4" id="address1" Placeholder="Address 1"
                                               ng-model="vm.investor.address1"></textarea>
                                     </div>
-                                    <div class="col-lg-3">
-                                    <textarea class="form-control" rows="3" id="address2" Placeholder="Address 2"
+                                    <div class="col-lg-2">
+                                    <textarea class="form-control" rows="4" id="address2" Placeholder="Address 2"
                                               ng-model="vm.investor.address2"></textarea>
                                     </div>
-                                    <div class="col-lg-3">
-                                    <textarea class="form-control" rows="3" id="address3" Placeholder="Address 3"
+                                    <div class="col-lg-2">
+                                    <textarea class="form-control" rows="4" id="address3" Placeholder="Address 3"
                                               ng-model="vm.investor.address3"></textarea>
+                                    </div>
+                                    <div class="col-lg-2">
+                                    <input type="text" class="form-control" rows="4" id="pincode" Placeholder="Pincode"
+                                              ng-model="vm.investor.pincode"></input>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Mobile Number</label>
+                                    <div class="col-lg-3">
+                                        <input type="text"class="form-control" Placeholder="Mobile Number" ng-model="vm.investor.mobilenumber">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">CAF Pin</label>
+                                    <div class="col-lg-3">
+                                        <input type="text" class="form-control" Placeholder="CAF Pin" ng-model="vm.investor.cafpin">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Create Date</label>
+                                    <div class="col-lg-3">
+                                        <input type="date" class="form-control" Placeholder="Create Date" ng-model="vm.investor.createdate">
+                                    </div>
+
+                                    <label class="col-lg-2 control-label">Update Date</label>
+                                    <div class="col-lg-3">
+                                        <input type="date" class="form-control" Placeholder="Update Date" ng-model="vm.investor.updatedate">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="email1" class="col-lg-2 control-label">Email </label>
-                                    <div class="col-lg-3">
-                                        <input type="text" class="form-control" id="email1" placeholder="Primary Email"
-                                               ng-model="vm.investor.emailprimary">
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" id="email1" placeholder="Primary Email" ng-model="vm.investor.emailprimary">
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-4">
                                         <input type="text" class="form-control" id="email2"
                                                placeholder="Secondary Email"
                                                ng-model="vm.investor.emailsecondary">

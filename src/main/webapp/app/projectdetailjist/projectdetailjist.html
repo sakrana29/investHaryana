@@ -34,6 +34,20 @@
                     <th class="col-md-2">MOU (Year) </th>
                     <td class="col-md-2">{{vm.investorsummarydetails.mouYear}}</td>
                 </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    <button type="submit"
+                            ui-sref="projectedit({id:vm.investorsummarydetails.projectid})" has-authority="ROLE_USER"
+                            class="btn btn-info btn-sm" ng-show="vm.investorsummarydetails.cafpin==null || vm.investorsummarydetails.cafpin==''">Edit Form</button>
+                    <button type="submit"
+                            ui-sref="ProjectCompleteDetailState({id:vm.investorsummarydetails.projectid})"
+                            class="btn btn-info btn-sm">View Form</button>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -54,18 +68,12 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>CAF</td>
-                    <td>Project Submitted</td>
+                    <td></td>
+                    <td></td>
                     <td>
                        <button type="submit"
-                                    ui-sref="projectedit({id:vm.investorsummarydetails.projectid})"
-                                    class="btn btn-info btn-sm">Edit Form</button>
-                       <button type="submit"
-                                ui-sref="ProjectCompleteDetailState({id:vm.investorsummarydetails.projectid})"
-                                class="btn btn-info btn-sm">View Form</button>
-                       <button type="submit"
                                     ui-sref="serviceclearanceaction({id:vm.investorsummarydetails.projectid})"
-                                    class="btn btn-danger btn-sm">Service Clearance</button>
+                                    class="btn btn-danger btn-sm" ng-disabled="someText1">Service Clearance</button>
 
                     </td>
                 </tr>

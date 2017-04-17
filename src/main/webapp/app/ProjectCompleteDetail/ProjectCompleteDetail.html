@@ -7,37 +7,49 @@
             <table class="table table-striped table-hover">
                 <tbody>
                 <tr>
-                    <th class="col-md-2">Mou Applicable</th>
+                    <th class="col-md-1">Mou Applicable</th>
                     <td class="col-md-2">{{vm.investor.mouapplicable}}</td>
-                    <th class="col-md-2">Mou Signyear</th>
+                    <th class="col-md-1">Mou Signyear</th>
                     <td class="col-md-2">{{vm.investor.mousignyear}}</td>
                 </tr>
                 <tr>
-                    <th class="col-md-2">MOU detail</th>
+                    <th class="col-md-1">MOU detail</th>
                     <td class="col-md-2">{{vm.investor.mouidnumber}}</td>
                     <!--<th class="col-md-1">Investor Photo</th>
                     <td class="col-md-1">{{vm.investor.investorpicpath}}</td>-->
                     <th class="col-md-1">Investor Name</th>
-                    <td class="col-md-1">{{vm.investor.firstname}} {{vm.investor.middlename}} {{vm.investor.lastname}}
+                    <td class="col-md-2">{{vm.investor.firstname}} {{vm.investor.middlename}} {{vm.investor.lastname}}
                     </td>
                 </tr>
                 <tr>
                     <th class="col-md-1">Country</th>
-                    <td class="col-md-1">{{vm.investor.countryname}}</td>
-                    <th class="col-md-2">State</th>
+                    <td class="col-md-2">{{vm.investor.countryname}}</td>
+                    <th class="col-md-1">State</th>
                     <td class="col-md-2">{{vm.investor.statename}}</td>
                 </tr>
                 <tr>
-                    <th class="col-md-2">City</th>
+                    <th class="col-md-1">City</th>
                     <td class="col-md-2">{{vm.investor.cityname}}</td>
-                    <th class="col-md-2">Address</th>
+                    <th class="col-md-1">Address</th>
                     <td class="col-md-2">{{vm.investor.address1}} {{vm.investor.address2}} {{vm.investor.address3}}</td>
                 </tr>
                 <tr>
-                    <th class="col-md-2">Email</th>
+                    <th class="col-md-1">Mobile Number</th>
+                    <td class="col-md-2">{{vm.investor.mobilenumber}}</td>
+                    <th class="col-md-1">CAF Pin</th>
+                    <td class="col-md-2">{{vm.investor.cafpin}}</td>
+                </tr>
+                <tr>
+                    <th class="col-md-1">Create Date</th>
+                    <td class="col-md-2">{{vm.investor.createdate}}</td>
+                    <th class="col-md-1">Update Date</th>
+                    <td class="col-md-2">{{vm.investor.updatedate}}</td>
+                </tr>
+                <tr>
+                    <th class="col-md-1">Email</th>
                     <td class="col-md-2">{{vm.investor.emailprimary}} {{vm.investor.emailsecondary}}</td>
-                    <td class="col-md-4"></td>
-                    <td class="col-md-3"></td>
+                    <td class="col-md-1"></td>
+                    <td class="col-md-2"></td>
                 </tr>
                 </tbody>
             </table>

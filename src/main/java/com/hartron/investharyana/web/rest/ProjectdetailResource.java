@@ -28,7 +28,7 @@ public class ProjectdetailResource {
     private final Logger log = LoggerFactory.getLogger(ProjectdetailResource.class);
 
     private static final String ENTITY_NAME = "projectdetail";
-        
+
     private final ProjectdetailService projectdetailService;
 
     public ProjectdetailResource(ProjectdetailService projectdetailService) {

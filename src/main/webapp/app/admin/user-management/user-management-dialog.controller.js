@@ -10,7 +10,7 @@
     function UserManagementDialogController ($state, entity, User, JhiLanguageService) {
         var vm = this;
 
-        vm.authorities = ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_RM', 'ROLE_DESK_OFFICER', 'ROLE_NODAL_OFFICER', 'ROLE_ACCOUNT_OFFICER'];
+        vm.authorities = ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_RM', 'ROLE_DESK_OFFICER', 'ROLE_NODAL_OFFICER', 'ROLE_ACCOUNT_OFFICER', 'ROLE_FIELD_OFFICER'];
         vm.clear = clear;
         vm.languages = null;
         vm.save = save;
