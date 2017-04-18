@@ -34,19 +34,19 @@
                 <!-- Add Project -->
 
                 <li ui-sref-active="active">
-                    <a ui-sref="listproject" ng-click="vm.collapseNavbar()">
+                    <a ui-sref="listproject" ng-click="vm.collapseNavbar()" has-any-authority="ROLE_USER, ROLE_RM">
                         <span class="glyphicon glyphicon-home"></span>
                         <span class="hidden-sm" data-translate="global.menu.addproject">Add Project</span>
                     </a>
                 </li>
                 <li ui-sref-active="active">
-                    <a ui-sref="viewprojectdetail" ng-click="vm.collapseNavbar()">
+                    <a ui-sref="viewprojectdetail" ng-click="vm.collapseNavbar()" has-any-authority="ROLE_USER, ROLE_RM, ROLE_DESK_OFFICER, ROLE_NODAL_OFFICER, ROLE_ACCOUNT_OFFICER, ROLE_FIELD_OFFICER">
                         <span class="glyphicon glyphicon-home"></span>
                         <span class="hidden-sm" data-translate="global.menu.viewproject">View Project</span>
                     </a>
                 </li>
 
-                <li ui-sref-active="active" has-authority="ROLE_USER">
+                <li ui-sref-active="active" has-any-authority="ROLE_USER, ROLE_RM, ROLE_DESK_OFFICER, ROLE_NODAL_OFFICER, ROLE_ACCOUNT_OFFICER, ROLE_FIELD_OFFICER">
                     <a ui-sref="dashboard" ng-click="vm.collapseNavbar()">
                         <span class="glyphicon glyphicon-briefcase"></span>
                         <span class="hidden-sm" data-translate="global.menu.dashboard">Dashboard</span>
