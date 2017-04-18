@@ -43,7 +43,7 @@
                     <button type="submit"
                             ui-sref="projectedit({id:vm.investorsummarydetails.projectid})" has-authority="ROLE_USER"
                             class="btn btn-info btn-sm" ng-show="vm.investorsummarydetails.cafpin==null || vm.investorsummarydetails.cafpin==''">Edit Form</button>
-                    <button type="submit" has-authority="ROLE_NODAL_OFFICER"
+                    <button type="submit" has-any-authority="ROLE_USER, ROLE_RM, ROLE_DESK_OFFICER, ROLE_NODAL_OFFICER, ROLE_ACCOUNT_OFFICER, ROLE_FIELD_OFFICER"
                             ui-sref="ProjectCompleteDetailState({id:vm.investorsummarydetails.projectid})"
                             class="btn btn-info btn-sm">View Form</button>
                     </td>
@@ -71,7 +71,7 @@
                     <td></td>
                     <td></td>
                     <td>
-                       <button type="submit" has-authority="ROLE_NODAL_OFFICER"
+                       <button type="submit" has-any-authority="ROLE_USER, ROLE_RM, ROLE_DESK_OFFICER, ROLE_NODAL_OFFICER, ROLE_ACCOUNT_OFFICER, ROLE_FIELD_OFFICER"
                                     ui-sref="serviceclearanceaction({id:vm.investorsummarydetails.projectid})"
                                     class="btn btn-danger btn-sm" ng-disabled="someText1">Service Clearance</button>
 
