@@ -317,7 +317,7 @@
         })
         .state('projectedit', {
             parent: 'app',
-            url: '/{id}/edit',
+            url: '/addproject/edit/{id}',
             data: {
                 authorities: []
             },
@@ -336,6 +336,7 @@
             entity: ['$stateParams', 'Projectcompletedetail', function($stateParams,Projectcompletedetail) {
                     return Projectcompletedetail.get({id : $stateParams.id}).$promise;
             }]
+
         }});
     }
 })();

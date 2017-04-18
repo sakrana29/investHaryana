@@ -37,8 +37,6 @@
             vm.completeprojectphasedata.splice( index, 1 );
         };
 
-        console.log(vm.completeprojectphasedata.length);
-
         vm.projectrawmaterialdata=[];
         vm.addProject_rawmaterialData=addProject_rawmaterialData;
         function addProject_rawmaterialData(){
@@ -469,6 +467,234 @@
            vm.waste_water_naturetype = result;
            vm.searchQuery = null;
        });
+       }
+
+       angular.element(function () {
+
+           for( var i = 0; i < vm.countries.length; i++ ) {
+             if(vm.countries[i].countryname===vm.investor.countryname) {
+                 vm.investor.selectedCountry=vm.countries[i];
+                 break;
+             }
+          }
+          for( var i = 0; i < vm.states.length; i++ ) {
+           if(vm.states[i].statename===vm.investor.statename) {
+               vm.investor.selectedState=vm.states[i];
+               break;
+           }
+         }
+         for(var i = 0; i < vm.city_town_villages.length; i++ ) {
+              if(vm.city_town_villages[i].city_town_village_name===vm.investor.cityname) {
+                  vm.investor.selectedCity=vm.city_town_villages[i];
+                  break;
+              }
+            }
+         for( var i = 0; i < vm.businessentities.length; i++ ) {
+             if(vm.businessentities[i].businessentitytype===vm.companydetail.businessentitytype) {
+                 vm.companydetail.selectedBusiness=vm.businessentities[i];
+                 break;
+             }
+           }
+         for( var i = 0; i < vm.sectors.length; i++ ) {
+            if(vm.sectors[i].sectortype===vm.projectdetail.sectorname) {
+                vm.projectdetail.selectedSector=vm.sectors[i];
+                break;
+            }
+          }
+          for( var i = 0; i < vm.industrysizes.length; i++ ) {
+              if(vm.industrysizes[i].sizeofindustry===vm.projectdetail.size_of_industry) {
+                  vm.projectdetail.selectedSizeOfIndustry=vm.industrysizes[i];
+                  break;
+              }
+            }
+         for( var i = 0; i < vm.projectypes.length; i++ ) {
+           if(vm.projectypes[i].projectypes===vm.projectdetail.projectype) {
+               vm.projectdetail.selectedProjectType=vm.projectypes[i];
+               break;
+           }
+         }
+        for( var i = 0; i < vm.projectcategories.length; i++ ) {
+           if(vm.projectcategories[i].categorytype===vm.projectdetail.category_of_project) {
+               vm.projectdetail.selectedProjectCategory=vm.projectcategories[i];
+               break;
+           }
+         }
+        for( var i = 0; i < vm.countries.length; i++ ) {
+            if(vm.countries[i].countryname===vm.projectdetail.collaboration_with_foreign_country) {
+                vm.projectdetail.selectedCountry=vm.countries[i];
+                break;
+            }
+        }
+        for( var i = 0; i < vm.approvalforms.length; i++ ) {
+            if(vm.approvalforms[i].existingapprovalforms===vm.projectdetail.approval_application_form) {
+                vm.projectdetail.selectedApprovalForm=vm.approvalforms[i];
+                break;
+            }
+        }
+         for( var i = 0; i < vm.countries.length; i++ ) {
+          if(vm.countries[i].countryname===vm.investor.countryname) {
+              vm.investor.selectedCountry=vm.countries[i];
+              break;
+          }
+         }
+         for( var i = 0; i < vm.countries.length; i++ ) {
+          if(vm.countries[i].countryname===vm.investor.countryname) {
+             vm.investor.selectedCountry=vm.countries[i];
+             break;
+          }
+         }
+       });
+
+
+       function setSelectedValues()
+       {
+            for( var i = 0; i < vm.countries.length; i++ ) {
+              if(vm.countries[i].countryname===vm.investor.countryname) {
+                  vm.investor.selectedCountry=vm.countries[i];
+                  break;
+              }
+           }
+           for( var i = 0; i < vm.states.length; i++ ) {
+             if(vm.states[i].countryname===vm.investor.statename) {
+                 vm.investor.selectedState=vm.states[i];
+                 break;
+             }
+           }
+           for( var i = 0; i < vm.countries.length; i++ ) {
+                if(vm.countries[i].countryname===vm.investor.countryname) {
+                    vm.investor.selectedCountry=vm.countries[i];
+                    break;
+                }
+              }
+           for( var i = 0; i < vm.countries.length; i++ ) {
+               if(vm.countries[i].countryname===vm.investor.countryname) {
+                   vm.investor.selectedCountry=vm.countries[i];
+                   break;
+               }
+             }
+           for( var i = 0; i < vm.countries.length; i++ ) {
+              if(vm.countries[i].countryname===vm.investor.countryname) {
+                  vm.investor.selectedCountry=vm.countries[i];
+                  break;
+              }
+            }
+            for( var i = 0; i < vm.countries.length; i++ ) {
+             if(vm.countries[i].countryname===vm.investor.countryname) {
+                 vm.investor.selectedCountry=vm.countries[i];
+                 break;
+             }
+           }
+           for( var i = 0; i < vm.countries.length; i++ ) {
+            if(vm.countries[i].countryname===vm.investor.countryname) {
+                vm.investor.selectedCountry=vm.countries[i];
+                break;
+            }
+          }
+          for( var i = 0; i < vm.countries.length; i++ ) {
+           if(vm.countries[i].countryname===vm.investor.countryname) {
+               vm.investor.selectedCountry=vm.countries[i];
+               break;
+           }
+          }
+          for( var i = 0; i < vm.countries.length; i++ ) {
+              if(vm.countries[i].countryname===vm.investor.countryname) {
+                  vm.investor.selectedCountry=vm.countries[i];
+                  break;
+              }
+          }
+          for( var i = 0; i < vm.countries.length; i++ ) {
+             if(vm.countries[i].countryname===vm.investor.countryname) {
+                 vm.investor.selectedCountry=vm.countries[i];
+                 break;
+             }
+           }
+           for( var i = 0; i < vm.countries.length; i++ ) {
+            if(vm.countries[i].countryname===vm.investor.countryname) {
+                vm.investor.selectedCountry=vm.countries[i];
+                break;
+            }
+           }
+           for( var i = 0; i < vm.countries.length; i++ ) {
+            if(vm.countries[i].countryname===vm.investor.countryname) {
+               vm.investor.selectedCountry=vm.countries[i];
+               break;
+            }
+           }
+           for( var i = 0; i < vm.countries.length; i++ ) {
+              if(vm.countries[i].countryname===vm.investor.countryname) {
+                  vm.investor.selectedCountry=vm.countries[i];
+                  break;
+              }
+            }
+            for( var i = 0; i < vm.countries.length; i++ ) {
+             if(vm.countries[i].countryname===vm.investor.countryname) {
+                 vm.investor.selectedCountry=vm.countries[i];
+                 break;
+             }
+            }
+            for( var i = 0; i < vm.countries.length; i++ ) {
+                if(vm.countries[i].countryname===vm.investor.countryname) {
+                    vm.investor.selectedCountry=vm.countries[i];
+                    break;
+                }
+            }
+            for( var i = 0; i < vm.countries.length; i++ ) {
+               if(vm.countries[i].countryname===vm.investor.countryname) {
+                   vm.investor.selectedCountry=vm.countries[i];
+                   break;
+               }
+            }
+            for( var i = 0; i < vm.countries.length; i++ ) {
+              if(vm.countries[i].countryname===vm.investor.countryname) {
+                  vm.investor.selectedCountry=vm.countries[i];
+                  break;
+              }
+            }
+            for( var i = 0; i < vm.countries.length; i++ ) {
+             if(vm.countries[i].countryname===vm.investor.countryname) {
+                 vm.investor.selectedCountry=vm.countries[i];
+                 break;
+             }
+            }
+            for( var i = 0; i < vm.countries.length; i++ ) {
+                if(vm.countries[i].countryname===vm.investor.countryname) {
+                    vm.investor.selectedCountry=vm.countries[i];
+                    break;
+                }
+            }
+           for( var i = 0; i < vm.countries.length; i++ ) {
+               if(vm.countries[i].countryname===vm.investor.countryname) {
+                   vm.investor.selectedCountry=vm.countries[i];
+                   break;
+                   }
+            }for( var i = 0; i < vm.countries.length; i++ ) {
+               if(vm.countries[i].countryname===vm.investor.countryname) {
+                   vm.investor.selectedCountry=vm.countries[i];
+                   break;
+               }
+             }
+             for( var i = 0; i < vm.countries.length; i++ ) {
+                  if(vm.countries[i].countryname===vm.investor.countryname) {
+                      vm.investor.selectedCountry=vm.countries[i];
+                      break;
+                  }
+                }
+              for( var i = 0; i < vm.countries.length; i++ ) {
+                 if(vm.countries[i].countryname===vm.investor.countryname) {
+                     vm.investor.selectedCountry=vm.countries[i];
+                     break;
+                 }
+              }for( var i = 0; i < vm.countries.length; i++ ) {
+                 if(vm.countries[i].countryname===vm.investor.countryname) {
+                     vm.investor.selectedCountry=vm.countries[i];
+                     break;
+                 }
+              }for( var i = 0; i < vm.countries.length; i++ ) {
+                 if(vm.countries[i].countryname===vm.investor.countryname) {
+                     vm.investor.selectedCountry=vm.countries[i];
+                     break;
+                 }
+            }
        }
     }
 })();
