@@ -189,7 +189,6 @@
                                                placeholder="Number of Directors/Promoters/MDs/CEO"
                                                ng-model="vm.companydetail.director_promoter_md_ceo_number">
                                     </div>
-                                    <!--<div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file" ng-model="vm.companydetail.director_md_ceo_list"></div>-->
                                 </div>
 
                                 <div class="form-group">
@@ -197,7 +196,6 @@
                                     <div class="col-lg-3"><input type="text" class="form-control" id="PanNumber"
                                                                  placeholder="PAN Number"
                                                                  ng-model="vm.companydetail.pan_number"></div>
-                                    <!--<div class="col-lg-3"> <input class="btn btn-default fileinput-button" type="file"  ng-model="vm.companydetail.pancard"></div>-->
                                 </div>
                                 <div class="form-group">
                                     <label for="aadharnumber" class="col-lg-3 control-label">Aadhar Number</label>
@@ -2112,7 +2110,7 @@
                                     <div class="col-md-1"></div>
                                     <div class="col-md-12">
                                         <ol>
-                                            <li style="padding:10px;">I/We _____________, hereby undertake that all the
+                                            <li style="padding:10px;">I/We {{vm.investor.firstname}}, hereby undertake that all the
                                                 information furnished above is true and correct to the best of my/our
                                                 knowledge and belief. No part of the information is false and nothing
                                                 has
@@ -2129,9 +2127,8 @@
                                     <div class="col-md-12">
                                         <div class="col-md-6">
                                             <input type="checkbox" id="chkAccept"
-                                                   style="outline: 2px solid; margin-left:23px;" autocomplete="off"
-                                                   autocompletetype="Disable" data-dpmaxz-eid="18"> I Accept Terms and
-                                            Conditions
+                                                   style="outline: 2px solid; margin-left:23px;" autocomplete="off" ng-model="vm.term_declaration_accept.acceptance"
+                                                   autocompletetype="Disable" data-dpmaxz-eid="18"> I Accept Terms and Conditions
                                         </div>
                                     </div>
                                     <br>
@@ -2141,11 +2138,6 @@
 
                                             </div>
                                             <div class="col-md-4">
-                                                <script type="text/javascript">
-                    <!--$(".appSig").css("display", "none");-->
-
-
-                                                </script>
                                                 <div id="PreviousFile">
 
                                                 </div>
@@ -2154,46 +2146,42 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="col-md-6 control-label">
-                                                    <label>Application Date</label>
-                                                </div>
-                                                <div class="col-md-6" style="margin-top:7px;">
-                                                    <label>_________</label>
-                                                </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="col-md-4 control-label">
                                                     <label>Applicant Name</label>
                                                 </div>
                                                 <div class="col-md-8" style="margin-top:7px;">
-                                                    <label>___________</label>
+                                                    <label>{{vm.investor.firstname}}</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="col-md-6 control-label">
-                                                    <label>Place </label>
-                                                </div>
 
-                                                <div class="col-md-6">
+                                            <div class="col-md-6">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="col-md-4 control-label">
+                                                    <label>Place</label>
+                                                </div>
+                                                <div class="col-md-8" style="margin-top:7px;">
                                                     <input class="form-control capitalize" id="Place" name="Place"
                                                            placeholder="Click here to enter text" type="text"
-                                                           value="Chandigarh" autocomplete="off"
+                                                           value="" autocomplete="off" ng-model="vm.term_declaration_accept.place"
                                                            autocompletetype="Disable"
                                                            data-dpmaxz-eid="19">
                                                     <span class="field-validation-valid" data-valmsg-for="Place"
                                                           data-valmsg-replace="true"></span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <!--<div class="col-md-6">-->
                                                 <!--<div class="col-md-4 control-label">
                                                     <label>Signature </label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <input id="Signature" type="file" name="files[]" autocomplete="off" autocompletetype="Disable">
                                                 </div>-->
-                                            </div>
+                                            <!--</div>-->
                                         </div>
 
                                     </div>
@@ -2202,15 +2190,18 @@
                                 <div class="form-group">
                                     <div class="col-lg-10 col-lg-offset-2">
                                         <!--<button type="reset" class="btn btn-default">Cancel</button>-->
-                                        <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12"
-                                                ng-click="vm.saveCompleteProjectDetail('Final')">Submit Complete Form
-                                        </button>
+
                                     </div>
                                 </div>
                             </fieldset>
                         </form>
 
                     </div>
+                </div>
+                <div class="panel-heading">
+                        <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12" ng-show="vm.term_declaration_accept.acceptance"
+                                ng-click="vm.saveCompleteProjectDetail('Final')">Submit Complete Form
+                        </button>
                 </div>
             </div>
 

@@ -302,6 +302,16 @@
                                 treatment3: null,
                                 id: null
                             };
+                        },
+                        term_declaration_accept: function () {
+                            return {
+                                acceptance: null,
+                                applicationdate: null,
+                                place: null,
+                                createdate: null,
+                                updatedate: null,
+                                id: null
+                            };
                         }
             }
         })

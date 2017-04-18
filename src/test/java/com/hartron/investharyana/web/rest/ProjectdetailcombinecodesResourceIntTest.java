@@ -61,6 +61,9 @@ public class ProjectdetailcombinecodesResourceIntTest extends AbstractCassandraT
     private static final UUID DEFAULT_ENVIRONMENTIMPACTDETAILID = UUID.randomUUID();
     private static final UUID UPDATED_ENVIRONMENTIMPACTDETAILID = UUID.randomUUID();
 
+    private static final UUID DEFAULT_TERMDECLARATIONACCEPTID = UUID.randomUUID();
+    private static final UUID UPDATED_TERMDECLARATIONACCEPTID = UUID.randomUUID();
+
     @Autowired
     private ProjectdetailcombinecodesRepository projectdetailcombinecodesRepository;
 
@@ -107,7 +110,8 @@ public class ProjectdetailcombinecodesResourceIntTest extends AbstractCassandraT
                 .projectfinanceid(DEFAULT_PROJECTFINANCEID)
                 .manufacturingid(DEFAULT_MANUFACTURINGID)
                 .electricityrequirementid(DEFAULT_ELECTRICITYREQUIREMENTID)
-                .environmentimpactdetailid(DEFAULT_ENVIRONMENTIMPACTDETAILID);
+                .environmentimpactdetailid(DEFAULT_ENVIRONMENTIMPACTDETAILID)
+                .termdeclarationacceptid(DEFAULT_TERMDECLARATIONACCEPTID);
         return projectdetailcombinecodes;
     }
 
@@ -140,6 +144,7 @@ public class ProjectdetailcombinecodesResourceIntTest extends AbstractCassandraT
         assertThat(testProjectdetailcombinecodes.getManufacturingid()).isEqualTo(DEFAULT_MANUFACTURINGID);
         assertThat(testProjectdetailcombinecodes.getElectricityrequirementid()).isEqualTo(DEFAULT_ELECTRICITYREQUIREMENTID);
         assertThat(testProjectdetailcombinecodes.getEnvironmentimpactdetailid()).isEqualTo(DEFAULT_ENVIRONMENTIMPACTDETAILID);
+        assertThat(testProjectdetailcombinecodes.getTermdeclarationacceptid()).isEqualTo(DEFAULT_TERMDECLARATIONACCEPTID);
     }
 
     @Test
@@ -178,7 +183,8 @@ public class ProjectdetailcombinecodesResourceIntTest extends AbstractCassandraT
             .andExpect(jsonPath("$.[*].projectfinanceid").value(hasItem(DEFAULT_PROJECTFINANCEID.toString())))
             .andExpect(jsonPath("$.[*].manufacturingid").value(hasItem(DEFAULT_MANUFACTURINGID.toString())))
             .andExpect(jsonPath("$.[*].electricityrequirementid").value(hasItem(DEFAULT_ELECTRICITYREQUIREMENTID.toString())))
-            .andExpect(jsonPath("$.[*].environmentimpactdetailid").value(hasItem(DEFAULT_ENVIRONMENTIMPACTDETAILID.toString())));
+            .andExpect(jsonPath("$.[*].environmentimpactdetailid").value(hasItem(DEFAULT_ENVIRONMENTIMPACTDETAILID.toString())))
+            .andExpect(jsonPath("$.[*].termdeclarationacceptid").value(hasItem(DEFAULT_TERMDECLARATIONACCEPTID.toString())));
     }
 
     @Test
@@ -197,7 +203,8 @@ public class ProjectdetailcombinecodesResourceIntTest extends AbstractCassandraT
             .andExpect(jsonPath("$.projectfinanceid").value(DEFAULT_PROJECTFINANCEID.toString()))
             .andExpect(jsonPath("$.manufacturingid").value(DEFAULT_MANUFACTURINGID.toString()))
             .andExpect(jsonPath("$.electricityrequirementid").value(DEFAULT_ELECTRICITYREQUIREMENTID.toString()))
-            .andExpect(jsonPath("$.environmentimpactdetailid").value(DEFAULT_ENVIRONMENTIMPACTDETAILID.toString()));
+            .andExpect(jsonPath("$.environmentimpactdetailid").value(DEFAULT_ENVIRONMENTIMPACTDETAILID.toString()))
+            .andExpect(jsonPath("$.termdeclarationacceptid").value(DEFAULT_TERMDECLARATIONACCEPTID.toString()));
     }
 
     @Test
@@ -222,7 +229,8 @@ public class ProjectdetailcombinecodesResourceIntTest extends AbstractCassandraT
                 .projectfinanceid(UPDATED_PROJECTFINANCEID)
                 .manufacturingid(UPDATED_MANUFACTURINGID)
                 .electricityrequirementid(UPDATED_ELECTRICITYREQUIREMENTID)
-                .environmentimpactdetailid(UPDATED_ENVIRONMENTIMPACTDETAILID);
+                .environmentimpactdetailid(UPDATED_ENVIRONMENTIMPACTDETAILID)
+                .termdeclarationacceptid(UPDATED_TERMDECLARATIONACCEPTID);
         ProjectdetailcombinecodesDTO projectdetailcombinecodesDTO = projectdetailcombinecodesMapper.projectdetailcombinecodesToProjectdetailcombinecodesDTO(updatedProjectdetailcombinecodes);
 
         restProjectdetailcombinecodesMockMvc.perform(put("/api/projectdetailcombinecodes")
@@ -241,6 +249,7 @@ public class ProjectdetailcombinecodesResourceIntTest extends AbstractCassandraT
         assertThat(testProjectdetailcombinecodes.getManufacturingid()).isEqualTo(UPDATED_MANUFACTURINGID);
         assertThat(testProjectdetailcombinecodes.getElectricityrequirementid()).isEqualTo(UPDATED_ELECTRICITYREQUIREMENTID);
         assertThat(testProjectdetailcombinecodes.getEnvironmentimpactdetailid()).isEqualTo(UPDATED_ENVIRONMENTIMPACTDETAILID);
+        assertThat(testProjectdetailcombinecodes.getTermdeclarationacceptid()).isEqualTo(UPDATED_TERMDECLARATIONACCEPTID);
     }
 
     @Test

@@ -17,7 +17,6 @@
     Modeofdisposalfor_discharge,Particular,Waste_water_naturetype)
     {
         var vm = this;
-
         vm.completeprojectphasedata=[];
         vm.addProject_phaseData=addProject_phaseData;
         function addProject_phaseData(){
@@ -215,7 +214,6 @@
          //End waste water
 
         vm.CompleteProjectDetail=entity;
-        console.log(vm.CompleteProjectDetail);
 
         vm.investor=vm.CompleteProjectDetail.investorDTO;
         vm.companydetail=vm.CompleteProjectDetail.companydetailDTO;
@@ -223,11 +221,11 @@
         vm.projectsitedetail=vm.CompleteProjectDetail.projectsitedetailDTO;
         vm.project_finance_investment=vm.CompleteProjectDetail.project_finance_investmentDTO;
         vm.manufacturing_detail=vm.CompleteProjectDetail.manufacturingdetailDTO;
-
         vm.environmentimpactdetail=vm.CompleteProjectDetail.environment_impactdetailDTO;
-        console.log(vm.environmentimpactdetail);
+        vm.term_declaration_accept=vm.CompleteProjectDetail.term_declaration_acceptDTO;
         vm.electricrequirement=vm.CompleteProjectDetail.electricrequirementDTO;
-        vm.projectcombinecodes=vm.CompleteProjectDetail.projectdetailcombinecodesDTO ;
+        vm.projectcombinecodes=vm.CompleteProjectDetail.projectdetailcombinecodesDTO;
+
         vm.completeprojectphasedata=vm.CompleteProjectDetail.project_phaseDTOList;
         vm.projectrawmaterialdata=vm.CompleteProjectDetail.projectrawmaterialDTOList;
         vm.projectmainproductdata=vm.CompleteProjectDetail.projectproductDTOList;
@@ -316,7 +314,7 @@
             vm.CompleteProjectDetail.project_finance_investmentDTO=vm.project_finance_investment;
             vm.CompleteProjectDetail.manufacturingdetailDTO=vm.manufacturing_detail;
             vm.CompleteProjectDetail.environment_impactdetailDTO=vm.environmentimpactdetail;
-            console.log(vm.CompleteProjectDetail.environment_impactdetailDTO);
+            vm.CompleteProjectDetail.term_declaration_acceptDTO=vm.term_declaration_accept;
             vm.CompleteProjectDetail.electricrequirementDTO=vm.electricrequirement;
             vm.CompleteProjectDetail.projectdetailcombinecodesDTO =vm.projectcombinecodes;
 

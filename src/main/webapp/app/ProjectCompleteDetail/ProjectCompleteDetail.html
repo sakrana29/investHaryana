@@ -688,7 +688,7 @@
                     </td>
                     <td>
                         <ol>
-                            <li style="padding:10px;">I/We <b>(Name)</b>, Proprietor/Partner/Director of (Company)</b>,
+                            <li style="padding:10px;">I/We <b>{{vm.investor.firstname}}</b>, Proprietor/Partner/Director of (Company)</b>,
                                 hereby undertake that all the information furnished above is true and correct to the
                                 best of my/our knowledge and belief. No part of the information is false and nothing has
                                 been concealed therein.
@@ -706,7 +706,7 @@
                     <td>
 
                         <input checked="checked" id="chkAccept" disabled="disabled" style="outline: 2px solid;"
-                               autocomplete="off" autocompletetype="Disable" type="checkbox">
+                               autocomplete="off" autocompletetype="Disable" type="checkbox" ng-model="vm.term_declaration_accept.acceptance">
                         I Accept Terms and Conditions
                     </td>
                 </tr>
@@ -716,19 +716,19 @@
                 <tbody>
                 <tr>
                     <td class="col-md-3 bold" style="border-top-left-radius:8px;">
-                        Application Date:
+                        Application Date:{{vm.term_declaration_accept.applicationdate}}
                     </td>
                     <td class="col-md-3" style="text-align:center;border-top-right-radius:8px;">
                         <img src="" width="160px" height="70px"></td>
                 </tr>
                 <tr>
                     <td class="col-md-3 bold">
-                        Place:
+                        Place:{{vm.term_declaration_accept.place}}
                     </td>
                     <td class="col-md-3 bold">
                         <div class="col-md-4"></div>
                         <div class="pull-left col-md-8">
-                            Applicant Name:
+                            Applicant Name: {{vm.investor.firstname}}
                         </div>
                     </td>
                 </tr>

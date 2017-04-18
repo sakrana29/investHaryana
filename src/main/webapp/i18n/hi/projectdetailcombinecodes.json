@@ -21,7 +21,8 @@
             "projectfinanceid": "Projectfinanceid",
             "manufacturingid": "Manufacturingid",
             "electricityrequirementid": "Electricityrequirementid",
-            "environmentimpactdetailid": "Environmentimpactdetailid"
+            "environmentimpactdetailid": "Environmentimpactdetailid",
+            "termdeclarationacceptid": "Termdeclarationacceptid"
         }
     }
 }

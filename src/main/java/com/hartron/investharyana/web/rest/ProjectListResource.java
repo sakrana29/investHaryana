@@ -1,7 +1,6 @@
 package com.hartron.investharyana.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import com.hartron.investharyana.domain.Projectsitedetail;
 import com.hartron.investharyana.service.*;
 import com.hartron.investharyana.service.dto.*;
 import org.slf4j.Logger;
@@ -27,14 +26,15 @@ public class ProjectListResource {
     private final Project_finance_investmentService project_finance_investmentService;
     private final ProjectdetailcombinecodesService projectdetailcombinecodesService;
     private final ProjectsitedetailService projectsitedetailService;
+    private final CompanydetailService companydetailService;
 
-    public ProjectListResource(InvestorService investorService, ProjectdetailService projectdetailService, Project_finance_investmentService project_finance_investmentService, ProjectdetailcombinecodesService projectdetailcombinecodesService, ProjectsitedetailService projectsitedetailService) {
+    public ProjectListResource(InvestorService investorService, ProjectdetailService projectdetailService, Project_finance_investmentService project_finance_investmentService, ProjectdetailcombinecodesService projectdetailcombinecodesService, ProjectsitedetailService projectsitedetailService, CompanydetailService companydetailService) {
         this.investorService = investorService;
         this.projectdetailService = projectdetailService;
         this.project_finance_investmentService = project_finance_investmentService;
         this.projectdetailcombinecodesService = projectdetailcombinecodesService;
         this.projectsitedetailService = projectsitedetailService;
-
+        this.companydetailService = companydetailService;
     }
 
     @GetMapping("/ProjectList")
@@ -49,12 +49,8 @@ public class ProjectListResource {
             InvestorDTO investorDTO= investorService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getInvestorid().toString());
             ProjectdetailDTO projectdetailDTO= projectdetailService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getId().toString());
             Project_finance_investmentDTO project_finance_investmentDTO= project_finance_investmentService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getProjectfinanceid().toString());
-
-
-
+            CompanydetailDTO companydetailDTO = companydetailService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getCompanydetailid().toString());
             ProjectsitedetailDTO projectsitedetailDTO = projectsitedetailService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getProjectsitedetailid().toString());
-
-
 
             ListofProjectsDTO listofProjectsDTO=new ListofProjectsDTO();
             listofProjectsDTO.setProjectid(projectdetailDTO.getId().toString());
@@ -64,7 +60,6 @@ public class ProjectListResource {
             listofProjectsDTO.setProjectType(projectdetailDTO.getProjectype());
             listofProjectsDTO.setTotalEmployement(project_finance_investmentDTO.getTotalpurposedemployment());
 
-         //pk
             listofProjectsDTO.setMouYear(investorDTO.getMousignyear());
             listofProjectsDTO.setApplicationDate(investorDTO.getCreatedate());
             listofProjectsDTO.setSectorName(projectdetailDTO.getSectorname());
@@ -74,10 +69,7 @@ public class ProjectListResource {
             listofProjectsDTO.setSiteaddress(projectsitedetailDTO.getSiteaddress());
             listofProjectsDTO.setBlock(projectsitedetailDTO.getBlock());
             listofProjectsDTO.setDistrict(projectsitedetailDTO.getDistrict());
-
-//            System.out.println(listofProjectsDTO);
-
-
+            listofProjectsDTO.setBuisnessEntity(companydetailDTO.getBusinessentity());
 
             listofProjectsDTOList.add(listofProjectsDTO);
         }

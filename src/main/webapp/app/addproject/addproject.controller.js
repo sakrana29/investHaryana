@@ -10,14 +10,14 @@
     'Companydetail','Projectdetail','Projectcompletedetail','Country','State','City_town_village','Businessentitys','Sector',
     'Industrysize','Projectype','Projectcategory','Foreignfundingresource','Approvalforms','Block','Connectingroad','Landusezoneclassification',
     'Watersupplysource','Waste_water_disposal_mode','Emmision_pollution_controll','Emmision_fuel_type','District','Wwtreatmentone','Wwtreatmenttwo',
-    'Wwtreatmentthree','Manufacturingunits','Modeofdisposalfor_discharge','Particular','Waste_water_naturetype','environmentimpactdetail'];
+    'Wwtreatmentthree','Manufacturingunits','Modeofdisposalfor_discharge','Particular','Waste_water_naturetype','environmentimpactdetail','term_declaration_accept'];
 
     function addprojectController ($scope, Principal, investor, companydetail, projectdetail,projectsitedetail,electricrequirement,
     manufacturingdetail,project_finance_investment,projectcombinecodes, LoginService, $state, Investor, Companydetail, Projectdetail,
     Projectcompletedetail,Country,State,City_town_village,Businessentitys,Sector,Industrysize,Projectype,Projectcategory,
     Foreignfundingresource,Approvalforms,Block,Connectingroad,Landusezoneclassification,Watersupplysource,Waste_water_disposal_mode,
     Emmision_pollution_controll,Emmision_fuel_type,District,Wwtreatmentone,Wwtreatmenttwo,Wwtreatmentthree,Manufacturingunits,
-    Modeofdisposalfor_discharge,Particular,Waste_water_naturetype,environmentimpactdetail)
+    Modeofdisposalfor_discharge,Particular,Waste_water_naturetype,environmentimpactdetail,term_declaration_accept)
     {
         var vm = this;
 
@@ -30,6 +30,7 @@
           vm.completeprojectphasedata.push(vm.project_phase);
           vm.project_phase={};
         }
+//        vm.term_declaration_accept.acceptance.value=false;
          // delete the selected rows from table
         vm.removeRow = function(phase){
             var index = -1;
@@ -227,7 +228,7 @@
         vm.project_finance_investment=project_finance_investment;
         vm.projectcombinecodes=projectcombinecodes;
         vm.environmentimpactdetail=environmentimpactdetail;
-
+        vm.term_declaration_accept=term_declaration_accept;
         vm.account = null;
         vm.isAuthenticated = null;
         vm.login = LoginService.open;
@@ -311,7 +312,7 @@
             vm.CompleteProjectDetail.projectdetailcombinecodesDTO =vm.projectcombinecodes;
             vm.CompleteProjectDetail.project_phaseDTOList=vm.completeprojectphasedata;
             vm.CompleteProjectDetail.projectrawmaterialDTOList=vm.projectrawmaterialdata;
-
+            vm.CompleteProjectDetail.term_declaration_acceptDTO=vm.term_declaration_accept;
 //            console.log(vm.CompleteProjectDetail.projectrawmaterialDTOList);
 
             vm.CompleteProjectDetail.projectproductDTOList=vm.projectmainproductdata;

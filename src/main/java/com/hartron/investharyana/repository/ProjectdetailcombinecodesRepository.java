@@ -46,6 +46,7 @@ public class ProjectdetailcombinecodesRepository {
                 projectdetailcombinecodes.setManufacturingid(row.getUUID("manufacturingid"));
                 projectdetailcombinecodes.setElectricityrequirementid(row.getUUID("electricityrequirementid"));
                 projectdetailcombinecodes.setEnvironmentimpactdetailid(row.getUUID("environmentimpactdetailid"));
+                projectdetailcombinecodes.setTermdeclarationacceptid(row.getUUID("termdeclarationacceptid"));
                 return projectdetailcombinecodes;
             }
         ).forEach(projectdetailcombinecodesList::add);

@@ -111,6 +111,7 @@
                                 manufacturingid: null,
                                 electricityrequirementid: null,
                                 environmentimpactdetailid: null,
+                                termdeclarationacceptid: null,
                                 id: null
                             };
                         }

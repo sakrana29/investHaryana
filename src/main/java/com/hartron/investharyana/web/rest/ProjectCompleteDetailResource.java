@@ -1,7 +1,7 @@
 package com.hartron.investharyana.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import com.hartron.investharyana.domain.Investor;
+import com.hartron.investharyana.domain.Term_declaration_accept;
 import com.hartron.investharyana.service.*;
 import com.hartron.investharyana.service.dto.*;
 import com.hartron.investharyana.web.rest.util.HeaderUtil;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -46,8 +47,9 @@ public class ProjectCompleteDetailResource {
     private final ProjectprocessflowstepsService projectprocessflowstepsService;
     private final EmissiondetailService emissiondetailService;
     private final WastewaterdetailService wastewaterdetailService;
+    private final Term_declaration_acceptService term_declaration_acceptService;
 
-    public ProjectCompleteDetailResource(InvestorService investorService, CompanydetailService companydetailService, ProjectdetailService projectdetailService, ProjectsitedetailService projectsitedetailService, Project_finance_investmentService project_finance_investmentService, ManufacturingdetailService manufacturingdetailService, Environment_impactdetailService environment_impactdetailService, ElectricrequirementService electricrequirementService, ProjectdetailcombinecodesService projectdetailcombinecodesService, Project_phaseService project_phaseService, ProjectrawmaterialService projectrawmaterialService, ProjectproductService projectproductService, ProjectprocessflowstepsService projectprocessflowstepsService, EmissiondetailService emissiondetailService, WastewaterdetailService wastewaterdetailService) {
+    public ProjectCompleteDetailResource(InvestorService investorService, CompanydetailService companydetailService, ProjectdetailService projectdetailService, ProjectsitedetailService projectsitedetailService, Project_finance_investmentService project_finance_investmentService, ManufacturingdetailService manufacturingdetailService, Environment_impactdetailService environment_impactdetailService, ElectricrequirementService electricrequirementService, ProjectdetailcombinecodesService projectdetailcombinecodesService, Project_phaseService project_phaseService, ProjectrawmaterialService projectrawmaterialService, ProjectproductService projectproductService, ProjectprocessflowstepsService projectprocessflowstepsService, EmissiondetailService emissiondetailService, WastewaterdetailService wastewaterdetailService, Term_declaration_acceptService term_declaration_acceptService) {
         this.investorService = investorService;
         this.companydetailService = companydetailService;
         this.projectdetailService = projectdetailService;
@@ -63,6 +65,7 @@ public class ProjectCompleteDetailResource {
         this.projectprocessflowstepsService = projectprocessflowstepsService;
         this.emissiondetailService = emissiondetailService;
         this.wastewaterdetailService = wastewaterdetailService;
+        this.term_declaration_acceptService = term_declaration_acceptService;
     }
 
     @GetMapping("/CompleteProjectDetail")
@@ -103,6 +106,7 @@ public class ProjectCompleteDetailResource {
         //ProjectCompleteDetailDTO completeprojectdto=new ProjectCompleteDetailDTO();
 
         ProjectdetailcombinecodesDTO projectdetailcombinecodesDTO=projectdetailcombinecodesService.findOne(id);
+        System.out.println(projectdetailcombinecodesDTO);
         ProjectCompleteDetailDTO completeprojectdto=new ProjectCompleteDetailDTO();
 
         completeprojectdto.setProjectdetailDTO(projectdetailService.findOne(projectdetailcombinecodesDTO.getId().toString()));
@@ -113,6 +117,7 @@ public class ProjectCompleteDetailResource {
         completeprojectdto.setManufacturingdetailDTO(manufacturingdetailService.findOne(projectdetailcombinecodesDTO.getManufacturingid().toString()));
         completeprojectdto.setEnvironment_impactdetailDTO(environment_impactdetailService.findOne(projectdetailcombinecodesDTO.getEnvironmentimpactdetailid().toString()));
         completeprojectdto.setElectricrequirementDTO(electricrequirementService.findOne(projectdetailcombinecodesDTO.getElectricityrequirementid().toString()));
+        completeprojectdto.setTerm_declaration_acceptDTO(term_declaration_acceptService.findOne(projectdetailcombinecodesDTO.getTermdeclarationacceptid().toString()));
 
         completeprojectdto.setProject_phaseDTOList(project_phaseService.findAllByProjectid(id));
         completeprojectdto.setProjectrawmaterialDTOList(projectrawmaterialService.findAllByProjectid(id));
@@ -157,7 +162,6 @@ public class ProjectCompleteDetailResource {
         else
             projectCompleteDetailDTO.getInvestorDTO().setCafpin("");
 
-        System.out.println(projectCompleteDetailDTO.getInvestorDTO());
         InvestorDTO resultInvestor = investorService.save(projectCompleteDetailDTO.getInvestorDTO());
         CompanydetailDTO resultCompany = companydetailService.save(projectCompleteDetailDTO.getCompanydetailDTO());
         ProjectdetailDTO resultProjectdetail = projectdetailService.save(projectCompleteDetailDTO.getProjectdetailDTO());
@@ -172,6 +176,13 @@ public class ProjectCompleteDetailResource {
 
         ElectricrequirementDTO resultElectric = electricrequirementService.save(projectCompleteDetailDTO.getElectricrequirementDTO());
 
+        projectCompleteDetailDTO.getTerm_declaration_acceptDTO().setApplicationdate(ZonedDateTime.now());
+        projectCompleteDetailDTO.getTerm_declaration_acceptDTO().setCreatedate(ZonedDateTime.now());
+        projectCompleteDetailDTO.getTerm_declaration_acceptDTO().setUpdatedate(ZonedDateTime.now());
+        Term_declaration_acceptDTO resultTermDeclaration= term_declaration_acceptService.save(projectCompleteDetailDTO.getTerm_declaration_acceptDTO());
+
+        System.out.println(resultTermDeclaration);
+
         saveInnerEntities(projectCompleteDetailDTO, resultProjectdetail);
 
         projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setInvestorid(resultInvestor.getId());
@@ -182,6 +193,9 @@ public class ProjectCompleteDetailResource {
         projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setProjectfinanceid(resultFinance.getId());
         projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setManufacturingid(resultManufacturing.getId());
         projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setEnvironmentimpactdetailid(resultEnvironmentImpact.getId());
+        projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setTermdeclarationacceptid(resultTermDeclaration.getId());
+
+        System.out.println(projectCompleteDetailDTO.getProjectdetailcombinecodesDTO());
 
         ProjectdetailcombinecodesDTO resultCombineCodes = projectdetailcombinecodesService.save(projectCompleteDetailDTO.getProjectdetailcombinecodesDTO());
 
@@ -287,6 +301,10 @@ public class ProjectCompleteDetailResource {
         ManufacturingdetailDTO resultManufacturing = manufacturingdetailService.save(projectCompleteDetailDTO.getManufacturingdetailDTO());
         Environment_impactdetailDTO resultEnvironmentImpact=environment_impactdetailService.save(projectCompleteDetailDTO.getEnvironment_impactdetailDTO());
         ElectricrequirementDTO resultElectric = electricrequirementService.save(projectCompleteDetailDTO.getElectricrequirementDTO());
+
+        projectCompleteDetailDTO.getTerm_declaration_acceptDTO().setUpdatedate(ZonedDateTime.now());
+        Term_declaration_acceptDTO resultTermDeclaration= term_declaration_acceptService.save(projectCompleteDetailDTO.getTerm_declaration_acceptDTO());
+
         updateInnerEntities(projectCompleteDetailDTO, resultProjectdetail);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("Complete Project Detail", projectCompleteDetailDTO.getProjectdetailDTO().getId().toString()))

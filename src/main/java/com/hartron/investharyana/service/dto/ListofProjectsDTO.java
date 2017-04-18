@@ -30,11 +30,13 @@ public class ListofProjectsDTO implements Serializable {
     private String district;
     private String block;
 
+    public String getCAFPin() {
+        return CAFPin;
+    }
 
-
-
-
-
+    public void setCAFPin(String CAFPin) {
+        this.CAFPin = CAFPin;
+    }
 
     public String getInvestorName() {
         return InvestorName;
@@ -130,13 +132,5 @@ public class ListofProjectsDTO implements Serializable {
 
     public void setBlock(String block) {
         this.block = block;
-    }
-
-    public String getCAFPin() {
-        return CAFPin;
-    }
-
-    public void setCAFPin(String CAFPin) {
-        this.CAFPin = CAFPin;
     }
 }

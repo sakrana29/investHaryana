@@ -54,7 +54,7 @@ public class DepartmentStatsResource {
                 UUID projectidLocal;
                 ProjectServiceReportInfoDTO projectServiceReportInfoDTO1= projectServiceReportInfoDTOList.get(i);
                 departNameLocal= projectServiceReportInfoDTO1.getDepartmentname();
-                projectidLocal          = projectServiceReportInfoDTO1.getProjectid();
+                projectidLocal = projectServiceReportInfoDTO1.getProjectid();
 
                if(!(departNameList.contains(departNameLocal)))
                 {
@@ -114,7 +114,7 @@ public class DepartmentStatsResource {
                     }
 
 
-                    List<ProjectServiceReportInfoDTO> filteredArticleListStageOne= projectServiceReportInfoDTOList.stream().filter(article -> article.getDepartmentname().contains(departNameLocal)).filter(article -> article.getProjectid().toString().contains(projectid)).filter(article -> article.getStage().contains("StageI")) .collect(Collectors.toList());
+                    List<ProjectServiceReportInfoDTO> filteredArticleListStageOne= projectServiceReportInfoDTOList.stream().filter(article -> article.getDepartmentname().contains(departNameLocal)).filter(article -> article.getProjectid().toString().contains(projectid)).filter(article -> article.getStage().contains("Stage-I")) .collect(Collectors.toList());
 
                     if(filteredArticleListStageOne.size()>0)
                     {

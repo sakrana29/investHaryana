@@ -22,6 +22,7 @@
         vm.projectsitedetail=vm.CompleteProjectDetail.projectsitedetailDTO;
         vm.project_finance_investment=vm.CompleteProjectDetail.project_finance_investmentDTO;
         vm.manufacturing_detail=vm.CompleteProjectDetail.manufacturingdetailDTO;
+        vm.term_declaration_accept=vm.CompleteProjectDetail.term_declaration_acceptDTO;
         vm.electricrequirement=vm.CompleteProjectDetail.electricrequirementDTO;
         vm.projectcombinecodes=vm.CompleteProjectDetail.projectdetailcombinecodesDTO;
         vm.project_phase=vm.CompleteProjectDetail.project_phaseDTOList;

@@ -29,6 +29,10 @@
         {
             "fieldName": "environmentimpactdetailid",
             "fieldType": "UUID"
+        },
+        {
+            "fieldName": "termdeclarationacceptid",
+            "fieldType": "UUID"
         }
     ],
     "changelogDate": "20170322055915",

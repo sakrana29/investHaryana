@@ -26,6 +26,8 @@ public class ProjectdetailcombinecodesDTO implements Serializable {
 
     private UUID environmentimpactdetailid;
 
+    private UUID termdeclarationacceptid;
+
     public UUID getId() {
         return id;
     }
@@ -82,6 +84,13 @@ public class ProjectdetailcombinecodesDTO implements Serializable {
     public void setEnvironmentimpactdetailid(UUID environmentimpactdetailid) {
         this.environmentimpactdetailid = environmentimpactdetailid;
     }
+    public UUID getTermdeclarationacceptid() {
+        return termdeclarationacceptid;
+    }
+
+    public void setTermdeclarationacceptid(UUID termdeclarationacceptid) {
+        this.termdeclarationacceptid = termdeclarationacceptid;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -115,6 +124,7 @@ public class ProjectdetailcombinecodesDTO implements Serializable {
             ", manufacturingid='" + manufacturingid + "'" +
             ", electricityrequirementid='" + electricityrequirementid + "'" +
             ", environmentimpactdetailid='" + environmentimpactdetailid + "'" +
+            ", termdeclarationacceptid='" + termdeclarationacceptid + "'" +
             '}';
     }
 }

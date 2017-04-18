@@ -21,6 +21,7 @@ public class ProjectCompleteDetailDTO implements Serializable {
     private ElectricrequirementDTO electricrequirementDTO;
     private Environment_impactdetailDTO environment_impactdetailDTO;
     private ProjectdetailcombinecodesDTO projectdetailcombinecodesDTO;
+    private Term_declaration_acceptDTO term_declaration_acceptDTO;
 
     private List<Project_phaseDTO> project_phaseDTOList;
     private List<ProjectrawmaterialDTO> projectrawmaterialDTOList;
@@ -139,5 +140,13 @@ public class ProjectCompleteDetailDTO implements Serializable {
 
     public void setEnvironment_impactdetailDTO(Environment_impactdetailDTO environment_impactdetailDTO) {
         this.environment_impactdetailDTO = environment_impactdetailDTO;
+    }
+
+    public Term_declaration_acceptDTO getTerm_declaration_acceptDTO() {
+        return term_declaration_acceptDTO;
+    }
+
+    public void setTerm_declaration_acceptDTO(Term_declaration_acceptDTO term_declaration_acceptDTO) {
+        this.term_declaration_acceptDTO = term_declaration_acceptDTO;
     }
 }
