@@ -37,6 +37,8 @@
             vm.completeprojectphasedata.splice( index, 1 );
         };
 
+        console.log(vm.completeprojectphasedata.length);
+
         vm.projectrawmaterialdata=[];
         vm.addProject_rawmaterialData=addProject_rawmaterialData;
         function addProject_rawmaterialData(){

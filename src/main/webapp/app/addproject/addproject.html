@@ -16,7 +16,7 @@
                 </div>
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href=".invt">Investor</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href=".invt">1. Investor</a>
                     </h4>
                 </div>
                 <div id="invt" class="panel-collapse collapse invt">
@@ -139,7 +139,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href=".collapseTwo">Company Detail</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href=".collapseTwo">2. Company Detail</a>
                     </h4>
                 </div>
                 <div id="collapseTwo" class="panel-collapse collapse collapseTwo">
@@ -249,7 +249,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href=".collapseThree">Project Detail</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href=".collapseThree">3. Project Detail</a>
                     </h4>
                 </div>
                 <div id="collapseThree" class="panel-collapse collapse collapseThree">
@@ -363,7 +363,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href=".projectsitedetail2">Project Site
+                        <a data-toggle="collapse" data-parent="#accordion" href=".projectsitedetail2">4. Project Site
                             Detail </a>
                     </h4>
                 </div>
@@ -371,6 +371,7 @@
                     <div class="panel-body">
                         <form class="form-horizontal">
                             <fieldset>
+                                <legend>Project Site Detail</legend>
                                 <div class="form-group">
                                     <label for="siteaddress" class="col-lg-2 control-label">Site Address</label>
                                     <div class="col-lg-3"><textarea class="form-control" rows="3" id="siteaddress"
@@ -688,7 +689,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href=".financestrength">Proposed Fixed
+                        <a data-toggle="collapse" data-parent="#accordion" href=".financestrength">5. Proposed Fixed
                             Capital
                             Investment</a>
                     </h4>
@@ -697,6 +698,7 @@
                     <div class="panel-body">
                         <form class="form-horizontal" data-dpmaxz-eid="7">
                             <fieldset>
+                                <legend>Proposed Fixed Capital Investment</legend>
                                 <div class="form-group">
                                     <label for="landcost" class="col-lg-2 control-label">Land Cost</label>
                                     <div class="col-lg-3">
@@ -782,12 +784,15 @@
                                     </div>
                                 </div>
                                 <hr/>
-                                <p>Phase-wise Implementation / FCI Details</p>
+                                <p class="alert alert-success"
+                                   style="font-size:14px; font-weight:bold; width:100%;">
+                                    Phase-wise Implementation / FCI Details</p>
+
                                 <hr/>
                                 <div class="form-group text-center col-lg-12">
                                     <div class="form-group">
                                         <label for="Phase" class="col-lg-1 control-label">Phase</label>
-                                        <div class="col-lg-1"><input type="text" class="form-control" id="Phase"
+                                        <div class="col-lg-1"><input type="text" class="form-control"
                                                                      placeholder="Phase"
                                                                      ng-model="vm.project_phase.phase">
                                         </div>
@@ -810,13 +815,12 @@
                                     </div>
                                     <div class="col-lg-12 col-lg-offset-5">
                                         <!--<button type="reset" class="btn btn-default">Cancel</button>-->
-                                        <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12"
-                                                ng-click="vm.addProject_phaseData()">ADD
+                                        <button type="submit" class="btn btn-primary" ng-click="vm.addProject_phaseData()">ADD
                                         </button>
                                     </div>
                                 </div>
-                                <div class="col-lg-12">
-                                    <table class="table table-striped table-hover">
+                                <div class="col-lg-12" >
+                                    <table class="table table-striped table-hover" ng-show="(vm.completeprojectphasedata.length!=0)">
                                         <thead>
                                         <tr>
                                             <th>Phase</th>
@@ -833,7 +837,7 @@
                                             <td>{{projectphase.fci}}</td>
                                             <td>{{projectphase.implementationdate}}</td>
                                             <td>
-                                                <button type="submit" class="btn btn-primary pull-right"
+                                                <button type="submit" class="btn btn-primary pull-center"
                                                         value="Deletephase"
                                                         data-dpmaxz-eid="41"
                                                         ng-Click="vm.removeRow(projectphase.phase)">Delete
@@ -853,77 +857,66 @@
 
             <!--- End Proposed Payment Data -->
 
+            <!--- Manufacturing Data -->
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href=".manufacturing">Manufacturing Data</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href=".manufacturing">6. Manufacturing Data</a>
                     </h4>
                 </div>
                 <div id="manufacturing" class="panel-collapse collapse manufacturing">
                     <div class="panel-body">
                         <form class="form-horizontal" data-dpmaxz-eid="7">
                             <fieldset>
-                                <p>Manufacturing Details</p>
-                                <p>Please add all major Raw Material, Products/By-Products</p>
+                                <legend>Manufacturing Details</legend>
                                 <div class="col-lg-12">
-                                    <div class="form-group">
+                                    <div class="form-group" class="col-lg-12 pagination-centered">
                                         <div class="col-lg-3">
                                             <div class="form-group">
-
-                                                <!--<label><input type="checkbox" name="ismouapplicable" ng-model="vm.investor.mouapplicable"> Applicable </label>
-                                                 <input type="text" class="form-control" ng-model="vm.investor.mouidnumber" id="mouid" placeholder="Mou ID" data-dpmaxz-eid="20">-->
-
-                                                <label for="rawmaterial" class="col-lg-6 control-label">Raw
+                                                <label for="rawmaterial" class="col-lg-8 control-label">Raw
                                                     Material</label>
                                                 <div class="col-lg-12">
                                                     <input type="text" class="form-control"
                                                            ng-model="vm.project_rawmaterial.rawmaterial"
                                                            id="rawmaterial"
-                                                           placeholder="Raw Material" data-dpmaxz-eid="20">
+                                                           placeholder="Raw Material">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="form-group">
-                                                <label for="Quantity" class="col-lg-6 control-label">Quantity</label>
+                                                <label for="Quantity" class="col-lg-8 control-label">Quantity</label>
                                                 <div class="col-lg-12">
                                                     <input type="text" class="form-control"
                                                            ng-model="vm.project_rawmaterial.quantity" id="Quantity"
-                                                           placeholder="0" data-dpmaxz-eid="20">
+                                                           placeholder="0">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="form-group">
-                                                <label for="Units" class="col-lg-6 control-label">Units</label>
+                                                <label for="Units" class="col-lg-8 control-label">Units</label>
                                                 <div class="col-lg-12">
-
-                                                    <!-- <select required class="form-control" ng-model="vm.investor.selectedCountry" ng-options="country.countryname for country in vm.countries">
-                                                    </select>
-                                                    -->
                                                     <select required class="form-control"
                                                             ng-model="vm.project_rawmaterial.selectedUnit"
                                                             ng-options="unit.unittypes for unit in vm.manufacturingunits"
-                                                            data-dpmaxz-eid="20">
+                                                            >
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-1">
                                             <div class="form-group">
-                                                <label for="Units" class="col-lg-6 control-label">&nbsp;</label>
+                                                <label for="Units" class="col-lg-8 control-label">&nbsp;</label>
                                                 <div class="col-lg-12">
-
-                                                    <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12"
+                                                    <button type="submit" class="btn btn-primary"
                                                             ng-click="vm.addProject_rawmaterialData()">ADD
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
-
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-12" ng-show="(vm.projectrawmaterialdata.length!=0)">
                                         <table class="table table-striped table-hover ">
                                             <thead>
                                             <tr>
@@ -939,7 +932,7 @@
                                                 <td>{{projectrawmaterial.quantity}}</td>
                                                 <td>{{projectrawmaterial.units}}</td>
                                                 <td>
-                                                    <button type="submit" class="btn btn-primary pull-right"
+                                                    <button type="submit" class="btn btn-primary pull-center"
                                                             value="Deletephase"
                                                             data-dpmaxz-eid="41"
                                                             ng-Click="vm.removeRawRow(projectrawmaterial.rawmaterial)">
@@ -1002,7 +995,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-12" ng-show="(vm.projectmainproductdata.length!=0)">
                                         <table class="table table-striped table-hover">
                                             <thead>
                                             <tr>
@@ -1018,7 +1011,7 @@
                                                 <td>{{projectmainproduct.quantity}}</td>
                                                 <td>{{projectmainproduct.units}}</td>
                                                 <td>
-                                                    <button type="submit" class="btn btn-primary pull-right"
+                                                    <button type="submit" class="btn btn-primary pull-center"
                                                             value="Deletephase"
                                                             data-dpmaxz-eid="41"
                                                             ng-Click="vm.removeMainRow(projectmainproduct.mainproduct)">
@@ -1032,27 +1025,23 @@
                                     </div>
                                 </div>
 
-                                <!-- Manufacturing Process flow -->
                                 <hr/>
-                                <!--<p>Manufacturing Process Flow</p>-->
+
                                 <div class="form-group">
-                                    <!--<label class="col-lg-2 control-label">Manufacturing Process</label>
-                                    <div class="col-lg-3"><input class="btn btn-default fileinput-button" type="file"></div>-->
                                     <label for="addprocess" class="col-lg-2 control-label">Add Process</label>
                                     <div class="col-lg-3">
                                         <input type="text" ng-model="vm.projectprocessflowstep.steps"
                                                class="form-control"
-                                               id="addprocess" placeholder="Add Process"
-                                               data-dpmaxz-eid="20">
+                                               id="addprocess" placeholder="Add Process">
                                     </div>
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12"
                                                 ng-click="vm.addProject_processflowstepData()">ADD
                                         </button>
 
                                     </div>
 
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-6" ng-show="(vm.projectprocessflowstepdata.length!=0)">
                                         <table class="table table-striped table-hover ">
                                             <thead>
                                             <tr>
@@ -1064,9 +1053,8 @@
                                             <tr ng-repeat="projectprocessflowstep in vm.projectprocessflowstepdata">
                                                 <td>{{projectprocessflowstep.steps}}</td>
                                                 <td>
-                                                    <button type="submit" class="btn btn-primary pull-right"
+                                                    <button type="submit" class="btn btn-primary pull-center"
                                                             value="Deletephase"
-                                                            data-dpmaxz-eid="41"
                                                             ng-Click="vm.removeStepRow(projectprocessflowstep.steps)">
                                                         Delete
                                                     </button>
@@ -1077,40 +1065,40 @@
 
                                     </div>
                                 </div>
-                                <hr/>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h3 class="alert alert-success"
-                                            style="font-size:17px; font-weight:bold; width:100%;">Environment Impact
-                                            Data</h3>
-                                    </div>
-                                </div>
-                                <div id="divEnvironment">
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- end of Manufacturing Data -->
+
+            <!-- Starting Environment Impact -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href=".environment">7. Environment Impact Detail</a>
+                    </h4>
+                </div>
+                <div id="environment impact" class="panel-collapse collapse environment">
+                    <div class="panel-body">
+                        <form class="form-horizontal" data-dpmaxz-eid="7">
+                            <fieldset>
+                                <legend>Environment Impact Detail</legend>
+                                <div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <label class="col-md-11">Raw Water Effluent Details</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label class="control-label col-md-2">Source of Water Supply</label>
+                                            <label class="control-label col-md-3">Source of Water Supply</label>
                                             <div class="col-lg-3">
-                                                <!--<select class="form-control">-->
-                                                <!--<option value="">Select Source of Water Supply</option>-->
-                                                <!--<option ng-repeat="swater in vm.watersource" value="{{swater.id }}">-->
-                                                <!--{{swater.watersupplysourcetype}}-->
-                                                <!--</option>-->
-                                                <!--</select>-->
                                                 <select required class="form-control"
                                                         ng-model="vm.environmentimpactdetail.selectedWatersource"
                                                         ng-options="watersupplysource.watersupplysourcetype for watersupplysource in vm.watersupplysources"
-                                                        placeholder="Select Source of Water Supply"
-                                                        data-dpmaxz-eid="20">
+                                                        placeholder="Select Source of Water Supply">
                                                 </select>
 
                                             </div>
                                         </div>
                                     </div>
+                                    <hr/>
                                     <div class="table table-bordered table-striped" style="min-height:40px;">
                                         <table class="table">
                                             <tbody>
@@ -1130,8 +1118,7 @@
                                                            data-val-length="Water usage process must be 1-100 characters long !"
                                                            data-val-length-max="100" data-val-length-min="1"
                                                            data-val-regex="Water usage process can only have alphanumerics, space and special characters (, - / ()) !"
-                                                           data-val-regex-pattern="^([0-9a-zA-Z,-/()
-]+)$" id="WaterUsageProcess" name="WaterUsageProcess" type="text" ng-model="vm.environmentimpactdetail.water_process"
+                                                           data-val-regex-pattern="^([0-9a-zA-Z,-/()]+)$"  name="WaterUsageProcess" type="text" ng-model="vm.environmentimpactdetail.water_process"
                                                            value="2" autocomplete="off"
                                                            autocompletetype="Disable" data-dpmaxz-eid="16"><br>
 
@@ -1141,8 +1128,7 @@
                                                            data-val-length="Water usage process must be 1-100 characters long !"
                                                            data-val-length-max="100" data-val-length-min="1"
                                                            data-val-regex="Water usage cooling can only have alphanumerics, space and special characters (, - / ()) !"
-                                                           data-val-regex-pattern="^([0-9a-zA-Z,-/()
-]+)$" id="WaterUsageCooling" name="WaterUsageCooling" type="text" ng-model="vm.environmentimpactdetail.water_cooling"
+                                                           data-val-regex-pattern="^([0-9a-zA-Z,-/()]+)$" name="WaterUsageCooling" type="text" ng-model="vm.environmentimpactdetail.water_cooling"
                                                            value="2" autocomplete="off"
                                                            autocompletetype="Disable" data-dpmaxz-eid="17"><br>
 
@@ -1152,8 +1138,7 @@
                                                            data-val-length="Water usage domestic must be 1-100 characters long !"
                                                            data-val-length-max="100" data-val-length-min="1"
                                                            data-val-regex="Water usage domestic can only have alphanumerics, space and special characters (, - / ()) !"
-                                                           data-val-regex-pattern="^([0-9a-zA-Z,-/()
-]+)$" id="WaterUsageDomestic" name="WaterUsageDomestic" type="text" ng-model="vm.environmentimpactdetail.water_domestic"
+                                                           data-val-regex-pattern="^([0-9a-zA-Z,-/()]+)$" name="WaterUsageDomestic" type="text" ng-model="vm.environmentimpactdetail.water_domestic"
                                                            value="2" autocomplete="off"
                                                            autocompletetype="Disable" data-dpmaxz-eid="18"><br>
                                                 </td>
@@ -1163,8 +1148,7 @@
                                                            data-val-length="Other water usage must be 1-100 characters long !"
                                                            data-val-length-max="100" data-val-length-min="1"
                                                            data-val-regex="Other water usage can only have alphanumerics, space and special characters (, - / ()) !"
-                                                           data-val-regex-pattern="^([0-9a-zA-Z,-/()
-]+)$" id="WaterUsageOther" name="WaterUsageOther" type="text" ng-model="vm.environmentimpactdetail.water_other"
+                                                           data-val-regex-pattern="^([0-9a-zA-Z,-/()]+)$" name="WaterUsageOther" type="text" ng-model="vm.environmentimpactdetail.water_other"
                                                            value="2" autocomplete="off" autocompletetype="Disable"
                                                            data-dpmaxz-eid="19"><br>
                                                 </td>
@@ -1178,8 +1162,7 @@
                                                            data-val-length="Waste water generation process must be 1-100 characters long !"
                                                            data-val-length-max="100" data-val-length-min="1"
                                                            data-val-regex="Waste water generation process can only have alphanumerics, space and special characters (, - / ()) !"
-                                                           data-val-regex-pattern="^([0-9a-zA-Z,-/()
-]+)$" id="WasteWaterGenerationProcess" name="WasteWaterGenerationProcess" type="text"
+                                                           data-val-regex-pattern="^([0-9a-zA-Z,-/()]+)$" name="WasteWaterGenerationProcess" type="text"
                                                            ng-model="vm.environmentimpactdetail.waste_water_process"
                                                            value="1" autocomplete="off"
                                                            autocompletetype="Disable" data-dpmaxz-eid="20"><br>
@@ -1189,8 +1172,7 @@
                                                            data-val-length="Waste water generation cooling must be 1-100 characters long !"
                                                            data-val-length-max="100" data-val-length-min="1"
                                                            data-val-regex="Waste water generation cooling can only have alphanumerics, space and special characters (, - / ()) !"
-                                                           data-val-regex-pattern="^([0-9a-zA-Z,-/()
-]+)$" id="WasteWaterGenerationCooling" name="WasteWaterGenerationCooling" type="text"
+                                                           data-val-regex-pattern="^([0-9a-zA-Z,-/()]+)$" name="WasteWaterGenerationCooling" type="text"
                                                            ng-model="vm.environmentimpactdetail.waste_water_cooling"
                                                            value="1" autocomplete="off"
                                                            autocompletetype="Disable" data-dpmaxz-eid="21"><br>
@@ -1200,8 +1182,7 @@
                                                            data-val-length="Waste water generation domestic must be 1-100 characters long !"
                                                            data-val-length-max="100" data-val-length-min="1"
                                                            data-val-regex="Waste water generation domestic can only have alphanumerics, space and special characters (, - / ()) !"
-                                                           data-val-regex-pattern="^([0-9a-zA-Z,-/()
-]+)$" id="WasteWaterGenerationDomestic" name="WasteWaterGenerationDomestic" type="text"
+                                                           data-val-regex-pattern="^([0-9a-zA-Z,-/()]+)$" name="WasteWaterGenerationDomestic" type="text"
                                                            ng-model="vm.environmentimpactdetail.waste_water_domesting"
                                                            value="1" autocomplete="off"
                                                            autocompletetype="Disable" data-dpmaxz-eid="22"><br>
@@ -1211,8 +1192,7 @@
                                                            data-val-length="Other waste water generation must be 1-100 characters long !"
                                                            data-val-length-max="100" data-val-length-min="1"
                                                            data-val-regex="Other waste water generation can only have alphanumerics, space and special characters (, - / ()) !"
-                                                           data-val-regex-pattern="^([0-9a-zA-Z,-/()
-]+)$" id="WasteWaterGenerationOther" name="WasteWaterGenerationOther" type="text"
+                                                           data-val-regex-pattern="^([0-9a-zA-Z,-/()]+)$"  name="WasteWaterGenerationOther" type="text"
                                                            ng-model="vm.environmentimpactdetail.waste_water_other"
                                                            value="1"
                                                            autocomplete="off"
@@ -1220,115 +1200,28 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Waste Water Treatment<span style="color:red">*</span><br><span
-                                                    class="cafSubHeadings">*Enclosed Attachment for details</span></td>
+                                                <td>Waste Water Treatment<br></td>
                                                 <td>
-                                                    <table>
-                                                        <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <!--<select class="form-control">-->
-                                                                <!--<option value="">Select Waste water treatment</option>-->
-                                                                <!--<option ng-repeat="wastetreat in vm.wastewatertreatment"-->
-                                                                <!--value="{{wastetreat.id }}">-->
-                                                                <!--{{wastetreat.mode_of_disposal}}-->
-                                                                <!--</option>-->
-                                                                <!--</select>-->
-
-                                                                <select required class="form-control"
-                                                                        ng-model="vm.environmentimpactdetail.selectedTreatmentone"
-                                                                        ng-options="treatmentone.treatment1 for treatmentone in vm.treatment1"
-                                                                        data-dpmaxz-eid="20"
-                                                                        placeholder="Select Waste water treatment One">
-                                                                </select>
-                                                            </td>
-
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <!--<div id="divWasteWaterTreatmentProcessOther"-->
-                                                                <!--style="display:none;">-->
-                                                                <!--<input class="form-control" data-val="true"-->
-                                                                <!--data-val-length="Waste water treatment process Other must be 1-100 characters long !"-->
-                                                                <!--data-val-length-max="100" data-val-length-min="1"-->
-                                                                <!--data-val-regex="Waste water treatment process Other can only have alphanumerics, space and special characters (, - / ()) !"-->
-                                                                <!--data-val-regex-pattern="^([0-9a-zA-Z,-/()-->
-                                                                <!--]+)$" id="WasteWaterTreatmentProcessOther" name="WasteWaterTreatmentProcessOther" placeholder="Process (Other)"-->
-                                                                <!--type="text" value="" autocomplete="off"-->
-                                                                <!--autocompletetype="Disable" data-dpmaxz-eid="25">-->
-                                                                <!--</div>-->
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <!--<span class="btn btn-primary fileinput-button">
-                                                                    <input id="WasteWaterTreatmentAnnName" type="file" name="files[]"
-                                                                           autocomplete="off" autocompletetype="Disable">
-                                                                </span>-->
-                                                                <br>
-                                                                <!--<div class="progress progress-info progress-striped waste"-->
-                                                                <!--style="width:255px;margin-top:5px;margin-bottom:2px;display:none;">-->
-                                                                <!--<div id="wasteProgress" class="progress-bar waste"-->
-                                                                <!--role="progressbar" aria-valuenow="0"-->
-                                                                <!--aria-valuemin="0" aria-valuemax="100"-->
-                                                                <!--style="width: 0%;">-->
-                                                                <!--<span class="sr-only">0% complete</span>-->
-                                                                <!--</div>-->
-                                                                <!--</div>-->
-                                                                <!--<div class="waste_name" style="display:none;"></div>-->
-                                                                <!--<div id="divError" style="font-size:12px;color:red;"></div>-->
-                                                                <!--<span class="field-validation-valid errorMsg"-->
-                                                                <!--data-valmsg-for="RequiredWaterTreatment"-->
-                                                                <!--data-valmsg-replace="true"-->
-                                                                <!--id="RequiredWaterTreatment"></span>-->
-                                                            </td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
+                                                    <select required class="form-control"
+                                                            ng-model="vm.environmentimpactdetail.selectedTreatmentone"
+                                                            ng-options="treatmentone.treatment1 for treatmentone in vm.treatment1"
+                                                            placeholder="Select Waste water treatment One">
+                                                    </select>
                                                 </td>
                                                 <td>
                                                     <select required class="form-control"
                                                             ng-model="vm.environmentimpactdetail.selectedTreatmenttwo"
                                                             ng-options="treatmenttwo.treatment2 for treatmenttwo in vm.treatment2"
-                                                            data-dpmaxz-eid="20"
                                                             placeholder="Select Waste water treatment Two">
                                                     </select>
-
-                                                    <!--<select class="form-control">-->
-                                                    <!--<option value="">Select Waste water treatment2</option>-->
-                                                    <!--<option ng-repeat="wastetreat in vm.wastewatertreatment"-->
-                                                    <!--value="{{wastetreat.id }}">{{wastetreat.mode_of_disposal}}-->
-                                                    <!--</option>-->
-                                                    <!--</select>-->
-                                                    <!--<div id="divWasteWaterTreatmentCoolingOther" style="display:none;">-->
-                                                    <!--<input class="form-control" data-val="true"-->
-                                                    <!--data-val-length="Waste water treatment cooling Other must be 1-100 characters long !"-->
-                                                    <!--data-val-length-max="100" data-val-length-min="1"-->
-                                                    <!--data-val-regex="Waste water treatment cooling Other can only have alphanumerics, space and special characters (, - / ()) !"-->
-                                                    <!--data-val-regex-pattern="^([0-9a-zA-Z,-/()-->
-                                                    <!--]+)$" id="WasteWaterTreatmentCoolingOther" name="WasteWaterTreatmentCoolingOther" placeholder="Cooling (Other)"-->
-                                                    <!--type="text" value="" autocomplete="off"-->
-                                                    <!--autocompletetype="Disable" data-dpmaxz-eid="27">-->
-                                                    <!--<span class="field-validation-valid errorMsg"-->
-                                                    <!--data-valmsg-for="WasteWaterTreatmentCoolingOther"-->
-                                                    <!--data-valmsg-replace="true"></span><br>-->
-                                                    <!--</div>-->
-
                                                 </td>
                                                 <td>
-
                                                     <select required class="form-control"
                                                             ng-model="vm.environmentimpactdetail.selectedTreatmentthree"
                                                             ng-options="treatmentthree.treatment3 for treatmentthree in vm.treatment3"
                                                             data-dpmaxz-eid="20"
                                                             placeholder="Select Waste water treatment Three">
                                                     </select>
-                                                    <!--<select class="form-control">-->
-                                                    <!--<option value="">Select Waste water treatment3</option>-->
-                                                    <!--<option ng-repeat="wastetreat in vm.wastewatertreatment"-->
-                                                    <!--value="{{wastetreat.id }}">{{wastetreat.mode_of_disposal}}-->
-                                                    <!--</option>-->
-                                                    <!--</select>-->
                                                     <span class="field-validation-valid errorMsg"
                                                           data-valmsg-for="WasteWaterTreatmentDomestic"
                                                           data-valmsg-replace="true"></span>
@@ -1337,34 +1230,17 @@
                                                           data-valmsg-replace="true"></span>
 
                                                     <br>
-                                                    <!--<div id="divWasteWaterTreatmentDomesticOther" style="display:none;">-->
-                                                    <!--<input class="form-control" data-val="true"-->
-                                                    <!--data-val-length="Waste water treatment domestic other must be 1-100 characters long !"-->
-                                                    <!--data-val-length-max="100" data-val-length-min="1"-->
-                                                    <!--data-val-regex="Waste water treatment domestic other can only have alphanumerics, space and special characters (, - / ()) !"-->
-                                                    <!--data-val-regex-pattern="^([0-9a-zA-Z,-/() ]+)$"-->
-                                                    <!--id="WasteWaterTreatmentDomesticOther"-->
-                                                    <!--name="WasteWaterTreatmentDomesticOther"-->
-                                                    <!--placeholder="Domestic (Other)" type="text" value=""-->
-                                                    <!--autocomplete="off" autocompletetype="Disable"-->
-                                                    <!--data-dpmaxz-eid="29">-->
-                                                    <!--<span class="field-validation-valid errorMsg"-->
-                                                    <!--data-valmsg-for="WasteWaterTreatmentDomesticOther"-->
-                                                    <!--data-valmsg-replace="true"></span><br>-->
-                                                    <!--</div>-->
                                                 </td>
                                                 <td>
                                                     <input class="form-control" data-val="true"
                                                            data-val-length="Other waste water treatment must be 1-100 characters long !"
                                                            data-val-length-max="100" data-val-length-min="1"
                                                            data-val-regex="Other waste water treatment can only have alphanumerics, space and special characters (, - / ()) !"
-                                                           data-val-regex-pattern="^([0-9a-zA-Z,-/()
-]+)$" id="WasteWaterTreatmentOther" name="WasteWaterTreatmentOther" type="text"
+                                                           data-val-regex-pattern="^([0-9a-zA-Z,-/()]+)$" name="WasteWaterTreatmentOther" type="text"
                                                            ng-model="vm.environmentimpactdetail.recycling_other"
                                                            value="RECIRCULATION"
                                                            autocomplete="off"
-                                                           autocompletetype="Disable" data-dpmaxz-eid="30"><br>
-
+                                                           autocompletetype="Disable"><br>
                                                     <span class="field-validation-valid errorMsg"
                                                           data-valmsg-for="WasteWaterTreatmentOther"
                                                           data-valmsg-replace="true"></span>
@@ -1379,49 +1255,37 @@
 
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <label class="control-label col-md-2">Mode of disposal for Discharge</label>
+                                            <label class="control-label col-md-3">Mode of disposal for Discharge</label>
                                             <div class="col-lg-3">
-
                                                 <select required class="form-control"
                                                         ng-model="vm.environmentimpactdetail.selectedDischarge"
                                                         ng-options="discharge.disposal_for_discharge for discharge in vm.modeofdisposalfor_discharge"
                                                         data-dpmaxz-eid="20" placeholder="Select Waste water treatment">
                                                 </select>
-                                                <!--<select class="form-control">-->
-                                                <!--<option value="">Select Waste water treatment</option>-->
-
-                                                <!--<option ng-repeat="wastetreat in vm.wastewatertreatment"-->
-                                                <!--value="{{wastetreat.id }}">{{wastetreat.mode_of_disposal}}-->
-                                                <!--</option>-->
-                                                <!--</select>-->
-                                                <!---->
                                             </div>
                                         </div>
                                     </div>
-
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label style="font-weight:100!important;" class="col-md-11">Emission Data
-                                                <span
-                                                    style="font-weight:normal;">(Please add atleast one item from each BOILER, FURNANCE, PROCESS EMISSION, DG SET)</span></label>
-                                        </div>
+                                    <hr/>
+                                    <div >
+                                        <p class="alert alert-success"
+                                           style="font-size:14px; font-weight:bold; width:100%;">
+                                            Emission Data</p>
                                     </div>
-                                    <div class="table-bordered table-striped table-responsive">
-                                        <table class="table-condensed table-responsive verticalalign">
+
+                                    <div class="table-bordered table-striped table-responsive" style="min-height:40px;">
+                                        <table class="table">
                                             <tbody>
                                             <tr>
                                                 <th>
-                                                    Particulars
+                                                    Emission Type
                                                     <span style="color:red;">*</span>
                                                 </th>
                                                 <th>
                                                     Capacity
                                                     <span style="color:red;">*</span><br>
                                                     <span style="font-size:small">
-                                (Ton Per Hour / KVA or Mega Watt)
-                            </span>
-
+                                                        (Ton Per Hour / KVA or Mega Watt)
+                                                    </span>
                                                 </th>
                                                 <th>
                                                     Type of Fuel
@@ -1432,24 +1296,14 @@
                                                     Air Pollution Control Device
                                                     <span style="color:red;">*</span>
                                                 </th>
-
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <!--<select class="form-control">-->
-                                                    <!--<option value="">Select Emmision Pollution Controlls</option>-->
-                                                    <!--<option ng-repeat="empolcon in vm.emissionpolution"-->
-                                                    <!--value="{{empolcon.id }}">-->
-                                                    <!--{{empolcon.airpollutioncontroldevice}}-->
-                                                    <!--</option>-->
-                                                    <!--</select>-->
                                                     <select required class="form-control"
                                                             ng-model="vm.emissiondetail.selectedParticular"
                                                             ng-options="particular.particulars for particular in vm.particulars"
-                                                            data-dpmaxz-eid="20"
                                                             placeholder="Select Emmision Pollution Controls">
                                                     </select>
-
                                                 </td>
                                                 <td>
                                                     <input class="form-control" data-val="true"
@@ -1464,13 +1318,7 @@
                                                     <span class="field-validation-valid" data-valmsg-for="Capacity"
                                                           data-valmsg-replace="true"></span>
                                                 </td>
-                                                <td width="150px;">
-                                                    <!--<select class="form-control">-->
-                                                    <!--<option value="">Select Emmision Fuel Type</option>-->
-                                                    <!--<option ng-repeat="emfule in vm.emissionfuel"-->
-                                                    <!--value="{{emfule.id }}">{{emfule.typeoffuel}}-->
-                                                    <!--</option>-->
-                                                    <!--</select>-->
+                                                <td >
                                                     <select required class="form-control"
                                                             ng-model="vm.emissiondetail.selectedTypeoffuel"
                                                             ng-options="typeoffuelname.typeoffuel for typeoffuelname in vm.emmision_fuel_types"
@@ -1478,53 +1326,17 @@
                                                             placeholder="Select Emmision Fuel Type">
                                                     </select>
                                                 </td>
-
                                                 <td>
-                                                    <!--<select class="form-control">-->
-                                                    <!--<option value="">Select Emmision Pollution Controlls</option>-->
-                                                    <!--<option ng-repeat="empolcon in vm.emissionpolution"-->
-                                                    <!--value="{{empolcon.id }}">-->
-                                                    <!--{{empolcon.airpollutioncontroldevice}}-->
-                                                    <!--</option>-->
-                                                    <!--</select>-->
                                                     <select required class="form-control"
                                                             ng-model="vm.emissiondetail.selectedAirpollutioncontroldevice"
                                                             ng-options="airpollutioncontroldevicename.airpollutioncontroldevice for airpollutioncontroldevicename in vm.emmision_pollution_controlls"
                                                             data-dpmaxz-eid="20"
                                                             placeholder="Select Emmision Fuel Type">
                                                     </select>
-
                                                 </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2"></td>
-                                                <td>
-                                                    <div id="divOtherFuel" style="min-height: 40px; display: none;">
-                                                        <input class="form-control" data-val="true"
-                                                               data-val-length="Other fuel type must be 1 - 100 characters long!"
-                                                               data-val-length-max="100" data-val-length-min="1"
-                                                               data-val-regex="Other Fuel Type can only have alphanumerics, space and special characters (, - / ()) !"
-                                                               data-val-regex-pattern="^([0-9a-zA-Z,-/() ]+)$"
-                                                               id="OtherFuelType" name="OtherFuelType"
-                                                               placeholder="Click here to enter text" type="text"
-                                                               value=""
-                                                               autocomplete="off" autocompletetype="Disable"
-                                                               data-dpmaxz-eid="39">
-                                                    </div>
-                                                    <span class="field-validation-valid" data-valmsg-for="TypeOfFuel"
-                                                          data-valmsg-replace="true"></span>
-                                                    <span class="field-validation-valid" data-valmsg-for="OtherFuelType"
-                                                          data-valmsg-replace="true"></span>
-                                                </td>
-                                                <td colspan="7"></td>
                                             </tr>
                                             <tr>
                                                 <td align="right" colspan="12">
-                                                    <!--<button type="submit" id="btnEmissionData" name="Command"-->
-                                                    <!--class="btn btn-primary" value="SaveEmissionData"-->
-                                                    <!--data-dpmaxz-eid="40" ng-click="vm.saveProjectProduct()">Add-->
-                                                    <!--</button>-->
                                                     <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12"
                                                             ng-click="vm.addProject_emissiondetailData()">ADD
                                                     </button>
@@ -1533,11 +1345,7 @@
                                             </tr>
                                             </tbody>
                                         </table>
-                                        <div style="background-color:azure;">
-                                        <span class="field-validation-valid errorMsg" data-valmsg-for="EmissionError"
-                                              data-valmsg-replace="true" id="EmissionError"></span>
-                                        </div>
-                                        <div>
+                                        <div ng-show="(vm.emissiondetaildata.length!=0)">
                                             <table class="table table-curved">
                                                 <thead>
                                                 <tr>
@@ -1564,7 +1372,7 @@
                                                     <td>{{emissiondetail.type_of_fuel}}</td>
                                                     <td>{{emissiondetail.air_pollution_control_device}}</td>
                                                     <td>
-                                                        <button type="submit" class="btn btn-primary pull-right"
+                                                        <button type="submit" class="btn btn-primary pull-center"
                                                                 value="Deletephase"
                                                                 data-dpmaxz-eid="41"
                                                                 ng-Click="vm.removeEmissionRow(emissiondetail.selectedParticular)">
@@ -1576,13 +1384,17 @@
                                                 </tbody>
                                             </table>
                                         </div>
+                                        <div>
+                                        </div>
                                     </div>
-                                    <hr>
+
+                                    <hr/>
 
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <label style="font-weight:100!important;" class="col-md-11">Solid Waste
-                                                Generation Details</label>
+                                            <p class="alert alert-success"
+                                               style="font-size:14px; font-weight:bold; width:100%;">
+                                                Solid Waste Generation Details</p>
                                         </div>
                                     </div>
                                     <div class="table-bordered table-striped table-responsive" style="min-height:40px;">
@@ -1623,13 +1435,6 @@
                                                           data-valmsg-replace="true"></span>
                                                 </td>
                                                 <td>
-                                                    <!--<select class="form-control" id="NatureOrType" name="NatureOrType"-->
-                                                    <!--data-dpmaxz-eid="43">-->
-                                                    <!--<option value="">Select Any One</option>-->
-                                                    <!--<option value="Hazardous">Hazardous</option>-->
-                                                    <!--<option value="Non-Hazardous">Non-Hazardous</option>-->
-                                                    <!--</select>-->
-
                                                     <select required class="form-control"
                                                             ng-model="vm.wastewaterdetail.selectedNaturetype"
                                                             ng-options="naturetypename.naturetype for naturetypename in vm.waste_water_naturetype"
@@ -1653,20 +1458,6 @@
                                                           data-valmsg-replace="true"></span>
                                                 </td>
                                                 <td>
-                                                    <!--<select class="form-control" data-val="true"-->
-                                                    <!--data-val-length="Mode of Disposal must be 1 - 60 characters long!"-->
-                                                    <!--data-val-length-max="60" data-val-length-min="1"-->
-                                                    <!--id="ModeOfDisposal" name="ModeOfDisposal" data-dpmaxz-eid="45">-->
-                                                    <!--<option value="">Select Any One</option>-->
-                                                    <!--<option value="Sold to Registered Recycler">Sold to Registered-->
-                                                    <!--Recycler-->
-                                                    <!--</option>-->
-                                                    <!--<option value="TSDF Site">TSDF Site</option>-->
-                                                    <!--<option value="On To Land for filling">On To Land for filling-->
-                                                    <!--</option>-->
-                                                    <!--<option value="Other">Other</option>-->
-                                                    <!--</select>-->
-
                                                     <select required class="form-control"
                                                             ng-model="vm.wastewaterdetail.selectedModeofdisposal"
                                                             ng-options="mode_of_disposalname.disposal_for_discharge for mode_of_disposalname in vm.modeofdisposalfor_discharge"
@@ -1679,11 +1470,6 @@
                                             </tr>
                                             <tr>
                                                 <td align="right" colspan="6">
-                                                    <!--<button type="submit" id="btnSolidWaste" name="Command"-->
-                                                    <!--class="btn btn-primary" value="SaveSolidWaste"-->
-                                                    <!--data-dpmaxz-eid="46">Add-->
-                                                    <!--</button>-->
-
                                                     <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12"
                                                             ng-click="vm.addProject_wastewaterdetailData()">ADD
                                                     </button>
@@ -1692,13 +1478,7 @@
                                             </tr>
                                             </tbody>
                                         </table>
-                                        <!--<div style="background-color:azure;">-->
-                                        <!--<span class="field-validation-valid errorMsg" data-valmsg-for="SolidWasteError"-->
-                                        <!--data-valmsg-replace="true" id="SolidError"></span>-->
-                                        <!--</div>-->
-
-
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-12" ng-show="(vm.wastewaterdetaildata.length!=0)">
                                             <table class="table table-striped table-hover ">
                                                 <thead>
                                                 <tr>
@@ -1716,7 +1496,7 @@
                                                     <td>{{wastewaterdetail.quantity}}</td>
                                                     <td>{{wastewaterdetail.mode_of_disposal}}</td>
                                                     <td>
-                                                        <button type="submit" class="btn btn-primary pull-right"
+                                                        <button type="submit" class="btn btn-primary pull-center"
                                                                 value="Deletephase"
                                                                 data-dpmaxz-eid="41"
                                                                 ng-Click="vm.removeSourceRow(wastewaterdetail.source_of_generation)">
@@ -1731,43 +1511,27 @@
                                         <div>
                                         </div>
                                     </div>
-
-                                </div>
-                                <hr/>
-
-
-                                <div class="form-group">
-                                    <div class="col-lg-10 col-lg-offset-2">
-                                        <!--<button type="reset" class="btn btn-default">Cancel</button>-->
-                                        <!--<button type="submit" class="btn btn-primary" data-dpmaxz-eid="12" ng-click="">SAVE</button>-->
                                     </div>
-                                </div>
                             </fieldset>
                         </form>
 
                     </div>
                 </div>
             </div>
-            <!-- end of Manufacturing Data -->
+
             <!-- Electrict Requirement -->
 
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href=".electric">Electric Requirement</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href=".electric">8. Electric Requirement</a>
                     </h4>
                 </div>
                 <div id="electric" class="panel-collapse collapse electric">
                     <div class="panel-body">
                         <form class="form-horizontal" data-dpmaxz-eid="7">
                             <fieldset>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h3 class="alert alert-success" style="font-size:17px; font-weight:bold; ">
-                                            Electric
-                                            Power Requirement</h3>
-                                    </div>
-                                </div>
+                                <legend>Electric Requirement Data</legend>
                                 <div id="divElectric">
                                     <div style="background-color:aliceblue;" class="pull-right">
                                     <span class="field-validation-valid errorMsg" data-valmsg-for="SelectEletricPower"
@@ -1787,10 +1551,6 @@
                                                     <tbody>
                                                     <tr>
                                                         <td style="border-top:none;">
-                                                            <!--<span class="btn btn-primary fileinput-button" style="margin-left:20px;">
-                                                                <input id="ExistingTempBill" type="file" name="files[]" disabled="disabled" autocomplete="off" autocompletetype="Disable"
-                                                                       ng-model="vm.electricrequirement.temporaryconnection">
-                                                            </span>-->
                                                         </td>
                                                     </tr>
 
@@ -1808,7 +1568,6 @@
                                                 <input type="checkbox"
                                                        ng-model="vm.electricrequirement.temporaryrequired">
                                             </div>
-                                            <!--<strong><small>* If applicable fill below</small></strong>-->
                                         </div>
 
                                         <div class="col-md-7" style="min-height:30px;">
@@ -1829,11 +1588,8 @@
                                             <div class="col-md-3" id="divTempRunning">
                                                 <input type="checkbox"
                                                        ng-model="vm.electricrequirement.tem_load_existing">
-                                                <!--<input type="checkbox" value="No" ng-model="vm.electricrequirement.tem_load_existing">No-->
                                             </div>
                                         </div>
-
-
                                         <div class="col-md-5">
                                         </div>
                                         <div class="col-md-7">
@@ -1895,7 +1651,6 @@
                                                        ng-model="vm.electricrequirement.temp_new_load_demand_kw">
                                             </div>
                                         </div>
-
                                         <div class="col-md-5">
                                         </div>
                                         <div class="col-md-7">
@@ -1911,7 +1666,6 @@
                                                        ng-model="vm.electricrequirement.temp_new_load_demand_kva">
                                             </div>
                                         </div>
-
                                         <div class="col-md-5">
                                         </div>
                                         <div id="tDemandDate" class="col-md-7">
@@ -1922,12 +1676,9 @@
                                                 <input type="date" class="form-control" placeholder="Demand Date"
                                                        data-dpmaxz-eid="20"
                                                        ng-model="vm.electricrequirement.temp_load_demand_date">
-
                                             </div>
                                         </div>
                                     </div>
-
-
                                     <div id="regular" class="table row col-md-12">
                                         <div class="col-md-5">
                                             <label class="control-label col-md-6">Regular Connection<label
@@ -1942,10 +1693,6 @@
                                                     <tbody>
                                                     <tr>
                                                         <td style="border-top:none;">
-                                                            <!-- <span class="btn btn-primary fileinput-button" style="margin-left:20px;">
-                                                                 <input id="ExistingBill" type="file" name="files[]" disabled="disabled" autocomplete="off" autocompletetype="Disable"
-                                                                        ng-model="vm.electricrequirement.regular_connection_doc">
-                                                             </span>-->
                                                         </td>
                                                         <td style="border-top:none;">
                                                         <span id="rReqBill"
@@ -2000,15 +1747,6 @@
                                             <div class="col-md-5" style="text-align:right;">
                                                 <label class="control-label">UHBVN/DHBVN Customer Type</span></label>
                                             </div>
-
-                                            <!--comment: No Entity for customertype-->
-
-
-                                            <!--<div class="col-md-3">-->
-                                            <!--<select required class="form-control" ng-model="vm.electricrequirement.selectedCustomerType"-->
-                                            <!--ng-options="customer.customertype for customer in vm.customertype">-->
-                                            <!--</select>-->
-                                            <!--</div>-->
                                         </div>
                                         <div class="col-md-5">
                                         </div>
@@ -2103,108 +1841,125 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <p class="alert alert-success"
-                                       style="font-size:14px; font-weight:bold; width:100%;">
-                                        TERMS AND CONDITIONS</p>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-12">
-                                        <ol>
-                                            <li style="padding:10px;">I/We {{vm.investor.firstname}}, hereby undertake that all the
-                                                information furnished above is true and correct to the best of my/our
-                                                knowledge and belief. No part of the information is false and nothing
-                                                has
-                                                been concealed therein.
-                                            </li>
-                                            <li style="padding:10px;">All the required attachments have been completely
-                                                and
-                                                legibly attached to this form.
-                                            </li>
-                                        </ol>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="col-md-6">
-                                            <input type="checkbox" id="chkAccept"
-                                                   style="outline: 2px solid; margin-left:23px;" autocomplete="off" ng-model="vm.term_declaration_accept.acceptance"
-                                                   autocompletetype="Disable" data-dpmaxz-eid="18"> I Accept Terms and Conditions
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="table table-striped" style="min-height:40px;">
-                                        <div class="row">
-                                            <div class="col-md-8">
-
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div id="PreviousFile">
-
-                                                </div>
-                                                <div class="file_name" style="display:none;"></div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="col-md-4 control-label">
-                                                    <label>Applicant Name</label>
-                                                </div>
-                                                <div class="col-md-8" style="margin-top:7px;">
-                                                    <label>{{vm.investor.firstname}}</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-
-                                            <div class="col-md-6">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="col-md-4 control-label">
-                                                    <label>Place</label>
-                                                </div>
-                                                <div class="col-md-8" style="margin-top:7px;">
-                                                    <input class="form-control capitalize" id="Place" name="Place"
-                                                           placeholder="Click here to enter text" type="text"
-                                                           value="" autocomplete="off" ng-model="vm.term_declaration_accept.place"
-                                                           autocompletetype="Disable"
-                                                           data-dpmaxz-eid="19">
-                                                    <span class="field-validation-valid" data-valmsg-for="Place"
-                                                          data-valmsg-replace="true"></span>
-                                                </div>
-                                            </div>
-                                            <!--<div class="col-md-6">-->
-                                                <!--<div class="col-md-4 control-label">
-                                                    <label>Signature </label>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <input id="Signature" type="file" name="files[]" autocomplete="off" autocompletetype="Disable">
-                                                </div>-->
-                                            <!--</div>-->
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-lg-10 col-lg-offset-2">
-                                        <!--<button type="reset" class="btn btn-default">Cancel</button>-->
-
-                                    </div>
-                                </div>
                             </fieldset>
                         </form>
 
                     </div>
                 </div>
-                <div class="panel-heading">
-                        <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12" ng-show="vm.term_declaration_accept.acceptance"
-                                ng-click="vm.saveCompleteProjectDetail('Final')">Submit Complete Form
-                        </button>
-                </div>
             </div>
 
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href=".termsandconditions">9. Terms & Conditions</a>
+                </h4>
+            </div>
+            <div id="termsandconditions" class="panel-collapse collapse termsandconditions">
+                <div class="panel-body">
+                    <form class="form-horizontal" data-dpmaxz-eid="7">
+                        <fieldset>
+                            <div class="col-md-12">
+                                <p class="alert alert-success"
+                                   style="font-size:14px; font-weight:bold; width:100%;">
+                                    TERMS AND CONDITIONS</p>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-12">
+                                    <ol>
+                                        <li style="padding:10px;">I/We <b>{{vm.investor.firstname}}</b>, hereby undertake that all the
+                                            information furnished above is true and correct to the best of my/our
+                                            knowledge and belief. No part of the information is false and nothing
+                                            has
+                                            been concealed therein.
+                                        </li>
+                                        <li style="padding:10px;">All the required attachments have been completely
+                                            and
+                                            legibly attached to this form.
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <input type="checkbox" id="chkAccept"
+                                               style="outline: 2px solid; margin-left:23px;" autocomplete="off" ng-model="vm.term_declaration_accept.acceptance"
+                                               autocompletetype="Disable" data-dpmaxz-eid="18"> I Accept Terms and Conditions
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="table table-striped" style="min-height:40px;">
+                                    <div class="row">
+                                        <div class="col-md-8">
+
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div id="PreviousFile">
+
+                                            </div>
+                                            <div class="file_name" style="display:none;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="col-md-4 control-label">
+                                                <label>Applicant Name</label>
+                                            </div>
+                                            <div class="col-md-8" style="margin-top:7px;">
+                                                <label>{{vm.investor.firstname}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="col-md-4 control-label">
+                                                <label>Place</label>
+                                            </div>
+                                            <div class="col-md-8" style="margin-top:7px;">
+                                                <input class="form-control capitalize" id="Place" name="Place"
+                                                       placeholder="Click here to enter text" type="text"
+                                                       value="" autocomplete="off" ng-model="vm.term_declaration_accept.place"
+                                                       autocompletetype="Disable"
+                                                       data-dpmaxz-eid="19">
+                                                <span class="field-validation-valid" data-valmsg-for="Place"
+                                                      data-valmsg-replace="true"></span>
+                                            </div>
+                                        </div>
+                                        <!--<div class="col-md-6">-->
+                                        <!--<div class="col-md-4 control-label">
+											<label>Signature </label>
+										</div>
+										<div class="col-md-8">
+											<input id="Signature" type="file" name="files[]" autocomplete="off" autocompletetype="Disable">
+										</div>-->
+                                        <!--</div>-->
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-10 col-lg-offset-2">
+                                    <!--<button type="reset" class="btn btn-default">Cancel</button>-->
+
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                </div>
+            </div>
+            <div class="panel-heading">
+                <button type="submit" class="btn btn-primary" data-dpmaxz-eid="12" ng-show="vm.term_declaration_accept.acceptance"
+                        ng-click="vm.saveCompleteProjectDetail('Final')">Submit Complete Form
+                </button>
+            </div>
         </div>
-    </div>
+
+        </div>
+
 </div>
