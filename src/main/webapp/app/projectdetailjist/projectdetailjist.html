@@ -25,23 +25,20 @@
                     <td class="col-md-3">{{vm.investorsummarydetails.buisnessEntity}}</td>
                     <th class="col-md-3">Site Detail </th>
                     <td class="col-md-3">{{vm.investorsummarydetails.siteaddress}},{{vm.investorsummarydetails.district}},{{vm.investorsummarydetails.block}}</td>
-                      <!--<td class="col-md-2">{{vm.investorsummarydetails.district}}</td>-->
-                      <!--<td class="col-md-2">{{vm.investorsummarydetails.block}}</td>-->
                 </tr>
                   <tr>
-
                     <th class="col-md-3">Project Cost </th>
                     <td class="col-md-3">{{vm.investorsummarydetails.projectTotalCost}}</td>
                     <th class="col-md-3">MOU (Year) </th>
                     <td class="col-md-3">{{vm.investorsummarydetails.mouYear}}</td>
-                </tr>
+                  </tr>
                   <tr>
 
                       <th class="col-md-3"></th>
                       <td class="col-md-3"></td>
                       <th class="col-md-3"></th>
                       <td class="col-md-3">
-                          <button type="submit" ng-show="(vm.investorsummarydetails.cafpin=='' || vm.investorsummarydetails.cafpin==null)"
+                          <button type="submit" ng-show="(vm.investorsummarydetails.cafpin=='NA' || vm.investorsummarydetails.cafpin==null)"
                                                    ui-sref="projectedit({id:vm.investorsummarydetails.projectid})"
                                                    class="btn btn-info btn-sm">Edit Form</button>
                           <button type="submit"
@@ -72,7 +69,7 @@
                     <td>Project Submitted</td>
                     <td>
 
-                       <button type="submit" ng-show="(vm.investorsummarydetails.cafpin!='' && vm.investorsummarydetails.cafpin!=null)"
+                       <button type="submit" ng-show="(vm.investorsummarydetails.cafpin!='NA' && vm.investorsummarydetails.cafpin!=null)"
                                     ui-sref="serviceclearanceaction({id:vm.investorsummarydetails.projectid})"
                                     class="btn btn-danger btn-sm">Service Clearance</button>
 

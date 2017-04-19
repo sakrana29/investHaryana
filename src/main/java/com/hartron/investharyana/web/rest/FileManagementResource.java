@@ -1,6 +1,9 @@
 package com.hartron.investharyana.web.rest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hartron.investharyana.service.FileManagementService;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
@@ -30,11 +33,17 @@ public class FileManagementResource {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
         return null;
-
     }
 
+    @GetMapping("/FileManagementGetFile/{filename:.+}")
+    @ResponseBody
+    public ResponseEntity<Resource> getFile(@PathVariable String filename) {
+        Resource file = fileManagementService.loadFile(filename);
+        return ResponseEntity.ok()
+            .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
+            .body(file);
+    }
 
 
 }

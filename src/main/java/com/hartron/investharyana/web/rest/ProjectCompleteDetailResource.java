@@ -30,8 +30,6 @@ public class ProjectCompleteDetailResource {
 
     private final Logger log = LoggerFactory.getLogger(ProjectCompleteDetailResource.class);
 
-//    private static final String ENTITY_NAME = "block";
-
     private final InvestorService investorService;
     private final CompanydetailService companydetailService;
     private final ProjectdetailService projectdetailService;
@@ -71,11 +69,7 @@ public class ProjectCompleteDetailResource {
     @GetMapping("/CompleteProjectDetail")
     public List<ProjectCompleteDetailDTO> getAllProjectCompleteDetail() {
         log.debug("REST request to get all project complete detail");
-//        String projectid= "d383d243-da16-4558-9e7b-7217c1259ea3";
-
         List<ProjectCompleteDetailDTO> completeprojectdtolist=new ArrayList<>();
-
-//        ProjectCompleteDetailDTO completeprojectdto=new ProjectCompleteDetailDTO();
 
         List<ProjectdetailcombinecodesDTO> projectdetailcombinecodesDTOlist=projectdetailcombinecodesService.findAll();
 
@@ -103,7 +97,6 @@ public class ProjectCompleteDetailResource {
     @Timed
     public ResponseEntity<ProjectCompleteDetailDTO> getOneProjectCompleteDetail(@PathVariable String id) {
         log.debug("REST request to get one project complete detail");
-        //ProjectCompleteDetailDTO completeprojectdto=new ProjectCompleteDetailDTO();
 
         ProjectdetailcombinecodesDTO projectdetailcombinecodesDTO=projectdetailcombinecodesService.findOne(id);
         System.out.println(projectdetailcombinecodesDTO);
@@ -127,7 +120,6 @@ public class ProjectCompleteDetailResource {
         completeprojectdto.setWastewaterdetailDTOList(wastewaterdetailService.findAllByProjectid(id));
 
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(completeprojectdto));
-        //return projectdetailcombinecodesDTO;
     }
 
     @PostMapping("/CompleteProjectDetail")
@@ -160,7 +152,7 @@ public class ProjectCompleteDetailResource {
             }
         }
         else
-            projectCompleteDetailDTO.getInvestorDTO().setCafpin("");
+            projectCompleteDetailDTO.getInvestorDTO().setCafpin("NA");
 
         InvestorDTO resultInvestor = investorService.save(projectCompleteDetailDTO.getInvestorDTO());
         CompanydetailDTO resultCompany = companydetailService.save(projectCompleteDetailDTO.getCompanydetailDTO());
@@ -171,7 +163,6 @@ public class ProjectCompleteDetailResource {
         projectCompleteDetailDTO.getManufacturingdetailDTO().setProjectid(resultProjectdetail.getId());
         ManufacturingdetailDTO resultManufacturing = manufacturingdetailService.save(projectCompleteDetailDTO.getManufacturingdetailDTO());
 
-//        projectCompleteDetailDTO.getEnvironment_impactdetailDTO()(resultProjectdetail.getId());
         Environment_impactdetailDTO resultEnvironmentImpact=environment_impactdetailService.save(projectCompleteDetailDTO.getEnvironment_impactdetailDTO());
 
         ElectricrequirementDTO resultElectric = electricrequirementService.save(projectCompleteDetailDTO.getElectricrequirementDTO());
@@ -180,8 +171,6 @@ public class ProjectCompleteDetailResource {
         projectCompleteDetailDTO.getTerm_declaration_acceptDTO().setCreatedate(ZonedDateTime.now());
         projectCompleteDetailDTO.getTerm_declaration_acceptDTO().setUpdatedate(ZonedDateTime.now());
         Term_declaration_acceptDTO resultTermDeclaration= term_declaration_acceptService.save(projectCompleteDetailDTO.getTerm_declaration_acceptDTO());
-
-        System.out.println(resultTermDeclaration);
 
         saveInnerEntities(projectCompleteDetailDTO, resultProjectdetail);
 
@@ -194,8 +183,6 @@ public class ProjectCompleteDetailResource {
         projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setManufacturingid(resultManufacturing.getId());
         projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setEnvironmentimpactdetailid(resultEnvironmentImpact.getId());
         projectCompleteDetailDTO.getProjectdetailcombinecodesDTO().setTermdeclarationacceptid(resultTermDeclaration.getId());
-
-        System.out.println(projectCompleteDetailDTO.getProjectdetailcombinecodesDTO());
 
         ProjectdetailcombinecodesDTO resultCombineCodes = projectdetailcombinecodesService.save(projectCompleteDetailDTO.getProjectdetailcombinecodesDTO());
 
@@ -271,7 +258,7 @@ public class ProjectCompleteDetailResource {
             return createProjectCompleteDetail(projectCompleteDetailDTO);
         }
 
-        if(projectCompleteDetailDTO.getInvestorDTO().getCafpin()!=null)
+        if(projectCompleteDetailDTO.getInvestorDTO().getCafpin()!="NA")
         {
             if(projectCompleteDetailDTO.getInvestorDTO().getCafpin().equals("1"))
             {

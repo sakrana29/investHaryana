@@ -290,7 +290,6 @@
                 vm.environmentimpactdetail.recycling_domestic= vm.environmentimpactdetail.selectedTreatmentthree.treatment3;
             if (angular.isDefined(vm.environmentimpactdetail.selectedDischarge))
                 vm.environmentimpactdetail.mode_of_disposal_for_discharge= vm.environmentimpactdetail.selectedDischarge.disposal_for_discharge;
-
         }
 
         function saveCompleteProjectDetail(flag)
@@ -313,19 +312,16 @@
             vm.CompleteProjectDetail.project_phaseDTOList=vm.completeprojectphasedata;
             vm.CompleteProjectDetail.projectrawmaterialDTOList=vm.projectrawmaterialdata;
             vm.CompleteProjectDetail.term_declaration_acceptDTO=vm.term_declaration_accept;
-//            console.log(vm.CompleteProjectDetail.projectrawmaterialDTOList);
 
             vm.CompleteProjectDetail.projectproductDTOList=vm.projectmainproductdata;
             vm.CompleteProjectDetail.projectprocessflowstepsDTOList=vm.projectprocessflowstepdata;
             vm.CompleteProjectDetail.emissiondetailDTOList=vm.emissiondetaildata;
             vm.CompleteProjectDetail.wastewaterdetailDTOList= vm.wastewaterdetaildata;
 
-//            vm.project_rawmaterial;
             Projectcompletedetail.save(vm.CompleteProjectDetail,onSaveCompleteProjectSuccess,onSaveCompleteProjectError)
         }
         function onSaveCompleteProjectSuccess (resultCompleteProject) {
             $scope.$emit('investhryApp:projectdetailUpdate', resultCompleteProject);
-            //$uibModalInstance.close(result);
             vm.resultCompleteProject=resultCompleteProject;
             vm.isSaving = false;
             alert('saved');

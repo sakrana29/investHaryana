@@ -46,10 +46,12 @@ public class ProjectListResource {
 
         for(int projectlistcount =0; projectlistcount<projectdetailcombinecodesDTOList.size();projectlistcount++)
         {
+            System.out.println(projectdetailcombinecodesDTOList.get(projectlistcount));
             InvestorDTO investorDTO= investorService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getInvestorid().toString());
             ProjectdetailDTO projectdetailDTO= projectdetailService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getId().toString());
             Project_finance_investmentDTO project_finance_investmentDTO= project_finance_investmentService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getProjectfinanceid().toString());
             CompanydetailDTO companydetailDTO = companydetailService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getCompanydetailid().toString());
+            System.out.println(companydetailDTO);
             ProjectsitedetailDTO projectsitedetailDTO = projectsitedetailService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getProjectsitedetailid().toString());
 
             ListofProjectsDTO listofProjectsDTO=new ListofProjectsDTO();
@@ -62,8 +64,6 @@ public class ProjectListResource {
 
             listofProjectsDTO.setMouYear(investorDTO.getMousignyear());
             listofProjectsDTO.setApplicationDate(investorDTO.getCreatedate());
-            listofProjectsDTO.setSectorName(projectdetailDTO.getSectorname());
-
             listofProjectsDTO.setSectorName(projectdetailDTO.getSectorname());
 
             listofProjectsDTO.setSiteaddress(projectsitedetailDTO.getSiteaddress());

@@ -304,7 +304,13 @@
                 if(vm.investor.cafpin !== null)
                 {
                     if(vm.investor.cafpin.length !== 10)
-                    {vm.investor.cafpin=1;}
+                    {
+                        vm.investor.cafpin=1;
+                    }
+                }
+                else
+                {
+                    vm.investor.cafpin=1;
                 }
             }
             vm.CompleteProjectDetail.investorDTO=vm.investor;
