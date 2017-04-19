@@ -531,18 +531,79 @@
                 break;
             }
         }
-         for( var i = 0; i < vm.countries.length; i++ ) {
-          if(vm.countries[i].countryname===vm.investor.countryname) {
-              vm.investor.selectedCountry=vm.countries[i];
+         for( var i = 0; i < vm.districts.length; i++ ) {
+          if(vm.districts[i].districtname===vm.projectsitedetail.district) {
+              vm.projectsitedetail.selectedDistrict=vm.districts[i];
               break;
           }
          }
-         for( var i = 0; i < vm.countries.length; i++ ) {
-          if(vm.countries[i].countryname===vm.investor.countryname) {
-             vm.investor.selectedCountry=vm.countries[i];
-             break;
+         for( var i = 0; i < vm.blocks.length; i++ ) {
+           if(vm.blocks[i].blockname===vm.projectsitedetail.block) {
+               vm.projectsitedetail.selectedBlock=vm.blocks[i];
+               break;
+           }
           }
-         }
+          for( var i = 0; i < vm.city_town_villages.length; i++ ) {
+             if(vm.city_town_villages[i].city_town_village_name===vm.projectsitedetail.city_town_village) {
+                 vm.projectsitedetail.selectedCityTownVillage=vm.city_town_villages[i];
+                 break;
+             }
+            }
+          for( var i = 0; i < vm.connectingroads.length; i++ ) {
+           if(vm.connectingroads[i].connectingraodtype===vm.projectsitedetail.connectingroad) {
+               vm.projectsitedetail.selectedConnectingRoad=vm.connectingroads[i];
+               break;
+           }
+          }
+          for( var i = 0; i < vm.landusezoneclassifications.length; i++ ) {
+             if(vm.landusezoneclassifications[i].landzoneclassificationtype===vm.projectsitedetail.landzoneuse_type) {
+                 vm.projectsitedetail.selectedLandZoneUseType=vm.landusezoneclassifications[i];
+                 break;
+             }
+          }
+          for( var i = 0; i < vm.countries.length; i++ ) {
+           if(vm.countries[i].countryname===vm.project_finance_investment.fdi_country) {
+               vm.project_finance_investment.selectedcountryid=vm.countries[i];
+               break;
+           }
+          }
+          for( var i = 0; i < vm.foreignfundingresources.length; i++ ) {
+             if(vm.foreignfundingresources[i].foreignfundingtypes===vm.project_finance_investment.foreign_funding_source) {
+                 vm.foreignfundingresources.selectedforeignfundingresourceid=vm.foreignfundingresources[i];
+                 break;
+             }
+            }
+          for( var i = 0; i < vm.watersupplysources.length; i++ ) {
+           if(vm.watersupplysources[i].watersupplysourcetype===vm.environmentimpactdetail.source_of_water_supply) {
+               vm.environmentimpactdetail.selectedWatersource=vm.watersupplysources[i];
+               break;
+           }
+          }
+          for( var i = 0; i < vm.treatment1.length; i++ ) {
+             if(vm.treatment1[i].treatment1===vm.environmentimpactdetail.recycling_process) {
+                 vm.environmentimpactdetail.selectedTreatmentone=vm.treatment1[i];
+                 break;
+             }
+            }
+          for( var i = 0; i < vm.treatment2.length; i++ ) {
+           if(vm.treatment2[i].treatment2===vm.environmentimpactdetail.recycling_cooling) {
+               vm.environmentimpactdetail.selectedTreatmenttwo=vm.treatment2[i];
+               break;
+           }
+          }
+          for( var i = 0; i < vm.treatment3.length; i++ ) {
+             if(vm.treatment3[i].treatment3===vm.environmentimpactdetail.recycling_domestic) {
+                 vm.environmentimpactdetail.selectedTreatmentthree=vm.treatment3[i];
+                 break;
+             }
+            }
+          for( var i = 0; i < vm.modeofdisposalfor_discharge.length; i++ ) {
+           if(vm.modeofdisposalfor_discharge[i].disposal_for_discharge===vm.environmentimpactdetail.mode_of_disposal_for_discharge) {
+               vm.environmentimpactdetail.selectedDischarge=vm.modeofdisposalfor_discharge[i];
+               break;
+           }
+          }
+
        });
 
 
