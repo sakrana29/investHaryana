@@ -10,7 +10,7 @@
     function stateConfig($stateProvider) {
         $stateProvider.state('projectdetailjist', {
             parent: 'app',
-            url: '/projectdetailjist/{prdtlObject:json}',
+            url: '/projectdetailjist/{projectid}',
             data: {
                 authorities: []
             },
@@ -25,10 +25,10 @@
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
                     $translatePartialLoader.addPart('projectdetailjist');
                     return $translate.refresh();
-                }] //,
-//                entity: ['$stateParams', 'Projectcompletedetail', function($stateParams,Projectcompletedetail) {
-//                    return Projectcompletedetail.get({id : $stateParams.id}).$promise;
-//                }]
+                }],
+                projectSummary: ['$stateParams', 'Projectlist', function($stateParams, Projectlist) {
+                    return Projectlist.get({id : $stateParams.projectid}).$promise;
+                }]
             }
         })
         .state('projectdetailjist-fillform', {
@@ -44,16 +44,6 @@
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg'
-
-//                    resolve: {
-//                        entity: function () {
-//                            return {
-//                                districtid: null,
-//                                blockname: null,
-//                                id: null
-//                            };
-//                        }
-//                    }
                 }).result.then(function() {
                     $state.go('projectdetailjist', null, { reload: 'projectdetailjist' });
                 }, function() {
@@ -74,16 +64,6 @@
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg'
-
-//                    resolve: {
-//                        entity: function () {
-//                            return {
-//                                districtid: null,
-//                                blockname: null,
-//                                id: null
-//                            };
-//                        }
-//                    }
                 }).result.then(function() {
                     $state.go('projectdetailjist', null, { reload: 'projectdetailjist' });
                 }, function() {

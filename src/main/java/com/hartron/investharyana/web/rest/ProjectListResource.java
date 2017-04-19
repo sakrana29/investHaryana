@@ -3,12 +3,16 @@ package com.hartron.investharyana.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.hartron.investharyana.service.*;
 import com.hartron.investharyana.service.dto.*;
+import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 /**
  * REST controller for managing Project List.
@@ -46,12 +50,10 @@ public class ProjectListResource {
 
         for(int projectlistcount =0; projectlistcount<projectdetailcombinecodesDTOList.size();projectlistcount++)
         {
-            System.out.println(projectdetailcombinecodesDTOList.get(projectlistcount));
             InvestorDTO investorDTO= investorService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getInvestorid().toString());
             ProjectdetailDTO projectdetailDTO= projectdetailService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getId().toString());
             Project_finance_investmentDTO project_finance_investmentDTO= project_finance_investmentService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getProjectfinanceid().toString());
             CompanydetailDTO companydetailDTO = companydetailService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getCompanydetailid().toString());
-            System.out.println(companydetailDTO);
             ProjectsitedetailDTO projectsitedetailDTO = projectsitedetailService.findOne(projectdetailcombinecodesDTOList.get(projectlistcount).getProjectsitedetailid().toString());
 
             ListofProjectsDTO listofProjectsDTO=new ListofProjectsDTO();
@@ -74,5 +76,35 @@ public class ProjectListResource {
             listofProjectsDTOList.add(listofProjectsDTO);
         }
         return listofProjectsDTOList;
+    }
+
+    @GetMapping("/ProjectList/{id}")
+    @Timed
+    public ResponseEntity<ListofProjectsDTO> getOneProjectSummary(@PathVariable String id) {
+        log.debug("REST request to get one Project Summary : {}", id);
+        ProjectdetailcombinecodesDTO projectdetailcombinecodesDTO= projectdetailcombinecodesService.findOne(id);
+        InvestorDTO investorDTO= investorService.findOne(projectdetailcombinecodesDTO.getInvestorid().toString());
+        ProjectdetailDTO projectdetailDTO= projectdetailService.findOne(projectdetailcombinecodesDTO.getId().toString());
+        Project_finance_investmentDTO project_finance_investmentDTO= project_finance_investmentService.findOne(projectdetailcombinecodesDTO.getProjectfinanceid().toString());
+        CompanydetailDTO companydetailDTO = companydetailService.findOne(projectdetailcombinecodesDTO.getCompanydetailid().toString());
+        ProjectsitedetailDTO projectsitedetailDTO = projectsitedetailService.findOne(projectdetailcombinecodesDTO.getProjectsitedetailid().toString());
+
+        ListofProjectsDTO listofProjectsDTO=new ListofProjectsDTO();
+        listofProjectsDTO.setProjectid(projectdetailDTO.getId().toString());
+        listofProjectsDTO.setCAFPin(investorDTO.getCafpin());
+        listofProjectsDTO.setInvestorName(investorDTO.getFirstname());
+        listofProjectsDTO.setProjectTotalCost(project_finance_investmentDTO.getTotal_project_cost());
+        listofProjectsDTO.setProjectType(projectdetailDTO.getProjectype());
+        listofProjectsDTO.setTotalEmployement(project_finance_investmentDTO.getTotalpurposedemployment());
+
+        listofProjectsDTO.setMouYear(investorDTO.getMousignyear());
+        listofProjectsDTO.setApplicationDate(investorDTO.getCreatedate());
+        listofProjectsDTO.setSectorName(projectdetailDTO.getSectorname());
+
+        listofProjectsDTO.setSiteaddress(projectsitedetailDTO.getSiteaddress());
+        listofProjectsDTO.setBlock(projectsitedetailDTO.getBlock());
+        listofProjectsDTO.setDistrict(projectsitedetailDTO.getDistrict());
+        listofProjectsDTO.setBuisnessEntity(companydetailDTO.getBusinessentity());
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(listofProjectsDTO));
     }
 }
