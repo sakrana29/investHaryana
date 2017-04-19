@@ -234,7 +234,32 @@
             }]
         })
 
-
+    .state('serviceLog', {
+        parent: 'serviceclearanceaction',
+        url: '/serviceLog/{projectService:json}',
+        data: {
+            authorities: ['ROLE_USER']
+        },
+        onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+            $uibModal.open({
+                templateUrl: 'app/serviceclearanceactions/serviceLog.html',
+                controller: 'serviceLogController',
+                controllerAs: 'vm',
+                backdrop: 'static',
+                size: 'lg',
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
+                        $translatePartialLoader.addPart('home');
+                        return $translate.refresh();
+                    }]
+                }
+            }).result.then(function() {
+                $state.go('serviceclearanceaction', null, { reload: 'serviceclearanceaction' });
+            }, function() {
+                $state.go('serviceclearanceaction');
+            });
+        }]
+    })
   .state('serviceClearance-action', {
           parent: 'serviceclearanceaction',
           url: '/clear/{projectService:json}',

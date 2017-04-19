@@ -1,46 +1,5 @@
 <div class="container">
-    <!--<div class="panel panel-primary">-->
-        <!--<div class="panel-heading">-->
-            <!--<h3 class="panel-title">Application Summary</h3>-->
-        <!--</div>-->
-        <!--<div class="panel-body">-->
-            <!--<table class="table table-striped table-hover ">-->
-                <!--<tbody>-->
-                <!--<tr>-->
-                    <!--<th>Application For </th>-->
-                    <!--<td></td>-->
-                    <!--<th>Sector</th>-->
-                    <!--<td><td>-->
-                <!--</tr><tr>-->
-                    <!--<th>PIN</th>-->
-                    <!--<td></td>-->
-                    <!--<th>ApplicationDate</th>-->
-                    <!--<td></td>-->
-                <!--</tr><tr>-->
-                    <!--<th>Business Entity</th>-->
-                    <!--<td></td>-->
-                    <!--<th>Site Detail</th>-->
-                    <!--<td></td>-->
-                <!--</tr><tr>-->
-                    <!--<th>Project Cost</th>-->
-                    <!--<td></td>-->
-                    <!--<th>MOU (Year)-->
-                    <!--</th>-->
-                    <!--<td></td>-->
-                <!--</tr><tr>-->
-                    <!--<th>Relationship Manager-->
-                    <!--</th>-->
-                    <!--<td></td>-->
-                    <!--<th>Contact Info-->
-                    <!--</th>-->
-                    <!--<td></td>-->
-                <!--</tr>-->
-                <!--</tbody>-->
-            <!--</table>-->
-        <!--</div>-->
-    <!--</div>-->
-
-    <form>
+<form>
 
     <div class="panel panel-primary">
         <div class="panel-heading">
@@ -65,13 +24,14 @@
                 <td>{{projectservice.serviceStage}}</td>
                 <td class="text-left">
                     <button type="submit" ng-show="projectservice.isRequired==false" ng-click="vm.markRequired(projectservice)" class="btn btn-info btn-sm">Required</button>
+                    <button type="submit" ui-sref="serviceLog({projectService:projectservice})" ng-show="(projectservice.isRequired==true)" class="btn btn-info btn-sm">View Service Log</button>
                     <button type="submit" ui-sref="reject-dialog({projectService:projectservice})" ng-show="(projectservice.status=='Pending') && (projectservice.isRequired==true)" class="btn btn-info btn-sm">Reject</button>
                     <button type="submit" ui-sref="comment-dialog({projectService:projectservice})" ng-show="(projectservice.isRequired==true)" class="btn btn-info btn-sm">Comment</button>
                     <button type="submit" ui-sref="assignservice({projectService:projectservice})" ng-show="(projectservice.isAssigned==false) && (projectservice.isRequired==true) && (projectservice.status!='Rejected')" class="btn btn-info btn-sm">Assign</button>
                     <button type="submit" ui-sref="serviceForm-fillform({projectService:projectservice})" ng-show="(projectservice.isAssigned==true) && (projectservice.formFilledStatus==false) && (projectservice.status=='Pending')" class="btn btn-info btn-sm">Fill Form</button>
                     <button type="submit" ui-sref="servicePayment({projectService:projectservice})" ng-show="(projectservice.isAssigned==true) && (projectservice.isPaymentMade==false) && (projectservice.status=='Pending')"  class="btn btn-info btn-sm">Pay Fee</button>
                     <button type="submit" ui-sref="verifyPayment({projectService:projectservice})" ng-show="(projectservice.isPaymentMade==true) && (projectservice.isPaymentVerified==false) && (projectservice.status=='Pending')" class="btn btn-info btn-sm">Verify Payment</button>
-                    <button type="submit" ui-sref="serviceClearance-action({projectService:projectservice})" ng-show="(projectservice.isPaymentVerified==true) && (projectservice.formFilledStatus==true) && (projectservice.status=='Pending')" class="btn btn-info btn-sm">Clearance</button>
+                    <button type="submit" ui-sref="serviceClearance-action({projectService:projectservice})" ng-show="(projectservice.formFilledStatus==true) && (projectservice.status=='Pending')" class="btn btn-info btn-sm">Clearance</button>
                     <button type="submit" ui-sref="deemedClearance({projectService:projectservice})" ng-show="(projectservice.isDimmed) && (projectservice.isAssigned==true) && (projectservice.status=='Pending')" class="btn btn-info btn-sm">Deemed Clearance</button>
                     <label ng-show="(projectservice.status=='Rejected')">Service Rejected</label>
                     <label ng-show="(projectservice.status=='Cleared')">Service Cleared</label>
